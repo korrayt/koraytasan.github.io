@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koray Taşan | Post Prodüksiyon Sorumlusu</title>
     <meta name="description" content="Koray Taşan - SineMedya Yapım Post Prodüksiyon Sorumlusu. TRT ve Tabii projeleri editörü.">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Modern Stil Ayarları */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505; /* Derin Siyah */
+            font-family: "Inter", sans-serif;
+            background-color: #050505;
             color: #e0e0e0;
             display: flex;
             justify-content: center;
@@ -32,7 +31,6 @@
             animation: fadeIn 1.2s ease-out;
         }
 
-        /* Başlık Alanı */
         h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -50,8 +48,7 @@
             align-items: center;
             gap: 10px;
         }
-        
-        /* Şirket Etiketi */
+
         .badge {
             background: rgba(255,255,255,0.1);
             padding: 4px 8px;
@@ -60,17 +57,15 @@
             color: #ccc;
         }
 
-        /* Biyografi */
         p.bio {
             font-size: 1.05rem;
             color: #bbb;
             margin-bottom: 2.5rem;
         }
 
-        /* Öne Çıkan Proje Kutusu (Highlight) */
         .featured-project {
             background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-left: 4px solid #e63946; /* Dikkat çekici bir renk */
+            border-left: 4px solid #e63946;
             padding: 20px;
             border-radius: 0 12px 12px 0;
             margin-bottom: 2.5rem;
@@ -98,7 +93,6 @@
             color: #999;
         }
 
-        /* Butonlar */
         .links { display: flex; flex-direction: column; gap: 12px; }
 
         .btn {
@@ -121,6 +115,24 @@
             border-color: #fff;
         }
 
+        .btn.core {
+            border-color: #e63946;
+            color: #ffd9dc;
+        }
+
+        .btn.core:hover {
+            background: #e63946;
+            color: #fff;
+            border-color: #e63946;
+        }
+
+        .helper {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #8b8b8b;
+            text-align: center;
+        }
+
         footer { margin-top: 4rem; font-size: 0.8rem; color: #444; text-align: center; }
 
         @keyframes fadeIn {
@@ -130,36 +142,37 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        
         <h1>Koray Taşan</h1>
         <h2>
-            Post Prodüksiyon Sorumlusu 
+            Post Prodüksiyon Sorumlusu
             <span class="badge">SineMedya</span>
         </h2>
-        
+
         <p class="bio">
-            Kurgu masasında hikayeler inşa ediyorum. Şu anda SineMedya Yapım bünyesinde, 
+            Kurgu masasında hikayeler inşa ediyorum. Şu anda SineMedya Yapım bünyesinde,
             <strong>TRT</strong> ve <strong>TRT Tabii</strong> için üretilen projelerin post prodüksiyon süreçlerini yönetiyorum.
         </p>
 
         <div class="featured-project">
             <span class="featured-label">Yayında / Güncel Proje</span>
             <div class="project-title">Ahmet Hamdi Tanpınar: Beş Şehir</div>
-            <div class="project-desc">Belgesel Serisi • Kurgu & Post Prodüksiyon</div>
+            <div class="project-desc">Belgesel Serisi • Kurgu &amp; Post Prodüksiyon</div>
         </div>
 
         <div class="links">
-            <a href="mailto:iletisim@koraytasan.com" class="btn">İletişime Geç</a>
-            <a href="https://linkedin.com/in/koraytasan" target="_blank" class="btn">LinkedIn Profilim</a>
-            <a href="https://instagram.com/koraytasan" target="_blank" class="btn">Instagram</a>
+            <a href="mailto:iletisim@koraytasan.com" class="btn">İletişime Geç (E-posta)</a>
+            <a href="/core" class="btn core">core-I ile Ön Görüşme Başlat</a>
+            <a href="https://linkedin.com/in/koraytasan" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn Profilim</a>
+            <a href="https://instagram.com/koraytasan" target="_blank" rel="noopener noreferrer" class="btn">Instagram</a>
         </div>
+
+        <p class="helper">E-posta seçeneği aktif kalır; core-I ek iletişim kanalı olarak çalışır.</p>
 
         <footer>
             &copy; 2026 Koray Taşan. <br> İstanbul.
         </footer>
     </div>
-
 </body>
 </html>
+
