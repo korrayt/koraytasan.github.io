@@ -1,0 +1,18 @@
+{
+  "name": "CAPY",
+  "short_name": "CAPY",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07131f",
+  "theme_color": "#07131f",
+  "description": "Kurum ici iletisim icin kullanici adi ile girilen, telefon ve e-posta toplamayan PWA sohbet uygulamasi.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CAPY, telefon ve e-posta toplamadan calisan, kullanici adi ile girilen kurum ici iletisim alanidir."
+    />
+    <meta name="theme-color" content="#08111d" />
+    <title>CAPY | Koray Tasan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/US/app/icon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --bg: #08111d;
+        --bg-2: #0d1a2b;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-strong: rgba(255, 255, 255, 0.1);
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #f6f8fc;
+        --muted: rgba(246, 248, 252, 0.74);
+        --accent: #77d4ff;
+        --accent-2: #8a7dff;
+        --accent-3: #43e0c2;
+        --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --max: 1160px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 18% 18%, rgba(119, 212, 255, 0.22), transparent 26%),
+          radial-gradient(circle at 82% 12%, rgba(138, 125, 255, 0.26), transparent 28%),
+          radial-gradient(circle at 78% 82%, rgba(67, 224, 194, 0.16), transparent 24%),
+          linear-gradient(180deg, var(--bg) 0%, #07101b 58%, #04070d 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 92%);
+        opacity: 0.35;
+      }
+
+      a { color: inherit; }
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .brand-mark,
+      .pill::before,
+      .badge::before {
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        color: #04111b;
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      }
+
+      .brand-copy {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand-copy strong {
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .brand-copy span,
+      .pill,
+      .meta,
+      .card p,
+      .lead,
+      .steps li,
+      .privacy {
+        color: var(--muted);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+        text-decoration: none;
+        backdrop-filter: blur(18px);
+      }
+
+      .pill::before,
+      .badge::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        box-shadow: 0 0 18px rgba(119, 212, 255, 0.6);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: center;
+        min-height: calc(100vh - 92px);
+        padding: 24px 0 36px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.72rem;
+        margin-bottom: 22px;
+      }
+
+      .eyebrow span {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent-3), var(--accent));
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.94;
+        margin-bottom: 18px;
+      }
+
+      .gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #bde9ff 38%, #9b92ff 74%, #5ef0cf 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .lead {
+        font-size: clamp(1.05rem, 1.9vw, 1.24rem);
+        line-height: 1.8;
+        max-width: 680px;
+        margin: 0 0 28px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .button {
+        min-height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 18px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid var(--line);
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .button:hover { transform: translateY(-2px); }
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #04111b;
+        border-color: transparent;
+        box-shadow: 0 16px 40px rgba(119, 212, 255, 0.24);
+      }
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card,
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: var(--radius-lg);
+      }
+
+      .card strong,
+      .stat strong {
+        display: block;
+        font-size: 1.02rem;
+        margin-bottom: 6px;
+      }
+
+      .card p {
+        margin: 0;
+        line-height: 1.55;
+        font-size: 0.96rem;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.05)),
+          rgba(255, 255, 255, 0.04);
+      }
+
+      .mock {
+        min-height: 520px;
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 25% 18%, rgba(119, 212, 255, 0.24), transparent 22%),
+          radial-gradient(circle at 78% 18%, rgba(138, 125, 255, 0.22), transparent 20%),
+          linear-gradient(155deg, rgba(7, 16, 28, 0.98), rgba(14, 27, 44, 0.98));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mock::before,
+      .mock::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(4px);
+      }
+
+      .mock::before {
+        width: 220px;
+        height: 220px;
+        right: -58px;
+        top: 20px;
+        background: radial-gradient(circle, rgba(119, 212, 255, 0.28), transparent 68%);
+      }
+
+      .mock::after {
+        width: 280px;
+        height: 280px;
+        left: -88px;
+        bottom: -110px;
+        background: radial-gradient(circle, rgba(67, 224, 194, 0.18), transparent 70%);
+      }
+
+      .floating {
+        position: absolute;
+        inset: auto 18px 18px;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(6, 11, 20, 0.68);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(14px);
+      }
+
+      .floating h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+      }
+
+      .floating p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .section {
+        padding: 20px 0 88px;
+      }
+
+      .section-head {
+        max-width: 760px;
+        margin-bottom: 26px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 12px;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+        font-size: 1.05rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .feature {
+        padding: 22px;
+        border-radius: var(--radius-lg);
+        background: var(--card);
+        border: 1px solid var(--line);
+      }
+
+      .feature .icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 14px;
+        background: linear-gradient(135deg, rgba(119, 212, 255, 0.14), rgba(138, 125, 255, 0.14));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1.4rem;
+      }
+
+      .feature p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .install {
+        margin-top: 20px;
+        padding: 22px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(135deg, rgba(119, 212, 255, 0.12), rgba(67, 224, 194, 0.08));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .future {
+        margin-top: 18px;
+        padding: 22px;
+        border-radius: var(--radius-xl);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px dashed rgba(255, 255, 255, 0.14);
+      }
+
+      .future-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      .future-head h3 {
+        font-size: 1.25rem;
+      }
+
+      .future-head p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .future-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .future-card {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .future-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1rem;
+      }
+
+      .future-card span {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .steps {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 10px;
+        line-height: 1.6;
+      }
+
+      .privacy {
+        margin-top: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+      }
+
+      .footer {
+        padding: 8px 0 34px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .footer a {
+        color: #d7efff;
+        text-decoration: none;
+      }
+
+      .footer a:hover { text-decoration: underline; }
+
+      @media (max-width: 960px) {
+        .hero,
+        .grid,
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 12px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wrap { width: min(var(--max), calc(100% - 28px)); }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .actions { flex-direction: column; }
+        .button { width: 100%; }
+        .panel { padding: 14px; }
+        .mock { min-height: 300px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Koray Tasan ana sayfa">
+          <div class="brand-mark">mp</div>
+          <div class="brand-copy">
+            <strong>CAPY</strong>
+            <span>Koray Tasan workspace</span>
+          </div>
+        </a>
+        <a class="pill" href="/US/app/">Aç / indir</a>
+      </header>
+
+      <main class="hero">
+        <section>
+          <div class="eyebrow">
+            <span></span>
+            App Store yok, veri toplama yok
+          </div>
+          <h1>
+            Şirket içi<br />
+            <span class="gradient">sohbet alanı</span>
+          </h1>
+          <p class="lead">
+            CAPY, telefon numarası ve e-posta istemeden, sadece kullanıcı adıyla giriş yapılan
+            kurum içi iletişim alanıdır. Android ve iPhone'da tarayıcıdan açılır, istenirse ana ekrana eklenir.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="/US/app/">Uygulamayı aç / indir</a>
+            <a class="button secondary" href="#kurulum">Kurulum adımları</a>
+          </div>
+          <div class="meta-grid">
+            <article class="card">
+              <strong>Kullanıcı adı yeterli</strong>
+              <p>Kayıt ekranında telefon, e-posta veya marketing formu yok.</p>
+            </article>
+            <article class="card">
+              <strong>Mağaza dışı dağıtım</strong>
+              <p>Safari veya Chrome üzerinden açılır, ana ekrana eklenebilir.</p>
+            </article>
+            <article class="card">
+              <strong>İç kullanım odaklı</strong>
+              <p>Takım kanalları, hızlı mesajlaşma ve kalıcı yerel kayıt ile başlar.</p>
+            </article>
+          </div>
+        </section>
+
+        <aside class="panel" aria-label="Uygulama önizlemesi">
+          <div class="mock">
+            <div class="floating">
+              <h3>Kurumsal WhatsApp benzeri akış</h3>
+              <p>
+                Kanal bazlı sohbet, kullanıcı adıyla giriş, hızlı tepki ve sade bir mobil arayüz.
+                Aynı cihazda sekmeler arasında gerçek zamanlı senkron da açık.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <section class="section" id="kurulum">
+        <div class="section-head">
+          <h2>Nasıl kurulur?</h2>
+          <p>
+            Bu sürüm mağaza üzerinden yayımlanmaz. Web linkini açıp doğrudan kullanabilir veya cihazınıza
+            ana ekran kısayolu olarak ekleyebilirsiniz.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="feature">
+            <div class="icon">1</div>
+            <h3>Linki aç</h3>
+            <p><a href="/US/app/">/US/app/</a> adresi uygulamanın giriş noktasıdır.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">2</div>
+            <h3>iPhone</h3>
+            <p>Safari'de paylaş menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">3</div>
+            <h3>Android</h3>
+            <p>Chrome menüsünden "Uygulamayı yükle" seçeneğiyle kurun.</p>
+          </article>
+        </div>
+        <div class="install">
+          <div class="privacy">Telefon yok. E-posta yok. Sadece kullanıcı adı.</div>
+          <ul class="steps">
+            <li>Takımın iç iletişimi için kanal yapısı hazır.</li>
+            <li>Mesajlar cihazda tutulur; aynı sekmede anlık güncellenir.</li>
+            <li>İsterseniz bir sonraki adımda sunucu senkronu eklenebilir.</li>
+          </ul>
+        </div>
+
+        <div class="future">
+          <div class="future-head">
+            <div>
+              <h3>Sonra buraya başka şeyler de koyarız</h3>
+              <p>Şimdilik indirme ve başlangıç alanı hazır. Sonraki bloklar için yer şimdiden ayrıldı.</p>
+            </div>
+            <div class="privacy">Bu bölüm genişletilebilir</div>
+          </div>
+          <div class="future-grid">
+            <article class="future-card">
+              <strong>Şablonlar</strong>
+              <span>Hazır mesaj kalıpları, hızlı cevaplar ve ekip içi kısa yollar.</span>
+            </article>
+            <article class="future-card">
+              <strong>Duyurular</strong>
+              <span>Versiyon notları, planlı bakım notları ve kısa ekip duyuruları.</span>
+            </article>
+            <article class="future-card">
+              <strong>Dosyalar</strong>
+              <span>Linkler, belgeler ve başka içerikler için boş bırakılmış alan.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Ana siteye geri dön:
+        <a href="/">koraytasan.com</a>
+        ·
+        <a href="/itsus.safe.space/">IT'S US safe space</a>
+      </footer>
+    </div>
+  </body>
+</html>

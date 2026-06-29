@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="CAPY, kurum ici iletisim icin kullanici adi ile girilen, telefon ve e-posta toplamayan PWA sohbet uygulamasidir."
+    />
+    <meta name="theme-color" content="#07131f" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./app.css" />
+    <title>CAPY</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark">mp</div>
+          <div>
+            <strong>CAPY</strong>
+            <span>Telefon yok. E-posta yok.</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span>Kanallar</span>
+            <button class="ghost-button" id="newChannelButton" type="button">+ Ekle</button>
+          </div>
+          <div class="channel-list" id="channelList" aria-label="Kanal listesi"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <span>Takım</span>
+            <span class="mini-note">Yerel demo</span>
+          </div>
+          <div class="member-list" id="memberList"></div>
+        </div>
+
+        <div class="panel privacy-panel">
+          <strong>Gizlilik</strong>
+          <p>
+            Kayıt alanı yalnızca kullanıcı adı ister. Bu sürümde telefon numarası, e-posta veya üçüncü taraf
+            takip formu yoktur.
+          </p>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Kurum içi iletişim</p>
+            <h1 id="channelTitle">Genel</h1>
+          </div>
+          <div class="top-actions">
+            <span class="status-pill" id="connectionPill">Senkron aktif</span>
+            <button class="ghost-button" id="shareButton" type="button">Bağlantıyı kopyala</button>
+          </div>
+        </header>
+
+        <section class="hero-card" id="heroCard">
+          <div>
+            <span class="badge">Kullanıcı adı ile giriş</span>
+            <h2 id="welcomeTitle">Hoş geldin.</h2>
+            <p id="welcomeCopy">
+              Kurum içi sohbet akışına geçmek için sadece kullanıcı adıyla giriş yap.
+            </p>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <strong id="messageCount">0</strong>
+              <span>Mesaj</span>
+            </div>
+            <div>
+              <strong id="memberCount">0</strong>
+              <span>Çevrimiçi</span>
+            </div>
+            <div>
+              <strong>0</strong>
+              <span>Telefon / e-posta</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="conversation-card">
+          <div class="conversation-head">
+            <div>
+              <p class="eyebrow">Sohbet</p>
+              <h3 id="conversationTitle">Genel kanal</h3>
+            </div>
+            <div class="conversation-actions">
+              <button class="ghost-button" id="clearChannelButton" type="button">Kanaldaki mesajları sil</button>
+            </div>
+          </div>
+
+          <div class="message-list" id="messageList" aria-live="polite"></div>
+
+          <form class="composer" id="messageForm">
+            <label class="sr-only" for="messageInput">Mesaj</label>
+            <textarea
+              id="messageInput"
+              rows="1"
+              placeholder="Mesajını yaz. Enter gönderir, Shift+Enter yeni satır açar."
+            ></textarea>
+            <button class="send-button" type="submit">Gönder</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div class="overlay" id="signInOverlay" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
+      <form class="signin-card" id="signInForm">
+        <div class="brand-mark large">mp</div>
+        <p class="eyebrow">Yeni oturum</p>
+        <h2 id="signInTitle">Sadece kullanıcı adıyla gir.</h2>
+        <p>
+          Telefon, e-posta veya sosyal giriş yok. Kurum içi kullanım için sade bir başlangıç.
+        </p>
+        <label for="usernameInput">Kullanıcı adı</label>
+        <input id="usernameInput" type="text" autocomplete="nickname" maxlength="24" placeholder="ör. koray" />
+        <button class="send-button" type="submit">Sohbete başla</button>
+      </form>
+    </div>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="avatar"></div>
+        <div class="bubble">
+          <div class="message-meta">
+            <strong class="author"></strong>
+            <span class="time"></span>
+          </div>
+          <p class="content"></p>
+          <div class="reactions"></div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
