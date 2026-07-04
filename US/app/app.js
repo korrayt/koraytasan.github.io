@@ -1,220 +1,511 @@
-const STORAGE_KEY = "us-internal-chat-state-v1";
-const CHANNEL_KEY = "us-internal-chat-broadcast-v1";
-const APP_PATH = "/US/app/";
-const DEFAULT_CHANNELS = [
-  { id: "genel", name: "Genel", description: "Hızlı duyurular ve günlük akış" },
-  { id: "operasyon", name: "Operasyon", description: "Plan, teslim ve takip" },
-  { id: "duyurular", name: "Duyurular", description: "Tek yönlü resmi notlar" },
-  { id: "destek", name: "Destek", description: "İç yardım ve sorular" }
-];
-const DEFAULT_MEMBERS = [
-  { id: "m1", name: "Merve", role: "Proje", active: true },
-  { id: "m2", name: "Atlas", role: "Tasarım", active: true },
-  { id: "m3", name: "Deniz", role: "Operasyon", active: true },
-  { id: "m4", name: "Koray", role: "Yönetim", active: true }
-];
-const DEFAULT_MESSAGES = {
-  genel: [
-    {
-      id: "seed-1",
-      author: "Merve",
-      text: "Bugün saat 14:00'te hızlı durum toplantısı var.",
-      createdAt: "2026-06-29T09:15:00.000Z",
-      reactions: [{ emoji: "👍", count: 3 }]
-    },
-    {
-      id: "seed-2",
-      author: "Atlas",
-      text: "Yeni revize edilen sunum kanalda.",
-      createdAt: "2026-06-29T09:22:00.000Z",
-      reactions: [{ emoji: "✨", count: 1 }]
-    }
-  ],
-  operasyon: [
-    {
-      id: "seed-3",
-      author: "Deniz",
-      text: "Bugünün teslimleri için kontrol listesi eklendi.",
-      createdAt: "2026-06-29T08:55:00.000Z",
-      reactions: [{ emoji: "✅", count: 2 }]
-    }
-  ],
-  duyurular: [
-    {
-      id: "seed-4",
-      author: "Sistem",
-      text: "Bu alan telefon ve e-posta toplamadan çalışır.",
-      createdAt: "2026-06-29T08:30:00.000Z",
-      system: true,
-      reactions: []
-    }
-  ],
-  destek: [
-    {
-      id: "seed-5",
-      author: "Koray",
-      text: "Yardıma ihtiyacın varsa buraya yaz.",
-      createdAt: "2026-06-29T08:45:00.000Z",
-      reactions: [{ emoji: "💬", count: 1 }]
-    }
-  ]
-};
-
-function makeId(prefix = "id") {
-  if (crypto.randomUUID) {
-    return crypto.randomUUID();
-  }
-  return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
-
-function clone(value) {
-  return JSON.parse(JSON.stringify(value));
-}
+const DEVICE_KEY = "capy-device-id-v2";
+const SELECTED_CHANNEL_KEY = "capy-selected-channel-v1";
+const SELECTED_DIRECT_KEY = "capy-selected-direct-v1";
+const SEARCH_DEBOUNCE_MS = 250;
+const AUTO_REFRESH_MS = 8000;
 
 const state = {
-  username: "",
-  clientId: makeId("client"),
-  activeChannel: "genel",
-  channels: clone(DEFAULT_CHANNELS),
-  members: clone(DEFAULT_MEMBERS),
-  messages: clone(DEFAULT_MESSAGES),
-  broadcast: null
+  authMode: "login",
+  user: null,
+  channels: [],
+  contacts: [],
+  searchQuery: "",
+  searchResults: [],
+  selectedThread: { type: "channel", id: "genel" },
+  peer: null,
+  messages: [],
+  threadNotice: "",
+  threadAccess: {
+    canSend: false,
+    canRequest: false,
+    requestStatus: "none",
+    readOnly: false
+  },
+  hints: {
+    auth: "Kullanici adi ve sifre yeterli.",
+    profile: "Telefon ve e-posta opsiyonel.",
+    pending: "Basvurun admin onayinda.",
+    composer: "Bir kanal veya ozel sohbet sec."
+  },
+  deviceId: getDeviceId(),
+  searchTimer: null,
+  syncTimer: null
 };
 
 const el = (id) => document.getElementById(id);
 
-function sanitizeName(value) {
-  return String(value || "")
-    .trim()
-    .replace(/\s+/g, " ")
-    .slice(0, 24);
+function getDeviceId() {
+  const existing = localStorage.getItem(DEVICE_KEY);
+  if (existing) return existing;
+  const generated = `device-${crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`}`;
+  localStorage.setItem(DEVICE_KEY, generated);
+  return generated;
 }
 
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
-    const parsed = JSON.parse(raw);
-    state.username = sanitizeName(parsed.username);
-    state.activeChannel = parsed.activeChannel || state.activeChannel;
-    if (Array.isArray(parsed.channels) && parsed.channels.length) {
-      state.channels = parsed.channels;
-    }
-    if (parsed.messages && typeof parsed.messages === "object") {
-      state.messages = mergeMessages(parsed.messages);
-    }
-  } catch {
-    // Fall back to the seeded demo state.
-  }
+function shortDeviceId(deviceId) {
+  return String(deviceId || "")
+    .replace(/^device-/, "")
+    .slice(0, 8)
+    .toUpperCase();
 }
 
-function mergeMessages(saved) {
-  const merged = clone(DEFAULT_MESSAGES);
-  for (const channel of Object.keys(saved || {})) {
-    const items = Array.isArray(saved[channel]) ? saved[channel] : [];
-    merged[channel] = items.map(normalizeMessage).filter(Boolean);
-    if (!merged[channel].length && DEFAULT_MESSAGES[channel]) {
-      merged[channel] = clone(DEFAULT_MESSAGES[channel]);
-    }
-  }
-  return merged;
+function cleanText(value) {
+  return String(value || "").trim().replace(/\s+/g, " ");
 }
 
-function normalizeMessage(message) {
-  if (!message || typeof message !== "object") return null;
-  return {
-    id: message.id || makeId("message"),
-    author: sanitizeName(message.author) || "Anonim",
-    text: String(message.text || "").slice(0, 4000),
-    createdAt: message.createdAt || new Date().toISOString(),
-    mine: Boolean(message.mine),
-    system: Boolean(message.system),
-    reactions: Array.isArray(message.reactions)
-      ? message.reactions.map((reaction) => ({
-          emoji: String(reaction.emoji || "✨").slice(0, 4),
-          count: Math.max(1, Number(reaction.count) || 1)
-        }))
-      : []
-  };
+function cleanHandle(value) {
+  return cleanText(value).slice(0, 32);
 }
 
-function saveState() {
-  const payload = {
-    username: state.username,
-    activeChannel: state.activeChannel,
-    channels: state.channels,
-    messages: state.messages
-  };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+function isApproved(user) {
+  return Boolean(user && user.status === "approved");
 }
 
-function currentChannelMessages() {
-  return state.messages[state.activeChannel] || [];
+function isPending(user) {
+  return Boolean(user && user.status === "pending");
 }
 
-function initials(name) {
-  return sanitizeName(name)
+function isAdmin(user) {
+  return Boolean(user && user.role === "admin" && user.status === "approved");
+}
+
+function initials(value) {
+  const parts = cleanHandle(value)
     .split(" ")
+    .filter(Boolean);
+  if (!parts.length) return "MP";
+  return parts
     .map((part) => part[0] || "")
     .join("")
     .slice(0, 2)
     .toUpperCase() || "MP";
 }
 
-function formatTime(iso) {
-  return new Intl.DateTimeFormat("tr-TR", {
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date(iso));
+function timeLabel(iso) {
+  try {
+    return new Intl.DateTimeFormat("tr-TR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(new Date(iso));
+  } catch {
+    return "";
+  }
 }
 
-function updateStats() {
-  el("messageCount").textContent = String(currentChannelMessages().length);
-  el("memberCount").textContent = String(state.members.filter((member) => member.active).length);
+function dateLabel(iso) {
+  try {
+    return new Intl.DateTimeFormat("tr-TR", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    }).format(new Date(iso));
+  } catch {
+    return "";
+  }
 }
 
-function renderChannels() {
-  const list = el("channelList");
+function truncate(value, length = 40) {
+  const text = cleanText(value);
+  if (text.length <= length) return text;
+  return `${text.slice(0, Math.max(0, length - 1))}...`;
+}
+
+function threadIsChannel(thread) {
+  return thread?.type === "channel";
+}
+
+function threadIsDirect(thread) {
+  return thread?.type === "direct";
+}
+
+function selectedChannel() {
+  return state.channels.find((channel) => channel.id === state.selectedThread.id) || null;
+}
+
+function selectedContact() {
+  return state.contacts.find((contact) => contact.id === state.selectedThread.id) || null;
+}
+
+function peerName() {
+  if (threadIsChannel(state.selectedThread)) {
+    return selectedChannel()?.name || "Kanal";
+  }
+  return state.peer?.username || selectedContact()?.username || "Ozel sohbet";
+}
+
+function peerDescription() {
+  if (threadIsChannel(state.selectedThread)) {
+    const channel = selectedChannel();
+    if (!channel) return "Kanal yukleniyor";
+    if (channel.id === "genel") return "Herkesin otomatik dahil oldugu ana kanal";
+    if (channel.access === "pending") return "Erisim talebin bekliyor";
+    if (channel.access === "available") return "Bu kanala erisim isteyebilirsin";
+    return channel.description || "Kanal";
+  }
+  const peer = state.peer || selectedContact();
+  if (!peer) return "Karsi taraf yukleniyor";
+  return `${peer.role || "Uye"} - cihazlar arasi ozel sohbet`;
+}
+
+function channelAccessLabel(channel) {
+  if (!channel) return "";
+  if (channel.access === "member") return "Uye";
+  if (channel.access === "pending") return "Bekliyor";
+  return "Erisim";
+}
+
+function messageAuthorId(message) {
+  return message?.userId || message?.senderUserId || "";
+}
+
+function setHint(slot, text) {
+  if (slot in state.hints) {
+    state.hints[slot] = text;
+  }
+}
+
+function saveSelectedThread(thread) {
+  if (threadIsChannel(thread)) {
+    localStorage.setItem(SELECTED_CHANNEL_KEY, thread.id);
+    localStorage.removeItem(SELECTED_DIRECT_KEY);
+  } else if (threadIsDirect(thread)) {
+    localStorage.setItem(SELECTED_DIRECT_KEY, thread.id);
+    localStorage.removeItem(SELECTED_CHANNEL_KEY);
+  }
+}
+
+function restoreSelectedThread() {
+  const direct = localStorage.getItem(SELECTED_DIRECT_KEY);
+  if (direct) {
+    return { type: "direct", id: direct };
+  }
+  const channel = localStorage.getItem(SELECTED_CHANNEL_KEY);
+  if (channel) {
+    return { type: "channel", id: channel };
+  }
+  return { type: "channel", id: "genel" };
+}
+
+function resetWorkspaceState() {
+  state.channels = [];
+  state.contacts = [];
+  state.searchResults = [];
+  state.searchQuery = "";
+  state.selectedThread = { type: "channel", id: "genel" };
+  state.peer = null;
+  state.messages = [];
+  state.threadNotice = "";
+  state.threadAccess = {
+    canSend: false,
+    canRequest: false,
+    requestStatus: "none",
+    readOnly: false
+  };
+  setHint("composer", "Bir kanal veya ozel sohbet sec.");
+
+  if (el("messageInput")) {
+    el("messageInput").value = "";
+    el("messageInput").style.height = "auto";
+  }
+  if (el("searchInput")) {
+    el("searchInput").value = "";
+  }
+  if (el("authPassword")) {
+    el("authPassword").value = "";
+  }
+  if (el("authUsername")) {
+    el("authUsername").value = "";
+  }
+  if (el("authPhone")) {
+    el("authPhone").value = "";
+  }
+  if (el("authEmail")) {
+    el("authEmail").value = "";
+  }
+  if (el("authNotes")) {
+    el("authNotes").value = "";
+  }
+}
+
+function applySessionUser(user) {
+  state.user = user || null;
+  if (!state.user) {
+    setHint("auth", "Kullanici adi ve sifre ile giris yap.");
+    return;
+  }
+
+  const profile = state.user.profile || {};
+  setHint(
+    "profile",
+    state.user.status === "pending"
+      ? "Telefon ve e-posta opsiyonel. Onay beklerken profili guncelleyebilirsin."
+      : "Telefon ve e-posta opsiyonel. Gerekirse sonra guncelleyebilirsin."
+  );
+  setHint(
+    "pending",
+    state.user.status === "pending"
+      ? "Basvurun admin onayinda. Profilini tamamlayip bekleyebilirsin."
+      : "Basvuru durumu aktif."
+  );
+
+  el("profilePhone").value = profile.phone || "";
+  el("profileEmail").value = profile.email || "";
+  el("profileNotes").value = profile.notes || "";
+}
+
+function setAuthMode(mode) {
+  state.authMode = mode === "register" ? "register" : "login";
+  setHint(
+    "auth",
+    state.authMode === "register"
+      ? "Kayit talebi admin onayina gider."
+      : "Kullanici adi ve sifre yeterli."
+  );
+  render();
+}
+
+async function api(path, options = {}) {
+  const response = await fetch(path, {
+    method: options.method || "GET",
+    credentials: "same-origin",
+    headers: {
+      ...(options.body ? { "Content-Type": "application/json" } : {}),
+      ...(options.headers || {})
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined
+  });
+
+  const contentType = response.headers.get("content-type") || "";
+  const payload = contentType.includes("application/json")
+    ? await response.json().catch(() => ({}))
+    : await response.text();
+
+  if (!response.ok) {
+    const error = new Error(payload?.error || `http_${response.status}`);
+    error.status = response.status;
+    error.code = payload?.error || `http_${response.status}`;
+    error.payload = payload;
+    throw error;
+  }
+
+  return payload;
+}
+
+async function clearLegacyOfflineState() {
+  try {
+    if ("serviceWorker" in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map((registration) => registration.unregister()));
+    }
+  } catch {
+    // Ignore old service worker cleanup failures.
+  }
+
+  try {
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((key) => caches.delete(key)));
+    }
+  } catch {
+    // Ignore cache cleanup failures.
+  }
+}
+
+function renderAuthChrome() {
+  const hasUser = Boolean(state.user);
+  const isPending = state.user?.status === "pending";
+  const approved = isApproved(state.user);
+  const rejected = state.user?.status === "rejected";
+
+  el("authView").classList.toggle("hidden", hasUser && !rejected);
+  el("pendingView").classList.toggle("hidden", !isPending);
+  el("chatView").classList.toggle("hidden", !approved);
+
+  el("userCard").classList.toggle("hidden", !hasUser || rejected);
+  el("profileCard").classList.toggle("hidden", !hasUser || rejected);
+  el("channelsCard").classList.toggle("hidden", !approved);
+  el("peopleCard").classList.toggle("hidden", !approved);
+
+  el("adminLink").classList.toggle("hidden", !isAdmin(state.user));
+
+  if (!hasUser || rejected) {
+    el("pageTitle").textContent = "Giris yap";
+    el("pageSubtitle").textContent = rejected
+      ? "Hesabiniz reddedildi. Admin ile gorusun."
+      : "Kullanici adi ve sifre ile gir. Onaydan sonra kanallar ve ozel sohbetler acilir.";
+    el("sessionBadge").textContent = rejected ? "Reddedildi" : "Cikis";
+    return;
+  }
+
+  if (isPending) {
+    el("pageTitle").textContent = "Onay bekleniyor";
+    el("pageSubtitle").textContent = "Basvurun admin onayinda. Profilini guncelleyebilir ve durumunu takip edebilirsin.";
+    el("sessionBadge").textContent = "Beklemede";
+    return;
+  }
+
+  el("pageTitle").textContent = threadTitle();
+  el("pageSubtitle").textContent = "Kanal sohbetleri ve ozel mesajlar ayni merkezi sunucuda calisir.";
+  el("sessionBadge").textContent = isAdmin(state.user) ? "Admin" : "Aktif";
+}
+
+function threadTitle() {
+  if (!isApproved(state.user)) return "Giris yap";
+  if (threadIsDirect(state.selectedThread)) {
+    return `@${peerName()}`;
+  }
+  const channel = selectedChannel();
+  return `#${channel?.name || "Genel"}`;
+}
+
+function renderIdentityCard() {
+  if (!state.user) {
+    el("userAvatar").textContent = "MP";
+    el("userName").textContent = "Misafir";
+    el("userStatus").textContent = "Giris bekleniyor";
+    el("userMeta").textContent = `Cihaz: ${shortDeviceId(state.deviceId)}`;
+    el("logoutButton").textContent = "Cikis yap";
+    return;
+  }
+
+  el("userAvatar").textContent = initials(state.user.username);
+  el("userName").textContent = state.user.username;
+  el("userStatus").textContent =
+    state.user.status === "pending"
+      ? "Onay bekliyor"
+      : state.user.role === "admin"
+        ? "Yonetici"
+        : "Onayli uye";
+
+  const createdAt = state.user.createdAt ? dateLabel(state.user.createdAt) : "";
+  const deviceTag = shortDeviceId(state.deviceId);
+  const profile = state.user.profile || {};
+  const extras = [profile.phone, profile.email].filter(Boolean).length;
+  el("userMeta").textContent = `Cihaz: ${deviceTag} - ${createdAt || "Yeni hesap"} - ${extras ? `${extras} ek alan` : "Profil bos olabilir"}`;
+  el("logoutButton").textContent = "Cikis yap";
+}
+
+function renderProfileCard() {
+  if (!state.user || state.user.status === "rejected") return;
+  el("profileHint").textContent = state.hints.profile;
+}
+
+function renderChannelsList() {
+  const list = el("channelsList");
+  const template = el("channelTemplate");
   list.innerHTML = "";
+
+  if (!state.channels.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Kanal listesi yukleniyor.";
+    list.appendChild(empty);
+    return;
+  }
 
   state.channels.forEach((channel) => {
-    const item = document.createElement("div");
-    item.className = `channel-item${state.activeChannel === channel.id ? " active" : ""}`;
-    item.innerHTML = `
-      <button type="button" data-channel="${channel.id}">
-        <strong># ${channel.name}</strong>
-        <small>${channel.description}</small>
-      </button>
-      <span class="channel-pill">${(state.messages[channel.id] || []).length}</span>
-    `;
-    list.appendChild(item);
+    const node = template.content.firstElementChild.cloneNode(true);
+    node.classList.toggle(
+      "active",
+      threadIsChannel(state.selectedThread) && state.selectedThread.id === channel.id
+    );
+    node.querySelector(".channel-name").textContent = `# ${channel.name}`;
+    node.querySelector(".channel-description").textContent = channel.description || "";
+    node.querySelector(".channel-pill").textContent = channel.id === "genel" ? "Genel" : channelAccessLabel(channel);
+    node.addEventListener("click", () => selectChannel(channel.id));
+    list.appendChild(node);
   });
 
-  list.querySelectorAll("button[data-channel]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.activeChannel = button.dataset.channel;
-      persistAndRender();
-    });
-  });
+  el("channelCount").textContent = String(state.channels.length);
 }
 
-function renderMembers() {
-  const list = el("memberList");
+function renderContactsList() {
+  const list = el("contactsList");
   list.innerHTML = "";
-  state.members.forEach((member) => {
-    const item = document.createElement("div");
-    item.className = "member-item";
-    item.innerHTML = `
-      <div class="member-row">
-        <span class="dot"></span>
-        <div>
-          <strong>${member.name}</strong>
-          <small>${member.role}</small>
-        </div>
-      </div>
-      <span class="mini-note">${member.active ? "Çevrimiçi" : "Çevrimdışı"}</span>
-    `;
-    list.appendChild(item);
+
+  if (!state.contacts.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Henuz eklenmis ozel sohbet yok.";
+    list.appendChild(empty);
+    return;
+  }
+
+  state.contacts.forEach((contact) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "person-item";
+    button.classList.toggle(
+      "active",
+      threadIsDirect(state.selectedThread) && state.selectedThread.id === contact.id
+    );
+
+    const left = document.createElement("span");
+    const strong = document.createElement("strong");
+    strong.textContent = `@${contact.username}`;
+    const small = document.createElement("small");
+    small.textContent = contact.role || "Uye";
+    left.append(strong, small);
+
+    const pill = document.createElement("span");
+    pill.className = "person-pill";
+    pill.textContent = contact.lastMessagePreview
+      ? truncate(contact.lastMessagePreview, 20)
+      : contact.canChat
+        ? "DM"
+        : "Beklemede";
+
+    button.append(left, pill);
+    button.addEventListener("click", () => selectDirect(contact));
+    list.appendChild(button);
+  });
+
+  el("contactCount").textContent = String(state.contacts.length);
+}
+
+function renderSearchResults() {
+  const list = el("searchResults");
+  list.innerHTML = "";
+
+  if (!state.searchQuery.trim()) {
+    const hint = document.createElement("div");
+    hint.className = "hint-card";
+    hint.textContent = "Bir kullanici ara. Sonra ekleyip ozel sohbete gec.";
+    list.appendChild(hint);
+    return;
+  }
+
+  if (!state.searchResults.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Sonuc bulunamadi.";
+    list.appendChild(empty);
+    return;
+  }
+
+  state.searchResults.forEach((result) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "person-item";
+    button.classList.toggle(
+      "active",
+      threadIsDirect(state.selectedThread) && state.selectedThread.id === result.id
+    );
+
+    const left = document.createElement("span");
+    const strong = document.createElement("strong");
+    strong.textContent = `@${result.username}`;
+    const small = document.createElement("small");
+    small.textContent = result.role || "Uye";
+    left.append(strong, small);
+
+    const pill = document.createElement("span");
+    pill.className = "person-pill";
+    pill.textContent = result.canChat ? "Sohbet ac" : "Ekle";
+
+    button.append(left, pill);
+    button.addEventListener("click", () => openSearchResult(result));
+    list.appendChild(button);
   });
 }
 
@@ -223,288 +514,652 @@ function renderMessages() {
   const template = el("messageTemplate");
   list.innerHTML = "";
 
-  currentChannelMessages().forEach((message) => {
-    const clone = template.content.firstElementChild.cloneNode(true);
-    clone.classList.toggle("mine", message.mine);
-    clone.querySelector(".avatar").textContent = initials(message.author);
-    clone.querySelector(".author").textContent = message.system ? "Sistem" : message.author;
-    clone.querySelector(".time").textContent = formatTime(message.createdAt);
-    clone.querySelector(".content").textContent = message.text;
-    const reactions = clone.querySelector(".reactions");
-    reactions.innerHTML = "";
-
-    if (Array.isArray(message.reactions) && message.reactions.length) {
-      message.reactions.forEach((reaction) => {
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "reaction-chip";
-        chip.dataset.id = message.id;
-        chip.dataset.emoji = reaction.emoji;
-        chip.innerHTML = `<strong>${reaction.emoji}</strong><span>${reaction.count}</span>`;
-        chip.addEventListener("click", () => addReaction(message.id, reaction.emoji));
-        reactions.appendChild(chip);
-      });
-    }
-
-    list.appendChild(clone);
-  });
-
-  if (!currentChannelMessages().length) {
+  if (state.threadNotice && !state.messages.length) {
     const empty = document.createElement("div");
-    empty.className = "message";
+    empty.className = "message-empty";
     empty.innerHTML = `
-      <div class="avatar">mp</div>
-      <div class="bubble">
-        <div class="message-meta">
-          <strong class="author">Sistem</strong>
-          <span class="time">şimdi</span>
-        </div>
-        <p class="content">Bu kanalda henüz mesaj yok. İlk mesajı sen yaz.</p>
-      </div>
+      <strong>${state.threadNotice}</strong>
+      <p>${state.threadAccess.canRequest ? "Erisim talebi gonderebilirsin." : "Baska bir kanal veya kullanici sec."}</p>
     `;
     list.appendChild(empty);
+    return;
   }
+
+  if (!state.messages.length) {
+    const empty = document.createElement("div");
+    empty.className = "message-empty";
+    empty.innerHTML = `
+      <strong>Henuz mesaj yok.</strong>
+      <p>Ilk mesaji sen yaz. Karsilikli iletisim burada merkezde tutulur.</p>
+    `;
+    list.appendChild(empty);
+    return;
+  }
+
+  state.messages.forEach((message) => {
+    const node = template.content.firstElementChild.cloneNode(true);
+    const mine = messageAuthorId(message) === state.user?.id;
+    node.classList.toggle("mine", mine);
+    node.querySelector(".message-avatar").textContent = initials(message.username);
+    node.querySelector(".message-author").textContent = message.username || "Sistem";
+    node.querySelector(".message-time").textContent = timeLabel(message.createdAt);
+    node.querySelector(".message-text").textContent = message.text;
+    list.appendChild(node);
+  });
 
   list.scrollTop = list.scrollHeight;
 }
 
-function setChannelHeader() {
-  const channel = state.channels.find((item) => item.id === state.activeChannel) || state.channels[0];
-  el("channelTitle").textContent = channel ? channel.name : "Genel";
-  el("conversationTitle").textContent = channel ? `# ${channel.name}` : "# Genel";
+function renderThreadHeader() {
+  if (!isApproved(state.user)) return;
+
+  const threadTitleText = threadIsDirect(state.selectedThread)
+    ? `@${peerName()}`
+    : `# ${selectedChannel()?.name || "Genel"}`;
+  const badgeText = threadIsDirect(state.selectedThread) ? "Ozel sohbet" : "Kanal";
+
+  el("channelBadge").textContent = badgeText;
+  el("channelTitle").textContent = threadTitleText;
+  el("channelDescription").textContent = peerDescription();
+  el("pageTitle").textContent = threadTitleText;
+  el("pageSubtitle").textContent = threadIsDirect(state.selectedThread)
+    ? "Kullanici adlariyla bire bir ozel sohbet"
+    : "Kanallar ve onayli grup mesajlari";
 }
 
-function setWelcomeCopy() {
-  const username = state.username || "Misafir";
-  el("welcomeTitle").textContent = `Hoş geldin, ${username}.`;
-  el("welcomeCopy").textContent = "Kullanıcı adıyla giriş yaptın. Mesajlarını cihazda saklıyor, aynı sekmede anlık olarak güncelliyoruz.";
-}
+function renderComposerState() {
+  const input = el("messageInput");
+  const button = el("messageForm").querySelector('button[type="submit"]');
+  const requestButton = el("channelRequestButton");
 
-function persistAndRender() {
-  renderAll();
-}
-
-function renderAll({ persist = true } = {}) {
-  if (persist) {
-    saveState();
-  }
-  renderChannels();
-  renderMembers();
-  renderMessages();
-  setChannelHeader();
-  setWelcomeCopy();
-  updateStats();
-  el("connectionPill").textContent = navigator.onLine ? "Senkron aktif" : "Çevrimdışı mod";
-  el("signInOverlay").classList.toggle("hidden", Boolean(state.username));
-}
-
-function sendMessage(text) {
-  const message = normalizeMessage({
-    id: makeId("message"),
-    author: state.username || "Anonim",
-    text,
-    createdAt: new Date().toISOString(),
-    mine: true,
-    reactions: []
-  });
-
-  if (!state.messages[state.activeChannel]) {
-    state.messages[state.activeChannel] = [];
+  if (!isApproved(state.user)) {
+    input.disabled = true;
+    button.disabled = true;
+    requestButton.classList.add("hidden");
+    el("composerHint").textContent = state.hints.composer;
+    return;
   }
 
-  state.messages[state.activeChannel].push(message);
-  publish({
-    type: "message",
-    channelId: state.activeChannel,
-    message,
-    clientId: state.clientId
-  });
-  persistAndRender();
-}
-
-function addReaction(messageId, emoji) {
-  const messages = state.messages[state.activeChannel] || [];
-  const message = messages.find((item) => item.id === messageId);
-  if (!message) return;
-
-  const reaction = (message.reactions || []).find((item) => item.emoji === emoji);
-  if (reaction) {
-    reaction.count += 1;
-  } else {
-    message.reactions = [...(message.reactions || []), { emoji, count: 1 }];
-  }
-
-  publish({
-    type: "reaction",
-    channelId: state.activeChannel,
-    messageId,
-    emoji,
-    clientId: state.clientId
-  });
-  persistAndRender();
-}
-
-function clearActiveChannel() {
-  state.messages[state.activeChannel] = [];
-  publish({
-    type: "clear",
-    channelId: state.activeChannel,
-    clientId: state.clientId
-  });
-  persistAndRender();
-}
-
-function createChannel() {
-  const name = sanitizeName(window.prompt("Yeni kanal adı", "Yeni Kanal"));
-  if (!name) return;
-  const id = name
-    .toLowerCase()
-    .replace(/[^a-z0-9çğıöşü-]+/gi, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "") || `kanal-${Date.now()}`;
-
-  if (state.channels.some((channel) => channel.id === id)) return;
-
-  state.channels = [...state.channels, { id, name, description: "Yeni ekip alanı" }];
-  state.messages[id] = [];
-  state.activeChannel = id;
-  persistAndRender();
-}
-
-function publish(payload) {
-  if (state.broadcast) {
-    state.broadcast.postMessage(payload);
-  }
-}
-
-function applyExternalChange(payload) {
-  if (!payload || payload.clientId === state.clientId) return;
-
-  if (payload.type === "message" && payload.channelId && payload.message) {
-    state.messages[payload.channelId] = state.messages[payload.channelId] || [];
-    const exists = state.messages[payload.channelId].some((item) => item.id === payload.message.id);
-    if (!exists) {
-      state.messages[payload.channelId].push(normalizeMessage(payload.message));
+  if (threadIsChannel(state.selectedThread)) {
+    const channel = selectedChannel();
+    if (!channel) {
+      input.disabled = true;
+      button.disabled = true;
+      requestButton.classList.add("hidden");
+      el("composerHint").textContent = "Kanal yukleniyor.";
+      return;
     }
-  }
 
-  if (payload.type === "reaction" && payload.channelId && payload.messageId) {
-    const channelMessages = state.messages[payload.channelId] || [];
-    const message = channelMessages.find((item) => item.id === payload.messageId);
-    if (message) {
-      const reaction = (message.reactions || []).find((item) => item.emoji === payload.emoji);
-      if (reaction) {
-        reaction.count += 1;
+    const canRequest = channel.access === "available";
+    const isPending = channel.access === "pending";
+    const canSend = channel.access === "member" && (!channel.readOnly || isAdmin(state.user));
+
+    state.threadAccess = {
+      canSend,
+      canRequest,
+      requestStatus: isPending ? "pending" : channel.access,
+      readOnly: Boolean(channel.readOnly)
+    };
+
+    input.disabled = !canSend;
+    button.disabled = !canSend;
+
+    if (canRequest) {
+      requestButton.classList.remove("hidden");
+      requestButton.disabled = false;
+      requestButton.textContent = "Erisim talep et";
+      el("composerHint").textContent = "Bu kanala girmek icin once erisim talep etmelisin.";
+    } else if (isPending) {
+      requestButton.classList.remove("hidden");
+      requestButton.disabled = true;
+      requestButton.textContent = "Talep bekliyor";
+      el("composerHint").textContent = "Erisim talebin onay bekliyor.";
+    } else {
+      requestButton.classList.add("hidden");
+      if (channel.readOnly && !isAdmin(state.user)) {
+        el("composerHint").textContent = "Bu kanal sadece yonetim yazabilir.";
       } else {
-        message.reactions = [...(message.reactions || []), { emoji: payload.emoji, count: 1 }];
+        el("composerHint").textContent = "Kanal hazir.";
       }
     }
+
+    return;
   }
 
-  if (payload.type === "clear" && payload.channelId) {
-    state.messages[payload.channelId] = [];
-  }
+  state.threadAccess = {
+    canSend: Boolean(state.peer || selectedContact() || isAdmin(state.user)),
+    canRequest: false,
+    requestStatus: "none",
+    readOnly: false
+  };
 
-  renderAll({ persist: false });
+  input.disabled = !state.threadAccess.canSend;
+  button.disabled = !state.threadAccess.canSend;
+  requestButton.classList.add("hidden");
+  el("composerHint").textContent = state.threadAccess.canSend
+    ? "Ozel sohbet aktif."
+    : "Bu kullaniciya ulasmak icin once ekleme yap.";
 }
 
-function hydrateBroadcast() {
-  if ("BroadcastChannel" in window) {
-    state.broadcast = new BroadcastChannel(CHANNEL_KEY);
-    state.broadcast.onmessage = (event) => applyExternalChange(event.data);
+function renderVisibility() {
+  const hasUser = Boolean(state.user);
+  const isPending = state.user?.status === "pending";
+  const approved = isApproved(state.user);
+
+  el("authView").classList.toggle("hidden", hasUser && !rejected);
+  el("pendingView").classList.toggle("hidden", !isPending);
+  el("chatView").classList.toggle("hidden", !approved);
+  el("userCard").classList.toggle("hidden", !hasUser || state.user?.status === "rejected");
+  el("profileCard").classList.toggle("hidden", !hasUser || state.user?.status === "rejected");
+  el("channelsCard").classList.toggle("hidden", !approved);
+  el("peopleCard").classList.toggle("hidden", !approved);
+  el("adminLink").classList.toggle("hidden", !isAdmin(state.user));
+}
+
+function renderAuthForms() {
+  el("loginTab").classList.toggle("active", state.authMode === "login");
+  el("registerTab").classList.toggle("active", state.authMode === "register");
+  el("optionalSignupFields").classList.toggle("hidden", state.authMode !== "register");
+  el("authSubmit").textContent = state.authMode === "login" ? "Giris yap" : "Uye ol";
+  el("authHint").textContent = state.hints.auth;
+}
+
+function renderUserPanel() {
+  renderIdentityCard();
+  renderProfileCard();
+}
+
+function renderPendingPanel() {
+  if (!state.user || state.user.status !== "pending") return;
+  const profile = state.user.profile || {};
+  const lines = [
+    "Uyelik talebin admin onayinda.",
+    `Kullanici adi: @${state.user.username}`,
+    state.user.createdAt ? `Basvuru tarihi: ${dateLabel(state.user.createdAt)}` : "",
+    profile.phone ? `Telefon bilgisi eklendi.` : "Telefon bilgisi opsiyonel.",
+    profile.email ? `E-posta bilgisi eklendi.` : "E-posta bilgisi opsiyonel."
+  ].filter(Boolean);
+  el("pendingText").textContent = lines.join(" - ");
+  el("pendingRefreshButton").textContent = "Durumu yenile";
+}
+
+function renderSidebarStats() {
+  el("channelCount").textContent = String(state.channels.length);
+  el("contactCount").textContent = String(state.contacts.length);
+}
+
+function render() {
+  renderAuthChrome();
+  renderAuthForms();
+  renderUserPanel();
+  renderPendingPanel();
+  renderChannelsList();
+  renderContactsList();
+  renderSearchResults();
+  renderMessages();
+  renderThreadHeader();
+  renderComposerState();
+  renderVisibility();
+  renderSidebarStats();
+}
+
+async function loadSession() {
+  const payload = await api("/api/session");
+  applySessionUser(payload.user || null);
+
+  if (!payload.user) {
+    resetWorkspaceState();
+    state.selectedThread = restoreSelectedThread();
+    setHint("composer", "Bir kanal veya ozel sohbet sec.");
+    return;
   }
 
-  window.addEventListener("storage", (event) => {
-    if (event.key === STORAGE_KEY && event.newValue) {
-      try {
-        const parsed = JSON.parse(event.newValue);
-        state.activeChannel = parsed.activeChannel || state.activeChannel;
-        state.channels = parsed.channels || state.channels;
-        state.messages = mergeMessages(parsed.messages || {});
-        renderAll({ persist: false });
-      } catch {
-        // Ignore malformed storage payloads.
+  state.selectedThread = restoreSelectedThread();
+  if (isPending(state.user)) {
+    setHint("pending", "Basvurun admin onayinda. Profilini guncelleyebilirsin.");
+  }
+  if (!isApproved(state.user)) {
+    resetWorkspaceState();
+    state.selectedThread = restoreSelectedThread();
+  }
+}
+
+async function loadChannels() {
+  if (!isApproved(state.user)) return;
+  const payload = await api("/api/channels");
+  state.channels = Array.isArray(payload.channels) ? payload.channels : [];
+  if (!state.channels.some((channel) => channel.id === state.selectedThread.id) || threadIsDirect(state.selectedThread)) {
+    if (!state.channels.some((channel) => channel.id === "genel")) {
+      state.selectedThread = state.channels[0]
+        ? { type: "channel", id: state.channels[0].id }
+        : { type: "channel", id: "genel" };
+    } else if (!threadIsDirect(state.selectedThread)) {
+      state.selectedThread = { type: "channel", id: "genel" };
+    }
+  }
+}
+
+async function loadContacts() {
+  if (!isApproved(state.user)) return;
+  const payload = await api("/api/contacts");
+  state.contacts = Array.isArray(payload.contacts) ? payload.contacts : [];
+}
+
+async function searchUsers(query, { quiet = false } = {}) {
+  if (!isApproved(state.user)) return;
+  const clean = cleanText(query);
+  state.searchQuery = clean;
+  if (!clean) {
+    state.searchResults = [];
+    if (!quiet) render();
+    return;
+  }
+
+  const token = Date.now();
+  state._searchToken = token;
+  try {
+    const payload = await api(`/api/users/search?q=${encodeURIComponent(clean)}`);
+    if (state._searchToken !== token) return;
+    state.searchResults = Array.isArray(payload.users) ? payload.users : [];
+  } catch (error) {
+    if (state._searchToken !== token) return;
+    state.searchResults = [];
+    setHint("composer", error.code === "not_authenticated" ? "Oturumun sonlandi." : "Kullanici arama basarisiz.");
+  }
+  if (!quiet) render();
+}
+
+async function loadThreadMessages() {
+  if (!isApproved(state.user)) return;
+
+  state.messages = [];
+  state.peer = null;
+  state.threadNotice = "";
+
+  const token = Date.now();
+  state._threadToken = token;
+
+  try {
+    if (threadIsChannel(state.selectedThread)) {
+      const payload = await api(`/api/channels/${encodeURIComponent(state.selectedThread.id)}/messages`);
+      if (state._threadToken !== token) return;
+
+      const channel = selectedChannel();
+      if (channel) {
+        state.threadAccess = {
+          canSend: channel.access === "member" && (!channel.readOnly || isAdmin(state.user)),
+          canRequest: channel.access === "available",
+          requestStatus: channel.access,
+          readOnly: Boolean(channel.readOnly)
+        };
       }
+
+      state.messages = Array.isArray(payload.messages) ? payload.messages : [];
+      state.threadNotice = "";
+      return;
+    }
+
+    const payload = await api(`/api/direct/${encodeURIComponent(state.selectedThread.id)}/messages`);
+    if (state._threadToken !== token) return;
+    state.peer = payload.peer || selectedContact() || null;
+    state.messages = Array.isArray(payload.messages) ? payload.messages : [];
+    state.threadAccess = {
+      canSend: true,
+      canRequest: false,
+      requestStatus: "none",
+      readOnly: false
+    };
+    state.threadNotice = "";
+  } catch (error) {
+    if (state._threadToken !== token) return;
+    state.messages = [];
+    if (error.code === "channel_locked") {
+      const channel = selectedChannel();
+      state.threadAccess = {
+        canSend: false,
+        canRequest: Boolean(channel && channel.access === "available"),
+        requestStatus: channel?.access || "available",
+        readOnly: Boolean(channel?.readOnly)
+      };
+      state.threadNotice = "Bu kanala erisimin yok.";
+    } else if (error.code === "contact_required") {
+      state.threadAccess = {
+        canSend: false,
+        canRequest: false,
+        requestStatus: "none",
+        readOnly: false
+      };
+      state.threadNotice = "Bu kullanici ile ozel sohbet icin once ekleme yap.";
+    } else {
+      state.threadNotice = "Sohbet yuklenemedi.";
+    }
+  }
+}
+
+async function refreshWorkspace({ refreshSearch = true } = {}) {
+  if (!isApproved(state.user)) {
+    render();
+    return;
+  }
+
+  await Promise.all([loadChannels(), loadContacts()]);
+
+  if (threadIsChannel(state.selectedThread) && !state.channels.some((channel) => channel.id === state.selectedThread.id)) {
+    state.selectedThread = { type: "channel", id: "genel" };
+    saveSelectedThread(state.selectedThread);
+  }
+
+  if (refreshSearch && state.searchQuery.trim()) {
+    await searchUsers(state.searchQuery, { quiet: true });
+  }
+
+  await loadThreadMessages();
+  render();
+}
+
+async function selectChannel(channelId) {
+  state.selectedThread = { type: "channel", id: channelId };
+  saveSelectedThread(state.selectedThread);
+  await loadThreadMessages();
+  render();
+}
+
+async function selectDirect(contact) {
+  state.selectedThread = { type: "direct", id: contact.id };
+  state.peer = contact;
+  saveSelectedThread(state.selectedThread);
+  await loadThreadMessages();
+  render();
+}
+
+async function requestChannelAccess() {
+  const channel = selectedChannel();
+  if (!channel || channel.id === "genel") return;
+  const payload = await api(`/api/channels/${encodeURIComponent(channel.id)}/request`, {
+    method: "POST"
+  });
+  if (payload.status === "pending") {
+    setHint("composer", "Erisim talebin admin onayinda.");
+  }
+  await refreshWorkspace({ refreshSearch: false });
+}
+
+async function addContactAndOpen(person) {
+  await api("/api/contacts", {
+    method: "POST",
+    body: { userId: person.id }
+  });
+  await loadContacts();
+  await selectDirect(person);
+}
+
+async function openSearchResult(person) {
+  if (person.canChat) {
+    await selectDirect(person);
+    return;
+  }
+
+  await addContactAndOpen(person);
+}
+
+async function sendProfile() {
+  const payload = await api("/api/profile", {
+    method: "PATCH",
+    body: {
+      phone: cleanText(el("profilePhone").value),
+      email: cleanText(el("profileEmail").value),
+      notes: cleanText(el("profileNotes").value)
     }
   });
+  applySessionUser(payload.user || state.user);
+  setHint("profile", "Profil kaydedildi.");
+  render();
 }
 
-function registerServiceWorker() {
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js").catch(() => {
-      // Offline caching is best-effort.
+async function submitAuth(event) {
+  event.preventDefault();
+  const username = cleanHandle(el("authUsername").value);
+  const password = String(el("authPassword").value || "");
+
+  if (!username || username.length < 3) {
+    setHint("auth", "Kullanici adi en az 3 karakter olmali.");
+    render();
+    return;
+  }
+
+  if (password.length < 6) {
+    setHint("auth", "Sifre en az 6 karakter olmali.");
+    render();
+    return;
+  }
+
+  try {
+    if (state.authMode === "register") {
+      const payload = await api("/api/auth/register", {
+        method: "POST",
+        body: {
+          username,
+          password,
+          phone: cleanText(el("authPhone").value),
+          email: cleanText(el("authEmail").value),
+          notes: cleanText(el("authNotes").value)
+        }
+      });
+      applySessionUser(payload.user || null);
+      resetWorkspaceState();
+      state.selectedThread = restoreSelectedThread();
+      setHint("pending", "Uyelik talebin alindi. Admin onayini bekle.");
+      render();
+      return;
+    }
+
+    const payload = await api("/api/auth/login", {
+      method: "POST",
+      body: {
+        username,
+        password
+      }
     });
+    applySessionUser(payload.user || null);
+    resetWorkspaceState();
+    state.selectedThread = restoreSelectedThread();
+
+    if (isApproved(state.user)) {
+      await refreshWorkspace({ refreshSearch: false });
+    } else {
+      render();
+    }
+  } catch (error) {
+    if (error.code === "user_not_found") {
+      setHint("auth", "Kullanici bulunamadi.");
+    } else if (error.code === "invalid_credentials") {
+      setHint("auth", "Sifre yanlis.");
+    } else if (error.code === "username_taken") {
+      setHint("auth", "Bu kullanici adi zaten kullaniliyor.");
+    } else if (error.code === "account_rejected") {
+      setHint("auth", "Hesap reddedildi. Admin ile gorus.");
+    } else {
+      setHint("auth", "Giris islemi basarisiz.");
+    }
+    render();
   }
 }
 
-function updateOverlayVisibility() {
-  el("signInOverlay").classList.toggle("hidden", Boolean(state.username));
+async function logout() {
+  try {
+    await api("/api/auth/logout", { method: "POST" });
+  } catch {
+    // Ignore logout failures.
+  }
+
+  applySessionUser(null);
+  resetWorkspaceState();
+  localStorage.removeItem(SELECTED_CHANNEL_KEY);
+  localStorage.removeItem(SELECTED_DIRECT_KEY);
+  render();
 }
 
-function setupEvents() {
-  el("signInForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = sanitizeName(el("usernameInput").value);
-    if (!name) return;
-    state.username = name;
-    persistAndRender();
-    el("messageInput").focus();
-  });
+async function submitMessage(event) {
+  event.preventDefault();
+  if (!isApproved(state.user)) return;
 
-  el("messageForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const input = el("messageInput");
-    const text = input.value.trim();
-    if (!text || !state.username) return;
-    sendMessage(text);
+  const input = el("messageInput");
+  const text = cleanText(input.value);
+  if (!text) return;
+
+  try {
+    if (threadIsChannel(state.selectedThread)) {
+      await api(`/api/channels/${encodeURIComponent(state.selectedThread.id)}/messages`, {
+        method: "POST",
+        body: { text }
+      });
+    } else {
+      await api(`/api/direct/${encodeURIComponent(state.selectedThread.id)}/messages`, {
+        method: "POST",
+        body: { text }
+      });
+    }
     input.value = "";
     input.style.height = "auto";
-  });
+    await loadThreadMessages();
+    render();
+  } catch (error) {
+    if (error.code === "announcement_only") {
+      setHint("composer", "Bu kanala sadece yonetim yazabilir.");
+    } else if (error.code === "contact_required") {
+      setHint("composer", "Ozel sohbet icin once ekleme yap.");
+    } else if (error.code === "channel_locked") {
+      setHint("composer", "Bu kanala erisim talebi gerekli.");
+    } else {
+      setHint("composer", "Mesaj gonderilemedi.");
+    }
+    render();
+  }
+}
 
+function wireEvents() {
+  el("loginTab").addEventListener("click", () => setAuthMode("login"));
+  el("registerTab").addEventListener("click", () => setAuthMode("register"));
+  el("authForm").addEventListener("submit", submitAuth);
+  el("profileForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
+      await sendProfile();
+    } catch (error) {
+      if (error.code === "account_rejected") {
+        setHint("profile", "Reddedilen hesap guncellenemez.");
+      } else {
+        setHint("profile", "Profil kaydedilemedi.");
+      }
+      render();
+    }
+  });
+  el("logoutButton").addEventListener("click", logout);
+  el("pendingRefreshButton").addEventListener("click", async () => {
+    try {
+      await loadSession();
+      if (isApproved(state.user)) {
+        await refreshWorkspace({ refreshSearch: false });
+      }
+      render();
+    } catch {
+      render();
+    }
+  });
+  el("refreshButton").addEventListener("click", async () => {
+    try {
+      await loadSession();
+      if (isApproved(state.user)) {
+        await refreshWorkspace();
+      } else {
+        render();
+      }
+    } catch {
+      render();
+    }
+  });
+  el("reloadChannelsButton").addEventListener("click", async () => {
+    if (!isApproved(state.user)) return;
+    await refreshWorkspace();
+  });
+  el("channelRequestButton").addEventListener("click", async () => {
+    if (!isApproved(state.user)) return;
+    try {
+      await requestChannelAccess();
+    } catch (error) {
+      if (error.code === "general_channel_auto_membership") {
+        setHint("composer", "Genel kanal zaten herkese acik.");
+      } else {
+        setHint("composer", "Erisim talebi gonderilemedi.");
+      }
+      render();
+    }
+  });
+  el("messageForm").addEventListener("submit", submitMessage);
   el("messageInput").addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       el("messageForm").requestSubmit();
     }
   });
-
   el("messageInput").addEventListener("input", (event) => {
     event.target.style.height = "auto";
-    event.target.style.height = `${Math.min(event.target.scrollHeight, 160)}px`;
+    event.target.style.height = `${Math.min(event.target.scrollHeight, 190)}px`;
   });
-
-  el("clearChannelButton").addEventListener("click", clearActiveChannel);
-  el("newChannelButton").addEventListener("click", createChannel);
-  el("shareButton").addEventListener("click", async () => {
-    const text = `${location.origin}${APP_PATH}`;
-    try {
-      await navigator.clipboard.writeText(text);
-      el("shareButton").textContent = "Kopyalandı";
-      setTimeout(() => {
-        el("shareButton").textContent = "Bağlantıyı kopyala";
-      }, 1400);
-    } catch {
-      window.prompt("Bu bağlantıyı paylaş:", text);
+  el("profilePhone").addEventListener("input", () => setHint("profile", "Telefon ve e-posta opsiyonel."));
+  el("profileEmail").addEventListener("input", () => setHint("profile", "Telefon ve e-posta opsiyonel."));
+  el("profileNotes").addEventListener("input", () => setHint("profile", "Telefon ve e-posta opsiyonel."));
+  el("searchInput").addEventListener("input", (event) => {
+    clearTimeout(state.searchTimer);
+    const query = event.target.value;
+    state.searchTimer = setTimeout(() => {
+      searchUsers(query).catch(() => {
+        state.searchResults = [];
+        render();
+      });
+    }, SEARCH_DEBOUNCE_MS);
+  });
+  window.addEventListener("focus", syncWorkspaceIfVisible);
+  window.addEventListener("online", syncWorkspaceIfVisible);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      syncWorkspaceIfVisible();
     }
   });
-
-  window.addEventListener("online", persistAndRender);
-  window.addEventListener("offline", persistAndRender);
 }
 
-function boot() {
-  loadState();
-  hydrateBroadcast();
-  setupEvents();
-  registerServiceWorker();
-  renderAll();
-  updateOverlayVisibility();
-
-  if (!state.username) {
-    el("usernameInput").focus();
-  } else {
-    el("messageInput").focus();
+async function syncWorkspaceIfVisible() {
+  if (!isApproved(state.user) || document.visibilityState === "hidden") return;
+  try {
+    await refreshWorkspace({ refreshSearch: Boolean(state.searchQuery.trim()) });
+  } catch {
+    // Best effort only.
   }
 }
 
-boot();
+async function bootstrap() {
+  wireEvents();
+  render();
+  await clearLegacyOfflineState();
+
+  try {
+    await loadSession();
+  } catch {
+    applySessionUser(null);
+    resetWorkspaceState();
+  }
+
+  if (isApproved(state.user)) {
+    await refreshWorkspace({ refreshSearch: false });
+  } else {
+    render();
+  }
+
+  state.syncTimer = setInterval(() => {
+    if (document.visibilityState === "visible" && isApproved(state.user)) {
+      syncWorkspaceIfVisible();
+    }
+  }, AUTO_REFRESH_MS);
+}
+
+bootstrap();

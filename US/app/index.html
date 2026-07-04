@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
     <meta
       name="description"
-      content="CAPY, kurum ici iletisim icin kullanici adi ile girilen, telefon ve e-posta toplamayan PWA sohbet uygulamasidir."
+      content="CAPY, username ve password ile girilen, admin onayli, kapali forum mantiginda kurum ici sohbet alanidir."
     />
     <meta name="theme-color" content="#07131f" />
-    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>CAPY | Giris</title>
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="./icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,132 +18,215 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./app.css" />
-    <title>CAPY</title>
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
-        <div class="brand-block">
+        <section class="brand-card">
           <div class="brand-mark">mp</div>
           <div>
             <strong>CAPY</strong>
-            <span>Telefon yok. E-posta yok.</span>
+            <span>Kapali forum sohbet</span>
           </div>
-        </div>
+        </section>
 
-        <div class="panel">
-          <div class="panel-head">
+        <section class="card user-card hidden" id="userCard">
+          <div class="profile-top">
+            <div class="avatar" id="userAvatar">MP</div>
+            <div>
+              <strong id="userName">Kullanici</strong>
+              <span id="userStatus">Durum</span>
+            </div>
+          </div>
+          <p class="muted" id="userMeta">Henuz giris yapilmadi.</p>
+          <div class="card-actions">
+            <button class="button ghost" id="logoutButton" type="button">Cikis yap</button>
+            <a class="button ghost hidden" id="adminLink" href="/US/admin/">Admin konsolu</a>
+          </div>
+        </section>
+
+        <section class="card profile-card hidden" id="profileCard">
+          <div class="card-head">
+            <span>Profil</span>
+            <span class="badge">Opsiyonel</span>
+          </div>
+          <form id="profileForm" class="stack">
+            <label>
+              <span>Telefon</span>
+              <input id="profilePhone" type="text" placeholder="opsiyonel" autocomplete="tel" />
+            </label>
+            <label>
+              <span>E-posta</span>
+              <input id="profileEmail" type="email" placeholder="opsiyonel" autocomplete="email" />
+            </label>
+            <label>
+              <span>Diger bilgi</span>
+              <textarea id="profileNotes" rows="3" placeholder="opsiyonel"></textarea>
+            </label>
+            <button class="button primary" id="profileSaveButton" type="submit">Profili kaydet</button>
+          </form>
+          <p class="muted small" id="profileHint">Bu alanlar zorunlu degil. Sadece hesap kurtarma veya ek bilgi icin kullanilir.</p>
+        </section>
+
+        <section class="card channels-card hidden" id="channelsCard">
+          <div class="card-head">
             <span>Kanallar</span>
-            <button class="ghost-button" id="newChannelButton" type="button">+ Ekle</button>
+            <span class="badge" id="channelCount">0</span>
           </div>
-          <div class="channel-list" id="channelList" aria-label="Kanal listesi"></div>
-        </div>
+          <div id="channelsList" class="channels-list"></div>
+        </section>
 
-        <div class="panel">
-          <div class="panel-head">
-            <span>Takım</span>
-            <span class="mini-note">Yerel demo</span>
+        <section class="card people-card hidden" id="peopleCard">
+          <div class="card-head">
+            <span>Kişiler</span>
+            <span class="badge" id="contactCount">0</span>
           </div>
-          <div class="member-list" id="memberList"></div>
-        </div>
-
-        <div class="panel privacy-panel">
-          <strong>Gizlilik</strong>
-          <p>
-            Kayıt alanı yalnızca kullanıcı adı ister. Bu sürümde telefon numarası, e-posta veya üçüncü taraf
-            takip formu yoktur.
-          </p>
-        </div>
+          <label class="search-wrap" for="searchInput">
+            <span>İnsan ara</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Kullanıcı adıyla ara"
+              autocomplete="off"
+            />
+          </label>
+          <div id="searchResults" class="people-list"></div>
+          <div class="people-divider"></div>
+          <div class="card-head compact">
+            <span>Özel sohbetler</span>
+            <span class="badge">DM</span>
+          </div>
+          <div id="contactsList" class="people-list"></div>
+        </section>
       </aside>
 
       <main class="workspace">
         <header class="topbar">
           <div>
-            <p class="eyebrow">Kurum içi iletişim</p>
-            <h1 id="channelTitle">Genel</h1>
+            <p class="eyebrow">Kurum ici sohbet</p>
+            <h1 id="pageTitle">Giris yap</h1>
+            <p class="muted" id="pageSubtitle">Username ve password ile gir. Admin onayi olmadan kanallara ulasilmaz.</p>
           </div>
           <div class="top-actions">
-            <span class="status-pill" id="connectionPill">Senkron aktif</span>
-            <button class="ghost-button" id="shareButton" type="button">Bağlantıyı kopyala</button>
+            <span class="status-pill" id="sessionBadge">Cikis</span>
+            <button class="button ghost" id="refreshButton" type="button">Yenile</button>
           </div>
         </header>
 
-        <section class="hero-card" id="heroCard">
-          <div>
-            <span class="badge">Kullanıcı adı ile giriş</span>
-            <h2 id="welcomeTitle">Hoş geldin.</h2>
-            <p id="welcomeCopy">
-              Kurum içi sohbet akışına geçmek için sadece kullanıcı adıyla giriş yap.
+        <section class="panel auth-panel" id="authView">
+          <div class="panel-copy">
+            <span class="badge">Kapali alan</span>
+            <h2>Mail, telefon, davet linki yok.</h2>
+            <p>
+              Uye olmak icin sadece username ve password yeterli. Kayit talebi admin onayina duser.
+              Onaydan sonra kanallara erisim talep edebilirsin.
             </p>
           </div>
-          <div class="hero-stats">
-            <div>
-              <strong id="messageCount">0</strong>
-              <span>Mesaj</span>
+
+          <div class="auth-card">
+            <div class="segmented" role="tablist" aria-label="Giris tipi">
+              <button class="segmented-btn active" id="loginTab" type="button">Giris</button>
+              <button class="segmented-btn" id="registerTab" type="button">Uye ol</button>
             </div>
-            <div>
-              <strong id="memberCount">0</strong>
-              <span>Çevrimiçi</span>
-            </div>
-            <div>
-              <strong>0</strong>
-              <span>Telefon / e-posta</span>
-            </div>
+
+            <form id="authForm" class="stack">
+              <label>
+                <span>Kullanici adi</span>
+                <input id="authUsername" type="text" autocomplete="username" maxlength="32" />
+              </label>
+              <label>
+                <span>Sifre</span>
+                <input id="authPassword" type="password" autocomplete="current-password" minlength="6" />
+              </label>
+              <div id="optionalSignupFields" class="stack hidden">
+                <label>
+                  <span>Telefon (opsiyonel)</span>
+                  <input id="authPhone" type="text" autocomplete="tel" />
+                </label>
+                <label>
+                  <span>E-posta (opsiyonel)</span>
+                  <input id="authEmail" type="email" autocomplete="email" />
+                </label>
+                <label>
+                  <span>Diger bilgi (opsiyonel)</span>
+                  <textarea id="authNotes" rows="3"></textarea>
+                </label>
+              </div>
+              <button class="button primary" id="authSubmit" type="submit">Giris yap</button>
+            </form>
+            <p class="muted small" id="authHint">Kayit talebin admin onayina gider.</p>
           </div>
         </section>
 
-        <section class="conversation-card">
-          <div class="conversation-head">
+        <section class="panel pending-panel hidden" id="pendingView">
+          <div class="panel-copy">
+            <span class="badge">Onay bekliyor</span>
+            <h2>Uyelik talebin admin onayinda.</h2>
+            <p>
+              Hesabin acilmadan kanal listesi ve mesajlasma aktif olmaz. Istersen asagidaki opsiyonel profil
+              alanlarini doldurup kaydini guncelleyebilirsin.
+            </p>
+          </div>
+          <div class="pending-card">
+            <p class="muted" id="pendingText"></p>
+            <button class="button ghost" id="pendingRefreshButton" type="button">Durumu yenile</button>
+          </div>
+        </section>
+
+        <section class="chat-layout hidden" id="chatView">
+          <div class="chat-header">
             <div>
-              <p class="eyebrow">Sohbet</p>
-              <h3 id="conversationTitle">Genel kanal</h3>
+              <span class="badge" id="channelBadge">Kanal</span>
+              <h2 id="channelTitle">Genel</h2>
+              <p class="muted" id="channelDescription">Kanal aciklamasi</p>
             </div>
-            <div class="conversation-actions">
-              <button class="ghost-button" id="clearChannelButton" type="button">Kanaldaki mesajları sil</button>
+            <div class="chat-actions">
+              <button class="button ghost" id="channelRequestButton" type="button">Erişim talep et</button>
+              <button class="button ghost" id="reloadChannelsButton" type="button">Kanallari yenile</button>
             </div>
           </div>
 
-          <div class="message-list" id="messageList" aria-live="polite"></div>
+          <div class="chat-body">
+            <section class="message-panel">
+              <div id="messageList" class="message-list" aria-live="polite"></div>
 
-          <form class="composer" id="messageForm">
-            <label class="sr-only" for="messageInput">Mesaj</label>
-            <textarea
-              id="messageInput"
-              rows="1"
-              placeholder="Mesajını yaz. Enter gönderir, Shift+Enter yeni satır açar."
-            ></textarea>
-            <button class="send-button" type="submit">Gönder</button>
-          </form>
+              <form id="messageForm" class="composer">
+                <label class="sr-only" for="messageInput">Mesaj</label>
+                <textarea
+                  id="messageInput"
+                  rows="1"
+                  placeholder="Mesajini yaz. Enter gonderir, Shift+Enter yeni satir acar."
+                ></textarea>
+                <button class="button primary" type="submit">Gonder</button>
+              </form>
+              <p class="muted small" id="composerHint"></p>
+            </section>
+          </div>
         </section>
       </main>
     </div>
 
-    <div class="overlay" id="signInOverlay" role="dialog" aria-modal="true" aria-labelledby="signInTitle">
-      <form class="signin-card" id="signInForm">
-        <div class="brand-mark large">mp</div>
-        <p class="eyebrow">Yeni oturum</p>
-        <h2 id="signInTitle">Sadece kullanıcı adıyla gir.</h2>
-        <p>
-          Telefon, e-posta veya sosyal giriş yok. Kurum içi kullanım için sade bir başlangıç.
-        </p>
-        <label for="usernameInput">Kullanıcı adı</label>
-        <input id="usernameInput" type="text" autocomplete="nickname" maxlength="24" placeholder="ör. koray" />
-        <button class="send-button" type="submit">Sohbete başla</button>
-      </form>
-    </div>
-
     <template id="messageTemplate">
       <article class="message">
-        <div class="avatar"></div>
-        <div class="bubble">
+        <div class="message-avatar"></div>
+        <div class="message-body">
           <div class="message-meta">
-            <strong class="author"></strong>
-            <span class="time"></span>
+            <strong class="message-author"></strong>
+            <span class="message-time"></span>
           </div>
-          <p class="content"></p>
-          <div class="reactions"></div>
+          <p class="message-text"></p>
         </div>
       </article>
+    </template>
+
+    <template id="channelTemplate">
+      <button class="channel-item" type="button">
+        <div>
+          <strong class="channel-name"></strong>
+          <span class="channel-description"></span>
+        </div>
+        <span class="channel-pill"></span>
+      </button>
     </template>
 
     <script type="module" src="./app.js"></script>

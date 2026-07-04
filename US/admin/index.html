@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="CAPY admin konsolu: kullanici talepleri, kanal istekleri ve kanal olusturma tek panelde."
+    />
+    <meta name="theme-color" content="#07131f" />
+    <title>CAPY Admin</title>
+    <link rel="icon" href="/US/app/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="/US/" aria-label="CAPY">
+          <div class="brand-mark">mp</div>
+          <div class="brand-copy">
+            <strong>CAPY Admin</strong>
+            <span>Yalnizca yonetim</span>
+          </div>
+        </a>
+        <div class="top-actions">
+          <span class="status-pill" id="adminBadge">Cikis</span>
+          <button class="button ghost" id="refreshButton" type="button">Yenile</button>
+          <a class="button ghost" id="backToApp" href="/US/app/">Uygulamaya don</a>
+          <button class="button ghost hidden" id="logoutButton" type="button">Cikis yap</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel auth-panel" id="loginPanel">
+          <div class="panel-copy">
+            <span class="badge">Admin only</span>
+            <h1>Yonetim konsolu</h1>
+            <p>
+              Bu alanda sadece admin hesabiyla giris yapilabilir. Uye talepleri, kanal talepleri ve yeni kanal
+              olusturma islemleri buradan yonetilir.
+            </p>
+          </div>
+
+          <form class="auth-card" id="adminLoginForm">
+            <label>
+              <span>Kullanici adi</span>
+              <input id="adminUsername" type="text" autocomplete="username" />
+            </label>
+            <label>
+              <span>Sifre</span>
+              <input id="adminPassword" type="password" autocomplete="current-password" />
+            </label>
+            <button class="button primary" type="submit">Admin girişi</button>
+            <p class="muted small" id="adminHint">Sadece admin hesabi bu sayfayi kullanabilir.</p>
+          </form>
+        </section>
+
+        <section class="dashboard hidden" id="dashboardPanel">
+          <section class="summary-grid">
+            <article class="stat-card">
+              <span>Bekleyen uye</span>
+              <strong id="pendingUsersCount">0</strong>
+              <small>Onay sirasi</small>
+            </article>
+            <article class="stat-card">
+              <span>Kanal talepleri</span>
+              <strong id="pendingRequestsCount">0</strong>
+              <small>Gozden gecirilecek</small>
+            </article>
+            <article class="stat-card">
+              <span>Toplam kanal</span>
+              <strong id="channelsCount">0</strong>
+              <small>Yonetim tarafindan</small>
+            </article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="panel queue-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Uyelik talepleri</span>
+                  <h2>Bekleyen kullanicilar</h2>
+                </div>
+                <span class="badge" id="pendingUsersBadge">0</span>
+              </div>
+              <div id="pendingUsersList" class="stack-list"></div>
+            </article>
+
+            <article class="panel queue-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Kanal talepleri</span>
+                  <h2>Gelen istekler</h2>
+                </div>
+                <span class="badge" id="pendingRequestsBadge">0</span>
+              </div>
+              <div id="pendingRequestsList" class="stack-list"></div>
+            </article>
+          </section>
+
+          <section class="dashboard-grid bottom">
+            <article class="panel manage-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Kanal olusturma</span>
+                  <h2>Yeni kanal ekle</h2>
+                </div>
+                <span class="tag">Sadece admin</span>
+              </div>
+
+              <form class="stack" id="createChannelForm">
+                <label>
+                  <span>Kanal adi</span>
+                  <input id="channelName" type="text" maxlength="80" placeholder="Ornek: Proje X" />
+                </label>
+                <label>
+                  <span>Kanal id</span>
+                  <input id="channelId" type="text" maxlength="32" placeholder="bos birakilirsa addan uretilir" />
+                </label>
+                <label>
+                  <span>Aciklama</span>
+                  <textarea id="channelDescription" rows="3" placeholder="Kisa aciklama"></textarea>
+                </label>
+                <label class="checkbox">
+                  <input id="channelReadOnly" type="checkbox" />
+                  <span>Salt okunur kanal</span>
+                </label>
+                <button class="button primary" type="submit">Kanal olustur</button>
+                <p class="muted small" id="createChannelHint">Buradan hic kimse kanal acamaz; sadece admin.</p>
+              </form>
+            </article>
+
+            <article class="panel manage-panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Kanal listesi</span>
+                  <h2>Mevcut kanallar</h2>
+                </div>
+                <span class="badge" id="channelsBadge">0</span>
+              </div>
+              <div id="channelsList" class="stack-list"></div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./admin.js"></script>
+  </body>
+</html>

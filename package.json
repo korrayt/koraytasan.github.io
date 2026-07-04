@@ -1,0 +1,9 @@
+{
+  "name": "koraytasancom",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node US/server.mjs",
+    "smoke": "node US/scripts/smoke.mjs"
+  }
+}
