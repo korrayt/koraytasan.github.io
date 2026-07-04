@@ -18,6 +18,14 @@ const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 30;
 const PBKDF2_ITERATIONS = 120000;
 const PBKDF2_KEYLEN = 64;
 const PBKDF2_DIGEST = "sha512";
+const COOKIE_SAME_SITE = process.env.CAPY_COOKIE_SAMESITE || "Lax";
+const COOKIE_SECURE = /^1|true$/i.test(String(process.env.CAPY_COOKIE_SECURE || ""));
+const ALLOWED_ORIGINS = new Set([
+  "https://koraytasan.com",
+  "https://www.koraytasan.com",
+  "http://localhost:4173",
+  "http://127.0.0.1:4173"
+]);
 
 const DEFAULT_CHANNELS = [
   {
@@ -291,14 +299,17 @@ function setCookie(res, name, value, options = {}) {
   const pieces = [`${name}=${value}`];
   pieces.push("Path=/");
   pieces.push("HttpOnly");
-  pieces.push("SameSite=Lax");
+  pieces.push(`SameSite=${options.sameSite || COOKIE_SAME_SITE}`);
   if (options.maxAge) pieces.push(`Max-Age=${options.maxAge}`);
-  if (options.secure) pieces.push("Secure");
+  if (options.secure ?? COOKIE_SECURE) pieces.push("Secure");
   res.setHeader("Set-Cookie", pieces.join("; "));
 }
 
 function clearCookie(res, name) {
-  res.setHeader("Set-Cookie", `${name}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`);
+  res.setHeader(
+    "Set-Cookie",
+    `${name}=; Path=/; HttpOnly; SameSite=${COOKIE_SAME_SITE}; Max-Age=0${COOKIE_SECURE ? "; Secure" : ""}`
+  );
 }
 
 function parseJsonBody(req) {
@@ -346,6 +357,19 @@ function sendText(res, statusCode, text, contentType = "text/plain; charset=utf-
     ...extraHeaders
   });
   res.end(text);
+}
+
+function corsHeaders(req) {
+  const origin = req.headers.origin || "";
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) return {};
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "GET,POST,PATCH,OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin"
+  };
 }
 
 function assertApproved(user) {
@@ -1153,6 +1177,16 @@ async function handleStatic(req, res, pathname) {
 
 async function handleApi(req, res, pathname, url) {
   try {
+    const cors = corsHeaders(req);
+    for (const [key, value] of Object.entries(cors)) {
+      res.setHeader(key, value);
+    }
+    if (req.method === "OPTIONS") {
+      res.writeHead(204, { "Cache-Control": "no-store" });
+      res.end();
+      return;
+    }
+
     if (req.method === "GET" && pathname === "/api/health") {
       handleHealth(req, res);
       return;

@@ -3,6 +3,11 @@ const state = {
   queue: null,
   hint: "Sadece admin hesabi bu sayfayi kullanabilir."
 };
+const API_BASE_URL = (
+  window.CAPY_API_BASE_URL ||
+  document.querySelector('meta[name="capy-api-base"]')?.content ||
+  window.location.origin
+).replace(/\/+$/, "");
 
 const el = (id) => document.getElementById(id);
 
@@ -19,9 +24,11 @@ function cleanHandle(value) {
 }
 
 async function api(path, options = {}) {
-  const response = await fetch(path, {
+  const target = String(path || "");
+  const url = /^https?:\/\//i.test(target) ? target : new URL(target, `${API_BASE_URL}/`).toString();
+  const response = await fetch(url, {
     method: options.method || "GET",
-    credentials: "same-origin",
+    credentials: "include",
     headers: {
       ...(options.body ? { "Content-Type": "application/json" } : {}),
       ...(options.headers || {})
