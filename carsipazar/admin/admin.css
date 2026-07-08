@@ -186,6 +186,31 @@ button, input, textarea, select { font: inherit; }
   color: var(--muted);
 }
 
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.status-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.status-card strong {
+  font-family: var(--font-display);
+}
+
+.status-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .iban-line strong {
   color: var(--text);
   letter-spacing: 0.02em;
@@ -312,6 +337,7 @@ code {
 @media (max-width: 980px) {
   .hero,
   .grid,
+  .status-grid,
   .three-col {
     grid-template-columns: 1fr;
   }

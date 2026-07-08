@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node US/server.mjs",
-    "smoke": "node US/scripts/smoke.mjs"
+    "smoke": "node US/scripts/smoke.mjs",
+    "smoke:carsipazar": "node carsipazar/scripts/smoke.mjs",
+    "check:carsipazar": "node --check carsipazar/assets/store.js && node --check carsipazar/admin/admin.js && node carsipazar/scripts/smoke.mjs"
   }
 }
