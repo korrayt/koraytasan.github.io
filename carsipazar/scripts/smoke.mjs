@@ -24,8 +24,11 @@ const requiredChecks = [
   ["fixedCustomers", "TEST SİPARİŞİ - GERÇEK ÖDEME/KARGO YOK"],
   ["fixedCustomers", "createOrdersForCycle"],
   ["fixedCustomers", "verifyLiveStorefront"],
+  ["fixedCustomers", "extractProductsFromStoreScript"],
+  ["fixedCustomers", "productsSource"],
   ["packageJson", "fixed-customers:carsipazar"],
-  ["packageJson", "fixed-customers:carsipazar:live"]
+  ["packageJson", "fixed-customers:carsipazar:live"],
+  ["packageJson", "fixed-customers:carsipazar:loop:test"]
 ];
 
 async function run() {

@@ -54,7 +54,7 @@ export const FIXED_CUSTOMERS = [
   }
 ];
 
-const TEST_PRODUCTS = [
+const FALLBACK_PRODUCTS = [
   { id: "vacum-set", name: "Vakumlu Depolama Seti", price: 24.9, shipping: "7-12 gün" },
   { id: "phone-stand", name: "Katlanır Telefon Standı", price: 17.5, shipping: "6-10 gün" },
   { id: "bottle", name: "Minimal Termos Matarası", price: 19.2, shipping: "8-14 gün" },
@@ -80,9 +80,24 @@ function timestampForReference(date = new Date()) {
   return date.toISOString().replace(/\D/g, "").slice(0, 14);
 }
 
-function buildCartForCustomer(customerIndex, cycleIndex) {
-  const first = TEST_PRODUCTS[(customerIndex + cycleIndex) % TEST_PRODUCTS.length];
-  const second = TEST_PRODUCTS[(customerIndex + cycleIndex + 2) % TEST_PRODUCTS.length];
+function normalizeProduct(product) {
+  return {
+    id: String(product.id || "").trim(),
+    name: String(product.name || "").trim(),
+    price: Number(product.price || 0),
+    shipping: String(product.shipping || "7-14 gün").trim() || "7-14 gün"
+  };
+}
+
+function safeProducts(products) {
+  const normalized = products.map((product) => normalizeProduct(product)).filter((product) => product.id && product.name);
+  return normalized.length ? normalized : FALLBACK_PRODUCTS;
+}
+
+function buildCartForCustomer(customerIndex, cycleIndex, products = FALLBACK_PRODUCTS) {
+  const productPool = safeProducts(products);
+  const first = productPool[(customerIndex + cycleIndex) % productPool.length];
+  const second = productPool[(customerIndex + cycleIndex + 2) % productPool.length];
   const firstQty = ((customerIndex + cycleIndex) % 3) + 1;
   const includeSecond = (customerIndex + cycleIndex) % 2 === 0;
   const cart = [{ ...first, qty: firstQty }];
@@ -140,9 +155,9 @@ function buildIssueBody(order) {
   ].join("\n");
 }
 
-export function createOrdersForCycle(cycleIndex, date = new Date()) {
+export function createOrdersForCycle(cycleIndex, date = new Date(), products = FALLBACK_PRODUCTS, productsSource = "fallback-products") {
   return FIXED_CUSTOMERS.map((customer, customerIndex) => {
-    const cart = buildCartForCustomer(customerIndex, cycleIndex);
+    const cart = buildCartForCustomer(customerIndex, cycleIndex, products);
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
     const shipping = shippingFor(subtotal, customer.country);
     const paymentReference = `TEST-CARSIPAZAR-${cycleIndex + 1}-${customer.id}-${timestampForReference(date)}`;
@@ -151,6 +166,7 @@ export function createOrdersForCycle(cycleIndex, date = new Date()) {
       notice: TEST_NOTICE,
       cycle: cycleIndex + 1,
       customer,
+      productsSource,
       cart,
       subtotal,
       shipping,
@@ -177,6 +193,7 @@ function parseArgs(argv) {
     assert: false,
     createIssues: false,
     verifyLive: false,
+    maxCycles: null,
     siteUrl: "https://koraytasan.com/carsipazar/",
     repo: "korrayt/koraytasan.github.io"
   };
@@ -199,6 +216,10 @@ function parseArgs(argv) {
       options.intervalMs = Number(nextValue);
       if (inlineValue === undefined) index += 1;
     }
+    if (name === "--max-cycles") {
+      options.maxCycles = Number(nextValue);
+      if (inlineValue === undefined) index += 1;
+    }
     if (name === "--repo") {
       options.repo = String(nextValue || options.repo);
       if (inlineValue === undefined) index += 1;
@@ -215,11 +236,31 @@ function parseArgs(argv) {
   if (!Number.isInteger(options.intervalMs) || options.intervalMs < 1000) {
     throw new Error("--interval-ms değeri en az 1000 olmalı.");
   }
+  if (options.maxCycles !== null && (!Number.isInteger(options.maxCycles) || options.maxCycles < 1)) {
+    throw new Error("--max-cycles değeri 1 veya daha büyük bir tam sayı olmalı.");
+  }
+  if (options.loop && options.assert && options.maxCycles === null) {
+    throw new Error("--loop ve --assert birlikte kullanılırsa --max-cycles verilmelidir.");
+  }
   if (options.loop && options.createIssues && process.env.CARSIPAZAR_ALLOW_LIVE_LOOP !== "YES") {
     throw new Error("--loop ile GitHub issue açmak için CARSIPAZAR_ALLOW_LIVE_LOOP=YES gerekir.");
   }
 
   return options;
+}
+
+export function extractProductsFromStoreScript(storeScript) {
+  const match = storeScript.match(/const\s+DEFAULT_PRODUCTS\s*=\s*(\[[\s\S]*?\n\];)/);
+  if (!match) {
+    throw new Error("DEFAULT_PRODUCTS listesi canlı store.js içinde bulunamadı.");
+  }
+
+  const products = Function(`"use strict"; return (${match[1].replace(/;$/, "")});`)();
+  if (!Array.isArray(products) || products.length === 0) {
+    throw new Error("DEFAULT_PRODUCTS listesi boş veya geçersiz.");
+  }
+
+  return safeProducts(products);
 }
 
 export async function verifyLiveStorefront(siteUrl = "https://koraytasan.com/carsipazar/") {
@@ -236,13 +277,15 @@ export async function verifyLiveStorefront(siteUrl = "https://koraytasan.com/car
   ]);
 
   const [pageHtml, storeScript] = await Promise.all([pageResponse.text(), scriptResponse.text()]);
+  const products = extractProductsFromStoreScript(storeScript);
   const checks = [
     ["storefront status", pageResponse.ok],
     ["store script status", scriptResponse.ok],
     ["IBAN", pageHtml.includes(PAYMENT_IBAN) || storeScript.includes(PAYMENT_IBAN)],
     ["payment reference field", pageHtml.includes("paymentReference")],
     ["default products", storeScript.includes("DEFAULT_PRODUCTS")],
-    ["issue flow", storeScript.includes("buildIssueBody")]
+    ["issue flow", storeScript.includes("buildIssueBody")],
+    ["live product count", products.length >= 1]
   ];
   const missing = checks.filter(([, ok]) => !ok).map(([label]) => label);
 
@@ -253,6 +296,7 @@ export async function verifyLiveStorefront(siteUrl = "https://koraytasan.com/car
   return {
     pageUrl: pageUrl.toString(),
     scriptUrl: scriptUrl.toString(),
+    products,
     checks: checks.map(([label]) => label)
   };
 }
@@ -288,17 +332,22 @@ async function run() {
   const options = parseArgs(process.argv.slice(2));
   let cycleIndex = 0;
   const allOrders = [];
+  let activeProducts = FALLBACK_PRODUCTS;
+  let productsSource = "fallback-products";
 
   if (options.verifyLive) {
     const live = await verifyLiveStorefront(options.siteUrl);
+    activeProducts = live.products;
+    productsSource = "live-storefront";
     if (!options.json && !options.assert) {
       console.log(`Canlı storefront doğrulandı: ${live.pageUrl}`);
       console.log(`Canlı store.js doğrulandı: ${live.scriptUrl}`);
+      console.log(`Canlı ürün listesi kullanılıyor: ${activeProducts.length} ürün.`);
     }
   }
 
   while (options.loop || cycleIndex < options.cycles) {
-    const orders = createOrdersForCycle(cycleIndex);
+    const orders = createOrdersForCycle(cycleIndex, new Date(), activeProducts, productsSource);
     const issueUrls = [];
 
     if (options.createIssues) {
@@ -314,17 +363,22 @@ async function run() {
     }
 
     cycleIndex += 1;
+    if (options.loop && options.maxCycles !== null && cycleIndex >= options.maxCycles) break;
     if (!options.loop && cycleIndex >= options.cycles) break;
     await wait(options.intervalMs);
   }
 
   if (options.assert) {
-    const expected = options.cycles * FIXED_CUSTOMERS.length;
+    const expectedCycles = options.loop ? options.maxCycles : options.cycles;
+    const expected = expectedCycles * FIXED_CUSTOMERS.length;
     if (allOrders.length !== expected) {
       throw new Error(`Expected ${expected} generated orders, got ${allOrders.length}.`);
     }
     if (allOrders.some((order) => !order.test || !order.body.includes(TEST_NOTICE))) {
       throw new Error("Generated orders must be marked as test orders.");
+    }
+    if (options.verifyLive && allOrders.some((order) => order.productsSource !== "live-storefront")) {
+      throw new Error("Live verification mode must use live storefront products.");
     }
     console.log(`CarsiPazar fixed customer assertion passed: ${allOrders.length} test orders.`);
   }
@@ -334,6 +388,7 @@ async function run() {
       JSON.stringify(
         {
           mode: options.createIssues ? "test-issues" : "dry-run",
+          productsSource,
           customers: FIXED_CUSTOMERS.length,
           cycles: cycleIndex,
           orders: allOrders
