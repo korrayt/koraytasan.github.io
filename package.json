@@ -9,9 +9,13 @@
     "fixed-customers:carsipazar": "node carsipazar/scripts/fixed-customers.mjs --cycles=1",
     "fixed-customers:carsipazar:json": "node carsipazar/scripts/fixed-customers.mjs --cycles=1 --json",
     "fixed-customers:carsipazar:live": "node carsipazar/scripts/fixed-customers.mjs --verify-live --cycles=1",
-    "fixed-customers:carsipazar:loop": "node carsipazar/scripts/fixed-customers.mjs --loop --interval-ms=30000",
-    "fixed-customers:carsipazar:loop:test": "node carsipazar/scripts/fixed-customers.mjs --verify-live --loop --max-cycles=2 --interval-ms=1000 --assert",
+    "fixed-customers:carsipazar:browser": "node carsipazar/scripts/fixed-customers.mjs --browser-flow --cycles=1",
+    "fixed-customers:carsipazar:loop": "node carsipazar/scripts/fixed-customers.mjs --browser-flow --loop --interval-ms=30000",
+    "fixed-customers:carsipazar:loop:test": "node carsipazar/scripts/fixed-customers.mjs --browser-flow --loop --max-cycles=2 --interval-ms=1000 --assert",
     "fixed-customers:carsipazar:issues": "node carsipazar/scripts/fixed-customers.mjs --cycles=1 --create-issues",
-    "check:carsipazar": "node --check carsipazar/assets/store.js && node --check carsipazar/admin/admin.js && node --check carsipazar/scripts/fixed-customers.mjs && node carsipazar/scripts/smoke.mjs && node carsipazar/scripts/fixed-customers.mjs --cycles=1 --assert"
+    "check:carsipazar": "node --check carsipazar/assets/store.js && node --check carsipazar/admin/admin.js && node --check carsipazar/scripts/fixed-customers.mjs && node carsipazar/scripts/smoke.mjs && node carsipazar/scripts/fixed-customers.mjs --cycles=1 --assert && node carsipazar/scripts/fixed-customers.mjs --browser-flow --cycles=1 --assert"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
   }
 }

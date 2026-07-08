@@ -1,7 +1,9 @@
 import { spawnSync } from "node:child_process";
+import { JSDOM } from "jsdom";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
+const REPO_ISSUE_URL = "https://github.com/korrayt/koraytasan.github.io/issues/new";
 const PAYMENT_ACCOUNT_NAME = "Soner Koray Taşan";
 const PAYMENT_IBAN = "TR55 0082 9000 0949 1625 1758 65";
 const TEST_NOTICE = "TEST SİPARİŞİ - GERÇEK ÖDEME/KARGO YOK";
@@ -193,6 +195,7 @@ function parseArgs(argv) {
     assert: false,
     createIssues: false,
     verifyLive: false,
+    browserFlow: false,
     maxCycles: null,
     siteUrl: "https://koraytasan.com/carsipazar/",
     repo: "korrayt/koraytasan.github.io"
@@ -208,6 +211,7 @@ function parseArgs(argv) {
     if (arg === "--assert") options.assert = true;
     if (arg === "--create-issues") options.createIssues = true;
     if (arg === "--verify-live") options.verifyLive = true;
+    if (arg === "--browser-flow") options.browserFlow = true;
     if (name === "--cycles") {
       options.cycles = Number(nextValue);
       if (inlineValue === undefined) index += 1;
@@ -244,6 +248,9 @@ function parseArgs(argv) {
   }
   if (options.loop && options.createIssues && process.env.CARSIPAZAR_ALLOW_LIVE_LOOP !== "YES") {
     throw new Error("--loop ile GitHub issue açmak için CARSIPAZAR_ALLOW_LIVE_LOOP=YES gerekir.");
+  }
+  if (options.browserFlow) {
+    options.verifyLive = true;
   }
 
   return options;
@@ -313,6 +320,80 @@ function createGitHubIssue(order, repo) {
   return result.stdout.trim();
 }
 
+async function waitFor(condition, label, timeoutMs = 10000) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    if (condition()) return;
+    await wait(50);
+  }
+  throw new Error(`${label} zaman aşımına uğradı.`);
+}
+
+function setInputValue(window, selector, value) {
+  const element = window.document.querySelector(selector);
+  if (!element) throw new Error(`${selector} alanı storefront içinde bulunamadı.`);
+  element.value = value;
+  element.dispatchEvent(new window.Event("input", { bubbles: true }));
+  element.dispatchEvent(new window.Event("change", { bubbles: true }));
+}
+
+export async function simulateStorefrontCheckout(order, siteUrl = "https://koraytasan.com/carsipazar/") {
+  let openedUrl = "";
+  const dom = await JSDOM.fromURL(siteUrl, {
+    pretendToBeVisual: true,
+    resources: "usable",
+    runScripts: "dangerously",
+    beforeParse(window) {
+      window.alert = (message) => {
+        throw new Error(`Storefront alert: ${message}`);
+      };
+      window.open = (url) => {
+        openedUrl = String(url);
+        return null;
+      };
+    }
+  });
+
+  const { window } = dom;
+  await waitFor(
+    () => window.carsipazarReady && window.document.querySelectorAll(".add-to-cart").length > 0,
+    "Storefront ürünleri"
+  );
+
+  for (const item of order.cart) {
+    const button = window.document.querySelector(`.add-to-cart[data-id="${item.id}"]`);
+    if (!button) throw new Error(`${item.id} ürünü storefront içinde bulunamadı.`);
+    for (let count = 0; count < item.qty; count += 1) {
+      button.click();
+    }
+  }
+
+  setInputValue(window, "#fullName", order.customer.fullName);
+  setInputValue(window, "#email", order.customer.email);
+  setInputValue(window, "#phone", order.customer.phone);
+  setInputValue(window, "#country", order.customer.country);
+  setInputValue(window, "#city", order.customer.city);
+  setInputValue(window, "#address", order.customer.address);
+  setInputValue(window, "#note", order.note);
+  setInputValue(window, "#paymentReference", order.paymentReference);
+  setInputValue(window, "#shippingType", "standard");
+
+  const form = window.document.querySelector("#orderForm");
+  if (!form) throw new Error("orderForm storefront içinde bulunamadı.");
+  form.dispatchEvent(new window.Event("submit", { bubbles: true, cancelable: true }));
+
+  if (!openedUrl.startsWith(REPO_ISSUE_URL)) {
+    throw new Error("Storefront checkout GitHub issue URL'si üretmedi.");
+  }
+
+  dom.window.close();
+  return {
+    issueUrl: openedUrl,
+    cartLineCount: order.cart.length,
+    productsSource: order.productsSource
+  };
+}
+
 function printHumanSummary(cycle, orders, issueUrls = []) {
   console.log(`CarsiPazar sabit müşteri döngüsü ${cycle}: ${orders.length} TEST sipariş üretildi.`);
   orders.forEach((order, index) => {
@@ -350,6 +431,13 @@ async function run() {
     const orders = createOrdersForCycle(cycleIndex, new Date(), activeProducts, productsSource);
     const issueUrls = [];
 
+    if (options.browserFlow) {
+      for (const order of orders) {
+        const browserResult = await simulateStorefrontCheckout(order, options.siteUrl);
+        issueUrls.push(browserResult.issueUrl);
+      }
+    }
+
     if (options.createIssues) {
       for (const order of orders) {
         issueUrls.push(createGitHubIssue(order, options.repo));
@@ -379,6 +467,9 @@ async function run() {
     }
     if (options.verifyLive && allOrders.some((order) => order.productsSource !== "live-storefront")) {
       throw new Error("Live verification mode must use live storefront products.");
+    }
+    if (options.browserFlow && allOrders.some((order) => !order.issueUrl?.startsWith(REPO_ISSUE_URL))) {
+      throw new Error("Browser flow must produce GitHub issue URLs.");
     }
     console.log(`CarsiPazar fixed customer assertion passed: ${allOrders.length} test orders.`);
   }

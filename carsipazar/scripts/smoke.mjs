@@ -25,10 +25,13 @@ const requiredChecks = [
   ["fixedCustomers", "createOrdersForCycle"],
   ["fixedCustomers", "verifyLiveStorefront"],
   ["fixedCustomers", "extractProductsFromStoreScript"],
+  ["fixedCustomers", "simulateStorefrontCheckout"],
   ["fixedCustomers", "productsSource"],
   ["packageJson", "fixed-customers:carsipazar"],
   ["packageJson", "fixed-customers:carsipazar:live"],
-  ["packageJson", "fixed-customers:carsipazar:loop:test"]
+  ["packageJson", "fixed-customers:carsipazar:browser"],
+  ["packageJson", "fixed-customers:carsipazar:loop:test"],
+  ["packageJson", "jsdom"]
 ];
 
 async function run() {
