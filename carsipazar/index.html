@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarsiPazar - GitHub tabanlı vitrin ve sipariş toplama mağazası. Trend ürünler, hızlı seçim ve GitHub Issue ile sipariş akışı.">
+  <title>CarsiPazar | GitHub Tabanlı Mağaza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/store.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/carsipazar/">
+      <span class="brand-mark">CP</span>
+      <span>
+        <strong>CarsiPazar</strong>
+        <small>GitHub tabanlı mağaza</small>
+      </span>
+    </a>
+    <nav class="topnav">
+      <a href="#products">Ürünler</a>
+      <a href="#how-it-works">Nasıl çalışır</a>
+      <a href="/carsipazar/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">GitHub üzerinde çalışan bağımsız mağaza</div>
+        <h1>Trend ürün vitrini, sipariş ise doğrudan GitHub Issue olarak açılsın.</h1>
+        <p>
+          Shopier, Iyzico veya dış ödeme hizmeti olmadan; ürün seçimi, sepet ve sipariş talebi tek bir akışta
+          ilerler. Bu sürüm manuel fulfillment için tasarlandı, ama mağaza hissini korur.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#products">Ürünleri gör</a>
+          <a class="button secondary" href="#checkout">Sipariş aç</a>
+        </div>
+        <div class="hero-stats">
+          <article>
+            <strong>6</strong>
+            <span>başlangıç ürünü</span>
+          </article>
+          <article>
+            <strong>0</strong>
+            <span>ek ödeme servisi</span>
+          </article>
+          <article>
+            <strong>GitHub</strong>
+            <span>sipariş merkezi</span>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="panel-card spotlight">
+          <span class="mini-kicker">Bugünün vitrini</span>
+          <h2>Global trend seçkisi</h2>
+          <p>Ev, teknoloji ve günlük kullanım ürünleri. Her kart doğrudan sipariş akışına bağlanır.</p>
+        </div>
+        <div class="panel-card">
+          <span class="mini-kicker">Akış</span>
+          <ol>
+            <li>Ürünü sepete ekle</li>
+            <li>Adres ve iletişim doldur</li>
+            <li>GitHub Issue üzerinden siparişi oluştur</li>
+          </ol>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Ürünler</span>
+          <h2>Trend ürün kataloğu</h2>
+        </div>
+        <div class="filters" role="tablist" aria-label="Kategori filtreleri">
+          <button class="filter active" data-filter="all" type="button">Tümü</button>
+          <button class="filter" data-filter="home" type="button">Ev</button>
+          <button class="filter" data-filter="tech" type="button">Teknoloji</button>
+          <button class="filter" data-filter="lifestyle" type="button">Lifestyle</button>
+        </div>
+      </div>
+
+      <div class="products" id="productGrid">
+        <article class="product-card" data-category="home">
+          <div class="product-badge">Çok satan</div>
+          <h3>Vakumlu Depolama Seti</h3>
+          <p>Dolap düzeni için hafif, pratik ve yüksek algı değerli set.</p>
+          <div class="product-meta">
+            <span>$24.90</span>
+            <span>7-12 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="vacum-set" data-name="Vakumlu Depolama Seti" data-price="24.90" data-category="home" type="button">Sepete ekle</button>
+        </article>
+
+        <article class="product-card" data-category="tech">
+          <div class="product-badge">Trend</div>
+          <h3>Katlanır Telefon Standı</h3>
+          <p>Video izleme, masaüstü kullanım ve hızlı içerik üretimi için ideal.</p>
+          <div class="product-meta">
+            <span>$17.50</span>
+            <span>6-10 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="phone-stand" data-name="Katlanır Telefon Standı" data-price="17.50" data-category="tech" type="button">Sepete ekle</button>
+        </article>
+
+        <article class="product-card" data-category="lifestyle">
+          <div class="product-badge">Yeni</div>
+          <h3>Minimal Termos Matarası</h3>
+          <p>Ofis, araba ve günlük kullanım için sade ama güçlü bir ürün.</p>
+          <div class="product-meta">
+            <span>$19.20</span>
+            <span>8-14 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="bottle" data-name="Minimal Termos Matarası" data-price="19.20" data-category="lifestyle" type="button">Sepete ekle</button>
+        </article>
+
+        <article class="product-card" data-category="tech">
+          <div class="product-badge">Hızlı dönüşüm</div>
+          <h3>Manyetik Kablo Düzenleyici</h3>
+          <p>Küçük sepette yüksek dönüşüm ihtimali olan, ucuz ve anlaşılır ürün.</p>
+          <div class="product-meta">
+            <span>$12.00</span>
+            <span>6-11 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="cable-organizer" data-name="Manyetik Kablo Düzenleyici" data-price="12.00" data-category="tech" type="button">Sepete ekle</button>
+        </article>
+
+        <article class="product-card" data-category="home">
+          <div class="product-badge">Ev ürünü</div>
+          <h3>LED Gece Lambası</h3>
+          <p>Ambiyans yaratan, hediye olarak da satılabilecek dekoratif ürün.</p>
+          <div class="product-meta">
+            <span>$21.80</span>
+            <span>7-13 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="lamp" data-name="LED Gece Lambası" data-price="21.80" data-category="home" type="button">Sepete ekle</button>
+        </article>
+
+        <article class="product-card" data-category="lifestyle">
+          <div class="product-badge">Popüler</div>
+          <h3>Taşınabilir Mini Blender</h3>
+          <p>Seyahat ve spor sonrası kullanım için sosyal medya dostu ürün.</p>
+          <div class="product-meta">
+            <span>$29.40</span>
+            <span>8-15 gün</span>
+          </div>
+          <button class="button small add-to-cart" data-id="blender" data-name="Taşınabilir Mini Blender" data-price="29.40" data-category="lifestyle" type="button">Sepete ekle</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section info-grid" id="how-it-works">
+      <article class="info-card">
+        <span class="eyebrow">Nasıl çalışır</span>
+        <h2>GitHub-only sipariş modeli</h2>
+        <p>Bu mağaza ödeme toplamaz. Müşteri ürünleri seçer, formu doldurur ve sipariş bir GitHub Issue olarak açılır.</p>
+      </article>
+      <article class="info-card">
+        <span class="eyebrow">Lojistik</span>
+        <h2>Türkiye + yurtdışı</h2>
+        <p>Gönderim alanı, adres formu ve not alanı çoklu ülke seçimini destekler. Fulfillment admin panelden izlenir.</p>
+      </article>
+      <article class="info-card">
+        <span class="eyebrow">Avantaj</span>
+        <h2>Bağımsız ve taşınabilir</h2>
+        <p>Özel bir ödeme sağlayıcısı gerekmez. Repo, Pages ve Issues üzerinden yönetilebilen temiz bir başlangıç kurulur.</p>
+      </article>
+    </section>
+
+    <section class="checkout-grid" id="checkout">
+      <section class="checkout-card cart-panel">
+        <div class="section-head compact">
+          <div>
+            <span class="eyebrow">Sepet</span>
+            <h2>Sipariş özeti</h2>
+          </div>
+          <button class="button ghost small" id="clearCart" type="button">Temizle</button>
+        </div>
+        <div id="cartItems" class="cart-items empty-state">
+          Sepete ürün ekleyin.
+        </div>
+        <div class="totals">
+          <div><span>Ara toplam</span><strong id="subtotal">$0.00</strong></div>
+          <div><span>Tahmini kargo</span><strong id="shipping">$0.00</strong></div>
+          <div class="total-line"><span>Toplam</span><strong id="grandTotal">$0.00</strong></div>
+        </div>
+      </section>
+
+      <section class="checkout-card form-panel">
+        <div class="section-head compact">
+          <div>
+            <span class="eyebrow">Checkout</span>
+            <h2>GitHub sipariş formu</h2>
+          </div>
+        </div>
+
+        <form id="orderForm" class="order-form">
+          <label>
+            <span>Ad Soyad</span>
+            <input id="fullName" name="fullName" type="text" placeholder="Adınızı yazın" required>
+          </label>
+          <label>
+            <span>E-posta</span>
+            <input id="email" name="email" type="email" placeholder="ornek@mail.com" required>
+          </label>
+          <label>
+            <span>Telefon / WhatsApp</span>
+            <input id="phone" name="phone" type="tel" placeholder="+90..." required>
+          </label>
+          <div class="two-col">
+            <label>
+              <span>Ülke</span>
+              <input id="country" name="country" type="text" placeholder="Türkiye" required>
+            </label>
+            <label>
+              <span>Şehir</span>
+              <input id="city" name="city" type="text" placeholder="İstanbul" required>
+            </label>
+          </div>
+          <label>
+            <span>Teslimat Adresi</span>
+            <textarea id="address" name="address" rows="4" placeholder="Mahalle, sokak, apartman, posta kodu" required></textarea>
+          </label>
+          <label>
+            <span>Sipariş notu</span>
+            <textarea id="note" name="note" rows="3" placeholder="Renk, beden, varyant veya özel talep"></textarea>
+          </label>
+          <label>
+            <span>Kargo tipi</span>
+            <select id="shippingType" name="shippingType">
+              <option value="standard">Standart teslimat</option>
+              <option value="express">Hızlı teslimat</option>
+              <option value="international">Uluslararası gönderim</option>
+            </select>
+          </label>
+          <button class="button primary submit-order" type="submit">GitHub'da siparişi aç</button>
+          <p class="fineprint">Siparişler GitHub Issues üzerinden toplandığı için, gönderim adımını tamamlamak için GitHub hesabında oturum açmış olman gerekir.</p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/carsipazar/admin/">Admin paneli</a>
+    <span>•</span>
+    <a href="https://github.com/korrayt/koraytasan.github.io" target="_blank" rel="noreferrer">Repo</a>
+    <span>•</span>
+    <a href="/">Ana site</a>
+  </footer>
+
+  <script src="./assets/store.js"></script>
+</body>
+</html>

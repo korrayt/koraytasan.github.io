@@ -1,0 +1,87 @@
+name: CarsiPazar Sipariş
+description: CarsiPazar üzerinden gelen siparişi manuel işlemek için kullan.
+title: "[CarsiPazar] Yeni Sipariş"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bu form CarsiPazar siparişlerini GitHub üzerinden toplamak için kullanılır.
+        Lütfen müşteri ve teslimat bilgilerini eksiksiz doldurun.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Ürün
+      description: Müşterinin seçtiği ana ürün.
+      options:
+        - Vakumlu Depolama Seti
+        - Katlanır Telefon Standı
+        - Minimal Termos Matarası
+        - Manyetik Kablo Düzenleyici
+        - LED Gece Lambası
+        - Taşınabilir Mini Blender
+    validations:
+      required: true
+  - type: input
+    id: quantity
+    attributes:
+      label: Adet
+      placeholder: "1"
+    validations:
+      required: true
+  - type: input
+    id: full-name
+    attributes:
+      label: Ad Soyad
+      placeholder: "Müşteri adı"
+    validations:
+      required: true
+  - type: input
+    id: email
+    attributes:
+      label: E-posta
+      placeholder: "ornek@mail.com"
+    validations:
+      required: true
+  - type: input
+    id: phone
+    attributes:
+      label: Telefon / WhatsApp
+      placeholder: "+90..."
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Ülke
+      placeholder: "Türkiye"
+    validations:
+      required: true
+  - type: input
+    id: city
+    attributes:
+      label: Şehir
+      placeholder: "İstanbul"
+    validations:
+      required: true
+  - type: textarea
+    id: address
+    attributes:
+      label: Teslimat Adresi
+      placeholder: "Mahalle, sokak, apartman, posta kodu"
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Sipariş Notu
+      placeholder: "Renk, varyant veya özel talep"
+  - type: dropdown
+    id: shipping
+    attributes:
+      label: Kargo Tipi
+      options:
+        - Standart teslimat
+        - Hızlı teslimat
+        - Uluslararası gönderim
+    validations:
+      required: true
