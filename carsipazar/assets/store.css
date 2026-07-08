@@ -381,6 +381,16 @@ button {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.loading-card {
+  grid-column: 1 / -1;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--line-strong);
+  color: var(--muted);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+
 .product-badge {
   justify-self: start;
   padding: 6px 10px;
@@ -502,6 +512,31 @@ button {
   padding: 16px;
   display: grid;
   gap: 14px;
+}
+
+.bank-card {
+  margin-bottom: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(139, 92, 246, 0.08));
+}
+
+.bank-card h3 {
+  margin: 6px 0 8px;
+  font-family: var(--font-display);
+}
+
+.bank-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.iban-line strong {
+  color: var(--text);
+  letter-spacing: 0.02em;
 }
 
 .order-form label {

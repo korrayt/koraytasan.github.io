@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CarsiPazar admin paneli - GitHub issue tabanlı sipariş takip ekranı.">
+  <meta name="description" content="CarsiPazar admin paneli - sipariş ve ürün kataloğu yönetimi.">
   <title>CarsiPazar Admin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,33 +13,129 @@
 <body>
   <main class="shell">
     <section class="hero">
-      <div>
+      <div class="hero-copy">
         <span class="eyebrow">Admin</span>
-        <h1>CarsiPazar siparişleri GitHub Issues üzerinden takip edilir.</h1>
-        <p>Bu panel, manuel fulfillment için sade bir kontrol yüzeyi sunar. Ödemeyi dış servise taşımadan çalışan sürümde sipariş kayıt merkezi GitHub'dır.</p>
+        <h1>CarsiPazar siparişleri ve ürün kataloğu burada yönetilir.</h1>
+        <p>
+          Bu panel GitHub issue sipariş akışını korur, aynı zamanda ortak katalog deposuna yeni ürün eklemene izin verir.
+          Aynı origin üzerinde olduğu için storefront ürün güncellemelerini anında alır.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="/carsipazar/" target="_self">Mağazayı aç</a>
+          <a class="button secondary" href="https://github.com/korrayt/koraytasan.github.io/issues?q=is%3Aissue+in%3Atitle+%22%5BCarsiPazar%5D%22+is%3Aopen" target="_blank" rel="noreferrer">Açık siparişler</a>
+        </div>
+      </div>
+      <div class="hero-metrics">
+        <article class="metric">
+          <strong id="catalogCount">0</strong>
+          <span>ürün</span>
+        </article>
+        <article class="metric">
+          <strong>GitHub</strong>
+          <span>sipariş kuyruğu</span>
+        </article>
+        <article class="metric">
+          <strong>LocalStorage</strong>
+          <span>katalog deposu</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel bank-panel">
+      <div>
+        <span class="eyebrow">Ödeme hesabı</span>
+        <h2>Havale / EFT bilgisi</h2>
+        <p>Alıcı: Soner Koray Taşan</p>
+        <p class="iban-line"><strong>TR55 0082 9000 0949 1625 1758 65</strong></p>
+        <p>Ödeme referansı olarak sipariş numarasını veya müşteri ad soyadını kullan.</p>
       </div>
       <div class="cta-row">
-        <a class="button primary" href="https://github.com/korrayt/koraytasan.github.io/issues?q=is%3Aissue+label%3Acarsipazar+is%3Aopen" target="_blank" rel="noreferrer">Açık siparişler</a>
-        <a class="button secondary" href="https://github.com/korrayt/koraytasan.github.io/issues/new?template=carsipazar-order.yml" target="_blank" rel="noreferrer">Yeni sipariş formu</a>
+        <button class="button primary copy-button" type="button" data-copy="TR55 0082 9000 0949 1625 1758 65">IBAN'ı kopyala</button>
+        <button class="button secondary copy-button" type="button" data-copy="Soner Koray Taşan">Hesap adını kopyala</button>
       </div>
     </section>
 
     <section class="grid">
       <article class="card">
         <span class="label">1</span>
-        <h2>Issue kuyruğunu kontrol et</h2>
-        <p>Her siparişin başlığı <code>[CarsiPazar]</code> ile gelir. Etiketi ve kargolama durumunu issue içinde takip et.</p>
+        <h2>Yeni ürün ekle</h2>
+        <p>Formu doldur ve kataloğa ürün yaz. Ürün adı, fiyat, açıklama, kategori ve kargo süresi storefront’ta görünür.</p>
       </article>
       <article class="card">
         <span class="label">2</span>
-        <h2>Manuel teyit gönder</h2>
-        <p>Müşteriye GitHub issue üzerinden veya e-posta ile sipariş teyidi ver. Adres ve ürün varyantını burada doğrula.</p>
+        <h2>Listeyi yönet</h2>
+        <p>Eklenen ürünleri aşağıdaki listeden tek tıkla kaldırabilir veya katalogu baştan sıfırlayabilirsin.</p>
       </article>
       <article class="card">
         <span class="label">3</span>
-        <h2>Fulfillment kaydı tut</h2>
-        <p>Sipariş kapandıktan sonra issue'yu kapat ve varsa takip numarasını notlara ekle.</p>
+        <h2>Sayfayı yenilemeden senkron</h2>
+        <p>Storefront açık başka bir sekmede ise katalog değişikliği otomatik olarak yenilenir.</p>
       </article>
+    </section>
+
+    <section class="panel layout">
+      <div class="panel-head">
+        <div>
+          <span class="eyebrow">Ürün paneli</span>
+          <h2>Yeni ürün formu</h2>
+        </div>
+        <div class="panel-actions">
+          <button class="button secondary" id="resetCatalog" type="button">Kataloğu sıfırla</button>
+        </div>
+      </div>
+
+      <form id="productForm" class="product-form">
+        <div class="two-col">
+          <label>
+            <span>Ürün adı</span>
+            <input name="name" type="text" placeholder="Örn. Katlanır Işık Standı" required>
+          </label>
+          <label>
+            <span>Ürün ID</span>
+            <input name="id" type="text" placeholder="opsiyonel-unique-id">
+          </label>
+        </div>
+        <label>
+          <span>Açıklama</span>
+          <textarea name="description" rows="3" placeholder="Kısa ve ikna edici ürün açıklaması" required></textarea>
+        </label>
+        <div class="three-col">
+          <label>
+            <span>Fiyat</span>
+            <input name="price" type="number" min="0" step="0.01" placeholder="24.90" required>
+          </label>
+          <label>
+            <span>Kategori</span>
+            <select name="category" required>
+              <option value="home">Ev</option>
+              <option value="tech">Teknoloji</option>
+              <option value="lifestyle">Lifestyle</option>
+            </select>
+          </label>
+          <label>
+            <span>Etiket</span>
+            <input name="badge" type="text" placeholder="Yeni / Trend / Popüler" required>
+          </label>
+        </div>
+        <label>
+          <span>Tahmini teslimat</span>
+          <input name="shipping" type="text" placeholder="7-12 gün" required>
+        </label>
+        <button class="button primary" type="submit">Ürünü ekle</button>
+        <p class="fineprint">
+          Ürünler bu tarayıcıda yerel depolanır. Aynı cihazda storefront açıldığında otomatik senkron çalışır.
+        </p>
+      </form>
+    </section>
+
+    <section class="panel layout">
+      <div class="panel-head">
+        <div>
+          <span class="eyebrow">Katalog</span>
+          <h2>Mevcut ürünler</h2>
+        </div>
+      </div>
+      <div id="productList" class="product-list"></div>
     </section>
 
     <section class="panel">
@@ -50,11 +146,13 @@
         </div>
       </div>
       <div class="links">
-        <a href="https://github.com/korrayt/koraytasan.github.io/issues?q=is%3Aissue+in%3Atitle+%22%5BCarsiPazar%5D%22+is%3Aopen" target="_blank" rel="noreferrer">Açık siparişler</a>
+        <a href="https://github.com/korrayt/koraytasan.github.io/issues/new?template=carsipazar-order.yml" target="_blank" rel="noreferrer">Yeni sipariş formu</a>
         <a href="https://github.com/korrayt/koraytasan.github.io/issues?q=is%3Aissue+in%3Atitle+%22%5BCarsiPazar%5D%22+is%3Aclosed" target="_blank" rel="noreferrer">Kapanan siparişler</a>
         <a href="/carsipazar/" target="_self">Mağazaya dön</a>
       </div>
     </section>
   </main>
+
+  <script src="./admin.js"></script>
 </body>
 </html>

@@ -45,7 +45,7 @@
         </div>
         <div class="hero-stats">
           <article>
-            <strong>6</strong>
+            <strong id="heroProductCount">6</strong>
             <span>başlangıç ürünü</span>
           </article>
           <article>
@@ -91,71 +91,7 @@
       </div>
 
       <div class="products" id="productGrid">
-        <article class="product-card" data-category="home">
-          <div class="product-badge">Çok satan</div>
-          <h3>Vakumlu Depolama Seti</h3>
-          <p>Dolap düzeni için hafif, pratik ve yüksek algı değerli set.</p>
-          <div class="product-meta">
-            <span>$24.90</span>
-            <span>7-12 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="vacum-set" data-name="Vakumlu Depolama Seti" data-price="24.90" data-category="home" type="button">Sepete ekle</button>
-        </article>
-
-        <article class="product-card" data-category="tech">
-          <div class="product-badge">Trend</div>
-          <h3>Katlanır Telefon Standı</h3>
-          <p>Video izleme, masaüstü kullanım ve hızlı içerik üretimi için ideal.</p>
-          <div class="product-meta">
-            <span>$17.50</span>
-            <span>6-10 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="phone-stand" data-name="Katlanır Telefon Standı" data-price="17.50" data-category="tech" type="button">Sepete ekle</button>
-        </article>
-
-        <article class="product-card" data-category="lifestyle">
-          <div class="product-badge">Yeni</div>
-          <h3>Minimal Termos Matarası</h3>
-          <p>Ofis, araba ve günlük kullanım için sade ama güçlü bir ürün.</p>
-          <div class="product-meta">
-            <span>$19.20</span>
-            <span>8-14 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="bottle" data-name="Minimal Termos Matarası" data-price="19.20" data-category="lifestyle" type="button">Sepete ekle</button>
-        </article>
-
-        <article class="product-card" data-category="tech">
-          <div class="product-badge">Hızlı dönüşüm</div>
-          <h3>Manyetik Kablo Düzenleyici</h3>
-          <p>Küçük sepette yüksek dönüşüm ihtimali olan, ucuz ve anlaşılır ürün.</p>
-          <div class="product-meta">
-            <span>$12.00</span>
-            <span>6-11 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="cable-organizer" data-name="Manyetik Kablo Düzenleyici" data-price="12.00" data-category="tech" type="button">Sepete ekle</button>
-        </article>
-
-        <article class="product-card" data-category="home">
-          <div class="product-badge">Ev ürünü</div>
-          <h3>LED Gece Lambası</h3>
-          <p>Ambiyans yaratan, hediye olarak da satılabilecek dekoratif ürün.</p>
-          <div class="product-meta">
-            <span>$21.80</span>
-            <span>7-13 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="lamp" data-name="LED Gece Lambası" data-price="21.80" data-category="home" type="button">Sepete ekle</button>
-        </article>
-
-        <article class="product-card" data-category="lifestyle">
-          <div class="product-badge">Popüler</div>
-          <h3>Taşınabilir Mini Blender</h3>
-          <p>Seyahat ve spor sonrası kullanım için sosyal medya dostu ürün.</p>
-          <div class="product-meta">
-            <span>$29.40</span>
-            <span>8-15 gün</span>
-          </div>
-          <button class="button small add-to-cart" data-id="blender" data-name="Taşınabilir Mini Blender" data-price="29.40" data-category="lifestyle" type="button">Sepete ekle</button>
-        </article>
+        <div class="loading-card">Ürünler yükleniyor...</div>
       </div>
     </section>
 
@@ -204,6 +140,17 @@
           </div>
         </div>
 
+        <div class="bank-card">
+          <div>
+            <span class="eyebrow">Havale / EFT</span>
+            <h3>Ödemeyi bu IBAN'a yönlendir</h3>
+            <p>Alıcı: Soner Koray Taşan</p>
+            <p class="iban-line"><strong>TR55 0082 9000 0949 1625 1758 65</strong></p>
+            <p>Referans olarak sipariş numaranı ya da ad soyad bilgisini kullan.</p>
+          </div>
+          <button class="button secondary small copy-button" type="button" data-copy="TR55 0082 9000 0949 1625 1758 65">IBAN'ı kopyala</button>
+        </div>
+
         <form id="orderForm" class="order-form">
           <label>
             <span>Ad Soyad</span>
@@ -242,6 +189,10 @@
               <option value="express">Hızlı teslimat</option>
               <option value="international">Uluslararası gönderim</option>
             </select>
+          </label>
+          <label>
+            <span>Ödeme referansı</span>
+            <input id="paymentReference" name="paymentReference" type="text" placeholder="Sipariş numaranız veya ad soyad" required>
           </label>
           <button class="button primary submit-order" type="submit">GitHub'da siparişi aç</button>
           <p class="fineprint">Siparişler GitHub Issues üzerinden toplandığı için, gönderim adımını tamamlamak için GitHub hesabında oturum açmış olman gerekir.</p>

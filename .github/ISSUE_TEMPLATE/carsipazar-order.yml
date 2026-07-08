@@ -6,6 +6,9 @@ body:
     attributes:
       value: |
         Bu form CarsiPazar siparişlerini GitHub üzerinden toplamak için kullanılır.
+        Ödeme havale / EFT ile yapılır.
+        Hesap sahibi: Soner Koray Taşan
+        IBAN: TR55 0082 9000 0949 1625 1758 65
         Lütfen müşteri ve teslimat bilgilerini eksiksiz doldurun.
   - type: dropdown
     id: product
@@ -75,6 +78,14 @@ body:
     attributes:
       label: Sipariş Notu
       placeholder: "Renk, varyant veya özel talep"
+  - type: input
+    id: payment-reference
+    attributes:
+      label: Ödeme Referansı
+      description: Havale açıklamasına yazılan sipariş referansı.
+      placeholder: "Sipariş numarası veya ad soyad"
+    validations:
+      required: true
   - type: dropdown
     id: shipping
     attributes:
