@@ -176,6 +176,8 @@ function parseArgs(argv) {
     json: false,
     assert: false,
     createIssues: false,
+    verifyLive: false,
+    siteUrl: "https://koraytasan.com/carsipazar/",
     repo: "korrayt/koraytasan.github.io"
   };
 
@@ -188,6 +190,7 @@ function parseArgs(argv) {
     if (arg === "--json") options.json = true;
     if (arg === "--assert") options.assert = true;
     if (arg === "--create-issues") options.createIssues = true;
+    if (arg === "--verify-live") options.verifyLive = true;
     if (name === "--cycles") {
       options.cycles = Number(nextValue);
       if (inlineValue === undefined) index += 1;
@@ -198,6 +201,10 @@ function parseArgs(argv) {
     }
     if (name === "--repo") {
       options.repo = String(nextValue || options.repo);
+      if (inlineValue === undefined) index += 1;
+    }
+    if (name === "--site-url") {
+      options.siteUrl = String(nextValue || options.siteUrl);
       if (inlineValue === undefined) index += 1;
     }
   }
@@ -213,6 +220,41 @@ function parseArgs(argv) {
   }
 
   return options;
+}
+
+export async function verifyLiveStorefront(siteUrl = "https://koraytasan.com/carsipazar/") {
+  const baseUrl = new URL(siteUrl);
+  const bust = String(Date.now());
+  const pageUrl = new URL(baseUrl);
+  pageUrl.searchParams.set("codex_fixed_customers", bust);
+  const scriptUrl = new URL("assets/store.js", baseUrl);
+  scriptUrl.searchParams.set("codex_fixed_customers", bust);
+
+  const [pageResponse, scriptResponse] = await Promise.all([
+    fetch(pageUrl, { headers: { "cache-control": "no-cache", pragma: "no-cache" } }),
+    fetch(scriptUrl, { headers: { "cache-control": "no-cache", pragma: "no-cache" } })
+  ]);
+
+  const [pageHtml, storeScript] = await Promise.all([pageResponse.text(), scriptResponse.text()]);
+  const checks = [
+    ["storefront status", pageResponse.ok],
+    ["store script status", scriptResponse.ok],
+    ["IBAN", pageHtml.includes(PAYMENT_IBAN) || storeScript.includes(PAYMENT_IBAN)],
+    ["payment reference field", pageHtml.includes("paymentReference")],
+    ["default products", storeScript.includes("DEFAULT_PRODUCTS")],
+    ["issue flow", storeScript.includes("buildIssueBody")]
+  ];
+  const missing = checks.filter(([, ok]) => !ok).map(([label]) => label);
+
+  if (missing.length) {
+    throw new Error(`Live storefront verification failed: ${missing.join(", ")}`);
+  }
+
+  return {
+    pageUrl: pageUrl.toString(),
+    scriptUrl: scriptUrl.toString(),
+    checks: checks.map(([label]) => label)
+  };
 }
 
 function createGitHubIssue(order, repo) {
@@ -246,6 +288,14 @@ async function run() {
   const options = parseArgs(process.argv.slice(2));
   let cycleIndex = 0;
   const allOrders = [];
+
+  if (options.verifyLive) {
+    const live = await verifyLiveStorefront(options.siteUrl);
+    if (!options.json && !options.assert) {
+      console.log(`Canlı storefront doğrulandı: ${live.pageUrl}`);
+      console.log(`Canlı store.js doğrulandı: ${live.scriptUrl}`);
+    }
+  }
 
   while (options.loop || cycleIndex < options.cycles) {
     const orders = createOrdersForCycle(cycleIndex);
