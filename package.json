@@ -6,6 +6,10 @@
     "start": "node US/server.mjs",
     "smoke": "node US/scripts/smoke.mjs",
     "smoke:carsipazar": "node carsipazar/scripts/smoke.mjs",
-    "check:carsipazar": "node --check carsipazar/assets/store.js && node --check carsipazar/admin/admin.js && node carsipazar/scripts/smoke.mjs"
+    "fixed-customers:carsipazar": "node carsipazar/scripts/fixed-customers.mjs --cycles=1",
+    "fixed-customers:carsipazar:json": "node carsipazar/scripts/fixed-customers.mjs --cycles=1 --json",
+    "fixed-customers:carsipazar:loop": "node carsipazar/scripts/fixed-customers.mjs --loop --interval-ms=30000",
+    "fixed-customers:carsipazar:issues": "node carsipazar/scripts/fixed-customers.mjs --cycles=1 --create-issues",
+    "check:carsipazar": "node --check carsipazar/assets/store.js && node --check carsipazar/admin/admin.js && node --check carsipazar/scripts/fixed-customers.mjs && node carsipazar/scripts/smoke.mjs && node carsipazar/scripts/fixed-customers.mjs --cycles=1 --assert"
   }
 }

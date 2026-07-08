@@ -5,7 +5,9 @@ const files = {
   storeJs: "carsipazar/assets/store.js",
   adminHtml: "carsipazar/admin/index.html",
   adminJs: "carsipazar/admin/admin.js",
-  issueTemplate: ".github/ISSUE_TEMPLATE/carsipazar-order.yml"
+  issueTemplate: ".github/ISSUE_TEMPLATE/carsipazar-order.yml",
+  fixedCustomers: "carsipazar/scripts/fixed-customers.mjs",
+  packageJson: "package.json"
 };
 
 const requiredChecks = [
@@ -17,13 +19,23 @@ const requiredChecks = [
   ["adminHtml", "Sipariş durum şablonları"],
   ["adminJs", "CATALOG_STORAGE_KEY"],
   ["issueTemplate", "Ödeme Referansı"],
-  ["issueTemplate", "Operasyon Durumu"]
+  ["issueTemplate", "Operasyon Durumu"],
+  ["fixedCustomers", "FIXED_CUSTOMERS"],
+  ["fixedCustomers", "TEST SİPARİŞİ - GERÇEK ÖDEME/KARGO YOK"],
+  ["fixedCustomers", "createOrdersForCycle"],
+  ["packageJson", "fixed-customers:carsipazar"]
 ];
 
 async function run() {
   const contents = {};
   for (const [key, filePath] of Object.entries(files)) {
     contents[key] = await readFile(filePath, "utf8");
+  }
+
+  const fixedCustomerCount = (contents.fixedCustomers.match(/test-customer-/g) || []).length;
+  if (fixedCustomerCount !== 5) {
+    console.error(`Expected 5 fixed test customers, found ${fixedCustomerCount}.`);
+    process.exit(1);
   }
 
   const missing = requiredChecks.filter(([key, needle]) => !contents[key].includes(needle));
