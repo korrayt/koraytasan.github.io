@@ -1,8 +1,9 @@
-const REPO_ISSUE_URL = "https://github.com/korrayt/koraytasan.github.io/issues/new";
 const CART_STORAGE_KEY = "carsipazar_cart_v1";
 const CATALOG_STORAGE_KEY = "carsipazar_catalog_v1";
+const ORDER_STORAGE_KEY = "carsipazar_orders_v1";
 const PAYMENT_ACCOUNT_NAME = "Soner Koray Taşan";
 const PAYMENT_IBAN = "TR55 0082 9000 0949 1625 1758 65";
+const ORDER_CONTACT_EMAIL = "ben@koraytasan.com";
 
 const DEFAULT_PRODUCTS = [
   {
@@ -179,6 +180,23 @@ function clearCart() {
   renderCart();
 }
 
+function loadOrders() {
+  try {
+    const raw = storage.getItem(ORDER_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveOrder(record) {
+  const orders = loadOrders();
+  orders.unshift(record);
+  storage.setItem(ORDER_STORAGE_KEY, JSON.stringify(orders.slice(0, 25)));
+}
+
 function cartSubtotal() {
   return state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 }
@@ -327,7 +345,7 @@ function shippingLabel(value) {
   return "Standart teslimat";
 }
 
-function buildIssueBody(order) {
+function buildOrderSummary(order) {
   const cartLines = state.cart.map((item) => `- ${item.name} x ${item.qty} (${formatMoney(item.price)} each)`).join("\n");
   const subtotal = formatMoney(cartSubtotal());
   const shipping = formatMoney(shippingEstimate());
@@ -371,11 +389,39 @@ function buildIssueBody(order) {
   ].join("\n");
 }
 
-function openGitHubIssue(order) {
-  const title = `[CarsiPazar] ${order.fullName} - ${order.city}`;
-  const body = buildIssueBody(order);
-  const url = `${REPO_ISSUE_URL}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+function showOrderSuccess(order) {
+  const summary = buildOrderSummary(order);
+  const record = {
+    id: order.paymentReference,
+    createdAt: new Date().toISOString(),
+    customer: order,
+    cart: [...state.cart],
+    summary
+  };
+  saveOrder(record);
+
+  const successPanel = $("#orderSuccess");
+  const summaryEl = $("#orderSummary");
+  const messageEl = $("#orderSuccessMessage");
+  const emailLink = $("#sendOrderEmail");
+
+  if (summaryEl) summaryEl.textContent = summary;
+  if (messageEl) {
+    messageEl.textContent = `${order.paymentReference} referansını ödeme açıklamasına ekle. Ödeme teyidinden sonra kargo hazırlığı başlar.`;
+  }
+  if (emailLink) {
+    const subject = `CarsiPazar Sipariş - ${order.fullName} - ${order.paymentReference}`;
+    emailLink.href = `mailto:${ORDER_CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
+  }
+  if (successPanel) {
+    successPanel.hidden = false;
+    if (typeof successPanel.scrollIntoView === "function") {
+      successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  clearCart();
+  return record;
 }
 
 function init() {
@@ -404,10 +450,23 @@ function init() {
       return;
     }
 
-    openGitHubIssue(order);
+    showOrderSuccess(order);
   });
 
   renderCart();
+  $("#copyOrderSummary")?.addEventListener("click", async () => {
+    const text = $("#orderSummary")?.textContent || "";
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      $("#copyOrderSummary").textContent = "Kopyalandı";
+      setTimeout(() => {
+        $("#copyOrderSummary").textContent = "Özeti kopyala";
+      }, 1500);
+    } catch {
+      alert("Sipariş özeti kopyalanamadı. Elle seçip kopyalayabilirsin.");
+    }
+  });
   $$(".copy-button").forEach((button) => {
     button.addEventListener("click", async () => {
       const text = button.dataset.copy || "";

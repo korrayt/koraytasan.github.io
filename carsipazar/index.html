@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CarsiPazar - GitHub tabanlı vitrin ve sipariş toplama mağazası. Trend ürünler, hızlı seçim ve GitHub Issue ile sipariş akışı.">
-  <title>CarsiPazar | GitHub Tabanlı Mağaza</title>
+  <meta name="description" content="CarsiPazar - trend ürün vitrini, IBAN ile ödeme ve manuel teslimat takibi sunan bağımsız alışveriş sayfası.">
+  <title>CarsiPazar | Bağımsız Mağaza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       <span class="brand-mark">CP</span>
       <span>
         <strong>CarsiPazar</strong>
-        <small>GitHub tabanlı mağaza</small>
+        <small>Bağımsız alışveriş mağazası</small>
       </span>
     </a>
     <nav class="topnav">
@@ -33,11 +33,11 @@
   <main class="page">
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow">GitHub üzerinde çalışan bağımsız mağaza</div>
-        <h1>Trend ürün vitrini, sipariş ise doğrudan GitHub Issue olarak açılsın.</h1>
+        <div class="eyebrow">Bağımsız alışveriş deneyimi</div>
+        <h1>Trend ürün vitrini, sipariş ve ödeme referansı tek akışta toplansın.</h1>
         <p>
-          Shopier, Iyzico veya dış ödeme hizmeti olmadan; ürün seçimi, sepet ve sipariş talebi tek bir akışta
-          ilerler. Bu sürüm manuel fulfillment için tasarlandı, ama mağaza hissini korur.
+          Shopier, Iyzico veya dış ödeme hizmeti olmadan; ürün seçimi, sepet, ödeme referansı ve teslimat bilgisi
+          tek bir akışta ilerler. Bu sürüm manuel fulfillment için tasarlandı, ama mağaza hissini korur.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#products">Ürünleri gör</a>
@@ -53,8 +53,8 @@
             <span>ek ödeme servisi</span>
           </article>
           <article>
-            <strong>GitHub</strong>
-            <span>sipariş merkezi</span>
+            <strong>IBAN</strong>
+            <span>ödeme akışı</span>
           </article>
         </div>
       </div>
@@ -70,7 +70,7 @@
           <ol>
             <li>Ürünü sepete ekle</li>
             <li>Adres ve iletişim doldur</li>
-            <li>GitHub Issue üzerinden siparişi oluştur</li>
+            <li>Sipariş özetini al ve ödeme referansını kullan</li>
           </ol>
         </div>
       </aside>
@@ -98,8 +98,8 @@
     <section class="section info-grid" id="how-it-works">
       <article class="info-card">
         <span class="eyebrow">Nasıl çalışır</span>
-        <h2>GitHub-only sipariş modeli</h2>
-        <p>Bu mağaza ödeme toplamaz. Müşteri ürünleri seçer, formu doldurur ve sipariş bir GitHub Issue olarak açılır.</p>
+        <h2>Bağımsız sipariş modeli</h2>
+        <p>Bu mağaza kart bilgisi toplamaz. Müşteri ürünleri seçer, formu doldurur ve ödeme referanslı sipariş özeti alır.</p>
       </article>
       <article class="info-card">
         <span class="eyebrow">Lojistik</span>
@@ -136,7 +136,7 @@
         <div class="section-head compact">
           <div>
             <span class="eyebrow">Checkout</span>
-            <h2>GitHub sipariş formu</h2>
+            <h2>Sipariş formu</h2>
           </div>
         </div>
 
@@ -194,17 +194,26 @@
             <span>Ödeme referansı</span>
             <input id="paymentReference" name="paymentReference" type="text" placeholder="Sipariş numaranız veya ad soyad" required>
           </label>
-          <button class="button primary submit-order" type="submit">GitHub'da siparişi aç</button>
-          <p class="fineprint">Sipariş kaydı GitHub Issues üzerinden açılır. Ödeme havalesi kontrol edildikten sonra kargo hazırlığı başlar.</p>
+          <button class="button primary submit-order" type="submit">Siparişi oluştur</button>
+          <p class="fineprint">Sipariş özeti burada hazırlanır. Ödeme havalesi kontrol edildikten sonra kargo hazırlığı başlar.</p>
         </form>
+
+        <section class="order-success" id="orderSuccess" hidden>
+          <span class="eyebrow">Sipariş alındı</span>
+          <h3>Sipariş özetin hazır</h3>
+          <p id="orderSuccessMessage">Ödeme açıklamasında referansı kullanarak havale / EFT yapabilirsin.</p>
+          <pre id="orderSummary" class="order-summary"></pre>
+          <div class="receipt-actions">
+            <button class="button secondary small" id="copyOrderSummary" type="button">Özeti kopyala</button>
+            <a class="button primary small" id="sendOrderEmail" href="mailto:ben@koraytasan.com">E-posta ile gönder</a>
+          </div>
+        </section>
       </section>
     </section>
   </main>
 
   <footer class="footer">
     <a href="/carsipazar/admin/">Admin paneli</a>
-    <span>•</span>
-    <a href="https://github.com/korrayt/koraytasan.github.io" target="_blank" rel="noreferrer">Repo</a>
     <span>•</span>
     <a href="/">Ana site</a>
   </footer>

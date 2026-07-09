@@ -13,8 +13,10 @@ const files = {
 const requiredChecks = [
   ["storeHtml", "TR55 0082 9000 0949 1625 1758 65"],
   ["storeHtml", "Ödeme referansı"],
+  ["storeHtml", "Sipariş alındı"],
   ["storeJs", "Ödeme bekleniyor"],
   ["storeJs", "Kargo Takip No"],
+  ["storeJs", "showOrderSuccess"],
   ["adminHtml", "Yeni ürün formu"],
   ["adminHtml", "Sipariş durum şablonları"],
   ["adminJs", "CATALOG_STORAGE_KEY"],
@@ -34,6 +36,17 @@ const requiredChecks = [
   ["packageJson", "jsdom"]
 ];
 
+const customerFacingForbiddenChecks = [
+  ["storeHtml", "GitHub"],
+  ["storeHtml", "github.com"],
+  ["storeHtml", "koraytasan.github.io"],
+  ["storeHtml", "issues/new"],
+  ["storeJs", "github.com"],
+  ["storeJs", "koraytasan.github.io"],
+  ["storeJs", "issues/new"],
+  ["storeJs", "openGitHubIssue"]
+];
+
 async function run() {
   const contents = {};
   for (const [key, filePath] of Object.entries(files)) {
@@ -50,6 +63,14 @@ async function run() {
   if (missing.length) {
     for (const [key, needle] of missing) {
       console.error(`Missing "${needle}" in ${files[key]}`);
+    }
+    process.exit(1);
+  }
+
+  const forbidden = customerFacingForbiddenChecks.filter(([key, needle]) => contents[key].includes(needle));
+  if (forbidden.length) {
+    for (const [key, needle] of forbidden) {
+      console.error(`Forbidden customer-facing "${needle}" in ${files[key]}`);
     }
     process.exit(1);
   }
