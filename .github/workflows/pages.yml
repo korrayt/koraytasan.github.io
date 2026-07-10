@@ -1,0 +1,57 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    outputs:
+      first_attempt: ${{ steps.deploy_status.outputs.result }}
+    environment:
+      name: github-pages
+      url: ${{ steps.first_deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages (first attempt)
+        id: first_deploy
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Capture first attempt status
+        id: deploy_status
+        run: echo "result=${{ steps.first_deploy.outcome }}" >> "$GITHUB_OUTPUT"
+
+  deploy-retry:
+    runs-on: ubuntu-latest
+    needs: [build, deploy]
+    if: needs.deploy.outputs.first_attempt == 'failure'
+    environment:
+      name: github-pages
+      url: ${{ steps.retry_deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages (retry)
+        id: retry_deploy
+        uses: actions/deploy-pages@v5
