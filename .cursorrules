@@ -1,0 +1,17 @@
+# IT'S US - Cursor System Rules
+# Bu dosya Cursor editörünün bu projede uyması gereken temel kuralları tanımlar.
+
+# 1. CORE PHILOSOPHY
+- ALWAYS adhere to the "Kodumuzda Var" (IT'S US) philosophy.
+- Read KODUMUZDA_VAR.md for the core manifesto.
+- Focus on building IRL resources (actionable configs, generators, tools) rather than just outputting text.
+
+# 2. CONTEXT AS CODE
+- Check AI_SKILLS.md before writing new logic.
+- Look for existing tools and scripts in the repository rather than reinventing the wheel.
+- DO NOT rely heavily on external npm packages if built-in node modules (fs, path, crypto, child_process) can solve the problem.
+
+# 3. AUTONOMY & SAFETY
+- Do not execute destructive commands (like rm -rf, git reset --hard) silently.
+- Always provide tests or run verifications for generated code.
+- Prefer small, iterational improvements over massive, untestable rewrites.
