@@ -1,114 +1,30 @@
-{
-  "name": "KORRAYT",
-  "displayName": "KORAY TASAN",
-  "version": "1.0.0",
-  "description": "Bu proje, temel amaçları ve çalışma mantığı açıkça tanımlanmış genel bir uygulama/proje manifestidir.",
-  "author": {
-    "name": "Soner Koray Tasan",
-    "email": "ben@koraytasan.com"
-  },
-  "license": "Proprietary",
-  "type": "application",
-  "status": "development",
+﻿# Koray Tasan — GitHub Portfolio
 
-  "main": {
-    "entry": "src/main",
-    "frontend": "src/frontend",
-    "backend": "src/backend",
-    "config": "config"
-  },
+> Sinematik vizyon, yapay zeka ve mühendisliğin kesiştiği noktada inşa ediyorum.
 
-  "goals": [
-    "Kullanıcıya açık, güvenli ve anlaşılır bir deneyim sunmak",
-    "Yerel verileri korumak",
-    "Modüler ve geliştirilebilir bir yapı sağlamak",
-    "Hataları gizlemeden açık şekilde bildirmek"
-  ],
+## Aktif Projeler
 
-  "principles": [
-    "Şeffaflık",
-    "Güvenlik",
-    "Yerel veri kontrolü",
-    "Kullanıcı izni olmadan kritik işlem yapmama",
-    "Açık hata mesajları",
-    "Modüler geliştirme"
-  ],
+| Proje | Açıklama | Dil |
+|---|---|---|
+| [land-rover-defender-90](https://github.com/korrayt/land-rover-defender-90) | İnteraktif Defender 90 konfiguratörü | HTML/CSS |
+| [giraffication-agency](https://github.com/korrayt/giraffication-agency) | AI & video prodüksiyon ajansı sitesi | HTML/CSS |
+| [carsipazar](https://github.com/korrayt/carsipazar) | E-ticaret pazaryeri altyapısı | FastAPI / HTML |
+| [vs-lokalai](https://github.com/korrayt/vs-lokalai) | VS Code yerel AI eklentisi | TypeScript |
+| [kreativecore-transcribe-tr](https://github.com/korrayt/kreativecore-transcribe-tr) | Türkçe ses transkripsiyon motoru | Python |
+| [angie-ai-guide](https://github.com/korrayt/angie-ai-guide) | AI konuşma asistanı framework'ü | TypeScript |
+| [phone-case](https://github.com/korrayt/phone-case) | ESP32-C3 BLE firmware + Swift iOS SDK | Swift / C |
+| [persona-koray-t](https://github.com/korrayt/persona-koray-t) | 4 katmanlı marka ses motoru | TypeScript |
+| [notebooks-main](https://github.com/korrayt/notebooks-main) | Veri analitiği ve AI notebook koleksiyonu | Python |
+| [bir-varmis-biz-varmis](https://github.com/korrayt/bir-varmis-biz-varmis) | Dijital edebi anlatı projesi | HTML/JS |
+| [core-writer](https://github.com/korrayt/core-writer) | Canlı Markdown AI yazı stüdyosu | Express.js |
+| [kreativecore-sync](https://github.com/korrayt/kreativecore-sync) | Premiere Pro UXP eklentisi + WebSocket senkron | TypeScript |
 
-  "permissions": {
-    "filesystem": false,
-    "network": false,
-    "camera": false,
-    "microphone": false,
-    "clipboard": false,
-    "shell": false
-  },
+## İletişim
 
-  "security": {
-    "localFirst": true,
-    "dataEncryption": true,
-    "requiresUserApprovalForSensitiveActions": true,
-    "allowRemoteExecution": false,
-    "logsSensitiveData": false
-  },
+- 🌐 [koraytasan.online](https://koraytasan.online)
+- 💼 [LinkedIn](https://linkedin.com/in/koraytasan)
+- 📧 GitHub üzerinden mesaj
 
-  "modules": [
-    {
-      "id": "core",
-      "name": "Core System",
-      "enabled": true,
-      "description": "Ana çalışma mantığını ve temel sistem davranışını yönetir."
-    },
-    {
-      "id": "ui",
-      "name": "User Interface",
-      "enabled": true,
-      "description": "Kullanıcı arayüzünü sağlar."
-    },
-    {
-      "id": "memory",
-      "name": "Local Memory",
-      "enabled": true,
-      "description": "Yerel hafıza ve geçmiş yönetimini sağlar."
-    }
-  ],
+---
 
-  "runtime": {
-    "environment": "local",
-    "offlineSupport": true,
-    "requiresInternet": false,
-    "supportedPlatforms": [
-      "windows",
-      "macos",
-      "linux"
-    ]
-  },
-
-  "updatePolicy": {
-    "autoUpdate": false,
-    "requiresUserConfirmation": true,
-    "rollbackSupported": true
-  },
-
-  "errorPolicy": {
-    "hideCriticalErrors": false,
-    "showReadableErrors": true,
-    "fallbackMode": true
-  },
-
-  "limitations": [
-    "Bu manifest genel amaçlıdır.",
-    "Projeye göre izinler ve modüller ayrıca özelleştirilmelidir.",
-    "Güvenlik ayarları canlı kullanıma geçmeden önce tekrar gözden geçirilmelidir."
-  ],
-
-  "metadata": {
-    "createdAt": "2026-05-31",
-    "schemaVersion": "1.0",
-    "tags": [
-      "general",
-      "manifest",
-      "local-first",
-      "modular"
-    ]
-  }
-}
+*MIT Lisansı · © 2024 Koray Taşan*
