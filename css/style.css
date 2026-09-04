@@ -1071,6 +1071,365 @@ section {
   .skills-grid {
     grid-template-columns: 1fr;
   }
+
+  .case-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .build-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Multidisciplinary Portfolio Components
+   ============================================ */
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-main);
+  white-space: nowrap;
+}
+
+.status-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-live {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.status-live .dot {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+.status-dev {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.status-dev .dot {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.status-exp {
+  background: rgba(139, 92, 246, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+.status-exp .dot {
+  background: #a855f7;
+  box-shadow: 0 0 8px #a855f7;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.9); opacity: 0.75; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.75; }
+}
+
+/* Hero Section Enhancements */
+.hero-tagline {
+  display: inline-block;
+  margin-top: 10px;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+.btn-ghost:hover {
+  background: var(--bg-glass-hover);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* What I Build Grid */
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.build-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.build-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-primary);
+  background: var(--bg-glass-hover);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.build-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.build-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.build-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* AI & Products - Case Study Grid */
+.case-study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.case-study-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.case-study-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168, 85, 247, 0.45);
+  background: var(--bg-glass-hover);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(124, 58, 237, 0.12);
+}
+
+.case-study-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.case-study-category {
+  font-size: 0.78rem;
+  color: var(--accent-secondary);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.case-study-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.case-study-desc {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Case Study Blueprint (Problem -> Idea -> System -> Tech -> Role) */
+.case-study-flow {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flow-row {
+  display: flex;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  gap: 12px;
+}
+
+.flow-label {
+  font-weight: 700;
+  color: #cbd5e1;
+  min-width: 82px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 1px;
+}
+
+.flow-value {
+  color: #94a3b8;
+  flex: 1;
+}
+
+.tech-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tech-tag {
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  color: #cbd5e1;
+}
+
+.case-study-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.case-study-footer a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-fast);
+}
+
+.case-study-footer a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* Skills Matrix */
+.skills-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.skill-matrix-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  transition: var(--transition-smooth);
+}
+
+.skill-matrix-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+  background: var(--bg-glass-hover);
+}
+
+.skill-matrix-card h3 {
+  font-size: 1.18rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-matrix-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-matrix-tag {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  transition: var(--transition-fast);
+}
+
+.skill-matrix-tag:hover {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.3);
+  color: #ffffff;
+}
+
+/* Experience Highlights */
+.experience-item.current .experience-content {
+  border-color: rgba(124, 58, 237, 0.45);
+  background: rgba(124, 58, 237, 0.05);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.experience-item.current::before {
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.experience-skill-tag {
+  font-size: 0.76rem;
+  padding: 3px 10px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 6px;
+  color: #d8b4fe;
 }
 
 /* Scrollbar */

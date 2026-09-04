@@ -1,11 +1,8 @@
-// ============================================
-// Koray Tasan - Portfolio JavaScript
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all features
     initNavigation();
     initScrollEffects();
+    initAiFilter();
     initPortfolioFilter();
     initContactForm();
 });
@@ -17,18 +14,20 @@ function initNavigation() {
     const navLinks = document.getElementById('navLinks');
 
     // Mobile menu toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
@@ -42,8 +41,10 @@ function initNavigation() {
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(targetId);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -69,7 +70,7 @@ function initScrollEffects() {
                 if (entry.target.parentElement) {
                     const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
                     siblings.forEach((sibling, index) => {
-                        sibling.style.transitionDelay = `${index * 0.1}s`;
+                        sibling.style.transitionDelay = `${index * 0.08}s`;
                     });
                 }
             }
@@ -82,10 +83,46 @@ function initScrollEffects() {
     });
 }
 
-// Portfolio filter
+// AI & Products Filter
+function initAiFilter() {
+    const filterBtns = document.querySelectorAll('.ai-filter-btn');
+    const cards = document.querySelectorAll('.case-study-card');
+
+    if (!filterBtns.length || !cards.length) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.statusFilter;
+
+            cards.forEach(card => {
+                const status = card.dataset.status;
+                if (filter === 'all' || status === filter) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 250);
+                }
+            });
+        });
+    });
+}
+
+// Film & Media Portfolio filter (supports multi-categories)
 function initPortfolioFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns = document.querySelectorAll('.media-filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (!filterBtns.length || !portfolioItems.length) return;
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -97,7 +134,8 @@ function initPortfolioFilter() {
 
             // Filter items
             portfolioItems.forEach(item => {
-                if (filter === 'all' || item.dataset.category === filter) {
+                const categories = (item.dataset.category || '').toLowerCase().split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
                     item.style.display = 'block';
                     setTimeout(() => {
                         item.style.opacity = '1';
@@ -108,7 +146,7 @@ function initPortfolioFilter() {
                     item.style.transform = 'translateY(20px)';
                     setTimeout(() => {
                         item.style.display = 'none';
-                    }, 300);
+                    }, 250);
                 }
             });
         });
@@ -118,10 +156,9 @@ function initPortfolioFilter() {
 // Contact form
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    if (!form) return;
 
     form.addEventListener('submit', function (e) {
-        // Form uses mailto: so we'll let it submit normally
-        // but add a nice confirmation
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
 
@@ -136,11 +173,14 @@ function initContactForm() {
 }
 
 // Profile image fallback
-document.getElementById('profileImage').addEventListener('error', function () {
-    // If Instagram image fails, use a placeholder
-    this.src = 'https://ui-avatars.com/api/?name=Koray+Tasan&size=350&background=7c3aed&color=fff&bold=true&font-size=0.33';
-});
+const profileImg = document.getElementById('profileImage');
+if (profileImg) {
+    profileImg.addEventListener('error', function () {
+        this.src = 'https://ui-avatars.com/api/?name=Koray+Tasan&size=350&background=7c3aed&color=fff&bold=true&font-size=0.33';
+    });
+}
 
 // Easter egg - Console message
-console.log('%c🎬 Koray Taşan Portfolio', 'font-size: 24px; font-weight: bold; color: #7c3aed;');
-console.log('%cLooking for a video producer? Contact: ben@koraytasan.com', 'font-size: 14px; color: #a855f7;');
+console.log('%c🚀 Koray Taşan | AI Product & Systems Architect · Creative Technologist', 'font-size: 16px; font-weight: bold; color: #a855f7;');
+console.log('%cStories → Systems → Intelligent Products | Contact: ben@koraytasan.com', 'font-size: 12px; color: #94a3b8;');
+
