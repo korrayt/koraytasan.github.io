@@ -670,8 +670,13 @@ ${f.substring(0,4e3)}
 KURALLAR:
 1. Kod tamamen çalışan, TypeScript hatasız, Tailwind CSS ile uyumlu olmalıdır.
 2. Koray Taşan'ın siber/koyu tema estetiğine (bg-surface-dark-*, text-core-400 vb.) tam sadık kal.
-3. Yanıtında ÖNCE kısa bir Türkçe teknik açıklama ver.
-4. ARDINDAN MUTLAKA aşağıdaki formatta tek bir JSON bloğu ver:
+3. Fonksiyonel Kodlama Standartları: Karmaşık döngüler veya özyinelemeler (recursion) yerine Yüksek Seviyeli Dizi Metotlarını kullan:
+   - map() (veriyi dönüştürmek)
+   - filter() (veriyi süzmek)
+   - reduce() / fold() (tek sonuca indirgemek, kümülatif toplamak)
+   - Derin kuyruk/ağaç gezinmelerinde hafıza tüketimini ve Call Stack taşmasını engelleyen Kuyruk/Iterative (TCO mantığı) yapılar kur.
+4. Yanıtında ÖNCE kısa bir Türkçe teknik açıklama ver.
+5. ARDINDAN MUTLAKA aşağıdaki formatta tek bir JSON bloğu ver:
 \`\`\`json
 {
   "filePath": "${o}",
