@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ThinkOnline · Kurumsal İmza Görsel Varlıkları</title>
+  <style>
+    :root {
+      --primary: #00b4c5;
+      --primary-hover: #009aa9;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    h1 { font-size: 24px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .badge { font-size: 12px; background: rgba(0, 180, 197, 0.15); color: var(--primary); padding: 4px 10px; border-radius: 9999px; border: 1px solid rgba(0, 180, 197, 0.3); font-weight: 600; }
+    p.desc { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
+    .section-title { font-size: 16px; font-weight: 600; color: #cbd5e1; margin: 32px 0 16px 0; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-col: column; flex-direction: column; transition: transform 0.15s, border-color 0.15s; }
+    .card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .preview { height: 120px; display: flex; align-items: center; justify-content: center; background: #ffffff; background-image: linear-gradient(45deg, #f1f5f9 25%, transparent 25%), linear-gradient(-45deg, #f1f5f9 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f1f5f9 75%), linear-gradient(-45deg, transparent 75%, #f1f5f9 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0px; padding: 12px; position: relative; }
+    .preview.dark-preview { background: #0b0f19; }
+    .preview img { max-height: 80px; max-width: 90%; object-fit: contain; }
+    .info { padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .name { font-weight: 600; font-size: 14px; color: #fff; margin-bottom: 4px; word-break: break-all; }
+    .sub { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .url-input { width: 100%; background: #0f172a; border: 1px solid var(--border); color: #cbd5e1; font-size: 11px; padding: 8px 10px; border-radius: 6px; font-family: monospace; margin-bottom: 10px; outline: none; }
+    .url-input:focus { border-color: var(--primary); }
+    .btn-group { display: flex; gap: 8px; }
+    button.btn { flex: 1; background: var(--primary); color: #000; font-weight: 600; font-size: 12px; padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    button.btn:hover { background: var(--primary-hover); }
+    a.btn-secondary { background: #334155; color: #fff; text-decoration: none; font-weight: 600; font-size: 12px; padding: 8px 12px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+    a.btn-secondary:hover { background: #475569; }
+    footer { margin-top: 50px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>ThinkOnline <span class="badge">Varlık CDN</span></h1>
+        <p class="desc">E-posta imzası ve kurumsal kimlik için yüksek çözünürlüklü, optimize edilmiş statik PNG varlıkları.</p>
+      </div>
+    </header>
+
+    <div class="section-title">1. Kurumsal Logolar</div>
+    <div class="grid">
+      <div class="card">
+        <div class="preview">
+          <img src="logo_thinkonline.png" alt="logo_thinkonline.png">
+        </div>
+        <div class="info">
+          <div class="name">logo_thinkonline.png</div>
+          <div class="sub">520px Retina Master Logo (Şeffaf)</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="logo_thinkonline.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview dark-preview">
+          <img src="logo_thinkonline_white.png" alt="logo_thinkonline_white.png">
+        </div>
+        <div class="info">
+          <div class="name">logo_thinkonline_white.png</div>
+          <div class="sub">520px Beyaz Logo (Koyu Mod Uyumlu)</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline_white.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline_white.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="logo_thinkonline_white.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview">
+          <img src="logo_thinkonline_hd.png" alt="logo_thinkonline_hd.png">
+        </div>
+        <div class="info">
+          <div class="name">logo_thinkonline_hd.png</div>
+          <div class="sub">4500px Ultra HD Orijinal Master Kaynak</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline_hd.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/logo_thinkonline_hd.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="logo_thinkonline_hd.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">2. Ayırıcı Çizgiler (Dividers)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="preview">
+          <img src="divider_vertical.png" alt="divider_vertical.png" style="height: 70px; width: 3px; background: #7ed0d6;">
+        </div>
+        <div class="info">
+          <div class="name">divider_vertical.png</div>
+          <div class="sub">1px Dikey Çizgi (#7ed0d6 Turkuaz)</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/divider_vertical.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/divider_vertical.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="divider_vertical.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview">
+          <img src="divider_horizontal.png" alt="divider_horizontal.png" style="width: 180px; height: 3px; background: #e0e0e0;">
+        </div>
+        <div class="info">
+          <div class="name">divider_horizontal.png</div>
+          <div class="sub">600px Yatay Çizgi (#e0e0e0 Açık Gri)</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/divider_horizontal.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/divider_horizontal.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="divider_horizontal.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">3. Kurumsal İkon Paketi (#00b4c5)</div>
+    <div class="grid">
+      <div class="card">
+        <div class="preview"><img src="icon_phone.png" alt="icon_phone.png"></div>
+        <div class="info">
+          <div class="name">icon_phone.png</div>
+          <div class="sub">Telefon İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_phone.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_phone.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_phone.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_website.png" alt="icon_website.png"></div>
+        <div class="info">
+          <div class="name">icon_website.png</div>
+          <div class="sub">Küre / Harita / Web İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_website.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_website.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_website.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_linkedin.png" alt="icon_linkedin.png"></div>
+        <div class="info">
+          <div class="name">icon_linkedin.png</div>
+          <div class="sub">LinkedIn İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_linkedin.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_linkedin.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_linkedin.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_location.png" alt="icon_location.png"></div>
+        <div class="info">
+          <div class="name">icon_location.png</div>
+          <div class="sub">Konum Pini İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_location.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_location.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_location.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_email.png" alt="icon_email.png"></div>
+        <div class="info">
+          <div class="name">icon_email.png</div>
+          <div class="sub">E-posta İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_email.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_email.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_email.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_instagram.png" alt="icon_instagram.png"></div>
+        <div class="info">
+          <div class="name">icon_instagram.png</div>
+          <div class="sub">Instagram İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_instagram.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_instagram.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_instagram.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_whatsapp.png" alt="icon_whatsapp.png"></div>
+        <div class="info">
+          <div class="name">icon_whatsapp.png</div>
+          <div class="sub">WhatsApp İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_whatsapp.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_whatsapp.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_whatsapp.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="preview"><img src="icon_youtube.png" alt="icon_youtube.png"></div>
+        <div class="info">
+          <div class="name">icon_youtube.png</div>
+          <div class="sub">YouTube İkonu</div>
+          <input class="url-input" readonly value="https://www.koraytasan.com/imzala/brand/thinkonline/icon_youtube.png" onclick="this.select()">
+          <div class="btn-group">
+            <button class="btn" onclick="copyUrl(this, 'https://www.koraytasan.com/imzala/brand/thinkonline/icon_youtube.png')">URL Kopyala</button>
+            <a class="btn-secondary" href="icon_youtube.png" download>İndir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>team.core by KT &middot; ThinkOnline Kurumsal İmza CDN Altyapısı</span>
+    </footer>
+  </div>
+
+  <script>
+    function copyUrl(btn, text) {
+      navigator.clipboard.writeText(text).then(function() {
+        const orig = btn.innerText;
+        btn.innerText = 'Kopyalandı! ✓';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        setTimeout(function() {
+          btn.innerText = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
