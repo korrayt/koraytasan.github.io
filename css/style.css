@@ -1432,6 +1432,166 @@ section {
   color: #d8b4fe;
 }
 
+/* ============================================
+   Editorial Manifesto & Narrative Styling
+   ============================================ */
+.manifesto-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #cbd5e1;
+}
+
+.manifesto-prose p {
+  margin-bottom: 0;
+}
+
+.manifesto-lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.6;
+  border-left: 3px solid var(--accent-secondary);
+  padding-left: 18px;
+  margin-bottom: 6px;
+}
+
+.cinematic-pause {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 18px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  width: fit-content;
+  margin: 6px 0;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+}
+
+.pause-label {
+  color: #64748b;
+  font-style: italic;
+}
+
+.countdown-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.rec-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f87171;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.red-blink {
+  color: #ef4444;
+  animation: rec-blink 1.2s infinite;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.manifesto-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #e2e8f0;
+  background: rgba(124, 58, 237, 0.06);
+  border-left: 3px solid var(--accent-primary);
+  padding: 16px 22px;
+  border-radius: 0 16px 16px 0;
+  margin: 8px 0;
+  line-height: 1.7;
+}
+
+.insight-box {
+  background: rgba(18, 18, 26, 0.75);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin: 8px 0;
+  backdrop-filter: blur(10px);
+}
+
+.insight-box p {
+  color: #f1f5f9;
+  margin-bottom: 10px;
+  line-height: 1.75;
+}
+
+.insight-sub {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--accent-secondary);
+  font-style: italic;
+}
+
+.manifesto-closer {
+  font-size: 1.12rem;
+  color: #ffffff;
+  padding: 12px 0 4px 0;
+  line-height: 1.7;
+}
+
+.manifesto-closer em {
+  color: #c084fc;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.manifesto-signature {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-top: 6px;
+}
+
+.manifesto-signature p {
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.manifesto-signature strong {
+  color: #ffffff;
+}
+
+.manifesto-signature em {
+  color: #cbd5e1;
+  font-style: normal;
+}
+
+.subtle-pause {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.kor-accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
