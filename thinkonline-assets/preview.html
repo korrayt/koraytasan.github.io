@@ -4,47 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Cansu Nergiz – Think Online E-Posta İmzası</title>
+  <title>Think Online · E-Posta İmzası Önizleme & İndirme Merkezi (V1 & V2)</title>
   <style>
     @font-face{font-family:Gilroy;src:url("_preview_fonts/Gilroy-Regular.otf");font-weight:400}
     @font-face{font-family:Gilroy;src:url("_preview_fonts/Gilroy-Light.otf");font-weight:300}
     @font-face{font-family:"Bodoni 72";src:url("_preview_fonts/Bodoni 72.ttc")}
     
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      padding: 0;
-      background: #f1f5f9;
-      color: #1e293b;
+      background: #0f172a;
+      color: #f1f5f9;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding-bottom: 60px;
     }
     
-    .toolbar {
-      background: #0f172a;
+    .topbar {
+      background: #090d16;
       border-bottom: 1px solid #1e293b;
-      padding: 14px 24px;
+      padding: 16px 24px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      user-select: none;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-    .toolbar-brand {
+    .topbar-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .toolbar-title {
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 600;
+    .topbar-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
     }
-    .toolbar-badge {
+    .topbar-badge {
       background: rgba(0, 180, 197, 0.15);
       color: #00b4c5;
       font-size: 11px;
@@ -53,12 +51,12 @@
       border: 1px solid rgba(0, 180, 197, 0.3);
       font-weight: 600;
     }
-    .toolbar-actions {
+    .topbar-right {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
+    
     .btn {
       display: inline-flex;
       align-items: center;
@@ -96,171 +94,441 @@
       background: #1d4ed8;
     }
     
-    .signature-container {
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: calc(100vh - 70px);
+    .container {
+      max-width: 1100px;
+      margin: 32px auto 0 auto;
+      padding: 0 20px;
     }
+    
+    .version-section {
+      background: #151d30;
+      border: 1px solid #23314e;
+      border-radius: 12px;
+      margin-bottom: 36px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .version-header {
+      padding: 16px 20px;
+      background: #111827;
+      border-bottom: 1px solid #23314e;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .version-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .version-tag {
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .version-tag.v2 {
+      background: rgba(0, 180, 197, 0.2);
+      color: #00b4c5;
+      border: 1px solid rgba(0, 180, 197, 0.4);
+    }
+    .version-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .version-desc {
+      font-size: 12px;
+      color: #8e9eb5;
+      margin-left: 6px;
+    }
+    .version-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    
     .signature-card {
       background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      max-width: 100%;
+      padding: 36px 24px;
+      display: flex;
+      justify-content: center;
       overflow-x: auto;
     }
-    .help-hint {
-      margin-top: 16px;
-      font-size: 12px;
-      color: #64748b;
-      text-align: center;
+    
+    .notice-box {
+      margin-top: 32px;
+      background: #151d30;
+      border: 1px solid #23314e;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-
+    .notice-box a {
+      color: #00b4c5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .notice-box a:hover {
+      text-decoration: underline;
+    }
+    
     @media print {
-      .toolbar { display: none !important; }
-      .signature-container { padding: 0 !important; }
-      .signature-card { box-shadow: none !important; border: none !important; padding: 0 !important; }
+      .topbar { display: none !important; }
+      .version-header { display: none !important; }
+      .version-section { border: none !important; box-shadow: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Action Toolbar -->
-  <div class="toolbar">
-    <div class="toolbar-brand">
-      <span class="toolbar-title">Think Online · Cansu Nergiz</span>
-      <span class="toolbar-badge">Canlı Varlıklar Tanımlandı</span>
+  <!-- Sticky Global Topbar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-title">Think Online · Cansu Nergiz</span>
+      <span class="topbar-badge">İmza Önizleme Merkezi</span>
     </div>
-    <div class="toolbar-actions">
-      <button type="button" class="btn btn-primary" onclick="copyFormattedSignature(this)">
-        <span>📋</span> İmzayı Kopyala (Gmail / Outlook)
-      </button>
-      <button type="button" class="btn btn-secondary" onclick="downloadHtml()">
-        <span>📥</span> İmzayı İndir (.html)
-      </button>
-      <button type="button" class="btn btn-secondary" onclick="copyRawHtml(this)">
-        <span>💻</span> HTML Kodunu Kopyala
-      </button>
+    <div class="topbar-right">
       <a href="thinkonline-imza-paketi.zip" class="btn btn-zip" download>
         <span>📦</span> Tüm Paketi İndir (.zip)
+      </a>
+      <a href="./" class="btn btn-secondary">
+        <span>📁</span> Varlık Arşivi (thinkonline-assets/)
       </a>
     </div>
   </div>
 
-  <!-- Main Signature Canvas -->
-  <div class="signature-container">
-    <div class="signature-card">
-      <div id="signature-wrapper">
-        <table id="signature-table" role="presentation" cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px;max-width:800px;table-layout:fixed;border-collapse:collapse;background:#ffffff;color:#111827;font-family:Gilroy,Arial,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-          <tr>
-            <td width="306" height="157" valign="top" style="width:306px;height:157px;padding:0;border-right:1px solid #168FA2;vertical-align:top;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
-                  <td style="padding:12px 0 0 57px;">
-                    <div style="font-family:'Bodoni 72','Bodoni MT',Didot,'Times New Roman',serif;font-size:29px;line-height:34px;font-weight:400;letter-spacing:-.6px;white-space:nowrap;">Cansu Nergiz</div>
-                    <div style="padding-top:7px;"><span style="display:block;width:13px;height:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</span></div>
-                    <div style="padding-top:12px;font-family:Gilroy,Arial,sans-serif;font-size:10.8px;line-height:14px;letter-spacing:.65px;color:#168FA2;white-space:nowrap;">FOUNDER &amp; MANAGING DIRECTOR</div>
-                    <div style="padding-top:3px;font-family:Gilroy,Arial,sans-serif;font-size:10.5px;line-height:14px;white-space:nowrap;">Think Online Digital Strategy Solutions</div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-            <td width="29" style="width:29px;font-size:1px;">&nbsp;</td>
-            <td width="264" valign="top" style="width:264px;padding:13px 0 0 0;vertical-align:top;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
-                  <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
-                    <img src="https://koraytasan.com/thinkonline-assets/icon_phone.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
-                  </td>
-                  <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
-                    <a href="tel:+905322549043" style="color:#111827;text-decoration:none;">+90 (532) 254 90 43</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
-                    <img src="https://koraytasan.com/thinkonline-assets/icon_location.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
-                  </td>
-                  <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Mutlukent+Mahallesi+Hitit+Bulvari+Butik+Angora+Apt+12%2F11+Cayyolu+Ankara" style="color:#111827;text-decoration:none;">Mutlukent Mahallesi Hitit Bulvarı<br>Taşplak Sok. Butik Angora Apt.<br>No: 12/11 Angora Sitesi Çayyolu, Ankara</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
-                </tr>
-                <tr>
-                  <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
-                    <img src="https://koraytasan.com/thinkonline-assets/icon_linkedin.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
-                  </td>
-                  <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
-                    <a href="https://www.linkedin.com/in/cansunergiz/" style="color:#111827;text-decoration:none;">linkedin.com/in/cansunergiz</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
-                </tr>
-              </table>
-            </td>
-            <td width="1" style="width:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</td>
-            <td width="200" valign="top" align="center" style="width:200px;vertical-align:top;padding:0;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <tr>
-                  <td align="center" style="padding:36px 0 0 0;">
-                    <img src="https://koraytasan.com/thinkonline-assets/logo_thinkonline.png" width="120" height="30" alt="Think Online" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:120px;height:30px;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" style="padding:12px 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;">
-                    <a href="https://thinkonline.com.tr/" style="color:#111827;text-decoration:none;">thinkonline.com.tr</a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="5" height="31" style="height:31px;font-size:1px;line-height:31px;">&nbsp;</td>
-          </tr>
-          <tr>
-            <td colspan="5" align="center" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:9.5px;line-height:14px;white-space:nowrap;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-                <tr>
-                  <td style="padding:0 8px 0 0;">Bilkent University Instructor</td>
-                  <td style="border-left:1px solid #999;padding:0 8px 0 8px;">
-                    <span style="color:#168FA2;">Digimark GmbH</span> <span style="color:#777;">Co-Founder</span>&nbsp; Berlin, Germany
-                  </td>
-                  <td style="border-left:1px solid #999;padding:0 0 0 8px;">BNI Renaissance Membership Committee Chair</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="5" height="24" style="height:24px;font-size:1px;line-height:24px;">&nbsp;</td>
-          </tr>
-        </table>
+  <div class="container">
+
+    <!-- ==================== VERSİYON 1 ==================== -->
+    <div class="version-section">
+      <div class="version-header">
+        <div class="version-info">
+          <span class="version-tag">Versiyon 1</span>
+          <span class="version-title">Standart 3-Sütun Kurumsal İmza</span>
+          <span class="version-desc">(Klasik yerleşim)</span>
+        </div>
+        <div class="version-actions">
+          <button type="button" class="btn btn-primary" onclick="copySignature('v1-wrapper', this)">
+            <span>📋</span> İmzayı Kopyala
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="downloadSignature('v1-wrapper', 'thinkonline-imza-v1.html')">
+            <span>📥</span> İndir (V1 .html)
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="copyRawCode('v1-wrapper', this)">
+            <span>💻</span> HTML Kodu
+          </button>
+          <a href="signature-v1.html" target="_blank" class="btn btn-secondary">
+            <span>↗️</span> Ayrı Sayfa
+          </a>
+        </div>
+      </div>
+
+      <div class="signature-card">
+        <div id="v1-wrapper">
+          <!-- V1 TABLE -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px;max-width:800px;table-layout:fixed;border-collapse:collapse;background:#ffffff;color:#111827;font-family:Gilroy,Arial,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+            <tr>
+              <td width="306" height="157" valign="top" style="width:306px;height:157px;padding:0;border-right:1px solid #168FA2;vertical-align:top;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding:12px 0 0 57px;">
+                      <div style="font-family:'Bodoni 72','Bodoni MT',Didot,'Times New Roman',serif;font-size:29px;line-height:34px;font-weight:400;letter-spacing:-.6px;white-space:nowrap;">Cansu Nergiz</div>
+                      <div style="padding-top:7px;"><span style="display:block;width:13px;height:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</span></div>
+                      <div style="padding-top:12px;font-family:Gilroy,Arial,sans-serif;font-size:10.8px;line-height:14px;letter-spacing:.65px;color:#168FA2;white-space:nowrap;">FOUNDER &amp; MANAGING DIRECTOR</div>
+                      <div style="padding-top:3px;font-family:Gilroy,Arial,sans-serif;font-size:10.5px;line-height:14px;white-space:nowrap;">Think Online Digital Strategy Solutions</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td width="29" style="width:29px;font-size:1px;">&nbsp;</td>
+              <td width="264" valign="top" style="width:264px;padding:13px 0 0 0;vertical-align:top;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_phone.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="tel:+905322549043" style="color:#111827;text-decoration:none;">+90 (532) 254 90 43</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_location.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="https://www.google.com/maps/search/?api=1&query=Mutlukent+Mahallesi+Hitit+Bulvari+Butik+Angora+Apt+12%2F11+Cayyolu+Ankara" style="color:#111827;text-decoration:none;">Mutlukent Mahallesi Hitit Bulvarı<br>Taşplak Sok. Butik Angora Apt.<br>No: 12/11 Angora Sitesi Çayyolu, Ankara</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_linkedin.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="https://www.linkedin.com/in/cansunergiz/" style="color:#111827;text-decoration:none;">linkedin.com/in/cansunergiz</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+              <td width="1" style="width:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</td>
+              <td width="200" valign="top" align="center" style="width:200px;vertical-align:top;padding:0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td align="center" style="padding:36px 0 0 0;">
+                      <a href="https://thinkonline.com.tr/" target="_blank" style="text-decoration:none;">
+                        <img src="https://koraytasan.com/thinkonline-assets/logo_thinkonline.png" width="120" height="30" alt="Think Online" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:120px;height:30px;" />
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="padding:12px 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;">
+                      <a href="https://thinkonline.com.tr/" style="color:#111827;text-decoration:none;">thinkonline.com.tr</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" height="31" style="height:31px;font-size:1px;line-height:31px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="5" align="center" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:9.5px;line-height:14px;white-space:nowrap;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td style="padding:0 8px 0 0;">Bilkent University Instructor</td>
+                    <td style="border-left:1px solid #999;padding:0 8px 0 8px;">
+                      <a href="https://digimarkstudio.com/" target="_blank" style="text-decoration:none;color:inherit;">
+                        <span style="color:#168FA2;font-weight:bold;">Digimark GmbH</span> <span style="color:#777;">Co-Founder</span>&nbsp; Berlin, Germany
+                      </a>
+                    </td>
+                    <td style="border-left:1px solid #999;padding:0 0 0 8px;">BNI Renaissance Membership Committee Chair</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" height="24" style="height:24px;font-size:1px;line-height:24px;">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
-    <div class="help-hint">
-      İpuçları: <strong>"İmzayı Kopyala"</strong> butonuna bastıktan sonra doğrudan Gmail veya Outlook ayarlarındaki imza kutusuna <code>Ctrl + V</code> yapabilirsiniz.
+
+
+    <!-- ==================== VERSİYON 2 ==================== -->
+    <div class="version-section">
+      <div class="version-header">
+        <div class="version-info">
+          <span class="version-tag v2">Versiyon 2</span>
+          <span class="version-title">Sosyal Medya İkonlu & Gelişmiş Bağlantılı İmza</span>
+          <span class="version-desc">(Instagram, LinkedIn Şirket, Web İkonları ve Digimark Linki Entegre)</span>
+        </div>
+        <div class="version-actions">
+          <button type="button" class="btn btn-primary" onclick="copySignature('v2-wrapper', this)">
+            <span>📋</span> İmzayı Kopyala
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="downloadSignature('v2-wrapper', 'thinkonline-imza-v2.html')">
+            <span>📥</span> İndir (V2 .html)
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="copyRawCode('v2-wrapper', this)">
+            <span>💻</span> HTML Kodu
+          </button>
+          <a href="signature-v2.html" target="_blank" class="btn btn-secondary">
+            <span>↗️</span> Ayrı Sayfa
+          </a>
+        </div>
+      </div>
+
+      <div class="signature-card">
+        <div id="v2-wrapper">
+          <!-- V2 TABLE -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="800" style="width:800px;max-width:800px;table-layout:fixed;border-collapse:collapse;background:#ffffff;color:#111827;font-family:Gilroy,Arial,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+            <tr>
+              <!-- 1. SÜTUN: İsim ve Unvan -->
+              <td width="306" height="157" valign="top" style="width:306px;height:157px;padding:0;border-right:1px solid #168FA2;vertical-align:top;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="padding:12px 0 0 57px;">
+                      <div style="font-family:'Bodoni 72','Bodoni MT',Didot,'Times New Roman',serif;font-size:29px;line-height:34px;font-weight:400;letter-spacing:-.6px;white-space:nowrap;">Cansu Nergiz</div>
+                      <div style="padding-top:7px;"><span style="display:block;width:13px;height:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</span></div>
+                      <div style="padding-top:12px;font-family:Gilroy,Arial,sans-serif;font-size:10.8px;line-height:14px;letter-spacing:.65px;color:#168FA2;white-space:nowrap;">FOUNDER &amp; MANAGING DIRECTOR</div>
+                      <div style="padding-top:3px;font-family:Gilroy,Arial,sans-serif;font-size:10.5px;line-height:14px;white-space:nowrap;">Think Online Digital Strategy Solutions</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+              <!-- BOŞLUK -->
+              <td width="29" style="width:29px;font-size:1px;">&nbsp;</td>
+
+              <!-- 2. SÜTUN: İletişim Bilgileri -->
+              <td width="264" valign="top" style="width:264px;padding:13px 0 0 0;vertical-align:top;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <!-- Telefon -->
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_phone.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="tel:+905322549043" style="color:#111827;text-decoration:none;">+90 (532) 254 90 43</a>
+                    </td>
+                  </tr>
+                  <!-- Adres / Konum -->
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_location.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="https://www.google.com/maps/search/?api=1&query=Mutlukent+Mahallesi+Hitit+Bulvari+Butik+Angora+Apt+12%2F11+Cayyolu+Ankara" style="color:#111827;text-decoration:none;">Mutlukent Mahallesi Hitit Bulvarı<br>Taşplak Sok. Butik Angora Apt.<br>No: 12/11 Angora Sitesi Çayyolu, Ankara</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
+                  </tr>
+                  <!-- Kişisel LinkedIn -->
+                  <tr>
+                    <td width="20" valign="top" style="width:20px;padding:0;padding-top:2px;">
+                      <img src="https://koraytasan.com/thinkonline-assets/icon_linkedin.png" width="13" height="13" alt="" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:13px;height:13px;" />
+                    </td>
+                    <td valign="top" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;color:#111827;">
+                      <a href="https://www.linkedin.com/in/cansunergiz/" style="color:#111827;text-decoration:none;">linkedin.com/in/cansunergiz</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="13" style="height:13px;font-size:1px;line-height:13px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+
+              <!-- DİKEY AYIRICI ÇİZGİ -->
+              <td width="1" style="width:1px;background:#168FA2;font-size:1px;line-height:1px;">&nbsp;</td>
+
+              <!-- 3. SÜTUN: Kurumsal Logo, Web & Sosyal İkonlar -->
+              <td width="200" valign="top" align="center" style="width:200px;vertical-align:top;padding:0;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <!-- Logo -->
+                  <tr>
+                    <td align="center" style="padding:26px 0 0 0;">
+                      <a href="https://thinkonline.com.tr/" target="_blank" style="text-decoration:none;">
+                        <img src="https://koraytasan.com/thinkonline-assets/logo_thinkonline.png" width="120" height="30" alt="Think Online" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:120px;height:30px;" />
+                      </a>
+                    </td>
+                  </tr>
+                  <!-- Web Linki -->
+                  <tr>
+                    <td align="center" style="padding:10px 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:11.5px;line-height:15px;font-weight:300;">
+                      <a href="https://thinkonline.com.tr/" style="color:#111827;text-decoration:none;">thinkonline.com.tr</a>
+                    </td>
+                  </tr>
+                  <!-- Sosyal Medya İkonları (Instagram | LinkedIn | Web) -->
+                  <tr>
+                    <td align="center" style="padding:10px 0 0 0;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;margin:0 auto;">
+                        <tr>
+                          <!-- Instagram -->
+                          <td valign="middle" style="padding:0 7px 0 0;line-height:1;">
+                            <a href="https://www.instagram.com/thinkonlineteam/" target="_blank" style="text-decoration:none;display:inline-block;" title="ThinkOnline Instagram">
+                              <img src="https://koraytasan.com/thinkonline-assets/icon_instagram.png" width="15" height="15" alt="Instagram" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:15px;height:15px;" />
+                            </a>
+                          </td>
+                          <!-- Ayırıcı 1 -->
+                          <td valign="middle" style="border-left:1px solid #7ed0d6;font-size:1px;line-height:1px;width:1px;height:14px;padding:0;">&nbsp;</td>
+                          <!-- LinkedIn Şirket -->
+                          <td valign="middle" style="padding:0 7px 0 7px;line-height:1;">
+                            <a href="https://www.linkedin.com/company/think-online-digital-strategy-solutions/posts/?feedView=all" target="_blank" style="text-decoration:none;display:inline-block;" title="ThinkOnline LinkedIn">
+                              <img src="https://koraytasan.com/thinkonline-assets/icon_linkedin.png" width="15" height="15" alt="LinkedIn" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:15px;height:15px;" />
+                            </a>
+                          </td>
+                          <!-- Ayırıcı 2 -->
+                          <td valign="middle" style="border-left:1px solid #7ed0d6;font-size:1px;line-height:1px;width:1px;height:14px;padding:0;">&nbsp;</td>
+                          <!-- Web Sitesi Küre -->
+                          <td valign="middle" style="padding:0 0 0 7px;line-height:1;">
+                            <a href="https://thinkonline.com.tr/" target="_blank" style="text-decoration:none;display:inline-block;" title="ThinkOnline Web Sitesi">
+                              <img src="https://koraytasan.com/thinkonline-assets/icon_website.png" width="15" height="15" alt="Web Sitesi" border="0" style="display:block;border:0;outline:none;text-decoration:none;width:15px;height:15px;" />
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- ALT BOŞLUK -->
+            <tr>
+              <td colspan="5" height="28" style="height:28px;font-size:1px;line-height:28px;">&nbsp;</td>
+            </tr>
+
+            <!-- ALT BİLGİ (Footer - Tıklanabilir Digimark Bağlantılı) -->
+            <tr>
+              <td colspan="5" align="center" style="padding:0 0 0 0;font-family:Gilroy,Arial,sans-serif;font-size:9.5px;line-height:14px;white-space:nowrap;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td style="padding:0 8px 0 0;color:#111827;">Bilkent University Instructor</td>
+                    <td style="border-left:1px solid #999;padding:0 8px 0 8px;">
+                      <a href="https://digimarkstudio.com/" target="_blank" style="text-decoration:none;color:inherit;">
+                        <span style="color:#168FA2;font-weight:bold;">Digimark GmbH</span> <span style="color:#777;">Co-Founder</span>&nbsp; <span style="color:#111827;">Berlin, Germany</span>
+                      </a>
+                    </td>
+                    <td style="border-left:1px solid #999;padding:0 0 0 8px;color:#111827;">BNI Renaissance Membership Committee Chair</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" height="24" style="height:24px;font-size:1px;line-height:24px;">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
+
+    <!-- Rehber & İpucu -->
+    <div class="notice-box">
+      <div>
+        <strong>📌 E-Posta İstemcisine Nasıl Eklenir?</strong> İlgili versiyonun yanındaki <em>"İmzayı Kopyala"</em> butonuna basın; ardından Gmail veya Outlook ayarlarındaki imza alanına <code>Ctrl + V</code> (veya <code>Cmd + V</code>) ile yapıştırın. Tüm görseller ve linkler doğrudan canlı çalışacaktır.
+      </div>
+      <div>
+        <a href="thinkonline-imza-paketi.zip" download>Tüm Paketi .ZIP Olarak İndir &rarr;</a>
+      </div>
+    </div>
+
   </div>
 
   <script>
-    function copyFormattedSignature(btn) {
-      const el = document.getElementById('signature-wrapper');
+    function copySignature(wrapperId, btn) {
+      const el = document.getElementById(wrapperId);
       const range = document.createRange();
       range.selectNodeContents(el);
       const selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
       try {
-        const successful = document.execCommand('copy');
+        const ok = document.execCommand('copy');
         selection.removeAllRanges();
-        if (successful) {
+        if (ok) {
           const orig = btn.innerHTML;
-          btn.innerHTML = '✓ İmzalandı & Kopyalandı!';
+          btn.innerHTML = '✓ Kopyalandı!';
           btn.style.background = '#10b981';
           btn.style.color = '#ffffff';
           setTimeout(() => {
@@ -274,8 +542,8 @@
       }
     }
 
-    function downloadHtml() {
-      const tableHtml = document.getElementById('signature-wrapper').innerHTML.trim();
+    function downloadSignature(wrapperId, filename) {
+      const tableHtml = document.getElementById(wrapperId).innerHTML.trim();
       const fullDoc = `<!doctype html>
 <html lang="tr">
 <head>
@@ -290,18 +558,18 @@ ${tableHtml}
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'thinkonline-imza-cansu-nergiz.html';
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
 
-    function copyRawHtml(btn) {
-      const tableHtml = document.getElementById('signature-wrapper').innerHTML.trim();
+    function copyRawCode(wrapperId, btn) {
+      const tableHtml = document.getElementById(wrapperId).innerHTML.trim();
       navigator.clipboard.writeText(tableHtml).then(() => {
         const orig = btn.innerHTML;
-        btn.innerHTML = '✓ HTML Kodu Kopyalandı!';
+        btn.innerHTML = '✓ Kod Kopyalandı!';
         btn.style.background = '#10b981';
         btn.style.color = '#ffffff';
         setTimeout(() => {
