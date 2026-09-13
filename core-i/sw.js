@@ -1,5 +1,5 @@
-﻿// core-I Autonomous Service Worker (Offline Cache & PWA Support)
-const CACHE_NAME = 'core-i-cache-v1';
+// core-I Autonomous Service Worker (Offline Cache & PWA Support)
+const CACHE_NAME = 'core-i-cache-v2.8.0';
 const CORE_ASSETS = [
   './',
   './index.html',
