@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yazılar & Düşünceler | Koray Taşan</title>
+  <meta name="description"
+    content="Koray Taşan - Kurgu felsefesi, yeni nesil AI mimarileri, semantik ses tasarımı ve akıllı ürün sistemleri üzerine denemeler ve notlar.">
+  <meta name="author" content="Koray Taşan">
+  <link rel="canonical" href="https://www.koraytasan.com/yazilar/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yazılar & Düşünceler | Koray Taşan">
+  <meta property="og:description"
+    content="Kurgu felsefesi, AI sistem mimarileri ve kreatif teknoloji üzerine periyodik denemeler.">
+  <meta property="og:url" content="https://www.koraytasan.com/yazilar/">
+  <meta property="og:site_name" content="Koray Taşan">
+  <meta property="og:locale" content="tr_TR">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .journal-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin: 40px 0 100px;
+    }
+    .journal-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .journal-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168, 85, 247, 0.45);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+    .journal-card-tag {
+      font-size: 0.78rem;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .journal-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .journal-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .journal-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+    }
+    .journal-card-footer span.read-more {
+      color: var(--accent-secondary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled">
+    <div class="container nav-content">
+      <a href="../" class="nav-logo">KT</a>
+      <ul class="nav-links">
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#ai-products">AI & Products</a></li>
+        <li><a href="../#media">Film & Media</a></li>
+        <li><a href="./" class="active" style="color: var(--accent-secondary);">Yazılar</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="journal-hero">
+      <span class="section-tag">Düşünceler & Notlar</span>
+      <h1 class="section-title">Kurgudan Sistem Mimarisine</h1>
+      <p class="section-description" style="max-width: 680px; margin: 0 auto;">
+        Hikâyenin kurguda tamamlanması gibi sistemler de insan dokunuşuyla yaşayan organizmalara dönüşür. Periyodik denemeler, mimari notlar ve düşünceler.
+      </p>
+    </section>
+
+    <div class="journal-grid">
+      <!-- Article 1 -->
+      <a href="hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="journal-card">
+        <div>
+          <span class="journal-card-tag">Deneme & Manifesto</span>
+          <h3>Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları</h3>
+          <p>
+            15 yıllık kurgu ustalığından akıllı ürün mimarilerine uzanan; core.action, Uyku Atlası ve yaşayan sistemlerin felsefi manifestosu.
+          </p>
+        </div>
+        <div class="journal-card-footer">
+          <span>24 Eylül 2026 • 5 dk</span>
+          <span class="read-more">Oku ↗</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Koray Taşan. All rights reserved. | Stories → Systems → Intelligent Products | <a href="../">Ana Sayfa</a> | <a href="../findmyhome/">FindMyHome</a> | <a href="../buildupbuilddown/">BUILD UP BUILD DOWN</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
