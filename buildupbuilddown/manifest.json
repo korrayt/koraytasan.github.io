@@ -1,0 +1,19 @@
+{
+  "name": "BUILD UP BUILD DOWN",
+  "short_name": "BuildUpDown",
+  "description": "1:1 Dijital İkiz Araç Montaj & Demontaj Platformu - Koray Taşan",
+  "start_url": "/buildupbuilddown/",
+  "scope": "/buildupbuilddown/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d0f12",
+  "theme_color": "#d97706",
+  "icons": [
+    {
+      "src": "/buildupbuilddown/textures/koray_tasan_plate.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
