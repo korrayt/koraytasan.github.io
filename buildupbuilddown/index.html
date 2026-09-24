@@ -55,9 +55,22 @@
         -webkit-touch-callout: none;
       }
     </style>
-    <script type="module" crossorigin src="/buildupbuilddown/assets/index-DWDiAEaO.js"></script>
+    <script type="module" crossorigin src="/buildupbuilddown/assets/index-BTXRm03Q.js"></script>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./sw.js', { scope: './' })
+            .then(function(reg) {
+              console.log('[SW] PWA Service Worker Registered:', reg.scope);
+            })
+            .catch(function(err) {
+              console.warn('[SW] PWA Service Worker Registration Failed:', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
