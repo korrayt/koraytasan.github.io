@@ -1826,3 +1826,186 @@ section {
   }
 }
 
+/* MithyLeaks Showcase Section */
+.mithyleaks-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.mithyleaks-card {
+  background: linear-gradient(135deg, rgba(212, 163, 89, 0.08) 0%, rgba(18, 20, 28, 0.75) 50%, rgba(8, 9, 12, 0.95) 100%);
+  border: 1px solid rgba(212, 163, 89, 0.28);
+  border-radius: 28px;
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(212, 163, 89, 0.06);
+}
+
+.mithyleaks-card::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(212, 163, 89, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mithyleaks-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 163, 89, 0.12);
+  color: #f3d79b;
+  border: 1px solid rgba(212, 163, 89, 0.3);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.mithyleaks-title {
+  font-family: 'Cinzel', 'Outfit', serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.mithyleaks-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  color: #d4a359;
+  display: block;
+  margin-top: 8px;
+}
+
+.mithyleaks-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  color: #e6e3dd;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin: 20px 0 16px;
+  padding-left: 18px;
+  border-left: 2px solid rgba(212, 163, 89, 0.4);
+}
+
+.mithyleaks-desc {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.mithyleaks-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.m-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 163, 89, 0.2);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.mithyleaks-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-mithyleaks {
+  background: linear-gradient(135deg, #d4a359, #b5843b) !important;
+  border-color: #f3d79b !important;
+  color: #07080b !important;
+  box-shadow: 0 0 25px rgba(212, 163, 89, 0.35);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.btn-mithyleaks:hover {
+  box-shadow: 0 0 40px rgba(212, 163, 89, 0.55);
+  transform: translateY(-3px);
+  color: #000 !important;
+}
+
+.mithyleaks-visual {
+  position: relative;
+}
+
+.mithyleaks-visual-link {
+  display: block;
+  text-decoration: none;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 163, 89, 0.35);
+  position: relative;
+  transition: all 0.4s ease;
+  background: #000;
+}
+
+.mithyleaks-visual-link img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mithyleaks-visual-link:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 163, 89, 0.65);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(212, 163, 89, 0.3);
+}
+
+.mithyleaks-visual-link:hover img {
+  transform: scale(1.03);
+}
+
+.mithyleaks-floating-badge {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: rgba(8, 9, 12, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 163, 89, 0.45);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f3d79b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 992px) {
+  .mithyleaks-card {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 36px;
+  }
+  .mithyleaks-visual {
+    order: -1;
+  }
+}
+
+
