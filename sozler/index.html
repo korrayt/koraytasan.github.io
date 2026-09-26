@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080706" />
+  <meta name="description" content="Koray Taşan — Şarkı Sözleri, Melankolik Arşiv ve Lirik Fragmanlar. Sokak, ritim, gece ve insan-sentetik hibrit anlatılar." />
+  <title>Şarkı Sözleri & Lirik Arşivi | Koray Taşan</title>
+  <link rel="canonical" href="https://www.koraytasan.com/sozler/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="music.song" />
+  <meta property="og:url" content="https://www.koraytasan.com/sozler/" />
+  <meta property="og:title" content="Şarkı Sözleri & Lirik Arşivi | Koray Taşan" />
+  <meta property="og:description" content="Koray Taşan — Şarkı Sözleri, Melankolik Arşiv ve Lirik Fragmanlar. 'Ritim, anlamın nefesidir.'" />
+  <meta property="og:image" content="https://www.koraytasan.com/sozler/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Koray Taşan" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.koraytasan.com/sozler/" />
+  <meta name="twitter:title" content="Şarkı Sözleri & Lirik Arşivi | Koray Taşan" />
+  <meta name="twitter:description" content="Koray Taşan — Şarkı Sözleri, Melankolik Arşiv ve Lirik Fragmanlar." />
+  <meta name="twitter:image" content="https://www.koraytasan.com/sozler/og-image.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="/" class="brand" title="koraytasan.com Ana Sayfa">
+      <span class="brand-mark">K</span>
+      <div class="brand-text">KORAY <span>TAŞAN</span></div>
+    </a>
+    <nav class="header-nav">
+      <a href="/" class="nav-link">← Portfolyo</a>
+      <a href="/MithyLeaks/" class="nav-link" style="color: #c9a76a;">MithyLeaks ↗</a>
+      <a href="/yazilar/" class="nav-link">Yazılar</a>
+      <button class="nav-pill" id="openAddModalBtn" style="cursor: pointer; background: transparent; color: inherit;">
+        <span>+</span> Yeni Söz Ekle
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-banner-wrap">
+        <img src="hero-bg.jpg" alt="Koray Taşan Şarkı Sözleri Arşivi" class="hero-banner-img" />
+        <div class="hero-banner-overlay">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>SONIC ARCHIVE · LİRİK DEFTERİ</span>
+          </div>
+          <h2 style="font-family: var(--display); font-size: 24px; color: #f2eade; letter-spacing: 0.05em;">
+            "Ritim, anlamın nefesidir."
+          </h2>
+        </div>
+      </div>
+
+      <h1 class="hero-title">Şarkı Sözleri & <span>Lirik Fragmanlar</span></h1>
+      <p class="hero-subtitle">
+        "Kimse bilmez aslında hikâyem müzikle başladı... Bir görüntünün nerede başlayacağını, nerede susacağını, hangi sesin hangi söze ait olduğunu düşünerek geçti ömrüm."
+      </p>
+
+      <div class="sound-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search & Tag Filter -->
+    <section class="lyrics-toolbar">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Şarkı adı, dize veya kelime ara... (örn: sonsuz, ay söndürüldü, nakarat)" autocomplete="off" />
+      </div>
+
+      <div class="tag-filters">
+        <button class="filter-btn active" data-tag="all">Tümü</button>
+        <button class="filter-btn" data-tag="Manifesto">Manifesto</button>
+        <button class="filter-btn" data-tag="Gece & Melankoli">Gece & Melankoli</button>
+        <button class="filter-btn" data-tag="Sokak & Ritim">Sokak & Ritim</button>
+        <button class="filter-btn" data-tag="KOR / Hibrit">KOR / Hibrit</button>
+        <button class="filter-btn" data-tag="Sonsuzluk">Sonsuzluk</button>
+      </div>
+    </section>
+
+    <!-- Lyrics Grid -->
+    <section class="lyrics-container">
+      <div class="lyrics-grid" id="lyricsGrid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Reading Modal / Reader View -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <div class="modal-header-info">
+          <div class="modal-kicker">KORAY TAŞAN · ŞARKI SÖZÜ</div>
+          <h2 class="modal-title" id="modalTitle">Şarkı Başlığı</h2>
+          <p class="modal-subtitle" id="modalSubtitle">Alt Başlık</p>
+        </div>
+        <div class="modal-controls">
+          <button class="icon-btn" id="fontMinus" title="Yazıyı Küçült (A-)">A-</button>
+          <button class="icon-btn" id="fontPlus" title="Yazıyı Büyüt (A+)">A+</button>
+          <button class="icon-btn" id="modalClose" title="Kapat">✕</button>
+        </div>
+      </header>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Lyrics content inserted dynamically -->
+      </div>
+
+      <footer class="modal-footer">
+        <span style="font-size: 13px; color: var(--text-muted);">Söz & Anlatı: <strong>Koray Taşan</strong></span>
+        <button class="action-btn primary" id="copyBtn">
+          <span>📋</span> Sözleri Kopyala
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Quick Add Modal (Koray'ın anında yeni söz ekleyebilmesi için) -->
+  <div class="modal-overlay" id="addModalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="add-modal-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h3 style="font-family: var(--display); font-size: 20px; color: var(--gold);">Yeni Şarkı Sözü Ekle</h3>
+        <button class="icon-btn" id="closeAddModalBtn">✕</button>
+      </div>
+      <form id="addSongForm">
+        <div class="form-group">
+          <label class="form-label">Şarkı Başlığı</label>
+          <input type="text" id="newTitle" class="form-input" placeholder="örn: Geceyi Yırtan Ses" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Alt Başlık / Dönem</label>
+          <input type="text" id="newSubtitle" class="form-input" placeholder="örn: Akustik Kayıt · 2026" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Etiketler (Virgülle ayırın)</label>
+          <input type="text" id="newTags" class="form-input" placeholder="örn: Gece & Melankoli, Manifesto" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Sözler (Kıta aralarında bir boşluk bırakın; [Verse], [Nakarat], [Köprü] etiketleri kullanabilirsiniz)</label>
+          <textarea id="newLyrics" class="form-textarea" placeholder="[Verse 1]&#10;İlk dize buraya...&#10;İkinci dize...&#10;&#10;[Nakarat]&#10;Nakarat satırları..." required></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+          <button type="button" class="action-btn" id="cancelAddBtn" onclick="document.getElementById('addModalOverlay').classList.remove('open')">İptal</button>
+          <button type="submit" class="action-btn primary">Listeye Ekle & Oku</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Message -->
+  <div class="toast" id="toast">Bildirim mesajı</div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div style="font-family: var(--display); font-size: 20px; color: var(--gold); letter-spacing: 0.15em;">
+        KORAY TAŞAN
+      </div>
+      <nav class="footer-nav">
+        <a href="/">Portfolyo Ana Sayfa</a>
+        <a href="/MithyLeaks/">MithyLeaks</a>
+        <a href="/yazilar/">Yazılar & Düşünceler</a>
+        <a href="/core.action/">core.action</a>
+        <a href="/findmyhome/">FindMyHome</a>
+        <a href="/buildupbuilddown/">BuildUpDown</a>
+      </nav>
+      <p class="footer-copy">
+        "Eserin duvarda asılı durması zanaat, o sokakta nasıl yürüdüğün sanat."
+      </p>
+      <div style="font-size: 12px; color: #555048; margin-top: 10px;">
+        © 2026 Koray Taşan. Tüm hakları saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <script src="lyrics-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

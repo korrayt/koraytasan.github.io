@@ -25,6 +25,13 @@
         return;
       }
 
+      // Case-insensitive routing for Şarkı Sözleri / sozler / lyrics
+      if (lower.indexOf('/sozler') === 0 || lower.indexOf('/lyrics') === 0 || lower.indexOf('/sarki-sozleri') === 0 || lower.indexOf('/sarkisozleri') === 0 || decodeURIComponent(lower).indexOf('/sözler') === 0) {
+        var target3 = '/sozler/' + window.location.search + window.location.hash;
+        window.location.replace(target3);
+        return;
+      }
+
       // Fallback redirect to homepage after 2 seconds
       setTimeout(function() {
         window.location.replace('/' + window.location.search + window.location.hash);
