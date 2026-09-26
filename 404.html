@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yönlendiriliyor... | Koray Taşan</title>
+  <script>
+    (function() {
+      var path = window.location.pathname;
+      var lower = path.toLowerCase();
+      
+      // Case-insensitive routing for MithyLeaks
+      if (lower.indexOf('/mithyleaks') === 0) {
+        var sub = path.substring('/mithyleaks'.length);
+        if (sub.indexOf('/') === 0) sub = sub.substring(1);
+        var target = '/MithyLeaks/' + (sub ? sub : '') + window.location.search + window.location.hash;
+        window.location.replace(target);
+        return;
+      }
+
+      // Case-insensitive routing for core.action
+      if (lower.indexOf('/core.action') === 0) {
+        var target2 = '/core.action/' + window.location.search + window.location.hash;
+        window.location.replace(target2);
+        return;
+      }
+
+      // Fallback redirect to homepage after 2 seconds
+      setTimeout(function() {
+        window.location.replace('/' + window.location.search + window.location.hash);
+      }, 1500);
+    })();
+  </script>
+  <style>
+    body {
+      background: #080706;
+      color: #eee7db;
+      font-family: 'Cinzel', -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 0.15em;
+      color: #c6a36a;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #9f9687;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+    a {
+      color: #c6a36a;
+      text-decoration: none;
+      border: 1px solid rgba(198, 163, 106, 0.4);
+      padding: 10px 24px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background: rgba(198, 163, 106, 0.15);
+      border-color: #c6a36a;
+    }
+  </style>
+</head>
+<body>
+  <h1>MITHYLEAKS</h1>
+  <p>Sayfaya yönlendiriliyorsunuz...</p>
+  <a href="/MithyLeaks/">Doğrudan Git ↗</a>
+</body>
+</html>
