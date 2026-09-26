@@ -4,6 +4,170 @@
  */
 window.KORAY_LYRICS = [
   {
+    id: "biri-varmis-oteki-yok-olmasin",
+    title: "Biri Varmış Öteki Yok Olmasın...",
+    subtitle: "Düet & Melodik Ağıt",
+    date: "2026",
+    tags: ["Gece & Melankoli", "Sonsuzluk", "Manifesto"],
+    readTime: "4 dk",
+    quote: "Biri varmış, öteki yok olmasın. Aşk dediğin birini seçmek olmasın...",
+    audioSnippet: null,
+    sections: [
+      {
+        type: "intro",
+        label: "Intro",
+        lines: [
+          "Gözlerimi yumdum, tuttum elini,",
+          "Taş olmadım, duydum kalbini.",
+          "Başkasının günahından yalnız kaldın,",
+          "Kim bilir kaç gece kendine yandın."
+        ]
+      },
+      {
+        type: "verse",
+        label: "Verse 1",
+        lines: [
+          "Aşkı gördüm ben dostum, aşkı gördüm,",
+          "Saçları altın, güneş gözleri alır canını.",
+          "Bakan utanır, dünya biraz susardı.",
+          "Bir gün gelir de beni unutursan,",
+          "Adımı başka bir seste duyarsan,",
+          "Bil ki ben gitmedim, bir yerde kaldım,",
+          "Sana değen her elde biraz ben vardım."
+        ]
+      },
+      {
+        type: "verse",
+        label: "Verse 2",
+        lines: [
+          "Bir aşkım oldu, bana aşkı anlatan,",
+          "Benden önce seni seven bir adam.",
+          "“Saçları altın,” der, sonra konuşmaz,",
+          "İnsan sevince anlatamaz.",
+          "Seni bir aynanın içinde gördüm,",
+          "Öldürmeye geldim, kendimden döndüm.",
+          "Bir yüz değil, koca bir ömür vardı,",
+          "Ben sana baktıkça o da yanımda bana baktı."
+        ]
+      },
+      {
+        type: "verse",
+        label: "Pre-Chorus",
+        lines: [
+          "Ölsem, aşkımız yaşar mı?",
+          "Bir kalp giderse, öteki yaşar mı?",
+          "Ya beni zaman senden alırsa?",
+          "Seni seven, seni yalnız bırakmaz ya."
+        ]
+      },
+      {
+        type: "chorus",
+        label: "Chorus",
+        lines: [
+          "Biri varmış, öteki yok olmasın,",
+          "Aşk dediğin birini seçmek olmasın.",
+          "Biri gözlerine bakar, biri kapatır,",
+          "İkisi de aynı yerinden sana yanar.",
+          "Sen bizi sevdikçe kanıyoruz,",
+          "Kanamaya alışıyoruz.",
+          "Sevmen bizi korkutuyor,",
+          "Yine de doyamıyoruz.",
+          "Biri varmış, öteki yok olmasın,",
+          "Birimiz ölürsek aşkımız yaşasın."
+        ]
+      },
+      {
+        type: "verse",
+        label: "Verse 3",
+        lines: [
+          "Bir gün gidersem beni arama,",
+          "Ben onun sesinde kalırım sana.",
+          "O sana bakarken biraz da ben bakarım,",
+          "Elini tutarsa avucunda ben varım.",
+          "Ölsem aşkımız yaşar mı?",
+          "Adımı söylemeden hatırlar mısın?",
+          "O gece kan iki yana aktı,",
+          "Biri hayatta kaldı, biri beni aldı.",
+          "Dünya bir yana düştü, gözlerin başka,",
+          "Sen bana \"kal\" dedin, ona \"gitme\"."
+        ]
+      },
+      {
+        type: "verse",
+        label: "Verse 4",
+        lines: [
+          "O bana senden bahsederken anladım,",
+          "İnsan görmediğinde de düşermiş dara.",
+          "Dünya bir yana düştü, gözlerin başka.",
+          "Sen ona \"kal\" dedin, bana \"gitme\",",
+          "Üçümüz de sustuk aynı gece.",
+          "Ben sustum, gerçek inandı yalana,",
+          "Yıllar geçti, yüzün ellerindeydi,",
+          "Ama gözlerin hâlâ bize aitti.",
+          "Bir çocuk geldi, babasını sordu,",
+          "Adını söyleyince gözleri doldu."
+        ]
+      },
+      {
+        type: "bridge",
+        label: "Bridge",
+        lines: [
+          "Ölsem aşkımız yaşar mı?",
+          "Sen öldün diye aşk susar mı?",
+          "Ya bir gün gözlerini açarsa?",
+          "Bu kez korkmadan bakarız.",
+          "İkimiz de mi?",
+          "İkimiz de..."
+        ]
+      },
+      {
+        type: "chorus",
+        label: "Chorus",
+        lines: [
+          "Biri varmış, öteki yok olmasın,",
+          "Aşk dediğin birini seçmek olmasın.",
+          "Biri gözlerine bakar, biri kapatır,",
+          "İkisi de aynı yerinden sana yanar.",
+          "Sen bizi sevdikçe kanıyoruz,",
+          "Kanamaya bile alışıyoruz.",
+          "Sevmen bizi korkutuyor,",
+          "Yine de doyamıyoruz.",
+          "Biri varmış, öteki yok olmasın,",
+          "Birimiz ölürsek aşkımız yaşasın."
+        ]
+      },
+      {
+        type: "chorus",
+        label: "Final Chorus",
+        lines: [
+          "Bir varmış, öteki yok olmasın,",
+          "Aşk dediğin birini seçmek olmasın.",
+          "Biri gözlerine bakar, biri kapatır,",
+          "İkisi de aynı yerinden sana yanar.",
+          "Sen bizi sevdikçe kanıyoruz,",
+          "Kanamaya bile alışıyoruz.",
+          "Sevmen bizi korkutuyor,",
+          "Yine de senden dönmüyoruz.",
+          "Bir varmış, öteki yok olmasın,",
+          "Aşk dediğin birini seçmek olmasın.",
+          "Biri varmış, öteki yok olmasın,",
+          "Birimiz ölürsek aşkımız yaşasın."
+        ]
+      },
+      {
+        type: "outro",
+        label: "Outro",
+        lines: [
+          "Biri varmış…",
+          "Öteki yok olmadı.",
+          "Nerden biliyorsun?",
+          "Çünkü onu her sevdiğimde… Seni de seviyorum...",
+          "Çok sev…"
+        ]
+      }
+    ]
+  },
+  {
     id: "sonsuz-olmak-istiyorum",
     title: "Ölümsüz Değil Sonsuz Olmak İstiyorum",
     subtitle: "Manifesto & Şiirsel Monolog",
