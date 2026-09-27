@@ -46,6 +46,21 @@ function initNavigation() {
         });
     }
 
+    // Desktop Sidebar Collapse/Expand Toggle
+    const collapseBtn = document.getElementById('sidebarCollapseBtn');
+    if (collapseBtn) {
+        const savedCollapsed = localStorage.getItem('kt_sidebar_collapsed');
+        if (savedCollapsed === 'true' && window.innerWidth >= 1024) {
+            document.body.classList.add('sidebar-collapsed');
+        }
+
+        collapseBtn.addEventListener('click', () => {
+            document.body.classList.toggle('sidebar-collapsed');
+            const isNowCollapsed = document.body.classList.contains('sidebar-collapsed');
+            localStorage.setItem('kt_sidebar_collapsed', isNowCollapsed ? 'true' : 'false');
+        });
+    }
+
     // Mobile topbar scroll shadow effect
     window.addEventListener('scroll', () => {
         if (mobileTopbar) {
