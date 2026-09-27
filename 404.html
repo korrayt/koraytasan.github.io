@@ -32,6 +32,13 @@
         return;
       }
 
+      // Case-insensitive routing for Arena
+      if (lower.indexOf('/arena') === 0) {
+        var targetArena = '/arena/' + window.location.search + window.location.hash;
+        window.location.replace(targetArena);
+        return;
+      }
+
       // Fallback redirect to homepage after 2 seconds
       setTimeout(function() {
         window.location.replace('/' + window.location.search + window.location.hash);
