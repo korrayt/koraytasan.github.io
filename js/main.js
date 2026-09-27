@@ -7,42 +7,61 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
 });
 
-// Navigation
+// Navigation & Sidebar
 function initNavigation() {
-    const nav = document.getElementById('nav');
+    const sidebar = document.getElementById('sidebar');
     const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    const mobileTopbar = document.getElementById('mobileTopbar');
 
-    // Mobile menu toggle
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+    // Toggle sidebar on mobile
+    function toggleSidebar(open) {
+        if (!sidebar) return;
+        const shouldOpen = typeof open === 'boolean' ? open : !sidebar.classList.contains('active');
+        sidebar.classList.toggle('active', shouldOpen);
+        if (backdrop) backdrop.classList.toggle('active', shouldOpen);
+        if (navToggle) navToggle.classList.toggle('active', shouldOpen);
+        document.body.style.overflow = (shouldOpen && window.innerWidth < 1024) ? 'hidden' : '';
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar();
         });
+    }
 
-        // Close mobile menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
+    if (backdrop) {
+        backdrop.addEventListener('click', () => toggleSidebar(false));
+    }
+
+    // Close mobile menu on link click
+    if (sidebar) {
+        sidebar.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+                if (window.innerWidth < 1024) {
+                    toggleSidebar(false);
+                }
             });
         });
     }
 
-    // Navbar scroll effect
+    // Mobile topbar scroll shadow effect
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+        if (mobileTopbar) {
+            if (window.scrollY > 20) {
+                mobileTopbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                mobileTopbar.style.boxShadow = 'none';
+            }
         }
     });
 
-    // Smooth scroll for navigation links
+    // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId) return;
             e.preventDefault();
             const target = document.querySelector(targetId);
             if (target) {
@@ -53,6 +72,32 @@ function initNavigation() {
             }
         });
     });
+
+    // Active Section ScrollSpy for Sidebar
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+
+    if ('IntersectionObserver' in window && sections.length && navItems.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navItems.forEach(item => {
+                        if (item.getAttribute('href') === `#${id}`) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(sec => observer.observe(sec));
+    }
 }
 
 // Scroll-triggered animations
