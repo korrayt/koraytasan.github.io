@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ThinkOnline · assets Klasörü</title>
+  <style>
+    :root {
+      --primary: #00b4c5;
+      --bg: #0b0f19;
+      --card-bg: #151d30;
+      --border: #23314e;
+      --text: #f1f5f9;
+      --text-muted: #8e9eb5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 40px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .breadcrumbs { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; font-family: monospace; }
+    .breadcrumbs a { color: var(--primary); text-decoration: none; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    h1 { font-size: 22px; font-weight: 700; color: #fff; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+    .preview { height: 110px; display: flex; align-items: center; justify-content: center; background: #ffffff; background-image: linear-gradient(45deg, #f1f5f9 25%, transparent 25%), linear-gradient(-45deg, #f1f5f9 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f1f5f9 75%), linear-gradient(-45deg, transparent 75%, #f1f5f9 75%); background-size: 14px 14px; padding: 10px; }
+    .preview img { max-height: 80px; max-width: 85%; object-fit: contain; }
+    .doc-preview { background: #1e293b; font-size: 36px; }
+    .info { padding: 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .name { font-weight: 600; font-size: 13px; color: #fff; margin-bottom: 4px; word-break: break-all; }
+    .size { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; font-family: monospace; }
+    .actions { display: flex; gap: 6px; }
+    .btn-sm { flex: 1; display: inline-flex; align-items: center; justify-content: center; padding: 6px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: 0.15s; }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-secondary { background: #1e293b; color: #cbd5e1; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: #334155; color: #fff; }
+    footer { margin-top: 50px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="../">thinkonline-assets</a> / <span>assets</span> /
+    </div>
+    <header>
+      <h1>📁 assets/ (14 dosya)</h1>
+      <a href="../" style="color: var(--primary); font-size: 13px; text-decoration: none; font-weight: 600;">&larr; Üst Klasöre Dön</a>
+    </header>
+    <div class="grid">
+              <div class="card">
+          <div class='preview'><img src='divider_horizontal.png' alt='divider_horizontal.png'></div>
+          <div class="info">
+            <div class="name">divider_horizontal.png</div>
+            <div class="size">0.1 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="divider_horizontal.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="divider_horizontal.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'divider_horizontal.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='divider_horizontal.svg' alt='divider_horizontal.svg'></div>
+          <div class="info">
+            <div class="name">divider_horizontal.svg</div>
+            <div class="size">0.1 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="divider_horizontal.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="divider_horizontal.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'divider_horizontal.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='divider_vertical.png' alt='divider_vertical.png'></div>
+          <div class="info">
+            <div class="name">divider_vertical.png</div>
+            <div class="size">0.1 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="divider_vertical.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="divider_vertical.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'divider_vertical.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='divider_vertical.svg' alt='divider_vertical.svg'></div>
+          <div class="info">
+            <div class="name">divider_vertical.svg</div>
+            <div class="size">0.1 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="divider_vertical.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="divider_vertical.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'divider_vertical.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_linkedin.png' alt='icon_linkedin.png'></div>
+          <div class="info">
+            <div class="name">icon_linkedin.png</div>
+            <div class="size">2.4 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_linkedin.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_linkedin.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_linkedin.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_linkedin.svg' alt='icon_linkedin.svg'></div>
+          <div class="info">
+            <div class="name">icon_linkedin.svg</div>
+            <div class="size">0.3 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_linkedin.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_linkedin.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_linkedin.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_location.png' alt='icon_location.png'></div>
+          <div class="info">
+            <div class="name">icon_location.png</div>
+            <div class="size">4.6 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_location.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_location.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_location.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_location.svg' alt='icon_location.svg'></div>
+          <div class="info">
+            <div class="name">icon_location.svg</div>
+            <div class="size">0.3 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_location.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_location.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_location.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_phone.png' alt='icon_phone.png'></div>
+          <div class="info">
+            <div class="name">icon_phone.png</div>
+            <div class="size">1.2 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_phone.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_phone.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_phone.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='icon_phone.svg' alt='icon_phone.svg'></div>
+          <div class="info">
+            <div class="name">icon_phone.svg</div>
+            <div class="size">0.3 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="icon_phone.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="icon_phone.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'icon_phone.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='logo_thinkonline.png' alt='logo_thinkonline.png'></div>
+          <div class="info">
+            <div class="name">logo_thinkonline.png</div>
+            <div class="size">9 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="logo_thinkonline.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="logo_thinkonline.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'logo_thinkonline.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='logo_thinkonline.svg' alt='logo_thinkonline.svg'></div>
+          <div class="info">
+            <div class="name">logo_thinkonline.svg</div>
+            <div class="size">124 KB &middot; SVG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="logo_thinkonline.svg" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="logo_thinkonline.svg" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'logo_thinkonline.svg')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='signature_exact.png' alt='signature_exact.png'></div>
+          <div class="info">
+            <div class="name">signature_exact.png</div>
+            <div class="size">75.4 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="signature_exact.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="signature_exact.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'signature_exact.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>        <div class="card">
+          <div class='preview'><img src='signature_exact_800.png' alt='signature_exact_800.png'></div>
+          <div class="info">
+            <div class="name">signature_exact_800.png</div>
+            <div class="size">53.5 KB &middot; PNG</div>
+            <div class="actions">
+              <a class="btn-sm btn-primary" href="signature_exact_800.png" target="_blank">Aç</a>
+              <a class="btn-sm btn-secondary" href="signature_exact_800.png" download>İndir</a>
+              <button class="btn-sm btn-secondary" onclick="copyUrl(this, 'signature_exact_800.png')">URL Kopyala</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer>
+      <span>ThinkOnline Kurumsal İmza Teslimatı &middot; Koray Taşan Altyapısı</span>
+    </footer>
+  </div>
+  <script>
+    function copyUrl(btn, filename) {
+      const fullUrl = new URL(filename, window.location.href).href;
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Kopyalandı! ✓';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

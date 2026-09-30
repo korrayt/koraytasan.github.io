@@ -1,0 +1,5 @@
+/* Upload your licensed font files to your own server and adjust these URLs.
+   Email clients may ignore @font-face; use the exact-image version for guaranteed typography. */
+@font-face{font-family:Gilroy;src:url("https://thinkonline.com.tr/mail-signature/fonts/Gilroy-Regular.woff2") format("woff2");font-weight:400;}
+@font-face{font-family:Gilroy;src:url("https://thinkonline.com.tr/mail-signature/fonts/Gilroy-Light.woff2") format("woff2");font-weight:300;}
+@font-face{font-family:"Bodoni 72";src:url("https://thinkonline.com.tr/mail-signature/fonts/Bodoni72.woff2") format("woff2");font-weight:400;}
