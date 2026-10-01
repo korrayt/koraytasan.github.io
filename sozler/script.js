@@ -58,9 +58,16 @@
       card.setAttribute('data-id', item.id);
 
       const tagsHtml = item.tags.map(t => `<span class="tag-badge">${t}</span>`).join('');
+      const thumbHtml = item.youtubeId ? `
+        <div class="card-thumb-preview">
+          <img src="https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg" alt="${item.title}" loading="lazy" />
+          <span class="card-play-tag">▶ YouTube</span>
+        </div>
+      ` : '';
 
       card.innerHTML = `
         <div>
+          ${thumbHtml}
           <div class="card-meta">
             <span>${item.date}</span>
             <span>${item.readTime}</span>
@@ -74,8 +81,8 @@
         <div>
           <div class="card-tags">${tagsHtml}</div>
           <div class="card-footer">
-            <span>Sözleri Oku</span>
-            <span class="card-cta">Aç <span>→</span></span>
+            <span class="card-cta">Sözleri & Videoyu Aç <span>→</span></span>
+            <a href="/sozler/${item.id}/" class="card-direct-link" style="color: var(--gold); text-decoration: none; font-size: 11px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: rgba(255,255,255,0.03);" onclick="event.stopPropagation();">Ayrı Sayfa ↗</a>
           </div>
         </div>
       `;
@@ -90,6 +97,34 @@
     activeLyric = item;
     modalTitle.textContent = item.title;
     modalSubtitle.textContent = item.subtitle ? `${item.subtitle} · ${item.date}` : item.date;
+
+    let videoHtml = '';
+    if (item.youtubeId) {
+      videoHtml = `
+        <div class="modal-video-box">
+          <div class="video-responsive">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/${item.youtubeId}?rel=0&modestbranding=1" 
+              title="${item.title}" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      `;
+    }
+
+    let shareBarHtml = `
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line);">
+        <a href="/sozler/${item.id}/" class="action-btn" style="text-decoration: none; font-size: 13px;">
+          <span>🔗</span> Ayrı Sayfa Olarak Aç (Paylaşım Linki) ↗
+        </a>
+        <a href="${item.youtubeUrl}" target="_blank" rel="noopener" class="action-btn" style="text-decoration: none; font-size: 13px;">
+          <span>▶</span> YouTube'da Aç ↗
+        </a>
+      </div>
+    `;
 
     let contentHtml = '<div class="lyrics-content">';
     item.sections.forEach(sec => {
@@ -109,7 +144,7 @@
     });
     contentHtml += '</div>';
 
-    modalBody.innerHTML = contentHtml;
+    modalBody.innerHTML = videoHtml + shareBarHtml + contentHtml;
     modalBody.style.fontSize = `${currentFontSize}px`;
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -120,6 +155,7 @@
   // Close Modal
   function closeModal() {
     modalOverlay.classList.remove('open');
+    modalBody.innerHTML = ''; // stops video immediately
     document.body.style.overflow = '';
     activeLyric = null;
     history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -156,7 +192,7 @@
   copyBtn.addEventListener('click', () => {
     if (!activeLyric) return;
 
-    let text = `${activeLyric.title.toUpperCase()}\n${activeLyric.subtitle ? activeLyric.subtitle + '\n' : ''}Söz: Koray Taşan\n\n`;
+    let text = `${activeLyric.title.toUpperCase()}\n${activeLyric.subtitle ? activeLyric.subtitle + '\n' : ''}Sanatçı: khrysaor\nProdüksiyon & Düzenleme: khrysaor (Koray Taşan)\n\n`;
 
     activeLyric.sections.forEach(sec => {
       if (sec.label) text += `[${sec.label}]\n`;
@@ -166,7 +202,7 @@
       text += '\n';
     });
 
-    text += 'https://www.koraytasan.com/sozler/#' + activeLyric.id;
+    text += `https://www.koraytasan.com/sozler/${activeLyric.id}/`;
 
     navigator.clipboard.writeText(text).then(() => {
       showToast('Şarkı sözleri panoya kopyalandı ✓');

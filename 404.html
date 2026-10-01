@@ -26,10 +26,17 @@
       }
 
       // Case-insensitive routing for Şarkı Sözleri / sozler / lyrics
-      if (lower.indexOf('/sozler') === 0 || lower.indexOf('/lyrics') === 0 || lower.indexOf('/sarki-sozleri') === 0 || lower.indexOf('/sarkisozleri') === 0 || decodeURIComponent(lower).indexOf('/sözler') === 0) {
-        var target3 = '/sozler/' + window.location.search + window.location.hash;
-        window.location.replace(target3);
-        return;
+      var sozlerPrefixes = ['/sozler', '/lyrics', '/sarki-sozleri', '/sarkisozleri', '/sözler'];
+      for (var i = 0; i < sozlerPrefixes.length; i++) {
+        var prefix = sozlerPrefixes[i];
+        if (lower.indexOf(prefix) === 0 || decodeURIComponent(lower).indexOf(prefix) === 0) {
+          var matchedLen = lower.indexOf(prefix) === 0 ? prefix.length : prefix.length;
+          var sub = path.substring(matchedLen);
+          if (sub.indexOf('/') === 0) sub = sub.substring(1);
+          var target3 = '/sozler/' + (sub ? sub + (sub.indexOf('/') === -1 && sub.indexOf('.') === -1 ? '/' : '') : '') + window.location.search + window.location.hash;
+          window.location.replace(target3);
+          return;
+        }
       }
 
       // Case-insensitive routing for Arena
