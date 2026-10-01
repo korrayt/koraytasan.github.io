@@ -152,16 +152,18 @@
 <div class="lyric-line">Kilitleyip geri döndüm</div>
 <div class="lyric-line">Her lafın bir manası var</div>
 <div class="lyric-line">Ben hep öyle gördüm</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block verse">
           <span class="stanza-label">Nakarat Öncesi (Pre-Chorus)</span>
           <div class="lyric-line">Durdun ya öylece önümde</div>
 <div class="lyric-line">Karşı koymaya çalışmak</div>
 <div class="lyric-line">Bile bir aptal gibi</div>
 <div class="lyric-line">En anlamsız yoldu</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block chorus">
           <span class="stanza-label">Nakarat (Chorus)</span>
           <div class="lyric-line">Bilmem, ben de</div>
@@ -173,16 +175,18 @@
 <div class="lyric-line">Adın yeter</div>
 <div class="lyric-line">Kapı açık</div>
 <div class="lyric-line">Gel benimle</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block verse">
           <span class="stanza-label">Bölüm 2 (Verse 2)</span>
           <div class="lyric-line">Bildiğim sokaklar aynı</div>
 <div class="lyric-line">Aynı sabah, aynı evler</div>
 <div class="lyric-line">Adın daha yeniyken sen</div>
 <div class="lyric-line">Hiç yabancı değilsin</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block chorus">
           <span class="stanza-label">Nakarat (Chorus)</span>
           <div class="lyric-line">Bilmem, ben de</div>
@@ -194,8 +198,9 @@
 <div class="lyric-line">Adın yeter</div>
 <div class="lyric-line">Kapı açık</div>
 <div class="lyric-line">Gel benimle</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block chorus">
           <span class="stanza-label">Final Nakarat</span>
           <div class="lyric-line">Bilmem, ben de</div>
@@ -207,14 +212,16 @@
 <div class="lyric-line">Adın yeter</div>
 <div class="lyric-line">Kapı açık</div>
 <div class="lyric-line">Gel benimle</div>
-        </div>
 
+        </div>
+        
         <div class="stanza-block outro">
           <span class="stanza-label">Kapanış (Outro)</span>
           <div class="lyric-line">Bilmem, ben de</div>
 <div class="lyric-line">Gel benimle</div>
+
         </div>
-          
+        
         </div>
       </article>
 
@@ -267,7 +274,7 @@
             <p>Düet & Melodik Ağıt · Official Audio</p>
           </div>
         </a>
-
+        
         <a href="/sozler/yoldan-cikiyorum-baba/" class="other-song-card">
           <div class="other-thumb-wrap">
             <img src="https://i.ytimg.com/vi/i0lRlXlFh_s/hqdefault.jpg" alt="Yoldan Çıkıyorum (Baba)" loading="lazy" />
@@ -278,7 +285,7 @@
             <p>Ambient House · UK Garage · Sinematik Monolog</p>
           </div>
         </a>
-
+        
         <a href="/sozler/bu-sarkiyi-kaybedemem/" class="other-song-card">
           <div class="other-thumb-wrap">
             <img src="https://i.ytimg.com/vi/-esQckmIMgQ/hqdefault.jpg" alt="Bu Şarkıyı Kaybedemem (Ritmi Bırakmam)" loading="lazy" />
@@ -289,7 +296,7 @@
             <p>Deep House · Türkçe Vokal · Indie Pop</p>
           </div>
         </a>
-
+        
         <a href="/sozler/gospel-baby/" class="other-song-card">
           <div class="other-thumb-wrap">
             <img src="https://i.ytimg.com/vi/K35AtsZEl5o/hqdefault.jpg" alt="gospel baby (i won't lose this song)" loading="lazy" />
@@ -300,18 +307,18 @@
             <p>Atmospheric Americana · Nocturnal Indie Folk · Acoustic</p>
           </div>
         </a>
-
+        
         <a href="/sozler/hirsiz/" class="other-song-card">
           <div class="other-thumb-wrap">
-            <img src="https://i.ytimg.com/vi/L0vzvlRH-lY/hqdefault.jpg" alt="Hırsız" loading="lazy" />
+            <img src="https://i.ytimg.com/vi/KFrAv440Rmg/hqdefault.jpg" alt="Hırsız" loading="lazy" />
             <span class="play-overlay">▶</span>
           </div>
           <div class="other-song-info">
             <h4>Hırsız</h4>
-            <p>Dark Pop · Ambient Electronic · Studio Master</p>
+            <p>Sussuz Soundtrack · Official Lyric Video</p>
           </div>
         </a>
-          
+        
         </div>
       </div>
 
@@ -362,7 +369,7 @@
 
     if (copyLyricsBtn) {
       copyLyricsBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(plainLyrics).then(() => {
+        navigator.clipboard.writeText(plainLyrics.replace(/\\n/g, '\n')).then(() => {
           showToast('Sözler panoya kopyalandı 📋');
         }).catch(() => {
           showToast('Kopyalama başarısız oldu.');

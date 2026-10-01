@@ -602,30 +602,30 @@ window.KORAY_LYRICS = [
   {
     "id": "hirsiz",
     "title": "Hırsız",
-    "subtitle": "Dark Pop · Ambient Electronic · Studio Master",
+    "subtitle": "Sussuz Soundtrack · Official Lyric Video",
     "date": "2026",
-    "youtubeId": "L0vzvlRH-lY",
-    "youtubeUrl": "https://www.youtube.com/watch?v=L0vzvlRH-lY",
+    "youtubeId": "KFrAv440Rmg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KFrAv440Rmg",
     "tags": [
       "Dark Pop",
-      "Ambient Electronic",
-      "Studio Master",
+      "Soundtrack",
+      "Nocturnal",
       "Gece & Melankoli",
-      "Nocturnal"
+      "Ambient Electronic"
     ],
     "readTime": "3 dk",
-    "quote": "Hırsız, hırsız... Aklımı başımdan aldın. Herkes eve döndü, sen tenimde kaldın.",
-    "description": "khrysaor — Hırsız resmi şarkı sözleri ve 1080p lyric video kaydı. 'Bir ışık yanıyor, bir gölge büyüyor... İzin bende kaldı, silinip geçip gitme.'",
-    "genre": "Dark Pop / Ambient Electronic / Studio Master",
+    "quote": "Herkes eve döndü, sen tenimde kaldın. İzin kaldı, izin kaldı, silemedim.",
+    "description": "khrysaor — Hırsız (Sussuz Soundtrack) resmi şarkı sözleri ve video kaydı. 'Bir ışık yanıyor, bir gölge büyüyor. Sen bana bakınca bu şehir susuyor...'",
+    "genre": "Dark Pop / Sussuz Soundtrack / Ambient Electronic",
     "sections": [
       {
-        "type": "verse",
-        "label": "Bölüm 1 (Verse 1)",
+        "type": "intro",
+        "label": "Giriş (Intro)",
         "lines": [
           "Bir ışık yanıyor, bir gölge büyüyor",
           "Sen bana bakınca bu şehir susuyor",
           "Kalabalık akar, gözüm seni arar",
-          "Gece dediğin de bir bakışa bakar"
+          "Gece dediğinde bir bakışa bakar"
         ]
       },
       {
@@ -645,8 +645,10 @@ window.KORAY_LYRICS = [
           "Herkes eve döndü, sen tenimde kaldın",
           "İzin kaldı, izin kaldı, silemedim",
           "Seni gördüm, ben görmedim diyemedim",
-          "Hırsız, hırsız... Yakalandın inkâr etme",
-          "İzin bende kaldı, silinip geçip gitme"
+          "",
+          "Hırsız, hırsız...",
+          "Yakalandın inkâr etme",
+          "İzin bende kaldı, silip geçip gitme"
         ]
       },
       {
@@ -676,17 +678,26 @@ window.KORAY_LYRICS = [
           "Herkes eve döndü, sen tenimde kaldın",
           "İzin kaldı, izin kaldı, silemedim",
           "Seni gördüm, ben görmedim diyemedim",
-          "Hırsız, hırsız... Yakalandın inkâr etme",
-          "İzin bende kaldı, silinip geçip gitme"
+          "",
+          "Hırsız, hırsız...",
+          "Yakalandın inkâr etme",
+          "İzin bende kaldı, silip geçip gitme"
+        ]
+      },
+      {
+        "type": "bridge",
+        "label": "Köprü (Bridge)",
+        "lines": [
+          "Susarsam yanarım, söylersem yakarım",
+          "Bu gece ne varsa adını koyarım"
         ]
       },
       {
         "type": "outro",
-        "label": "Kapanış & Doruk (Outro)",
+        "label": "Kapanış (Outro)",
         "lines": [
-          "Susarsam yanarım, söylersem yakarım",
-          "Bu gece ne varsa adını koyarım",
-          "Hırsız, hırsız... Aklımı başımdan aldın",
+          "Hırsız, hırsız...",
+          "Aklımı başımdan aldın",
           "Herkes eve döndü, sen tenimde kaldın"
         ]
       }
