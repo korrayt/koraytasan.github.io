@@ -598,5 +598,98 @@ window.KORAY_LYRICS = [
         ]
       }
     ]
+  },
+  {
+    "id": "hirsiz",
+    "title": "Hırsız",
+    "subtitle": "Dark Pop · Ambient Electronic · Studio Master",
+    "date": "2026",
+    "youtubeId": "L0vzvlRH-lY",
+    "youtubeUrl": "https://www.youtube.com/watch?v=L0vzvlRH-lY",
+    "tags": [
+      "Dark Pop",
+      "Ambient Electronic",
+      "Studio Master",
+      "Gece & Melankoli",
+      "Nocturnal"
+    ],
+    "readTime": "3 dk",
+    "quote": "Hırsız, hırsız... Aklımı başımdan aldın. Herkes eve döndü, sen tenimde kaldın.",
+    "description": "khrysaor — Hırsız resmi şarkı sözleri ve 1080p lyric video kaydı. 'Bir ışık yanıyor, bir gölge büyüyor... İzin bende kaldı, silinip geçip gitme.'",
+    "genre": "Dark Pop / Ambient Electronic / Studio Master",
+    "sections": [
+      {
+        "type": "verse",
+        "label": "Bölüm 1 (Verse 1)",
+        "lines": [
+          "Bir ışık yanıyor, bir gölge büyüyor",
+          "Sen bana bakınca bu şehir susuyor",
+          "Kalabalık akar, gözüm seni arar",
+          "Gece dediğin de bir bakışa bakar"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Nakarat Öncesi (Pre-Chorus)",
+        "lines": [
+          "Adını koymadan yaklaş biraz bana",
+          "Bilmediğim yanım uyandı yanında"
+        ]
+      },
+      {
+        "type": "chorus",
+        "label": "Nakarat (Chorus)",
+        "lines": [
+          "Hırsız, hırsız...",
+          "Aklımı başımdan aldın",
+          "Herkes eve döndü, sen tenimde kaldın",
+          "İzin kaldı, izin kaldı, silemedim",
+          "Seni gördüm, ben görmedim diyemedim",
+          "Hırsız, hırsız... Yakalandın inkâr etme",
+          "İzin bende kaldı, silinip geçip gitme"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Bölüm 2 (Verse 2)",
+        "lines": [
+          "Her iyiliğinin bir hesabı vardı",
+          "Gülümsedin ama gözün bende kaldı",
+          "Her şeyi silsen de izi bende kalır",
+          "Unuttum dersin de gecesini tanır"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Nakarat Öncesi (Pre-Chorus)",
+        "lines": [
+          "Adını koymadan yaklaş biraz bana",
+          "Bilmediğim yanım uyandı yanında"
+        ]
+      },
+      {
+        "type": "chorus",
+        "label": "Nakarat (Chorus)",
+        "lines": [
+          "Hırsız, hırsız...",
+          "Aklımı başımdan aldın",
+          "Herkes eve döndü, sen tenimde kaldın",
+          "İzin kaldı, izin kaldı, silemedim",
+          "Seni gördüm, ben görmedim diyemedim",
+          "Hırsız, hırsız... Yakalandın inkâr etme",
+          "İzin bende kaldı, silinip geçip gitme"
+        ]
+      },
+      {
+        "type": "outro",
+        "label": "Kapanış & Doruk (Outro)",
+        "lines": [
+          "Susarsam yanarım, söylersem yakarım",
+          "Bu gece ne varsa adını koyarım",
+          "Hırsız, hırsız... Aklımı başımdan aldın",
+          "Herkes eve döndü, sen tenimde kaldın"
+        ]
+      }
+    ]
   }
 ];
