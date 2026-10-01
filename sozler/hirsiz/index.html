@@ -97,8 +97,17 @@
 
       <!-- Video Embed Section -->
       <div class="video-embed-card">
+        <div class="video-version-tabs" style="display: flex; gap: 8px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(229, 201, 143, 0.15);">
+          <button id="btnVerOrig" class="version-tab-btn active" style="background: rgba(229, 201, 143, 0.18); border: 1px solid rgba(229, 201, 143, 0.5); color: #fff; padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
+            💎 Orijinal Master
+          </button>
+          <button id="btnVerSmart" class="version-tab-btn" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); color: rgba(240, 235, 225, 0.7); padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
+            ⚡ Smart Comp Hibrit Master (Yeni)
+          </button>
+        </div>
         <div class="video-responsive">
           <iframe 
+            id="hirsizYtFrame"
             src="https://www.youtube-nocookie.com/embed/L0vzvlRH-lY?rel=0&modestbranding=1" 
             title="khrysaor — Hırsız (Official Video)" 
             frameborder="0" 
@@ -109,9 +118,9 @@
         <div class="video-card-footer">
           <div class="video-status">
             <span class="yt-play-icon">▶</span>
-            <span>Resmi Yayın & Video Klip (YouTube)</span>
+            <span id="videoStatusLabel">Resmi Yayın & Video Klip (Orijinal Master)</span>
           </div>
-          <a href="https://www.youtube.com/watch?v=L0vzvlRH-lY" target="_blank" rel="noopener" class="yt-external-btn">
+          <a id="ytExternalLink" href="https://www.youtube.com/watch?v=L0vzvlRH-lY" target="_blank" rel="noopener" class="yt-external-btn">
             YouTube'da Aç ↗
           </a>
         </div>
@@ -379,12 +388,45 @@
       });
     }
 
-    if (fontMinus) {
+      if (fontMinus) {
       fontMinus.addEventListener('click', () => {
         if (currentFontSize > 16) {
           currentFontSize -= 2;
           lyricsBody.style.fontSize = currentFontSize + 'px';
         }
+      });
+    }
+
+    // Video Version Switcher
+    const btnVerOrig = document.getElementById('btnVerOrig');
+    const btnVerSmart = document.getElementById('btnVerSmart');
+    const hirsizYtFrame = document.getElementById('hirsizYtFrame');
+    const videoStatusLabel = document.getElementById('videoStatusLabel');
+    const ytExternalLink = document.getElementById('ytExternalLink');
+
+    if (btnVerOrig && btnVerSmart && hirsizYtFrame) {
+      btnVerOrig.addEventListener('click', () => {
+        hirsizYtFrame.src = 'https://www.youtube-nocookie.com/embed/L0vzvlRH-lY?rel=0&modestbranding=1&autoplay=1';
+        ytExternalLink.href = 'https://www.youtube.com/watch?v=L0vzvlRH-lY';
+        videoStatusLabel.textContent = 'Resmi Yayın & Video Klip (Orijinal Master)';
+        btnVerOrig.style.background = 'rgba(229, 201, 143, 0.18)';
+        btnVerOrig.style.borderColor = 'rgba(229, 201, 143, 0.5)';
+        btnVerOrig.style.color = '#fff';
+        btnVerSmart.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnVerSmart.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnVerSmart.style.color = 'rgba(240, 235, 225, 0.7)';
+      });
+
+      btnVerSmart.addEventListener('click', () => {
+        hirsizYtFrame.src = 'https://www.youtube-nocookie.com/embed/-kjrHlLdfQE?rel=0&modestbranding=1&autoplay=1';
+        ytExternalLink.href = 'https://www.youtube.com/watch?v=-kjrHlLdfQE';
+        videoStatusLabel.textContent = 'Resmi Yayın & Video Klip (Smart Comp Hibrit Master)';
+        btnVerSmart.style.background = 'rgba(229, 201, 143, 0.18)';
+        btnVerSmart.style.borderColor = 'rgba(229, 201, 143, 0.5)';
+        btnVerSmart.style.color = '#fff';
+        btnVerOrig.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnVerOrig.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnVerOrig.style.color = 'rgba(240, 235, 225, 0.7)';
       });
     }
   </script>
