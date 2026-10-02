@@ -58,9 +58,10 @@
       card.setAttribute('data-id', item.id);
 
       const tagsHtml = item.tags.map(t => `<span class="tag-badge">${t}</span>`).join('');
-      const thumbHtml = item.youtubeId ? `
+      const thumbSrc = item.customThumbnail || (item.youtubeId ? `https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg` : '');
+      const thumbHtml = thumbSrc ? `
         <div class="card-thumb-preview">
-          <img src="https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg" alt="${item.title}" loading="lazy" />
+          <img src="${thumbSrc}" alt="${item.title}" loading="lazy" />
           <span class="card-play-tag">▶ YouTube</span>
         </div>
       ` : '';
