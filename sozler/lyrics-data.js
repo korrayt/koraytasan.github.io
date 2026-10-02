@@ -702,5 +702,66 @@ window.KORAY_LYRICS = [
         ]
       }
     ]
+  },
+  {
+    "id": "bataklik",
+    "title": "Bataklık",
+    "subtitle": "Sussuz Soundtrack · Official Lyric Video",
+    "date": "2026",
+    "youtubeId": "mJiQNiyu_0Y",
+    "youtubeUrl": "https://www.youtube.com/watch?v=mJiQNiyu_0Y",
+    "tags": [
+      "Soundtrack",
+      "Dark Pop",
+      "Lo-Fi Akustik",
+      "Nocturnal",
+      "Gece & Melankoli"
+    ],
+    "readTime": "2 dk",
+    "quote": "Kendi ateşiyle eriyen bir mum… Ne güzel unuttular, oysa dibi aşk…",
+    "description": "khrysaor — Bataklık (Sussuz Soundtrack) resmi şarkı sözleri ve video kaydı. 'Erken soldu susuzda bahar... Kendi kaderini kendi yakanlar, sustu birer birer.'",
+    "genre": "Sussuz Soundtrack / Lo-Fi Akustik / Dark Ambient / Melankoli",
+    "sections": [
+      {
+        "type": "intro",
+        "label": "Giriş (Intro)",
+        "lines": [
+          "Erken soldu susuzda bahar.",
+          "Dikenine sınmadığınız o güller,",
+          "Kayan bu yıldızı gökyüzünde,",
+          "Karşılar mı ince bir yağmur?"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Bölüm (Verse)",
+        "lines": [
+          "Siler mi söyle,",
+          "Siler mi günahı?"
+        ]
+      },
+      {
+        "type": "chorus",
+        "label": "Nakarat (Chorus)",
+        "lines": [
+          "Kendi ateşiyle eriyen bir mum…",
+          "Boyun mu eğsin dilek bu yalana?",
+          "Kendi kaderini kendi yakanlar,",
+          "Sustu birer birer… Dağıldı gitti…"
+        ]
+      },
+      {
+        "type": "outro",
+        "label": "Kapanış & Doruk (Outro)",
+        "lines": [
+          "Ne güzel unuttular,",
+          "Ne güzel!",
+          "Oysa dibi kan…",
+          "Oysa dibi ah…",
+          "Oysa dibi kan…",
+          "Oysa dibi aşk…"
+        ]
+      }
+    ]
   }
 ];
