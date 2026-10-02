@@ -378,7 +378,7 @@ window.SUSSUZ_DIALOGUES = {
     name: "Ata",
     age: 7,
     title: "Masumiyetin Şahidi // Ekrem'in Oğlu",
-    avatar: "assets/img/scene_bahar_home.png",
+    avatar: "assets/img/char_ata.png",
     bio: "Ekrem'in 7 yaşındaki oğlu. Annesini 3 yaşında kaybetti. Nilüfer masallarıyla büyüyen masumiyet tanığı.",
     intro: "Bahar annem bana nilüfer çiçeklerini anlattı...",
     tree: {

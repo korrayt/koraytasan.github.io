@@ -60,15 +60,15 @@ class SpatialUniverse {
       ritim_road: this._loadImg("assets/img/loc_ritim_road.jpg"),
       goksu_room: this._loadImg("assets/img/loc_office.jpg"),
       dancefloor: this._loadImg("assets/img/scene_dancefloor.png"),
-      ritim_vip: this._loadImg("assets/img/loc_office.jpg"),
-      ritim_backstage: this._loadImg("assets/img/loc_studio.jpg"),
+      ritim_vip: this._loadImg("assets/img/loc_ritim_vip.jpg"),
+      ritim_backstage: this._loadImg("assets/img/loc_ritim_backstage.jpg"),
       hill: this._loadImg("assets/img/loc_hill.jpg"),
       lake: this._loadImg("assets/img/scene_lake.png"),
       garden: this._loadImg("assets/img/scene_garden.png"),
       home_interior: this._loadImg("assets/img/scene_bahar_home.png"),
       studio: this._loadImg("assets/img/loc_studio.jpg"),
-      murat_home: this._loadImg("assets/img/loc_hill.jpg"),
-      accounting: this._loadImg("assets/img/loc_office.jpg")
+      murat_home: this._loadImg("assets/img/loc_murat_home.jpg"),
+      accounting: this._loadImg("assets/img/loc_accounting.jpg")
     };
 
     // Dinamik Katman: Harita Üzerinde Bağımsız Süzülen Sektörler, Oklar ve Etiketler
