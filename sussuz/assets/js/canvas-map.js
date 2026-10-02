@@ -53,20 +53,20 @@ class SpatialUniverse {
     this.isUnderground = false;
     this.undergroundDepth = 0.0;
 
-    // Görseller Havuzu (Preload)
+    // Görseller Havuzu (Preload) — Kanonik Dosya Yolları
     this.images = {
       panorama: this._loadImg("assets/img/clean_susuz_map.jpg"),
-      ritim: this._loadImg("assets/img/ritim_club_exterior.jpg"),
-      ritim_road: this._loadImg("assets/img/loc_hill.jpg"),
-      goksu_room: this._loadImg("assets/img/goksu_kenan_office.jpg"),
-      dancefloor: this._loadImg("assets/img/murat_ekrem_dancefloor.jpg"),
+      ritim: this._loadImg("assets/img/loc_ritim.jpg"),
+      ritim_road: this._loadImg("assets/img/loc_ritim_road.jpg"),
+      goksu_room: this._loadImg("assets/img/loc_office.jpg"),
+      dancefloor: this._loadImg("assets/img/scene_dancefloor.png"),
       ritim_vip: this._loadImg("assets/img/loc_office.jpg"),
-      ritim_backstage: this._loadImg("assets/img/kenan_music_studio.jpg"),
-      hill: this._loadImg("assets/img/murat_ekrem_tepe.jpg"),
-      lake: this._loadImg("assets/img/bahar_lake_memorial_new_1790950293867.jpg"),
-      garden: this._loadImg("assets/img/ata_kenan_courtyard.jpg"),
+      ritim_backstage: this._loadImg("assets/img/loc_studio.jpg"),
+      hill: this._loadImg("assets/img/loc_hill.jpg"),
+      lake: this._loadImg("assets/img/scene_lake.png"),
+      garden: this._loadImg("assets/img/scene_garden.png"),
       home_interior: this._loadImg("assets/img/scene_bahar_home.png"),
-      studio: this._loadImg("assets/img/kenan_music_studio.jpg"),
+      studio: this._loadImg("assets/img/loc_studio.jpg"),
       murat_home: this._loadImg("assets/img/loc_hill.jpg"),
       accounting: this._loadImg("assets/img/loc_office.jpg")
     };
@@ -79,7 +79,7 @@ class SpatialUniverse {
         subtitle: "GÖKSU PARKI // DİLEK'İN DOĞUM GÜNÜ",
         x: 143,
         y: 483,
-        radius: 22,
+        radius: 24,
         labelX: 135,
         labelY: 412,
         arrowType: "down",
@@ -91,7 +91,7 @@ class SpatialUniverse {
         subtitle: "ADA RESTORAN GECE KULÜBÜ",
         x: 527,
         y: 337,
-        radius: 26,
+        radius: 28,
         labelX: 580,
         labelY: 285,
         arrowType: "down_left",
@@ -101,11 +101,11 @@ class SpatialUniverse {
         id: "hill",
         name: "TEPE",
         subtitle: "ANKARA MANZARASI // 05:30",
-        x: 1096,
+        x: 1165,
         y: 125,
-        radius: 24,
-        labelX: 1010,
-        labelY: 92,
+        radius: 28,
+        labelX: 1040,
+        labelY: 82,
         arrowType: "down_right",
         color: "rgba(235, 94, 40, "
       },
@@ -310,6 +310,13 @@ class SpatialUniverse {
     img.src = src;
     img.isLoaded = false;
     img.onload = () => { img.isLoaded = true; };
+    img.onerror = () => {
+      console.warn("Görsel yüklenemedi:", src);
+      img.isLoaded = false;
+    };
+    if (img.complete && img.naturalWidth > 0) {
+      img.isLoaded = true;
+    }
     return img;
   }
 
@@ -506,7 +513,14 @@ class SpatialUniverse {
 
   // Belirli bir sahneye derin sinematik dalış
   flyToScene(sceneId) {
-    const sec = this.sectors.find(s => s.id === sceneId) || { x: 688, y: 384 };
+    let sec = this.sectors.find(s => s.id === sceneId);
+    if (!sec) {
+      if (sceneId.startsWith("ritim") || sceneId === "dancefloor" || sceneId === "goksu_room" || sceneId === "accounting") {
+        sec = this.sectors.find(s => s.id === "ritim") || { x: 527, y: 337 };
+      } else {
+        sec = { x: 688, y: 384 };
+      }
+    }
     this.viewMode = "scene";
     this.activeSceneId = sceneId;
     this.hoveredHotspot = null;
