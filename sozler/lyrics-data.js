@@ -708,8 +708,8 @@ window.KORAY_LYRICS = [
     "title": "Bataklık",
     "subtitle": "Sussuz Soundtrack · Official Lyric Video",
     "date": "2026",
-    "youtubeId": "mJiQNiyu_0Y",
-    "youtubeUrl": "https://www.youtube.com/watch?v=mJiQNiyu_0Y",
+    "youtubeId": "yFymvGwoxjA",
+    "youtubeUrl": "https://www.youtube.com/watch?v=yFymvGwoxjA",
     "tags": [
       "Soundtrack",
       "Dark Pop",
