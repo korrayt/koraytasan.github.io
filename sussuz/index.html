@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SUSSUZ — Ankara'nın Altında Kalan Hikâyeler // khrysaor</title>
+  <meta name="description" content="SUSSUZ — Şehir-Noir, Müzikal Suç Draması. Ankara ve Susuz'un yaşayan gece panoramasını keşfedin.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Film Greni Katmanı -->
+  <div class="film-grain-overlay"></div>
+
+  <!-- Sinematik Letterbox Kenarlıkları -->
+  <div class="letterbox-bar letterbox-top"></div>
+  <div class="letterbox-bar letterbox-bottom"></div>
+
+  <!-- Açılış Sekansı (Cold Open) -->
+  <div id="openingOverlay" class="opening-overlay">
+    <div class="opening-content">
+      <p class="opening-quote">“Bazı şeyler gömülünce kaybolmaz.”</p>
+      <h1 class="opening-title">SUSSUZ</h1>
+      <p class="opening-tagline">Bir Ankara hikâyesi.</p>
+      <button id="enterBtn" class="cinematic-btn-primary">
+        [ GECEYE ADIM AT // SESİ BAŞLAT ]
+      </button>
+    </div>
+  </div>
+
+  <!-- Master Sonsuz Kanvas (Panorama ve Canlı Sahne Katmanı) -->
+  <canvas id="spatialCanvas"></canvas>
+
+  <!-- Ambient Minimalist HUD Katmanı -->
+  <div class="hud-layer">
+    <div class="hud-top-bar">
+      <div class="brand-block">
+        <div class="hud-brand-title">SUSSUZ</div>
+        <div class="hud-brand-sub">ANKARA'NIN ALTINDA KALAN HİKÂYELER // khrysaor</div>
+      </div>
+      
+      <div class="hud-right-actions">
+        <!-- Sahne İçindeyken Aktif Olan Hızlı Dönüş ve Tab Düğmeleri -->
+        <button id="hudBackBtn" class="hud-btn hud-btn-back" style="display: none;">
+          ◄ GECENİN PANORAMASINA DÖN
+        </button>
+        <button id="hudToggleTabBtn" class="hud-btn" style="display: none;">
+          👁️ DETAYLARI GÖSTER
+        </button>
+        
+        <button id="openSoundtrackBtn" class="hud-btn hud-btn-gold">
+          🎵 SOUNDTRACK (7)
+        </button>
+        <button id="openFundingBtn" class="hud-btn hud-btn-highlight">
+          PRODÜKSİYON & KATKI
+        </button>
+        <button id="resetCameraBtn" class="hud-btn">
+          MERKEZ
+        </button>
+        <button id="muteBtn" class="hud-btn">
+          🔊 SES AÇIK
+        </button>
+      </div>
+    </div>
+
+    <div class="hud-bottom-bar">
+      <div class="hud-coordinates">
+        39°58'55.2"N 32°36'50.4"E // SUSUZ - ERYAMAN SEKTÖRÜ
+      </div>
+      <div class="hud-instructions" id="hudInstructions">
+        [ SÜRÜKLE: KEŞFET ] • [ TEKERLEK: ZOOM ] • [ IŞIKLARIN SESİNİ TAKİP ET ]
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- GLASSGLOW FLOATING SIDE TAB (Ek-3 Art Direction Typography & Frosted Glass) -->
+  <!-- Tam ekran canlı sahneyi kesmez; sağda zarif bir cam panel olarak süzülür.   -->
+  <!-- ========================================================================= -->
+  <aside id="glassglowTab" class="glassglow-tab" aria-label="Mekân ve Hikâye Detayları">
+    <!-- Header: Ek-3 Luxury Serif & Hairlines -->
+    <div class="glassglow-header">
+      <div class="glassglow-header-content">
+        <span class="ek3-brand">KHRYSAOR</span>
+        <div class="ek3-hairline"></div>
+        <h2 id="glassglowTitle" class="ek3-title">RİTİM</h2>
+        <div id="glassglowSubtitle" class="ek3-subtitle">EXT. ANKARA / TUNNEL — 01:45</div>
+      </div>
+      <button id="closeGlassglowBtn" class="glassglow-close-btn" title="Paneli Gizle (Manzarayı Gör)">✕</button>
+    </div>
+
+    <!-- Alt Mekân Hızlı Geçişleri (Varsa: Göksu'nun Odası, Dans Pisti vb.) -->
+    <div id="glassglowSubvenues" class="glassglow-subvenues"></div>
+
+    <!-- Kaydırılabilir İçerik Gövdesi -->
+    <div class="glassglow-body">
+      <!-- Odaklanılan Nesne Kartı (Sahnede bir nesneye tıklandığında açılır) -->
+      <div id="glassglowFocusedObject" class="glassglow-object-card" style="display: none;">
+        <div class="object-card-header">
+          <span id="focusedObjIcon" class="object-card-icon">⚡</span>
+          <div>
+            <h4 id="focusedObjTitle" class="object-card-title">Nesne Başlığı</h4>
+            <span id="focusedObjSubtitle" class="object-card-subtitle">Alt Başlık</span>
+          </div>
+        </div>
+        <p id="focusedObjDesc" class="object-card-desc">Detay metni...</p>
+        <button id="focusedObjActionBtn" class="ek3-trigger" style="margin-top: 10px; display: none;">
+          [ İŞLEMİ GERÇEKLEŞTİR ]
+        </button>
+      </div>
+
+      <!-- Sahne Atmosfer Metni -->
+      <p id="glassglowAtmosphere" class="glassglow-atmosphere">
+        Mekân atmosferi yükleniyor...
+      </p>
+
+      <div class="glassglow-audio-status">
+        <span class="pulse-indicator"></span>
+        <span id="glassglowAudioNote">Atmosferik ses devrede...</span>
+      </div>
+
+      <!-- Özel Etkileşim Alanı (Mum üfleme, Canlı Muhasebe Masası, Stüdyo Wishlist vb.) -->
+      <div id="glassglowCustomArea"></div>
+
+      <!-- Sahne Nesneleri ve Kanonik İpuçları -->
+      <div class="ek3-section-divider">
+        <span>SAHNEDEKİ İPUÇLARI & NESNELER</span>
+      </div>
+      <div id="glassglowPropsList" class="glassglow-props-list"></div>
+
+      <!-- Eylemler (Ek-3 Tipografik Tetikleyiciler) -->
+      <div class="glassglow-actions">
+        <button id="dialogueTriggerBtn" class="ek3-trigger ek3-trigger-accent">
+          [ 💬 KARAKTER İLE YÜZLEŞ ]
+        </button>
+        <button id="leaveNoteBtn" class="ek3-trigger">
+          [ ✍️ BU MEKÂNA NOT BIRAK ]
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel Tabanı: Panoramaya Dönüş -->
+    <div class="glassglow-footer">
+      <button id="returnPanoramaBtn" class="ek3-return-trigger">
+        ◄ GECENİN PANORAMASINA DÖN
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- KHRYSAOR — SUSSUZ ORIGINAL SOUNDTRACK (5 PARÇA RESMİ OYNATICI)           -->
+  <!-- ========================================================================= -->
+  <div id="soundtrackModal" class="modal-overlay">
+    <div class="modal-container soundtrack-modal-box">
+      <button id="closeSoundtrackBtn" class="modal-close-btn" title="Kapat">✕</button>
+      
+      <div class="soundtrack-header">
+        <span class="ek3-brand">KHRYSAOR • RESMİ SOUNDTRACK</span>
+        <div class="ek3-hairline"></div>
+        <h2 class="soundtrack-main-title">SUSSUZ (OST)</h2>
+        <p class="soundtrack-sub-meta">5 Orijinal Parça // khrysaor Müzik Stüdyosu</p>
+      </div>
+
+      <!-- Çalan Parça Göstergesi -->
+      <div class="soundtrack-now-playing">
+        <div class="now-playing-info">
+          <span class="now-playing-tag">ŞU AN ÇALIYOR</span>
+          <h4 id="npTitle" class="now-playing-title">Bataklık</h4>
+          <span id="npSubtitle" class="now-playing-artist">khrysaor — Sussuz Soundtrack [Official Lyric Video]</span>
+        </div>
+        <div class="now-playing-controls">
+          <button id="soundtrackPrevBtn" class="soundtrack-ctrl-btn" title="Önceki">⏮</button>
+          <button id="soundtrackPlayPauseBtn" class="soundtrack-ctrl-btn soundtrack-play-btn" title="Oynat / Durdur">▶</button>
+          <button id="soundtrackNextBtn" class="soundtrack-ctrl-btn" title="Sonraki">⏭</button>
+        </div>
+      </div>
+
+      <!-- 5 Parçalık Çalma Listesi -->
+      <div class="soundtrack-tracklist" id="soundtrackTracklist"></div>
+    </div>
+  </div>
+
+  <!-- Yeraltı Anma Katmanı (Göl Mum Üfleme Sonrası) -->
+  <div id="undergroundOverlay" class="underground-overlay">
+    <div class="underground-names-stream">
+      <div class="ek3-brand" style="margin-bottom: 8px;">KHRYSAOR • HAFIZA</div>
+      <div class="ek3-hairline" style="width: 140px; margin: 0 auto 20px auto;"></div>
+      <h2 id="victimName" class="underground-victim-name"></h2>
+      <p id="victimMeta" class="underground-victim-meta"></p>
+    </div>
+
+    <div id="undergroundFinalBox" style="display: none; animation: fadeInSlow 2s ease;">
+      <h3 class="underground-final-manifesto">HATIRLAMAK DA BİR DİRENİŞTİR.</h3>
+      <p class="underground-family-creed">
+        “Bu insanların ilişkileri sadece yetişkinlerin meselesi değil. Bir aile var. Başka aileler de var. Aile yılı diye bizi katledenlere karşı: Biz zaten bir aileyiz. Her aile sizin tarif ettiğiniz şekilde olmak zorunda değil.”
+      </p>
+      <div style="margin-top: 25px;">
+        <span class="underground-sub-cta" onclick="undergroundOverlay.classList.remove('underground-active'); openFundingModal();">
+          SUSSUZ’un hayata geçmesine destek ol →
+        </span>
+      </div>
+      <div style="margin-top: 30px;">
+        <button id="exitUndergroundBtn" class="ek3-trigger" style="display: inline-flex; border: 1px solid rgba(255,255,255,0.3); padding: 12px 24px;">
+          [ ◄ YÜZEYE DÖN ]
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anonim Not Bırakma Modalı (Sleek Glassglow Modalı) -->
+  <div id="anonymousNoteModal" class="modal-overlay">
+    <div class="modal-container anonymous-note-modal-box">
+      <button id="closeNoteModalBtn" class="modal-close-btn" title="Kapat">✕</button>
+      <div class="ek3-brand" style="text-align: left;">DÜNYAYA BIRAKILAN SESLER</div>
+      <div class="ek3-hairline"></div>
+      <div class="note-origin-badge">ETKİLEŞİM NOKTASI: <span id="noteOriginBadge">PANO</span></div>
+      <h3 style="font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 0.1em; color: var(--warm-white);">
+        BİR CÜMLE BIRAK
+      </h3>
+      <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">
+        İsim yok. Hesap yok. Sadece gecenin içine fısıldadığın cümle.
+      </p>
+
+      <textarea id="noteTextarea" class="note-textarea" placeholder="İçinden ne geliyorsa buraya fısılda..."></textarea>
+
+      <label class="note-publish-check">
+        <input type="checkbox" id="notePublishCheck" checked>
+        <span>Bu not mekânın anı hafızasında anonim olarak yayınlanabilir.</span>
+      </label>
+
+      <button id="submitNoteBtn" class="ek3-trigger ek3-trigger-accent" style="justify-content: center; width: 100%; border: 1px solid rgba(224, 49, 49, 0.4);">
+        [ NOTU DÜNYAYA BIRAK ]
+      </button>
+
+      <div id="noteSuccessBox" style="display: none; color: #7bed9f; font-family: var(--font-mono); font-size: 0.8rem; margin-top: 15px; text-align: center;"></div>
+    </div>
+  </div>
+
+  <!-- Deterministik Karakter Diyalog Modalı (Sleek Sinematik Arayüz) -->
+  <div id="dialogueModal" class="modal-overlay">
+    <div class="modal-container dialogue-modal-box">
+      <button id="closeDialogueBtn" class="modal-close-btn" title="Kapat">✕</button>
+      
+      <div class="dialogue-character-card">
+        <div class="dialogue-avatar-wrap">
+          <img id="dialogueAvatar" src="assets/img/char_ekrem.png" alt="Karakter">
+        </div>
+        <div>
+          <span class="ek3-brand" style="text-align: left; font-size: 0.65rem;">SUSSUZ KARAKTER DİYALOĞU</span>
+          <h3 id="dialogueCharName" class="dialogue-name" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--warm-white);">Karakter Adı</h3>
+          <div id="dialogueCharRole" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-amber);">Rol</div>
+        </div>
+      </div>
+
+      <div class="dialogue-speech-container">
+        <p id="dialogueSpeechBox" class="dialogue-speech-text">Konuşma metni...</p>
+      </div>
+
+      <div class="ek3-section-divider">
+        <span>SORU VEYA YANIT SEÇİN</span>
+      </div>
+      <div id="dialogueChoicesBox"></div>
+    </div>
+  </div>
+
+  <!-- İki Eksenli Fonlama & Katkı Modalı (Crowd-Production) -->
+  <div id="fundingModal" class="modal-overlay">
+    <div class="modal-container funding-modal-box">
+      <button id="closeFundingBtn" class="modal-close-btn" title="Kapat">✕</button>
+      
+      <div style="border-bottom: 1px solid var(--noir-surface-border); padding-bottom: 18px; margin-bottom: 24px;">
+        <span class="ek3-brand" style="text-align: left;">CROWD-PRODUCTION PROTOKOLÜ</span>
+        <div class="ek3-hairline"></div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.8rem; letter-spacing: 0.12em; color: var(--warm-white);">
+          SUSSUZ’A KATKIDA BULUN
+        </h2>
+        <p style="font-family: var(--font-mono); font-size: 0.74rem; color: #94a3b8; margin-top: 4px;">
+          İKİ EKSENLİ ŞEFFAF ÜRETİM VE KATKI SİSTEMİ
+        </p>
+      </div>
+
+      <!-- 4 Ana Alanın 2 Eksenli İlerleyişi -->
+      <div class="dual-axis-grid">
+        <div class="dual-axis-card">
+          <div class="dual-axis-card-title">
+            <span>MÜZİK (khrysaor)</span>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>ÜRETİM</span><span>%68</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-amber); height:100%; width:68%;"></div></div>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>FON</span><span>%42</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-red); height:100%; width:42%;"></div></div>
+          </div>
+        </div>
+
+        <div class="dual-axis-card">
+          <div class="dual-axis-card-title">
+            <span>CAST & OYUNCULUK</span>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>CASTİNG SÜRECİ</span><span>%31</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-amber); height:100%; width:31%;"></div></div>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>FON</span><span>%20</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-red); height:100%; width:20%;"></div></div>
+          </div>
+        </div>
+
+        <div class="dual-axis-card">
+          <div class="dual-axis-card-title">
+            <span>SENARYO</span>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>YAZIM</span><span>%84</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-amber); height:100%; width:84%;"></div></div>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>FON</span><span>%61</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-red); height:100%; width:61%;"></div></div>
+          </div>
+        </div>
+
+        <div class="dual-axis-card">
+          <div class="dual-axis-card-title">
+            <span>ÇEKİM & MEKÂN</span>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>HAZIRLIK</span><span>%28</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-amber); height:100%; width:28%;"></div></div>
+          </div>
+          <div class="dual-axis-row">
+            <div class="dual-axis-labels"><span>FON</span><span>%14</span></div>
+            <div style="background:#11151e; height:4px;"><div style="background:var(--accent-red); height:100%; width:14%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Katkı Seçim Formu -->
+      <form id="crowdForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 5px; grid-column: span 2;">
+            <label style="font-family: var(--font-mono); font-size: 0.7rem; color: #94a3b8;">KATKI TÜRÜNÜ SEÇİN</label>
+            <select id="contributionRole" class="inkind-select" style="background:#090c12; border:1px solid var(--noir-surface-border); color:#fff; padding:10px; font-family:var(--font-mono); font-size:0.8rem;" required>
+              <option value="Destekçiyim (Maddi)">Destekçiyim (Maddi Katkı)</option>
+              <option value="Sponsor olmak istiyorum">Sponsor olmak istiyorum (Şirket / Marka)</option>
+              <option value="Oyuncuyum">Oyuncuyum (Casting Başvurusu)</option>
+              <option value="Prodüksiyon desteği verebilirim">Prodüksiyon desteği verebilirim (Kamera, Işık, Ses, Araç)</option>
+              <option value="Mekân sağlayabilirim">Mekân sağlayabilirim (Ankara / Susuz / Eryaman)</option>
+              <option value="Kostüm / tekstil desteği sağlayabilirim">Kostüm / Tekstil desteği sağlayabilirim</option>
+              <option value="Müzisyenim / sesçiyim">Müzisyenim / Sesçiyim</option>
+              <option value="Ekipte çalışmak istiyorum">Ekipte çalışmak istiyorum</option>
+            </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-family: var(--font-mono); font-size: 0.7rem; color: #94a3b8;">AD SOYAD / UNVAN</label>
+            <input type="text" id="crowdName" class="inkind-input" style="background:#090c12; border:1px solid var(--noir-surface-border); color:#fff; padding:10px; font-family:var(--font-mono); font-size:0.8rem;" placeholder="Adınız" required>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-family: var(--font-mono); font-size: 0.7rem; color: #94a3b8;">İLETİŞİM (E-POSTA / TELEFON)</label>
+            <input type="text" id="crowdContact" class="inkind-input" style="background:#090c12; border:1px solid var(--noir-surface-border); color:#fff; padding:10px; font-family:var(--font-mono); font-size:0.8rem;" placeholder="ornek@alan.com" required>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 5px; grid-column: span 2;">
+            <label style="font-family: var(--font-mono); font-size: 0.7rem; color: #94a3b8;">DETAY VE İMKÂNLARINIZ</label>
+            <textarea id="crowdNote" class="inkind-textarea" style="background:#090c12; border:1px solid var(--noir-surface-border); color:#fff; padding:10px; font-family:var(--font-mono); font-size:0.8rem; height:70px; resize:none;" placeholder="Sağlayabileceğiniz destek veya portfolyo linkiniz..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="ek3-trigger ek3-trigger-accent" style="justify-content: center; width: 100%; border: 1px solid rgba(224, 49, 49, 0.4);">
+          [ KATKI TALEBİNİ İLET ]
+        </button>
+      </form>
+
+      <div id="crowdSuccess" style="display: none; margin-top: 15px;"></div>
+    </div>
+  </div>
+
+  <!-- YouTube Headless Audio Player (Resmi YouTube IFrame API — İzlenme Sayar, Görüntü Gösterilmez) -->
+  <div id="youtubeAudioContainer" class="youtube-audio-host">
+    <div id="youtubePlayerElement"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="assets/js/dialogue-data.js"></script>
+  <script src="assets/js/audio-engine.js"></script>
+  <script src="assets/js/canvas-map.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

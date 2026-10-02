@@ -25,6 +25,13 @@
         return;
       }
 
+      // Case-insensitive routing for SUSSUZ (Sussuz & Susuz)
+      if (lower.indexOf('/sussuz') === 0 || lower.indexOf('/susuz') === 0) {
+        var targetSussuz = '/sussuz/' + window.location.search + window.location.hash;
+        window.location.replace(targetSussuz);
+        return;
+      }
+
       // Case-insensitive routing for Şarkı Sözleri / sozler / lyrics
       var sozlerPrefixes = ['/sozler', '/lyrics', '/sarki-sozleri', '/sarkisozleri', '/sözler'];
       for (var i = 0; i < sozlerPrefixes.length; i++) {
