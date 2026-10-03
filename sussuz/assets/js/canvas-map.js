@@ -284,31 +284,31 @@ class SpatialUniverse {
         { 
           id: "interior_stage_song", 
           name: "SAHNEDE KENAN'I DİNLE", 
-          relX: 0.131, 
-          relY: 0.781, 
+          relX: 0.165, 
+          relY: 0.549, 
           icon: "🎵", 
           subtitle: "KENAN — HIRSIZ [SUSSUZ SOUNDTRACK]", 
           action: "music", 
           src: "KFrAv440Rmg", 
           fallbackSrc: "assets/audio/track_hirsiz.mp3", 
-          desc: "Dev ekranlarda Kenan, Tunnel logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor." 
+          desc: "Dev ekranlarda Kenan, RİTİM logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor." 
         },
         { 
           id: "interior_to_goksu", 
           name: "GÖKSU'NUN CAM OFİSİNE ÇIK", 
-          relX: 0.509, 
-          relY: 0.443, 
+          relX: 0.615, 
+          relY: 0.284, 
           icon: "🪟", 
           subtitle: "PİSTİ TEPEDEN İZLEYEN SES GEÇİRMEZ ODA", 
           action: "fly_subvenue", 
           target: "goksu_room", 
-          desc: "Tavanda Göksu'nun ses yalıtımlı cam ofisi görünüyor; loş ışıkta aşağıdaki pisti akvaryum gibi izliyor. Kenan ve Göksu sahnesine geçin." 
+          desc: "Yukarıda Göksu'nun ses yalıtımlı cam ofisi görünüyor; loş ışıkta aşağıdaki pisti akvaryum gibi izliyor. Kenan ve Göksu sahnesine geçin." 
         },
         { 
           id: "interior_to_vip", 
           name: "VIP LOCAYA ÇIK", 
-          relX: 0.785, 
-          relY: 0.417, 
+          relX: 0.950, 
+          relY: 0.280, 
           icon: "🍸", 
           subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", 
           action: "fly_subvenue", 
@@ -318,8 +318,8 @@ class SpatialUniverse {
         { 
           id: "interior_to_backstage", 
           name: "KULİSE GEÇ", 
-          relX: 0.705, 
-          relY: 0.495, 
+          relX: 0.825, 
+          relY: 0.259, 
           icon: "🎭", 
           subtitle: "SAHNE ARKASI VE HAZIRLIK", 
           action: "fly_subvenue", 
@@ -329,19 +329,19 @@ class SpatialUniverse {
         { 
           id: "interior_balcony_dialogue", 
           name: "MURAT VE EKREM İLE YÜZLEŞ", 
-          relX: 0.805, 
-          relY: 0.750, 
+          relX: 0.620, 
+          relY: 0.810, 
           icon: "💬", 
           subtitle: "'OĞLUM...' // SAHNE DİYALOĞU", 
           action: "dialogue", 
           charId: "murat_ekrem_balcony", 
-          desc: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, Tunnel logosu... Murat oğlunu görüyor: 'Ben yapamadım... Göksu yaptı.'" 
+          desc: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Murat oğlunu görüyor: 'Ben yapamadım... Göksu yaptı.'" 
         },
         { 
           id: "interior_to_dancefloor", 
           name: "MURAT'I DANSA GÖTÜR", 
           relX: 0.360, 
-          relY: 0.880, 
+          relY: 0.819, 
           icon: "⚡", 
           subtitle: "EKREM ELİNİ UZATIYOR // 'AYIP LAN ÇOCUĞA'", 
           action: "fly_subvenue", 

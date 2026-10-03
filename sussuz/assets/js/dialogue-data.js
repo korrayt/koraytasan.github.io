@@ -432,13 +432,13 @@ window.SUSSUZ_DIALOGUES = {
   murat_ekrem_balcony: {
     name: "Murat ve Ekrem",
     age: 37,
-    title: "Korkulukta Sahneye Bakış // 1. ve 2. Bölüm Köprüsü",
+    title: "Pist Kenarında Sahneye Bakış // 1. ve 2. Bölüm Köprüsü",
     avatar: "assets/img/char_murat.png",
-    bio: "Müzik değişir. Karanlık ekranlar bir anda açılır. Dev ekranda Kenan, Tunnel logosu... Murat oğlunu sahnede görür.",
-    intro: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. Tunnel logosu. Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu sahnede dev ekranda görüyor.",
+    bio: "Müzik değişir. Karanlık ekranlar bir anda açılır. Dev ekranda Kenan, RİTİM logosu... Murat oğlunu sahnede görür.",
+    intro: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu sahnede dev ekranda görüyor.",
     tree: {
       root: {
-        text: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. Tunnel logosu. Yeni parçanın prömiyeri. Şarkının adı: HIRSIZ. İlk beat giriyor. Kalabalık bağırıyor. Şarkı yüzeyde, tehlikeli birine duyulan çekimi anlatıyor. Nakaratta 'hırsız' kelimesi ritmik bir hook gibi dönüyor. Murat duruyor. Oğlunu ekranda görüyor. Ekrem Murat'ın yüzündeki değişimi fark ediyor.",
+        text: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri. Şarkının adı: HIRSIZ. İlk beat giriyor. Kalabalık bağırıyor. Şarkı yüzeyde, tehlikeli birine duyulan çekimi anlatıyor. Nakaratta 'hırsız' kelimesi ritmik bir hook gibi dönüyor. Murat duruyor. Oğlunu ekranda görüyor. Ekrem Murat'ın yüzündeki değişimi fark ediyor.",
         options: [
           {
             label: "EKREM: 'Hayırdır?'",
@@ -456,7 +456,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       cok_istedi: {
-        text: "EKREM: 'Neyi?' \n\nMurat sahneyi gösterir: \nMURAT: 'Bunu.' \n\nMurat'ın gururunun içine başka bir duygu karışır. Ekranın köşesinde Tunnel logosu parlar. \n\nMURAT: 'Ben yapamadım.' \nEKREM: 'O yaptı.' \nMURAT: 'Hayır... Göksu yaptı.' \n\nBunu söyleyince kendi sesi onu rahatsız eder. Ekrem düzeltmez; henüz o cümlenin yanlış mı eksik mi olduğunu kendisi de bilmemektedir.",
+        text: "EKREM: 'Neyi?' \n\nMurat sahneyi gösterir: \nMURAT: 'Bunu.' \n\nMurat'ın gururunun içine başka bir duygu karışır. Ekranın köşesinde RİTİM logosu parlar. \n\nMURAT: 'Ben yapamadım.' \nEKREM: 'O yaptı.' \nMURAT: 'Hayır... Göksu yaptı.' \n\nBunu söyleyince kendi sesi onu rahatsız eder. Ekrem düzeltmez; henüz o cümlenin yanlış mı eksik mi olduğunu kendisi de bilmemektedir.",
         options: [
           {
             label: "Nakarat geliyor — Ekrem elini uzatır...",

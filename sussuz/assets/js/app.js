@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
       image: "assets/img/loc_ritim_interior.jpg",
       characterId: "murat_ekrem_balcony",
       characterName: "Murat ve Ekrem",
-      characterRole: "Korkulukta Sahneye Bakış // 'Oğlum...'",
-      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, Tunnel logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu ekranda görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
+      characterRole: "Pist Kenarında Sahneye Bakış // 'Oğlum...'",
+      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu ekranda görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
       musicNote: "HIRSIZ — Kenan Sahne Prömiyeri (124 BPM)",
       subvenues: [
         { id: "dancefloor", label: "Murat'ı Dansa Götür (Pist)" },
@@ -53,20 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "accounting", label: "Muhasebe / Prodüksiyon" },
         { id: "ritim", label: "Dışarı Çık (Giriş)" }
       ],
-      noteOrigin: "Korkuluk Barosu",
+      noteOrigin: "Pist Kenarı",
       props: [
         {
           name: "Sahnede Kenan (Hırsız Prömiyeri)",
           icon: "🎵",
-          desc: "Dev ekranlarda Kenan, Tunnel logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor."
+          desc: "Dev ekranlarda Kenan, RİTİM logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor."
         },
         {
-          name: "Tavandaki Cam Ofis",
+          name: "Yukarıdaki Cam Ofis",
           icon: "🪟",
           desc: "Yukarıdaki loş cam ofisten Göksu aşağıdaki dans pistini bir akvaryum gibi izliyor."
         },
         {
-          name: "Murat ve Ekrem Korkulukta",
+          name: "Murat ve Ekrem Pist Kenarında",
           icon: "💬",
           desc: "Murat oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.' Ekrem: 'Oğlunun şarkısında surat asma.'"
         },
