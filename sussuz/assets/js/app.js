@@ -1781,7 +1781,7 @@ document.addEventListener("DOMContentLoaded", () => {
     npSubtitle.textContent = `${tr.singer} — ${tr.title} [SUSSUZ Soundtrack]`;
 
     if (window.SUSSUZ_AUDIO) {
-      window.SUSSUZ_AUDIO.playMusicTrack(tr.ytId || tr.src, 0.65, tr.src);
+      window.SUSSUZ_AUDIO.playMusicTrack(tr.src, 0.70, tr.src);
       isTrackPlaying = true;
       soundtrackPlayPauseBtn.innerHTML = "⏸";
     }
@@ -1797,6 +1797,10 @@ document.addEventListener("DOMContentLoaded", () => {
     openSoundtrackBtn.addEventListener("click", () => {
       initSoundtrackUI();
       soundtrackModal.classList.add("modal-active");
+      if (window.SUSSUZ_AUDIO && window.SUSSUZ_AUDIO.musicElement && !window.SUSSUZ_AUDIO.musicElement.paused) {
+        isTrackPlaying = true;
+        soundtrackPlayPauseBtn.innerHTML = "⏸";
+      }
     });
   }
 
@@ -1834,25 +1838,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initSoundtrackUI();
 
-  // YouTube / Sahne Müziği Bittiğinde Kesintisiz Döngü & Sıradaki Parça Dinleme
+  // Parça Bittiğinde Sıradaki Parçaya Geçiş / Döngü Dinleyicisi
   if (window.SUSSUZ_AUDIO) {
+    window.SUSSUZ_AUDIO.onTrackEnded = () => {
+      if (soundtrackModal && soundtrackModal.classList.contains("modal-active")) {
+        const nextIdx = (currentTrackIdx + 1) % SOUNDTRACK_PLAYLIST.length;
+        playTrackAt(nextIdx);
+      }
+    };
     window.SUSSUZ_AUDIO.onYTStateChange = (state) => {
-      // 0: YT.PlayerState.ENDED (Parça sonu)
       if (state === 0) {
         if (soundtrackModal && soundtrackModal.classList.contains("modal-active")) {
-          // Modal açıksa sıradaki parçaya geç ve çalmaya devam et
           const nextIdx = (currentTrackIdx + 1) % SOUNDTRACK_PLAYLIST.length;
           playTrackAt(nextIdx);
-        } else {
-          // Sahnede serbest gezinirken parça bittiğinde sessizliğe düşmesin, baştan tekrar başlasın
-          if (window.SUSSUZ_AUDIO.ytPlayer && typeof window.SUSSUZ_AUDIO.ytPlayer.seekTo === "function") {
-            try {
-              window.SUSSUZ_AUDIO.ytPlayer.seekTo(0);
-              window.SUSSUZ_AUDIO.ytPlayer.playVideo();
-            } catch (e) {
-              console.warn("Scene loop playback error:", e);
-            }
-          }
         }
       }
     };

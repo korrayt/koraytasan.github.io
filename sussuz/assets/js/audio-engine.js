@@ -1,12 +1,41 @@
 /**
  * SUSSUZ — Procedural Web Audio Engine & Soundscape Orchestrator
- * Ankara Noir Atmosferik Ses Sentezi vekhrysaor Master Parça Oynatıcı
+ * Ankara Noir Atmosferik Ses Sentezi ve khrysaor Master Parça Oynatıcı
+ * 
+ * SSOT Audio Engine:
+ * - HTML5 Native Audio Element (Zero CORS, 100% reliable hardware output, seamless fading)
+ * - Web Audio API (Atmospheric sub-bass drone, Ankara night wind, dynamic lake rain, club kick thump)
+ * - Otomatik Gesture Unlock (Tarayıcı autoplay engellerini ilk etkileşimde anında kaldırır)
+ * - 8 Kanonik Stüdyo Master MP3 parçası doğrudan yerel dosyalardan anında yürütülür.
  */
+
+const TRACK_MAP = {
+  // YouTube Video IDs -> Canonical Local Master MP3s
+  "yFymvGwoxjA": "assets/audio/track_bataklik.mp3",
+  "KFrAv440Rmg": "assets/audio/track_hirsiz.mp3",
+  "CvSByNL1r48": "assets/audio/track_bilmem_ben_de.mp3",
+  "K35AtsZEl5o": "assets/audio/track_gospel_baby_kenan.mp3",
+  "mdPhJrnytkA": "assets/audio/track_gospel_baby_ekrem.mp3",
+  "-esQckmIMgQ": "assets/audio/track_kaybedemem.mp3",
+  "GLQcmdJsO5U": "assets/audio/track_biri_varmis.mp3",
+
+  // Track ID Aliases
+  "bataklik": "assets/audio/track_bataklik.mp3",
+  "hirsiz": "assets/audio/track_hirsiz.mp3",
+  "bilmem_ben_de": "assets/audio/track_bilmem_ben_de.mp3",
+  "gospel_baby_kenan": "assets/audio/track_gospel_baby_kenan.mp3",
+  "gospel_baby_ekrem": "assets/audio/track_gospel_baby_ekrem.mp3",
+  "kaybedemem": "assets/audio/track_kaybedemem.mp3",
+  "biri_varmis": "assets/audio/track_biri_varmis.mp3",
+  "distant_ambient": "assets/audio/track_hirsiz_distant_ambient.mp3",
+  "master": "assets/audio/track_hirsiz_distant_ambient.mp3"
+};
 
 class AudioEngine {
   constructor() {
     this.ctx = null;
     this.masterGain = null;
+    this.ambientGain = null;
     this.isMuted = false;
     this.isInitialized = false;
 
@@ -16,169 +45,118 @@ class AudioEngine {
     this.droneGain = null;
     this.windNode = null;
     this.windGain = null;
+    this.rainNode = null;
+    this.rainGain = null;
     this.clubThumpTimer = null;
     this.clubThumpGain = null;
-    this.rainGain = null;
-    this.rainNode = null;
-    this.ambientGain = null;
 
-    // YouTube Headless Audio Engine (khrysaor resmî kanala izlenme sayar, görüntü gösterilmez)
+    // Primary Native HTML5 Audio Player (Zero CORS, 100% reliable hardware output)
+    this.musicElement = new Audio();
+    this.musicElement.preload = "auto";
+    this.musicElement.loop = true;
+    this.currentTrack = null;
+    this.targetVolume = 0.5;
+    this._fadeInterval = null;
+
+    // Callbacks & state
+    this.onYTStateChange = null;
+    this.onTrackEnded = null;
     this.ytPlayer = null;
     this.isYTReady = false;
-    this.pendingYTTrack = null;
-    this.currentFallbackSrc = null;
-    this.currentVolume = 0.5;
-    this.onYTStateChange = null;
 
-    // Real local fallback audio player
-    this.musicElement = new Audio();
-    this.musicElement.loop = true;
-    this.musicGain = null;
-    this.currentTrack = null;
+    // Track ended listener
+    this.musicElement.addEventListener("ended", () => {
+      if (this.onYTStateChange) {
+        this.onYTStateChange(0); // 0 = YT.PlayerState.ENDED
+      }
+      if (this.onTrackEnded) {
+        this.onTrackEnded();
+      }
+    });
+
+    // Error recovery
+    this.musicElement.addEventListener("error", (e) => {
+      console.warn("SUSSUZ Audio element warning:", e);
+    });
   }
 
+  /**
+   * Ses Motorunu Başlat ve Tarayıcı Kilitlerini Aç
+   */
   init() {
-    if (this.isInitialized) return;
+    if (this.isInitialized) {
+      this._resumeContext();
+      return;
+    }
+
     try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new AudioContext();
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        this.ctx = new AudioCtx();
+        this._resumeContext();
 
-      // Master output bus
-      this.masterGain = this.ctx.createGain();
-      this.masterGain.gain.setValueAtTime(0.7, this.ctx.currentTime);
-      this.masterGain.connect(this.ctx.destination);
+        // Master Output Bus
+        this.masterGain = this.ctx.createGain();
+        this.masterGain.gain.setValueAtTime(0.75, this.ctx.currentTime);
+        this.masterGain.connect(this.ctx.destination);
 
-      // YouTube Headless Player Başlatma
-      this.initYouTubePlayer();
+        // Dedicated Ambient Bus
+        this.ambientGain = this.ctx.createGain();
+        this.ambientGain.gain.setValueAtTime(0.45, this.ctx.currentTime);
+        this.ambientGain.connect(this.masterGain);
 
-      // Dedicated ambient background bus (scaled down for a subtle, elegant noir bed)
-      this.ambientGain = this.ctx.createGain();
-      this.ambientGain.gain.setValueAtTime(0.42, this.ctx.currentTime);
-      this.ambientGain.connect(this.masterGain);
+        // Procedural Generators
+        this._startFoundationalDrone();
+        this._startWindNoise();
+        this._startRainNoise();
 
-      // Start foundational noir drone
-      this._startFoundationalDrone();
-
-      // Start wind generator
-      this._startWindNoise();
-
-      // Start rain generator
-      this._startRainNoise();
-
-      // Prepare club thump bus
-      this.clubThumpGain = this.ctx.createGain();
-      this.clubThumpGain.gain.setValueAtTime(0.001, this.ctx.currentTime);
-      this.clubThumpGain.connect(this.ambientGain);
-
-      // Connect real music element to web audio graph
-      try {
-        const musicSource = this.ctx.createMediaElementSource(this.musicElement);
-        this.musicGain = this.ctx.createGain();
-        this.musicGain.gain.setValueAtTime(0.001, this.ctx.currentTime);
-        musicSource.connect(this.musicGain);
-        this.musicGain.connect(this.masterGain);
-      } catch (e) {
-        console.warn("Direct media element source failed; fallback to native element volume:", e);
+        // Club Thump Bus
+        this.clubThumpGain = this.ctx.createGain();
+        this.clubThumpGain.gain.setValueAtTime(0.001, this.ctx.currentTime);
+        this.clubThumpGain.connect(this.ambientGain);
       }
 
-      // Fallback local audio loop guarantee
-      this.musicElement.addEventListener("ended", () => {
-        if (this.musicElement && this.currentTrack) {
-          try {
-            this.musicElement.currentTime = 0;
-            this.musicElement.play().catch(() => {});
-          } catch (e) {}
+      // Evrensel Kullanıcı Etkileşimi Dinleyicisi (Tarayıcı ses engellerini anında çözer)
+      const unlockAudio = () => {
+        this._resumeContext();
+        if (this.musicElement && this.musicElement.paused && this.currentTrack && !this.isMuted) {
+          this.musicElement.play().catch(() => {});
         }
+      };
+      ["click", "keydown", "touchstart", "pointerdown"].forEach((evt) => {
+        document.addEventListener(evt, unlockAudio, { passive: true });
       });
 
       this.isInitialized = true;
-      console.log("SUSSUZ Web Audio Engine initialized with balanced ambient bus.");
+      console.log("SUSSUZ Bulletproof Audio Engine initialized (Native HTML5 + Web Audio).");
     } catch (err) {
-      console.error("AudioContext initialization failed:", err);
+      console.error("AudioEngine initialization failed:", err);
     }
   }
 
-  initYouTubePlayer() {
-    if (this.ytPlayer || !window.YT || !window.YT.Player) return;
-    try {
-      this.ytPlayer = new YT.Player('youtubePlayerElement', {
-        height: '135',
-        width: '240',
-        videoId: 'yFymvGwoxjA',
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          modestbranding: 1,
-          rel: 0,
-          playsinline: 1
-        },
-        events: {
-          onReady: (event) => {
-            this.isYTReady = true;
-            console.log("SUSSUZ YouTube Headless Audio Engine Ready (Official stream).");
-            if (this.isMuted) {
-              event.target.mute();
-            } else {
-              event.target.unMute();
-            }
-            if (this.pendingYTTrack) {
-              const pending = this.pendingYTTrack;
-              this.pendingYTTrack = null;
-              this.playMusicTrack(pending.trackOrId, pending.volume, pending.fallbackSrc);
-            }
-          },
-          onStateChange: (event) => {
-            // event.data === 0 (YT.PlayerState.ENDED)
-            if (event.data === (window.YT ? window.YT.PlayerState.ENDED : 0)) {
-              if (this.onYTStateChange) {
-                this.onYTStateChange(event.data);
-              } else if (this.currentTrack) {
-                // Sahne müziği bittiğinde sessizliğe düşmesin, baştan tekrar başlasın (kesintisiz noir atmosfer)
-                try {
-                  event.target.seekTo(0);
-                  event.target.playVideo();
-                } catch (e) {
-                  console.warn("YouTube loop seek error:", e);
-                }
-              }
-              return;
-            }
-            if (this.onYTStateChange) {
-              this.onYTStateChange(event.data);
-            }
-          },
-          onError: (err) => {
-            console.warn("YouTube player error; fallback to local audio:", err);
-            if (this.currentFallbackSrc) {
-              this._playLocalAudio(this.currentFallbackSrc, this.currentVolume);
-            }
-          }
-        }
-      });
-    } catch (e) {
-      console.warn("YouTube Player initialization error:", e);
+  _resumeContext() {
+    if (this.ctx && this.ctx.state === "suspended") {
+      this.ctx.resume().catch(() => {});
     }
   }
+
+  // --- Prosedürel Ses Sentezi Motorları ---
 
   _startFoundationalDrone() {
+    if (!this.ctx) return;
     const now = this.ctx.currentTime;
     this.droneGain = this.ctx.createGain();
-    this.droneGain.gain.setValueAtTime(0.08, now); // Gentle deep rumble
+    this.droneGain.gain.setValueAtTime(0.08, now);
 
-    // Filter for deep dark noir rumble
     const filter = this.ctx.createBiquadFilter();
     filter.type = "lowpass";
-    filter.frequency.setValueAtTime(90, now);
-    filter.Q.setValueAtTime(2.5, now);
+    filter.frequency.setValueAtTime(92, now);
+    filter.Q.setValueAtTime(2.2, now);
 
-    // Osc 1: Sub-bass 43.2 Hz
     this.droneOsc1 = this.ctx.createOscillator();
     this.droneOsc1.type = "sawtooth";
     this.droneOsc1.frequency.setValueAtTime(43.2, now);
 
-    // Osc 2: Sub-bass 43.8 Hz (slight detune for beating pulse)
     this.droneOsc2 = this.ctx.createOscillator();
     this.droneOsc2.type = "sine";
     this.droneOsc2.frequency.setValueAtTime(43.8, now);
@@ -193,13 +171,14 @@ class AudioEngine {
   }
 
   _startWindNoise() {
+    if (!this.ctx) return;
     const bufferSize = this.ctx.sampleRate * 2;
     const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
     const data = buffer.getChannelData(0);
     let lastOut = 0.0;
     for (let i = 0; i < bufferSize; i++) {
       const white = Math.random() * 2 - 1;
-      data[i] = (lastOut + 0.02 * white) / 1.02; // Pink/brown approximation
+      data[i] = (lastOut + 0.02 * white) / 1.02;
       lastOut = data[i];
     }
 
@@ -213,7 +192,7 @@ class AudioEngine {
     windFilter.Q.setValueAtTime(1.8, this.ctx.currentTime);
 
     this.windGain = this.ctx.createGain();
-    this.windGain.gain.setValueAtTime(0.04, this.ctx.currentTime); // Subtle Ankara night breeze
+    this.windGain.gain.setValueAtTime(0.04, this.ctx.currentTime);
 
     this.windNode.connect(windFilter);
     windFilter.connect(this.windGain);
@@ -222,6 +201,7 @@ class AudioEngine {
   }
 
   _startRainNoise() {
+    if (!this.ctx) return;
     const bufferSize = this.ctx.sampleRate * 2;
     const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
     const data = buffer.getChannelData(0);
@@ -248,10 +228,12 @@ class AudioEngine {
 
   startClubThump(bpm = 122, intensity = 0.22) {
     if (this.clubThumpTimer) clearInterval(this.clubThumpTimer);
+    if (!this.ctx) return;
     const intervalMs = (60 / bpm) * 1000;
 
     const triggerKick = () => {
       if (!this.ctx || this.isMuted) return;
+      this._resumeContext();
       const now = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
@@ -263,7 +245,7 @@ class AudioEngine {
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
 
       osc.connect(gain);
-      gain.connect(this.clubThumpGain);
+      gain.connect(this.clubThumpGain || this.masterGain);
 
       osc.start(now);
       osc.stop(now + 0.35);
@@ -282,6 +264,7 @@ class AudioEngine {
 
   playTypewriterClick() {
     if (!this.ctx || this.isMuted) return;
+    this._resumeContext();
     const now = this.ctx.currentTime;
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
@@ -300,35 +283,157 @@ class AudioEngine {
     osc.stop(now + 0.045);
   }
 
+  // --- Master Müzik Çalar (Native HTML5 Audio & Crossfade) ---
+
+  /**
+   * Çözümleyici: Verilen kimliği (YouTube ID, takma ad veya doğrudan URL) gerçek yerel dosyaya dönüştürür
+   */
+  resolveAudioPath(trackOrId, fallbackSrc = null) {
+    if (fallbackSrc && (fallbackSrc.endsWith(".mp3") || fallbackSrc.endsWith(".wav"))) {
+      return fallbackSrc;
+    }
+    if (!trackOrId) return null;
+    if (TRACK_MAP[trackOrId]) {
+      return TRACK_MAP[trackOrId];
+    }
+    if (trackOrId.endsWith(".mp3") || trackOrId.endsWith(".wav")) {
+      return trackOrId;
+    }
+    return `assets/audio/track_${trackOrId}.mp3`;
+  }
+
+  /**
+   * Parça Çalma Metodu (Yumuşak Crossfade & Garantili Çalma)
+   */
+  playMusicTrack(trackOrId, volume = 0.55, fallbackSrc = null) {
+    if (!this.isInitialized) {
+      this.init();
+    }
+    this._resumeContext();
+
+    const audioSrc = this.resolveAudioPath(trackOrId, fallbackSrc);
+    if (!audioSrc) return;
+
+    this.targetVolume = volume;
+
+    // Aynı parça zaten çalıyorsa sadece ses seviyesini ayarla
+    if (this.currentTrack === audioSrc && !this.musicElement.paused) {
+      this._fadeMusicTo(this.isMuted ? 0 : volume, 600);
+      return;
+    }
+
+    this.currentTrack = audioSrc;
+
+    // Mevcut çalan varsa yumuşakça kıs ve yeni parçaya geç
+    this._fadeMusicTo(0, 250, () => {
+      try {
+        this.musicElement.src = audioSrc;
+        this.musicElement.currentTime = 0;
+        this.musicElement.volume = 0;
+        const playPromise = this.musicElement.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              this._fadeMusicTo(this.isMuted ? 0 : volume, 650);
+            })
+            .catch((err) => {
+              console.log("Audio waiting for user gesture:", err);
+            });
+        }
+      } catch (e) {
+        console.warn("Audio playback error:", e);
+      }
+    });
+  }
+
+  /**
+   * Parçayı Durdur (Yumuşak Fade-Out)
+   */
+  stopMusicTrack(fadeMs = 400) {
+    this._fadeMusicTo(0, fadeMs, () => {
+      if (this.musicElement) {
+        this.musicElement.pause();
+      }
+      this.currentTrack = null;
+    });
+  }
+
+  /**
+   * Native HTML5 Ses Crossfade Yardımcısı
+   */
+  _fadeMusicTo(targetVol, durationMs = 600, callback = null) {
+    if (!this.musicElement) {
+      if (callback) callback();
+      return;
+    }
+
+    if (this._fadeInterval) {
+      clearInterval(this._fadeInterval);
+      this._fadeInterval = null;
+    }
+
+    const startVol = this.musicElement.volume;
+    const finalVol = Math.max(0, Math.min(1, targetVol));
+    const startTime = performance.now();
+
+    this._fadeInterval = setInterval(() => {
+      const elapsed = performance.now() - startTime;
+      const progress = Math.min(1, elapsed / durationMs);
+      const curVol = startVol + (finalVol - startVol) * progress;
+      this.musicElement.volume = Math.max(0, Math.min(1, curVol));
+
+      if (progress >= 1) {
+        clearInterval(this._fadeInterval);
+        this._fadeInterval = null;
+        if (callback) callback();
+      }
+    }, 25);
+  }
+
+  // --- Sahne Atmosfer & Müzik Yöneticisi ---
+
   setSceneAudio(sceneId) {
-    if (!this.ctx) return;
-    const now = this.ctx.currentTime;
+    if (!this.isInitialized) {
+      this.init();
+    }
+    this._resumeContext();
+
     const rampTime = 1.2;
 
     switch (sceneId) {
-      case "ritim":
-        this._rampGain(this.droneGain, 0.10, rampTime);
-        this._rampGain(this.windGain, 0.03, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(120, 0.20);
-        this.stopMusicTrack();
-        break;
-
       case "ritim_interior":
         this._rampGain(this.droneGain, 0.12, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(124, 0.22);
         // Sahnede Kenan şarkı söylüyor — Hırsız
-        this.playMusicTrack("KFrAv440Rmg", 0.52, "assets/audio/track_hirsiz.mp3");
+        this.playMusicTrack("hirsiz", 0.62, "assets/audio/track_hirsiz.mp3");
+        break;
+
+      case "dancefloor":
+        this._rampGain(this.droneGain, 0.12, rampTime);
+        this._rampGain(this.windGain, 0.001, rampTime);
+        this._rampGain(this.rainGain, 0.001, rampTime);
+        this.startClubThump(124, 0.24);
+        // Kenan söylüyor; Murat ve Ekrem dans pistinde — Hırsız
+        this.playMusicTrack("hirsiz", 0.62, "assets/audio/track_hirsiz.mp3");
+        break;
+
+      case "ritim":
+        this._rampGain(this.droneGain, 0.10, rampTime);
+        this._rampGain(this.windGain, 0.03, rampTime);
+        this._rampGain(this.rainGain, 0.001, rampTime);
+        this.startClubThump(120, 0.20);
+        // Kulüp dışı — Hırsız uzaktan bas yankısı
+        this.playMusicTrack("distant_ambient", 0.40, "assets/audio/track_hirsiz_distant_ambient.mp3");
         break;
 
       case "ritim_road":
         this._rampGain(this.droneGain, 0.06, rampTime);
         this._rampGain(this.windGain, 0.09, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(120, 0.06); // Distant filtered thump
-        this.playMusicTrack("CvSByNL1r48", 0.42, "assets/audio/track_bilmem_ben_de.mp3");
+        this.startClubThump(120, 0.06);
+        this.playMusicTrack("bilmem_ben_de", 0.48, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "ritim_vip":
@@ -336,7 +441,7 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(120, 0.10);
-        this.stopMusicTrack();
+        this.playMusicTrack("hirsiz", 0.35, "assets/audio/track_hirsiz.mp3");
         break;
 
       case "ritim_backstage":
@@ -344,7 +449,7 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(124, 0.18);
-        this.stopMusicTrack();
+        this.playMusicTrack("hirsiz", 0.40, "assets/audio/track_hirsiz.mp3");
         break;
 
       case "goksu_room":
@@ -354,52 +459,26 @@ class AudioEngine {
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
         // Kenan söylüyor — Bu Şarkıyı Kaybedemem (Ritmi Bırakmam)
-        this.playMusicTrack("-esQckmIMgQ", 0.45, "assets/audio/track_kaybedemem.mp3");
-        break;
-
-      case "dancefloor":
-        this._rampGain(this.droneGain, 0.12, rampTime);
-        this._rampGain(this.windGain, 0.001, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(124, 0.24);
-        // Kenan söylüyor; Murat ve Ekrem dans pistinde dans ediyor — Hırsız
-        this.playMusicTrack("KFrAv440Rmg", 0.52, "assets/audio/track_hirsiz.mp3");
+        this.playMusicTrack("kaybedemem", 0.52, "assets/audio/track_kaybedemem.mp3");
         break;
 
       case "hill":
         this._rampGain(this.droneGain, 0.06, rampTime);
-        this._rampGain(this.windGain, 0.14, rampTime); // Restrained cold night breeze
+        this._rampGain(this.windGain, 0.14, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
         // Murat söylüyor — Bilmem, Ben De
-        this.playMusicTrack("CvSByNL1r48", 0.48, "assets/audio/track_bilmem_ben_de.mp3");
+        this.playMusicTrack("bilmem_ben_de", 0.55, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "lake":
       case "lake_candle":
         this._rampGain(this.droneGain, 0.07, rampTime);
         this._rampGain(this.windGain, 0.05, rampTime);
-        this._rampGain(this.rainGain, 0.09, rampTime); // Gentle lake rain
+        this._rampGain(this.rainGain, 0.09, rampTime);
         this.stopClubThump();
         // Bahar söylüyor — Bataklık
-        this.playMusicTrack("yFymvGwoxjA", 0.52, "assets/audio/track_bataklik.mp3");
-        break;
-
-      case "home":
-      case "home_interior":
-        this._rampGain(this.droneGain, 0.03, rampTime);
-        this._rampGain(this.windGain, 0.015, rampTime);
-        this._rampGain(this.rainGain, 0.03, rampTime);
-        this.stopClubThump();
-        this.stopMusicTrack();
-        break;
-
-      case "garden":
-        this._rampGain(this.droneGain, 0.05, rampTime);
-        this._rampGain(this.windGain, 0.07, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.stopClubThump();
-        this.stopMusicTrack();
+        this.playMusicTrack("bataklik", 0.58, "assets/audio/track_bataklik.mp3");
         break;
 
       case "studio":
@@ -407,8 +486,8 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.005, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Kenan stüdyoda demo kaydediyor — Gospel Baby (Kenan)
-        this.playMusicTrack("K35AtsZEl5o", 0.52, "assets/audio/track_gospel_baby_kenan.mp3");
+        // Kenan stüdyoda akustik demo — Gospel Baby (Kenan)
+        this.playMusicTrack("gospel_baby_kenan", 0.55, "assets/audio/track_gospel_baby_kenan.mp3");
         break;
 
       case "studio_ekrem":
@@ -417,130 +496,59 @@ class AudioEngine {
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
         // Ekrem canlı kayıt seansı — Gospel Baby (Ekrem Vokal)
-        this.playMusicTrack("mdPhJrnytkA", 0.55, "assets/audio/track_gospel_baby_ekrem.mp3");
+        this.playMusicTrack("gospel_baby_ekrem", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
         break;
 
+      case "home":
+      case "home_interior":
+      case "garden":
       case "accounting":
         this._rampGain(this.droneGain, 0.04, rampTime);
-        this._rampGain(this.windGain, 0.005, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
+        this._rampGain(this.windGain, 0.02, rampTime);
+        this._rampGain(this.rainGain, 0.02, rampTime);
         this.stopClubThump();
-        this.stopMusicTrack();
+        this.stopMusicTrack(800);
         break;
 
-      default: // Master canvas / wide map
+      default: // Master canvas / Gece Panoraması
         this._rampGain(this.droneGain, 0.07, rampTime);
         this._rampGain(this.windGain, 0.035, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        this.stopMusicTrack();
+        // Geceye adım atıldığında Susuz Gölü üzerinden şehirden yankılanan ritim
+        this.playMusicTrack("distant_ambient", 0.32, "assets/audio/track_hirsiz_distant_ambient.mp3");
         break;
     }
   }
 
-  setAmbientVolume(vol = 0.42) {
-    if (this.ambientGain && this.ctx) {
-      this._rampGain(this.ambientGain, vol, 0.4);
-    }
-  }
-
-  playMusicTrack(trackOrId, volume = 0.5, fallbackSrc = null) {
-    if (!trackOrId) return;
-
-    if (this.currentTrack === trackOrId) {
-      this.setMusicVolume(volume);
-      return;
-    }
-
-    this.currentTrack = trackOrId;
-    this.currentFallbackSrc = fallbackSrc;
-    this.currentVolume = volume;
-
-    // 11 karakterli YouTube Video ID kontrolü (örn. yFymvGwoxjA)
-    const isYouTubeId = typeof trackOrId === "string" && !trackOrId.includes("/") && !trackOrId.includes(".") && trackOrId.length === 11;
-
-    if (isYouTubeId) {
-      if (this.isYTReady && this.ytPlayer && typeof this.ytPlayer.loadVideoById === "function") {
-        try {
-          if (this.musicElement) this.musicElement.pause();
-          this.ytPlayer.loadVideoById({
-            videoId: trackOrId,
-            startSeconds: 0
-          });
-          this.ytPlayer.setVolume(Math.round(volume * 100));
-          if (this.isMuted) {
-            this.ytPlayer.mute();
-          } else {
-            this.ytPlayer.unMute();
-          }
-          this.ytPlayer.playVideo();
-          return;
-        } catch (e) {
-          console.warn("YouTube loadVideoById failed; fallback to local audio:", e);
-        }
-      } else {
-        // YouTube API henüz hazır değilse kuyruğa al ve yedek dosyayı çal
-        this.pendingYTTrack = { trackOrId, volume, fallbackSrc };
-        if (fallbackSrc) {
-          this._playLocalAudio(fallbackSrc, volume);
-        }
-        return;
-      }
-    }
-
-    const localSrc = fallbackSrc || trackOrId;
-    this._playLocalAudio(localSrc, volume);
-  }
-
-  _playLocalAudio(src, volume = 0.5) {
-    if (!this.musicElement) return;
-    if (this.musicElement.src.endsWith(src) && !this.musicElement.paused) return;
-    this.musicElement.src = src;
-    this.musicElement.volume = volume;
-    this.musicElement.play().catch(e => console.log("Audio waiting for user gesture:", e));
-    if (this.musicGain) {
-      this._rampGain(this.musicGain, volume, 1.2);
-    }
-  }
-
-  stopMusicTrack() {
-    if (this.ytPlayer && typeof this.ytPlayer.pauseVideo === "function") {
-      try {
-        this.ytPlayer.pauseVideo();
-      } catch (e) {}
-    }
-    if (this.musicElement) {
-      this.musicElement.pause();
-    }
-    this.currentTrack = null;
-  }
-
   _rampGain(node, targetVal, duration) {
     if (!node || !this.ctx) return;
-    const now = this.ctx.currentTime;
-    node.gain.cancelScheduledValues(now);
-    node.gain.setValueAtTime(node.gain.value, now);
-    node.gain.linearRampToValueAtTime(targetVal, now + duration);
+    try {
+      const now = this.ctx.currentTime;
+      node.gain.cancelScheduledValues(now);
+      node.gain.setValueAtTime(node.gain.value, now);
+      node.gain.linearRampToValueAtTime(targetVal, now + duration);
+    } catch (e) {}
   }
 
   toggleMute() {
-    if (!this.masterGain || !this.ctx) return false;
     this.isMuted = !this.isMuted;
-    const now = this.ctx.currentTime;
-    if (this.isMuted) {
-      this.masterGain.gain.setValueAtTime(0, now);
-      if (this.musicElement) this.musicElement.muted = true;
-      if (this.ytPlayer && typeof this.ytPlayer.mute === "function") {
-        try { this.ytPlayer.mute(); } catch (e) {}
-      }
-    } else {
-      this.masterGain.gain.setValueAtTime(0.7, now);
-      if (this.musicElement) this.musicElement.muted = false;
-      if (this.ytPlayer && typeof this.ytPlayer.unMute === "function") {
-        try { this.ytPlayer.unMute(); } catch (e) {}
+    if (this.masterGain && this.ctx) {
+      const now = this.ctx.currentTime;
+      this.masterGain.gain.setValueAtTime(this.isMuted ? 0 : 0.75, now);
+    }
+    if (this.musicElement) {
+      this.musicElement.muted = this.isMuted;
+      if (!this.isMuted && this.currentTrack && this.musicElement.paused) {
+        this.musicElement.play().catch(() => {});
       }
     }
     return this.isMuted;
+  }
+
+  // YouTube uyumluluk kalkanı
+  initYouTubePlayer() {
+    this.isYTReady = true;
   }
 }
 
