@@ -116,15 +116,12 @@ class AudioEngine {
         this.clubThumpGain.connect(this.ambientGain);
       }
 
-      // Evrensel Kullanıcı Etkileşimi Dinleyicisi (Tarayıcı ses engellerini anında çözer)
+      // Kullanıcı Etkileşimi ile AudioContext Uyandırma (Yalnızca ilk etkileşimde)
       const unlockAudio = () => {
         this._resumeContext();
-        if (this.musicElement && this.musicElement.paused && this.currentTrack && !this.isMuted) {
-          this.musicElement.play().catch(() => {});
-        }
       };
       ["click", "keydown", "touchstart", "pointerdown"].forEach((evt) => {
-        document.addEventListener(evt, unlockAudio, { passive: true });
+        document.addEventListener(evt, unlockAudio, { passive: true, once: true });
       });
 
       this.isInitialized = true;
@@ -303,7 +300,7 @@ class AudioEngine {
   }
 
   /**
-   * Parça Çalma Metodu (Yumuşak Crossfade & Garantili Çalma)
+   * Parça Çalma Metodu (Anında Geçiş, Garantili Donanım Çıkışı)
    */
   playMusicTrack(trackOrId, volume = 0.55, fallbackSrc = null) {
     if (!this.isInitialized) {
@@ -318,50 +315,52 @@ class AudioEngine {
 
     // Aynı parça zaten çalıyorsa sadece ses seviyesini ayarla
     if (this.currentTrack === audioSrc && !this.musicElement.paused) {
-      this._fadeMusicTo(this.isMuted ? 0 : volume, 600);
+      this.musicElement.volume = this.isMuted ? 0 : volume;
       return;
+    }
+
+    if (this._fadeInterval) {
+      clearInterval(this._fadeInterval);
+      this._fadeInterval = null;
     }
 
     this.currentTrack = audioSrc;
 
-    // Mevcut çalan varsa yumuşakça kıs ve yeni parçaya geç
-    this._fadeMusicTo(0, 250, () => {
-      try {
-        this.musicElement.src = audioSrc;
-        this.musicElement.currentTime = 0;
-        this.musicElement.volume = 0;
-        const playPromise = this.musicElement.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              this._fadeMusicTo(this.isMuted ? 0 : volume, 650);
-            })
-            .catch((err) => {
-              console.log("Audio waiting for user gesture:", err);
-            });
-        }
-      } catch (e) {
-        console.warn("Audio playback error:", e);
+    try {
+      this.musicElement.pause();
+      this.musicElement.src = audioSrc;
+      this.musicElement.currentTime = 0;
+      this.musicElement.volume = this.isMuted ? 0 : volume;
+      const playPromise = this.musicElement.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.log("Audio waiting for user gesture:", err);
+        });
       }
-    });
+    } catch (e) {
+      console.warn("Audio playback error:", e);
+    }
   }
 
   /**
-   * Parçayı Durdur (Yumuşak Fade-Out)
+   * Parçayı Durdur (Anında ve Temiz)
    */
-  stopMusicTrack(fadeMs = 400) {
-    this._fadeMusicTo(0, fadeMs, () => {
-      if (this.musicElement) {
-        this.musicElement.pause();
-      }
-      this.currentTrack = null;
-    });
+  stopMusicTrack(fadeMs = 300) {
+    if (this._fadeInterval) {
+      clearInterval(this._fadeInterval);
+      this._fadeInterval = null;
+    }
+    this.currentTrack = null;
+    if (this.musicElement) {
+      this.musicElement.pause();
+      this.musicElement.currentTime = 0;
+    }
   }
 
   /**
-   * Native HTML5 Ses Crossfade Yardımcısı
+   * Native HTML5 Ses Seviyesi Yardımcısı
    */
-  _fadeMusicTo(targetVol, durationMs = 600, callback = null) {
+  _fadeMusicTo(targetVol, durationMs = 400, callback = null) {
     if (!this.musicElement) {
       if (callback) callback();
       return;
@@ -398,34 +397,18 @@ class AudioEngine {
     }
     this._resumeContext();
 
-    const rampTime = 1.2;
+    const rampTime = 0.8;
 
     switch (sceneId) {
+      case "ritim":
       case "ritim_interior":
-        this._rampGain(this.droneGain, 0.12, rampTime);
-        this._rampGain(this.windGain, 0.001, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(124, 0.22);
-        // Sahnede Kenan şarkı söylüyor — Hırsız
-        this.playMusicTrack("hirsiz", 0.62, "assets/audio/track_hirsiz.mp3");
-        break;
-
       case "dancefloor":
         this._rampGain(this.droneGain, 0.12, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(124, 0.24);
-        // Kenan söylüyor; Murat ve Ekrem dans pistinde — Hırsız
-        this.playMusicTrack("hirsiz", 0.62, "assets/audio/track_hirsiz.mp3");
-        break;
-
-      case "ritim":
-        this._rampGain(this.droneGain, 0.10, rampTime);
-        this._rampGain(this.windGain, 0.03, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(120, 0.20);
-        // Kulüp dışı — Hırsız uzaktan bas yankısı
-        this.playMusicTrack("distant_ambient", 0.40, "assets/audio/track_hirsiz_distant_ambient.mp3");
+        // Ritim kulübü — Sahnede Kenan: HIRSIZ (Full Studio Master)
+        this.playMusicTrack("hirsiz", 0.65, "assets/audio/track_hirsiz.mp3");
         break;
 
       case "ritim_road":
@@ -433,23 +416,17 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.09, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(120, 0.06);
-        this.playMusicTrack("bilmem_ben_de", 0.48, "assets/audio/track_bilmem_ben_de.mp3");
+        // Murat & Ekrem yol sahnesi — BİLMEM, BEN DE
+        this.playMusicTrack("bilmem_ben_de", 0.55, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "ritim_vip":
-        this._rampGain(this.droneGain, 0.05, rampTime);
-        this._rampGain(this.windGain, 0.001, rampTime);
-        this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(120, 0.10);
-        this.playMusicTrack("hirsiz", 0.35, "assets/audio/track_hirsiz.mp3");
-        break;
-
       case "ritim_backstage":
         this._rampGain(this.droneGain, 0.07, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.startClubThump(124, 0.18);
-        this.playMusicTrack("hirsiz", 0.40, "assets/audio/track_hirsiz.mp3");
+        this.playMusicTrack("hirsiz", 0.50, "assets/audio/track_hirsiz.mp3");
         break;
 
       case "goksu_room":
@@ -458,8 +435,8 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.01, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Kenan söylüyor — Bu Şarkıyı Kaybedemem (Ritmi Bırakmam)
-        this.playMusicTrack("kaybedemem", 0.52, "assets/audio/track_kaybedemem.mp3");
+        // Göksu'nun Cam Ofisi — Kenan: BU ŞARKIYI KAYBEDEMEM
+        this.playMusicTrack("kaybedemem", 0.55, "assets/audio/track_kaybedemem.mp3");
         break;
 
       case "hill":
@@ -467,8 +444,8 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.14, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Murat söylüyor — Bilmem, Ben De
-        this.playMusicTrack("bilmem_ben_de", 0.55, "assets/audio/track_bilmem_ben_de.mp3");
+        // Aşıklar Tepesi — Murat: BİLMEM, BEN DE
+        this.playMusicTrack("bilmem_ben_de", 0.58, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "lake":
@@ -477,8 +454,8 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.05, rampTime);
         this._rampGain(this.rainGain, 0.09, rampTime);
         this.stopClubThump();
-        // Bahar söylüyor — Bataklık
-        this.playMusicTrack("bataklik", 0.58, "assets/audio/track_bataklik.mp3");
+        // Göl Kenarı & Dilek Anma — Bahar: BATAKLIK
+        this.playMusicTrack("bataklik", 0.60, "assets/audio/track_bataklik.mp3");
         break;
 
       case "studio":
@@ -486,7 +463,7 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.005, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Kenan stüdyoda akustik demo — Gospel Baby (Kenan)
+        // Kenan'ın Stüdyosu — Kenan Akustik Demo: GOSPEL BABY
         this.playMusicTrack("gospel_baby_kenan", 0.55, "assets/audio/track_gospel_baby_kenan.mp3");
         break;
 
@@ -495,7 +472,7 @@ class AudioEngine {
         this._rampGain(this.windGain, 0.005, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Ekrem canlı kayıt seansı — Gospel Baby (Ekrem Vokal)
+        // Ekrem Canlı Kayıt Seansı — Ekrem Vokal: GOSPEL BABY
         this.playMusicTrack("gospel_baby_ekrem", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
         break;
 
@@ -503,21 +480,24 @@ class AudioEngine {
       case "home_interior":
       case "home_kitchen":
       case "garden":
+      case "murat_home":
       case "accounting":
         this._rampGain(this.droneGain, 0.04, rampTime);
         this._rampGain(this.windGain, 0.02, rampTime);
         this._rampGain(this.rainGain, 0.02, rampTime);
         this.stopClubThump();
-        this.stopMusicTrack(800);
+        // Sessiz, korunaklı iç mekan ses alanı (müzik çalmaz)
+        this.stopMusicTrack();
         break;
 
+      case "master":
       default: // Master canvas / Gece Panoraması
         this._rampGain(this.droneGain, 0.07, rampTime);
         this._rampGain(this.windGain, 0.035, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
         this.stopClubThump();
-        // Geceye adım atıldığında Susuz Gölü üzerinden şehirden yankılanan ritim
-        this.playMusicTrack("distant_ambient", 0.32, "assets/audio/track_hirsiz_distant_ambient.mp3");
+        // Yalnızca gece haritasında Ankara genelinde uzaktan boğuk bas yankısı
+        this.playMusicTrack("distant_ambient", 0.28, "assets/audio/track_hirsiz_distant_ambient.mp3");
         break;
     }
   }

@@ -964,10 +964,12 @@ class SpatialUniverse {
 
       if (this.mouse.dragDist < 12) {
         if (this.viewMode === "panorama") {
+          this._checkSectorHover();
           if (this.hoveredSector) {
             this.flyToScene(this.hoveredSector.id);
           }
         } else if (this.viewMode === "scene") {
+          this._checkSceneHotspotHover();
           if (this.hoveredHotspot) {
             const screenPos = this._getHotspotScreenPos(this.hoveredHotspot, this.canvas.width, this.canvas.height);
             if (this.hoveredHotspot.action === "fly_subvenue") {
@@ -984,6 +986,67 @@ class SpatialUniverse {
         }
       }
     });
+
+    // Dokunmatik Ekran / Mobil ve Tablet Desteği
+    this.canvas.addEventListener("touchstart", (e) => {
+      if (e.touches.length > 0) {
+        const t = e.touches[0];
+        this.mouse.isDown = true;
+        this.mouse.x = t.clientX;
+        this.mouse.y = t.clientY;
+        this.mouse.lastX = t.clientX;
+        this.mouse.lastY = t.clientY;
+        this.mouse.dragDist = 0;
+        this.mouse.worldX = (t.clientX - this.canvas.width / 2) / this.camera.zoom + this.camera.x;
+        this.mouse.worldY = (t.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
+      }
+    }, { passive: true });
+
+    this.canvas.addEventListener("touchmove", (e) => {
+      if (!this.mouse.isDown || e.touches.length === 0) return;
+      const t = e.touches[0];
+      const dx = t.clientX - this.mouse.lastX;
+      const dy = t.clientY - this.mouse.lastY;
+      this.mouse.dragDist += Math.abs(dx) + Math.abs(dy);
+
+      if (this.viewMode === "panorama") {
+        this.camera.targetX -= dx / this.camera.zoom;
+        this.camera.targetY -= dy / this.camera.zoom;
+      } else {
+        this.sceneOffset.targetX = Math.max(-120, Math.min(120, this.sceneOffset.targetX + dx * 0.5));
+        this.sceneOffset.targetY = Math.max(-80, Math.min(80, this.sceneOffset.targetY + dy * 0.5));
+      }
+
+      this.mouse.lastX = t.clientX;
+      this.mouse.lastY = t.clientY;
+      this.mouse.x = t.clientX;
+      this.mouse.y = t.clientY;
+      this.mouse.worldX = (t.clientX - this.canvas.width / 2) / this.camera.zoom + this.camera.x;
+      this.mouse.worldY = (t.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
+    }, { passive: true });
+
+    this.canvas.addEventListener("touchend", () => {
+      if (!this.mouse.isDown) return;
+      this.mouse.isDown = false;
+      if (this.mouse.dragDist < 16) {
+        if (this.viewMode === "panorama") {
+          this._checkSectorHover();
+          if (this.hoveredSector) {
+            this.flyToScene(this.hoveredSector.id);
+          }
+        } else if (this.viewMode === "scene") {
+          this._checkSceneHotspotHover();
+          if (this.hoveredHotspot) {
+            const screenPos = this._getHotspotScreenPos(this.hoveredHotspot, this.canvas.width, this.canvas.height);
+            if (this.hoveredHotspot.action === "fly_subvenue") {
+              this.flyToScene(this.hoveredHotspot.target);
+            } else if (this.onObjectClick) {
+              this.onObjectClick(this.hoveredHotspot, this.activeSceneId, screenPos);
+            }
+          }
+        }
+      }
+    }, { passive: true });
 
     window.addEventListener("wheel", (e) => {
       if (e.target.closest("#glassglowTab") || e.target.closest("#soundtrackModal") || e.target.closest(".underground-overlay") || e.target.closest(".modal-overlay")) return;

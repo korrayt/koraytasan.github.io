@@ -1018,6 +1018,8 @@ document.addEventListener("DOMContentLoaded", () => {
           primaryCta.onclick = () => {
             if (data.ctaTarget && spatialUniverse) {
               spatialUniverse.flyToScene(data.ctaTarget);
+            } else if (data.ctaAudio && window.SUSSUZ_AUDIO) {
+              window.SUSSUZ_AUDIO.playMusicTrack(data.ctaAudio);
             } else if (data.ctaAction === "underground") {
               startUndergroundDescent();
             } else if (data.ctaAction === "dialogue" && data.ctaCharId) {
@@ -1169,8 +1171,8 @@ document.addEventListener("DOMContentLoaded", () => {
       focusedObjActionBtn.onclick = () => startUndergroundDescent();
     } else if (hotspot.action === "music") {
       focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `▶ ${hotspot.name} 15 SN DİNLE`;
-      focusedObjActionBtn.onclick = () => window.playSnippet(hotspot.src);
+      focusedObjActionBtn.innerHTML = `▶ ${hotspot.name} ÇAL`;
+      focusedObjActionBtn.onclick = () => window.playSnippet(hotspot.src, hotspot.fallbackSrc);
     } else if (hotspot.action === "dialogue") {
       focusedObjActionBtn.style.display = "flex";
       focusedObjActionBtn.innerHTML = `[ 💬 ${hotspot.name} DİYALOĞUNU BAŞLAT ]`;
@@ -1512,13 +1514,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 15 Saniyelik Müzik Çalma
+  // Doğrudan Parça Çalma
   window.playSnippet = function(src, fallbackSrc = null) {
     if (window.SUSSUZ_AUDIO) {
-      window.SUSSUZ_AUDIO.playMusicTrack(src, 0.55, fallbackSrc);
-      setTimeout(() => {
-        if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.stopMusicTrack();
-      }, 15000);
+      window.SUSSUZ_AUDIO.playMusicTrack(src, 0.65, fallbackSrc);
     }
   };
 
