@@ -16,15 +16,26 @@
   <div class="letterbox-bar letterbox-top"></div>
   <div class="letterbox-bar letterbox-bottom"></div>
 
-  <!-- Açılış Sekansı (Cold Open) -->
+  <!-- Açılış Sekansı (Cold Open / Hero Logo Mimarisi) -->
   <div id="openingOverlay" class="opening-overlay">
-    <div class="opening-content">
-      <p class="opening-quote">“Bazı şeyler gömülünce kaybolmaz.”</p>
-      <h1 class="opening-title">SUSSUZ</h1>
-      <p class="opening-tagline">Bir Ankara hikâyesi.</p>
-      <button id="enterBtn" class="cinematic-btn-primary">
-        [ GECEYE ADIM AT // SESİ BAŞLAT ]
-      </button>
+    <div class="opening-hero-stage">
+      <div class="opening-hero-visual-wrap">
+        <img src="assets/img/sussuz_hero_logo.png" alt="SUSSUZ — Bir Ankara Hikâyesi" class="opening-hero-img" id="heroLogoImg">
+        <div class="opening-hero-glow"></div>
+      </div>
+
+      <!-- Yansımanın Altına Yerleşen Tipografi ve Kontroller -->
+      <div class="opening-bottom-controls">
+        <p class="opening-quote">“Bazı şeyler gömülünce kaybolmaz.”</p>
+        
+        <button id="enterBtn" class="cinematic-btn-primary opening-enter-btn">
+          [ GECEYE ADIM AT // RİTMİ BAŞLAT ]
+        </button>
+
+        <p class="opening-footnote">
+          BİR ANKARA HİKÂYESİ
+        </p>
+      </div>
     </div>
   </div>
 
