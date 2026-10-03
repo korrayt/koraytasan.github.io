@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       characterId: "goksu",
       characterName: "Senaryo Yazım Odası",
       characterRole: "Görünmeyen Güçler & Bürokratlar",
-      atmosphere: "ŞU AN SAHNESİ YOK, YAZILIYOR. :D // Şehrin bürokratları, karanlık sermayesi ve Susuz'un görünmeyen yüzleri için ayrılmış asma kat VIP loca bölümü. Senaryo yazım aşamasında kurgulanıyor. Yazım ilerlemesi: %72.",
+      atmosphere: "ŞU AN SAHNESİ YOK, YAZILIYOR. :D // Şehrin bürokratları, karanlık sermayesi ve Susuz'un görünmeyen yüzleri için ayrılmış asma kat VIP loca bölümü. Senaryo yazım aşamasında kurgulanıyor. Yazım ilerlemesi: %25.",
       musicNote: "Boğuk Şampanya & Derin Bas",
       noteOrigin: "VIP Loca Masası",
       isLockedRoom: true,
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
       characterId: "bahar",
       characterName: "Bahar",
       characterRole: "Kapalı Oda",
-      atmosphere: "Kapıya gelince: 'Henüz yazılıyor. :D' Senaryo yazım aşaması siteye dahil edilmiştir. Yazım ilerlemesi: %84.",
+      atmosphere: "Kapıya gelince: 'Henüz yazılıyor. :D' Senaryo yazım aşaması siteye dahil edilmiştir. Yazım ilerlemesi: %25.",
       musicNote: "Sessizlik ve Saat Tik-Takları",
       isLockedRoom: true,
       noteOrigin: "Buzdolabı Magneti",
@@ -926,7 +926,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Henüz yazılıyor. :D
         </h4>
         <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">
-          Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: <strong>%84</strong>
+          Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: <strong>%25</strong>
         </p>
         <button class="ek3-trigger ek3-trigger-accent" style="justify-content:center;" onclick="openFundingModal('Destekçiyim')">
           [ SENARYO YAZIM SÜRECİNE FON SAĞLA → ]

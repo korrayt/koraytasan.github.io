@@ -253,7 +253,7 @@ class SpatialUniverse {
       ],
 
       ritim_vip: [
-        { id: "vip_status", name: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", relX: 0.50, relY: 0.50, icon: "🔒", subtitle: "SENARYO AŞAMASI // %72", action: "locked_info", desc: "Şehrin bürokratları ve Susuz'un görünmeyen yüzleri için ayrılmış VIP loca bölümü. Senaryo yazımı devam ediyor." },
+        { id: "vip_status", name: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", relX: 0.50, relY: 0.50, icon: "🔒", subtitle: "SENARYO AŞAMASI // %25", action: "locked_info", desc: "Şehrin bürokratları ve Susuz'un görünmeyen yüzleri için ayrılmış VIP loca bölümü. Senaryo yazımı devam ediyor." },
         { id: "vip_to_dance", name: "DANS PİSTİNE İN", relX: 0.32, relY: 0.66, icon: "⚡", subtitle: "ALT KATA İN", action: "fly_subvenue", target: "dancefloor", desc: "Dans pistine inin." },
         { id: "vip_to_exit", name: "KULÜBE DÖN", relX: 0.74, relY: 0.66, icon: "🚪", subtitle: "GİRİŞE DÖN", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
       ],
@@ -287,7 +287,7 @@ class SpatialUniverse {
         { id: "acc_sponsor", name: "SPONSORLUK VE DESTEK PROTOKOLÜ", relX: 0.72, relY: 0.66, icon: "🤝", subtitle: "İKİ EKSENLİ KATKI HAVUZU", action: "funding", desc: "SUSSUZ prodüksiyonuna destek sağlama protokolü." }
       ],
       home_interior: [
-        { id: "home_lock", name: "SENARYO MASASI", relX: 0.50, relY: 0.55, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %84", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %84." }
+        { id: "home_lock", name: "SENARYO MASASI", relX: 0.50, relY: 0.55, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %25", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %25." }
       ],
       murat_home: [
         { 
