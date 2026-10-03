@@ -995,9 +995,14 @@ class SpatialUniverse {
       }
     });
 
-    // Dokunmatik Ekran / Mobil ve Tablet Desteği
+    // Dokunmatik Ekran / Mobil ve Tablet Desteği (Tek parmak: Gezinme, Çift parmak: Pinch-to-Zoom)
+    this.isPinching = false;
+    this.initialPinchDist = 0;
+    this.initialPinchZoom = 1;
+
     this.canvas.addEventListener("touchstart", (e) => {
-      if (e.touches.length > 0) {
+      if (e.touches.length === 1) {
+        this.isPinching = false;
         const t = e.touches[0];
         this.mouse.isDown = true;
         this.mouse.x = t.clientX;
@@ -1007,10 +1012,31 @@ class SpatialUniverse {
         this.mouse.dragDist = 0;
         this.mouse.worldX = (t.clientX - this.canvas.width / 2) / this.camera.zoom + this.camera.x;
         this.mouse.worldY = (t.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
+      } else if (e.touches.length >= 2) {
+        this.isPinching = true;
+        this.mouse.isDown = false;
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        this.initialPinchDist = Math.hypot(dx, dy);
+        this.initialPinchZoom = this.camera.targetZoom;
       }
     }, { passive: true });
 
     this.canvas.addEventListener("touchmove", (e) => {
+      if (e.touches.length >= 2 && this.isPinching) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const curDist = Math.hypot(dx, dy);
+        if (this.initialPinchDist > 8) {
+          const ratio = curDist / this.initialPinchDist;
+          this.camera.targetZoom = Math.max(
+            this.camera.minZoom,
+            Math.min(this.camera.maxZoom, this.initialPinchZoom * ratio)
+          );
+        }
+        return;
+      }
+
       if (!this.mouse.isDown || e.touches.length === 0) return;
       const t = e.touches[0];
       const dx = t.clientX - this.mouse.lastX;
@@ -1033,10 +1059,13 @@ class SpatialUniverse {
       this.mouse.worldY = (t.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
     }, { passive: true });
 
-    this.canvas.addEventListener("touchend", () => {
+    this.canvas.addEventListener("touchend", (e) => {
+      if (e.touches.length < 2) {
+        this.isPinching = false;
+      }
       if (!this.mouse.isDown) return;
       this.mouse.isDown = false;
-      if (this.mouse.dragDist < 16) {
+      if (this.mouse.dragDist < 20) {
         if (this.viewMode === "panorama") {
           this._checkSectorHover();
           if (this.hoveredSector) {

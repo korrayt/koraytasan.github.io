@@ -1471,12 +1471,6 @@ body, html {
 }
 
 @media (max-width: 900px) {
-  .glassglow-tab {
-    top: 40px;
-    right: 15px;
-    bottom: 40px;
-    width: calc(100vw - 30px);
-  }
   .dual-axis-grid, .studio-wishlist-gear-grid {
     grid-template-columns: 1fr;
   }
@@ -1955,6 +1949,306 @@ body, html {
   letter-spacing: 0.08em;
   line-height: 1.4;
 }
+
+/* ========================================================================= */
+/* 12. EVRENSEL MOBİL VE TÜM CİHAZ UYUMLULUK MOTORU (UNIVERSAL RESPONSIVE)  */
+/* iPhone (tüm modeller), iPad/Tabletler, Android ve Katlanabilir Ekranlar    */
+/* ========================================================================= */
+
+/* Crowd Form Grid Genel */
+.crowd-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* Tablet ve İnce Ekranlar (<= 1024px) */
+@media (max-width: 1024px) {
+  .hud-layer {
+    padding: 18px 24px;
+  }
+  .glassglow-tab {
+    width: 360px;
+    max-height: calc(100vh - 100px);
+  }
+}
+
+/* Mobil Cihazlar ve Akıllı Telefonlar (<= 768px) */
+@media (max-width: 768px) {
+  /* iOS Safe Area & Notch Koruması */
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* iOS Form Zoom Bug Engelleme (Inputlar 16px'den küçükse Safari zoom yapar) */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* HUD Yerleşimi */
+  .hud-layer {
+    padding: 12px 14px;
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+  }
+
+  .hud-top-bar {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hud-brand-emblem {
+    height: 30px;
+  }
+
+  .hud-brand-sub {
+    font-size: 0.50rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hud-right-actions {
+    gap: 5px;
+    justify-content: flex-end;
+  }
+
+  .hud-btn {
+    padding: 6px 11px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hud-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    pointer-events: none;
+  }
+
+  .hud-coordinates {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hud-instructions {
+    font-size: 0.60rem;
+    letter-spacing: 0.10em;
+  }
+
+  /* Glassglow Floating Bottom-Sheet Drawer */
+  .glassglow-tab {
+    top: auto !important;
+    bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: 52vh !important;
+    max-height: 52dvh !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.92), 0 0 20px rgba(212, 175, 55, 0.15) !important;
+    transform: translateY(30px) scale(0.96);
+  }
+
+  .glassglow-tab.tab-active {
+    transform: translateY(0) scale(1);
+  }
+
+  .glassglow-header {
+    padding: 14px 18px 0 18px;
+  }
+
+  .glassglow-content-scroll {
+    padding: 12px 18px 18px 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .glassglow-title {
+    font-size: 1.15rem;
+  }
+
+  .glassglow-desc {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  /* Modallar — Mobilde Ekranı Taşmayan Kompakt Bottom Sheet / Dialog */
+  .modal-overlay {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .modal-container {
+    width: 100% !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: 86vh !important;
+    max-height: 86dvh !important;
+    padding: 24px 16px 20px 16px !important;
+    border-radius: 14px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+
+  .soundtrack-modal-box,
+  .anonymous-note-modal-box,
+  .dialogue-modal-box,
+  .funding-modal-box,
+  .gospel-lyrics-modal-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 22px 14px !important;
+  }
+
+  .soundtrack-main-title {
+    font-size: 1.35rem;
+    letter-spacing: 0.10em;
+  }
+
+  .soundtrack-now-playing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .now-playing-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .soundtrack-item {
+    padding: 10px 12px;
+  }
+
+  .track-item-title {
+    font-size: 0.88rem;
+  }
+
+  .track-item-singer {
+    font-size: 0.68rem;
+  }
+
+  .track-item-narrative {
+    font-size: 0.65rem;
+  }
+
+  /* Diyalog Modalı Mobilde */
+  .dialogue-character-card {
+    gap: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+  }
+
+  .dialogue-avatar-wrap {
+    width: 54px;
+    height: 54px;
+  }
+
+  .dialogue-name {
+    font-size: 1.25rem !important;
+  }
+
+  .dialogue-speech-container {
+    padding: 14px;
+    min-height: 65px;
+    margin-bottom: 14px;
+  }
+
+  .dialogue-speech-text {
+    font-size: 0.90rem;
+    line-height: 1.55;
+  }
+
+  .dialogue-choice-btn {
+    padding: 10px 14px;
+    font-size: 0.76rem;
+  }
+
+  /* Fonlama Formu Tek Sütun */
+  .crowd-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .dual-axis-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* Lirik Modalı Mobilde */
+  .gospel-lyrics-scroll-box {
+    max-height: 48vh;
+    max-height: 48dvh;
+  }
+
+  .gospel-en-line {
+    font-size: 0.88rem;
+  }
+
+  .gospel-tr-phonetic {
+    font-size: 0.78rem;
+  }
+}
+
+/* Küçük Telefonlar (<= 480px, örn. iPhone SE, mini, küçük Galaxy) */
+@media (max-width: 480px) {
+  .hud-brand-emblem {
+    height: 25px;
+  }
+
+  .hud-brand-sub {
+    display: none !important; /* Küçük ekranda logoyu rahatlat */
+  }
+
+  .hud-btn {
+    padding: 5px 8px;
+    font-size: 0.58rem;
+    gap: 4px;
+  }
+
+  .soundtrack-channel-yt-btn {
+    padding: 5px 10px;
+    font-size: 0.64rem;
+  }
+
+  .glassglow-metadata-grid {
+    gap: 4px;
+    padding: 6px 10px;
+  }
+
+  .glassglow-meta-col .meta-label {
+    font-size: 0.54rem;
+  }
+
+  .glassglow-meta-col .meta-val {
+    font-size: 0.66rem;
+  }
+
+  .opening-quote {
+    font-size: 0.80rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .opening-enter-btn {
+    padding: 11px 20px !important;
+    font-size: 0.70rem !important;
+    letter-spacing: 0.14em !important;
+  }
+}
+
 
 
 

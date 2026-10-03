@@ -1167,7 +1167,10 @@ document.addEventListener("DOMContentLoaded", () => {
       hudBackBtn.style.display = "inline-flex";
       hudToggleTabBtn.style.display = "inline-flex";
       hudToggleTabBtn.textContent = "👁️ DETAYLARI GİZLE";
-      hudInstructions.textContent = "[ SERBEST GEZİNME: SÜRÜKLE ] • [ SAHNEDEKİ IŞILTILARA TIKLA ] • [ PANORAMAYA DÖNMEK İÇİN ZOOM OUT ]";
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+      hudInstructions.textContent = isTouch
+        ? "[ SÜRÜKLE: GEZİN ] • [ IŞILTILARA DOKUN ] • [ ÇİFT PARMAK: UZAKLAŞ ]"
+        : "[ SERBEST GEZİNME: SÜRÜKLE ] • [ SAHNEDEKİ IŞILTILARA TIKLA ] • [ PANORAMAYA DÖNMEK İÇİN ZOOM OUT ]";
 
       // Ses Güncelle
       if (window.SUSSUZ_AUDIO) {
@@ -1181,7 +1184,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       hudBackBtn.style.display = "none";
       hudToggleTabBtn.style.display = "none";
-      hudInstructions.textContent = "[ SÜRÜKLE: KEŞFET ] • [ TEKERLEK: ZOOM ] • [ IŞIKLARIN SESİNİ TAKİP ET ]";
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
+      hudInstructions.textContent = isTouch
+        ? "[ SÜRÜKLE: KEŞFET ] • [ ÇİFT PARMAK: ZOOM ] • [ IŞIKLARA DOKUN ]"
+        : "[ SÜRÜKLE: KEŞFET ] • [ TEKERLEK: ZOOM ] • [ IŞIKLARIN SESİNİ TAKİP ET ]";
 
       if (window.SUSSUZ_AUDIO) {
         window.SUSSUZ_AUDIO.setSceneAudio("master");
@@ -1196,13 +1202,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Ana karakterleri ve sahne objelerini ASLA kapatmaz!
   function positionGlassglowPopup() {
     if (window.innerWidth <= 768) {
-      glassglowTab.style.left = "16px";
-      glassglowTab.style.right = "16px";
+      glassglowTab.style.left = "12px";
+      glassglowTab.style.right = "12px";
       glassglowTab.style.top = "auto";
-      glassglowTab.style.bottom = "24px";
-      glassglowTab.style.maxHeight = "55vh";
+      glassglowTab.style.bottom = "max(14px, env(safe-area-inset-bottom, 14px))";
+      glassglowTab.style.maxHeight = "52vh";
     } else {
-      glassglowTab.style.left = "40px";
+      glassglowTab.style.left = "32px";
       glassglowTab.style.top = "92px";
       glassglowTab.style.right = "auto";
       glassglowTab.style.bottom = "auto";

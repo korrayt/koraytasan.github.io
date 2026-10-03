@@ -2,13 +2,13 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>SUSSUZ — Ankara'nın Altında Kalan Hikâyeler</title>
   <meta name="description" content="SUSSUZ — Şehir-Noir, Müzikal Suç Draması. Ankara ve Susuz'un yaşayan gece panoramasını keşfedin.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261003_v18">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261003_v19">
   <style>
     /* Critical Inline Opening Screen Protection — Widescreen 16:9 Lossless Fidelity */
     .opening-overlay {
@@ -16,6 +16,7 @@
       inset: 0 !important;
       width: 100vw !important;
       height: 100vh !important;
+      height: 100dvh !important;
       background-color: #01040a !important;
       z-index: 1000 !important;
       overflow: hidden !important;
@@ -526,7 +527,7 @@
 
       <!-- Katkı Seçim Formu -->
       <form id="crowdForm">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div class="crowd-form-grid">
           <div style="display: flex; flex-direction: column; gap: 5px; grid-column: span 2;">
             <label style="font-family: var(--font-mono); font-size: 0.7rem; color: #94a3b8;">KATKI TÜRÜNÜ SEÇİN</label>
             <select id="contributionRole" class="inkind-select" style="background:#090c12; border:1px solid var(--noir-surface-border); color:#fff; padding:10px; font-family:var(--font-mono); font-size:0.8rem;" required>
@@ -600,10 +601,10 @@
 
   <!-- Scripts -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="assets/js/dialogue-data.js?v=20261003_v18"></script>
-  <script src="assets/js/audio-engine.js?v=20261003_v18"></script>
-  <script src="assets/js/canvas-map.js?v=20261003_v18"></script>
-  <script src="assets/js/app.js?v=20261003_v18"></script>
+  <script src="assets/js/dialogue-data.js?v=20261003_v19"></script>
+  <script src="assets/js/audio-engine.js?v=20261003_v19"></script>
+  <script src="assets/js/canvas-map.js?v=20261003_v19"></script>
+  <script src="assets/js/app.js?v=20261003_v19"></script>
 
 </body>
 </html>
