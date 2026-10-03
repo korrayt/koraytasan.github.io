@@ -218,7 +218,7 @@ class SpatialUniverse {
         }
       ],
       ritim: [
-        { id: "ritim_door", name: "KAPI & TELSİZ", relX: 0.48, relY: 0.72, icon: "📻", subtitle: "EXT. GİRİŞ // EMİR YUKARIDAN GELDİ", action: "prop", propName: "Kapı Görevlisinin Telsizi", desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Tekin'i görmüştür." },
+        { id: "ritim_door", name: "KAPI & TELSİZ", relX: 0.48, relY: 0.72, icon: "📻", subtitle: "EXT. GİRİŞ // EMİR YUKARIDAN GELDİ", action: "prop", propName: "Kapı Görevlisinin Telsizi", desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür." },
         { id: "ritim_road_spot", name: "MEKÂN ÖNÜ YOL", relX: 0.22, relY: 0.76, icon: "🛣️", subtitle: "1. BÖLÜM FİNALİ // EKREM MURAT'I DURDURDU", action: "fly_subvenue", target: "ritim_road", desc: "1. Bölüm final sahnesinin geçtiği bağlantı yolu. Ekrem'in Murat'ı durdurduğu yer." },
         { id: "ritim_dance_spot", name: "ANA DANS PİSTİ", relX: 0.64, relY: 0.65, icon: "⚡", subtitle: "INT. ALT KAT // MURAT VE EKREM DANS EDİYOR", action: "fly_subvenue", target: "dancefloor", desc: "Kulübün içine, ana dans pistine girin." },
         { id: "ritim_goksu_spot", name: "GÖKSU'NUN CAM OFİSİ", relX: 0.38, relY: 0.32, icon: "🏢", subtitle: "INT. ÜST KAT // DANS PİSTİNİ GÖREN CAM OFİS", action: "fly_subvenue", target: "goksu_room", desc: "Üst kattaki ses yalıtımlı cam ofise geçiş yapın." },
@@ -236,7 +236,7 @@ class SpatialUniverse {
 
       dancefloor: [
         { id: "dance_glass_look", name: "TAVANDAKİ CAM OFİS", relX: 0.50, relY: 0.20, icon: "🪟", subtitle: "GÖKSU'NUN CAM OFİSİ DANS PİSTİNDEN GÖRÜNÜYOR", action: "fly_subvenue", target: "goksu_room", desc: "Tepedeki cam ofise bakın veya yukarı çıkın. Camın arkasından aşağıdaki pist loş bir akvaryum gibi izleniyor." },
-        { id: "dance_touch", name: "ENSE TEMASI VE GÖZLER", relX: 0.52, relY: 0.52, icon: "⚡", subtitle: "KONTROLÜN KAYBI // İLK TEMAS", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Tekin güler; hayatında ilk defa kontrolü bırakır." },
+        { id: "dance_touch", name: "ENSE TEMASI VE GÖZLER", relX: 0.52, relY: 0.52, icon: "⚡", subtitle: "KONTROLÜN KAYBI // İLK TEMAS", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır." },
         { id: "dance_dialogue", name: "POLİS VE TORBACI DİYALOĞU", relX: 0.34, relY: 0.64, icon: "💬", subtitle: "MURAT VE EKREM", action: "dialogue", charId: "ekrem", desc: "Dans pistinde Murat ve Ekrem diyaloğu." },
         { id: "dance_track", name: "HIRSIZ (CLUB NOIR)", relX: 0.70, relY: 0.40, icon: "🎵", subtitle: "124 BPM // 3:03", action: "music", src: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
         { id: "dance_to_vip", name: "ÜST KAT LOCA", relX: 0.84, relY: 0.26, icon: "🍸", subtitle: "ASMA KATA ÇIK", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
@@ -247,7 +247,7 @@ class SpatialUniverse {
       goksu_room: [
         { id: "office_window", name: "DANS PİSTİNİ GÖREN CAM DUVAR", relX: 0.50, relY: 0.76, icon: "🪟", subtitle: "AŞAĞIDAKİ PİST LOŞ BİR AKVARYUM GİBİ GÖRÜNÜYOR", action: "fly_subvenue", target: "dancefloor", desc: "Camdan aşağıdaki dans pistine bakın; Murat ve Ekrem'in dans ettiği kalabalık görünüyor." },
         { id: "office_song", name: "BU ŞARKIYI KAYBEDEMEM", relX: 0.40, relY: 0.46, icon: "🎵", subtitle: "DEMO KAYIT & SÖZLER // 3:24", action: "music", src: "assets/audio/track_kaybedemem.mp3", desc: "Kenan'ın Göksu'ya dinlettiği parça: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'" },
-        { id: "office_file", name: "BAHAR / DENİZ DOSYASI", relX: 0.64, relY: 0.54, icon: "📁", subtitle: "YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Tekin'e: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
+        { id: "office_file", name: "BAHAR / DENİZ DOSYASI", relX: 0.64, relY: 0.54, icon: "📁", subtitle: "YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
         { id: "office_dialogue", name: "KENAN VE GÖKSU", relX: 0.28, relY: 0.56, icon: "💬", subtitle: "KENAN GÖKSU'YU OYALIYOR", action: "dialogue", charId: "kenan", desc: "Kenan ve Göksu ile konuşun." },
         { id: "office_return", name: "KULÜBE ÇIK", relX: 0.85, relY: 0.70, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Dışarıya dönün." }
       ],
@@ -266,7 +266,7 @@ class SpatialUniverse {
       ],
       hill: [
         { id: "hill_smoke", name: "PAYLAŞILAN SİGARA", relX: 0.45, relY: 0.62, icon: "🚬", subtitle: "05:30 // ANKARA AYAZI", action: "prop", propName: "Sırayla İçilen Sigara", desc: "EKREM: 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'" },
-        { id: "hill_dialogue", name: "TÜBİTAK DİYALOĞU", relX: 0.58, relY: 0.52, icon: "💬", subtitle: "MURAT VE EKREM İLE YÜZLEŞ", action: "dialogue", charId: "murat", desc: "TEKİN: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" },
+        { id: "hill_dialogue", name: "TÜBİTAK DİYALOĞU", relX: 0.58, relY: 0.52, icon: "💬", subtitle: "MURAT VE EKREM İLE YÜZLEŞ", action: "dialogue", charId: "murat", desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" },
         { id: "hill_music", name: "BİLMEM, BEN DE (Murat Söylüyor)", relX: 0.75, relY: 0.42, icon: "📻", subtitle: "ARABA RADYOSU // OFFICIAL LYRIC VIDEO", action: "music", src: "CvSByNL1r48", fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", desc: "Murat söylüyor; Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." },
         { id: "hill_note", name: "TORPİDOYA BİR NOT BIRAK", relX: 0.32, relY: 0.76, icon: "✍️", subtitle: "ARABA TORPİDOSU", action: "note", desc: "Araba torpidosuna anonim bir not iliştir." }
       ],

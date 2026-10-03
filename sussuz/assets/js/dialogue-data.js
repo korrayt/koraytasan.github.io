@@ -339,7 +339,7 @@ window.SUSSUZ_DIALOGUES = {
             next: "kenan_tutma"
           },
           {
-            label: "Bahar dosyasını Tekin'e neden verdin?",
+            label: "Bahar dosyasını Murat'a neden verdin?",
             next: "bahar_dosyasi"
           }
         ]
@@ -363,7 +363,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       bahar_dosyasi: {
-        text: "Tekin 'Yarım dosya' dedi. 'Yarısı yeter' dedim. 'Acıma' dedim. Çünkü Bahar'ı gören adamın elindeki silah titrer. Ben yolu çizdim, o yürüdü.",
+        text: "Murat 'Yarım dosya' dedi. 'Yarısı yeter' dedim. 'Acıma' dedim. Çünkü Bahar'ı gören adamın elindeki silah titrer. Ben yolu çizdim, o yürüdü.",
         options: [
           {
             label: "Geri dön.",

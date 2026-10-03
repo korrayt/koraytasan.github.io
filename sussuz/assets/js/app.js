@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Kapı Görevlisinin Telsizi",
           icon: "📻",
-          desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Tekin'i görmüştür."
+          desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür."
         },
         {
           name: "Ada Giriş Köprüsü",
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Otoparktaki Araba",
           icon: "🚗",
-          desc: "Tekin'in navigasyona Susuz yazıp kapısını açtığı, Ekrem'in 'Sana gerisini göstereceğim' demesi üzerine arabayı kilitleyip geri döndüğü araç."
+          desc: "Murat'ın navigasyona Susuz yazıp kapısını açtığı, Ekrem'in 'Sana gerisini göstereceğim' demesi üzerine arabayı kilitleyip geri döndüğü araç."
         }
       ]
     },
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Ense Teması",
           icon: "⚡",
-          desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Tekin güler; hayatında ilk defa kontrolü bırakır."
+          desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır."
         },
         {
           name: "Polis Dansı",
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "Bahar / Deniz Dosyası",
           icon: "📁",
-          desc: "Göksu Tekin'e: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'"
+          desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'"
         }
       ]
     },
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "TÜBİTAK Diyaloğu",
           icon: "🌌",
-          desc: "TEKİN: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'"
+          desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'"
         }
       ]
     },
