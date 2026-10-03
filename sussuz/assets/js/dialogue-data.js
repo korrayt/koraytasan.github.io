@@ -284,7 +284,7 @@ window.SUSSUZ_DIALOGUES = {
             next: "mum_anlami"
           },
           {
-            label: "Ata ve Kenan ile nasıl bir aile oldunuz?",
+            label: "Ata ile nasıl aile oldunuz?",
             next: "biz_bir_aileyiz"
           }
         ]
@@ -308,7 +308,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       biz_bir_aileyiz: {
-        text: "Bize 'aile' dersi verenlere inat: Biz bir aileyiz zaten. Her aile onların kabul ettiği gibi olmak zorunda değil. Ata'nın saçı, Kenan'ın şarkısı, Ekrem'in sokak çilesi... Birbirimizi seçtik.",
+        text: "Bize 'aile' dersi verenlere inat: Biz bir aileyiz zaten. Her aile onların kabul ettiği gibi olmak zorunda değil.",
         options: [
           {
             label: "Geri dön.",
