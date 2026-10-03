@@ -327,15 +327,20 @@ class AudioEngine {
     this.currentTrack = audioSrc;
 
     try {
-      this.musicElement.pause();
       this.musicElement.src = audioSrc;
-      this.musicElement.load();
-      this.musicElement.currentTime = 0;
       this.musicElement.volume = this.isMuted ? 0 : volume;
       const playPromise = this.musicElement.play();
       if (playPromise !== undefined) {
         playPromise.catch((err) => {
-          console.log("Audio waiting for user gesture:", err);
+          console.warn("Audio autoplay waiting for user gesture:", err);
+          const resumeOnAction = () => {
+            if (this.currentTrack === audioSrc && this.musicElement.paused) {
+              this.musicElement.play().catch(() => {});
+            }
+          };
+          window.addEventListener("pointerdown", resumeOnAction, { once: true, passive: true });
+          window.addEventListener("click", resumeOnAction, { once: true, passive: true });
+          window.addEventListener("touchstart", resumeOnAction, { once: true, passive: true });
         });
       }
     } catch (e) {
@@ -354,7 +359,6 @@ class AudioEngine {
     this.currentTrack = null;
     if (this.musicElement) {
       this.musicElement.pause();
-      this.musicElement.currentTime = 0;
     }
   }
 
@@ -407,7 +411,7 @@ class AudioEngine {
         this._rampGain(this.droneGain, 0.08, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
-        this.stopClubThump(); // Parçanın kendi master vuruşları devrede
+        this.stopClubThump();
         // Ritim kulübü — Sahnede Kenan: HIRSIZ (Full Studio Master)
         this.playMusicTrack("hirsiz", 0.65, "assets/audio/track_hirsiz.mp3");
         break;
@@ -438,6 +442,15 @@ class AudioEngine {
         this.stopClubThump();
         // Göksu'nun Cam Ofisi — Kenan: BU ŞARKIYI KAYBEDEMEM
         this.playMusicTrack("kaybedemem", 0.55, "assets/audio/track_kaybedemem.mp3");
+        break;
+
+      case "accounting":
+        this._rampGain(this.droneGain, 0.04, rampTime);
+        this._rampGain(this.windGain, 0.01, rampTime);
+        this._rampGain(this.rainGain, 0.001, rampTime);
+        this.stopClubThump();
+        // Ritim Muhasebe — Kenan: BU ŞARKIYI KAYBEDEMEM
+        this.playMusicTrack("kaybedemem", 0.50, "assets/audio/track_kaybedemem.mp3");
         break;
 
       case "hill":
@@ -481,14 +494,21 @@ class AudioEngine {
       case "home_interior":
       case "home_kitchen":
       case "garden":
-      case "murat_home":
-      case "accounting":
         this._rampGain(this.droneGain, 0.04, rampTime);
         this._rampGain(this.windGain, 0.02, rampTime);
         this._rampGain(this.rainGain, 0.02, rampTime);
         this.stopClubThump();
-        // Sessiz, korunaklı iç mekan ses alanı (müzik çalmaz)
-        this.stopMusicTrack();
+        // Bahar'ın Evi & Bahçe — Murat & Ekrem Düeti: BİRİ VARMIŞ ÖTEKİ YOK OLMASIN
+        this.playMusicTrack("biri_varmis", 0.50, "assets/audio/track_biri_varmis.mp3");
+        break;
+
+      case "murat_home":
+        this._rampGain(this.droneGain, 0.04, rampTime);
+        this._rampGain(this.windGain, 0.02, rampTime);
+        this._rampGain(this.rainGain, 0.02, rampTime);
+        this.stopClubThump();
+        // Murat'ın Evi — BİLMEM, BEN DE
+        this.playMusicTrack("bilmem_ben_de", 0.48, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "master":
@@ -499,7 +519,6 @@ class AudioEngine {
         this.stopClubThump();
         // Yalnızca gece haritasında Ankara genelinde uzaktan boğuk bas yankısı
         this.playMusicTrack("distant_ambient", 0.28, "assets/audio/track_hirsiz_distant_ambient.mp3");
-        break;
     }
   }
 

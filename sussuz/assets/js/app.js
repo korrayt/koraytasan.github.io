@@ -1209,7 +1209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glassglowCustomArea.innerHTML = "";
 
     // GÖL KENARI İSKELE: Mum Yakma & Anma Masasına Geçiş Kutusu
-    if (data.isLakePier) {
+    if (data.isLakePier || data.id === "lake") {
       const box = document.createElement("div");
       box.className = "candle-blow-box";
       box.innerHTML = `
@@ -1226,7 +1226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // GÖL KENARI MASASI: Mum Üfleme Kutusu
-    if (data.isLakeMemorial) {
+    if (data.isLakeMemorial || data.id === "lake_candle") {
       const box = document.createElement("div");
       box.className = "candle-blow-box";
       box.innerHTML = `
@@ -1241,7 +1241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // RİTİM MUHASEBE: Canlı Prodüksiyon İhtiyaç Masası
-    if (data.isAccountingSpecial) {
+    if (data.isAccountingSpecial || data.id === "accounting") {
       const board = document.createElement("div");
       board.className = "accounting-board";
       board.innerHTML = `
@@ -1276,7 +1276,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // KENAN'IN STÜDYOSU: Wishlist, Vokalist Değiştirici & Stemler
-    if (data.isStudioSpecial) {
+    if (data.isStudioSpecial || data.id === "studio") {
       const studioBox = document.createElement("div");
       studioBox.innerHTML = `
         <!-- VOKALİST DEĞİŞTİRİCİ: KENAN vs EKREM (GOSPEL BABY) -->
@@ -1442,7 +1442,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // EKREM STÜDYODA CANLI KAYIT (studio_ekrem)
-    if (data.isStudioEkremSpecial) {
+    if (data.isStudioEkremSpecial || data.id === "studio_ekrem") {
       const ekremStudioBox = document.createElement("div");
       ekremStudioBox.innerHTML = `
         <div class="studio-version-switch-box" style="border-color: rgba(56, 178, 172, 0.4); margin-bottom: 16px;">
