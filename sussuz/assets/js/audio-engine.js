@@ -81,6 +81,16 @@ class AudioEngine {
         console.warn("Direct media element source failed; fallback to native element volume:", e);
       }
 
+      // Fallback local audio loop guarantee
+      this.musicElement.addEventListener("ended", () => {
+        if (this.musicElement && this.currentTrack) {
+          try {
+            this.musicElement.currentTime = 0;
+            this.musicElement.play().catch(() => {});
+          } catch (e) {}
+        }
+      });
+
       this.isInitialized = true;
       console.log("SUSSUZ Web Audio Engine initialized with balanced ambient bus.");
     } catch (err) {
@@ -107,7 +117,7 @@ class AudioEngine {
         events: {
           onReady: (event) => {
             this.isYTReady = true;
-            console.log("SUSSUZ YouTube Headless Audio Engine Ready (Official khrysaor view stream).");
+            console.log("SUSSUZ YouTube Headless Audio Engine Ready (Official stream).");
             if (this.isMuted) {
               event.target.mute();
             } else {
@@ -120,6 +130,21 @@ class AudioEngine {
             }
           },
           onStateChange: (event) => {
+            // event.data === 0 (YT.PlayerState.ENDED)
+            if (event.data === (window.YT ? window.YT.PlayerState.ENDED : 0)) {
+              if (this.onYTStateChange) {
+                this.onYTStateChange(event.data);
+              } else if (this.currentTrack) {
+                // Sahne müziği bittiğinde sessizliğe düşmesin, baştan tekrar başlasın (kesintisiz noir atmosfer)
+                try {
+                  event.target.seekTo(0);
+                  event.target.playVideo();
+                } catch (e) {
+                  console.warn("YouTube loop seek error:", e);
+                }
+              }
+              return;
+            }
             if (this.onYTStateChange) {
               this.onYTStateChange(event.data);
             }

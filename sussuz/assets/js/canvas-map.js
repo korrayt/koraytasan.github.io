@@ -164,32 +164,32 @@ class SpatialUniverse {
       lake: [
         { 
           id: "lake_candle", 
-          name: "KENDİ YAPTIĞI PASTA VE TEK MUM", 
+          name: "MUMU ÜFLE", 
           relX: 0.49, 
           relY: 0.76, 
           icon: "🕯️", 
-          subtitle: "DİLEK'İN DOĞUM GÜNÜ // MUMU ÜFLE", 
+          subtitle: "DİLEK BAHAR İÇİN BİR DİLEK TUT // ANMA", 
           action: "candle", 
           desc: "Bahar bu mumu her gün yakmıyor. O gün Bahar Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor..." 
         },
         { 
           id: "lake_lighthouse", 
-          name: "GÖKSU DENİZ FENERİ", 
+          name: "FENER IŞIĞINI İZLE", 
           relX: 0.22, 
           relY: 0.35, 
           icon: "🏮", 
-          subtitle: "İSKELE VE GECE IŞIĞI", 
+          subtitle: "BATAKLIK SULARINDAKİ AYDINLIK // İSKELE", 
           action: "prop", 
           propName: "Göksu Deniz Feneri",
           desc: "Eski bataklığın üzerine inşa edilen parkta, göletin karanlık sularına vuran beyaz fener ışığı. Şehrin hafızasını örten eğreti bir ışık..." 
         },
         { 
           id: "lake_music", 
-          name: "BATAKLIK (Bahar Söylüyor)", 
+          name: "BATAKLIK'I DİNLE", 
           relX: 0.32, 
           relY: 0.52, 
           icon: "🎵", 
-          subtitle: "RESMİ SOUNDTRACK // OFFICIAL LYRIC VIDEO", 
+          subtitle: "BAHAR — BATAKLIK // SUSSUZ SOUNDTRACK", 
           action: "music", 
           src: "yFymvGwoxjA", 
           fallbackSrc: "assets/audio/track_bataklik.mp3",
@@ -197,117 +197,117 @@ class SpatialUniverse {
         },
         { 
           id: "lake_dialogue", 
-          name: "BAHAR İLE YÜZLEŞ", 
+          name: "BAHAR İLE KONUŞ", 
           relX: 0.72, 
           relY: 0.56, 
           icon: "💬", 
-          subtitle: "TEK BAŞINA DİRENİŞ", 
+          subtitle: "İSKELEDE TEK BAŞINA BİR SES", 
           action: "dialogue", 
           charId: "bahar", 
           desc: "Bahar ile yüz yüze gelin." 
         },
         { 
           id: "lake_note", 
-          name: "İSKELE TAŞINA NOT BIRAK", 
+          name: "İSKELEYE BİR CÜMLE BIRAK", 
           relX: 0.60, 
           relY: 0.86, 
           icon: "✍️", 
-          subtitle: "GÖL KENARINA NOT", 
+          subtitle: "GÖLE VE GECEYE FISILDA", 
           action: "note", 
           desc: "Göl kenarındaki iskele taşına fısıldanmış bir not bırak." 
         }
       ],
       ritim: [
-        { id: "ritim_door", name: "KAPI & TELSİZ", relX: 0.48, relY: 0.72, icon: "📻", subtitle: "EXT. GİRİŞ // EMİR YUKARIDAN GELDİ", action: "prop", propName: "Kapı Görevlisinin Telsizi", desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür." },
-        { id: "ritim_road_spot", name: "MEKÂN ÖNÜ YOL", relX: 0.22, relY: 0.76, icon: "🛣️", subtitle: "1. BÖLÜM FİNALİ // EKREM MURAT'I DURDURDU", action: "fly_subvenue", target: "ritim_road", desc: "1. Bölüm final sahnesinin geçtiği bağlantı yolu. Ekrem'in Murat'ı durdurduğu yer." },
-        { id: "ritim_dance_spot", name: "ANA DANS PİSTİ", relX: 0.64, relY: 0.65, icon: "⚡", subtitle: "INT. ALT KAT // MURAT VE EKREM DANS EDİYOR", action: "fly_subvenue", target: "dancefloor", desc: "Kulübün içine, ana dans pistine girin." },
-        { id: "ritim_goksu_spot", name: "GÖKSU'NUN CAM OFİSİ", relX: 0.38, relY: 0.32, icon: "🏢", subtitle: "INT. ÜST KAT // DANS PİSTİNİ GÖREN CAM OFİS", action: "fly_subvenue", target: "goksu_room", desc: "Üst kattaki ses yalıtımlı cam ofise geçiş yapın." },
-        { id: "ritim_vip_spot", name: "VIP / ÜST KAT LOCA", relX: 0.76, relY: 0.32, icon: "🍸", subtitle: "ŞU AN SAHNESİ YOK // YAZILIYOR :D", action: "fly_subvenue", target: "ritim_vip", desc: "Asma kat VIP loca bölümü." },
-        { id: "ritim_backstage_spot", name: "BACKSTAGE / KULİS", relX: 0.85, relY: 0.58, icon: "🎭", subtitle: "INT. SAHNE ARKASI // KENAN VE EKİP", action: "fly_subvenue", target: "ritim_backstage", desc: "Kenan'ın hazırlandığı kulis koridoru." },
-        { id: "ritim_acc_spot", name: "MUHASEBE & PRODÜKSİYON", relX: 0.16, relY: 0.44, icon: "📋", subtitle: "CANLI İHTİYAÇ MASASI", action: "fly_subvenue", target: "accounting", desc: "Prodüksiyon ihtiyaçları ve sponsorluk masası." }
+        { id: "ritim_door", name: "KAPIYI ÇAL", relX: 0.48, relY: 0.72, icon: "📻", subtitle: "TELSİZDEN EMİR GELDİ: 'BUYURUN'", action: "prop", propName: "Kapı Görevlisinin Telsizi", desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür." },
+        { id: "ritim_road_spot", name: "MEKÂN ÖNÜ YOLUNA ÇIK", relX: 0.22, relY: 0.76, icon: "🛣️", subtitle: "EKREM'İN MURAT'I DURDURDUĞU AN // 1. BÖLÜM FİNALİ", action: "fly_subvenue", target: "ritim_road", desc: "1. Bölüm final sahnesinin geçtiği bağlantı yolu. Ekrem'in Murat'ı durdurduğu yer." },
+        { id: "ritim_dance_spot", name: "DANS PİSTİNE GİR", relX: 0.64, relY: 0.65, icon: "⚡", subtitle: "MURAT VE EKREM PİSTTE // MÜZİĞİN İÇİNE AK", action: "fly_subvenue", target: "dancefloor", desc: "Kulübün içine, ana dans pistine girin." },
+        { id: "ritim_goksu_spot", name: "GÖKSU'NUN CAM OFİSİNE ÇIK", relX: 0.38, relY: 0.32, icon: "🏢", subtitle: "PİSTİ TEPEDEN İZLEYEN SES GEÇİRMEZ ODA", action: "fly_subvenue", target: "goksu_room", desc: "Üst kattaki ses yalıtımlı cam ofise geçiş yapın." },
+        { id: "ritim_vip_spot", name: "VIP LOCAYA BAK", relX: 0.76, relY: 0.32, icon: "🍸", subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", action: "fly_subvenue", target: "ritim_vip", desc: "Asma kat VIP loca bölümü." },
+        { id: "ritim_backstage_spot", name: "KULİSE GEÇ", relX: 0.85, relY: 0.58, icon: "🎭", subtitle: "KENAN SAHNEYE HAZIRLANIYOR", action: "fly_subvenue", target: "ritim_backstage", desc: "Kenan'ın hazırlandığı kulis koridoru." },
+        { id: "ritim_acc_spot", name: "PRODÜKSİYON MASASINA BAK", relX: 0.16, relY: 0.44, icon: "📋", subtitle: "CANLI İHTİYAÇLAR VE KATKI HAVUZU", action: "fly_subvenue", target: "accounting", desc: "Prodüksiyon ihtiyaçları ve sponsorluk masası." }
       ],
 
       ritim_road: [
-        { id: "road_moment", name: "EKREM'İN MURAT'I DURDURDUĞU AN", relX: 0.50, relY: 0.55, icon: "✋", subtitle: "1. BÖLÜM FİNALİ // 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Ekrem'in Murat'ı Durdurduğu An", desc: "EKREM: 'Sana gerisini göstereceğim.' Murat anahtarı cebine atar; gece henüz bitmemiştir." },
-        { id: "road_dialogue", name: "MURAT VE EKREM İLE YÜZLEŞ", relX: 0.35, relY: 0.68, icon: "💬", subtitle: "İKİ YABANCININ İLK DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "Ekrem ve Murat diyalog penceresini açın." },
-        { id: "road_music", name: "BİLMEM, BEN DE (RADYO)", relX: 0.70, relY: 0.45, icon: "📻", subtitle: "ARABADAN YAYILAN SOĞUK AYAZ", action: "music", src: "assets/audio/track_bilmem_ben_de.mp3", desc: "Araba radyosundan yükselen melodi." },
-        { id: "road_to_club", name: "KULÜP GİRİŞİNE DÖN", relX: 0.85, relY: 0.75, icon: "🚪", subtitle: "RİTİM DIŞ ALAN", action: "fly_subvenue", target: "ritim", desc: "Kulüp önüne dönün." }
+        { id: "road_moment", name: "ANAHTARI CEBİNE AT", relX: 0.50, relY: 0.55, icon: "✋", subtitle: "EKREM: 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Ekrem'in Murat'ı Durdurduğu An", desc: "EKREM: 'Sana gerisini göstereceğim.' Murat anahtarı cebine atar; gece henüz bitmemiştir." },
+        { id: "road_dialogue", name: "EKREM İLE KONUŞ", relX: 0.35, relY: 0.68, icon: "💬", subtitle: "İKİ YABANCININ İLK TEMASI", action: "dialogue", charId: "ekrem", desc: "Ekrem ve Murat diyalog penceresini açın." },
+        { id: "road_music", name: "RADYONUN SESİNİ AÇ", relX: 0.70, relY: 0.45, icon: "📻", subtitle: "MURAT — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_bilmem_ben_de.mp3", desc: "Araba radyosundan yükselen melodi." },
+        { id: "road_to_club", name: "KULÜP GİRİŞİNE DÖN", relX: 0.85, relY: 0.75, icon: "🚪", subtitle: "RİTİM'İN IŞIKLARI", action: "fly_subvenue", target: "ritim", desc: "Kulüp önüne dönün." }
       ],
 
       dancefloor: [
-        { id: "dance_glass_look", name: "TAVANDAKİ CAM OFİS", relX: 0.50, relY: 0.20, icon: "🪟", subtitle: "GÖKSU'NUN CAM OFİSİ DANS PİSTİNDEN GÖRÜNÜYOR", action: "fly_subvenue", target: "goksu_room", desc: "Tepedeki cam ofise bakın veya yukarı çıkın. Camın arkasından aşağıdaki pist loş bir akvaryum gibi izleniyor." },
-        { id: "dance_touch", name: "ENSE TEMASI VE GÖZLER", relX: 0.52, relY: 0.52, icon: "⚡", subtitle: "KONTROLÜN KAYBI // İLK TEMAS", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır." },
-        { id: "dance_dialogue", name: "POLİS VE TORBACI DİYALOĞU", relX: 0.34, relY: 0.64, icon: "💬", subtitle: "MURAT VE EKREM", action: "dialogue", charId: "ekrem", desc: "Dans pistinde Murat ve Ekrem diyaloğu." },
-        { id: "dance_track", name: "HIRSIZ (CLUB NOIR)", relX: 0.70, relY: 0.40, icon: "🎵", subtitle: "124 BPM // 3:03", action: "music", src: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
-        { id: "dance_to_vip", name: "ÜST KAT LOCA", relX: 0.84, relY: 0.26, icon: "🍸", subtitle: "ASMA KATA ÇIK", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
-        { id: "dance_to_backstage", name: "BACKSTAGE / KULİS", relX: 0.86, relY: 0.68, icon: "🎭", subtitle: "SAHNE ARKASI", action: "fly_subvenue", target: "ritim_backstage", desc: "Kulise geçiş yapın." },
-        { id: "dance_return", name: "GİRİŞE ÇIK", relX: 0.16, relY: 0.74, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
+        { id: "dance_glass_look", name: "CAM OFİSE YUKARI BAK", relX: 0.50, relY: 0.20, icon: "🪟", subtitle: "GÖKSU YUKARIDAN PİSTİ İZLİYOR", action: "fly_subvenue", target: "goksu_room", desc: "Tepedeki cam ofise bakın veya yukarı çıkın. Camın arkasından aşağıdaki pist loş bir akvaryum gibi izleniyor." },
+        { id: "dance_touch", name: "ENSE TEMASINI HİSSET", relX: 0.52, relY: 0.52, icon: "⚡", subtitle: "KONTROLÜN KAYBI // 'ÖBÜR TARAFA GİTSEN BARA GİRİCEN'", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır." },
+        { id: "dance_dialogue", name: "PİSTTE EKREM'E SOKUL", relX: 0.34, relY: 0.64, icon: "💬", subtitle: "POLİS VE TORBACI DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "Dans pistinde Murat ve Ekrem diyaloğu." },
+        { id: "dance_track", name: "HIRSIZ'I DİNLE", relX: 0.70, relY: 0.40, icon: "🎵", subtitle: "KENAN — HIRSIZ // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
+        { id: "dance_to_vip", name: "VIP LOCAYA ÇIK", relX: 0.84, relY: 0.26, icon: "🍸", subtitle: "ASMA KATTAN PİSTE BAKIŞ", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
+        { id: "dance_to_backstage", name: "KULİS KAPISINI İT", relX: 0.86, relY: 0.68, icon: "🎭", subtitle: "SAHNE ARKASINA GEÇ", action: "fly_subvenue", target: "ritim_backstage", desc: "Kulise geçiş yapın." },
+        { id: "dance_return", name: "DIŞARIYA ÇIK", relX: 0.16, relY: 0.74, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
       ],
 
       goksu_room: [
-        { id: "office_window", name: "DANS PİSTİNİ GÖREN CAM DUVAR", relX: 0.50, relY: 0.76, icon: "🪟", subtitle: "AŞAĞIDAKİ PİST LOŞ BİR AKVARYUM GİBİ GÖRÜNÜYOR", action: "fly_subvenue", target: "dancefloor", desc: "Camdan aşağıdaki dans pistine bakın; Murat ve Ekrem'in dans ettiği kalabalık görünüyor." },
-        { id: "office_song", name: "BU ŞARKIYI KAYBEDEMEM", relX: 0.40, relY: 0.46, icon: "🎵", subtitle: "DEMO KAYIT & SÖZLER // 3:24", action: "music", src: "assets/audio/track_kaybedemem.mp3", desc: "Kenan'ın Göksu'ya dinlettiği parça: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'" },
-        { id: "office_file", name: "BAHAR / DENİZ DOSYASI", relX: 0.64, relY: 0.54, icon: "📁", subtitle: "YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
-        { id: "office_dialogue", name: "KENAN VE GÖKSU", relX: 0.28, relY: 0.56, icon: "💬", subtitle: "KENAN GÖKSU'YU OYALIYOR", action: "dialogue", charId: "kenan", desc: "Kenan ve Göksu ile konuşun." },
-        { id: "office_return", name: "KULÜBE ÇIK", relX: 0.85, relY: 0.70, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Dışarıya dönün." }
+        { id: "office_window", name: "CAMDAN PİSTİ İZLE", relX: 0.50, relY: 0.76, icon: "🪟", subtitle: "AŞAĞIDAKİ PİST LOŞ BİR AKVARYUM GİBİ", action: "fly_subvenue", target: "dancefloor", desc: "Camdan aşağıdaki dans pistine bakın; Murat ve Ekrem'in dans ettiği kalabalık görünüyor." },
+        { id: "office_song", name: "KAYBI DİNLE", relX: 0.40, relY: 0.46, icon: "🎵", subtitle: "KENAN — BU ŞARKIYI KAYBEDEMEM // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_kaybedemem.mp3", desc: "Kenan'ın Göksu'ya dinlettiği parça: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'" },
+        { id: "office_file", name: "DOSYAYI AÇ", relX: 0.64, relY: 0.54, icon: "📁", subtitle: "BAHAR / DENİZ // YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
+        { id: "office_dialogue", name: "GÖKSU İLE YÜZLEŞ", relX: 0.28, relY: 0.56, icon: "💬", subtitle: "KENAN GÖKSU'YU OYALIYOR", action: "dialogue", charId: "kenan", desc: "Kenan ve Göksu ile konuşun." },
+        { id: "office_return", name: "CAM OFİSTEN ÇIK", relX: 0.85, relY: 0.70, icon: "🚪", subtitle: "RİTİM'E GERİ DÖN", action: "fly_subvenue", target: "ritim", desc: "Dışarıya dönün." }
       ],
 
       ritim_vip: [
-        { id: "vip_status", name: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", relX: 0.50, relY: 0.50, icon: "🔒", subtitle: "SENARYO AŞAMASI // %25", action: "locked_info", desc: "Şehrin bürokratları ve Susuz'un görünmeyen yüzleri için ayrılmış VIP loca bölümü. Senaryo yazımı devam ediyor." },
-        { id: "vip_to_dance", name: "DANS PİSTİNE İN", relX: 0.32, relY: 0.66, icon: "⚡", subtitle: "ALT KATA İN", action: "fly_subvenue", target: "dancefloor", desc: "Dans pistine inin." },
+        { id: "vip_status", name: "LOCA KAPISINI ARALA", relX: 0.50, relY: 0.50, icon: "🔒", subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", action: "locked_info", desc: "Şehrin bürokratları ve Susuz'un görünmeyen yüzleri için ayrılmış VIP loca bölümü. Senaryo yazımı devam ediyor." },
+        { id: "vip_to_dance", name: "DANS PİSTİNE İN", relX: 0.32, relY: 0.66, icon: "⚡", subtitle: "ALT KATTAKİ KALABALIK", action: "fly_subvenue", target: "dancefloor", desc: "Dans pistine inin." },
         { id: "vip_to_exit", name: "KULÜBE DÖN", relX: 0.74, relY: 0.66, icon: "🚪", subtitle: "GİRİŞE DÖN", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
       ],
 
       ritim_backstage: [
-        { id: "backstage_jacket", name: "KENAN'IN SAHNE CEKETİ", relX: 0.42, relY: 0.55, icon: "🧥", subtitle: "ASKIDAKİ DERİ CEKET", action: "prop", propName: "Kenan'ın Sahne Ceketi", desc: "Göksu'nun parasıyla alınmış ama Kenan'ın öfkesini taşıyan kostüm." },
-        { id: "backstage_mirror", name: "KULİS AYNASI & NOTLAR", relX: 0.60, relY: 0.45, icon: "🪞", subtitle: "RUJLA YAZILMIŞ SATIR", action: "prop", propName: "Kulis Aynası & Karalamalar", desc: "Ayna kenarına rujla yazılmış bir şarkı satırı: 'Geçti modası artık o eski senin...'" },
-        { id: "backstage_to_dance", name: "SAHNEYE / PİSTE ÇIK", relX: 0.78, relY: 0.65, icon: "⚡", subtitle: "CANLI PİST", action: "fly_subvenue", target: "dancefloor", desc: "Piste geçiş yapın." },
-        { id: "backstage_return", name: "GİRİŞE DÖN", relX: 0.22, relY: 0.70, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
+        { id: "backstage_jacket", name: "DERİ CEKETE DOKUN", relX: 0.42, relY: 0.55, icon: "🧥", subtitle: "GÖKSU'NUN PARASI, KENAN'IN ÖFKESİ", action: "prop", propName: "Kenan'ın Sahne Ceketi", desc: "Göksu'nun parasıyla alınmış ama Kenan'ın öfkesini taşıyan kostüm." },
+        { id: "backstage_mirror", name: "AYNADAKİ YAZIYI OKU", relX: 0.60, relY: 0.45, icon: "🪞", subtitle: "RUJLA YAZILMIŞ: 'GEÇTİ MODASI ARTIK O ESKİ SENİN...'", action: "prop", propName: "Kulis Aynası & Karalamalar", desc: "Ayna kenarına rujla yazılmış bir şarkı satırı: 'Geçti modası artık o eski senin...'" },
+        { id: "backstage_to_dance", name: "PİSTE ADIM AT", relX: 0.78, relY: 0.65, icon: "⚡", subtitle: "CANLI PİST VE KALABALIK", action: "fly_subvenue", target: "dancefloor", desc: "Piste geçiş yapın." },
+        { id: "backstage_return", name: "KULİSTEN ÇIK", relX: 0.22, relY: 0.70, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
       ],
       hill: [
-        { id: "hill_smoke", name: "PAYLAŞILAN SİGARA", relX: 0.45, relY: 0.62, icon: "🚬", subtitle: "05:30 // ANKARA AYAZI", action: "prop", propName: "Sırayla İçilen Sigara", desc: "EKREM: 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'" },
-        { id: "hill_dialogue", name: "TÜBİTAK DİYALOĞU", relX: 0.58, relY: 0.52, icon: "💬", subtitle: "MURAT VE EKREM İLE YÜZLEŞ", action: "dialogue", charId: "murat", desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" },
-        { id: "hill_music", name: "BİLMEM, BEN DE (Murat Söylüyor)", relX: 0.75, relY: 0.42, icon: "📻", subtitle: "ARABA RADYOSU // OFFICIAL LYRIC VIDEO", action: "music", src: "CvSByNL1r48", fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", desc: "Murat söylüyor; Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." },
-        { id: "hill_note", name: "TORPİDOYA BİR NOT BIRAK", relX: 0.32, relY: 0.76, icon: "✍️", subtitle: "ARABA TORPİDOSU", action: "note", desc: "Araba torpidosuna anonim bir not iliştir." }
+        { id: "hill_smoke", name: "SİGARAYI PAYLAŞ", relX: 0.45, relY: 0.62, icon: "🚬", subtitle: "05:30 // ANKARA AYAZI // 'YANLIŞSA DA BENİM YANLIŞIM OLUR'", action: "prop", propName: "Sırayla İçilen Sigara", desc: "EKREM: 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'" },
+        { id: "hill_dialogue", name: "TÜBİTAK DİYALOĞUNU DİNLE", relX: 0.58, relY: 0.52, icon: "💬", subtitle: "MURAT VE EKREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", action: "dialogue", charId: "murat", desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" },
+        { id: "hill_music", name: "BİLMEM, BEN DE'Yİ DİNLE", relX: 0.75, relY: 0.42, icon: "📻", subtitle: "MURAT — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "CvSByNL1r48", fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", desc: "Murat söylüyor; Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." },
+        { id: "hill_note", name: "TORPİDOYA BİR NOT BIRAK", relX: 0.32, relY: 0.76, icon: "✍️", subtitle: "ARABA TORPİDOSUNA FISILDA", action: "note", desc: "Araba torpidosuna anonim bir not iliştir." }
       ],
       garden: [
-        { id: "garden_car", name: "YONTULMUŞ TAHTA ARABA", relX: 0.54, relY: 0.74, icon: "🏎️", subtitle: "KIRMIZI ŞERİTLİ OYUNCAK", action: "prop", propName: "Kenan'ın Yonttuğu Araba", desc: "Kenan'ın Ata için yonttuğu ve arkasına kırmızı şerit çektiği tahta oyuncak." },
-        { id: "garden_dialogue", name: "ATA VE KENAN", relX: 0.40, relY: 0.52, icon: "💬", subtitle: "SEÇİLMİŞ AİLE // ÇOCUK DÜNYASI", action: "dialogue", charId: "ata", desc: "Ata: 'Bana okulda senin anan babanı mı sikiyo dediler.' Bu insanların ilişkileri yetişkinlerin meselesi değil sadece." },
-        { id: "garden_swing", name: "SALINCAĞA NOT BIRAK", relX: 0.68, relY: 0.62, icon: "✍️", subtitle: "PASLI SALINCAK DEMİRİ", action: "note", desc: "Salıncak demirine kazınmış bir not bırak." }
+        { id: "garden_car", name: "TAHTA ARABAYI TUT", relX: 0.54, relY: 0.74, icon: "🏎️", subtitle: "KENAN'IN ATA İÇİN YONTTUĞU KIRMIZI ŞERİTLİ OYUNCAK", action: "prop", propName: "Kenan'ın Yonttuğu Araba", desc: "Kenan'ın Ata için yonttuğu ve arkasına kırmızı şerit çektiği tahta oyuncak." },
+        { id: "garden_dialogue", name: "ATA İLE KONUŞ", relX: 0.40, relY: 0.52, icon: "💬", subtitle: "SEÇİLMİŞ AİLE // ÇOCUĞUN DÜNYASI", action: "dialogue", charId: "ata", desc: "Ata: 'Bana okulda senin anan babanı mı sikiyo dediler.' Bu insanların ilişkileri yetişkinlerin meselesi değil sadece." },
+        { id: "garden_swing", name: "SALINCAĞA NOT KAZI", relX: 0.68, relY: 0.62, icon: "✍️", subtitle: "PASLI DEMİRE BİR CÜMLE BIRAK", action: "note", desc: "Salıncak demirine kazınmış bir not bırak." }
       ],
       studio: [
-        { id: "studio_gospel_kenan", name: "GOSPEL BABY (Kenan Studio Demo)", relX: 0.45, relY: 0.55, icon: "🎵", subtitle: "KENAN KAYDEDİYOR // OFFICIAL AUDIO", action: "music", src: "K35AtsZEl5o", fallbackSrc: "assets/audio/track_gospel_baby_kenan.mp3", desc: "Kenan'ın stüdyoda kaydettiği ilk demo. 'Daha Anadolu sesi lazım bu şarkıya... Keşke Ekrem söylese.'" },
-        { id: "studio_gospel_ekrem", name: "🎙️ BU ŞARKIYI EKREM'DEN DİNLE", relX: 0.62, relY: 0.48, icon: "⚡", subtitle: "EKREM // İT OTURUŞU & MİKROFON", action: "music", src: "mdPhJrnytkA", fallbackSrc: "assets/audio/track_gospel_baby_ekrem.mp3", desc: "Kenan Ekrem'i ikna etti. Ekrem stüdyo taburesinde it oturuşu, elinde mikrofon, kül tablasında tüten sigara... Şarkının hakiki sokak ruhu." },
-        { id: "studio_biri_varmis", name: "BİRİ VARMIŞ ÖTEKİ YOK OLMASIN", relX: 0.76, relY: 0.58, icon: "📻", subtitle: "MURAT VE EKREM DÜETİ // BAHAR'A", action: "music", src: "GLQcmdJsO5U", fallbackSrc: "assets/audio/track_biri_varmis.mp3", desc: "Murat ve Ekrem beraber Bahar'a söylüyorlar." },
-        { id: "studio_dialogue", name: "KENAN İLE KONUŞ", relX: 0.28, relY: 0.52, icon: "💬", subtitle: "MÜZİK PRODÜKSİYONU", action: "dialogue", charId: "kenan", desc: "Kenan ile müzik ve Susuz üzerine konuşun." },
-        { id: "studio_note", name: "NOT DEFTERİNE YAZ", relX: 0.58, relY: 0.82, icon: "✍️", subtitle: "STÜDYO DEFTERİ", action: "note", desc: "Stüdyo defterine bir satır bırak." }
+        { id: "studio_gospel_kenan", name: "KENAN'IN DEMOSUNU DİNLE", relX: 0.45, relY: 0.55, icon: "🎵", subtitle: "KENAN — GOSPEL BABY // SUSSUZ SOUNDTRACK", action: "music", src: "K35AtsZEl5o", fallbackSrc: "assets/audio/track_gospel_baby_kenan.mp3", desc: "Kenan'ın stüdyoda kaydettiği ilk demo. 'Daha Anadolu sesi lazım bu şarkıya... Keşke Ekrem söylese.'" },
+        { id: "studio_gospel_ekrem", name: "🎙️ BU ŞARKIYI EKREM'DEN DİNLE", relX: 0.62, relY: 0.48, icon: "⚡", subtitle: "EKREM — GOSPEL BABY // SUSSUZ SOUNDTRACK", action: "music", src: "mdPhJrnytkA", fallbackSrc: "assets/audio/track_gospel_baby_ekrem.mp3", desc: "Kenan Ekrem'i ikna etti. Ekrem stüdyo taburesinde it oturuşu, elinde mikrofon, kül tablasında tüten sigara... Şarkının hakiki sokak ruhu." },
+        { id: "studio_biri_varmis", name: "DÜETİ DİNLE", relX: 0.76, relY: 0.58, icon: "📻", subtitle: "MURAT & EKREM — BİRİ VARMIŞ ÖTEKİ YOK OLMASIN // SUSSUZ SOUNDTRACK", action: "music", src: "GLQcmdJsO5U", fallbackSrc: "assets/audio/track_biri_varmis.mp3", desc: "Murat ve Ekrem beraber Bahar'a söylüyorlar." },
+        { id: "studio_dialogue", name: "KENAN İLE KONUŞ", relX: 0.28, relY: 0.52, icon: "💬", subtitle: "MÜZİK VE SUSUZ ÜZERİNE", action: "dialogue", charId: "kenan", desc: "Kenan ile müzik ve Susuz üzerine konuşun." },
+        { id: "studio_note", name: "STÜDYO DEFTERİNE YAZ", relX: 0.58, relY: 0.82, icon: "✍️", subtitle: "MASADAKİ DEFTERE BİR SATIR BIRAK", action: "note", desc: "Stüdyo defterine bir satır bırak." }
       ],
       accounting: [
-        { id: "acc_board", name: "PRODÜKSİYON İHTİYAÇLARI MASASI", relX: 0.50, relY: 0.52, icon: "📋", subtitle: "MÜDÜR, BU HAFTAKİ DURUM ŞÖYLE", action: "focus_tab", section: "accounting", desc: "Kamera, ses, kostüm ve cast ihtiyaçlarının anlık durumu." },
-        { id: "acc_sponsor", name: "SPONSORLUK VE DESTEK PROTOKOLÜ", relX: 0.72, relY: 0.66, icon: "🤝", subtitle: "İKİ EKSENLİ KATKI HAVUZU", action: "funding", desc: "SUSSUZ prodüksiyonuna destek sağlama protokolü." }
+        { id: "acc_board", name: "İHTİYAÇ TABLOSUNU İNCELE", relX: 0.50, relY: 0.52, icon: "📋", subtitle: "KAMERA, SES VE CAST // CANLI DURUM", action: "focus_tab", section: "accounting", desc: "Kamera, ses, kostüm ve cast ihtiyaçlarının anlık durumu." },
+        { id: "acc_sponsor", name: "PRODÜKSİYONA DESTEK OL", relX: 0.72, relY: 0.66, icon: "🤝", subtitle: "İKİ EKSENLİ KATKI PROTOKOLÜ", action: "funding", desc: "SUSSUZ prodüksiyonuna destek sağlama protokolü." }
       ],
       home_interior: [
-        { id: "home_lock", name: "SENARYO MASASI", relX: 0.50, relY: 0.55, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %25", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %25." }
+        { id: "home_lock", name: "SENARYO TASLAĞINI ARALA", relX: 0.50, relY: 0.55, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %25", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %25." }
       ],
       murat_home: [
         { 
           id: "murat_view", 
-          name: "PANORAMİK ANKARA VE GÖKDELEN CAMI", 
+          name: "GÖKDELENDEN ANKARA'YA BAK", 
           relX: 0.28, 
           relY: 0.45, 
           icon: "🌃", 
-          subtitle: "EXT. KUZEY BLOKLARI // ŞEHRE TEPEDEN BAKIŞ", 
+          subtitle: "AŞAĞIDAKİ SUSUZ'A TEPEDEN SOĞUK BİR BAKIŞ", 
           action: "prop", 
           propName: "Panoramik Ankara Camı", 
           desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası. Murat'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı." 
         },
         { 
           id: "murat_file", 
-          name: "MASADAKİ DOSYA VE ANAHTARLAR", 
+          name: "MASADAKİ ANAHTARI AL", 
           relX: 0.48, 
           relY: 0.82, 
           icon: "📁", 
-          subtitle: "SORUŞTURMA VE ARABA ANAHTARI", 
+          subtitle: "AÇILMAMIŞ DOSYA VE TORPİDO ANAHTARI", 
           action: "prop", 
           propName: "Masa Üzerindeki Dosya ve Anahtarlar", 
           desc: "Torpido anahtarları ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey." 
@@ -318,7 +318,7 @@ class SpatialUniverse {
           relX: 0.72, 
           relY: 0.65, 
           icon: "💬", 
-          subtitle: "SOĞUK YALNIZLIK", 
+          subtitle: "GÖKDELENİN TEPESİNDE SOĞUK YALNIZLIK", 
           action: "dialogue", 
           charId: "murat", 
           desc: "Murat'ın iç dünyasına ve Susuz soruşturmasına dair diyalog." 
