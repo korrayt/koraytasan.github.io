@@ -57,6 +57,7 @@ class SpatialUniverse {
     this.images = {
       panorama: this._loadImg("assets/img/clean_susuz_map.jpg"),
       ritim: this._loadImg("assets/img/loc_ritim.jpg"),
+      ritim_interior: this._loadImg("assets/img/loc_ritim_interior.jpg"),
       ritim_road: this._loadImg("assets/img/loc_ritim_road.jpg"),
       goksu_room: this._loadImg("assets/img/loc_office.jpg"),
       dancefloor: this._loadImg("assets/img/scene_dancefloor.png"),
@@ -218,13 +219,120 @@ class SpatialUniverse {
         }
       ],
       ritim: [
-        { id: "ritim_door", name: "KAPIYI ÇAL", relX: 0.48, relY: 0.72, icon: "📻", subtitle: "TELSİZDEN EMİR GELDİ: 'BUYURUN'", action: "prop", propName: "Kapı Görevlisinin Telsizi", desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür." },
-        { id: "ritim_road_spot", name: "MEKÂN ÖNÜ YOLUNA ÇIK", relX: 0.22, relY: 0.76, icon: "🛣️", subtitle: "EKREM'İN MURAT'I DURDURDUĞU AN // 1. BÖLÜM FİNALİ", action: "fly_subvenue", target: "ritim_road", desc: "1. Bölüm final sahnesinin geçtiği bağlantı yolu. Ekrem'in Murat'ı durdurduğu yer." },
-        { id: "ritim_dance_spot", name: "DANS PİSTİNE GİR", relX: 0.64, relY: 0.65, icon: "⚡", subtitle: "MURAT VE EKREM PİSTTE // MÜZİĞİN İÇİNE AK", action: "fly_subvenue", target: "dancefloor", desc: "Kulübün içine, ana dans pistine girin." },
-        { id: "ritim_goksu_spot", name: "GÖKSU'NUN CAM OFİSİNE ÇIK", relX: 0.38, relY: 0.32, icon: "🏢", subtitle: "PİSTİ TEPEDEN İZLEYEN SES GEÇİRMEZ ODA", action: "fly_subvenue", target: "goksu_room", desc: "Üst kattaki ses yalıtımlı cam ofise geçiş yapın." },
-        { id: "ritim_vip_spot", name: "VIP LOCAYA BAK", relX: 0.76, relY: 0.32, icon: "🍸", subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", action: "fly_subvenue", target: "ritim_vip", desc: "Asma kat VIP loca bölümü." },
-        { id: "ritim_backstage_spot", name: "KULİSE GEÇ", relX: 0.85, relY: 0.58, icon: "🎭", subtitle: "KENAN SAHNEYE HAZIRLANIYOR", action: "fly_subvenue", target: "ritim_backstage", desc: "Kenan'ın hazırlandığı kulis koridoru." },
-        { id: "ritim_acc_spot", name: "PRODÜKSİYON MASASINA BAK", relX: 0.16, relY: 0.44, icon: "📋", subtitle: "CANLI İHTİYAÇLAR VE KATKI HAVUZU", action: "fly_subvenue", target: "accounting", desc: "Prodüksiyon ihtiyaçları ve sponsorluk masası." }
+        { 
+          id: "ritim_enter", 
+          name: "İÇERİ GİR", 
+          relX: 0.23, 
+          relY: 0.68, 
+          icon: "🚪", 
+          subtitle: "RİTİM GECE KULÜBÜ // ANA SALON", 
+          action: "fly_subvenue", 
+          target: "ritim_interior", 
+          desc: "Ritim'in neon ışıklı kapısından içeri adım atın. Baslar duvarları titretiyor, içeride prömiyer var." 
+        },
+        { 
+          id: "ritim_stop_murat", 
+          name: "MURAT'I DURDUR", 
+          relX: 0.78, 
+          relY: 0.70, 
+          icon: "✋", 
+          subtitle: "EKREM YOLA ATLADI // 1. BÖLÜM FİNALİ", 
+          action: "fly_subvenue", 
+          target: "ritim_road", 
+          desc: "Ekrem yolun ortasına çıkarak Murat'ın arabasını durdurur: 'Sana gerisini göstereceğim.' 1. bölüm final sahnesine geçiş yapın." 
+        }
+      ],
+
+      ritim_interior: [
+        { 
+          id: "interior_stage_song", 
+          name: "SAHNEDE KENAN'I DİNLE", 
+          relX: 0.16, 
+          relY: 0.58, 
+          icon: "🎵", 
+          subtitle: "KENAN — HIRSIZ [SUSSUZ SOUNDTRACK]", 
+          action: "music", 
+          src: "KFrAv440Rmg", 
+          fallbackSrc: "assets/audio/track_hirsiz.mp3", 
+          desc: "Dev ekranlarda Kenan, Tunnel logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor." 
+        },
+        { 
+          id: "interior_to_goksu", 
+          name: "GÖKSU'NUN CAM OFİSİNE ÇIK", 
+          relX: 0.52, 
+          relY: 0.33, 
+          icon: "🪟", 
+          subtitle: "PİSTİ TEPEDEN İZLEYEN SES GEÇİRMEZ ODA", 
+          action: "fly_subvenue", 
+          target: "goksu_room", 
+          desc: "Tavanda Göksu'nun ses yalıtımlı cam ofisi görünüyor; loş ışıkta aşağıdaki pisti akvaryum gibi izliyor. Kenan ve Göksu sahnesine geçin." 
+        },
+        { 
+          id: "interior_to_vip", 
+          name: "VIP LOCAYA ÇIK", 
+          relX: 0.82, 
+          relY: 0.33, 
+          icon: "🍸", 
+          subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", 
+          action: "fly_subvenue", 
+          target: "ritim_vip", 
+          desc: "Asma kat VIP loca bölümü. Senaryo yazımı devam ediyor." 
+        },
+        { 
+          id: "interior_to_backstage", 
+          name: "KULİSE GEÇ", 
+          relX: 0.65, 
+          relY: 0.33, 
+          icon: "🎭", 
+          subtitle: "SAHNE ARKASI VE HAZIRLIK", 
+          action: "fly_subvenue", 
+          target: "ritim_backstage", 
+          desc: "Kenan ve ekibin hazırlandığı sahne arkası koridoru." 
+        },
+        { 
+          id: "interior_to_accounting", 
+          name: "PRODÜKSİYON MASASINA BAK", 
+          relX: 0.37, 
+          relY: 0.72, 
+          icon: "📋", 
+          subtitle: "CANLI İHTİYAÇLAR VE KATKI HAVUZU", 
+          action: "fly_subvenue", 
+          target: "accounting", 
+          desc: "Prodüksiyon ihtiyaçları ve sponsorluk masası." 
+        },
+        { 
+          id: "interior_balcony_dialogue", 
+          name: "MURAT VE EKREM İLE YÜZLEŞ", 
+          relX: 0.84, 
+          relY: 0.62, 
+          icon: "💬", 
+          subtitle: "'OĞLUM...' // SAHNE DİYALOĞU", 
+          action: "dialogue", 
+          charId: "murat_ekrem_balcony", 
+          desc: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, Tunnel logosu... Murat oğlunu görüyor: 'Ben yapamadım... Göksu yaptı.'" 
+        },
+        { 
+          id: "interior_to_dancefloor", 
+          name: "MURAT'I DANSA GÖTÜR", 
+          relX: 0.50, 
+          relY: 0.84, 
+          icon: "⚡", 
+          subtitle: "EKREM ELİNİ UZATIYOR // 'AYIP LAN ÇOCUĞA'", 
+          action: "fly_subvenue", 
+          target: "dancefloor", 
+          desc: "Ekrem gülerek elini uzatır: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa.' Murat'ı yeniden pistin içine çeker." 
+        },
+        { 
+          id: "interior_to_exterior", 
+          name: "KAPIYA / DIŞARI DÖN", 
+          relX: 0.08, 
+          relY: 0.88, 
+          icon: "🚪", 
+          subtitle: "RİTİM GİRİŞİ // MEKÂN ÖNÜ", 
+          action: "fly_subvenue", 
+          target: "ritim", 
+          desc: "Kulüp çıkışına dönün." 
+        }
       ],
 
       ritim_road: [
@@ -237,8 +345,9 @@ class SpatialUniverse {
       dancefloor: [
         { id: "dance_glass_look", name: "CAM OFİSE YUKARI BAK", relX: 0.50, relY: 0.20, icon: "🪟", subtitle: "GÖKSU YUKARIDAN PİSTİ İZLİYOR", action: "fly_subvenue", target: "goksu_room", desc: "Tepedeki cam ofise bakın veya yukarı çıkın. Camın arkasından aşağıdaki pist loş bir akvaryum gibi izleniyor." },
         { id: "dance_touch", name: "ENSE TEMASINI HİSSET", relX: 0.52, relY: 0.52, icon: "⚡", subtitle: "KONTROLÜN KAYBI // 'ÖBÜR TARAFA GİTSEN BARA GİRİCEN'", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır." },
-        { id: "dance_dialogue", name: "PİSTTE EKREM'E SOKUL", relX: 0.34, relY: 0.64, icon: "💬", subtitle: "POLİS VE TORBACI DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "Dans pistinde Murat ve Ekrem diyaloğu." },
-        { id: "dance_track", name: "HIRSIZ'I DİNLE", relX: 0.70, relY: 0.40, icon: "🎵", subtitle: "KENAN — HIRSIZ // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
+        { id: "dance_dialogue", name: "PİSTTE EKREM'E SOKUL", relX: 0.34, relY: 0.64, icon: "💬", subtitle: "POLİS VE TORBACI DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'" },
+        { id: "dance_track", name: "HIRSIZ'I DİNLE", relX: 0.70, relY: 0.40, icon: "🎵", subtitle: "KENAN — HIRSIZ // SUSSUZ SOUNDTRACK", action: "music", src: "KFrAv440Rmg", fallbackSrc: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
+        { id: "dance_to_interior", name: "GENEL SALONA BAK", relX: 0.16, relY: 0.74, icon: "🏛️", subtitle: "RİTİM İÇ MEKÂN GENEL GÖRÜNÜM", action: "fly_subvenue", target: "ritim_interior", desc: "Kulübün genel açısına dönün." },
         { id: "dance_to_vip", name: "VIP LOCAYA ÇIK", relX: 0.84, relY: 0.26, icon: "🍸", subtitle: "ASMA KATTAN PİSTE BAKIŞ", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
         { id: "dance_to_backstage", name: "KULİS KAPISINI İT", relX: 0.86, relY: 0.68, icon: "🎭", subtitle: "SAHNE ARKASINA GEÇ", action: "fly_subvenue", target: "ritim_backstage", desc: "Kulise geçiş yapın." },
         { id: "dance_return", name: "DIŞARIYA ÇIK", relX: 0.16, relY: 0.74, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }

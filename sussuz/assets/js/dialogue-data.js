@@ -134,7 +134,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       polisle_dans: {
-        text: "MURAT: 'Olm, polisim ben!' dedi. Ben de dedim: 'Ben de torbacı. :D' Baktım piste girmiş odun gibi duruyor. Ensesinden tuttum: 'Öbür tarafa gitsen bara giricen yarram' dedim. Güldük, ritme girdi. Polis molis ama adamın içinde insan varmış.",
+        text: "MURAT: 'Olm, polisim ben!' dedi. Ben de tanışır gibi elimi uzattım: 'Merhaba ben de torbacı :D' Baktım piste girmiş odun gibi duruyor. Ensesinden tuttum: 'Öbür tarafa gitsen bara giricen yarram' dedim. Güldük, ritme girdi. Polis molis ama adamın içinde insan varmış.",
         options: [
           {
             label: "Geri dön.",
@@ -226,7 +226,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       dans_ani: {
-        text: "Pistin ortasındaydım. 'Olm, polisim ben!' dedim. 'Ben de torbacı :D' dedi. Ensemden tutup kalabalığa soktu beni. Hayatımda ilk defa kontrol bende değildi ve garip bir şekilde ilk defa nefes aldım.",
+        text: "Pistin ortasındaydım. 'Olm, polisim ben!' dedim. Elini uzattı tanışır gibi: 'Merhaba ben de torbacı :D' dedi. Ensemden tutup kalabalığa soktu beni. Hayatımda ilk defa kontrol bende değildi ve garip bir şekilde ilk defa nefes aldım.",
         options: [
           {
             label: "Geri dön.",
@@ -423,6 +423,53 @@ window.SUSSUZ_DIALOGUES = {
           {
             label: "Geri dön.",
             next: "root"
+          }
+        ]
+      }
+    }
+  },
+
+  murat_ekrem_balcony: {
+    name: "Murat ve Ekrem",
+    age: 37,
+    title: "Korkulukta Sahneye Bakış // 1. ve 2. Bölüm Köprüsü",
+    avatar: "assets/img/char_murat.png",
+    bio: "Müzik değişir. Karanlık ekranlar bir anda açılır. Dev ekranda Kenan, Tunnel logosu... Murat oğlunu sahnede görür.",
+    intro: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. Tunnel logosu. Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu sahnede dev ekranda görüyor.",
+    tree: {
+      root: {
+        text: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. Tunnel logosu. Yeni parçanın prömiyeri. Şarkının adı: HIRSIZ. İlk beat giriyor. Kalabalık bağırıyor. Şarkı yüzeyde, tehlikeli birine duyulan çekimi anlatıyor. Nakaratta 'hırsız' kelimesi ritmik bir hook gibi dönüyor. Murat duruyor. Oğlunu ekranda görüyor. Ekrem Murat'ın yüzündeki değişimi fark ediyor.",
+        options: [
+          {
+            label: "EKREM: 'Hayırdır?'",
+            next: "oglum_ani"
+          }
+        ]
+      },
+      oglum_ani: {
+        text: "MURAT: 'Oğlum.' \n\nEkrem ekrana bakar. Sonra tekrar Murat'a: \nEKREM: 'Harbi mi?' \n\nMurat başını sallar. Ekrem Kenan'ı daha dikkatli inceler: \nEKREM: 'İyiymiş.'",
+        options: [
+          {
+            label: "MURAT: 'Çok istedi...'",
+            next: "cok_istedi"
+          }
+        ]
+      },
+      cok_istedi: {
+        text: "EKREM: 'Neyi?' \n\nMurat sahneyi gösterir: \nMURAT: 'Bunu.' \n\nMurat'ın gururunun içine başka bir duygu karışır. Ekranın köşesinde Tunnel logosu parlar. \n\nMURAT: 'Ben yapamadım.' \nEKREM: 'O yaptı.' \nMURAT: 'Hayır... Göksu yaptı.' \n\nBunu söyleyince kendi sesi onu rahatsız eder. Ekrem düzeltmez; henüz o cümlenin yanlış mı eksik mi olduğunu kendisi de bilmemektedir.",
+        options: [
+          {
+            label: "Nakarat geliyor — Ekrem elini uzatır...",
+            next: "surat_asma"
+          }
+        ]
+      },
+      surat_asma: {
+        text: "Nakarat geliyor. Kalabalık coşuyor. Ekrem elini uzatır: \n\nEKREM: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!' \n\nMurat güler. Ekrem onun elini tutup gülerek yeniden pistin içine çeker.",
+        options: [
+          {
+            label: "⚡ Murat'ı Dansa Götür →",
+            next: "dancefloor_redirect"
           }
         ]
       }

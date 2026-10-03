@@ -314,6 +314,15 @@ class AudioEngine {
         this.stopMusicTrack();
         break;
 
+      case "ritim_interior":
+        this._rampGain(this.droneGain, 0.12, rampTime);
+        this._rampGain(this.windGain, 0.001, rampTime);
+        this._rampGain(this.rainGain, 0.001, rampTime);
+        this.startClubThump(124, 0.22);
+        // Sahnede Kenan şarkı söylüyor — Hırsız
+        this.playMusicTrack("KFrAv440Rmg", 0.52, "assets/audio/track_hirsiz.mp3");
+        break;
+
       case "ritim_road":
         this._rampGain(this.droneGain, 0.06, rampTime);
         this._rampGain(this.windGain, 0.09, rampTime);

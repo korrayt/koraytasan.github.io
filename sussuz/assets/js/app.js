@@ -12,35 +12,68 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "EXT. GÖKSU PARKI ADASI (ESKİ ADA RESTORANI) — 01:45 // BÖLÜM 1, SAHNE 1",
       image: "assets/img/loc_ritim.jpg",
       characterId: "ekrem",
-      characterName: "Ekrem (Yusuf)",
-      characterRole: "Sincanlı Dealer // Sokak Koruyucusu",
-      atmosphere: "Gerçekte Göksu Parkı'ndaki adada yer alan restoranın yerine konumlanan gece kulübü. Göletin ortasındaki köprüyle ulaşılan ada. Girişte bekleyen kalabalık, kapı güvenliği ve yukarıdaki cam ofisin mor-kırmızı neon parıltıları.",
+      characterName: "Ekrem ve Murat",
+      characterRole: "Kulüp Önü ve Bağlantı Yolu",
+      atmosphere: "Gerçekte Göksu Parkı'ndaki adada yer alan restoranın yerine konumlanan gece kulübü. Girişte bekleyen kalabalık, kapı güvenliği ve yoldan uzaklaşmakta olan Murat'ın arabası.",
       musicNote: "Filtrelenmiş 4/4 Sub-Bass & Araba Uğultusu",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "ritim_interior", label: "İçeri Gir (Genel Salon)" },
+        { id: "ritim_road", label: "Murat'ı Durdur (Yol Sahnesi)" }
       ],
       noteOrigin: "RİTİM Giriş Panosu",
       props: [
         {
-          name: "Kapı Görevlisinin Telsizi",
-          icon: "📻",
-          desc: "KAPI GÖREVLİSİ: 'Rezervasyon?' — Telsizden emir gelir: 'Buyurun.' Yukarıdan biri Murat'ı görmüştür."
+          name: "İçeri Gir",
+          icon: "🚪",
+          desc: "Ritim'in neon ışıklı kapısından ana salona adım atın."
         },
         {
-          name: "Ada Giriş Köprüsü",
-          icon: "🌉",
-          desc: "Göletin üzerindeki beton köprü. Şehirden adaya tek kara bağlantısı."
+          name: "Murat'ı Durdur",
+          icon: "✋",
+          desc: "Ekrem'in yola atlayarak arabayı durdurduğu 1. bölüm final sahnesi."
+        }
+      ]
+    },
+
+    ritim_interior: {
+      id: "ritim_interior",
+      title: "RİTİM (GENEL İÇ MEKÂN)",
+      subtitle: "INT. RİTİM / GENEL AÇI — 02:15 // BÖLÜM 1 & 2 KÖPRÜSÜ",
+      image: "assets/img/loc_ritim_interior.jpg",
+      characterId: "murat_ekrem_balcony",
+      characterName: "Murat ve Ekrem",
+      characterRole: "Korkulukta Sahneye Bakış // 'Oğlum...'",
+      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, Tunnel logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu ekranda görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
+      musicNote: "HIRSIZ — Kenan Sahne Prömiyeri (124 BPM)",
+      subvenues: [
+        { id: "dancefloor", label: "Murat'ı Dansa Götür (Pist)" },
+        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
+        { id: "ritim_vip", label: "VIP Loca (Yazılıyor :D)" },
+        { id: "ritim_backstage", label: "Backstage / Kulis" },
+        { id: "accounting", label: "Muhasebe / Prodüksiyon" },
+        { id: "ritim", label: "Dışarı Çık (Giriş)" }
+      ],
+      noteOrigin: "Korkuluk Barosu",
+      props: [
+        {
+          name: "Sahnede Kenan (Hırsız Prömiyeri)",
+          icon: "🎵",
+          desc: "Dev ekranlarda Kenan, Tunnel logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor."
         },
         {
-          name: "Otoparktaki Araba",
-          icon: "🚗",
-          desc: "Murat'ın navigasyona Susuz yazıp kapısını açtığı, Ekrem'in 'Sana gerisini göstereceğim' demesi üzerine arabayı kilitleyip geri döndüğü araç."
+          name: "Tavandaki Cam Ofis",
+          icon: "🪟",
+          desc: "Yukarıdaki loş cam ofisten Göksu aşağıdaki dans pistini bir akvaryum gibi izliyor."
+        },
+        {
+          name: "Murat ve Ekrem Korkulukta",
+          icon: "💬",
+          desc: "Murat oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.' Ekrem: 'Oğlunun şarkısında surat asma.'"
+        },
+        {
+          name: "Murat'ı Dansa Götür",
+          icon: "⚡",
+          desc: "Ekrem elini uzatır, Murat'ı gülerek pistin içine çeker."
         }
       ]
     },
@@ -87,17 +120,16 @@ document.addEventListener("DOMContentLoaded", () => {
       characterId: "ekrem",
       characterName: "Murat ve Ekrem",
       characterRole: "Kontrolün Kaybı & İlk Temas",
-      atmosphere: "Bas zemini titretiyor. Tavanda Göksu'nun ses yalıtımlı cam ofisi görünüyor; camın arkasından aşağıdaki dans pisti loş bir akvaryum gibi izleniyor. Murat ve Ekrem gülerek dans ediyor. 'HIRSIZ' çalıyor. MURAT: 'Olm, polisim ben!' — EKREM: 'Ben de torbacı. :D'",
+      atmosphere: "Bas zemini titretiyor. Tavanda Göksu'nun ses yalıtımlı cam ofisi görünüyor; camın arkasından aşağıdaki dans pisti loş bir akvaryum gibi izleniyor. Murat ve Ekrem gülerek dans ediyor. 'HIRSIZ' çalıyor. MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'",
       musicNote: "HIRSIZ — Club Noir Bas Riff (124 BPM)",
       noteOrigin: "Kulüp Tuvalet Duvarı",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
+        { id: "ritim_interior", label: "Genel Salona Dön" },
         { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
+        { id: "ritim_vip", label: "VIP Loca (Yazılıyor)" },
         { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "accounting", label: "Muhasebe / Prodüksiyon" },
+        { id: "ritim", label: "Dışarıya Çık" }
       ],
       props: [
         {
@@ -1106,6 +1138,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (opt.next === "crowd_redirect") {
           dialogueModal.classList.remove("modal-active");
           openFundingModal();
+        } else if (opt.next === "dancefloor_redirect") {
+          dialogueModal.classList.remove("modal-active");
+          if (spatialUniverse) spatialUniverse.flyToScene("dancefloor");
         } else {
           renderDialogueNode(char, opt.next);
         }
