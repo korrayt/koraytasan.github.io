@@ -102,6 +102,7 @@ class SpatialUniverse {
       lake_candle: this._loadImg("assets/img/scene_lake.png"),
       garden: this._loadImg("assets/img/scene_garden.png"),
       home_interior: this._loadImg("assets/img/scene_bahar_home.png"),
+      home_kitchen: this._loadImg("assets/img/scene_bahar_kitchen.jpg"),
       studio: this._loadImg("assets/img/loc_studio.jpg"),
       studio_ekrem: this._loadImg("assets/img/loc_studio_ekrem.jpg"),
       murat_home: this._loadImg("assets/img/loc_murat_home.jpg"),
@@ -173,7 +174,7 @@ class SpatialUniverse {
       {
         id: "home_interior",
         name: "BAHAR'IN EVİ",
-        subtitle: "SEÇİLMİŞ AİLE // İÇERİSİ",
+        subtitle: "SEÇİLMİŞ AİLE // SALON",
         x: 1240,
         y: 600,
         radius: 24,
@@ -714,7 +715,96 @@ class SpatialUniverse {
       ],
 
       home_interior: [
-        { id: "home_lock", name: "SENARYO TASLAĞINI ARALA", relX: 0.500, relY: 0.550, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %25", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %25." }
+        { 
+          id: "home_book", 
+          name: "AŞK BİR AİLE YARATIR", 
+          relX: 0.445, 
+          relY: 0.720, 
+          icon: "📖", 
+          subtitle: "SOPHIE BEER // RESİMLİ ÇOCUK KİTABI", 
+          action: "prop", 
+          propName: "Aşk Bir Aile Yaratır (Sophie Beer)", 
+          desc: "Bahar'ın Ata'ya okuduğu kitap: 'Aşk Bir Aile Yaratır' (Sophie Beer). Ailelerin sevgiyle kurulduğunu, kan bağı değil kalple var olduğunu anlatan rengarenk sayfalar." 
+        },
+        { 
+          id: "home_bahar_dialogue", 
+          name: "BAHAR İLE KONUŞ // KALBİ", 
+          relX: 0.540, 
+          relY: 0.540, 
+          icon: "💬", 
+          subtitle: "SEÇİLMİŞ AİLE // 'BİZ BİR AİLEYİZ ZATEN'", 
+          action: "dialogue", 
+          charId: "bahar", 
+          desc: "Bahar oğlu Ata'ya sarılmış, şefkat ve koruyuculukla gülümsüyor. 'Bize aile dersi verenlere inat: Biz bir aileyiz zaten.'" 
+        },
+        { 
+          id: "home_ata_dialogue", 
+          name: "ATA İLE KONUŞ // KALBİ", 
+          relX: 0.655, 
+          relY: 0.680, 
+          icon: "💬", 
+          subtitle: "MASUMİYETİN VE SEVGİNİN DÜNYASI", 
+          action: "dialogue", 
+          charId: "ata", 
+          desc: "Ata elinde mavi oyuncak arabasıyla Bahar annesini dinliyor. Dünyanın bütün kötülüklerinden uzakta, masumiyetin sıcaklığı." 
+        },
+        { 
+          id: "home_to_kitchen", 
+          name: "MUTFAĞA GEÇ // BUZDOLABINA NOT BIRAK", 
+          relX: 0.900, 
+          relY: 0.420, 
+          icon: "🚪", 
+          subtitle: "BOŞ MUTFAK & BUZDOLABI KAPAĞI", 
+          action: "fly_subvenue", 
+          target: "home_kitchen", 
+          desc: "Loş koridordan mutfağa geçin; buzdolabının üzerindeki magnetlere anonim bir not iliştirin." 
+        },
+        { 
+          id: "home_to_garden", 
+          name: "APARTMAN BAHÇESİNE İN", 
+          relX: 0.080, 
+          relY: 0.880, 
+          icon: "🌳", 
+          subtitle: "ÇOCUK PARKI & KENAN'IN YONTTUĞU ARABA", 
+          action: "fly_subvenue", 
+          target: "garden", 
+          desc: "Eryaman sitelerinin bahçesine, çocuk parkına inin." 
+        }
+      ],
+
+      home_kitchen: [
+        { 
+          id: "kitchen_fridge_note", 
+          name: "BUZDOLABINA NOT BIRAK", 
+          relX: 0.665, 
+          relY: 0.380, 
+          icon: "✍️", 
+          subtitle: "MAGNETLERE BİR CÜMLE İLİŞTİR", 
+          action: "note", 
+          desc: "Buzdolabı kapağındaki magnetlerin arasına anonim bir not bırakın. Evin sessizliğinde kalpten bir iz." 
+        },
+        { 
+          id: "kitchen_table", 
+          name: "AHŞAP MUTFAK MASASI", 
+          relX: 0.500, 
+          relY: 0.850, 
+          icon: "🪑", 
+          subtitle: "BOŞ VE SESSİZ // AKŞAM AYAZININ ARDINDAN", 
+          action: "prop", 
+          propName: "Ahşap Mutfak Masası", 
+          desc: "Sarı sıcak sarkıt lambanın aydınlattığı boş ahşap masa. Mum ve pasta burada değil; Bahar onları göl kenarında Dilek'in anısına götürdü." 
+        },
+        { 
+          id: "kitchen_to_livingroom", 
+          name: "SALONA DÖN // BAHAR VE ATA", 
+          relX: 0.150, 
+          relY: 0.880, 
+          icon: "🛋️", 
+          subtitle: "KİTAP OKUMA SAHNESİ", 
+          action: "fly_subvenue", 
+          target: "home_interior", 
+          desc: "Bahar ve Ata'nın kitap okuduğu sıcak salona geri dönün." 
+        }
       ],
 
       murat_home: [
@@ -992,6 +1082,8 @@ class SpatialUniverse {
         sec = this.sectors.find(s => s.id === "studio") || { x: 185, y: 320 };
       } else if (sceneId.startsWith("lake")) {
         sec = this.sectors.find(s => s.id === "lake") || { x: 140, y: 580 };
+      } else if (sceneId.startsWith("home") || sceneId === "garden") {
+        sec = this.sectors.find(s => s.id === "home_interior") || { x: 1240, y: 600 };
       } else {
         sec = { x: 688, y: 384 };
       }

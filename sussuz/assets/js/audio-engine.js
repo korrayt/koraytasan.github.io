@@ -501,6 +501,7 @@ class AudioEngine {
 
       case "home":
       case "home_interior":
+      case "home_kitchen":
       case "garden":
       case "accounting":
         this._rampGain(this.droneGain, 0.04, rampTime);

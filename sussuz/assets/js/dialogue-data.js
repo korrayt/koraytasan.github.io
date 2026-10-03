@@ -286,6 +286,10 @@ window.SUSSUZ_DIALOGUES = {
           {
             label: "Ata ile nasıl aile oldunuz?",
             next: "biz_bir_aileyiz"
+          },
+          {
+            label: "Ata'ya okuduğun kitap... 'Aşk Bir Aile Yaratır'",
+            next: "kitap_anlami"
           }
         ]
       },
@@ -309,6 +313,15 @@ window.SUSSUZ_DIALOGUES = {
       },
       biz_bir_aileyiz: {
         text: "Bize 'aile' dersi verenlere inat: Biz bir aileyiz zaten. Her aile onların kabul ettiği gibi olmak zorunda değil.",
+        options: [
+          {
+            label: "Geri dön.",
+            next: "root"
+          }
+        ]
+      },
+      kitap_anlami: {
+        text: "Sophie Beer'in kitabı... Her ailenin farklı olduğunu, sevginin kan bağıyla değil kalple kurulduğunu anlatıyor. Ata'ya her akşam bu kitabı okuyorum. Bu şehirdeki soğuk bakışlar, 'senin anan kim' diye soran o zalim sesler kalbini incitmesin diye... Sevginin olduğu her yer yuvadır.",
         options: [
           {
             label: "Geri dön.",
@@ -396,6 +409,10 @@ window.SUSSUZ_DIALOGUES = {
           {
             label: "Kenan abin ne getirdi sana?",
             next: "tahta_araba"
+          },
+          {
+            label: "Bahar annenle okuduğunuz kitap ne anlatıyor?",
+            next: "kitap_ata"
           }
         ]
       },
@@ -419,6 +436,15 @@ window.SUSSUZ_DIALOGUES = {
       },
       tahta_araba: {
         text: "Kenan abi çakısıyla yonttu, arkasına da kırmızı şerit çekti. 'Büyüyünce gölün etrafında tur atacağız' dedi. Salıncakta oynarken onu sürüyorum.",
+        options: [
+          {
+            label: "Geri dön.",
+            next: "root"
+          }
+        ]
+      },
+      kitap_ata: {
+        text: "'Aşk Bir Aile Yaratır'... Renkli resimleri var. Bahar annem bana 'Bizim ailemiz de sevgiyle kuruldu Ata'm' diyor. Ben en çok sayfadaki kocaman sarılan insanları seviyorum. Babam, Bahar annem ve ben... Biz de öyleyiz.",
         options: [
           {
             label: "Geri dön.",

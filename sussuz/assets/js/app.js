@@ -585,31 +585,90 @@ document.addEventListener("DOMContentLoaded", () => {
     home_interior: {
       id: "home_interior",
       sceneTag: "SAHNE 08 // BAHAR'IN EVİ",
-      title: "BAHAR'IN EVİ // SEÇİLMİŞ AİLE",
-      subtitle: "INT. ERYAMAN APARTMANI / SALON — 20:30 // AKŞAM",
-      location: "Eryaman Dairesi",
+      title: "BAHAR'IN EVİ // SALON",
+      subtitle: "INT. ERYAMAN APARTMANI / SALON — 20:30 // SEÇİLMİŞ AİLE",
+      location: "Eryaman Dairesi / Salon",
       time: "20:30",
       period: "Günümüz",
-      ctaIcon: "☕",
-      ctaText: "EVİ İNCELE",
+      ctaIcon: "📖",
+      ctaText: "KİTABA GÖZ AT",
       ctaAction: "prop",
       image: "assets/img/scene_bahar_home.png",
       characterId: "bahar",
-      characterName: "Bahar, Ata ve Ekrem",
-      characterRole: "Sığınak & Korunaklı Alan",
-      atmosphere: "Sıcak bir salon, masada çay bardakları. Dışarıdaki soğuk Ankara ayazına inat, bu ev bir sığınak. Ata'nın okul çantası köşede, duvarda solgun fotoğraflar.",
-      musicNote: "Çay Kaşığı Sesi & Radyo Cızırtısı",
+      characterName: "Bahar ve Ata",
+      characterRole: "Seçilmiş Aile // Korunaklı Alan",
+      atmosphere: "Sıcak bir Eryaman salonu. Petrol yeşili koltukta Bahar ve Ata yan yana oturmuş; Bahar ona Sophie Beer'ın 'Aşk Bir Aile Yaratır' kitabını okuyor. Dışarıdaki soğuk Ankara ayazına inat, bu ev sevgiyle örülmüş korunaklı bir sığınak.",
+      musicNote: "Kitap Sayfası Hışırtısı & Samimi Ev Huzuru",
       subvenues: [
+        { id: "home_kitchen", label: "Mutfağa Geç // Buzdolabına Not Bırak" },
         { id: "garden", label: "Apartman Bahçesine İn" }
       ],
-      noteOrigin: "Mutfak Masası",
+      noteOrigin: "Salon Masası",
       props: [
         {
-          name: "SICAK ÇAY BARDAKLARI",
-          icon: "☕",
+          name: "AŞK BİR AİLE YARATIR",
+          icon: "📖",
+          thumb: "assets/img/props/prop_book_family.jpg",
+          subtitle: "SOPHIE BEER KİTABI",
+          desc: "Bahar'ın Ata'ya okuduğu kitap: 'Aşk Bir Aile Yaratır' (Sophie Beer). Ailelerin sevgiyle kurulduğunu, kan bağı değil kalple var olduğunu anlatan renkli sayfalar."
+        },
+        {
+          name: "BAHAR İLE KONUŞ",
+          icon: "💬",
           thumb: "assets/img/props/prop_bahar.jpg",
-          subtitle: "SIĞINAK & HUZUR",
-          desc: "Dışarıdaki soğuk Ankara ayazına inat, bu ev bir sığınak."
+          subtitle: "SEÇİLMİŞ AİLE",
+          desc: "Bahar oğlu Ata'ya sarılmış, şefkat ve koruyuculukla gülümsüyor.",
+          action: "dialogue",
+          charId: "bahar"
+        },
+        {
+          name: "ATA İLE KONUŞ",
+          icon: "💬",
+          thumb: "assets/img/props/prop_ata_child.jpg",
+          subtitle: "MASUMİYETİN DÜNYASI",
+          desc: "Ata elinde mavi oyuncak arabasıyla Bahar annesini dinliyor.",
+          action: "dialogue",
+          charId: "ata"
+        }
+      ]
+    },
+
+    home_kitchen: {
+      id: "home_kitchen",
+      sceneTag: "SAHNE 08B // MUTFAK",
+      title: "BAHAR'IN EVİ // MUTFAK",
+      subtitle: "INT. ERYAMAN APARTMANI / MUTFAK — 20:45 // SESSİZLİK",
+      location: "Eryaman Dairesi / Mutfak",
+      time: "20:45",
+      period: "Günümüz",
+      ctaIcon: "✍️",
+      ctaText: "BUZDOLABINA NOT BIRAK",
+      ctaAction: "note",
+      image: "assets/img/scene_bahar_kitchen.jpg",
+      characterId: null,
+      characterName: "Boş Mutfak",
+      characterRole: "Sessiz Hatıralar & Notlar",
+      atmosphere: "Sarı sarkıt lambanın aydınlattığı boş ahşap masa ve buzdolabı. Pasta ve mum burada değil; göl kenarında Dilek'in anısında. Buzdolabı kapağındaki magnetlere anonim bir not bırakabilirsiniz.",
+      musicNote: "Buzdolabı Motorunun Hafif Uğultusu & Gece Sessizliği",
+      subvenues: [
+        { id: "home_interior", label: "Salona Dön // Bahar ve Ata" }
+      ],
+      noteOrigin: "Buzdolabı Kapağı",
+      props: [
+        {
+          name: "BUZDOLABI NOTLARI",
+          icon: "✍️",
+          thumb: "assets/img/props/prop_fridge_notes.jpg",
+          subtitle: "MAGNETLERE NOT BIRAK",
+          desc: "Buzdolabı kapağındaki magnetlerin arasına anonim bir not bırakın. Evin sessizliğinde kalpten bir iz.",
+          action: "note"
+        },
+        {
+          name: "AHŞAP MUTFAK MASASI",
+          icon: "🪑",
+          thumb: "assets/img/props/prop_cake.jpg",
+          subtitle: "SESSİZ VE BOŞ",
+          desc: "Sarı sıcak sarkıt lambanın aydınlattığı boş ahşap masa. Doğum günü pastası göl kenarında Dilek için yakıldı."
         }
       ]
     },
