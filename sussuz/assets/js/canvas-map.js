@@ -76,12 +76,12 @@ class SpatialUniverse {
       {
         id: "lake",
         name: "GÖL KENARI",
-        subtitle: "GÖKSU PARKI // DİLEK'İN DOĞUM GÜNÜ",
-        x: 143,
-        y: 483,
-        radius: 24,
-        labelX: 135,
-        labelY: 412,
+        subtitle: "DENİZ FENERİ // DİLEK'İN DOĞUM GÜNÜ",
+        x: 138,
+        y: 575,
+        radius: 26,
+        labelX: 138,
+        labelY: 470,
         arrowType: "down",
         color: "rgba(92, 124, 250, "
       },
@@ -90,46 +90,46 @@ class SpatialUniverse {
         name: "RİTİM",
         subtitle: "ADA RESTORAN GECE KULÜBÜ",
         x: 527,
-        y: 337,
+        y: 345,
         radius: 28,
-        labelX: 580,
-        labelY: 285,
+        labelX: 585,
+        labelY: 290,
         arrowType: "down_left",
         color: "rgba(224, 49, 49, "
       },
       {
         id: "hill",
         name: "TEPE",
-        subtitle: "ANKARA MANZARASI // 05:30",
-        x: 1165,
-        y: 125,
-        radius: 28,
-        labelX: 1040,
-        labelY: 82,
-        arrowType: "down_right",
+        subtitle: "AŞIKLAR TEPESİ // ANKARA AYAZI",
+        x: 1060,
+        y: 210,
+        radius: 26,
+        labelX: 1140,
+        labelY: 155,
+        arrowType: "down_left",
         color: "rgba(235, 94, 40, "
       },
       {
         id: "murat_home",
         name: "MURAT'IN EVİ",
-        subtitle: "(HENÜZ BULUNMADI)",
-        x: 1226,
-        y: 259,
-        radius: 20,
-        labelX: 1270,
-        labelY: 218,
+        subtitle: "KUZEY BLOKLARI // PENTHOUSE",
+        x: 160,
+        y: 88,
+        radius: 24,
+        labelX: 250,
+        labelY: 60,
         arrowType: "down_left",
         color: "rgba(56, 178, 172, "
       },
       {
         id: "studio",
         name: "KENAN'IN STÜDYOSU",
-        subtitle: "MÜZİK ÜRETİM ATÖLYESİ",
-        x: 1168,
-        y: 407,
+        subtitle: "BATI YAKASI SES ATÖLYESİ",
+        x: 195,
+        y: 310,
         radius: 24,
-        labelX: 1070,
-        labelY: 365,
+        labelX: 120,
+        labelY: 260,
         arrowType: "down_right",
         color: "rgba(255, 107, 107, "
       },
@@ -173,10 +173,21 @@ class SpatialUniverse {
           desc: "Bahar bu mumu her gün yakmıyor. O gün Bahar Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor..." 
         },
         { 
+          id: "lake_lighthouse", 
+          name: "GÖKSU DENİZ FENERİ", 
+          relX: 0.22, 
+          relY: 0.35, 
+          icon: "🏮", 
+          subtitle: "İSKELE VE GECE IŞIĞI", 
+          action: "prop", 
+          propName: "Göksu Deniz Feneri",
+          desc: "Eski bataklığın üzerine inşa edilen parkta, göletin karanlık sularına vuran beyaz fener ışığı. Şehrin hafızasını örten eğreti bir ışık..." 
+        },
+        { 
           id: "lake_music", 
           name: "BATAKLIK (Bahar Söylüyor)", 
-          relX: 0.28, 
-          relY: 0.48, 
+          relX: 0.32, 
+          relY: 0.52, 
           icon: "🎵", 
           subtitle: "RESMİ SOUNDTRACK // OFFICIAL LYRIC VIDEO", 
           action: "music", 
@@ -279,7 +290,39 @@ class SpatialUniverse {
         { id: "home_lock", name: "SENARYO MASASI", relX: 0.50, relY: 0.55, icon: "🔒", subtitle: "HENÜZ YAZILIYOR. :D // YAZIM %84", action: "locked_info", desc: "Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: %84." }
       ],
       murat_home: [
-        { id: "murat_miss", name: "MEKÂN ARAYIŞI", relX: 0.50, relY: 0.55, icon: "📍", subtitle: "HENÜZ BULUNMADI. :D // MEKÂN ÖNER", action: "location_info", desc: "Evi de mi biz bulak müdür? Bu mekânı biliyor olabilirsin." }
+        { 
+          id: "murat_view", 
+          name: "PANORAMİK ANKARA VE GÖKDELEN CAMI", 
+          relX: 0.28, 
+          relY: 0.45, 
+          icon: "🌃", 
+          subtitle: "EXT. KUZEY BLOKLARI // ŞEHRE TEPEDEN BAKIŞ", 
+          action: "prop", 
+          propName: "Panoramik Ankara Camı", 
+          desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası. Murat'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı." 
+        },
+        { 
+          id: "murat_file", 
+          name: "MASADAKİ DOSYA VE ANAHTARLAR", 
+          relX: 0.48, 
+          relY: 0.82, 
+          icon: "📁", 
+          subtitle: "SORUŞTURMA VE ARABA ANAHTARI", 
+          action: "prop", 
+          propName: "Masa Üzerindeki Dosya ve Anahtarlar", 
+          desc: "Torpido anahtarları ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey." 
+        },
+        { 
+          id: "murat_dialogue", 
+          name: "MURAT İLE YÜZLEŞ", 
+          relX: 0.72, 
+          relY: 0.65, 
+          icon: "💬", 
+          subtitle: "SOĞUK YALNIZLIK", 
+          action: "dialogue", 
+          charId: "murat", 
+          desc: "Murat'ın iç dünyasına ve Susuz soruşturmasına dair diyalog." 
+        }
       ]
     };
 

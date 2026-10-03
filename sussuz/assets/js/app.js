@@ -247,13 +247,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     hill: {
       id: "hill",
-      title: "TEPE // ANKARA AYAZI",
-      subtitle: "EXT. SUSUZ SIRTLARI / TEPE — 05:30 // BÖLÜM 2, SAHNE 12",
+      title: "TEPE // AŞIKLAR TEPESİ",
+      subtitle: "EXT. SUSUZ SIRTLARI / ISSIZ MANZARA — 05:30 // BÖLÜM 2, SAHNE 12",
       image: "assets/img/loc_hill.jpg",
       characterId: "murat",
       characterName: "Murat ve Ekrem",
       characterRole: "Sessizlik ve Ankara Ayazı",
-      atmosphere: "Bir anda bütün kulüp sesi kesiliyor. Sadece rüzgâr. Murat ve Ekrem arabaya yaslanmış, Ankara’ya bakıyor. Sigara. 'Bilmem, Ben De' teması giriyor. Ekrem: 'Her şeyi anlatak da diziye ne kaldı yarraam? :D'",
+      atmosphere: "Eski anten kulelerinden arınmış, virajlı yolun bittiği ıssız tepe. Aşıklar tepesi tadında ama gecenin 05:30'unda sadece rüzgâr ve sigara dumanı. Murat ve Ekrem arabaya yaslanmış, aşağıdaki Ankara ışıklarına bakıyor. 'Bilmem, Ben De' teması giriyor. Ekrem: 'Her şeyi anlatak da diziye ne kaldı yarraam? :D'",
       musicNote: "Bilmem, Ben De — Kuru Ayaz Rüzgarı",
       noteOrigin: "Araba Torpido Gözü",
       props: [
@@ -272,21 +272,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lake: {
       id: "lake",
-      title: "GÖL KENARI",
+      title: "GÖL KENARI // DENİZ FENERİ",
       subtitle: "EXT. GÖKSU PARKI & ESKİ BATAKLIK KIYISI // DİLEK'İN DOĞUM GÜNÜ",
       image: "assets/img/scene_lake.png",
       characterId: "bahar",
       characterName: "Bahar",
       characterRole: "Tek Başına Direniş",
-      atmosphere: "Bahar tek başına. İskelede soğuk gece rüzgârı. Her gün yakmıyor bu mumu; bugün Bahar Dilek'in doğum günü. Kendi yaptığı pastayı almış gelmiş, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor... 'Bataklık' ağıtı.",
+      atmosphere: "Bahar tek başına. İskelenin ucundaki beyaz deniz fenerinin soğuk ışığı göle vuruyor. Her gün yakmıyor bu mumu; bugün Bahar Dilek'in doğum günü. Kendi yaptığı pastayı almış gelmiş, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor... 'Bataklık' ağıtı.",
       musicNote: "Bataklık — Ağıt ve Yağmur Tıpırtısı",
       isLakeMemorial: true,
-      noteOrigin: "İskele Kenarındaki Taş",
+      noteOrigin: "Fenerin Dibindeki İskele Tahtası",
       props: [
         {
           name: "Dilek'in Doğum Günü Pastası & Tek Mum",
           icon: "🕯️",
           desc: "Bahar'ın kendi elleriyle yaptığı doğum günü pastası. Bahar Dilek'in kanı üzerine kurulmuş bu parkta üflenmeyi bekliyor."
+        },
+        {
+          name: "Göksu Deniz Feneri",
+          icon: "🏮",
+          desc: "Eski bataklığın üzerine inşa edilen parkta, göletin karanlık sularına vuran beyaz fener ışığı. Şehrin hafızasını örten eğreti bir ışık."
         }
       ]
     },
@@ -328,32 +333,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     murat_home: {
       id: "murat_home",
-      title: "MURAT'IN EVİ",
-      subtitle: "EXT. ANKARA APARTMANLARI // MEKÂN ÇAĞRISI",
+      title: "MURAT'IN EVİ // PENTHOUSE",
+      subtitle: "INT/EXT. KUZEY BLOKLARI / GÖKDELEN REZİDANS // BÖLÜM 1",
       image: "assets/img/loc_murat_home.jpg",
       characterId: "murat",
       characterName: "Murat",
-      characterRole: "Henüz Bulunmadı",
-      atmosphere: "MURAT'IN EVİ — Henüz bulunmadı. 'Evi de mi biz bulak müdür? :D Bu mekânı biliyor olabilirsin.'",
-      musicNote: "Uzak Trafik Uğultusu",
-      isMissingLocation: true,
-      noteOrigin: "Apartman Giriş Zili",
-      props: []
+      characterRole: "Soğuk Yalnızlık & Şehre Tepeden Bakış",
+      atmosphere: "Gölün ve Susuz'un tam karşısında, şehrin yeni gökdelen aksında camdan bir kule. Tavandan tabana camlar, Ankara'nın karanlık otoyol ışıkları ve aşağıdaki şehir. Bir bardak maden suyu, masada kapalı bir dosya ve araba anahtarı. Murat'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı.",
+      musicNote: "Gece Otoyol Uğultusu ve Kuru Ayaz",
+      noteOrigin: "Masadaki Dosya Kenarı",
+      props: [
+        {
+          name: "Masa Üzerindeki Dosya ve Anahtarlar",
+          icon: "📁",
+          desc: "Torpido anahtarları ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey."
+        },
+        {
+          name: "Panoramik Ankara Camı",
+          icon: "🌃",
+          desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası."
+        }
+      ]
     },
 
     studio: {
       id: "studio",
       title: "KENAN'IN STÜDYOSU",
-      subtitle: "INT. SES ATÖLYESİ // MÜZİK WISHLIST VE STEMLER",
+      subtitle: "INT. BATI YAKASI SES ATÖLYESİ // STEMLER & WISHLIST",
       image: "assets/img/loc_studio.jpg",
       characterId: "kenan",
       characterName: "Kenan",
       characterRole: "Müzik Üretim Laboratuvarı",
-      atmosphere: "Kenan’ın alanı. Track stemleri. Mikrofon. Not defteri. Şarkıların demo hâlleri ve enstrüman wishlist'i.",
+      atmosphere: "Gölün batı yakasında, Susuz mahallesinden ve Bahar'ın evinden uzakta bağımsız bir sığınak. Şehrin iki ayrı yakası; bir yanda Kenan'ın ses mikseri, diğer yanda sokaklar. Track stemleri, analog mikrofon, not defteri ve şarkıların demoları.",
       musicNote: "Sınırda Kalanım / Bataklık Stemleri",
       isStudioSpecial: true,
       noteOrigin: "Stüdyodaki Not Defteri",
-      props: []
+      props: [
+        {
+          name: "Analog Mikser & Parça Listesi",
+          icon: "🎛️",
+          desc: "Kenan'ın masasında duran parça listesi: 'Sınırda Kalanım', 'Bataklık', 'Gospel Baby'. Stüdyonun analog kalbi."
+        },
+        {
+          name: "Vokal Mikrofonu & Kül Tablası",
+          icon: "🎙️",
+          desc: "Ekrem'in taburede it oturuşuyla şarkıyı söylediği, ucunda dumanı tüten sigaranın durduğu mikrofon standı."
+        }
+      ]
     }
   };
 
