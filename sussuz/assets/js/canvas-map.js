@@ -126,11 +126,11 @@ class SpatialUniverse {
         id: "ritim",
         name: "RİTİM",
         subtitle: "ADA RESTORAN GECE KULÜBÜ",
-        x: 545,
-        y: 375,
+        x: 538,
+        y: 335,
         radius: 28,
-        labelX: 545,
-        labelY: 290,
+        labelX: 538,
+        labelY: 275,
         arrowType: "down",
         color: "rgba(224, 49, 49, "
       },
@@ -138,11 +138,11 @@ class SpatialUniverse {
         id: "hill",
         name: "TEPE",
         subtitle: "AŞIKLAR TEPESİ // ANKARA AYAZI",
-        x: 1180,
-        y: 150,
+        x: 1160,
+        y: 115,
         radius: 26,
-        labelX: 1240,
-        labelY: 95,
+        labelX: 1220,
+        labelY: 65,
         arrowType: "down_left",
         color: "rgba(235, 94, 40, "
       },
@@ -321,10 +321,10 @@ class SpatialUniverse {
         { 
           id: "interior_stage_song", 
           name: "SAHNEDE KENAN'I DİNLE", 
-          relX: 0.165, 
-          relY: 0.549, 
+          relX: 0.305, 
+          relY: 0.485, 
           icon: "🎵", 
-          subtitle: "KENAN — HIRSIZ [SUSSUZ SOUNDTRACK]", 
+          subtitle: "KENAN — HIRSIZ [RİTİM SAHNESİ]", 
           action: "music", 
           src: "KFrAv440Rmg", 
           fallbackSrc: "assets/audio/track_hirsiz.mp3", 
@@ -333,8 +333,8 @@ class SpatialUniverse {
         { 
           id: "interior_to_goksu", 
           name: "GÖKSU'NUN CAM OFİSİNE ÇIK", 
-          relX: 0.615, 
-          relY: 0.284, 
+          relX: 0.735, 
+          relY: 0.220, 
           icon: "🪟", 
           subtitle: "PİSTİ TEPEDEN İZLEYEN SES GEÇİRMEZ ODA", 
           action: "fly_subvenue", 
@@ -342,32 +342,10 @@ class SpatialUniverse {
           desc: "Yukarıda Göksu'nun ses yalıtımlı cam ofisi görünüyor; loş ışıkta aşağıdaki pisti akvaryum gibi izliyor. Kenan ve Göksu sahnesine geçin." 
         },
         { 
-          id: "interior_to_vip", 
-          name: "VIP LOCAYA ÇIK", 
-          relX: 0.950, 
-          relY: 0.280, 
-          icon: "🍸", 
-          subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", 
-          action: "fly_subvenue", 
-          target: "ritim_vip", 
-          desc: "Asma kat VIP loca bölümü. Senaryo yazımı devam ediyor." 
-        },
-        { 
-          id: "interior_to_backstage", 
-          name: "KULİSE GEÇ", 
-          relX: 0.825, 
-          relY: 0.259, 
-          icon: "🎭", 
-          subtitle: "SAHNE ARKASI VE HAZIRLIK", 
-          action: "fly_subvenue", 
-          target: "ritim_backstage", 
-          desc: "Kenan ve ekibin hazırlandığı sahne arkası koridoru." 
-        },
-        { 
           id: "interior_balcony_dialogue", 
           name: "MURAT VE EKREM İLE YÜZLEŞ", 
-          relX: 0.620, 
-          relY: 0.810, 
+          relX: 0.585, 
+          relY: 0.720, 
           icon: "💬", 
           subtitle: "'OĞLUM...' // SAHNE DİYALOĞU", 
           action: "dialogue", 
@@ -378,7 +356,7 @@ class SpatialUniverse {
           id: "interior_to_dancefloor", 
           name: "MURAT'I DANSA GÖTÜR", 
           relX: 0.360, 
-          relY: 0.819, 
+          relY: 0.820, 
           icon: "⚡", 
           subtitle: "EKREM ELİNİ UZATIYOR // 'AYIP LAN ÇOCUĞA'", 
           action: "fly_subvenue", 
@@ -386,10 +364,32 @@ class SpatialUniverse {
           desc: "Ekrem gülerek elini uzatır: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa.' Murat'ı yeniden pistin içine çeker." 
         },
         { 
+          id: "interior_to_vip", 
+          name: "VIP LOCAYA ÇIK", 
+          relX: 0.880, 
+          relY: 0.380, 
+          icon: "🍸", 
+          subtitle: "ŞU AN SAHNESİ YOK (YAZILIYOR :D)", 
+          action: "fly_subvenue", 
+          target: "ritim_vip", 
+          desc: "Asma kat VIP loca bölümü. Senaryo yazımı devam ediyor." 
+        },
+        { 
+          id: "interior_to_backstage", 
+          name: "KULİSE GEÇ", 
+          relX: 0.140, 
+          relY: 0.620, 
+          icon: "🎭", 
+          subtitle: "SAHNE ARKASI VE HAZIRLIK", 
+          action: "fly_subvenue", 
+          target: "ritim_backstage", 
+          desc: "Kenan ve ekibin hazırlandığı sahne arkası koridoru." 
+        },
+        { 
           id: "interior_to_accounting", 
           name: "PRODÜKSİYON MASASINA BAK", 
-          relX: 0.552, 
-          relY: 0.938, 
+          relX: 0.920, 
+          relY: 0.900, 
           icon: "📋", 
           subtitle: "CANLI İHTİYAÇLAR VE KATKI HAVUZU", 
           action: "fly_subvenue", 
@@ -400,7 +400,7 @@ class SpatialUniverse {
           id: "interior_to_exterior", 
           name: "KAPIYA / DIŞARI DÖN", 
           relX: 0.060, 
-          relY: 0.880, 
+          relY: 0.900, 
           icon: "🚪", 
           subtitle: "RİTİM GİRİŞİ // MEKÂN ÖNÜ", 
           action: "fly_subvenue", 
@@ -452,8 +452,8 @@ class SpatialUniverse {
         { 
           id: "hill_smoke", 
           name: "SİGARAYI PAYLAŞ", 
-          relX: 0.505, 
-          relY: 0.579, 
+          relX: 0.685, 
+          relY: 0.560, 
           icon: "🚬", 
           subtitle: "05:30 // ANKARA AYAZI // 'YANLIŞSA DA BENİM YANLIŞIM OLUR'", 
           action: "prop", 
@@ -462,9 +462,9 @@ class SpatialUniverse {
         },
         { 
           id: "hill_dialogue", 
-          name: "TÜBİTAK DİYALOĞUNU DİNLE", 
-          relX: 0.396, 
-          relY: 0.645, 
+          name: "MURAT İLE KONUŞ // KALBİ", 
+          relX: 0.525, 
+          relY: 0.530, 
           icon: "💬", 
           subtitle: "MURAT VE EKREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", 
           action: "dialogue", 
@@ -472,22 +472,33 @@ class SpatialUniverse {
           desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" 
         },
         { 
+          id: "hill_ekrem_dialogue", 
+          name: "EKREM İLE KONUŞ // KALBİ", 
+          relX: 0.770, 
+          relY: 0.580, 
+          icon: "💬", 
+          subtitle: "EKREM'İN İÇ DÜNYASI // GÜVEN VE YANILGI", 
+          action: "dialogue", 
+          charId: "ekrem", 
+          desc: "Ekrem ayazda sigarasını çekerken Murat'a bakar. 'Ben hissettiğim şeye güvenirim.'" 
+        },
+        { 
           id: "hill_music", 
           name: "BİLMEM, BEN DE'Yİ DİNLE", 
-          relX: 0.647, 
-          relY: 0.872, 
+          relX: 0.880, 
+          relY: 0.840, 
           icon: "📻", 
           subtitle: "MURAT — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", 
           action: "music", 
           src: "CvSByNL1r48", 
           fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", 
-          desc: "Murat söylüyor; Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." 
+          desc: "Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." 
         },
         { 
           id: "hill_note", 
           name: "TORPİDOYA BİR NOT BIRAK", 
-          relX: 0.683, 
-          relY: 0.833, 
+          relX: 0.780, 
+          relY: 0.850, 
           icon: "✍️", 
           subtitle: "ARABA TORPİDOSUNA FISILDA", 
           action: "note", 
@@ -498,20 +509,31 @@ class SpatialUniverse {
       garden: [
         { 
           id: "garden_dialogue", 
-          name: "ATA İLE KONUŞ", 
-          relX: 0.428, 
-          relY: 0.785, 
+          name: "ATA İLE KONUŞ // KALBİ", 
+          relX: 0.435, 
+          relY: 0.720, 
           icon: "💬", 
           subtitle: "SEÇİLMİŞ AİLE // ÇOCUĞUN DÜNYASI", 
           action: "dialogue", 
           charId: "ata", 
-          desc: "Ata: 'Bana okulda senin anan babanı mı sikiyo dediler.' Bu insanların ilişkileri yetişkinlerin meselesi değil sadece." 
+          desc: "Ata: 'Ata ile nasıl aile oldunuz?' Bu insanların ilişkileri yetişkinlerin meselesi değil sadece." 
+        },
+        { 
+          id: "garden_kenan", 
+          name: "KENAN İLE KONUŞ // KALBİ", 
+          relX: 0.655, 
+          relY: 0.580, 
+          icon: "💬", 
+          subtitle: "ABİLİK VE KORUYUCULUK", 
+          action: "dialogue", 
+          charId: "kenan", 
+          desc: "Kenan bankta Ata'ya sevgi ve şefkatle gülümsüyor." 
         },
         { 
           id: "garden_car", 
           name: "TAHTA ARABAYI TUT", 
-          relX: 0.530, 
-          relY: 0.885, 
+          relX: 0.535, 
+          relY: 0.865, 
           icon: "🏎️", 
           subtitle: "KENAN'IN ATA İÇİN YONTTUĞU KIRMIZI ŞERİTLİ OYUNCAK", 
           action: "prop", 
@@ -521,8 +543,8 @@ class SpatialUniverse {
         { 
           id: "garden_swing", 
           name: "SALINCAĞA NOT KAZI", 
-          relX: 0.150, 
-          relY: 0.665, 
+          relX: 0.220, 
+          relY: 0.680, 
           icon: "✍️", 
           subtitle: "PASLI DEMİRE BİR CÜMLE BIRAK", 
           action: "note", 
@@ -593,8 +615,8 @@ class SpatialUniverse {
         {
           id: "ekrem_vocal_heart",
           name: "EKREM İLE YÜZLEŞ // VOKAL",
-          relX: 0.196,
-          relY: 0.534,
+          relX: 0.330,
+          relY: 0.540,
           icon: "💬",
           subtitle: "KALPTE YANAN GOSPEL // EKREM DİYALOĞU",
           action: "dialogue",
@@ -604,8 +626,8 @@ class SpatialUniverse {
         {
           id: "ekrem_mic",
           name: "MİKROFONU DİNLE // GOSPEL BABY",
-          relX: 0.243,
-          relY: 0.482,
+          relX: 0.380,
+          relY: 0.520,
           icon: "🎵",
           subtitle: "EKREM — GOSPEL BABY [SUSSUZ SOUNDTRACK]",
           action: "music",
@@ -616,34 +638,34 @@ class SpatialUniverse {
         {
           id: "studio_screen_lyrics",
           name: "LİRİK EKRANI // SÖZLER VE OKUNUŞ",
-          relX: 0.400,
-          relY: 0.358,
+          relX: 0.216,
+          relY: 0.110,
           icon: "📺",
           subtitle: "DEV TELEPROMPTER // TAM SÖZLER & TELAFUZ",
           action: "lyrics_modal",
           desc: "Stüdyodaki dev ekranda akan şarkı sözleri ve Türkçe fonetik telaffuzları."
         },
         {
+          id: "kenan_heart",
+          name: "KENAN İLE KONUŞ",
+          relX: 0.675,
+          relY: 0.530,
+          icon: "💬",
+          subtitle: "MÜZİĞİN VE RİTİM'İN PRODÜKTÖRÜ",
+          action: "dialogue",
+          charId: "kenan",
+          desc: "Kenan konsol başında gülümsüyor, Ekrem'in yorumunu heyecanla dinliyor."
+        },
+        {
           id: "kenan_mixer_desk",
           name: "KENAN'IN KONSOLU",
-          relX: 0.581,
-          relY: 0.833,
+          relX: 0.720,
+          relY: 0.780,
           icon: "🎛️",
           subtitle: "ANALOG FADERLAR & VU METRELER",
           action: "prop",
           propName: "Kenan'ın Mikser Ayarları",
           desc: "Kenan faderları dengeliyor. 'Daha Anadolu sesi lazım bu şarkıya... Tam oldu.'"
-        },
-        {
-          id: "kenan_heart",
-          name: "KENAN İLE KONUŞ",
-          relX: 0.472,
-          relY: 0.677,
-          icon: "💬",
-          subtitle: "MÜZİĞİN VE RİTİM'İN PRODÜKTÖRÜ",
-          action: "dialogue",
-          charId: "kenan",
-          desc: "Kenan ile konuşun."
         },
         {
           id: "return_to_studio_desk",
@@ -1220,65 +1242,97 @@ class SpatialUniverse {
   }
 
   _renderStudioLiveTeleprompter(ctx, time, w, h) {
-    const s = { relX: 0.400, relY: 0.358 };
-    const pos = this._getHotspotScreenPos(s, w, h);
-    
-    // Dev TV ekranı sınırları
-    const screenW = w * 0.23;
-    const screenH = h * 0.22;
-    const left = pos.x - screenW / 2;
-    const top = pos.y - screenH / 2;
+    const scale = 1.05;
+    const offsetX = -this.parallax.x * 0.75 + this.sceneOffset.x;
+    const offsetY = -this.parallax.y * 0.75 + this.sceneOffset.y - (this.undergroundDepth * h * 0.95);
+    const imgLeft = offsetX - (w * (scale - 1)) / 2;
+    const imgTop = offsetY - (h * (scale - 1)) / 2;
+    const imgW = w * scale;
+    const imgH = h * scale;
+
+    // loc_studio_ekrem.jpg TV Ekranı iç koordinatları
+    const tvLeft = imgLeft + 0.0814 * imgW;
+    const tvTop = imgTop + 0.0547 * imgH;
+    const tvW = 0.2689 * imgW;
+    const tvH = 0.3672 * imgH;
 
     ctx.save();
-    // Hafif ekran camı parlaması
-    const scrGlow = ctx.createLinearGradient(left, top, left, top + screenH);
-    scrGlow.addColorStop(0, "rgba(56, 178, 172, 0.14)");
-    scrGlow.addColorStop(0.5, "rgba(2, 6, 12, 0.45)");
-    scrGlow.addColorStop(1, "rgba(56, 178, 172, 0.08)");
-    ctx.fillStyle = scrGlow;
-    ctx.fillRect(left, top, screenW, screenH);
+    // TV ekran çerçevesi içine kırp
+    ctx.beginPath();
+    ctx.rect(tvLeft, tvTop, tvW, tvH);
+    ctx.clip();
 
-    // Üst Bar: Canlı Kayıt ve Zaman Kodu
-    ctx.font = "600 8.5px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "rgba(255, 107, 107, 0.95)";
+    // Mat siyah ekran zemini
+    ctx.fillStyle = "rgba(5, 8, 14, 0.95)";
+    ctx.fillRect(tvLeft, tvTop, tvW, tvH);
+
+    // Üst Bar: Canlı Kayıt ve Zaman Kodu (Kırmızı yanıp sönen kayıt noktası)
+    const pulseRed = Math.sin(time * 0.005) > 0;
+    ctx.font = `600 ${Math.max(9, Math.floor(tvH * 0.055))}px 'JetBrains Mono', monospace`;
+    ctx.fillStyle = pulseRed ? "#ff4d4f" : "#821a1a";
     ctx.textAlign = "left";
-    const pulseDot = Math.sin(time * 0.005) > 0 ? "●" : "○";
-    ctx.fillText(`${pulseDot} REC // GOSPEL BABY — EKREM`, left + 10, top + 15);
+    ctx.fillText("● REC // GOSPEL BABY — EKREM VOCAL TAKE 01", tvLeft + tvW * 0.05, tvTop + tvH * 0.12);
 
-    // Akan Lirik
-    const lineDuration = 3800; // ms
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(tvLeft + tvW * 0.05, tvTop + tvH * 0.16);
+    ctx.lineTo(tvLeft + tvW * 0.95, tvTop + tvH * 0.16);
+    ctx.stroke();
+
+    // Lirik Zamanlaması
+    const lineDuration = 3800; // ms per lyric pair
     const totalLines = GOSPEL_BABY_LYRICS.length;
     const rawIdx = Math.floor((time / lineDuration) % totalLines);
-    const curLyric = GOSPEL_BABY_LYRICS[rawIdx];
 
-    // İngilizce Orijinal (Büyük, Temiz, Işıltılı)
+    const centerY = tvTop + tvH * 0.52;
+    const lineSpacing = tvH * 0.22;
+
+    const cur = GOSPEL_BABY_LYRICS[rawIdx];
+    const nxt = GOSPEL_BABY_LYRICS[(rawIdx + 1) % totalLines];
+    const prv = GOSPEL_BABY_LYRICS[(rawIdx - 1 + totalLines) % totalLines];
+
+    // Önceki Satır (Silik)
+    ctx.font = `500 ${Math.max(8, Math.floor(tvH * 0.052))}px 'Inter', sans-serif`;
+    ctx.fillStyle = "rgba(148, 163, 184, 0.3)";
     ctx.textAlign = "center";
-    ctx.font = "600 11px 'Cinzel', Georgia, serif";
+    ctx.fillText(prv.en, tvLeft + tvW * 0.5, centerY - lineSpacing);
+
+    // Aktif İngilizce Orijinal Satır (Parlak Beyaz / Altın Serif)
+    ctx.font = `700 ${Math.max(10, Math.floor(tvH * 0.072))}px 'Cinzel', serif`;
     ctx.fillStyle = "#ffffff";
-    ctx.shadowColor = "rgba(56, 178, 172, 0.8)";
+    ctx.shadowColor = "rgba(255, 215, 80, 0.65)";
     ctx.shadowBlur = 8;
-    ctx.fillText(curLyric.en, pos.x, pos.y - 4);
-
-    // Türkçe Fonetik Okunuş (Altın Sarısı Mono Font)
+    ctx.fillText(cur.en, tvLeft + tvW * 0.5, centerY - 4);
     ctx.shadowBlur = 0;
-    ctx.font = "700 9.5px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#ffd43b";
-    ctx.fillText(curLyric.tr, pos.x, pos.y + 16);
 
-    // Sonraki Satır Önizleme (Loş)
-    const nextIdx = (rawIdx + 1) % totalLines;
-    ctx.font = "400 8px 'Inter', sans-serif";
-    ctx.fillStyle = "rgba(148, 163, 184, 0.55)";
-    ctx.fillText(GOSPEL_BABY_LYRICS[nextIdx].en, pos.x, pos.y + 36);
+    // Türkçe Fonetik Okunuş Rehberi (Altın Mono Font)
+    ctx.font = `600 ${Math.max(8, Math.floor(tvH * 0.055))}px 'JetBrains Mono', monospace`;
+    ctx.fillStyle = "#ffd43b";
+    ctx.fillText(`[ ${cur.tr} ]`, tvLeft + tvW * 0.5, centerY + tvH * 0.09);
+
+    // Sonraki Satır (Silik)
+    ctx.font = `500 ${Math.max(8, Math.floor(tvH * 0.052))}px 'Inter', sans-serif`;
+    ctx.fillStyle = "rgba(148, 163, 184, 0.3)";
+    ctx.fillText(nxt.en, tvLeft + tvW * 0.5, centerY + lineSpacing + 4);
+
+    // Alt Kısım: Ses Dalgası / Equalizer Animasyonu
+    ctx.fillStyle = "rgba(212, 175, 55, 0.45)";
+    const waveCount = 24;
+    const barW = (tvW * 0.88) / waveCount;
+    for (let i = 0; i < waveCount; i++) {
+      const barH = Math.abs(Math.sin(time * 0.005 + i * 0.45)) * (tvH * 0.12);
+      ctx.fillRect(tvLeft + tvW * 0.06 + i * barW + 1, tvTop + tvH * 0.94 - barH, barW - 2, barH);
+    }
 
     ctx.restore();
   }
 
-  // Sahne İçi Sıcak Noktalar Çizimi
+  // Sahne İçi Sıcak Noktalar Çizimi (Ek-2 Kanonik Altın Halka Mimarisi)
   _renderSceneHotspots(ctx, time, w, h) {
     if (!this.activeSceneId || !this.sceneHotspots[this.activeSceneId]) return;
 
-    // studio_ekrem sahnesi için dev TV ekranında canlı akan teleprompter lirik efekti
+    // studio_ekrem sahnesi için dev TV ekranında canlı teleprompter lirik efekti
     if (this.activeSceneId === "studio_ekrem") {
       this._renderStudioLiveTeleprompter(ctx, time, w, h);
     }
@@ -1292,27 +1346,30 @@ class SpatialUniverse {
 
       ctx.save();
 
-      const pulse = Math.sin(t * 3 + s.relX * 10) * 0.35 + 0.65;
-      const baseRadius = isHovered ? 18 : 12;
-      const glowGrad = ctx.createRadialGradient(pos.x, pos.y, 2, pos.x, pos.y, baseRadius * 1.6);
-      glowGrad.addColorStop(0, isHovered ? "rgba(255, 235, 180, 0.95)" : "rgba(224, 49, 49, 0.7)");
-      glowGrad.addColorStop(0.5, isHovered ? "rgba(224, 49, 49, 0.4)" : "rgba(224, 49, 49, 0.2)");
-      glowGrad.addColorStop(1, "rgba(224, 49, 49, 0)");
+      const pulse = Math.sin(t * 3.5 + s.relX * 12) * 0.35 + 0.65;
+      const baseRadius = isHovered ? 13 : 9;
 
-      ctx.fillStyle = glowGrad;
+      // 1. Ek-2 Yumuşak Altın Işıma Halosu (Glow Halo)
+      const haloGrad = ctx.createRadialGradient(pos.x, pos.y, 2, pos.x, pos.y, baseRadius * 1.8);
+      haloGrad.addColorStop(0, isHovered ? "rgba(255, 235, 150, 0.55)" : "rgba(255, 215, 80, 0.28)");
+      haloGrad.addColorStop(0.6, isHovered ? "rgba(212, 175, 55, 0.18)" : "rgba(212, 175, 55, 0.09)");
+      haloGrad.addColorStop(1, "rgba(212, 175, 55, 0)");
+      ctx.fillStyle = haloGrad;
       ctx.beginPath();
-      ctx.arc(pos.x, pos.y, baseRadius * 1.6, 0, Math.PI * 2);
+      ctx.arc(pos.x, pos.y, baseRadius * 1.8, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.strokeStyle = isHovered ? "rgba(255, 240, 200, 0.9)" : "rgba(229, 222, 211, 0.45)";
-      ctx.lineWidth = 1;
+      // 2. Ek-2 Hassas İnce Dış Halka
+      ctx.strokeStyle = isHovered ? "rgba(255, 245, 200, 0.95)" : "rgba(255, 215, 80, 0.65)";
+      ctx.lineWidth = isHovered ? 1.6 : 1.2;
       ctx.beginPath();
-      ctx.arc(pos.x, pos.y, baseRadius * (isHovered ? 1.1 : (0.8 + pulse * 0.2)), 0, Math.PI * 2);
+      ctx.arc(pos.x, pos.y, baseRadius * (isHovered ? 1.05 : (0.85 + pulse * 0.15)), 0, Math.PI * 2);
       ctx.stroke();
 
-      ctx.fillStyle = isHovered ? "#ffffff" : "rgba(255, 220, 180, 0.85)";
+      // 3. Ek-2 İç Dolu Parlak Altın Merkez Nokta
+      ctx.fillStyle = isHovered ? "#ffffff" : "#ffe57f";
       ctx.beginPath();
-      ctx.arc(pos.x, pos.y, 2.5, 0, Math.PI * 2);
+      ctx.arc(pos.x, pos.y, isHovered ? 4.0 : 3.0, 0, Math.PI * 2);
       ctx.fill();
 
       if (isHovered) {

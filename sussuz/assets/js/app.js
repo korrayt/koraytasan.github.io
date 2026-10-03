@@ -8,8 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const SCENE_DATA = {
     ritim: {
       id: "ritim",
-      title: "RİTİM (GİRİŞ & DIŞ ALAN)",
-      subtitle: "EXT. GÖKSU PARKI ADASI (ESKİ ADA RESTORANI) — 01:45 // BÖLÜM 1, SAHNE 1",
+      sceneTag: "SAHNE 01 // RİTİM GİRİŞİ",
+      title: "RİTİM // KULÜP ÖNÜ",
+      subtitle: "EXT. GÖKSU PARKI ADASI — 01:45 // BÖLÜM 1, SAHNE 1",
+      location: "Göksu Adası",
+      time: "01:45",
+      period: "Günümüz",
+      ctaIcon: "🚪",
+      ctaText: "İÇERİ GİR",
+      ctaTarget: "ritim_interior",
       image: "assets/img/loc_ritim.jpg",
       characterId: "ekrem",
       characterName: "Ekrem ve Murat",
@@ -23,27 +30,42 @@ document.addEventListener("DOMContentLoaded", () => {
       noteOrigin: "RİTİM Giriş Panosu",
       props: [
         {
-          name: "İçeri Gir",
+          name: "İÇERİ GİR // SALON",
           icon: "🚪",
-          desc: "Ritim'in neon ışıklı kapısından ana salona adım atın."
+          thumb: "assets/img/props/prop_kenan_stage.jpg",
+          subtitle: "ANA SAHNE & SALON",
+          desc: "Ritim'in neon ışıklı kapısından ana salona adım atın.",
+          action: "fly_subvenue",
+          target: "ritim_interior"
         },
         {
-          name: "Murat'ı Durdur",
+          name: "MURAT'I DURDUR",
           icon: "✋",
-          desc: "Ekrem'in yola atlayarak arabayı durdurduğu 1. bölüm final sahnesi."
+          thumb: "assets/img/props/prop_murat_hill.jpg",
+          subtitle: "1. BÖLÜM FİNALİ",
+          desc: "Ekrem'in yola atlayarak arabayı durdurduğu 1. bölüm final sahnesi.",
+          action: "fly_subvenue",
+          target: "ritim_road"
         }
       ]
     },
 
     ritim_interior: {
       id: "ritim_interior",
-      title: "RİTİM (GENEL İÇ MEKÂN)",
+      sceneTag: "SAHNE 02 // RİTİM SALONU",
+      title: "RİTİM // ANA SALON & SAHNE",
       subtitle: "INT. RİTİM / GENEL AÇI — 02:15 // BÖLÜM 1 & 2 KÖPRÜSÜ",
+      location: "Ana Salon",
+      time: "02:15",
+      period: "Günümüz",
+      ctaIcon: "🎵",
+      ctaText: "HIRSIZ'I DİNLE",
+      ctaAudio: "KFrAv440Rmg",
       image: "assets/img/loc_ritim_interior.jpg",
       characterId: "murat_ekrem_balcony",
       characterName: "Murat ve Ekrem",
       characterRole: "Pist Kenarında Sahneye Bakış // 'Oğlum...'",
-      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu ekranda görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
+      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu sahnede görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
       musicNote: "HIRSIZ — Kenan Sahne Prömiyeri (124 BPM)",
       subvenues: [
         { id: "dancefloor", label: "Murat'ı Dansa Götür (Pist)" },
@@ -56,32 +78,55 @@ document.addEventListener("DOMContentLoaded", () => {
       noteOrigin: "Pist Kenarı",
       props: [
         {
-          name: "Sahnede Kenan (Hırsız Prömiyeri)",
+          name: "SAHNEDE KENAN",
           icon: "🎵",
-          desc: "Dev ekranlarda Kenan, RİTİM logosu ve yeni parçanın prömiyeri. İlk beat giriyor, kalabalık bağırıyor."
+          thumb: "assets/img/props/prop_kenan_stage.jpg",
+          subtitle: "HIRSIZ PRÖMİYERİ",
+          desc: "Dev ekranlarda Kenan, RİTİM logosu ve yeni parçanın prömiyeri.",
+          action: "music",
+          audioSrc: "KFrAv440Rmg"
         },
         {
-          name: "Yukarıdaki Cam Ofis",
+          name: "CAM OFİS // GÖKSU",
           icon: "🪟",
-          desc: "Yukarıdaki loş cam ofisten Göksu aşağıdaki dans pistini bir akvaryum gibi izliyor."
+          thumb: "assets/img/props/prop_goksu_office.jpg",
+          subtitle: "PİSTİ İZLEYEN CAM ODA",
+          desc: "Yukarıdaki loş cam ofisten Göksu dans pistini akvaryum gibi izliyor.",
+          action: "fly_subvenue",
+          target: "goksu_room"
         },
         {
-          name: "Murat ve Ekrem Pist Kenarında",
+          name: "MURAT VE EKREM",
           icon: "💬",
-          desc: "Murat oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.' Ekrem: 'Oğlunun şarkısında surat asma.'"
+          thumb: "assets/img/props/prop_murat_ekrem.jpg",
+          subtitle: "'OĞLUM...' DİYALOĞU",
+          desc: "Murat oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.'",
+          action: "dialogue",
+          charId: "murat_ekrem_balcony"
         },
         {
-          name: "Murat'ı Dansa Götür",
+          name: "DANS PİSTİ",
           icon: "⚡",
-          desc: "Ekrem elini uzatır, Murat'ı gülerek pistin içine çeker."
+          thumb: "assets/img/props/prop_dancefloor.jpg",
+          subtitle: "KALABALIK VE TEMAS",
+          desc: "Ekrem elini uzatır, Murat'ı gülerek pistin içine çeker.",
+          action: "fly_subvenue",
+          target: "dancefloor"
         }
       ]
     },
 
     ritim_road: {
       id: "ritim_road",
-      title: "MEKÂN ÖNÜ YOL",
+      sceneTag: "SAHNE 03 // YOL SAHNESİ",
+      title: "MEKÂN ÖNÜ YOL // DÖNÜM NOKTASI",
       subtitle: "EXT. RİTİM ÇIKIŞI & BAĞLANTI YOLU — 04:30 // BÖLÜM 1 FİNALİ",
+      location: "Kulüp Yolu",
+      time: "04:30",
+      period: "Günümüz",
+      ctaIcon: "✋",
+      ctaText: "MURAT'I DURDUR",
+      ctaAction: "prop",
       image: "assets/img/loc_ritim_road.jpg",
       characterId: "ekrem",
       characterName: "Ekrem ve Murat",
@@ -90,23 +135,23 @@ document.addEventListener("DOMContentLoaded", () => {
       musicNote: "Bilmem, Ben De — Kuru Gece Ayazı",
       subvenues: [
         { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
         { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" }
       ],
       noteOrigin: "Yol Kenarı Kaldırım Taşı",
       props: [
         {
-          name: "Ekrem'in Murat'ı Durdurduğu An",
+          name: "DURDURULAN AN",
           icon: "✋",
+          thumb: "assets/img/props/prop_smoke.jpg",
+          subtitle: "EKREM'İN MÜDAHALESİ",
           desc: "EKREM: 'Sana gerisini göstereceğim.' Murat anahtarı cebine atar; gece henüz bitmemiştir."
         },
         {
-          name: "Farları Yanan Mercedes",
+          name: "FARLARI YANAN ARABA",
           icon: "🚘",
+          thumb: "assets/img/props/prop_mercedes_torpido.jpg",
+          subtitle: "MERCEDES FARLARI",
           desc: "Asfaltın üzerinde buğulanmış far ışıkları. Ankara gecesinde iki yabancı."
         }
       ]
@@ -114,1522 +159,600 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dancefloor: {
       id: "dancefloor",
-      title: "ANA DANS PİSTİ",
+      sceneTag: "SAHNE 02A // DANS PİSTİ",
+      title: "RİTİM // ANA DANS PİSTİ",
       subtitle: "INT. RİTİM / ALT KAT PİST — 02:40 // BÖLÜM 2, SAHNE 1",
+      location: "Alt Kat Pist",
+      time: "02:40",
+      period: "Günümüz",
+      ctaIcon: "⚡",
+      ctaText: "ENSE TEMASI",
+      ctaAction: "prop",
       image: "assets/img/scene_dancefloor.png",
       characterId: "ekrem",
-      characterName: "Murat ve Ekrem",
-      characterRole: "Kontrolün Kaybı & İlk Temas",
-      atmosphere: "Bas zemini titretiyor. Tavanda Göksu'nun ses yalıtımlı cam ofisi görünüyor; camın arkasından aşağıdaki dans pisti loş bir akvaryum gibi izleniyor. Murat ve Ekrem gülerek dans ediyor. 'HIRSIZ' çalıyor. MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'",
-      musicNote: "HIRSIZ — Club Noir Bas Riff (124 BPM)",
-      noteOrigin: "Kulüp Tuvalet Duvarı",
+      characterName: "Ekrem ve Murat",
+      characterRole: "Pist İçi Yakınlaşma",
+      atmosphere: "Ritim'in dans pisti. Baslar duvarları titretiyor. Ekrem Murat'ın ensesine dokunur: 'Öbür tarafa gitsen bara giricen.' Murat güler. MURAT: 'Olm, polisim ben!' — EKREM: 'Merhaba ben de torbacı :D'",
+      musicNote: "HIRSIZ — Dans Pisti Miksi (Club Edit)",
       subvenues: [
         { id: "ritim_interior", label: "Genel Salona Dön" },
         { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
         { id: "ritim_vip", label: "VIP Loca (Yazılıyor)" },
         { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" },
-        { id: "ritim", label: "Dışarıya Çık" }
+        { id: "ritim", label: "Kulüp Çıkışı" }
       ],
+      noteOrigin: "Dans Pisti Kolonu",
       props: [
         {
-          name: "Tavandaki Cam Ofis",
-          icon: "🪟",
-          desc: "Yukarıdaki cam ofisten Göksu aşağıdaki pisti izliyor. Dans pistinden cam ve içindeki siluetler net görülüyor."
-        },
-        {
-          name: "Ense Teması",
+          name: "ENSE TEMASI",
           icon: "⚡",
+          thumb: "assets/img/props/prop_dancefloor.jpg",
+          subtitle: "KONTROLÜN KAYBI",
           desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır."
         },
         {
-          name: "Polis Dansı",
-          icon: "🕺",
-          desc: "EKREM: 'Polis gibi dans ediyorsun... Dimdik, kollar kontrollü, gözler çıkışlarda.'"
+          name: "POLİS VE TORBACI",
+          icon: "💬",
+          thumb: "assets/img/props/prop_murat_ekrem.jpg",
+          subtitle: "TANIŞMA ANI",
+          desc: "MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'",
+          action: "dialogue",
+          charId: "ekrem"
         }
       ]
     },
 
     goksu_room: {
       id: "goksu_room",
+      sceneTag: "SAHNE 02B // GÖKSU OFİSİ",
       title: "GÖKSU'NUN CAM OFİSİ",
-      subtitle: "INT. RİTİM / ÜST KAT CAM OFİS — 02:15 // BÖLÜM 1, SAHNE 2",
-      image: "assets/img/loc_office.jpg",
+      subtitle: "INT. RİTİM / ÜST KAT CAM OFİS — 02:50 // BÖLÜM 2, SAHNE 2",
+      location: "Üst Kat Ofis",
+      time: "02:50",
+      period: "Günümüz",
+      ctaIcon: "📁",
+      ctaText: "DOSYAYI AÇ",
+      ctaAction: "prop",
+      image: "assets/img/goksu_kenan_office.jpg",
       characterId: "kenan",
-      characterName: "Kenan (ve Göksu)",
-      characterRole: "Kenan Göksu'yu Oyalıyor",
-      atmosphere: "Dans pistini tepeden gören devasa cam ofis. Odada telefonlar, güvenlik ekranları, camın arkasında aşağıdaki kalabalık. Kenan onu oyalıyor. Arkada: 'Bu Şarkıyı Kaybedemem' çalıyor. 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'",
-      musicNote: "Bu Şarkıyı Kaybedemem — Loş Piyano ve Bas",
-      noteOrigin: "Göksu'nun Masasındaki Telefon",
+      characterName: "Göksu ve Kenan",
+      characterRole: "Ritim'in Sahibi & Genç Müzisyen",
+      atmosphere: "Göksu masasında oturuyor. Duvarda neon ve viski şişeleri. Kenan köşede akustik gitarıyla hafif bir melodi çalıyor. Göksu masadaki yarım dosyayı Murat'a uzatır: 'Yarım dosya... Yarısı yeter.'",
+      musicNote: "Bu Şarkıyı Kaybedemem — Akustik Demo",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "dancefloor", label: "Dans Pistine Bak" },
+        { id: "ritim_interior", label: "Genel Salona Dön" },
+        { id: "ritim", label: "Kulüp Dışına Çık" }
       ],
+      noteOrigin: "Cam Ofis Masası",
       props: [
         {
-          name: "Dans Pistini Gören Cam Cephe",
-          icon: "🪟",
-          desc: "Camın ardından aşağıdaki dans pistinde Murat ve Ekrem'in dans ettiği kalabalık loş bir akvaryum gibi görünüyor."
-        },
-        {
-          name: "Bu Şarkıyı Kaybedemem (Sözler)",
-          icon: "🎵",
-          desc: "Kenan'ın Göksu'ya dinlettiği demo: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'"
-        },
-        {
-          name: "Bahar / Deniz Dosyası",
+          name: "BAHAR / DENİZ DOSYASI",
           icon: "📁",
-          desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'"
+          thumb: "assets/img/props/prop_goksu_office.jpg",
+          subtitle: "YARIM KALAN SORUŞTURMA",
+          desc: "Göksu: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'"
+        },
+        {
+          name: "KENAN'IN GİTARI",
+          icon: "🎵",
+          thumb: "assets/img/props/prop_kenan_studio.jpg",
+          subtitle: "KAYBI DİNLE",
+          desc: "Kenan'ın Göksu'ya dinlettiği parça: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'",
+          action: "music",
+          audioSrc: "assets/audio/track_kaybedemem.mp3"
         }
       ]
     },
 
     ritim_vip: {
       id: "ritim_vip",
-      title: "VIP / ÜST KAT LOCA",
-      subtitle: "INT. RİTİM / ASMA KAT VIP LOCA // SENARYO AŞAMASI",
+      sceneTag: "SAHNE 02C // VIP LOCA",
+      title: "VIP LOCA // ASMA KAT",
+      subtitle: "INT. RİTİM / VIP LOCA — 03:00 // ŞU AN YAZILIYOR :D",
+      location: "Asma Kat",
+      time: "03:00",
+      period: "Günümüz",
+      ctaIcon: "🍸",
+      ctaText: "LOCAYI İZLE",
+      ctaAction: "prop",
       image: "assets/img/loc_ritim_vip.jpg",
-      characterId: "goksu",
-      characterName: "Senaryo Yazım Odası",
-      characterRole: "Görünmeyen Güçler & Bürokratlar",
-      atmosphere: "ŞU AN SAHNESİ YOK, YAZILIYOR. :D // Şehrin bürokratları, karanlık sermayesi ve Susuz'un görünmeyen yüzleri için ayrılmış asma kat VIP loca bölümü. Senaryo yazım aşamasında kurgulanıyor. Yazım ilerlemesi: %25.",
-      musicNote: "Boğuk Şampanya & Derin Bas",
-      noteOrigin: "VIP Loca Masası",
       isLockedRoom: true,
+      characterId: null,
+      characterName: "VIP Misafirler",
+      characterRole: "Senaryo Hazırlığı Sürüyor",
+      atmosphere: "Şehrin bürokratları ve Susuz'un görünmeyen yüzleri için ayrılmış VIP loca bölümü. Senaryo yazımı devam ediyor.",
+      musicNote: "Karanlık Derin Sub-Bass (Lo-Fi Ambient)",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "dancefloor", label: "Dans Pistine İn" },
+        { id: "ritim_interior", label: "Genel Salona Dön" }
       ],
+      noteOrigin: "VIP Masa Kenarı",
       props: [
         {
-          name: "Kilitli Kapı ve Özel Loca",
-          icon: "🔒",
-          desc: "Bu kapının arkasındaki sahneler şu anda senaryo masasında yazılıyor."
+          name: "LOCA KADEHİ",
+          icon: "🍸",
+          thumb: "assets/img/props/prop_dancefloor.jpg",
+          subtitle: "GİZLİ GÖRÜŞMELER",
+          desc: "Şehrin görünmeyen yüzlerinin oturduğu deri koltuklar."
         }
       ]
     },
 
     ritim_backstage: {
       id: "ritim_backstage",
-      title: "BACKSTAGE / KULİS",
-      subtitle: "INT. RİTİM / SAHNE ARKASI & KORİDORLAR // HAZIRLIK",
+      sceneTag: "SAHNE 02D // KULİS",
+      title: "BACKSTAGE // KULİS",
+      subtitle: "INT. RİTİM / SAHNE ARKASI — 02:00 // BÖLÜM 1",
+      location: "Sahne Arkası",
+      time: "02:00",
+      period: "Günümüz",
+      ctaIcon: "🎭",
+      ctaText: "KULİSİ İNCELE",
+      ctaAction: "prop",
       image: "assets/img/loc_ritim_backstage.jpg",
       characterId: "kenan",
-      characterName: "Kenan ve Ekip",
-      characterRole: "Canlı Sahne Hazırlığı",
-      atmosphere: "Kenan'ın sahneye çıkmadan önce beklediği, bas titreşimlerinin betondan geçtiği dar kulis koridoru. Işıklı aynalar, askıda sahne kostümleri, bantlanmış ses kabloları ve sahne arkası gerilimi.",
-      musicNote: "Uzak Sahne Uğultusu ve Telsiz Hışırtısı",
-      noteOrigin: "Kulis Aynası Kenarı",
+      characterName: "Kenan",
+      characterRole: "Sahne Öncesi Hazırlık",
+      atmosphere: "Sahne arkası loş koridor. Kenan'ın deri ceketi sandalyede asılı. Aynada rujla karalanmış şarkı sözleri.",
+      musicNote: "Canlı Sahne Monitör Uğultusu",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "dancefloor", label: "Piste Adım At" },
+        { id: "ritim_interior", label: "Genel Salona Dön" }
       ],
+      noteOrigin: "Kulis Aynası",
       props: [
         {
-          name: "Kenan'ın Sahne Ceketi",
+          name: "KENAN'IN CEKETİ",
           icon: "🧥",
-          desc: "Askıda bekleyen deri ceket. Göksu'nun parasıyla alınmış ama Kenan'ın öfkesini taşıyan kostüm."
+          thumb: "assets/img/props/prop_kenan_stage.jpg",
+          subtitle: "SAHNE KOSTÜMÜ",
+          desc: "Göksu'nun parasıyla alınmış ama Kenan'ın öfkesini taşıyan kostüm."
         },
         {
-          name: "Kulis Aynası & Karalamalar",
+          name: "AYNADAKİ KARALAMA",
           icon: "🪞",
-          desc: "Ayna kenarına rujla yazılmış bir şarkı satırı: 'Geçti modası artık o eski senin...'"
+          thumb: "assets/img/props/prop_kenan_studio.jpg",
+          subtitle: "RUJLA YAZILMIŞ DİZE",
+          desc: "'Geçti modası artık o eski senin...'"
         }
       ]
     },
 
     accounting: {
       id: "accounting",
-      title: "RİTİM MUHASEBE // PRODÜKSİYON",
-      subtitle: "INT. RİTİM / ARKA OFİS // CANLI İHTİYAÇ MASASI",
+      sceneTag: "PRODÜKSİYON // ŞEFFAFLIK",
+      title: "PRODÜKSİYON & KATKI MASASI",
+      subtitle: "INT. RİTİM / YÖNETİM & KATKI HAVUZU — CANLI AÇIK DEFTER",
+      location: "Yönetim Odası",
+      time: "Canlı",
+      period: "Günümüz",
+      ctaIcon: "📋",
+      ctaText: "KATKI HAVUZUNA GÖZ AT",
+      ctaAction: "prop",
       image: "assets/img/loc_accounting.jpg",
-      characterId: "goksu",
-      characterName: "Muhasebeci (ve Göksu)",
-      characterRole: "Sponsorluk ve Canlı Üretim Merkezi",
-      atmosphere: "Bütün ciddi atmosferi biraz kırıyoruz. Muhasebeci hesap yapıyor: 'Abi oyuncu var, kamera yok.' — 'Kostüm tamam da şu adamı çıplak çekmeyelim diyosan sponsor lazım müdür. :D'",
-      musicNote: "Hesap Makinesi Tıkırtısı & Boğuk Bas",
-      noteOrigin: "Muhasebecinin Masasındaki Post-it",
-      isAccountingSpecial: true,
+      characterId: null,
+      characterName: "Prodüksiyon Ekibi",
+      characterRole: "Açık Defter & Şeffaf Bütçe",
+      atmosphere: "SUSSUZ'un bağımsız prodüksiyon havuzu. Masada gerçek faturalar, ihtiyaç listeleri ve projenin hayata geçmesi için ayrılan bütçe dökümü yer alıyor.",
+      musicNote: "Klavye Tıkırtıları & Kahve Fincanı Sesi",
       subvenues: [
-        { id: "ritim", label: "Giriş / Ada" },
-        { id: "ritim_road", label: "Mekân Önü Yol" },
-        { id: "dancefloor", label: "Ana Dans Pisti" },
-        { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
-        { id: "ritim_vip", label: "VIP / Loca (Yazılıyor)" },
-        { id: "ritim_backstage", label: "Backstage / Kulis" },
-        { id: "accounting", label: "Muhasebe / Prodüksiyon" }
+        { id: "ritim_interior", label: "Ritim Ana Salona Dön" },
+        { id: "studio", label: "Kenan'ın Stüdyosuna Geç" }
       ],
-      props: []
+      noteOrigin: "Katkı Defteri",
+      props: [
+        {
+          name: "AÇIK BÜTÇE DEFTERİ",
+          icon: "📋",
+          thumb: "assets/img/props/prop_analog_console.jpg",
+          subtitle: "CANLI İHTİYAÇLAR",
+          desc: "Işık kiralama, ses miksajı, mekan izinleri ve oyuncu kaşeleri."
+        }
+      ]
     },
 
     hill: {
       id: "hill",
-      title: "TEPE // AŞIKLAR TEPESİ",
-      subtitle: "EXT. SUSUZ SIRTLARI / ISSIZ MANZARA — 05:30 // BÖLÜM 2, SAHNE 12",
+      sceneTag: "SAHNE 06 // AŞIKLAR TEPESİ",
+      title: "AŞIKLAR TEPESİ // ANKARA AYAZI",
+      subtitle: "EXT. ANKARA MANZARASI / TEPE — 05:30 // BÖLÜM 1, SAHNE 15",
+      location: "Aşıklar Tepesi",
+      time: "05:30",
+      period: "Günümüz",
+      ctaIcon: "📻",
+      ctaText: "RADYOYU AÇ",
+      ctaAudio: "CvSByNL1r48",
       image: "assets/img/loc_hill.jpg",
       characterId: "murat",
       characterName: "Murat ve Ekrem",
-      characterRole: "Sessizlik ve Ankara Ayazı",
-      atmosphere: "Eski anten kulelerinden arınmış, virajlı yolun bittiği ıssız tepe. Aşıklar tepesi tadında ama gecenin 05:30'unda sadece rüzgâr ve sigara dumanı. Murat ve Ekrem arabaya yaslanmış, aşağıdaki Ankara ışıklarına bakıyor. 'Bilmem, Ben De' teması giriyor. Ekrem: 'Her şeyi anlatak da diziye ne kaldı yarraam? :D'",
-      musicNote: "Bilmem, Ben De — Kuru Ayaz Rüzgarı",
-      noteOrigin: "Araba Torpido Gözü",
+      characterRole: "Mercedes Kaputunda İki Yabancı",
+      atmosphere: "05:30. Ankara ayazı. Mercedes'in kaputuna yaslanmış iki yabancı sırayla tek bir sigarayı paylaşır. Gece çözülürken kelimeler dökülür.",
+      musicNote: "Bilmem, Ben De — Kuru Gece Ayazı (Akustik)",
+      subvenues: [],
+      noteOrigin: "Mercedes Torpidosu",
       props: [
         {
-          name: "Sırayla İçilen Sigara",
+          name: "PAYLAŞILAN SİGARA",
           icon: "🚬",
-          desc: "EKREM: 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'"
+          thumb: "assets/img/props/prop_smoke.jpg",
+          subtitle: "AYAZDA TEK DUMAN",
+          desc: "EKREM: 'Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur.'"
         },
         {
-          name: "TÜBİTAK Diyaloğu",
-          icon: "🌌",
-          desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'"
+          name: "MURAT İLE YÜZLEŞ",
+          icon: "💬",
+          thumb: "assets/img/props/prop_murat_hill.jpg",
+          subtitle: "'İÇİM YAMUK DEMEDİ'",
+          desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?'",
+          action: "dialogue",
+          charId: "murat"
+        },
+        {
+          name: "EKREM'İN İÇ DÜNYASI",
+          icon: "💬",
+          thumb: "assets/img/props/prop_ekrem_hill.jpg",
+          subtitle: "TÜBİTAK DİYALOĞU",
+          desc: "EKREM: 'He. TÜBİTAK.'",
+          action: "dialogue",
+          charId: "ekrem"
+        },
+        {
+          name: "MERCEDES TORPİDOSU",
+          icon: "📻",
+          thumb: "assets/img/props/prop_mercedes_torpido.jpg",
+          subtitle: "BİLMEM, BEN DE",
+          desc: "Mercedes'in torpidosundan yükselen soğuk ayaz melodisi.",
+          action: "music",
+          audioSrc: "CvSByNL1r48"
         }
       ]
     },
 
     lake: {
       id: "lake",
-      title: "GÖL KENARI // İSKELE",
-      subtitle: "EXT. GÖKSU PARKI & ESKİ BATAKLIK KIYISI // YAĞMUR ALTINDA",
-      image: "assets/img/bataklik_ek3_visual.jpg",
+      sceneTag: "SAHNE 04 // GÖL KENARI",
+      title: "GÖKSU PARKI // AHŞAP İSKELE",
+      subtitle: "EXT. GÖKSU PARKI / YAĞMUR ALTI — 03:15 // ANMA ALANI",
+      location: "Ahşap İskele",
+      time: "03:15",
+      period: "Günümüz",
+      ctaIcon: "🕯️",
+      ctaText: "MUMU YAK // ANMA MASASINA GEÇ",
+      ctaTarget: "lake_candle",
+      image: "assets/img/loc_lake_pier.jpg",
       characterId: "bahar",
       characterName: "Bahar",
-      characterRole: "Tek Başına Direniş",
-      atmosphere: "Bahar tek başına. Yağmur altında, ahşap iskele korkuluğuna yaslanmış gölün karşı kıyısındaki yüksek bloklara ve fıskiyeye bakıyor. Bir zamanlar bataklık olan bu sular, Dilek'in son nefesini verdiği yer... 'Bataklık' çalıyor.",
-      musicNote: "Bataklık — Ağıt ve Yağmur Tıpırtısı",
+      characterRole: "İskelede Tek Başına Bir Kadın",
+      atmosphere: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta, göl kıyısında tek bir mum yakar. Doğum günü anma masasına geçin.",
+      musicNote: "Bataklık — Bahar (Akustik / Yağmur Efekti)",
       subvenues: [
-        { id: "lake_candle", label: "Mumu Yak // Anma Masası" }
+        { id: "lake_candle", label: "Mumu Yak // Anma Masasına Geç" }
       ],
-      isLakePier: true,
-      noteOrigin: "İskele Korkuluk Tahtası",
+      noteOrigin: "İskele Korkuluğu",
       props: [
         {
-          name: "Mumu Yak & Masaya Geç",
+          name: "MUMU YAK // MASAYA GEÇ",
           icon: "🕯️",
-          desc: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta tek bir mum yakmak için anma masasına geçin."
+          thumb: "assets/img/props/prop_cake.jpg",
+          subtitle: "DOĞUM GÜNÜ PASTASI",
+          desc: "Bahar göl kıyısında tek bir mum yakar.",
+          action: "fly_subvenue",
+          target: "lake_candle"
         },
         {
-          name: "Karşı Kıyıdaki Bloklar & Fıskiye",
+          name: "BAHAR İLE YÜZLEŞ",
+          icon: "💬",
+          thumb: "assets/img/props/prop_bahar.jpg",
+          subtitle: "İSKELEDE BİR SES",
+          desc: "Bahar ile yüz yüze gelin.",
+          action: "dialogue",
+          charId: "bahar"
+        },
+        {
+          name: "KARŞI KIYIYA BAK",
           icon: "🌊",
-          desc: "Eski bataklığın üzerine dikilen lüks konutlar ve ışıklı fıskiye. Hafızayı silen betonlaşma."
+          thumb: "assets/img/props/prop_lighthouse.jpg",
+          subtitle: "BATAKLIK ÜZERİNE DİKİLENLER",
+          desc: "Gölün karşısında sıralanan beton bloklar ve fıskiye."
+        },
+        {
+          name: "İSKELE KORKULUĞU",
+          icon: "🪵",
+          thumb: "assets/img/props/prop_pier.jpg",
+          subtitle: "GÖLE FISILDA",
+          desc: "Göl kenarındaki ahşap iskele korkuluğuna bir not bırak.",
+          action: "note"
         }
       ]
     },
 
     lake_candle: {
       id: "lake_candle",
-      title: "DİLEK'İN ANISI // PASTA VE TEK MUM",
-      subtitle: "EXT. GÖKSU PARKI / ANMA MASASI — 02:50 // DİLEK'İN DOĞUM GÜNÜ",
+      sceneTag: "SAHNE 04 // GÖL KENARI",
+      title: "GÖL KENARI // DENİZ'İN DOĞUM GÜNÜ",
+      subtitle: "EXT. ESKİ GÖKSU PARKI KIYISI — DİLEK'İN 40. DOĞUM GÜNÜ",
+      location: "Göksu Parkı",
+      time: "Gece",
+      period: "Günümüz",
+      ctaIcon: "🕯️",
+      ctaText: "MUMU ÜFLE",
+      ctaAction: "underground",
       image: "assets/img/scene_lake.png",
       characterId: "bahar",
-      characterName: "Bahar",
-      characterRole: "Tek Başına Direniş // Anma Anı",
-      atmosphere: "Bahar bu mumu her gün yakmıyor. O gün Bahar Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor...",
-      musicNote: "Bataklık — Ağıt ve Mum Titremesi",
+      characterName: "Bahar (Dilek)",
+      characterRole: "Göl Kıyısında Yalnız Bir Anma",
+      atmosphere: "Eski Göksu Parkı kıyısı. Dilek'in 40. doğum günü. Sükûnetin içinde, söylenmemiş cümleler var. Bahar bu mumu her gün yakmıyor. Dilek'in kanı üzerine kurulmuş parkta pastasını üflüyor.",
+      musicNote: "Bataklık — Tek Mum Işıltısı",
       subvenues: [
-        { id: "lake", label: "İskele & Karşı Kıyı (Geniş Açı)" }
+        { id: "lake", label: "İskeleye Geri Dön (Geniş Açı)" }
       ],
-      isLakeMemorial: true,
-      noteOrigin: "Göl Masası",
+      noteOrigin: "Doğum Günü Masası",
       props: [
         {
-          name: "Dilek'in Doğum Günü Pastası & Tek Mum",
+          name: "DOĞUM GÜNÜ PASTASI",
           icon: "🕯️",
-          desc: "Bahar'ın kendi elleriyle yaptığı doğum günü pastası. Bahar Dilek'in kanı üzerine kurulmuş bu parkta üflenmeyi bekliyor."
+          thumb: "assets/img/props/prop_cake.jpg",
+          subtitle: "DİLEK İÇİN TEK MUM",
+          desc: "Dilek'in doğum günü pastası ve tek mum. Üfleyince yeraltı hafızası açılır.",
+          action: "underground"
         },
         {
-          name: "Bahar ile Yüz Yüze",
+          name: "GÖKSU DENİZ FENERİ",
+          icon: "🌊",
+          thumb: "assets/img/props/prop_lighthouse.jpg",
+          subtitle: "KARŞI KIYIDAKİ IŞIK",
+          desc: "Gölün karşı kıyısındaki ışık ve su yansıması."
+        },
+        {
+          name: "BAHAR İLE YÜZLEŞ",
           icon: "💬",
-          desc: "Gözlerinde geçmişin ve kaybettiği sevgilinin hüznü..."
+          thumb: "assets/img/props/prop_bahar.jpg",
+          subtitle: "SÖYLENMEYENLER",
+          desc: "Bahar ile göz göze gelin.",
+          action: "dialogue",
+          charId: "bahar"
+        },
+        {
+          name: "FENERİN DİBİNDEKİ İSKELE",
+          icon: "🪵",
+          thumb: "assets/img/props/prop_pier.jpg",
+          subtitle: "ISLAK TAHTA",
+          desc: "Tahtası not bırakanlara emanet edilmiş iskele."
         }
       ]
     },
 
     garden: {
       id: "garden",
-      title: "BAHAR'IN EVİ — BAHÇE",
-      subtitle: "EXT. APARTMAN ARKA BAHÇESİ // SEÇİLMİŞ AİLE",
+      sceneTag: "SAHNE 07 // BAHÇE",
+      title: "BAHÇE // ATA VE KENAN",
+      subtitle: "EXT. ERYAMAN SİTELERİ / ÇOCUK PARKI — 14:00 // GÜNDÜZ",
+      location: "Eryaman Parkı",
+      time: "Gündüz",
+      period: "Günümüz",
+      ctaIcon: "💬",
+      ctaText: "ATA İLE KONUŞ",
+      ctaAction: "dialogue",
+      ctaCharId: "ata",
       image: "assets/img/scene_garden.png",
       characterId: "ata",
       characterName: "Ata ve Kenan",
-      characterRole: "Çocuk Dünyası & Gerçek Aile",
-      atmosphere: "Ata + Kenan. Çocuk dünyası. Müzik çok az. Ata: 'Bana okulda senin anan babanı mı sikiyo dediler.' Bu insanların ilişkileri sadece yetişkinlerin meselesi değil. Bir aile var.",
-      musicNote: "Kırılgan Rüzgar ve Paslı Salıncak",
-      noteOrigin: "Salıncak Demirine Kazınmış Not",
+      characterRole: "Seçilmiş Aile // Çocuğun Dünyası",
+      atmosphere: "Gündüz, gri Ankara apartmanlarının arasındaki çocuk parkı. Kenan'ın Ata için yonttuğu kırmızı şeritli tahta araba bankın üzerinde duruyor. Ata: 'Ata ile nasıl aile oldunuz?'",
+      musicNote: "Tahta Araba Tıkırtısı & Çocuk Parkı Rüzgarı",
+      subvenues: [
+        { id: "home_interior", label: "Bahar'ın Evine Geç" }
+      ],
+      noteOrigin: "Salıncak Demiri",
       props: [
         {
-          name: "Kenan'ın Yonttuğu Araba",
+          name: "ATA İLE KONUŞ",
+          icon: "💬",
+          thumb: "assets/img/props/prop_ata_child.jpg",
+          subtitle: "SEÇİLMİŞ AİLE",
+          desc: "Ata ile nasıl aile oldunuz? Çocuk dünyasının saf bakışı.",
+          action: "dialogue",
+          charId: "ata"
+        },
+        {
+          name: "KENAN // ABİLİK",
+          icon: "💬",
+          thumb: "assets/img/props/prop_kenan_garden.jpg",
+          subtitle: "SEVGİ DOLU BAKIŞ",
+          desc: "Kenan bankta Ata'ya sevgi ve şefkatle gülümsüyor.",
+          action: "dialogue",
+          charId: "kenan"
+        },
+        {
+          name: "TAHTA ARABA",
           icon: "🏎️",
-          desc: "Kenan'ın Ata için yonttuğu ve arkasına kırmızı şerit çektiği tahta oyuncak."
+          thumb: "assets/img/props/prop_toy_car.jpg",
+          subtitle: "KIRMIZI ŞERİTLİ OYUNCAK",
+          desc: "Kenan'ın Ata için yonttuğu tahta araba."
+        },
+        {
+          name: "PASLI SALINCAK",
+          icon: "✍️",
+          thumb: "assets/img/props/prop_swing.jpg",
+          subtitle: "NOT KAZI",
+          desc: "Salıncak demirine kazınmış bir not bırak.",
+          action: "note"
         }
       ]
     },
 
     home_interior: {
       id: "home_interior",
-      title: "BAHAR'IN EVİ — İÇERİSİ",
-      subtitle: "INT. BAHAR'IN DAİRESİ // YAPIM AŞAMASI",
+      sceneTag: "SAHNE 08 // BAHAR'IN EVİ",
+      title: "BAHAR'IN EVİ // SEÇİLMİŞ AİLE",
+      subtitle: "INT. ERYAMAN APARTMANI / SALON — 20:30 // AKŞAM",
+      location: "Eryaman Dairesi",
+      time: "20:30",
+      period: "Günümüz",
+      ctaIcon: "☕",
+      ctaText: "EVİ İNCELE",
+      ctaAction: "prop",
       image: "assets/img/scene_bahar_home.png",
       characterId: "bahar",
-      characterName: "Bahar",
-      characterRole: "Kapalı Oda",
-      atmosphere: "Kapıya gelince: 'Henüz yazılıyor. :D' Senaryo yazım aşaması siteye dahil edilmiştir. Yazım ilerlemesi: %25.",
-      musicNote: "Sessizlik ve Saat Tik-Takları",
-      isLockedRoom: true,
-      noteOrigin: "Buzdolabı Magneti",
-      props: []
+      characterName: "Bahar, Ata ve Ekrem",
+      characterRole: "Sığınak & Korunaklı Alan",
+      atmosphere: "Sıcak bir salon, masada çay bardakları. Dışarıdaki soğuk Ankara ayazına inat, bu ev bir sığınak. Ata'nın okul çantası köşede, duvarda solgun fotoğraflar.",
+      musicNote: "Çay Kaşığı Sesi & Radyo Cızırtısı",
+      subvenues: [
+        { id: "garden", label: "Apartman Bahçesine İn" }
+      ],
+      noteOrigin: "Mutfak Masası",
+      props: [
+        {
+          name: "SICAK ÇAY BARDAKLARI",
+          icon: "☕",
+          thumb: "assets/img/props/prop_bahar.jpg",
+          subtitle: "SIĞINAK & HUZUR",
+          desc: "Dışarıdaki soğuk Ankara ayazına inat, bu ev bir sığınak."
+        }
+      ]
     },
 
     murat_home: {
       id: "murat_home",
-      title: "MURAT'IN EVİ // PENTHOUSE",
-      subtitle: "INT/EXT. KUZEY BLOKLARI / GÖKDELEN REZİDANS // BÖLÜM 1",
+      sceneTag: "SAHNE 05 // MURAT'IN EVİ",
+      title: "MURAT'IN EVİ // KUZEY BLOKLARI",
+      subtitle: "INT. YENİ MAHALLE / 14. KAT — 03:00 // YALNIZLIK",
+      location: "Kuzey Blokları",
+      time: "03:00",
+      period: "Günümüz",
+      ctaIcon: "🏢",
+      ctaText: "PENCEREDEN ŞEHRE BAK",
+      ctaAction: "prop",
       image: "assets/img/loc_murat_home.jpg",
       characterId: "murat",
       characterName: "Murat",
-      characterRole: "Soğuk Yalnızlık & Şehre Tepeden Bakış",
-      atmosphere: "Gölün ve Susuz'un tam karşısında, şehrin yeni gökdelen aksında camdan bir kule. Tavandan tabana camlar, Ankara'nın karanlık otoyol ışıkları ve aşağıdaki şehir. Bir bardak maden suyu, masada kapalı bir dosya ve araba anahtarı. Murat'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı.",
-      musicNote: "Gece Otoyol Uğultusu ve Kuru Ayaz",
-      noteOrigin: "Masadaki Dosya Kenarı",
+      characterRole: "Emekli Komiser // Yalnız Baba",
+      atmosphere: "Şehre tepeden bakan 14. kat dairesi. Yalnızlık, soğuk mermer tezgah, duvarda asılı rozet ve Kenan'ın çocukluk fotoğrafları.",
+      musicNote: "Klima Uğultusu & Uzak Şehir Sesi",
+      subvenues: [],
+      noteOrigin: "Murat'ın Çalışma Masası",
       props: [
         {
-          name: "Masa Üzerindeki Dosya ve Anahtarlar",
-          icon: "📁",
-          desc: "Torpido anahtarları ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey."
-        },
-        {
-          name: "Panoramik Ankara Camı",
-          icon: "🌃",
-          desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası."
+          name: "POLİS ROZETİ",
+          icon: "🎖️",
+          thumb: "assets/img/props/prop_murat_hill.jpg",
+          subtitle: "EMEKLLİK VE YALNIZLIK",
+          desc: "Duvarda asılı eski rozet ve unutulmak istenen yıllar."
         }
       ]
     },
 
     studio: {
       id: "studio",
-      title: "KENAN'IN STÜDYOSU",
-      subtitle: "INT. BATI YAKASI SES ATÖLYESİ // STEMLER & WISHLIST",
+      sceneTag: "SAHNE 08A // SES ATÖLYESİ",
+      title: "KENAN'IN STÜDYOSU // BATI YAKASI",
+      subtitle: "INT. OSTİM SANAYİ YANI / MÜZİK ATÖLYESİ — 22:00",
+      location: "Batı Yakası Stüdyosu",
+      time: "22:00",
+      period: "Günümüz",
+      ctaIcon: "⚡",
+      ctaText: "BU ŞARKIYI EKREM'DEN DİNLE",
+      ctaTarget: "studio_ekrem",
       image: "assets/img/loc_studio.jpg",
       characterId: "kenan",
       characterName: "Kenan",
-      characterRole: "Müzik Üretim Laboratuvarı",
-      atmosphere: "Gölün batı yakasında, Susuz mahallesinden ve Bahar'ın evinden uzakta bağımsız bir sığınak. Şehrin iki ayrı yakası; bir yanda Kenan'ın ses mikseri, diğer yanda sokaklar. Track stemleri, analog mikrofon, not defteri ve şarkıların demoları.",
-      musicNote: "Sınırda Kalanım / Bataklık Stemleri",
-      isStudioSpecial: true,
+      characterRole: "Müzisyen & Prodüktör",
+      atmosphere: "Kenan'ın stüdyosu. Ahşap difüzörler, Fender amfi, analog mikser. Kenan Ekrem'i ikna etti: 'Daha Anadolu sesi lazım bu şarkıya... Keşke Ekrem söylese.' Ekrem'in canlı kayıt seansına geçin.",
+      musicNote: "Gospel Baby — Kenan Akustik Demo (92 BPM)",
       subvenues: [
-        { id: "studio_ekrem", label: "🎙️ Ekrem'in Kayıt Seansı (Gospel Baby)" },
-        { id: "ritim", label: "Ritim Gece Kulübü" }
+        { id: "studio_ekrem", label: "🎙️ Bu Şarkıyı Ekrem'den Dinle (Canlı Kayıt)" }
       ],
+      noteOrigin: "Stüdyo Masası",
       props: [
         {
-          name: "Analog Mikser & Parça Listesi",
-          icon: "🎛️",
-          desc: "Kenan'ın masasında duran parça listesi: 'Sınırda Kalanım', 'Bataklık', 'Gospel Baby'. Stüdyonun analog kalbi."
+          name: "EKREM'DEN DİNLE",
+          icon: "⚡",
+          thumb: "assets/img/props/prop_ekrem_mic.jpg",
+          subtitle: "CANLI KAYIT SEANSI",
+          desc: "Ekrem stüdyoda it oturuşu, dev ekranda sözler... Şarkının hakiki sokak ruhu.",
+          action: "fly_subvenue",
+          target: "studio_ekrem"
         },
         {
-          name: "Vokal Mikrofonu & Kül Tablası",
-          icon: "🎙️",
-          desc: "Ekrem'in taburede it oturuşuyla şarkıyı söylediği, ucunda dumanı tüten sigaranın durduğu mikrofon standı."
+          name: "KENAN // DEMO",
+          icon: "🎵",
+          thumb: "assets/img/props/prop_kenan_studio.jpg",
+          subtitle: "GOSPEL BABY DEMO",
+          desc: "Kenan'ın stüdyoda kaydettiği ilk demo.",
+          action: "music",
+          audioSrc: "K35AtsZEl5o"
+        },
+        {
+          name: "MURAT & EKREM DÜETİ",
+          icon: "📻",
+          thumb: "assets/img/props/prop_murat_ekrem.jpg",
+          subtitle: "BİRİ VARMIŞ ÖTEKİ YOK OLMASIN",
+          desc: "Murat ve Ekrem beraber Bahar'a söylüyorlar.",
+          action: "music",
+          audioSrc: "GLQcmdJsO5U"
         }
       ]
     },
 
     studio_ekrem: {
       id: "studio_ekrem",
-      title: "EKREM'İN KAYIT SEANSI // GOSPEL BABY",
-      subtitle: "INT. BATI YAKASI ATÖLYESİ — CANLI VOKAL KAYDI // KENAN & EKREM",
+      sceneTag: "SAHNE 09 // CANLI KAYIT",
+      title: "SES ATÖLYESİ // GOSPEL BABY",
+      subtitle: "INT. BATI YAKASI ATÖLYESİ — 03:20 // EKREM CANLI VOKAL",
+      location: "Batı Yakası Atölyesi",
+      time: "03:20",
+      period: "Günümüz",
+      ctaIcon: "🎵",
+      ctaText: "GOSPEL BABY'İ DİNLE",
+      ctaAudio: "mdPhJrnytkA",
       image: "assets/img/loc_studio_ekrem.jpg",
       characterId: "ekrem",
-      characterName: "Ekrem",
-      characterRole: "Vokalist & Sokak Ruhu",
-      atmosphere: "Kenan Ekrem'i ikna etti. Ekrem stüdyo bankında it oturuşu, tek elinde mikrofon... Karşılarındaki dev ekranda şarkının sözleri akıyor, Kenan analog konsolda faderları açıyor: 'If I'm gonna lose you, I won't lose this song...'",
-      musicNote: "GOSPEL BABY (Ekrem Vokali — Ham Kayıt)",
-      noteOrigin: "Lirik Ekranı Altındaki Kablo Bağı",
-      isStudioEkremSpecial: true,
+      characterName: "Ekrem ve Kenan",
+      characterRole: "Sokak Vokali & Analog Miksaj",
+      atmosphere: "Kenan konsol başında gülümsüyor, faderları ayarlıyor. Ekrem stüdyoda it oturuşu yapmış, tek elinde mikrofon, karşısındaki dev ekranda akan şarkı sözleriyle Gospel Baby'i söylüyor.",
+      musicNote: "Gospel Baby — Ekrem Vokal & Ham Analog Mikser",
       subvenues: [
-        { id: "studio", label: "Kenan'ın Masasına Dön (Genel Stüdyo)" },
-        { id: "ritim", label: "Ritim Gece Kulübü" }
+        { id: "studio", label: "Kenan'ın Masasına Geri Dön" }
       ],
+      noteOrigin: "Stüdyo Masası",
       props: [
         {
-          name: "Dev Lirik Ekranı // Gospel Baby",
-          icon: "📺",
-          desc: "Ekranda kayan sözler: 'You left your boots by the door, I still trip on them sometimes...' Ekrem İngilizce sözlerin altına kendi fonetik okunuşlarını yazmış."
+          name: "EKREM // VOKAL",
+          icon: "🎤",
+          thumb: "assets/img/props/prop_ekrem_mic.jpg",
+          subtitle: "GOSPEL BABY VOKAL",
+          desc: "Ekrem mikrofona sarılmış söylüyor. Ham analog mikser kaydı.",
+          action: "music",
+          audioSrc: "mdPhJrnytkA"
         },
         {
-          name: "Kenan'ın Mikser Ayarları",
+          name: "DEV TELEPROMPTER",
+          icon: "📺",
+          thumb: "assets/img/props/prop_tv_lyrics.jpg",
+          subtitle: "CANLI LİRİK AKIŞI",
+          desc: "Dev ekranda akan şarkı sözleri ve Türkçe telaffuzlar.",
+          action: "lyrics_modal"
+        },
+        {
+          name: "KENAN // PRODÜKSİYON",
+          icon: "💬",
+          thumb: "assets/img/props/prop_kenan_studio.jpg",
+          subtitle: "MİKS MASASI",
+          desc: "Kenan konsol başında gülümsüyor: 'Daha Anadolu sesi lazım bu şarkıya... Tam oldu.'",
+          action: "dialogue",
+          charId: "kenan"
+        },
+        {
+          name: "ANALOG KONSOL",
           icon: "🎛️",
-          desc: "Kenan basları ve vokal kompresörünü dengeliyor: 'Bu şarkı senin sesinle tamamlandı oğlum.'"
+          thumb: "assets/img/props/prop_analog_console.jpg",
+          subtitle: "FADERLAR & VU METRE",
+          desc: "Kenan faderları dengeliyor."
         }
       ]
     }
   };
 
-  // Yeraltı Anma Listesi (Nefret Suçları Raporu Gerçek Kayıtları)
-  const MEMORIAL_VICTIMS = [
-    {
-      name: "Bahar / Dilek İnce",
-      meta: "10 Kasım 2008 // Etlik, Ankara\nEryaman direnişinin öncülerindendi. Mahkemede tehdit edildiğini beyan ettikten sonra aracında pompalı tüfekle başından vurularak katledildi. Faili meçhul bırakıldı."
-    },
-    {
-      name: "Ahmet Yıldız",
-      meta: "15 Temmuz 2008 // Üsküdar, İstanbul\nCinsel yönelimi nedeniyle babası tarafından kurşunlanarak katledildi. Firari sanık 16 yıldır yakalanmadı; dava zaman aşımı tehdidi altında."
-    },
-    {
-      name: "Hande Kader",
-      meta: "Ağustos 2016 // Zekeriyaköy, İstanbul\nTrans hakları aktivisti. İşkence edilip yakılmış bedeni yol kenarında bulundu. Failleri hiçbir zaman yargı önüne çıkarılmadı."
-    },
-    {
-      name: "Ali Turgut Arda",
-      meta: "2007 // Ankara\nAnkara'da nefret saikiyle katledilen trans bireylerden biri. Sistemik cezasızlık zırhıyla korunan dosyalardan sadece biri."
-    }
-  ];
 
-  // DOM Elemanları
-  const openingOverlay = document.getElementById("openingOverlay");
-  const enterBtn = document.getElementById("enterBtn");
-  const spatialCanvas = document.getElementById("spatialCanvas");
-
-  // HUD
-  const hudBackBtn = document.getElementById("hudBackBtn");
-  const hudToggleTabBtn = document.getElementById("hudToggleTabBtn");
-  const hudInstructions = document.getElementById("hudInstructions");
-  const openFundingBtn = document.getElementById("openFundingBtn");
-  const resetCameraBtn = document.getElementById("resetCameraBtn");
-  const muteBtn = document.getElementById("muteBtn");
-
-  // Glassglow Floating Side Tab
-  const glassglowTab = document.getElementById("glassglowTab");
-  const closeGlassglowBtn = document.getElementById("closeGlassglowBtn");
-  const glassglowTitle = document.getElementById("glassglowTitle");
-  const glassglowSubtitle = document.getElementById("glassglowSubtitle");
-  const glassglowSubvenues = document.getElementById("glassglowSubvenues");
-  const glassglowAtmosphere = document.getElementById("glassglowAtmosphere");
-  const glassglowAudioNote = document.getElementById("glassglowAudioNote");
-  const glassglowCustomArea = document.getElementById("glassglowCustomArea");
-  const glassglowPropsList = document.getElementById("glassglowPropsList");
-  const dialogueTriggerBtn = document.getElementById("dialogueTriggerBtn");
-  const leaveNoteBtn = document.getElementById("leaveNoteBtn");
-  const returnPanoramaBtn = document.getElementById("returnPanoramaBtn");
-
-  // Odaklanılan Nesne Kartı
-  const glassglowFocusedObject = document.getElementById("glassglowFocusedObject");
-  const focusedObjIcon = document.getElementById("focusedObjIcon");
-  const focusedObjTitle = document.getElementById("focusedObjTitle");
-  const focusedObjSubtitle = document.getElementById("focusedObjSubtitle");
-  const focusedObjDesc = document.getElementById("focusedObjDesc");
-  const focusedObjActionBtn = document.getElementById("focusedObjActionBtn");
-
-  // Yeraltı Katmanı
-  const undergroundOverlay = document.getElementById("undergroundOverlay");
-  const victimNameEl = document.getElementById("victimName");
-  const victimMetaEl = document.getElementById("victimMeta");
-  const undergroundFinalBox = document.getElementById("undergroundFinalBox");
-  const exitUndergroundBtn = document.getElementById("exitUndergroundBtn");
-
-  // Anonim Not Modalı
-  const anonymousNoteModal = document.getElementById("anonymousNoteModal");
-  const closeNoteModalBtn = document.getElementById("closeNoteModalBtn");
-  const noteOriginBadge = document.getElementById("noteOriginBadge");
-  const noteTextarea = document.getElementById("noteTextarea");
-  const notePublishCheck = document.getElementById("notePublishCheck");
-  const submitNoteBtn = document.getElementById("submitNoteBtn");
-  const noteSuccessBox = document.getElementById("noteSuccessBox");
-
-  // Diyalog Modalı
-  const dialogueModal = document.getElementById("dialogueModal");
-  const closeDialogueBtn = document.getElementById("closeDialogueBtn");
-  const dialogueAvatar = document.getElementById("dialogueAvatar");
-  const dialogueCharName = document.getElementById("dialogueCharName");
-  const dialogueCharRole = document.getElementById("dialogueCharRole");
-  const dialogueSpeechBox = document.getElementById("dialogueSpeechBox");
-  const dialogueChoicesBox = document.getElementById("dialogueChoicesBox");
-
-  // Fonlama / Crowd-Production Modalı
-  const fundingModal = document.getElementById("fundingModal");
-  const closeFundingBtn = document.getElementById("closeFundingBtn");
-  const crowdForm = document.getElementById("crowdForm");
-  const crowdSuccess = document.getElementById("crowdSuccess");
-
-  let currentScene = null;
-  let spatialUniverse = null;
-  let currentNoteOrigin = "Dünya Panosu";
-
-  // 1. AÇILIŞ SEKANSI
-  enterBtn.addEventListener("click", () => {
-    if (window.SUSSUZ_AUDIO) {
-      window.SUSSUZ_AUDIO.init();
-      window.SUSSUZ_AUDIO.setSceneAudio("master");
-    }
-
-    openingOverlay.classList.add("opening-hidden");
-    setTimeout(() => {
-      openingOverlay.style.display = "none";
-    }, 1800);
-
-    // Master Spatial Universe Başlatılıyor
-    spatialUniverse = new window.SpatialUniverse(
-      spatialCanvas,
-      (sceneId) => handleSceneChange(sceneId),
-      (hotspot, sceneId, screenPos) => handleObjectClick(hotspot, sceneId, screenPos)
-    );
-
-    spatialUniverse.onCanvasEmptyClick = () => {
-      if (glassglowTab.classList.contains("tab-active")) {
-        glassglowTab.classList.remove("tab-active");
-        hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
-      }
-    };
-  });
-
-  // 2. SAHNE GEÇİŞ YÖNETİCİSİ (Panorama <-> Canlı Sahne)
-  function handleSceneChange(sceneId) {
-    if (sceneId) {
-      const data = SCENE_DATA[sceneId];
-      if (!data) return;
-
-      currentScene = data;
-      currentNoteOrigin = data.noteOrigin || "Dünya Panosu";
-
-      // Glassglow Tab İçeriğini Doldur
-      glassglowTitle.textContent = data.title;
-      glassglowSubtitle.textContent = data.subtitle;
-      glassglowAtmosphere.textContent = data.atmosphere;
-      glassglowAudioNote.textContent = data.musicNote;
-
-      // Odak kartını gizle
-      glassglowFocusedObject.style.display = "none";
-
-      // Alt Mekân Linkleri
-      glassglowSubvenues.innerHTML = "";
-      if (data.subvenues && data.subvenues.length > 0) {
-        data.subvenues.forEach((sub) => {
-          const btn = document.createElement("button");
-          btn.className = "glassglow-subvenue-link";
-          btn.textContent = `▸ ${sub.label}`;
-          btn.addEventListener("click", () => {
-            if (spatialUniverse) spatialUniverse.flyToScene(sub.id);
-          });
-          glassglowSubvenues.appendChild(btn);
-        });
-        glassglowSubvenues.style.display = "flex";
-      } else {
-        glassglowSubvenues.style.display = "none";
-      }
-
-      // Özel Etkileşim Alanları (Mum, Muhasebe, Stüdyo, vb.)
-      renderSceneCustomArea(data);
-
-      // Sahne İpuçları Listesi
-      glassglowPropsList.innerHTML = "";
-      if (data.props && data.props.length > 0) {
-        data.props.forEach((prop) => {
-          const btn = document.createElement("button");
-          btn.className = "ek3-trigger";
-          btn.innerHTML = `<span>${prop.icon}</span> <span>${prop.name}</span>`;
-          btn.addEventListener("click", () => {
-            showFocusedObjectCard({
-              icon: prop.icon,
-              name: prop.name,
-              subtitle: "SAHNE DETAYI",
-              desc: prop.desc
-            });
-          });
-          glassglowPropsList.appendChild(btn);
-        });
-      } else {
-        glassglowPropsList.innerHTML = `<span style="font-family:var(--font-mono); font-size:0.7rem; color:#64748b;">Bu mekânda henüz açığa çıkmamış ipuçları var.</span>`;
-      }
-
-      // Karakter Diyalog Butonu
-      if (data.isLockedRoom || data.isMissingLocation || !data.characterId) {
-        dialogueTriggerBtn.style.display = "none";
-      } else {
-        dialogueTriggerBtn.style.display = "flex";
-        dialogueTriggerBtn.textContent = `[ 💬 ${data.characterName.toUpperCase()} İLE YÜZLEŞ ]`;
-      }
-
-      leaveNoteBtn.textContent = `[ ✍️ ${currentNoteOrigin.toUpperCase()} NOT BIRAK ]`;
-
-      // Glassglow Pop-up'ı Varsayılan Olarak KAPALI tutuyoruz (Kullanıcı Talebi: Default kapalı)
-      glassglowTab.classList.remove("tab-active");
-
-      // HUD Güncelle
-      hudBackBtn.style.display = "block";
-      hudToggleTabBtn.style.display = "block";
-      hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
-      hudInstructions.textContent = "[ SERBEST GEZİNME: SÜRÜKLE ] • [ SAHNEDEKİ IŞILTILARA TIKLA ] • [ PANORAMAYA DÖNMEK İÇİN ZOOM OUT ]";
-
-      // Ses Güncelle
-      if (window.SUSSUZ_AUDIO) {
-        window.SUSSUZ_AUDIO.setSceneAudio(sceneId);
-      }
-    } else {
-      // Panoramaya Dönüldü
-      currentScene = null;
-      glassglowTab.classList.remove("tab-active");
-      glassglowFocusedObject.style.display = "none";
-
-      hudBackBtn.style.display = "none";
-      hudToggleTabBtn.style.display = "none";
-      hudInstructions.textContent = "[ SÜRÜKLE: KEŞFET ] • [ TEKERLEK: ZOOM ] • [ IŞIKLARIN SESİNİ TAKİP ET ]";
-
-      if (window.SUSSUZ_AUDIO) {
-        window.SUSSUZ_AUDIO.setSceneAudio("master");
-      }
-    }
-  }
-
-  // Akıllı Konumsal Pop-up Yerleşimi (Tıklanan nesnenin üzerine/yanına açılır)
-  function positionGlassglowPopup(clickX, clickY) {
-    if (clickX === undefined || clickY === undefined) {
-      glassglowTab.style.left = "auto";
-      glassglowTab.style.right = "28px";
-      glassglowTab.style.top = "75px";
-      glassglowTab.style.bottom = "auto";
-      return;
-    }
-
-    const pad = 16;
-    const popWidth = Math.min(375, window.innerWidth - 32);
-    const popHeight = Math.min(530, window.innerHeight - 110);
-
-    let left = clickX - (popWidth / 2);
-    if (left + popWidth > window.innerWidth - pad) {
-      left = window.innerWidth - popWidth - pad;
-    }
-    if (left < pad) {
-      left = pad;
-    }
-
-    let top = clickY - popHeight - 20;
-    if (top < 65) {
-      top = clickY + 25;
-    }
-    if (top + popHeight > window.innerHeight - pad) {
-      top = window.innerHeight - popHeight - pad;
-    }
-    if (top < 65) top = 65;
-
-    glassglowTab.style.left = `${Math.round(left)}px`;
-    glassglowTab.style.top = `${Math.round(top)}px`;
-    glassglowTab.style.right = "auto";
-    glassglowTab.style.bottom = "auto";
-  }
-
-  // 3. SAHNE İÇİ NESNEYE TIKLAMA YÖNETİCİSİ (Pop-up Tetikleyici)
-  function handleObjectClick(hotspot, sceneId, clickPos) {
-    if (!hotspot) return;
-
-    // Pop-up'ı tıklanan nesnenin üzerine akıllıca konumlandır
-    if (clickPos && typeof clickPos.x === "number") {
-      positionGlassglowPopup(clickPos.x, clickPos.y);
-    } else {
-      positionGlassglowPopup();
-    }
-
-    // Pop-up'ı aç
-    glassglowTab.classList.add("tab-active");
-    hudToggleTabBtn.textContent = "👁️ DETAYLARI GİZLE";
-
-    // Odaklanılan Nesne Kartını Göster
-    showFocusedObjectCard({
-      icon: hotspot.icon,
-      name: hotspot.name,
-      subtitle: hotspot.subtitle || "İNTERAKTİF İPUCU",
-      desc: hotspot.desc || `${hotspot.name} sahnesi inceleniyor.`
-    });
-
-    // Eylemler
-    if (hotspot.action === "candle") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = "🕯️ TEK MUMU ÜFLE // YERALTINA İN";
-      focusedObjActionBtn.onclick = () => startUndergroundDescent();
-    } else if (hotspot.action === "music") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `▶ ${hotspot.name} 15 SN DİNLE`;
-      focusedObjActionBtn.onclick = () => window.playSnippet(hotspot.src);
-    } else if (hotspot.action === "dialogue") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `[ 💬 ${hotspot.name} DİYALOĞUNU BAŞLAT ]`;
-      focusedObjActionBtn.onclick = () => openDialogueModal(hotspot.charId || (currentScene ? currentScene.characterId : null));
-    } else if (hotspot.action === "note") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `[ ✍️ BU NOKTAYA BİR NOT BIRAK ]`;
-      focusedObjActionBtn.onclick = () => openAnonymousNoteModal();
-    } else if (hotspot.action === "lyrics_modal") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `[ 📺 DEV LİRİK EKRANINI AÇ ]`;
-      focusedObjActionBtn.onclick = () => openGospelLyricsModal();
-      openGospelLyricsModal();
-    } else if (hotspot.action === "funding") {
-      focusedObjActionBtn.style.display = "flex";
-      focusedObjActionBtn.innerHTML = `[ SPONSORLUK VE DESTEK PROTOKOLÜ ]`;
-      focusedObjActionBtn.onclick = () => window.openFundingModal();
-    } else {
-      focusedObjActionBtn.style.display = "none";
-    }
-  }
-
-  function showFocusedObjectCard(obj) {
-    focusedObjIcon.textContent = obj.icon || "⚡";
-    focusedObjTitle.textContent = obj.name;
-    focusedObjSubtitle.textContent = obj.subtitle;
-    focusedObjDesc.textContent = obj.desc;
-    glassglowFocusedObject.style.display = "block";
-    glassglowFocusedObject.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-
-  // 4. ÖZEL İÇERİK ALANLARI
-  function renderSceneCustomArea(data) {
-    glassglowCustomArea.innerHTML = "";
-
-    // GÖL KENARI İSKELE: Mum Yakma & Anma Masasına Geçiş Kutusu
-    if (data.isLakePier) {
-      const box = document.createElement("div");
-      box.className = "candle-blow-box";
-      box.innerHTML = `
-        <h4>DİLEK'İN ANISINA</h4>
-        <p>“Bazı şeyler gömülünce kaybolmaz.” — Bahar tek başına, Dilek'in kanı üzerine kurulmuş parkta doğum günü pastasını yakmak için masaya geçiyor.</p>
-        <button id="goToCandleSceneInlineBtn" class="ek3-trigger ek3-trigger-accent" style="justify-content:center; border: 1px solid rgba(255, 212, 59, 0.45); color: #ffe066;">
-          🕯️ MUMU YAK // ANMA MASASINA GEÇ
-        </button>
-      `;
-      glassglowCustomArea.appendChild(box);
-      box.querySelector("#goToCandleSceneInlineBtn").addEventListener("click", () => {
-        if (spatialUniverse) spatialUniverse.flyToScene("lake_candle");
-      });
-    }
-
-    // GÖL KENARI MASASI: Mum Üfleme Kutusu
-    if (data.isLakeMemorial) {
-      const box = document.createElement("div");
-      box.className = "candle-blow-box";
-      box.innerHTML = `
-        <h4>DİLEK'İN DOĞUM GÜNÜ PASTASI</h4>
-        <p>“Bazı şeyler gömülünce kaybolmaz.” — Bahar tek başına mumu üflüyor.</p>
-        <button id="blowCandleInlineBtn" class="ek3-trigger ek3-trigger-accent" style="justify-content:center; border: 1px solid rgba(255, 212, 59, 0.45); color: #ffe066;">
-          🕯️ DİLEK İÇİN BİR DİLEK TUT // MUMU ÜFLE
-        </button>
-      `;
-      glassglowCustomArea.appendChild(box);
-      box.querySelector("#blowCandleInlineBtn").addEventListener("click", startUndergroundDescent);
-    }
-
-    // RİTİM MUHASEBE: Canlı Prodüksiyon İhtiyaç Masası
-    if (data.isAccountingSpecial) {
-      const board = document.createElement("div");
-      board.className = "accounting-board";
-      board.innerHTML = `
-        <div style="font-size: 0.82rem; color: #ff8787; margin-bottom: 12px; font-weight: 600;">
-          MÜDÜR, BU HAFTAKİ DURUM ŞÖYLE:
-        </div>
-        <div class="accounting-item-row">
-          <span>• 2 adet kablosuz yaka mikrofonu lazım.</span>
-          <button class="accounting-action-btn" onclick="openFundingModal('Prodüksiyon desteği verebilirim')">Mikrofon Sağla</button>
-        </div>
-        <div class="accounting-item-row">
-          <span>• Kenan’ın sahne kostümü hâlâ yok.</span>
-          <button class="accounting-action-btn" onclick="openFundingModal('Kostüm / tekstil desteği sağlayabilirim')">Kostüm Sponsoru Ol</button>
-        </div>
-        <div class="accounting-item-row">
-          <span>• Cast görüşmeleri başladı.</span>
-          <button class="accounting-action-btn" onclick="openFundingModal('Oyuncuyum')">Cast Başvurusu</button>
-        </div>
-        <div class="accounting-item-row">
-          <span>• Mekân işi çözüldü (Susuz & Kulüp).</span>
-          <span style="color:#2ed573; font-size:0.7rem;">✓ Çözüldü</span>
-        </div>
-        <div class="accounting-item-row">
-          <span>• Kamera paketi hâlâ açıkta.</span>
-          <button class="accounting-action-btn" onclick="openFundingModal('Prodüksiyon desteği verebilirim')">Kamera Desteği</button>
-        </div>
-        <p style="font-size: 0.72rem; color: #94a3b8; margin-top: 14px; font-style: italic;">
-          “Kostüm tamam da şu adamı çıplak çekmeyelim diyosan sponsor lazım müdür. :D”
-        </p>
-      `;
-      glassglowCustomArea.appendChild(board);
-    }
-
-    // KENAN'IN STÜDYOSU: Wishlist, Vokalist Değiştirici & Stemler
-    if (data.isStudioSpecial) {
-      const studioBox = document.createElement("div");
-      studioBox.innerHTML = `
-        <!-- VOKALİST DEĞİŞTİRİCİ: KENAN vs EKREM (GOSPEL BABY) -->
-        <div class="studio-version-switch-box">
-          <div class="studio-version-header">
-            <span class="studio-rec-dot"></span>
-            <span class="studio-rec-title">CANLI KAYIT ODASI // VOKAL DEĞİŞTİRİCİ</span>
-          </div>
-          <div class="studio-version-lore">
-            Kenan demoyu kaydediyor: <em>“Bu şarkıya daha sert, daha Anadolu bir ses lazım... Keşke Ekrem söylese.”</em> Ekrem'i ikna edip tabureye oturtuyor.
-          </div>
-          <div class="studio-vocal-buttons">
-            <button id="vocalKenanBtn" class="vocal-switch-btn active">
-              🎙️ Kenan Versiyonu (Demo)
-            </button>
-            <button id="vocalEkremBtn" class="vocal-switch-btn">
-              🎙️ Ekrem Versiyonu (Anadolu Sesi)
-            </button>
-          </div>
-          <div id="ekremStudioCard" class="ekrem-studio-card" style="display: none;">
-            <div class="ekrem-sitting-visual">
-              <img src="assets/img/ekrem_gospel_baby.jpg" alt="Ekrem Stüdyoda" class="ekrem-sitting-thumb" onerror="this.style.display='none'">
-              <div class="ekrem-sitting-text">
-                <strong style="color:var(--accent-gold);">EKREM STÜDYODA // İT OTURUŞU</strong><br>
-                Taburede it oturuşu, elinde mikrofon: <em>“Angaralı Koray / Gospel Baby”</em>. Kenan masada kafasını sallıyor: <em>“İşte bu ses lazımdı oğlum!”</em>
-              </div>
-            </div>
-            <button id="playEkremVersionBtn" class="ek3-trigger ek3-trigger-accent" style="margin-top: 8px; justify-content: center; font-size: 0.72rem; padding: 6px;">
-              ▶ EKREM'İN KAYDINI DİNLE (YOUTUBE MASTER)
-            </button>
-          </div>
-        </div>
-
-        <div class="ek3-section-divider"><span>ENSTRÜMAN & DONANIM WISHLIST'İ</span></div>
-        <div class="studio-wishlist-gear-grid">
-          <div class="gear-slot">🎹 MIDI Klavye<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🎸 Elektro Gitar<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🎤 Mikrofon<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🎧 Kulaklık<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🥁 Pad Controller<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🎛️ Ses Kartı<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot">🔊 Monitörler<br><span style="color:#2ed573; font-size:0.62rem;">Mevcut</span></div>
-          <div class="gear-slot gear-slot-missing" onclick="openFundingModal('Müzisyenim / sesçiyim')">
-            + Synth Olabilirdi<br><span style="font-size:0.62rem;">[Destek Ol]</span>
-          </div>
-        </div>
-
-        <div class="ek3-section-divider"><span>ŞARKI ÜRETİM STEMLERİ & 15 SN DEMOLAR</span></div>
-        
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">GOSPEL BABY (Kenan & Ekrem)</span>
-            <button class="studio-listen-btn" onclick="playSnippet('K35AtsZEl5o', 'assets/audio/track_gospel_baby_kenan.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %100 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:100%;"></div></div></div>
-            <div>Beste %95 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:95%;"></div></div></div>
-            <div>Ekrem Vokal %90 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:90%;"></div></div></div>
-            <div>Mastering %85 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:85%;"></div></div></div>
-          </div>
-        </div>
-
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">BATAKLIK (Bahar)</span>
-            <button class="studio-listen-btn" onclick="playSnippet('yFymvGwoxjA', 'assets/audio/track_bataklik.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %82 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:82%;"></div></div></div>
-            <div>Beste %65 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:65%;"></div></div></div>
-            <div>Aranje %25 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:25%;"></div></div></div>
-            <div>Kayıt %10 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:10%;"></div></div></div>
-          </div>
-        </div>
-
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">HIRSIZ (Dans Pisti)</span>
-            <button class="studio-listen-btn" onclick="playSnippet('KFrAv440Rmg', 'assets/audio/track_hirsiz.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %90 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:90%;"></div></div></div>
-            <div>Beste %85 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:85%;"></div></div></div>
-            <div>Aranje %70 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:70%;"></div></div></div>
-            <div>Kayıt %40 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:40%;"></div></div></div>
-          </div>
-        </div>
-
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">BU ŞARKIYI KAYBEDEMEM (Ritmi Bırakmam)</span>
-            <button class="studio-listen-btn" onclick="playSnippet('-esQckmIMgQ', 'assets/audio/track_kaybedemem.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %88 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:88%;"></div></div></div>
-            <div>Beste %75 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:75%;"></div></div></div>
-            <div>Aranje %45 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:45%;"></div></div></div>
-            <div>Kayıt %30 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:30%;"></div></div></div>
-          </div>
-        </div>
-
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">BİRİ VARMIŞ ÖTEKİ YOK OLMASIN</span>
-            <button class="studio-listen-btn" onclick="playSnippet('GLQcmdJsO5U', 'assets/audio/track_biri_varmis.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %100 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:100%;"></div></div></div>
-            <div>Beste %95 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:95%;"></div></div></div>
-            <div>Aranje %90 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:90%;"></div></div></div>
-            <div>Kayıt %85 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:85%;"></div></div></div>
-          </div>
-        </div>
-
-        <div class="studio-track-card">
-          <div class="studio-track-header">
-            <span class="studio-track-title">BİLMEM, BEN DE (Tepe Teması)</span>
-            <button class="studio-listen-btn" onclick="playSnippet('CvSByNL1r48', 'assets/audio/track_bilmem_ben_de.mp3')">▶ 15 sn Dinle</button>
-          </div>
-          <div class="studio-stems-grid">
-            <div>Söz %92 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:92%;"></div></div></div>
-            <div>Beste %88 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:88%;"></div></div></div>
-            <div>Aranje %65 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:65%;"></div></div></div>
-            <div>Kayıt %50 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:50%;"></div></div></div>
-          </div>
-        </div>
-      `;
-      glassglowCustomArea.appendChild(studioBox);
-
-      // Switcher Eylemleri
-      const vKenan = studioBox.querySelector("#vocalKenanBtn");
-      const vEkrem = studioBox.querySelector("#vocalEkremBtn");
-      const ekremCard = studioBox.querySelector("#ekremStudioCard");
-      const playEkremBtn = studioBox.querySelector("#playEkremVersionBtn");
-
-      if (vKenan && vEkrem && ekremCard) {
-        vKenan.addEventListener("click", () => {
-          vKenan.classList.add("active");
-          vEkrem.classList.remove("active");
-          ekremCard.style.display = "none";
-          if (window.SUSSUZ_AUDIO) {
-            window.SUSSUZ_AUDIO.playMusicTrack("K35AtsZEl5o", 0.55, "assets/audio/track_gospel_baby_kenan.mp3");
-          }
-        });
-
-        vEkrem.addEventListener("click", () => {
-          vEkrem.classList.add("active");
-          vKenan.classList.remove("active");
-          ekremCard.style.display = "block";
-          if (window.SUSSUZ_AUDIO) {
-            window.SUSSUZ_AUDIO.playMusicTrack("mdPhJrnytkA", 0.55, "assets/audio/track_gospel_baby_ekrem.mp3");
-          }
-        });
-      }
-
-      if (playEkremBtn) {
-        playEkremBtn.addEventListener("click", () => {
-          if (window.SUSSUZ_AUDIO) {
-            window.SUSSUZ_AUDIO.playMusicTrack("mdPhJrnytkA", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
-          }
-        });
-      }
-    }
-
-    // EKREM STÜDYODA CANLI KAYIT (studio_ekrem)
-    if (data.isStudioEkremSpecial) {
-      const ekremStudioBox = document.createElement("div");
-      ekremStudioBox.innerHTML = `
-        <div class="studio-version-switch-box" style="border-color: rgba(56, 178, 172, 0.4); margin-bottom: 16px;">
-          <div class="studio-version-header">
-            <span class="studio-rec-dot" style="background:#38b2ac; box-shadow: 0 0 10px #38b2ac;"></span>
-            <span class="studio-rec-title" style="color:#38b2ac;">CANLI TELEPROMPTER & VOKAL KAYDI</span>
-          </div>
-          <div class="studio-version-lore">
-            Ekrem mikrofona haykırıyor: <em>“If I'm gonna lose you, I won't lose this song...”</em> Stüdyodaki dev ekranda şarkının sözleri ve Türkçe fonetik telaffuzları akıyor.
-          </div>
-          <button id="openGospelLyricsFromTabBtn" class="ek3-trigger ek3-trigger-accent" style="width:100%; justify-content:center; margin-top:10px;">
-            [ 📺 DEV LİRİK EKRANI & TELAFUZLARI GÖR ]
-          </button>
-          <button id="playGospelFromTabBtn" class="ek3-trigger" style="width:100%; justify-content:center; margin-top:8px;">
-            ▶ GOSPEL BABY CANLI ÇAL (EKREM VOKAL)
-          </button>
-        </div>
-      `;
-      glassglowCustomArea.appendChild(ekremStudioBox);
-
-      ekremStudioBox.querySelector("#openGospelLyricsFromTabBtn").addEventListener("click", () => openGospelLyricsModal());
-      ekremStudioBox.querySelector("#playGospelFromTabBtn").addEventListener("click", () => {
-        if (window.playSnippet) window.playSnippet("mdPhJrnytkA");
-      });
-    }
-
-    // KİLİTLİ ODA: Bahar'ın Evi İçerisi
-    if (data.isLockedRoom) {
-      const lockBox = document.createElement("div");
-      lockBox.style.padding = "20px";
-      lockBox.style.background = "rgba(14, 18, 25, 0.8)";
-      lockBox.style.border = "1px solid rgba(224, 49, 49, 0.3)";
-      lockBox.style.textAlign = "center";
-      lockBox.style.marginBottom = "18px";
-      lockBox.innerHTML = `
-        <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: #ff8787; margin-bottom: 6px;">
-          Henüz yazılıyor. :D
-        </h4>
-        <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">
-          Senaryo yazım süreci devam ediyor. Yazım ilerlemesi: <strong>%25</strong>
-        </p>
-        <button class="ek3-trigger ek3-trigger-accent" style="justify-content:center;" onclick="openFundingModal('Destekçiyim')">
-          [ SENARYO YAZIM SÜRECİNE FON SAĞLA → ]
-        </button>
-      `;
-      glassglowCustomArea.appendChild(lockBox);
-    }
-
-    // BULUNAMAYAN MEKÂN: Murat'ın Evi
-    if (data.isMissingLocation) {
-      const missBox = document.createElement("div");
-      missBox.style.padding = "20px";
-      missBox.style.background = "rgba(14, 18, 25, 0.8)";
-      missBox.style.border = "1px solid rgba(245, 159, 0, 0.3)";
-      missBox.style.textAlign = "center";
-      missBox.style.marginBottom = "18px";
-      missBox.innerHTML = `
-        <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: #f59f00; margin-bottom: 6px;">
-          Henüz bulunmadı. :D
-        </h4>
-        <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 14px;">
-          “Evi de mi biz bulak müdür? Bu mekânı biliyor olabilirsin.”
-        </p>
-        <button class="ek3-trigger" style="justify-content:center; color:#ffe066;" onclick="openFundingModal('Mekân sağlayabilirim')">
-          [ ANKARA'DA MEKÂN ÖNER / DESTEK VER → ]
-        </button>
-      `;
-      glassglowCustomArea.appendChild(missBox);
-    }
-  }
-
-  // 15 Saniyelik Müzik Çalma
-  window.playSnippet = function(src, fallbackSrc = null) {
-    if (window.SUSSUZ_AUDIO) {
-      window.SUSSUZ_AUDIO.playMusicTrack(src, 0.55, fallbackSrc);
-      setTimeout(() => {
-        if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.stopMusicTrack();
-      }, 15000);
-    }
-  };
-
-  // 5. YERALTI ANMA DENEYİMİ (MUM ÜFLEME)
-  function startUndergroundDescent() {
-    glassglowTab.classList.remove("tab-active");
-    if (spatialUniverse) spatialUniverse.descendUnderground();
-
-    undergroundOverlay.classList.add("underground-active");
-
-    if (window.SUSSUZ_AUDIO && window.SUSSUZ_AUDIO.ctx) {
-      window.SUSSUZ_AUDIO.playTypewriterClick();
-      if (window.SUSSUZ_AUDIO.windGain) window.SUSSUZ_AUDIO.windGain.gain.setValueAtTime(0.01, window.SUSSUZ_AUDIO.ctx.currentTime);
-      if (window.SUSSUZ_AUDIO.droneGain) window.SUSSUZ_AUDIO.droneGain.gain.setValueAtTime(0.38, window.SUSSUZ_AUDIO.ctx.currentTime);
-    }
-
-    victimNameEl.textContent = "";
-    victimMetaEl.textContent = "";
-    undergroundFinalBox.style.display = "none";
-
-    let index = 0;
-    function showNextVictim() {
-      if (index < MEMORIAL_VICTIMS.length) {
-        const v = MEMORIAL_VICTIMS[index];
-        victimNameEl.style.opacity = "0";
-        victimMetaEl.style.opacity = "0";
-
-        setTimeout(() => {
-          victimNameEl.textContent = v.name;
-          victimMetaEl.textContent = v.meta;
-          victimNameEl.style.opacity = "1";
-          victimMetaEl.style.opacity = "1";
-          index++;
-          setTimeout(showNextVictim, 4200);
-        }, 600);
-      } else {
-        setTimeout(() => {
-          victimNameEl.textContent = "";
-          victimMetaEl.textContent = "";
-          undergroundFinalBox.style.display = "block";
-        }, 800);
-      }
-    }
-
-    setTimeout(showNextVictim, 1500);
-  }
-
-  exitUndergroundBtn.addEventListener("click", () => {
-    undergroundOverlay.classList.remove("underground-active");
-    if (spatialUniverse) {
-      spatialUniverse.ascendFromUnderground();
-      spatialUniverse.flyToScene("lake");
-    }
-    if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.setSceneAudio("lake");
-  });
-
-  // 6. ANONİM NOT SİSTEMİ
-  function openAnonymousNoteModal() {
-    noteOriginBadge.textContent = currentNoteOrigin.toUpperCase();
-    noteTextarea.value = "";
-    noteSuccessBox.style.display = "none";
-    anonymousNoteModal.classList.add("modal-active");
-  }
-
-  leaveNoteBtn.addEventListener("click", openAnonymousNoteModal);
-
-  closeNoteModalBtn.addEventListener("click", () => {
-    anonymousNoteModal.classList.remove("modal-active");
-  });
-
-  submitNoteBtn.addEventListener("click", () => {
-    const text = noteTextarea.value.trim();
-    if (!text) return;
-
-    const noteRecord = {
-      origin: currentNoteOrigin,
-      text: text,
-      publishAllowed: notePublishCheck.checked,
-      timestamp: new Date().toISOString()
-    };
-
-    const notes = JSON.parse(localStorage.getItem("sussuz_anonymous_notes") || "[]");
-    notes.push(noteRecord);
-    localStorage.setItem("sussuz_anonymous_notes", JSON.stringify(notes));
-
-    noteSuccessBox.textContent = "✓ Cümleniz gecenin hafızasına fısıldandı.";
-    noteSuccessBox.style.display = "block";
-
-    setTimeout(() => {
-      anonymousNoteModal.classList.remove("modal-active");
-    }, 1400);
-  });
-
-  // 7. DETERMINISTIK DIYALOG SISTEMI
-  dialogueTriggerBtn.addEventListener("click", () => {
-    if (!currentScene || !currentScene.characterId) return;
-    openDialogueModal(currentScene.characterId);
-  });
-
-  function openDialogueModal(charId) {
-    if (!charId) return;
-    const char = window.SUSSUZ_DIALOGUES[charId];
-    if (!char) return;
-
-    dialogueAvatar.src = char.avatar;
-    dialogueCharName.textContent = char.name;
-    dialogueCharRole.textContent = char.title + ` (${char.age} Yaş)`;
-
-    dialogueModal.classList.add("modal-active");
-    renderDialogueNode(char, "root");
-  }
-
-  function renderDialogueNode(char, nodeKey) {
-    const node = char.tree[nodeKey];
-    if (!node) return;
-
-    if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.playTypewriterClick();
-
-    dialogueSpeechBox.textContent = "";
-    let i = 0;
-    const text = node.text;
-    const speed = 15;
-
-    function typeWriter() {
-      if (i < text.length) {
-        dialogueSpeechBox.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    typeWriter();
-
-    dialogueChoicesBox.innerHTML = "";
-    node.options.forEach((opt) => {
-      const btn = document.createElement("button");
-      btn.className = "dialogue-choice-btn";
-      btn.textContent = `▸ ${opt.label}`;
-      btn.addEventListener("click", () => {
-        if (opt.next === "crowd_redirect") {
-          dialogueModal.classList.remove("modal-active");
-          openFundingModal();
-        } else if (opt.next === "dancefloor_redirect") {
-          dialogueModal.classList.remove("modal-active");
-          if (spatialUniverse) spatialUniverse.flyToScene("dancefloor");
-        } else {
-          renderDialogueNode(char, opt.next);
-        }
-      });
-      dialogueChoicesBox.appendChild(btn);
-    });
-  }
-
-  closeDialogueBtn.addEventListener("click", () => {
-    dialogueModal.classList.remove("modal-active");
-  });
-
-  // 8. İKİ EKSENLİ FONLAMA & KATKI MODALI (CROWD-PRODUCTION)
-  window.openFundingModal = function(preselectedRole = null) {
-    if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.playTypewriterClick();
-    if (preselectedRole) {
-      document.getElementById("contributionRole").value = preselectedRole;
-    }
-    fundingModal.classList.add("modal-active");
-  };
-
-  openFundingBtn.addEventListener("click", () => window.openFundingModal());
-  closeFundingBtn.addEventListener("click", () => fundingModal.classList.remove("modal-active"));
-
-  crowdForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const role = document.getElementById("contributionRole").value;
-    const name = document.getElementById("crowdName").value;
-    const contact = document.getElementById("crowdContact").value;
-    const note = document.getElementById("crowdNote").value;
-
-    const record = {
-      role,
-      name,
-      contact,
-      note,
-      timestamp: new Date().toISOString(),
-      refCode: "SSZ-" + Math.floor(100000 + Math.random() * 900000)
-    };
-
-    const contributions = JSON.parse(localStorage.getItem("sussuz_crowd_production") || "[]");
-    contributions.push(record);
-    localStorage.setItem("sussuz_crowd_production", JSON.stringify(contributions));
-
-    crowdForm.style.display = "none";
-    crowdSuccess.innerHTML = `
-      <div style="background: rgba(46, 213, 115, 0.15); border: 1px solid #2ed573; padding: 22px; text-align: center; font-family: var(--font-mono);">
-        <h4 style="color: #7bed9f; margin-bottom: 8px;">✓ KATKI PROTOKOLÜ ALINDI</h4>
-        <p>Sayın <strong>${name}</strong>, ${role} desteğiniz SUSSUZ prodüksiyon havuzuna işlendi.</p>
-        <p style="margin-top: 10px;"><strong>Takip Kodu:</strong> <code>${record.refCode}</code></p>
-      </div>
-    `;
-    crowdSuccess.style.display = "block";
-  });
-
-  // 10. KHRYSAOR — SUSSUZ RESMİ SOUNDTRACK ÇALAR MOTORU (7 KANONİK ESER)
-  const SOUNDTRACK_PLAYLIST = [
-    {
-      id: "bataklik",
-      num: "01",
-      title: "Bataklık",
-      singer: "Bahar söylüyor",
-      badge: "Official Lyric Video",
-      duration: "1:48",
-      ytId: "yFymvGwoxjA",
-      ytUrl: "https://www.youtube.com/watch?v=yFymvGwoxjA",
-      src: "assets/audio/track_bataklik.mp3",
-      sceneId: "lake",
-      narrative: "Bahar söylüyor // Göl kenarı, Dilek'in doğum günü anısına"
-    },
-    {
-      id: "hirsiz",
-      num: "02",
-      title: "Hırsız",
-      singer: "Kenan söylüyor",
-      badge: "Official Lyric Video",
-      duration: "3:03",
-      ytId: "KFrAv440Rmg",
-      ytUrl: "https://www.youtube.com/watch?v=KFrAv440Rmg",
-      src: "assets/audio/track_hirsiz.mp3",
-      sceneId: "dancefloor",
-      narrative: "Kenan söylüyor; babası Murat ve Ekrem dans pistinde dans ediyor"
-    },
-    {
-      id: "bilmem_ben_de",
-      num: "03",
-      title: "Bilmem, Ben De",
-      singer: "Murat söylüyor",
-      badge: "Official Lyric Video",
-      duration: "2:33",
-      ytId: "CvSByNL1r48",
-      ytUrl: "https://www.youtube.com/watch?v=CvSByNL1r48",
-      src: "assets/audio/track_bilmem_ben_de.mp3",
-      sceneId: "hill",
-      narrative: "Murat söylüyor // Tepe & Ankara ayazı, 1. bölüm finali"
-    },
-    {
-      id: "gospel_baby_kenan",
-      num: "04",
-      title: "Gospel Baby (Kenan Versiyonu)",
-      singer: "Kenan söylüyor",
-      badge: "Stüdyo Demo",
-      duration: "2:54",
-      ytId: "K35AtsZEl5o",
-      ytUrl: "https://www.youtube.com/watch?v=K35AtsZEl5o",
-      src: "assets/audio/track_gospel_baby_kenan.mp3",
-      sceneId: "studio",
-      narrative: "Kenan kaydediyor; 'Bu şarkıya daha sert bir Anadolu sesi lazım, keşke Ekrem söylese' dediği an"
-    },
-    {
-      id: "gospel_baby_ekrem",
-      num: "05",
-      title: "Gospel Baby (Ekrem Versiyonu)",
-      singer: "Ekrem söylüyor // Angaralı Koray",
-      badge: "Stüdyo Master",
-      duration: "3:10",
-      ytId: "mdPhJrnytkA",
-      ytUrl: "https://www.youtube.com/watch?v=mdPhJrnytkA",
-      src: "assets/audio/track_gospel_baby_ekrem.mp3",
-      sceneId: "studio",
-      narrative: "Ekrem söylüyor // Kenan'ın stüdyosunda, taburede it oturuşu elinde mikrofon"
-    },
-    {
-      id: "kaybedemem",
-      num: "06",
-      title: "Bu Şarkıyı Kaybedemem (Ritmi Bırakmam)",
-      singer: "Kenan söylüyor",
-      badge: "Official Audio",
-      duration: "3:24",
-      ytId: "-esQckmIMgQ",
-      ytUrl: "https://www.youtube.com/watch?v=-esQckmIMgQ",
-      src: "assets/audio/track_kaybedemem.mp3",
-      sceneId: "goksu_room",
-      narrative: "Kenan söylüyor // Göksu'nun Cam Ofisi"
-    },
-    {
-      id: "biri_varmis",
-      num: "07",
-      title: "biri varmış öteki yok olmasın",
-      singer: "Murat & Ekrem (düet)",
-      badge: "Official Audio",
-      duration: "4:32",
-      ytId: "GLQcmdJsO5U",
-      ytUrl: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
-      src: "assets/audio/track_biri_varmis.mp3",
-      sceneId: "studio",
-      narrative: "Murat ve Ekrem beraber Bahar'a söylüyorlar"
-    }
-  ];
-
-  const soundtrackModal = document.getElementById("soundtrackModal");
-  const openSoundtrackBtn = document.getElementById("openSoundtrackBtn");
-  const closeSoundtrackBtn = document.getElementById("closeSoundtrackBtn");
-  const soundtrackTracklist = document.getElementById("soundtrackTracklist");
-  const npTitle = document.getElementById("npTitle");
-  const npSubtitle = document.getElementById("npSubtitle");
-  const soundtrackPlayPauseBtn = document.getElementById("soundtrackPlayPauseBtn");
-  const soundtrackPrevBtn = document.getElementById("soundtrackPrevBtn");
-  const soundtrackNextBtn = document.getElementById("soundtrackNextBtn");
-
-  let currentTrackIdx = 0;
-  let isTrackPlaying = false;
-
-  function initSoundtrackUI() {
-    if (!soundtrackTracklist) return;
-    soundtrackTracklist.innerHTML = "";
-
-    SOUNDTRACK_PLAYLIST.forEach((tr, idx) => {
-      const item = document.createElement("div");
-      item.className = `soundtrack-item ${idx === currentTrackIdx ? "track-active" : ""}`;
-      item.innerHTML = `
-        <div class="track-item-left">
-          <span class="track-item-num">${tr.num}</span>
-          <div>
-            <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
-              <span class="track-item-title">${tr.title}</span>
-              <span class="track-item-badge">[${tr.badge}]</span>
-              <a href="${tr.ytUrl}" target="_blank" rel="noopener noreferrer" class="track-external-yt-link" title="YouTube'da Aç (Resmî Kanal)" onclick="event.stopPropagation();">
-                ▶ YouTube ↗
-              </a>
-            </div>
-            <div class="track-item-singer">${tr.singer}</div>
-            <div class="track-item-narrative">“${tr.narrative}”</div>
-          </div>
-        </div>
-        <span class="track-item-duration">${tr.duration}</span>
-      `;
-      item.addEventListener("click", () => {
-        playTrackAt(idx);
-      });
-      soundtrackTracklist.appendChild(item);
-    });
-  }
-
-  function playTrackAt(idx) {
-    currentTrackIdx = idx;
-    const tr = SOUNDTRACK_PLAYLIST[idx];
-    npTitle.textContent = tr.title;
-    npSubtitle.textContent = `${tr.singer} — ${tr.title} [SUSSUZ Soundtrack]`;
-
-    if (window.SUSSUZ_AUDIO) {
-      window.SUSSUZ_AUDIO.playMusicTrack(tr.ytId || tr.src, 0.65, tr.src);
-      isTrackPlaying = true;
-      soundtrackPlayPauseBtn.innerHTML = "⏸";
-    }
-
-    // Listeyi güncelle
-    const items = soundtrackTracklist.querySelectorAll(".soundtrack-item");
-    items.forEach((it, i) => {
-      it.classList.toggle("track-active", i === idx);
-    });
-  }
-
-  if (openSoundtrackBtn) {
-    openSoundtrackBtn.addEventListener("click", () => {
-      initSoundtrackUI();
-      soundtrackModal.classList.add("modal-active");
-    });
-  }
-
-  if (closeSoundtrackBtn) {
-    closeSoundtrackBtn.addEventListener("click", () => {
-      soundtrackModal.classList.remove("modal-active");
-    });
-  }
-
-  if (soundtrackPlayPauseBtn) {
-    soundtrackPlayPauseBtn.addEventListener("click", () => {
-      if (isTrackPlaying) {
-        if (window.SUSSUZ_AUDIO) window.SUSSUZ_AUDIO.stopMusicTrack();
-        isTrackPlaying = false;
-        soundtrackPlayPauseBtn.innerHTML = "▶";
-      } else {
-        playTrackAt(currentTrackIdx);
-      }
-    });
-  }
-
-  if (soundtrackNextBtn) {
-    soundtrackNextBtn.addEventListener("click", () => {
-      const nextIdx = (currentTrackIdx + 1) % SOUNDTRACK_PLAYLIST.length;
-      playTrackAt(nextIdx);
-    });
-  }
-
-  if (soundtrackPrevBtn) {
-    soundtrackPrevBtn.addEventListener("click", () => {
-      const prevIdx = (currentTrackIdx - 1 + SOUNDTRACK_PLAYLIST.length) % SOUNDTRACK_PLAYLIST.length;
-      playTrackAt(prevIdx);
-    });
-  }
-
-  initSoundtrackUI();
-
-  // YouTube / Sahne Müziği Bittiğinde Kesintisiz Döngü & Sıradaki Parça Dinleme
-  if (window.SUSSUZ_AUDIO) {
-    window.SUSSUZ_AUDIO.onYTStateChange = (state) => {
-      // 0: YT.PlayerState.ENDED (Parça sonu)
-      if (state === 0) {
-        if (soundtrackModal && soundtrackModal.classList.contains("modal-active")) {
-          // Modal açıksa sıradaki parçaya geç ve çalmaya devam et
-          const nextIdx = (currentTrackIdx + 1) % SOUNDTRACK_PLAYLIST.length;
-          playTrackAt(nextIdx);
-        } else {
-          // Sahnede serbest gezinirken parça bittiğinde sessizliğe düşmesin, baştan tekrar başlasın
-          if (window.SUSSUZ_AUDIO.ytPlayer && typeof window.SUSSUZ_AUDIO.ytPlayer.seekTo === "function") {
-            try {
-              window.SUSSUZ_AUDIO.ytPlayer.seekTo(0);
-              window.SUSSUZ_AUDIO.ytPlayer.playVideo();
-            } catch (e) {
-              console.warn("Scene loop playback error:", e);
-            }
-          }
-        }
-      }
-    };
-  }
-
-  // 9. HUD VE NAVİGASYON KONTROLLERİ
-  hudBackBtn.addEventListener("click", () => {
-    if (spatialUniverse) spatialUniverse.returnToPanorama();
-  });
-
-  returnPanoramaBtn.addEventListener("click", () => {
-    if (spatialUniverse) spatialUniverse.returnToPanorama();
-  });
-
-  closeGlassglowBtn.addEventListener("click", () => {
-    glassglowTab.classList.remove("tab-active");
-    hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
-  });
-
-  hudToggleTabBtn.addEventListener("click", () => {
-    if (glassglowTab.classList.contains("tab-active")) {
-      glassglowTab.classList.remove("tab-active");
-      hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
-    } else {
-      positionGlassglowPopup();
-      glassglowTab.classList.add("tab-active");
-      hudToggleTabBtn.textContent = "👁️ DETAYLARI GİZLE";
-    }
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      if (glassglowTab.classList.contains("tab-active")) {
-        glassglowTab.classList.remove("tab-active");
-        hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
-      }
-    }
-  });
-
-  muteBtn.addEventListener("click", () => {
-    if (!window.SUSSUZ_AUDIO) return;
-    const isMuted = window.SUSSUZ_AUDIO.toggleMute();
-    muteBtn.innerHTML = isMuted ? "🔇 SES KAPALI" : "🔊 SES AÇIK";
-  });
-
-  resetCameraBtn.addEventListener("click", () => {
-    if (spatialUniverse) {
-      if (spatialUniverse.viewMode === "scene") {
-        spatialUniverse.returnToPanorama();
-      } else {
-        spatialUniverse.camera.targetX = 688;
-        spatialUniverse.camera.targetY = 384;
-        spatialUniverse.camera.targetZoom = spatialUniverse.baseZoom;
-      }
-    }
-  });
-
-  // 10. GOSPEL BABY CANLI LİRİK MODALI
-  const gospelLyricsModal = document.getElementById("gospelLyricsModal");
-  const closeGospelLyricsBtn = document.getElementById("closeGospelLyricsBtn");
-  const playGospelFromModalBtn = document.getElementById("playGospelFromModalBtn");
-  const gospelLyricsContainer = document.getElementById("gospelLyricsContainer");
-
-  function openGospelLyricsModal() {
-    if (!gospelLyricsModal) return;
-    renderGospelLyricsList();
-    gospelLyricsModal.classList.add("modal-active");
-  }
-
-  function renderGospelLyricsList() {
-    if (!gospelLyricsContainer) return;
-    const lyrics = window.GOSPEL_BABY_LYRICS || [];
-    gospelLyricsContainer.innerHTML = "";
-    lyrics.forEach((line, idx) => {
-      const pair = document.createElement("div");
-      pair.className = "gospel-lyric-pair";
-      pair.id = `gospelLine_${idx}`;
-      pair.innerHTML = `
-        <div class="gospel-en-line">${line.en}</div>
-        <div class="gospel-tr-phonetic">${line.tr}</div>
-      `;
-      gospelLyricsContainer.appendChild(pair);
-    });
-  }
-
-  if (closeGospelLyricsBtn) {
-    closeGospelLyricsBtn.addEventListener("click", () => {
-      gospelLyricsModal.classList.remove("modal-active");
-    });
-  }
-
-  if (playGospelFromModalBtn) {
-    playGospelFromModalBtn.addEventListener("click", () => {
-      if (window.playSnippet) {
-        window.playSnippet("mdPhJrnytkA");
-      } else if (window.SUSSUZ_AUDIO) {
-        window.SUSSUZ_AUDIO.playMusicTrack("mdPhJrnytkA", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
-      }
-      playGospelFromModalBtn.textContent = "🔊 ŞARKI ÇALIYOR (EKREM VOKAL)";
-    });
-  }
-
-  window.openGospelLyricsModal = openGospelLyricsModal;
-});

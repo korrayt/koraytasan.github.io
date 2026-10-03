@@ -411,6 +411,15 @@ class AudioEngine {
         this.playMusicTrack("K35AtsZEl5o", 0.52, "assets/audio/track_gospel_baby_kenan.mp3");
         break;
 
+      case "studio_ekrem":
+        this._rampGain(this.droneGain, 0.04, rampTime);
+        this._rampGain(this.windGain, 0.005, rampTime);
+        this._rampGain(this.rainGain, 0.001, rampTime);
+        this.stopClubThump();
+        // Ekrem canlı kayıt seansı — Gospel Baby (Ekrem Vokal)
+        this.playMusicTrack("mdPhJrnytkA", 0.55, "assets/audio/track_gospel_baby_ekrem.mp3");
+        break;
+
       case "accounting":
         this._rampGain(this.droneGain, 0.04, rampTime);
         this._rampGain(this.windGain, 0.005, rampTime);
