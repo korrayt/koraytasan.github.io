@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261003_v17">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261003_v18">
   <style>
     /* Critical Inline Opening Screen Protection — Widescreen 16:9 Lossless Fidelity */
     .opening-overlay {
@@ -188,6 +188,9 @@
         <button id="openSoundtrackBtn" class="hud-btn hud-btn-gold">
           🎵 SOUNDTRACK (7)
         </button>
+        <a id="hudChannelYtBtn" href="https://www.youtube.com/@khrysaor_music/videos" target="_blank" rel="noopener noreferrer" class="hud-btn hud-btn-yt" title="khrysaor Resmî YouTube Kanalı (Tüm Şarkılar)">
+          📺 YOUTUBE ↗
+        </a>
         <button id="openFundingBtn" class="hud-btn hud-btn-highlight">
           PRODÜKSİYON & KATKI
         </button>
@@ -273,6 +276,9 @@
         <button id="focusedObjActionBtn" class="ek3-trigger" style="margin-top: 10px; display: none;">
           [ İŞLEMİ GERÇEKLEŞTİR ]
         </button>
+        <a id="focusedObjYtLink" target="_blank" rel="noopener noreferrer" class="ek3-trigger" style="margin-top: 6px; display: none; text-decoration: none; border-color: rgba(255, 77, 79, 0.45); color: #ff8787; justify-content: center; font-size: 0.72rem;">
+          📺 YOUTUBE'DA İZLE / DİNLE ↗
+        </a>
       </div>
 
       <!-- Özel Etkileşim Alanı (Mum, Muhasebe vb.) -->
@@ -296,9 +302,14 @@
       </div>
 
       <!-- Audio Status Bar -->
-      <div class="glassglow-audio-status" style="margin-top: 14px;">
-        <span class="pulse-indicator"></span>
-        <span id="glassglowAudioNote">Atmosferik ses devrede...</span>
+      <div class="glassglow-audio-status" style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 6px; min-width: 0; overflow: hidden;">
+          <span class="pulse-indicator"></span>
+          <span id="glassglowAudioNote" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Atmosferik ses devrede...</span>
+        </div>
+        <a id="glassglowAudioYtLink" href="https://www.youtube.com/@khrysaor_music/videos" target="_blank" rel="noopener noreferrer" class="glassglow-yt-link" title="Bu Şarkıyı YouTube'da Aç (Resmî Kanal)">
+          ▶ YouTube ↗
+        </a>
       </div>
     </div>
 
@@ -318,10 +329,17 @@
       <button id="closeSoundtrackBtn" class="modal-close-btn" title="Kapat">✕</button>
       
       <div class="soundtrack-header">
-        <span class="ek3-brand">SUSSUZ • RESMİ SOUNDTRACK</span>
-        <div class="ek3-hairline"></div>
-        <h2 class="soundtrack-main-title">SUSSUZ (OST)</h2>
-        <p class="soundtrack-sub-meta">7 Kanonik Parça // SUSSUZ Soundtrack</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <span class="ek3-brand">SUSSUZ • RESMİ SOUNDTRACK</span>
+            <div class="ek3-hairline"></div>
+            <h2 class="soundtrack-main-title">SUSSUZ (OST)</h2>
+            <p class="soundtrack-sub-meta">7 Kanonik Parça // SUSSUZ Soundtrack</p>
+          </div>
+          <a href="https://www.youtube.com/@khrysaor_music/videos" target="_blank" rel="noopener noreferrer" class="soundtrack-channel-yt-btn" title="khrysaor Resmî YouTube Kanalı (Tüm Şarkılar)">
+            📺 RESMÎ KANAL ↗
+          </a>
+        </div>
       </div>
 
       <!-- Çalan Parça Göstergesi -->
@@ -329,7 +347,12 @@
         <div class="now-playing-info">
           <span class="now-playing-tag">ŞU AN ÇALIYOR</span>
           <h4 id="npTitle" class="now-playing-title">Bataklık</h4>
-          <span id="npSubtitle" class="now-playing-artist">Bahar — Bataklık [SUSSUZ Soundtrack]</span>
+          <span id="npSubtitle" class="now-playing-artist">Bahar söylüyor — Bataklık [SUSSUZ Soundtrack]</span>
+          <div style="margin-top: 6px;">
+            <a id="npYtLink" href="https://www.youtube.com/watch?v=yFymvGwoxjA" target="_blank" rel="noopener noreferrer" class="now-playing-yt-btn" title="Bu Şarkıyı YouTube'da İzle">
+              ▶ YouTube'da İzle ↗
+            </a>
+          </div>
         </div>
         <div class="now-playing-controls">
           <button id="soundtrackPrevBtn" class="soundtrack-ctrl-btn" title="Önceki">⏮</button>
@@ -554,9 +577,14 @@
           <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: #ffd43b; letter-spacing: 0.1em; margin: 0;">GOSPEL BABY</h2>
           <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #94a3b8; margin-top: 4px;">EKREM (CANLI VOKAL) • KENAN (MİKSER)</div>
         </div>
-        <button id="playGospelFromModalBtn" class="ek3-trigger ek3-trigger-accent" style="padding: 8px 20px; font-size: 0.74rem;">
-          ▶ ŞARKIYI ÇAL (EKREM VOKAL)
-        </button>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button id="playGospelFromModalBtn" class="ek3-trigger ek3-trigger-accent" style="padding: 8px 18px; font-size: 0.74rem;">
+            ▶ ŞARKIYI ÇAL (EKREM VOKAL)
+          </button>
+          <a id="gospelYtModalBtn" href="https://www.youtube.com/watch?v=mdPhJrnytkA" target="_blank" rel="noopener noreferrer" class="ek3-trigger" style="padding: 8px 14px; font-size: 0.74rem; text-decoration: none; border-color: rgba(255, 77, 79, 0.45); color: #ff8787;">
+            📺 YOUTUBE MASTER ↗
+          </a>
+        </div>
       </div>
       <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748b; margin-bottom: 14px;">
         [ İNGİLİZCE SÖZLER // <strong>TÜRKÇE FONETİK OKUNUŞ</strong> ]
@@ -572,10 +600,10 @@
 
   <!-- Scripts -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="assets/js/dialogue-data.js?v=20261003_v17"></script>
-  <script src="assets/js/audio-engine.js?v=20261003_v17"></script>
-  <script src="assets/js/canvas-map.js?v=20261003_v17"></script>
-  <script src="assets/js/app.js?v=20261003_v17"></script>
+  <script src="assets/js/dialogue-data.js?v=20261003_v18"></script>
+  <script src="assets/js/audio-engine.js?v=20261003_v18"></script>
+  <script src="assets/js/canvas-map.js?v=20261003_v18"></script>
+  <script src="assets/js/app.js?v=20261003_v18"></script>
 
 </body>
 </html>

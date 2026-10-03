@@ -874,6 +874,63 @@ document.addEventListener("DOMContentLoaded", () => {
   const focusedObjSubtitle = document.getElementById("focusedObjSubtitle");
   const focusedObjDesc = document.getElementById("focusedObjDesc");
   const focusedObjActionBtn = document.getElementById("focusedObjActionBtn");
+  const focusedObjYtLink = document.getElementById("focusedObjYtLink");
+  const glassglowAudioYtLink = document.getElementById("glassglowAudioYtLink");
+
+  // YouTube Harici Yönlendirme Haritaları (khrysaor Resmî Kanalı)
+  const SCENE_YT_MAP = {
+    lake: "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    lake_candle: "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    ritim: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    ritim_interior: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    dancefloor: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    ritim_vip: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    ritim_backstage: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    ritim_road: "https://www.youtube.com/watch?v=CvSByNL1r48",
+    hill: "https://www.youtube.com/watch?v=CvSByNL1r48",
+    murat_home: "https://www.youtube.com/watch?v=CvSByNL1r48",
+    studio: "https://www.youtube.com/watch?v=K35AtsZEl5o",
+    studio_ekrem: "https://www.youtube.com/watch?v=mdPhJrnytkA",
+    goksu_room: "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    office: "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    accounting: "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    home: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    home_interior: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    home_kitchen: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    garden: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    master: "https://www.youtube.com/@khrysaor_music/videos"
+  };
+
+  const TRACK_YT_MAP = {
+    bataklik: "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    "track_bataklik.mp3": "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    "assets/audio/track_bataklik.mp3": "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    yFymvGwoxjA: "https://www.youtube.com/watch?v=yFymvGwoxjA",
+    hirsiz: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    "track_hirsiz.mp3": "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    "assets/audio/track_hirsiz.mp3": "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    KFrAv440Rmg: "https://www.youtube.com/watch?v=KFrAv440Rmg",
+    bilmem_ben_de: "https://www.youtube.com/watch?v=CvSByNL1r48",
+    "track_bilmem_ben_de.mp3": "https://www.youtube.com/watch?v=CvSByNL1r48",
+    "assets/audio/track_bilmem_ben_de.mp3": "https://www.youtube.com/watch?v=CvSByNL1r48",
+    CvSByNL1r48: "https://www.youtube.com/watch?v=CvSByNL1r48",
+    gospel_baby_kenan: "https://www.youtube.com/watch?v=K35AtsZEl5o",
+    "track_gospel_baby_kenan.mp3": "https://www.youtube.com/watch?v=K35AtsZEl5o",
+    "assets/audio/track_gospel_baby_kenan.mp3": "https://www.youtube.com/watch?v=K35AtsZEl5o",
+    K35AtsZEl5o: "https://www.youtube.com/watch?v=K35AtsZEl5o",
+    gospel_baby_ekrem: "https://www.youtube.com/watch?v=mdPhJrnytkA",
+    "track_gospel_baby_ekrem.mp3": "https://www.youtube.com/watch?v=mdPhJrnytkA",
+    "assets/audio/track_gospel_baby_ekrem.mp3": "https://www.youtube.com/watch?v=mdPhJrnytkA",
+    mdPhJrnytkA: "https://www.youtube.com/watch?v=mdPhJrnytkA",
+    kaybedemem: "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    "track_kaybedemem.mp3": "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    "assets/audio/track_kaybedemem.mp3": "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    "-esQckmIMgQ": "https://www.youtube.com/watch?v=-esQckmIMgQ",
+    biri_varmis: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    "track_biri_varmis.mp3": "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    "assets/audio/track_biri_varmis.mp3": "https://www.youtube.com/watch?v=GLQcmdJsO5U",
+    GLQcmdJsO5U: "https://www.youtube.com/watch?v=GLQcmdJsO5U"
+  };
 
   // Yeraltı Katmanı
   const undergroundOverlay = document.getElementById("undergroundOverlay");
@@ -997,6 +1054,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (glassglowSubtitle) glassglowSubtitle.textContent = data.subtitle || "";
       if (glassglowAtmosphere) glassglowAtmosphere.textContent = data.atmosphere;
       if (glassglowAudioNote) glassglowAudioNote.textContent = data.musicNote || "";
+      if (glassglowAudioYtLink) {
+        glassglowAudioYtLink.href = SCENE_YT_MAP[sceneId] || "https://www.youtube.com/@khrysaor_music/videos";
+      }
 
       // 3 Sütunlu Üst Veri Alanı (Ek 2)
       const metaLoc = document.getElementById("metaValLocation");
@@ -1126,6 +1186,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.SUSSUZ_AUDIO) {
         window.SUSSUZ_AUDIO.setSceneAudio("master");
       }
+      if (glassglowAudioYtLink) {
+        glassglowAudioYtLink.href = "https://www.youtube.com/@khrysaor_music/videos";
+      }
     }
   }
 
@@ -1192,6 +1255,20 @@ document.addEventListener("DOMContentLoaded", () => {
       focusedObjActionBtn.onclick = () => window.openFundingModal();
     } else {
       focusedObjActionBtn.style.display = "none";
+    }
+
+    // YouTube Yönlendirme Linki (Müzik & Lirik Nesneleri İçin)
+    if (focusedObjYtLink) {
+      const ytUrl = hotspot.ytUrl || 
+        TRACK_YT_MAP[hotspot.src] || 
+        TRACK_YT_MAP[hotspot.fallbackSrc] || 
+        (hotspot.action === "lyrics_modal" ? "https://www.youtube.com/watch?v=mdPhJrnytkA" : null);
+      if (ytUrl) {
+        focusedObjYtLink.href = ytUrl;
+        focusedObjYtLink.style.display = "flex";
+      } else {
+        focusedObjYtLink.style.display = "none";
+      }
     }
   }
 
@@ -1865,6 +1942,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tr = SOUNDTRACK_PLAYLIST[idx];
     npTitle.textContent = tr.title;
     npSubtitle.textContent = `${tr.singer} — ${tr.title} [SUSSUZ Soundtrack]`;
+    const npYtLink = document.getElementById("npYtLink");
+    if (npYtLink && tr.ytUrl) {
+      npYtLink.href = tr.ytUrl;
+    }
 
     if (window.SUSSUZ_AUDIO) {
       window.SUSSUZ_AUDIO.playMusicTrack(tr.src, 0.70, tr.src);
