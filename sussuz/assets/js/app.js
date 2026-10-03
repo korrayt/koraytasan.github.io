@@ -399,7 +399,10 @@ document.addEventListener("DOMContentLoaded", () => {
       atmosphere: "Gölün batı yakasında, Susuz mahallesinden ve Bahar'ın evinden uzakta bağımsız bir sığınak. Şehrin iki ayrı yakası; bir yanda Kenan'ın ses mikseri, diğer yanda sokaklar. Track stemleri, analog mikrofon, not defteri ve şarkıların demoları.",
       musicNote: "Sınırda Kalanım / Bataklık Stemleri",
       isStudioSpecial: true,
-      noteOrigin: "Stüdyodaki Not Defteri",
+      subvenues: [
+        { id: "studio_ekrem", label: "🎙️ Ekrem'in Kayıt Seansı (Gospel Baby)" },
+        { id: "ritim", label: "Ritim Gece Kulübü" }
+      ],
       props: [
         {
           name: "Analog Mikser & Parça Listesi",
@@ -410,6 +413,36 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "Vokal Mikrofonu & Kül Tablası",
           icon: "🎙️",
           desc: "Ekrem'in taburede it oturuşuyla şarkıyı söylediği, ucunda dumanı tüten sigaranın durduğu mikrofon standı."
+        }
+      ]
+    },
+
+    studio_ekrem: {
+      id: "studio_ekrem",
+      title: "EKREM'İN KAYIT SEANSI // GOSPEL BABY",
+      subtitle: "INT. BATI YAKASI ATÖLYESİ — CANLI VOKAL KAYDI // KENAN & EKREM",
+      image: "assets/img/loc_studio_ekrem.jpg",
+      characterId: "ekrem",
+      characterName: "Ekrem",
+      characterRole: "Vokalist & Sokak Ruhu",
+      atmosphere: "Kenan Ekrem'i ikna etti. Ekrem stüdyo bankında it oturuşu, tek elinde mikrofon... Karşılarındaki dev ekranda şarkının sözleri akıyor, Kenan analog konsolda faderları açıyor: 'If I'm gonna lose you, I won't lose this song...'",
+      musicNote: "GOSPEL BABY (Ekrem Vokali — Ham Kayıt)",
+      noteOrigin: "Lirik Ekranı Altındaki Kablo Bağı",
+      isStudioEkremSpecial: true,
+      subvenues: [
+        { id: "studio", label: "Kenan'ın Masasına Dön (Genel Stüdyo)" },
+        { id: "ritim", label: "Ritim Gece Kulübü" }
+      ],
+      props: [
+        {
+          name: "Dev Lirik Ekranı // Gospel Baby",
+          icon: "📺",
+          desc: "Ekranda kayan sözler: 'You left your boots by the door, I still trip on them sometimes...' Ekrem İngilizce sözlerin altına kendi fonetik okunuşlarını yazmış."
+        },
+        {
+          name: "Kenan'ın Mikser Ayarları",
+          icon: "🎛️",
+          desc: "Kenan basları ve vokal kompresörünü dengeliyor: 'Bu şarkı senin sesinle tamamlandı oğlum.'"
         }
       ]
     }
@@ -707,6 +740,11 @@ document.addEventListener("DOMContentLoaded", () => {
       focusedObjActionBtn.style.display = "flex";
       focusedObjActionBtn.innerHTML = `[ ✍️ BU NOKTAYA BİR NOT BIRAK ]`;
       focusedObjActionBtn.onclick = () => openAnonymousNoteModal();
+    } else if (hotspot.action === "lyrics_modal") {
+      focusedObjActionBtn.style.display = "flex";
+      focusedObjActionBtn.innerHTML = `[ 📺 DEV LİRİK EKRANINI AÇ ]`;
+      focusedObjActionBtn.onclick = () => openGospelLyricsModal();
+      openGospelLyricsModal();
     } else if (hotspot.action === "funding") {
       focusedObjActionBtn.style.display = "flex";
       focusedObjActionBtn.innerHTML = `[ SPONSORLUK VE DESTEK PROTOKOLÜ ]`;
@@ -943,6 +981,34 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       }
+    }
+
+    // EKREM STÜDYODA CANLI KAYIT (studio_ekrem)
+    if (data.isStudioEkremSpecial) {
+      const ekremStudioBox = document.createElement("div");
+      ekremStudioBox.innerHTML = `
+        <div class="studio-version-switch-box" style="border-color: rgba(56, 178, 172, 0.4); margin-bottom: 16px;">
+          <div class="studio-version-header">
+            <span class="studio-rec-dot" style="background:#38b2ac; box-shadow: 0 0 10px #38b2ac;"></span>
+            <span class="studio-rec-title" style="color:#38b2ac;">CANLI TELEPROMPTER & VOKAL KAYDI</span>
+          </div>
+          <div class="studio-version-lore">
+            Ekrem mikrofona haykırıyor: <em>“If I'm gonna lose you, I won't lose this song...”</em> Stüdyodaki dev ekranda şarkının sözleri ve Türkçe fonetik telaffuzları akıyor.
+          </div>
+          <button id="openGospelLyricsFromTabBtn" class="ek3-trigger ek3-trigger-accent" style="width:100%; justify-content:center; margin-top:10px;">
+            [ 📺 DEV LİRİK EKRANI & TELAFUZLARI GÖR ]
+          </button>
+          <button id="playGospelFromTabBtn" class="ek3-trigger" style="width:100%; justify-content:center; margin-top:8px;">
+            ▶ GOSPEL BABY CANLI ÇAL (EKREM VOKAL)
+          </button>
+        </div>
+      `;
+      glassglowCustomArea.appendChild(ekremStudioBox);
+
+      ekremStudioBox.querySelector("#openGospelLyricsFromTabBtn").addEventListener("click", () => openGospelLyricsModal());
+      ekremStudioBox.querySelector("#playGospelFromTabBtn").addEventListener("click", () => {
+        if (window.playSnippet) window.playSnippet("mdPhJrnytkA");
+      });
     }
 
     // KİLİTLİ ODA: Bahar'ın Evi İçerisi
@@ -1470,4 +1536,51 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // 10. GOSPEL BABY CANLI LİRİK MODALI
+  const gospelLyricsModal = document.getElementById("gospelLyricsModal");
+  const closeGospelLyricsBtn = document.getElementById("closeGospelLyricsBtn");
+  const playGospelFromModalBtn = document.getElementById("playGospelFromModalBtn");
+  const gospelLyricsContainer = document.getElementById("gospelLyricsContainer");
+
+  function openGospelLyricsModal() {
+    if (!gospelLyricsModal) return;
+    renderGospelLyricsList();
+    gospelLyricsModal.classList.add("modal-active");
+  }
+
+  function renderGospelLyricsList() {
+    if (!gospelLyricsContainer) return;
+    const lyrics = window.GOSPEL_BABY_LYRICS || [];
+    gospelLyricsContainer.innerHTML = "";
+    lyrics.forEach((line, idx) => {
+      const pair = document.createElement("div");
+      pair.className = "gospel-lyric-pair";
+      pair.id = `gospelLine_${idx}`;
+      pair.innerHTML = `
+        <div class="gospel-en-line">${line.en}</div>
+        <div class="gospel-tr-phonetic">${line.tr}</div>
+      `;
+      gospelLyricsContainer.appendChild(pair);
+    });
+  }
+
+  if (closeGospelLyricsBtn) {
+    closeGospelLyricsBtn.addEventListener("click", () => {
+      gospelLyricsModal.classList.remove("modal-active");
+    });
+  }
+
+  if (playGospelFromModalBtn) {
+    playGospelFromModalBtn.addEventListener("click", () => {
+      if (window.playSnippet) {
+        window.playSnippet("mdPhJrnytkA");
+      } else if (window.SUSSUZ_AUDIO) {
+        window.SUSSUZ_AUDIO.playMusicTrack("mdPhJrnytkA", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
+      }
+      playGospelFromModalBtn.textContent = "🔊 ŞARKI ÇALIYOR (EKREM VOKAL)";
+    });
+  }
+
+  window.openGospelLyricsModal = openGospelLyricsModal;
 });

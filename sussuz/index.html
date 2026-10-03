@@ -5,7 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>SUSSUZ — Ankara'nın Altında Kalan Hikâyeler</title>
   <meta name="description" content="SUSSUZ — Şehir-Noir, Müzikal Suç Draması. Ankara ve Susuz'un yaşayan gece panoramasını keşfedin.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261003_v4">
+  <style>
+    /* Critical Inline Opening Screen Protection */
+    .opening-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background-color: #010308 !important;
+      z-index: 1000 !important;
+      overflow: hidden !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .opening-overlay.opening-hidden {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(1.06) !important;
+    }
+    .opening-hero-visual-wrap {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      pointer-events: none !important;
+    }
+    .opening-hero-img {
+      max-height: 100vh !important;
+      max-width: 100vw !important;
+      width: auto !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      filter: contrast(1.04) brightness(0.98) !important;
+      animation: heroBreathe 18s ease-in-out infinite alternate !important;
+      user-select: none !important;
+      pointer-events: none !important;
+    }
+    @keyframes heroBreathe {
+      0% { transform: scale(1.0); }
+      100% { transform: scale(1.03); }
+    }
+    .opening-hero-glow {
+      position: absolute !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      background: radial-gradient(circle at 50% 38%, rgba(255, 212, 59, 0.04) 0%, transparent 60%),
+                  radial-gradient(circle at 50% 100%, rgba(1, 3, 8, 0.90) 0%, transparent 65%) !important;
+    }
+    .opening-bottom-controls {
+      position: fixed !important;
+      bottom: 28px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      z-index: 1005 !important;
+      pointer-events: auto !important;
+      padding: 0 16px !important;
+    }
+    .opening-quote {
+      font-family: 'Cinzel', Georgia, serif !important;
+      font-size: 1.15rem !important;
+      letter-spacing: 0.28em !important;
+      color: rgba(241, 242, 246, 0.95) !important;
+      text-transform: uppercase !important;
+      margin: 0 0 18px 0 !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.9) !important;
+    }
+    .opening-enter-btn {
+      background: rgba(10, 14, 24, 0.88) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      color: #f1f2f6 !important;
+      border: 1px solid rgba(255, 212, 59, 0.55) !important;
+      padding: 15px 36px !important;
+      font-family: 'JetBrains Mono', monospace, sans-serif !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.26em !important;
+      text-transform: uppercase !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 212, 59, 0.15) !important;
+      margin: 0 0 18px 0 !important;
+      transition: all 0.35s ease !important;
+      display: inline-block !important;
+    }
+    .opening-enter-btn:hover {
+      border-color: #ffd43b !important;
+      background: rgba(224, 49, 49, 0.35) !important;
+      box-shadow: 0 0 30px rgba(224, 49, 49, 0.55), 0 0 15px rgba(255, 212, 59, 0.3) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px) !important;
+    }
+    .opening-footnote {
+      font-family: 'JetBrains Mono', monospace, sans-serif !important;
+      font-size: 0.70rem !important;
+      letter-spacing: 0.42em !important;
+      color: rgba(148, 163, 184, 0.7) !important;
+      text-transform: uppercase !important;
+      margin: 0 !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    }
+    @media (max-width: 768px) {
+      .opening-quote {
+        font-size: 0.95rem !important;
+        letter-spacing: 0.18em !important;
+        margin-bottom: 14px !important;
+      }
+      .opening-enter-btn {
+        padding: 12px 24px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 0.18em !important;
+        margin-bottom: 14px !important;
+      }
+      .opening-bottom-controls {
+        bottom: 20px !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,24 +147,22 @@
 
   <!-- Açılış Sekansı (Cold Open / Hero Logo Mimarisi) -->
   <div id="openingOverlay" class="opening-overlay">
-    <div class="opening-hero-stage">
-      <div class="opening-hero-visual-wrap">
-        <img src="assets/img/sussuz_hero_logo.png" alt="SUSSUZ — Bir Ankara Hikâyesi" class="opening-hero-img" id="heroLogoImg">
-        <div class="opening-hero-glow"></div>
-      </div>
+    <div class="opening-hero-visual-wrap">
+      <img src="assets/img/sussuz_hero_logo.png" alt="SUSSUZ — Bir Ankara Hikâyesi" class="opening-hero-img" id="heroLogoImg">
+      <div class="opening-hero-glow"></div>
+    </div>
 
-      <!-- Yansımanın Altına Yerleşen Tipografi ve Kontroller -->
-      <div class="opening-bottom-controls">
-        <p class="opening-quote">“Bazı şeyler gömülünce kaybolmaz.”</p>
-        
-        <button id="enterBtn" class="cinematic-btn-primary opening-enter-btn">
-          [ GECEYE ADIM AT // RİTMİ BAŞLAT ]
-        </button>
+    <!-- Yansımanın Altına Yerleşen Tipografi ve Kontroller -->
+    <div class="opening-bottom-controls">
+      <p class="opening-quote">“Bazı şeyler gömülünce kaybolmaz.”</p>
+      
+      <button id="enterBtn" class="cinematic-btn-primary opening-enter-btn">
+        [ GECEYE ADIM AT // RİTMİ BAŞLAT ]
+      </button>
 
-        <p class="opening-footnote">
-          BİR ANKARA HİKÂYESİ
-        </p>
-      </div>
+      <p class="opening-footnote">
+        BİR ANKARA HİKÂYESİ
+      </p>
     </div>
   </div>
 
@@ -391,6 +518,28 @@
     </div>
   </div>
 
+  <!-- Ekrem Gospel Baby Canlı Lirik Modalı (Teleprompter) -->
+  <div id="gospelLyricsModal" class="modal-overlay">
+    <div class="modal-container gospel-lyrics-modal-box">
+      <button id="closeGospelLyricsBtn" class="modal-close-btn" title="Kapat">✕</button>
+      <div class="ek3-brand" style="text-align: left;">BATI YAKASI SES ATÖLYESİ // CANLI TELEPROMPTER</div>
+      <div class="ek3-hairline"></div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: #ffd43b; letter-spacing: 0.1em; margin: 0;">GOSPEL BABY</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #94a3b8; margin-top: 4px;">EKREM (CANLI VOKAL) • KENAN (MİKSER)</div>
+        </div>
+        <button id="playGospelFromModalBtn" class="ek3-trigger ek3-trigger-accent" style="padding: 8px 20px; font-size: 0.74rem;">
+          ▶ ŞARKIYI ÇAL (EKREM VOKAL)
+        </button>
+      </div>
+      <p style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748b; margin-bottom: 14px;">
+        [ İNGİLİZCE SÖZLER // <strong>TÜRKÇE FONETİK OKUNUŞ</strong> ]
+      </p>
+      <div id="gospelLyricsContainer" class="gospel-lyrics-scroll-box"></div>
+    </div>
+  </div>
+
   <!-- YouTube Headless Audio Player (Resmi YouTube IFrame API — İzlenme Sayar, Görüntü Gösterilmez) -->
   <div id="youtubeAudioContainer" class="youtube-audio-host">
     <div id="youtubePlayerElement"></div>
@@ -398,10 +547,10 @@
 
   <!-- Scripts -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="assets/js/dialogue-data.js"></script>
-  <script src="assets/js/audio-engine.js"></script>
-  <script src="assets/js/canvas-map.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dialogue-data.js?v=20261003_v4"></script>
+  <script src="assets/js/audio-engine.js?v=20261003_v4"></script>
+  <script src="assets/js/canvas-map.js?v=20261003_v4"></script>
+  <script src="assets/js/app.js?v=20261003_v4"></script>
 
 </body>
 </html>

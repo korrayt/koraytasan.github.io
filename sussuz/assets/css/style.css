@@ -148,16 +148,18 @@ body, html {
 }
 
 .opening-bottom-controls {
-  position: absolute;
-  bottom: 34px;
+  position: fixed;
+  bottom: 28px;
   left: 0;
+  right: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 10;
+  text-align: center;
+  z-index: 1005;
   pointer-events: auto;
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
 .opening-quote {
@@ -1471,5 +1473,58 @@ body, html {
   color: #fff;
   border-color: var(--accent-red);
 }
+
+/* 11. Gospel Baby Canlı Teleprompter Modal Stilleri */
+.gospel-lyrics-modal-box {
+  max-width: 680px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(8, 12, 18, 0.95);
+  border: 1px solid rgba(56, 178, 172, 0.4);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(56, 178, 172, 0.2);
+}
+
+.gospel-lyrics-scroll-box {
+  overflow-y: auto;
+  max-height: 55vh;
+  padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gospel-lyric-pair {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid rgba(56, 178, 172, 0.3);
+  transition: all 0.25s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.gospel-lyric-pair:hover {
+  background: rgba(56, 178, 172, 0.12);
+  border-left-color: #38b2ac;
+  transform: translateX(4px);
+}
+
+.gospel-en-line {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  color: #f1f2f6;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.gospel-tr-phonetic {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffd43b;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
 
 
