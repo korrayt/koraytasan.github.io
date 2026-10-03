@@ -397,6 +397,37 @@ body, html {
   color: #64748b;
 }
 
+@media (max-width: 768px) {
+  .hud-layer {
+    padding: 16px 18px;
+  }
+  .hud-brand-emblem {
+    height: 32px;
+  }
+  .hud-brand-sub {
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+  }
+  .hud-right-actions {
+    gap: 6px;
+  }
+  .hud-btn {
+    padding: 6px 12px;
+    font-size: 0.64rem;
+  }
+  .hud-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .hud-coordinates {
+    font-size: 0.60rem;
+  }
+  .hud-instructions {
+    font-size: 0.62rem;
+  }
+}
+
 /* ========================================================================= */
 /* 6. GLASSGLOW FLOATING SIDE TAB (Ek-2 Master Acrylic Glass Card Mimarisi)  */
 /* Solda sabit, kompakt ve estetik lüks sinematik kart                        */
@@ -428,6 +459,19 @@ body, html {
   opacity: 1;
   transform: translateX(0) scale(1);
   pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .glassglow-tab {
+    top: auto !important;
+    bottom: 20px !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    max-width: calc(100vw - 28px) !important;
+    max-height: 52vh !important;
+    border-radius: 14px !important;
+  }
 }
 
 .glassglow-header {

@@ -993,10 +993,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (glassglowSceneTag) {
         glassglowSceneTag.textContent = data.sceneTag || "SUSSUZ NOIR";
       }
-      glassglowTitle.textContent = data.title;
-      glassglowSubtitle.textContent = data.subtitle;
-      glassglowAtmosphere.textContent = data.atmosphere;
-      glassglowAudioNote.textContent = data.musicNote;
+      if (glassglowTitle) glassglowTitle.textContent = data.title;
+      if (glassglowSubtitle) glassglowSubtitle.textContent = data.subtitle || "";
+      if (glassglowAtmosphere) glassglowAtmosphere.textContent = data.atmosphere;
+      if (glassglowAudioNote) glassglowAudioNote.textContent = data.musicNote || "";
 
       // 3 Sütunlu Üst Veri Alanı (Ek 2)
       const metaLoc = document.getElementById("metaValLocation");
@@ -1196,12 +1196,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showFocusedObjectCard(obj) {
-    focusedObjIcon.textContent = obj.icon || "⚡";
-    focusedObjTitle.textContent = obj.name;
-    focusedObjSubtitle.textContent = obj.subtitle;
-    focusedObjDesc.textContent = obj.desc;
-    glassglowFocusedObject.style.display = "block";
-    glassglowFocusedObject.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (focusedObjIcon) focusedObjIcon.textContent = obj.icon || "⚡";
+    if (focusedObjTitle) focusedObjTitle.textContent = obj.name || "";
+    if (focusedObjSubtitle) focusedObjSubtitle.textContent = obj.subtitle || "";
+    if (focusedObjDesc) focusedObjDesc.textContent = obj.desc || "";
+    if (glassglowFocusedObject) {
+      glassglowFocusedObject.style.display = "block";
+      try {
+        glassglowFocusedObject.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      } catch (e) {}
+    }
   }
 
   // 4. ÖZEL İÇERİK ALANLARI

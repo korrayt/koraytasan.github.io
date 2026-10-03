@@ -434,7 +434,7 @@ class SpatialUniverse {
         { id: "dance_to_interior", name: "GENEL SALONA BAK", relX: 0.160, relY: 0.740, icon: "🏛️", subtitle: "RİTİM İÇ MEKÂN GENEL GÖRÜNÜM", action: "fly_subvenue", target: "ritim_interior", desc: "Kulübün genel açısına dönün." },
         { id: "dance_to_vip", name: "VIP LOCAYA ÇIK", relX: 0.840, relY: 0.260, icon: "🍸", subtitle: "ASMA KATTAN PİSTE BAKIŞ", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
         { id: "dance_to_backstage", name: "KULİS KAPISINI İT", relX: 0.860, relY: 0.680, icon: "🎭", subtitle: "SAHNE ARKASINA GEÇ", action: "fly_subvenue", target: "ritim_backstage", desc: "Kulise geçiş yapın." },
-        { id: "dance_return", name: "DIŞARIYA ÇIK", relX: 0.160, relY: 0.740, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
+        { id: "dance_return", name: "DIŞARIYA ÇIK", relX: 0.080, relY: 0.880, icon: "🚪", subtitle: "RİTİM GİRİŞİ", action: "fly_subvenue", target: "ritim", desc: "Girişe dönün." }
       ],
 
       goksu_room: [
@@ -625,8 +625,8 @@ class SpatialUniverse {
         {
           id: "ekrem_vocal_heart",
           name: "EKREM İLE YÜZLEŞ // VOKAL",
-          relX: 0.330,
-          relY: 0.540,
+          relX: 0.310,
+          relY: 0.590,
           icon: "💬",
           subtitle: "KALPTE YANAN GOSPEL // EKREM DİYALOĞU",
           action: "dialogue",
@@ -636,8 +636,8 @@ class SpatialUniverse {
         {
           id: "ekrem_mic",
           name: "MİKROFONU DİNLE // GOSPEL BABY",
-          relX: 0.380,
-          relY: 0.520,
+          relX: 0.410,
+          relY: 0.490,
           icon: "🎵",
           subtitle: "EKREM — GOSPEL BABY [SUSSUZ SOUNDTRACK]",
           action: "music",
