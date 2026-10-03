@@ -472,7 +472,7 @@ class SpatialUniverse {
         },
         { 
           id: "hill_dialogue", 
-          name: "MURAT İLE KONUŞ // KALBİ", 
+          name: "MURAT İLE KONUŞ", 
           relX: 0.525, 
           relY: 0.530, 
           icon: "💬", 
@@ -483,7 +483,7 @@ class SpatialUniverse {
         },
         { 
           id: "hill_ekrem_dialogue", 
-          name: "EKREM İLE KONUŞ // KALBİ", 
+          name: "EKREM İLE KONUŞ", 
           relX: 0.770, 
           relY: 0.580, 
           icon: "💬", 
@@ -519,7 +519,7 @@ class SpatialUniverse {
       garden: [
         { 
           id: "garden_dialogue", 
-          name: "ATA İLE KONUŞ // KALBİ", 
+          name: "ATA İLE KONUŞ", 
           relX: 0.435, 
           relY: 0.720, 
           icon: "💬", 
@@ -530,7 +530,7 @@ class SpatialUniverse {
         },
         { 
           id: "garden_kenan", 
-          name: "KENAN İLE KONUŞ // KALBİ", 
+          name: "KENAN İLE KONUŞ", 
           relX: 0.655, 
           relY: 0.580, 
           icon: "💬", 
@@ -728,7 +728,7 @@ class SpatialUniverse {
         },
         { 
           id: "home_bahar_dialogue", 
-          name: "BAHAR İLE KONUŞ // KALBİ", 
+          name: "BAHAR İLE KONUŞ", 
           relX: 0.540, 
           relY: 0.540, 
           icon: "💬", 
@@ -739,7 +739,7 @@ class SpatialUniverse {
         },
         { 
           id: "home_ata_dialogue", 
-          name: "ATA İLE KONUŞ // KALBİ", 
+          name: "ATA İLE KONUŞ", 
           relX: 0.655, 
           relY: 0.680, 
           icon: "💬", 
@@ -955,14 +955,22 @@ class SpatialUniverse {
       this.mouse.isDown = true;
       this.mouse.lastX = e.clientX;
       this.mouse.lastY = e.clientY;
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+      this.mouse.worldX = (e.clientX - this.canvas.width / 2) / this.camera.zoom + this.camera.x;
+      this.mouse.worldY = (e.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
       this.mouse.dragDist = 0;
     });
 
-    window.addEventListener("mouseup", () => {
+    window.addEventListener("mouseup", (e) => {
       if (!this.mouse.isDown) return;
       this.mouse.isDown = false;
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+      this.mouse.worldX = (e.clientX - this.canvas.width / 2) / this.camera.zoom + this.camera.x;
+      this.mouse.worldY = (e.clientY - this.canvas.height / 2) / this.camera.zoom + this.camera.y;
 
-      if (this.mouse.dragDist < 12) {
+      if (this.mouse.dragDist < 14) {
         if (this.viewMode === "panorama") {
           this._checkSectorHover();
           if (this.hoveredSector) {
@@ -1070,21 +1078,53 @@ class SpatialUniverse {
     let closest = null;
     let minDist = Infinity;
 
+    // Arka plandan hafifçe ayrışan bağımsız süzülme ofseti (Optik Derinlik)
+    const floatDepthX = this.parallax.x * 0.22;
+    const floatDepthY = this.parallax.y * 0.22;
+
     for (const sec of this.sectors) {
-      // Hem marker hem de etiket etki alanını kontrol et
+      // 1. Dairesel İşaretçi (Beacon) Etki Alanı
       const dxM = this.mouse.worldX - sec.x;
       const dyM = this.mouse.worldY - sec.y;
       const distM = Math.sqrt(dxM * dxM + dyM * dyM);
 
-      const dxL = this.mouse.worldX - sec.labelX;
-      const dyL = this.mouse.worldY - sec.labelY;
-      const distL = Math.sqrt(dxL * dxL + dyL * dyL);
+      // 2. Tipografi / Etiket Cam Kapsül (Label Box) Alanı
+      const lx = sec.labelX + floatDepthX;
+      const ly = sec.labelY + floatDepthY;
+      const boxW = 180;
+      const boxH = 40;
 
-      const hitDist = Math.min(distM, distL);
+      let bMinX = lx;
+      let bMaxX = lx + boxW;
+      let bMinY = ly - 14;
+      let bMaxY = ly + boxH;
 
-      if (hitDist < sec.radius + 35) {
-        if (hitDist < minDist) {
-          minDist = hitDist;
+      if (sec.arrowType === "down") {
+        bMinX = lx - boxW / 2;
+        bMaxX = lx + boxW / 2;
+      } else if (sec.arrowType === "down_left") {
+        bMinX = lx - boxW;
+        bMaxX = lx;
+      } else if (sec.arrowType === "down_right" || sec.arrowType === "up_right") {
+        bMinX = lx;
+        bMaxX = lx + boxW;
+      }
+
+      // Kutuya 28px tolerans ekle
+      const inBox = (
+        this.mouse.worldX >= bMinX - 28 &&
+        this.mouse.worldX <= bMaxX + 28 &&
+        this.mouse.worldY >= bMinY - 28 &&
+        this.mouse.worldY <= bMaxY + 28
+      );
+
+      // Daireye tolerans: radius + 45
+      const inMarker = distM < (sec.radius + 45);
+
+      if (inMarker || inBox) {
+        const effectiveDist = inBox ? 0 : distM;
+        if (effectiveDist < minDist) {
+          minDist = effectiveDist;
           closest = sec;
         }
       }
@@ -1118,7 +1158,7 @@ class SpatialUniverse {
       const dy = this.mouse.y - pos.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      if (dist < 40) {
+      if (dist < 48) {
         if (dist < minDist) {
           minDist = dist;
           closest = s;

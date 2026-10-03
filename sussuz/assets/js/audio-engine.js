@@ -329,6 +329,7 @@ class AudioEngine {
     try {
       this.musicElement.pause();
       this.musicElement.src = audioSrc;
+      this.musicElement.load();
       this.musicElement.currentTime = 0;
       this.musicElement.volume = this.isMuted ? 0 : volume;
       const playPromise = this.musicElement.play();
@@ -403,10 +404,10 @@ class AudioEngine {
       case "ritim":
       case "ritim_interior":
       case "dancefloor":
-        this._rampGain(this.droneGain, 0.12, rampTime);
+        this._rampGain(this.droneGain, 0.08, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(124, 0.24);
+        this.stopClubThump(); // Parçanın kendi master vuruşları devrede
         // Ritim kulübü — Sahnede Kenan: HIRSIZ (Full Studio Master)
         this.playMusicTrack("hirsiz", 0.65, "assets/audio/track_hirsiz.mp3");
         break;
@@ -415,17 +416,17 @@ class AudioEngine {
         this._rampGain(this.droneGain, 0.06, rampTime);
         this._rampGain(this.windGain, 0.09, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(120, 0.06);
+        this.stopClubThump();
         // Murat & Ekrem yol sahnesi — BİLMEM, BEN DE
         this.playMusicTrack("bilmem_ben_de", 0.55, "assets/audio/track_bilmem_ben_de.mp3");
         break;
 
       case "ritim_vip":
       case "ritim_backstage":
-        this._rampGain(this.droneGain, 0.07, rampTime);
+        this._rampGain(this.droneGain, 0.06, rampTime);
         this._rampGain(this.windGain, 0.001, rampTime);
         this._rampGain(this.rainGain, 0.001, rampTime);
-        this.startClubThump(124, 0.18);
+        this.stopClubThump();
         this.playMusicTrack("hirsiz", 0.50, "assets/audio/track_hirsiz.mp3");
         break;
 
