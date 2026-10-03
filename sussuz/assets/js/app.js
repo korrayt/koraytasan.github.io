@@ -931,10 +931,44 @@ document.addEventListener("DOMContentLoaded", () => {
       currentNoteOrigin = data.noteOrigin || "Dünya Panosu";
 
       // Glassglow Tab İçeriğini Doldur
+      if (glassglowSceneTag) {
+        glassglowSceneTag.textContent = data.sceneTag || "SUSSUZ NOIR";
+      }
       glassglowTitle.textContent = data.title;
       glassglowSubtitle.textContent = data.subtitle;
       glassglowAtmosphere.textContent = data.atmosphere;
       glassglowAudioNote.textContent = data.musicNote;
+
+      // 3 Sütunlu Üst Veri Alanı (Ek 2)
+      const metaLoc = document.getElementById("metaValLocation");
+      if (metaLoc) metaLoc.textContent = data.location || "Göksu Parkı";
+      const metaTime = document.getElementById("metaValTime");
+      if (metaTime) metaTime.textContent = data.time || "Gece";
+      const metaPeriod = document.getElementById("metaValPeriod");
+      if (metaPeriod) metaPeriod.textContent = data.period || "Günümüz";
+
+      // Ana Altın Pill Eylem Butonu (Ek 2 Gold Gradient Pill)
+      const primaryCta = document.getElementById("glassglowPrimaryCtaBtn");
+      if (primaryCta) {
+        const ctaTxt = document.getElementById("ctaText");
+        const ctaIco = document.getElementById("ctaIconCircle");
+        if (data.ctaText) {
+          primaryCta.style.display = "flex";
+          if (ctaTxt) ctaTxt.textContent = data.ctaText;
+          if (ctaIco) ctaIco.textContent = data.ctaIcon || "▶";
+          primaryCta.onclick = () => {
+            if (data.ctaTarget && spatialUniverse) {
+              spatialUniverse.flyToScene(data.ctaTarget);
+            } else if (data.ctaAction === "underground") {
+              startUndergroundDescent();
+            } else if (data.ctaAction === "dialogue" && data.ctaCharId) {
+              openDialogueModal(data.ctaCharId);
+            }
+          };
+        } else {
+          primaryCta.style.display = "none";
+        }
+      }
 
       // Odak kartını gizle
       glassglowFocusedObject.style.display = "none";
@@ -959,22 +993,36 @@ document.addEventListener("DOMContentLoaded", () => {
       // Özel Etkileşim Alanları (Mum, Muhasebe, Stüdyo, vb.)
       renderSceneCustomArea(data);
 
-      // Sahne İpuçları Listesi
+      // Sahne İpuçları Listesi (Ek-2 Luxury Noir Thumbnail Card Rows)
       glassglowPropsList.innerHTML = "";
       if (data.props && data.props.length > 0) {
         data.props.forEach((prop) => {
-          const btn = document.createElement("button");
-          btn.className = "ek3-trigger";
-          btn.innerHTML = `<span>${prop.icon}</span> <span>${prop.name}</span>`;
-          btn.addEventListener("click", () => {
+          const row = document.createElement("button");
+          row.className = "glassglow-prop-row";
+          row.innerHTML = `
+            <img src="${prop.thumb || 'assets/img/props/prop_cake.jpg'}" alt="${prop.name}" class="glassglow-prop-thumb">
+            <div class="glassglow-prop-info">
+              <span class="glassglow-prop-title">${prop.name}</span>
+              <span class="glassglow-prop-desc">${prop.desc || prop.subtitle || ''}</span>
+            </div>
+            <span class="glassglow-prop-chevron">›</span>
+          `;
+          row.addEventListener("click", () => {
             showFocusedObjectCard({
               icon: prop.icon,
               name: prop.name,
-              subtitle: "SAHNE DETAYI",
+              subtitle: prop.subtitle || "SAHNE DETAYI",
               desc: prop.desc
             });
+            if (prop.action === "underground") {
+              startUndergroundDescent();
+            } else if (prop.action === "dialogue") {
+              openDialogueModal(prop.charId || data.characterId);
+            } else if (prop.action === "fly_subvenue" && prop.target && spatialUniverse) {
+              spatialUniverse.flyToScene(prop.target);
+            }
           });
-          glassglowPropsList.appendChild(btn);
+          glassglowPropsList.appendChild(row);
         });
       } else {
         glassglowPropsList.innerHTML = `<span style="font-family:var(--font-mono); font-size:0.7rem; color:#64748b;">Bu mekânda henüz açığa çıkmamış ipuçları var.</span>`;
@@ -990,13 +1038,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       leaveNoteBtn.textContent = `[ ✍️ ${currentNoteOrigin.toUpperCase()} NOT BIRAK ]`;
 
-      // Glassglow Pop-up'ı Varsayılan Olarak KAPALI tutuyoruz (Kullanıcı Talebi: Default kapalı)
-      glassglowTab.classList.remove("tab-active");
+      // Glassglow Kartı Solda Sabit Konumda Açılır (Karakteri ve Nesneleri Asla Kapatmaz!)
+      positionGlassglowPopup();
+      glassglowTab.classList.add("tab-active");
 
       // HUD Güncelle
-      hudBackBtn.style.display = "block";
-      hudToggleTabBtn.style.display = "block";
-      hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
+      hudBackBtn.style.display = "inline-flex";
+      hudToggleTabBtn.style.display = "inline-flex";
+      hudToggleTabBtn.textContent = "👁️ DETAYLARI GİZLE";
       hudInstructions.textContent = "[ SERBEST GEZİNME: SÜRÜKLE ] • [ SAHNEDEKİ IŞILTILARA TIKLA ] • [ PANORAMAYA DÖNMEK İÇİN ZOOM OUT ]";
 
       // Ses Güncelle
@@ -1019,55 +1068,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Akıllı Konumsal Pop-up Yerleşimi (Tıklanan nesnenin üzerine/yanına açılır)
-  function positionGlassglowPopup(clickX, clickY) {
-    if (clickX === undefined || clickY === undefined) {
-      glassglowTab.style.left = "auto";
-      glassglowTab.style.right = "28px";
-      glassglowTab.style.top = "75px";
+  // Ek-2 Master Acrylic Glass Card: Solda Sabit, Kompakt ve Estetik Yerleşim
+  // Ana karakterleri ve sahne objelerini ASLA kapatmaz!
+  function positionGlassglowPopup() {
+    if (window.innerWidth <= 768) {
+      glassglowTab.style.left = "16px";
+      glassglowTab.style.right = "16px";
+      glassglowTab.style.top = "auto";
+      glassglowTab.style.bottom = "24px";
+      glassglowTab.style.maxHeight = "55vh";
+    } else {
+      glassglowTab.style.left = "40px";
+      glassglowTab.style.top = "92px";
+      glassglowTab.style.right = "auto";
       glassglowTab.style.bottom = "auto";
-      return;
+      glassglowTab.style.maxHeight = "calc(100vh - 120px)";
     }
-
-    const pad = 16;
-    const popWidth = Math.min(375, window.innerWidth - 32);
-    const popHeight = Math.min(530, window.innerHeight - 110);
-
-    let left = clickX - (popWidth / 2);
-    if (left + popWidth > window.innerWidth - pad) {
-      left = window.innerWidth - popWidth - pad;
-    }
-    if (left < pad) {
-      left = pad;
-    }
-
-    let top = clickY - popHeight - 20;
-    if (top < 65) {
-      top = clickY + 25;
-    }
-    if (top + popHeight > window.innerHeight - pad) {
-      top = window.innerHeight - popHeight - pad;
-    }
-    if (top < 65) top = 65;
-
-    glassglowTab.style.left = `${Math.round(left)}px`;
-    glassglowTab.style.top = `${Math.round(top)}px`;
-    glassglowTab.style.right = "auto";
-    glassglowTab.style.bottom = "auto";
   }
 
   // 3. SAHNE İÇİ NESNEYE TIKLAMA YÖNETİCİSİ (Pop-up Tetikleyici)
   function handleObjectClick(hotspot, sceneId, clickPos) {
     if (!hotspot) return;
 
-    // Pop-up'ı tıklanan nesnenin üzerine akıllıca konumlandır
-    if (clickPos && typeof clickPos.x === "number") {
-      positionGlassglowPopup(clickPos.x, clickPos.y);
-    } else {
-      positionGlassglowPopup();
-    }
-
-    // Pop-up'ı aç
+    // Pop-up'ı soldaki estetik konumuna al ve aç (asla karakterin üzerini kapatmaz)
+    positionGlassglowPopup();
     glassglowTab.classList.add("tab-active");
     hudToggleTabBtn.textContent = "👁️ DETAYLARI GİZLE";
 
@@ -1867,13 +1891,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeGlassglowBtn.addEventListener("click", () => {
     glassglowTab.classList.remove("tab-active");
-    hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
+    hudToggleTabBtn.textContent = "👁️ DETAYLARI GÖSTER";
   });
 
   hudToggleTabBtn.addEventListener("click", () => {
     if (glassglowTab.classList.contains("tab-active")) {
       glassglowTab.classList.remove("tab-active");
-      hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
+      hudToggleTabBtn.textContent = "👁️ DETAYLARI GÖSTER";
     } else {
       positionGlassglowPopup();
       glassglowTab.classList.add("tab-active");
@@ -1885,7 +1909,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") {
       if (glassglowTab.classList.contains("tab-active")) {
         glassglowTab.classList.remove("tab-active");
-        hudToggleTabBtn.textContent = "👁️ MEKÂN HAKKINDA";
+        hudToggleTabBtn.textContent = "👁️ DETAYLARI GÖSTER";
       }
     }
   });

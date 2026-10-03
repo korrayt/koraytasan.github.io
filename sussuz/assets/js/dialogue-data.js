@@ -88,7 +88,7 @@ window.SUSSUZ_DIALOGUES = {
   },
 
   ekrem: {
-    name: "Ekrem (Yusuf)",
+    name: "Ekrem",
     age: 33,
     title: "Sincanlı Dealer // Sokak Koruyucusu",
     avatar: "assets/img/char_ekrem.png",

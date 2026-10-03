@@ -260,35 +260,44 @@ class SpatialUniverse {
       lake_candle: [
         { 
           id: "lake_candle_blow", 
-          name: "MUMU ÜFLE", 
-          relX: 0.498, 
-          relY: 0.729, 
+          name: "DOĞUM GÜNÜ PASTASI", 
+          relX: 0.520, 
+          relY: 0.740, 
           icon: "🕯️", 
-          subtitle: "DİLEK BAHAR İÇİN BİR DİLEK TUT // ANMA", 
-          action: "underground_dive", 
+          subtitle: "DİLEK İÇİN BİR DİLEK TUT // ANMA", 
+          action: "candle", 
           desc: "Bahar bu mumu her gün yakmıyor. O gün Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor..." 
         },
         { 
           id: "lake_candle_dialogue", 
-          name: "BAHAR İLE YÜZ YÜZE", 
-          relX: 0.520, 
-          relY: 0.612, 
+          name: "BAHAR İLE YÜZLEŞ", 
+          relX: 0.500, 
+          relY: 0.440, 
           icon: "💬", 
-          subtitle: "DOĞUM GÜNÜ PASTASI VE GEÇMİŞ", 
+          subtitle: "SÖYLENMEYENLERİN BAŞLANGICI", 
           action: "dialogue", 
           charId: "bahar", 
           desc: "Bahar ile göz göze gelin." 
         },
         { 
+          id: "lake_lighthouse_distant", 
+          name: "GÖKSU DENİZ FENERİ", 
+          relX: 0.755, 
+          relY: 0.510, 
+          icon: "🌊", 
+          subtitle: "GÖLÜN KARŞI KIYISINDAKİ IŞIK", 
+          desc: "Gölün karşı kıyısındaki ışık ve su yansıması." 
+        },
+        { 
           id: "lake_candle_to_pier", 
-          name: "İSKELEYE GERİ DÖN", 
-          relX: 0.250, 
-          relY: 0.940, 
+          name: "FENERİN DİBİNDEKİ İSKELE", 
+          relX: 0.630, 
+          relY: 0.865, 
           icon: "🪵", 
-          subtitle: "YAĞMUR ALTINDAKİ GÖL KIYISI (GENİŞ AÇI)", 
+          subtitle: "TAHTASI NOT BIRAK", 
           action: "fly_subvenue", 
           target: "lake", 
-          desc: "İskele korkuluğuna ve yağmur altındaki göl manzarasına geri dönün." 
+          desc: "İskele tahtasına bir not bırakın veya geniş açı göl manzarasına dönün." 
         }
       ],
 
