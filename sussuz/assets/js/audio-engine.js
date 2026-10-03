@@ -376,6 +376,7 @@ class AudioEngine {
         break;
 
       case "lake":
+      case "lake_candle":
         this._rampGain(this.droneGain, 0.07, rampTime);
         this._rampGain(this.windGain, 0.05, rampTime);
         this._rampGain(this.rainGain, 0.09, rampTime); // Gentle lake rain
@@ -436,6 +437,11 @@ class AudioEngine {
 
   playMusicTrack(trackOrId, volume = 0.5, fallbackSrc = null) {
     if (!trackOrId) return;
+
+    if (this.currentTrack === trackOrId) {
+      this.setMusicVolume(volume);
+      return;
+    }
 
     this.currentTrack = trackOrId;
     this.currentFallbackSrc = fallbackSrc;

@@ -304,16 +304,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lake: {
       id: "lake",
-      title: "GÖL KENARI // DENİZ FENERİ",
-      subtitle: "EXT. GÖKSU PARKI & ESKİ BATAKLIK KIYISI // DİLEK'İN DOĞUM GÜNÜ",
-      image: "assets/img/scene_lake.png",
+      title: "GÖL KENARI // İSKELE",
+      subtitle: "EXT. GÖKSU PARKI & ESKİ BATAKLIK KIYISI // YAĞMUR ALTINDA",
+      image: "assets/img/bataklik_ek3_visual.jpg",
       characterId: "bahar",
       characterName: "Bahar",
       characterRole: "Tek Başına Direniş",
-      atmosphere: "Bahar tek başına. İskelenin ucundaki beyaz deniz fenerinin soğuk ışığı göle vuruyor. Her gün yakmıyor bu mumu; bugün Bahar Dilek'in doğum günü. Kendi yaptığı pastayı almış gelmiş, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor... 'Bataklık' ağıtı.",
+      atmosphere: "Bahar tek başına. Yağmur altında, ahşap iskele korkuluğuna yaslanmış gölün karşı kıyısındaki yüksek bloklara ve fıskiyeye bakıyor. Bir zamanlar bataklık olan bu sular, Dilek'in son nefesini verdiği yer... 'Bataklık' çalıyor.",
       musicNote: "Bataklık — Ağıt ve Yağmur Tıpırtısı",
+      subvenues: [
+        { id: "lake_candle", label: "Mumu Yak // Anma Masası" }
+      ],
+      isLakePier: true,
+      noteOrigin: "İskele Korkuluk Tahtası",
+      props: [
+        {
+          name: "Mumu Yak & Masaya Geç",
+          icon: "🕯️",
+          desc: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta tek bir mum yakmak için anma masasına geçin."
+        },
+        {
+          name: "Karşı Kıyıdaki Bloklar & Fıskiye",
+          icon: "🌊",
+          desc: "Eski bataklığın üzerine dikilen lüks konutlar ve ışıklı fıskiye. Hafızayı silen betonlaşma."
+        }
+      ]
+    },
+
+    lake_candle: {
+      id: "lake_candle",
+      title: "DİLEK'İN ANISI // PASTA VE TEK MUM",
+      subtitle: "EXT. GÖKSU PARKI / ANMA MASASI — 02:50 // DİLEK'İN DOĞUM GÜNÜ",
+      image: "assets/img/scene_lake.png",
+      characterId: "bahar",
+      characterName: "Bahar",
+      characterRole: "Tek Başına Direniş // Anma Anı",
+      atmosphere: "Bahar bu mumu her gün yakmıyor. O gün Bahar Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor...",
+      musicNote: "Bataklık — Ağıt ve Mum Titremesi",
+      subvenues: [
+        { id: "lake", label: "İskele & Karşı Kıyı (Geniş Açı)" }
+      ],
       isLakeMemorial: true,
-      noteOrigin: "Fenerin Dibindeki İskele Tahtası",
+      noteOrigin: "Göl Masası",
       props: [
         {
           name: "Dilek'in Doğum Günü Pastası & Tek Mum",
@@ -321,9 +353,9 @@ document.addEventListener("DOMContentLoaded", () => {
           desc: "Bahar'ın kendi elleriyle yaptığı doğum günü pastası. Bahar Dilek'in kanı üzerine kurulmuş bu parkta üflenmeyi bekliyor."
         },
         {
-          name: "Göksu Deniz Feneri",
-          icon: "🏮",
-          desc: "Eski bataklığın üzerine inşa edilen parkta, göletin karanlık sularına vuran beyaz fener ışığı. Şehrin hafızasını örten eğreti bir ışık."
+          name: "Bahar ile Yüz Yüze",
+          icon: "💬",
+          desc: "Gözlerinde geçmişin ve kaybettiği sevgilinin hüznü..."
         }
       ]
     },
@@ -767,15 +799,32 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderSceneCustomArea(data) {
     glassglowCustomArea.innerHTML = "";
 
-    // GÖL KENARI: Mum Üfleme Kutusu
+    // GÖL KENARI İSKELE: Mum Yakma & Anma Masasına Geçiş Kutusu
+    if (data.isLakePier) {
+      const box = document.createElement("div");
+      box.className = "candle-blow-box";
+      box.innerHTML = `
+        <h4>DİLEK'İN ANISINA</h4>
+        <p>“Bazı şeyler gömülünce kaybolmaz.” — Bahar tek başına, Dilek'in kanı üzerine kurulmuş parkta doğum günü pastasını yakmak için masaya geçiyor.</p>
+        <button id="goToCandleSceneInlineBtn" class="ek3-trigger ek3-trigger-accent" style="justify-content:center; border: 1px solid rgba(255, 212, 59, 0.45); color: #ffe066;">
+          🕯️ MUMU YAK // ANMA MASASINA GEÇ
+        </button>
+      `;
+      glassglowCustomArea.appendChild(box);
+      box.querySelector("#goToCandleSceneInlineBtn").addEventListener("click", () => {
+        if (spatialUniverse) spatialUniverse.flyToScene("lake_candle");
+      });
+    }
+
+    // GÖL KENARI MASASI: Mum Üfleme Kutusu
     if (data.isLakeMemorial) {
       const box = document.createElement("div");
       box.className = "candle-blow-box";
       box.innerHTML = `
         <h4>DİLEK'İN DOĞUM GÜNÜ PASTASI</h4>
-        <p>“Bazı şeyler gömülünce kaybolmaz.” — Bahar Dilek'in kanı üzerine kurulmuş parkta tek başına.</p>
+        <p>“Bazı şeyler gömülünce kaybolmaz.” — Bahar tek başına mumu üflüyor.</p>
         <button id="blowCandleInlineBtn" class="ek3-trigger ek3-trigger-accent" style="justify-content:center; border: 1px solid rgba(255, 212, 59, 0.45); color: #ffe066;">
-          🕯️ DİLEK'İN DOĞUM GÜNÜ PASTASINI ÜFLE
+          🕯️ DİLEK İÇİN BİR DİLEK TUT // MUMU ÜFLE
         </button>
       `;
       glassglowCustomArea.appendChild(box);

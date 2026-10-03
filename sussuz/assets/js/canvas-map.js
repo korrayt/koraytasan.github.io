@@ -98,7 +98,8 @@ class SpatialUniverse {
       ritim_vip: this._loadImg("assets/img/loc_ritim_vip.jpg"),
       ritim_backstage: this._loadImg("assets/img/loc_ritim_backstage.jpg"),
       hill: this._loadImg("assets/img/loc_hill.jpg"),
-      lake: this._loadImg("assets/img/scene_lake.png"),
+      lake: this._loadImg("assets/img/bataklik_ek3_visual.jpg"),
+      lake_candle: this._loadImg("assets/img/scene_lake.png"),
       garden: this._loadImg("assets/img/scene_garden.png"),
       home_interior: this._loadImg("assets/img/scene_bahar_home.png"),
       studio: this._loadImg("assets/img/loc_studio.jpg"),
@@ -125,12 +126,12 @@ class SpatialUniverse {
         id: "ritim",
         name: "RİTİM",
         subtitle: "ADA RESTORAN GECE KULÜBÜ",
-        x: 395,
-        y: 520,
+        x: 545,
+        y: 375,
         radius: 28,
-        labelX: 470,
-        labelY: 460,
-        arrowType: "down_left",
+        labelX: 545,
+        labelY: 290,
+        arrowType: "down",
         color: "rgba(224, 49, 49, "
       },
       {
@@ -200,20 +201,21 @@ class SpatialUniverse {
     this.sceneHotspots = {
       lake: [
         { 
-          id: "lake_candle", 
-          name: "MUMU ÜFLE", 
-          relX: 0.498, 
-          relY: 0.729, 
+          id: "lake_to_candle", 
+          name: "MUMU YAK // ANMA MASASINA GEÇ", 
+          relX: 0.630, 
+          relY: 0.650, 
           icon: "🕯️", 
-          subtitle: "DİLEK BAHAR İÇİN BİR DİLEK TUT // ANMA", 
-          action: "candle", 
-          desc: "Bahar bu mumu her gün yakmıyor. O gün Bahar Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Bahar Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor..." 
+          subtitle: "DİLEK BAHAR'IN DOĞUM GÜNÜ PASTASI", 
+          action: "fly_subvenue", 
+          target: "lake_candle", 
+          desc: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta, göl kıyısında tek bir mum yakar. Doğum günü anma masasına geçin." 
         },
         { 
           id: "lake_dialogue", 
           name: "BAHAR İLE KONUŞ", 
-          relX: 0.520, 
-          relY: 0.612, 
+          relX: 0.735, 
+          relY: 0.520, 
           icon: "💬", 
           subtitle: "İSKELEDE TEK BAŞINA BİR SES", 
           action: "dialogue", 
@@ -221,37 +223,72 @@ class SpatialUniverse {
           desc: "Bahar ile yüz yüze gelin." 
         },
         { 
-          id: "lake_lighthouse", 
-          name: "FENER IŞIĞINI İZLE", 
-          relX: 0.140, 
-          relY: 0.280, 
-          icon: "🏮", 
-          subtitle: "BATAKLIK SULARINDAKİ AYDINLIK // İSKELE", 
+          id: "lake_fountain", 
+          name: "KARŞI KIYIYA BAK", 
+          relX: 0.470, 
+          relY: 0.535, 
+          icon: "🌊", 
+          subtitle: "BATAKLIK ÜZERİNE DİKİLEN BLOKLAR // ERYAMAN", 
           action: "prop", 
-          propName: "Göksu Deniz Feneri",
-          desc: "Eski bataklığın üzerine inşa edilen parkta, göletin karanlık sularına vuran beyaz fener ışığı. Şehrin hafızasını örten eğreti bir ışık..." 
+          propName: "Karşı Kıyı ve Fıskiye", 
+          desc: "Gölün karşısında sıralanan beton bloklar ve fıskiye. Bir zamanlar bataklık olan, Dilek'in kaybolduğu yer şimdi yapay bir park..." 
         },
         { 
           id: "lake_music", 
           name: "BATAKLIK'I DİNLE", 
-          relX: 0.320, 
-          relY: 0.480, 
+          relX: 0.350, 
+          relY: 0.380, 
           icon: "🎵", 
           subtitle: "BAHAR — BATAKLIK // SUSSUZ SOUNDTRACK", 
           action: "music", 
           src: "yFymvGwoxjA", 
-          fallbackSrc: "assets/audio/track_bataklik.mp3",
+          fallbackSrc: "assets/audio/track_bataklik.mp3", 
           desc: "Bahar tek başına, Dilek'in kanı üzerine kurulmuş parkta doğum günü pastasını üflerken söylüyor." 
         },
         { 
           id: "lake_note", 
           name: "İSKELEYE BİR CÜMLE BIRAK", 
-          relX: 0.280, 
-          relY: 0.880, 
+          relX: 0.220, 
+          relY: 0.850, 
           icon: "✍️", 
           subtitle: "GÖLE VE GECEYE FISILDA", 
           action: "note", 
-          desc: "Göl kenarındaki iskele taşına fısıldanmış bir not bırak." 
+          desc: "Göl kenarındaki ahşap iskele korkuluğuna fısıldanmış bir not bırak." 
+        }
+      ],
+
+      lake_candle: [
+        { 
+          id: "lake_candle_blow", 
+          name: "MUMU ÜFLE", 
+          relX: 0.498, 
+          relY: 0.729, 
+          icon: "🕯️", 
+          subtitle: "DİLEK BAHAR İÇİN BİR DİLEK TUT // ANMA", 
+          action: "underground_dive", 
+          desc: "Bahar bu mumu her gün yakmıyor. O gün Dilek'in doğum günü olduğu için kendi yaptığı pastayı almış gitmiş; göl kenarında, Dilek'in kanı üzerine kurulmuş bir parkta onun doğum günü pastasını üflüyor..." 
+        },
+        { 
+          id: "lake_candle_dialogue", 
+          name: "BAHAR İLE YÜZ YÜZE", 
+          relX: 0.520, 
+          relY: 0.612, 
+          icon: "💬", 
+          subtitle: "DOĞUM GÜNÜ PASTASI VE GEÇMİŞ", 
+          action: "dialogue", 
+          charId: "bahar", 
+          desc: "Bahar ile göz göze gelin." 
+        },
+        { 
+          id: "lake_candle_to_pier", 
+          name: "İSKELEYE GERİ DÖN", 
+          relX: 0.250, 
+          relY: 0.940, 
+          icon: "🪵", 
+          subtitle: "YAĞMUR ALTINDAKİ GÖL KIYISI (GENİŞ AÇI)", 
+          action: "fly_subvenue", 
+          target: "lake", 
+          desc: "İskele korkuluğuna ve yağmur altındaki göl manzarasına geri dönün." 
         }
       ],
 
@@ -919,9 +956,11 @@ class SpatialUniverse {
     let sec = this.sectors.find(s => s.id === sceneId);
     if (!sec) {
       if (sceneId.startsWith("ritim") || sceneId === "dancefloor" || sceneId === "goksu_room" || sceneId === "accounting") {
-        sec = this.sectors.find(s => s.id === "ritim") || { x: 395, y: 520 };
+        sec = this.sectors.find(s => s.id === "ritim") || { x: 545, y: 375 };
       } else if (sceneId.startsWith("studio")) {
         sec = this.sectors.find(s => s.id === "studio") || { x: 185, y: 320 };
+      } else if (sceneId.startsWith("lake")) {
+        sec = this.sectors.find(s => s.id === "lake") || { x: 140, y: 580 };
       } else {
         sec = { x: 688, y: 384 };
       }
