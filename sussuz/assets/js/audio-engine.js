@@ -51,11 +51,9 @@ class AudioEngine {
     this.clubThumpGain = null;
 
     // Primary Native HTML5 Audio Player (Zero CORS, 100% reliable hardware output)
-    this.musicElement = new Audio();
-    this.musicElement.preload = "auto";
-    this.musicElement.loop = true;
+    this.musicElement = null;
     this.currentTrack = null;
-    this.targetVolume = 0.5;
+    this.targetVolume = 0.55;
     this._fadeInterval = null;
 
     // Callbacks & state
@@ -63,21 +61,6 @@ class AudioEngine {
     this.onTrackEnded = null;
     this.ytPlayer = null;
     this.isYTReady = false;
-
-    // Track ended listener
-    this.musicElement.addEventListener("ended", () => {
-      if (this.onYTStateChange) {
-        this.onYTStateChange(0); // 0 = YT.PlayerState.ENDED
-      }
-      if (this.onTrackEnded) {
-        this.onTrackEnded();
-      }
-    });
-
-    // Error recovery
-    this.musicElement.addEventListener("error", (e) => {
-      console.warn("SUSSUZ Audio element warning:", e);
-    });
   }
 
   /**
@@ -283,24 +266,50 @@ class AudioEngine {
   // --- Master Müzik Çalar (Native HTML5 Audio & Crossfade) ---
 
   /**
+   * Güvenli Mutlak URL Çözümleyici: Alt dizin ve GitHub Pages trailing slash uyumluluğu
+   */
+  _toAbsoluteUrl(relPath) {
+    if (!relPath) return "";
+    if (relPath.startsWith("http://") || relPath.startsWith("https://") || relPath.startsWith("data:") || relPath.startsWith("blob:")) {
+      return relPath;
+    }
+    const cleanRel = relPath.replace(/^\/+/, "");
+    let loc = window.location.href.split("?")[0].split("#")[0];
+    const lastSegment = loc.substring(loc.lastIndexOf("/") + 1);
+    if (lastSegment && !lastSegment.includes(".")) {
+      loc += "/";
+    }
+    const baseDir = loc.endsWith("/") ? loc : loc.substring(0, loc.lastIndexOf("/") + 1);
+    try {
+      return new URL(cleanRel, baseDir).href;
+    } catch (e) {
+      return cleanRel;
+    }
+  }
+
+  /**
    * Çözümleyici: Verilen kimliği (YouTube ID, takma ad veya doğrudan URL) gerçek yerel dosyaya dönüştürür
    */
   resolveAudioPath(trackOrId, fallbackSrc = null) {
     if (fallbackSrc && (fallbackSrc.endsWith(".mp3") || fallbackSrc.endsWith(".wav"))) {
-      return fallbackSrc;
+      return this._toAbsoluteUrl(fallbackSrc);
     }
     if (!trackOrId) return null;
     if (TRACK_MAP[trackOrId]) {
-      return TRACK_MAP[trackOrId];
+      return this._toAbsoluteUrl(TRACK_MAP[trackOrId]);
     }
     if (trackOrId.endsWith(".mp3") || trackOrId.endsWith(".wav")) {
-      return trackOrId;
+      return this._toAbsoluteUrl(trackOrId);
     }
-    return `assets/audio/track_${trackOrId}.mp3`;
+    return this._toAbsoluteUrl(`assets/audio/track_${trackOrId}.mp3`);
   }
 
   /**
-   * Parça Çalma Metodu (Anında Geçiş, Garantili Donanım Çıkışı)
+   * Parça Çalma Metodu (Anında Geçiş, Kesintisiz Otomatik Başlatma, Donanım Garantili)
+   * 
+   * Çalan bir Audio elementinin .src değerini değiştirmek Chromium'da 'AbortError'
+   * fırlatır ve otomatik çalmayı engeller. Bu nedenle her yeni parçada temiz bir
+   * Audio nesnesi yaratılır, eski nesne anında susturulup bellekten temizlenir.
    */
   playMusicTrack(trackOrId, volume = 0.55, fallbackSrc = null) {
     if (!this.isInitialized) {
@@ -313,9 +322,12 @@ class AudioEngine {
 
     this.targetVolume = volume;
 
-    // Aynı parça zaten çalıyorsa sadece ses seviyesini ayarla
-    if (this.currentTrack === audioSrc && !this.musicElement.paused) {
+    // Aynı parça zaten çalıyorsa sadece ses seviyesini ayarla ve gerekirse çal
+    if (this.currentTrack === audioSrc && this.musicElement) {
       this.musicElement.volume = this.isMuted ? 0 : volume;
+      if (this.musicElement.paused) {
+        this.musicElement.play().catch(() => {});
+      }
       return;
     }
 
@@ -326,25 +338,51 @@ class AudioEngine {
 
     this.currentTrack = audioSrc;
 
-    try {
-      this.musicElement.src = audioSrc;
-      this.musicElement.volume = this.isMuted ? 0 : volume;
-      const playPromise = this.musicElement.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn("Audio autoplay waiting for user gesture:", err);
-          const resumeOnAction = () => {
-            if (this.currentTrack === audioSrc && this.musicElement.paused) {
-              this.musicElement.play().catch(() => {});
-            }
-          };
-          window.addEventListener("pointerdown", resumeOnAction, { once: true, passive: true });
-          window.addEventListener("click", resumeOnAction, { once: true, passive: true });
-          window.addEventListener("touchstart", resumeOnAction, { once: true, passive: true });
-        });
-      }
-    } catch (e) {
-      console.warn("Audio playback error:", e);
+    const prevAudio = this.musicElement;
+
+    // Her yeni parçada bağımsız, sıfır-hata Audio nesnesi
+    const nextAudio = new Audio();
+    nextAudio.preload = "auto";
+    nextAudio.loop = true;
+    nextAudio.muted = this.isMuted;
+    nextAudio.volume = this.isMuted ? 0 : volume;
+    nextAudio.src = audioSrc;
+
+    this.musicElement = nextAudio;
+
+    // Önceki ses akışını anında ve pürüzsüzce durdur
+    if (prevAudio) {
+      try {
+        prevAudio.pause();
+        prevAudio.removeAttribute("src");
+        prevAudio.load();
+      } catch (e) {}
+    }
+
+    // Olay dinleyicileri
+    nextAudio.addEventListener("ended", () => {
+      if (this.onYTStateChange) this.onYTStateChange(0);
+      if (this.onTrackEnded) this.onTrackEnded();
+    });
+
+    nextAudio.addEventListener("error", (e) => {
+      console.warn("SUSSUZ Audio element uyarısı:", audioSrc, e);
+    });
+
+    // Sahneye girildiği anda otomatik donanım çıkışı tetikleme
+    const playPromise = nextAudio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn("Otomatik oynatma kullanıcı etkileşimi bekliyor:", err);
+        const resumeAction = () => {
+          if (this.currentTrack === audioSrc && nextAudio.paused) {
+            nextAudio.play().catch(() => {});
+          }
+        };
+        window.addEventListener("pointerdown", resumeAction, { once: true, passive: true });
+        window.addEventListener("click", resumeAction, { once: true, passive: true });
+        window.addEventListener("touchstart", resumeAction, { once: true, passive: true });
+      });
     }
   }
 
@@ -358,7 +396,11 @@ class AudioEngine {
     }
     this.currentTrack = null;
     if (this.musicElement) {
-      this.musicElement.pause();
+      try {
+        this.musicElement.pause();
+        this.musicElement.removeAttribute("src");
+        this.musicElement.load();
+      } catch (e) {}
     }
   }
 
@@ -540,6 +582,7 @@ class AudioEngine {
     }
     if (this.musicElement) {
       this.musicElement.muted = this.isMuted;
+      this.musicElement.volume = this.isMuted ? 0 : (this.targetVolume || 0.55);
       if (!this.isMuted && this.currentTrack && this.musicElement.paused) {
         this.musicElement.play().catch(() => {});
       }
