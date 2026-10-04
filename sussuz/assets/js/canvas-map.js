@@ -204,8 +204,8 @@ class SpatialUniverse {
         { 
           id: "lake_dialogue", 
           name: "BAHAR İLE KONUŞ", 
-          relX: 0.255, 
-          relY: 0.540, 
+          relX: 0.735, 
+          relY: 0.500, 
           icon: "💬", 
           subtitle: "İSKELEDE TEK BAŞINA BİR SES", 
           action: "dialogue", 
@@ -215,7 +215,7 @@ class SpatialUniverse {
         { 
           id: "lake_to_candle", 
           name: "MUMU YAK // ANMA MASASINA GEÇ", 
-          relX: 0.120, 
+          relX: 0.150, 
           relY: 0.850, 
           icon: "🕯️", 
           subtitle: "DİLEK BAHAR'IN DOĞUM GÜNÜ PASTASI", 
@@ -226,8 +226,8 @@ class SpatialUniverse {
         { 
           id: "lake_fountain", 
           name: "KARŞI KIYIYA BAK", 
-          relX: 0.435, 
-          relY: 0.480, 
+          relX: 0.470, 
+          relY: 0.520, 
           icon: "🌊", 
           subtitle: "BATAKLIK ÜZERİNE DİKİLEN BLOKLAR // ERYAMAN", 
           action: "prop", 
@@ -237,7 +237,7 @@ class SpatialUniverse {
         { 
           id: "lake_music", 
           name: "BATAKLIK'I DİNLE", 
-          relX: 0.255, 
+          relX: 0.735, 
           relY: 0.380, 
           icon: "🎵", 
           subtitle: "BAHAR — BATAKLIK // SUSSUZ SOUNDTRACK", 
@@ -249,18 +249,18 @@ class SpatialUniverse {
         { 
           id: "lake_to_ritim", 
           name: "RİTİM GECE KULÜBÜ", 
-          relX: 0.900, 
-          relY: 0.380, 
+          relX: 0.860, 
+          relY: 0.360, 
           icon: "⚡", 
-          subtitle: "ADADAKİ NEON IŞIKLAR // GEÇİŞ YAP", 
+          subtitle: "ADADAKİ MEKÂN // GEÇİŞ YAP", 
           action: "fly_subvenue", 
           target: "ritim", 
-          desc: "İskelenin sağında, ahşap köprünün bağlandığı adada kırmızı neonlarıyla parlayan RİTİM görünüyor. Kulübe geçin." 
+          desc: "Gölün ortasındaki adada, suyun üzerinde kırmızı mimari ışıklarıyla parlayan RİTİM görünüyor. Kulübe geçin." 
         },
         { 
           id: "lake_note", 
           name: "İSKELEYE BİR CÜMLE BIRAK", 
-          relX: 0.550, 
+          relX: 0.400, 
           relY: 0.880, 
           icon: "✍️", 
           subtitle: "GÖLE VE GECEYE FISILDA", 
@@ -431,10 +431,10 @@ class SpatialUniverse {
       ],
 
       ritim_road: [
-        { id: "road_moment", name: "ANAHTARI CEBİNE AT", relX: 0.500, relY: 0.550, icon: "✋", subtitle: "KEREM: 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Kerem'in Murad'ı Durdurduğu An", desc: "KEREM: 'Sana gerisini göstereceğim.' Murad Mustang anahtarını cebine atar; gece henüz bitmemiştir." },
-        { id: "road_dialogue", name: "KEREM İLE KONUŞ", relX: 0.380, relY: 0.680, icon: "💬", subtitle: "İKİ YABANCININ İLK TEMASI", action: "dialogue", charId: "ekrem", desc: "Kerem (Eku) ve Murad diyalog penceresini açın." },
-        { id: "road_music", name: "RADYONUN SESİNİ AÇ", relX: 0.700, relY: 0.450, icon: "📻", subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_bilmem_ben_de.mp3", desc: "Ford Mustang radyosundan yükselen melodi." },
-        { id: "road_to_club", name: "KULÜP GİRİŞİNE DÖN", relX: 0.850, relY: 0.750, icon: "🚪", subtitle: "RİTİM'İN IŞIKLARI", action: "fly_subvenue", target: "ritim", desc: "Kulüp önüne dönün." }
+        { id: "road_moment", name: "KEREM'İN MÜDAHALESİ", relX: 0.660, relY: 0.560, icon: "✋", subtitle: "KEREM: 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Kerem'in Murad'ı Durdurduğu An", desc: "KEREM: 'Sana gerisini göstereceğim.' Murad Mustang anahtarını cebine atar; gece henüz bitmemiştir." },
+        { id: "road_dialogue", name: "KEREM İLE KONUŞ", relX: 0.800, relY: 0.520, icon: "💬", subtitle: "İKİ YABANCININ İLK TEMASI", action: "dialogue", charId: "ekrem", desc: "Kerem (Eku) ve Murad diyalog penceresini açın." },
+        { id: "road_music", name: "RADYONUN SESİNİ AÇ", relX: 0.350, relY: 0.720, icon: "📻", subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "CvSByNL1r48", fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", desc: "Ford Mustang (06 KNN 03) radyosundan yükselen melodi." },
+        { id: "road_to_club", name: "KULÜP GİRİŞİNE DÖN", relX: 0.200, relY: 0.250, icon: "🚪", subtitle: "RİTİM'İN IŞIKLARI", action: "fly_subvenue", target: "ritim", desc: "Kulüp önüne dönün." }
       ],
 
       dancefloor: [
@@ -473,8 +473,8 @@ class SpatialUniverse {
         { 
           id: "hill_smoke", 
           name: "SİGARAYI PAYLAŞ", 
-          relX: 0.695, 
-          relY: 0.550, 
+          relX: 0.675, 
+          relY: 0.485, 
           icon: "🚬", 
           subtitle: "05:30 // ANKARA AYAZI // 'YANLIŞSA DA BENİM YANLIŞIM OLUR'", 
           action: "prop", 
@@ -484,8 +484,8 @@ class SpatialUniverse {
         { 
           id: "hill_dialogue", 
           name: "MURAD İLE KONUŞ", 
-          relX: 0.610, 
-          relY: 0.560, 
+          relX: 0.600, 
+          relY: 0.530, 
           icon: "💬", 
           subtitle: "MURAD VE KEREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", 
           action: "dialogue", 
@@ -495,8 +495,8 @@ class SpatialUniverse {
         { 
           id: "hill_ekrem_dialogue", 
           name: "KEREM İLE KONUŞ", 
-          relX: 0.785, 
-          relY: 0.570, 
+          relX: 0.760, 
+          relY: 0.540, 
           icon: "💬", 
           subtitle: "KEREM'Sİ (EKU) // GÜVEN VE YANILGI", 
           action: "dialogue", 
@@ -506,8 +506,8 @@ class SpatialUniverse {
         { 
           id: "hill_music", 
           name: "BİLMEM, BEN DE'Yİ DİNLE", 
-          relX: 0.635, 
-          relY: 0.940, 
+          relX: 0.400, 
+          relY: 0.580, 
           icon: "📻", 
           subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", 
           action: "music", 
@@ -518,8 +518,8 @@ class SpatialUniverse {
         { 
           id: "hill_note", 
           name: "MUSTANG'E BİR NOT BIRAK", 
-          relX: 0.890, 
-          relY: 0.780, 
+          relX: 0.685, 
+          relY: 0.860, 
           icon: "✍️", 
           subtitle: "06 KNN 03 // TORPİDOYA FISILDA", 
           action: "note", 

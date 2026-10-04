@@ -144,15 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
           name: "DURDURULAN AN",
           icon: "✋",
           thumb: "assets/img/props/prop_smoke.jpg",
-          subtitle: "EKREM'İN MÜDAHALESİ",
-          desc: "EKREM: 'Sana gerisini göstereceğim.' Murat anahtarı cebine atar; gece henüz bitmemiştir."
+          subtitle: "KEREM'İN MÜDAHALESİ",
+          desc: "KEREM: 'Sana gerisini göstereceğim.' Murad Mustang anahtarını cebine atar; gece henüz bitmemiştir."
         },
         {
-          name: "FARLARI YANAN ARABA",
+          name: "FARLARI YANAN MUSTANG (06 KNN 03)",
           icon: "🚘",
-          thumb: "assets/img/props/prop_mercedes_torpido.jpg",
-          subtitle: "MERCEDES FARLARI",
-          desc: "Asfaltın üzerinde buğulanmış far ışıkları. Ankara gecesinde iki yabancı."
+          thumb: "assets/img/props/prop_mustang_torpido.jpg",
+          subtitle: "MUSTANG FARLARI",
+          desc: "Asfaltın üzerinde buğulanmış Mustang GT far ışıkları. Yağmur altında iki yabancı."
         }
       ]
     },
@@ -365,12 +365,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaAudio: "CvSByNL1r48",
       image: "assets/img/loc_hill.jpg",
       characterId: "murat",
-      characterName: "Murat ve Ekrem",
-      characterRole: "Mercedes Kaputunda İki Yabancı",
-      atmosphere: "05:30. Ankara ayazı. Mercedes'in kaputuna yaslanmış iki yabancı sırayla tek bir sigarayı paylaşır. Gece çözülürken kelimeler dökülür.",
+      characterName: "Murad ve Kerem (Eku)",
+      characterRole: "Mustang Kaputunda İki Yabancı",
+      atmosphere: "05:30. Ankara ayazı. Üstü açık siyah Ford Mustang Convertible'ın (06 KNN 03) kaputuna yaslanmış iki adam sırayla tek bir sigarayı paylaşır. Gece çözülürken kelimeler dökülür.",
       musicNote: "Bilmem, Ben De — Kuru Gece Ayazı (Akustik)",
       subvenues: [],
-      noteOrigin: "Mercedes Torpidosu",
+      noteOrigin: "Mustang Torpidosu",
       props: [
         {
           name: "PAYLAŞILAN SİGARA",
@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           name: "MUSTANG CONVERTIBLE (06 KNN 03)",
           icon: "🏎️",
-          thumb: "assets/img/props/prop_mercedes_torpido.jpg",
+          thumb: "assets/img/props/prop_mustang_torpido.jpg",
           subtitle: "06 KNN 03 // BİLMEM, BEN DE",
           desc: "Siyah Ford Mustang Convertible'ın (06 KNN 03) radyosundan yükselen soğuk ayaz melodisi.",
           action: "music",
