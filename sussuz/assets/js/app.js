@@ -377,32 +377,32 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "🚬",
           thumb: "assets/img/props/prop_smoke.jpg",
           subtitle: "AYAZDA TEK DUMAN",
-          desc: "EKREM: 'Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur.'"
+          desc: "KEREM (EKU): 'Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur.'"
         },
         {
-          name: "MURAT İLE YÜZLEŞ",
+          name: "MURAD İLE YÜZLEŞ",
           icon: "💬",
           thumb: "assets/img/props/prop_murat_hill.jpg",
           subtitle: "'İÇİM YAMUK DEMEDİ'",
-          desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?'",
+          desc: "MURAD: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?'",
           action: "dialogue",
           charId: "murat"
         },
         {
-          name: "EKREM'İN İÇ DÜNYASI",
+          name: "KEREM'İN İÇ DÜNYASI",
           icon: "💬",
           thumb: "assets/img/props/prop_ekrem_hill.jpg",
           subtitle: "TÜBİTAK DİYALOĞU",
-          desc: "EKREM: 'He. TÜBİTAK.'",
+          desc: "KEREM: 'He. TÜBİTAK.'",
           action: "dialogue",
           charId: "ekrem"
         },
         {
-          name: "MERCEDES TORPİDOSU",
-          icon: "📻",
+          name: "MUSTANG CONVERTIBLE (06 KNN 03)",
+          icon: "🏎️",
           thumb: "assets/img/props/prop_mercedes_torpido.jpg",
-          subtitle: "BİLMEM, BEN DE",
-          desc: "Mercedes'in torpidosundan yükselen soğuk ayaz melodisi.",
+          subtitle: "06 KNN 03 // BİLMEM, BEN DE",
+          desc: "Siyah Ford Mustang Convertible'ın (06 KNN 03) radyosundan yükselen soğuk ayaz melodisi.",
           action: "music",
           audioSrc: "CvSByNL1r48"
         }
@@ -675,8 +675,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     murat_home: {
       id: "murat_home",
-      sceneTag: "SAHNE 05 // MURAT'IN EVİ",
-      title: "MURAT'IN EVİ // KUZEY BLOKLARI",
+      sceneTag: "SAHNE 05 // MURAD'IN EVİ",
+      title: "MURAD'IN EVİ // KUZEY BLOKLARI",
       subtitle: "INT. YENİ MAHALLE / 14. KAT — 03:00 // YALNIZLIK",
       location: "Kuzey Blokları",
       time: "03:00",
@@ -686,19 +686,19 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaAction: "prop",
       image: "assets/img/loc_murat_home.jpg",
       characterId: "murat",
-      characterName: "Murat",
-      characterRole: "Emekli Komiser // Yalnız Baba",
-      atmosphere: "Şehre tepeden bakan 14. kat dairesi. Yalnızlık, soğuk mermer tezgah, duvarda asılı rozet ve Kenan'ın çocukluk fotoğrafları.",
+      characterName: "Murad",
+      characterRole: "Polis // 'Murad. D ile...' // Kenan'ın Babası",
+      atmosphere: "Şehre tepeden bakan Kuzey Blokları penthouse dairesi. Yalnızlık, soğuk mermer tezgah, masada Mustang anahtarı ve Kenan'ın çocukluk fotoğrafları.",
       musicNote: "Klima Uğultusu & Uzak Şehir Sesi",
       subvenues: [],
-      noteOrigin: "Murat'ın Çalışma Masası",
+      noteOrigin: "Murad'ın Çalışma Masası",
       props: [
         {
-          name: "POLİS ROZETİ",
+          name: "POLİS ROZETİ VE MUSTANG ANAHTARI",
           icon: "🎖️",
           thumb: "assets/img/props/prop_murat_hill.jpg",
-          subtitle: "EMEKLLİK VE YALNIZLIK",
-          desc: "Duvarda asılı eski rozet ve unutulmak istenen yıllar."
+          subtitle: "DURGUNLUK VE YALNIZLIK",
+          desc: "Masada duran rozet, Ford Mustang'in kontak anahtarı ve soruşturma dosyası."
         }
       ]
     },
@@ -712,25 +712,25 @@ document.addEventListener("DOMContentLoaded", () => {
       time: "22:00",
       period: "Günümüz",
       ctaIcon: "⚡",
-      ctaText: "BU ŞARKIYI EKREM'DEN DİNLE",
+      ctaText: "BU ŞARKIYI KEREM'DEN DİNLE",
       ctaTarget: "studio_ekrem",
       image: "assets/img/loc_studio.jpg",
       characterId: "kenan",
       characterName: "Kenan",
       characterRole: "Müzisyen & Prodüktör",
-      atmosphere: "Kenan'ın stüdyosu. Ahşap difüzörler, Fender amfi, analog mikser. Kenan Ekrem'i ikna etti: 'Daha Anadolu sesi lazım bu şarkıya... Keşke Ekrem söylese.' Ekrem'in canlı kayıt seansına geçin.",
+      atmosphere: "Kenan'ın stüdyosu. Ahşap difüzörler, Fender amfi, analog mikser. Kenan Kerem'i ikna etti: 'Daha Anadolu sesi lazım bu şarkıya... Keşke Kerem abi söylese.' Kerem'in canlı kayıt seansına geçin.",
       musicNote: "Gospel Baby — Kenan Akustik Demo (92 BPM)",
       subvenues: [
-        { id: "studio_ekrem", label: "🎙️ Bu Şarkıyı Ekrem'den Dinle (Canlı Kayıt)" }
+        { id: "studio_ekrem", label: "🎙️ Bu Şarkıyı Kerem'den Dinle (Canlı Kayıt)" }
       ],
       noteOrigin: "Stüdyo Masası",
       props: [
         {
-          name: "EKREM'DEN DİNLE",
+          name: "KEREM'DEN DİNLE",
           icon: "⚡",
           thumb: "assets/img/props/prop_ekrem_mic.jpg",
           subtitle: "CANLI KAYIT SEANSI",
-          desc: "Ekrem stüdyoda it oturuşu, dev ekranda sözler... Şarkının hakiki sokak ruhu.",
+          desc: "Kerem stüdyoda it oturuşu, dev ekranda sözler... Şarkının hakiki sokak ruhu.",
           action: "fly_subvenue",
           target: "studio_ekrem"
         },
@@ -744,11 +744,11 @@ document.addEventListener("DOMContentLoaded", () => {
           audioSrc: "K35AtsZEl5o"
         },
         {
-          name: "MURAT & EKREM DÜETİ",
+          name: "MURAD & KEREM DÜETİ",
           icon: "📻",
           thumb: "assets/img/props/prop_murat_ekrem.jpg",
           subtitle: "BİRİ VARMIŞ ÖTEKİ YOK OLMASIN",
-          desc: "Murat ve Ekrem beraber Bahar'a söylüyorlar.",
+          desc: "Murad ve Kerem beraber Bahar'a söylüyorlar.",
           action: "music",
           audioSrc: "GLQcmdJsO5U"
         }
@@ -759,7 +759,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "studio_ekrem",
       sceneTag: "SAHNE 09 // CANLI KAYIT",
       title: "SES ATÖLYESİ // GOSPEL BABY",
-      subtitle: "INT. BATI YAKASI ATÖLYESİ — 03:20 // EKREM CANLI VOKAL",
+      subtitle: "INT. BATI YAKASI ATÖLYESİ — 03:20 // KEREM CANLI VOKAL",
       location: "Batı Yakası Atölyesi",
       time: "03:20",
       period: "Günümüz",
@@ -768,21 +768,21 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaAudio: "mdPhJrnytkA",
       image: "assets/img/loc_studio_ekrem.jpg",
       characterId: "ekrem",
-      characterName: "Ekrem ve Kenan",
+      characterName: "Kerem ve Kenan",
       characterRole: "Sokak Vokali & Analog Miksaj",
-      atmosphere: "Kenan konsol başında gülümsüyor, faderları ayarlıyor. Ekrem stüdyoda it oturuşu yapmış, tek elinde mikrofon, karşısındaki dev ekranda akan şarkı sözleriyle Gospel Baby'i söylüyor.",
-      musicNote: "Gospel Baby — Ekrem Vokal & Ham Analog Mikser",
+      atmosphere: "Kenan konsol başında gülümsüyor, faderları ayarlıyor. Kerem stüdyoda it oturuşu yapmış, tek elinde mikrofon, karşısındaki dev ekranda akan şarkı sözleriyle Gospel Baby'i söylüyor.",
+      musicNote: "Gospel Baby — Kerem Vokal & Ham Analog Mikser",
       subvenues: [
         { id: "studio", label: "Kenan'ın Masasına Geri Dön" }
       ],
       noteOrigin: "Stüdyo Masası",
       props: [
         {
-          name: "EKREM // VOKAL",
+          name: "KEREM // VOKAL",
           icon: "🎤",
           thumb: "assets/img/props/prop_ekrem_mic.jpg",
           subtitle: "GOSPEL BABY VOKAL",
-          desc: "Ekrem mikrofona sarılmış söylüyor. Ham analog mikser kaydı.",
+          desc: "Kerem mikrofona sarılmış söylüyor. Ham analog mikser kaydı.",
           action: "music",
           audioSrc: "mdPhJrnytkA"
         },
@@ -1366,33 +1366,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data.isStudioSpecial || data.id === "studio") {
       const studioBox = document.createElement("div");
       studioBox.innerHTML = `
-        <!-- VOKALİST DEĞİŞTİRİCİ: KENAN vs EKREM (GOSPEL BABY) -->
+        <!-- VOKALİST DEĞİŞTİRİCİ: KENAN vs KEREM (GOSPEL BABY) -->
         <div class="studio-version-switch-box">
           <div class="studio-version-header">
             <span class="studio-rec-dot"></span>
             <span class="studio-rec-title">CANLI KAYIT ODASI // VOKAL DEĞİŞTİRİCİ</span>
           </div>
           <div class="studio-version-lore">
-            Kenan demoyu kaydediyor: <em>“Bu şarkıya daha sert, daha Anadolu bir ses lazım... Keşke Ekrem söylese.”</em> Ekrem'i ikna edip tabureye oturtuyor.
+            Kenan demoyu kaydediyor: <em>“Bu şarkıya daha sert, daha Anadolu bir ses lazım... Keşke Kerem abi söylese.”</em> Kerem'i ikna edip tabureye oturtuyor.
           </div>
           <div class="studio-vocal-buttons">
             <button id="vocalKenanBtn" class="vocal-switch-btn active">
               🎙️ Kenan Versiyonu (Demo)
             </button>
             <button id="vocalEkremBtn" class="vocal-switch-btn">
-              🎙️ Ekrem Versiyonu (Anadolu Sesi)
+              🎙️ Kerem Versiyonu (Anadolu Sesi)
             </button>
           </div>
           <div id="ekremStudioCard" class="ekrem-studio-card" style="display: none;">
             <div class="ekrem-sitting-visual">
-              <img src="assets/img/ekrem_gospel_baby.jpg" alt="Ekrem Stüdyoda" class="ekrem-sitting-thumb" onerror="this.style.display='none'">
+              <img src="assets/img/ekrem_gospel_baby.jpg" alt="Kerem Stüdyoda" class="ekrem-sitting-thumb" onerror="this.style.display='none'">
               <div class="ekrem-sitting-text">
-                <strong style="color:var(--accent-gold);">EKREM STÜDYODA // İT OTURUŞU</strong><br>
+                <strong style="color:var(--accent-gold);">KEREM STÜDYODA // İT OTURUŞU</strong><br>
                 Taburede it oturuşu, elinde mikrofon: <em>“Angaralı Koray / Gospel Baby”</em>. Kenan masada kafasını sallıyor: <em>“İşte bu ses lazımdı oğlum!”</em>
               </div>
             </div>
             <button id="playEkremVersionBtn" class="ek3-trigger ek3-trigger-accent" style="margin-top: 8px; justify-content: center; font-size: 0.72rem; padding: 6px;">
-              ▶ EKREM'İN KAYDINI DİNLE (YOUTUBE MASTER)
+              ▶ KEREM'İN KAYDINI DİNLE (YOUTUBE MASTER)
             </button>
           </div>
         </div>
@@ -1415,13 +1415,13 @@ document.addEventListener("DOMContentLoaded", () => {
         
         <div class="studio-track-card">
           <div class="studio-track-header">
-            <span class="studio-track-title">GOSPEL BABY (Kenan & Ekrem)</span>
+            <span class="studio-track-title">GOSPEL BABY (Kenan & Kerem)</span>
             <button class="studio-listen-btn" onclick="playSnippet('K35AtsZEl5o', 'assets/audio/track_gospel_baby_kenan.mp3')">▶ 15 sn Dinle</button>
           </div>
           <div class="studio-stems-grid">
             <div>Söz %100 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:100%;"></div></div></div>
             <div>Beste %95 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:95%;"></div></div></div>
-            <div>Ekrem Vokal %90 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:90%;"></div></div></div>
+            <div>Kerem Vokal %90 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:90%;"></div></div></div>
             <div>Mastering %85 <div class="studio-stem-bar"><div class="studio-stem-fill" style="width:85%;"></div></div></div>
           </div>
         </div>
@@ -1528,7 +1528,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // EKREM STÜDYODA CANLI KAYIT (studio_ekrem)
+    // KEREM STÜDYODA CANLI KAYIT (studio_ekrem)
     if (data.isStudioEkremSpecial || data.id === "studio_ekrem") {
       const ekremStudioBox = document.createElement("div");
       ekremStudioBox.innerHTML = `
@@ -1538,13 +1538,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="studio-rec-title" style="color:#38b2ac;">CANLI TELEPROMPTER & VOKAL KAYDI</span>
           </div>
           <div class="studio-version-lore">
-            Ekrem mikrofona haykırıyor: <em>“If I'm gonna lose you, I won't lose this song...”</em> Stüdyodaki dev ekranda şarkının sözleri ve Türkçe fonetik telaffuzları akıyor.
+            Kerem mikrofona haykırıyor: <em>“If I'm gonna lose you, I won't lose this song...”</em> Stüdyodaki dev ekranda şarkının sözleri ve Türkçe fonetik telaffuzları akıyor.
           </div>
           <button id="openGospelLyricsFromTabBtn" class="ek3-trigger ek3-trigger-accent" style="width:100%; justify-content:center; margin-top:10px;">
             [ 📺 DEV LİRİK EKRANI & TELAFUZLARI GÖR ]
           </button>
           <button id="playGospelFromTabBtn" class="ek3-trigger" style="width:100%; justify-content:center; margin-top:8px;">
-            ▶ GOSPEL BABY CANLI ÇAL (EKREM VOKAL)
+            ▶ GOSPEL BABY CANLI ÇAL (KEREM VOKAL)
           </button>
         </div>
       `;
@@ -1830,20 +1830,20 @@ document.addEventListener("DOMContentLoaded", () => {
       ytUrl: "https://www.youtube.com/watch?v=KFrAv440Rmg",
       src: "assets/audio/track_hirsiz.mp3",
       sceneId: "dancefloor",
-      narrative: "Kenan söylüyor; babası Murat ve Ekrem dans pistinde dans ediyor"
+      narrative: "Kenan söylüyor; babası Murad ve Kerem dans pistinde dans ediyor"
     },
     {
       id: "bilmem_ben_de",
       num: "03",
       title: "Bilmem, Ben De",
-      singer: "Murat söylüyor",
+      singer: "Murad söylüyor",
       badge: "Official Lyric Video",
       duration: "2:33",
       ytId: "CvSByNL1r48",
       ytUrl: "https://www.youtube.com/watch?v=CvSByNL1r48",
       src: "assets/audio/track_bilmem_ben_de.mp3",
       sceneId: "hill",
-      narrative: "Murat söylüyor // Tepe & Ankara ayazı, 1. bölüm finali"
+      narrative: "Murad söylüyor // Tepe & Ankara ayazı, 1. bölüm finali"
     },
     {
       id: "gospel_baby_kenan",
@@ -1856,20 +1856,20 @@ document.addEventListener("DOMContentLoaded", () => {
       ytUrl: "https://www.youtube.com/watch?v=K35AtsZEl5o",
       src: "assets/audio/track_gospel_baby_kenan.mp3",
       sceneId: "studio",
-      narrative: "Kenan kaydediyor; 'Bu şarkıya daha sert bir Anadolu sesi lazım, keşke Ekrem söylese' dediği an"
+      narrative: "Kenan kaydediyor; 'Bu şarkıya daha sert bir Anadolu sesi lazım, keşke Kerem abi söylese' dediği an"
     },
     {
       id: "gospel_baby_ekrem",
       num: "05",
-      title: "Gospel Baby (Ekrem Versiyonu)",
-      singer: "Ekrem söylüyor // Angaralı Koray",
+      title: "Gospel Baby (Kerem Versiyonu)",
+      singer: "Kerem söylüyor // Angaralı Koray",
       badge: "Stüdyo Master",
       duration: "3:10",
       ytId: "mdPhJrnytkA",
       ytUrl: "https://www.youtube.com/watch?v=mdPhJrnytkA",
       src: "assets/audio/track_gospel_baby_ekrem.mp3",
       sceneId: "studio",
-      narrative: "Ekrem söylüyor // Kenan'ın stüdyosunda, taburede it oturuşu elinde mikrofon"
+      narrative: "Kerem söylüyor // Kenan'ın stüdyosunda, taburede it oturuşu elinde mikrofon"
     },
     {
       id: "kaybedemem",
@@ -1888,14 +1888,14 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "biri_varmis",
       num: "07",
       title: "biri varmış öteki yok olmasın",
-      singer: "Murat & Ekrem (düet)",
+      singer: "Murad & Kerem (düet)",
       badge: "Official Audio",
       duration: "4:32",
       ytId: "GLQcmdJsO5U",
       ytUrl: "https://www.youtube.com/watch?v=GLQcmdJsO5U",
       src: "assets/audio/track_biri_varmis.mp3",
       sceneId: "studio",
-      narrative: "Murat ve Ekrem beraber Bahar'a söylüyorlar"
+      narrative: "Murad ve Kerem beraber Bahar'a söylüyorlar"
     }
   ];
 
@@ -2122,7 +2122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (window.SUSSUZ_AUDIO) {
         window.SUSSUZ_AUDIO.playMusicTrack("mdPhJrnytkA", 0.65, "assets/audio/track_gospel_baby_ekrem.mp3");
       }
-      playGospelFromModalBtn.textContent = "🔊 ŞARKI ÇALIYOR (EKREM VOKAL)";
+      playGospelFromModalBtn.textContent = "🔊 ŞARKI ÇALIYOR (KEREM VOKAL)";
     });
   }
 

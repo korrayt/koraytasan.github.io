@@ -115,10 +115,10 @@ class SpatialUniverse {
         id: "lake",
         name: "GÖL KENARI",
         subtitle: "DENİZ FENERİ // DİLEK'İN DOĞUM GÜNÜ",
-        x: 140,
+        x: 155,
         y: 580,
         radius: 26,
-        labelX: 140,
+        labelX: 155,
         labelY: 480,
         arrowType: "down",
         color: "rgba(92, 124, 250, "
@@ -127,10 +127,10 @@ class SpatialUniverse {
         id: "ritim",
         name: "RİTİM",
         subtitle: "ADA RESTORAN GECE KULÜBÜ",
-        x: 538,
-        y: 335,
+        x: 555,
+        y: 345,
         radius: 28,
-        labelX: 538,
+        labelX: 555,
         labelY: 275,
         arrowType: "down",
         color: "rgba(224, 49, 49, "
@@ -139,24 +139,24 @@ class SpatialUniverse {
         id: "hill",
         name: "TEPE",
         subtitle: "AŞIKLAR TEPESİ // ANKARA AYAZI",
-        x: 1160,
-        y: 115,
+        x: 1165,
+        y: 120,
         radius: 26,
         labelX: 1220,
-        labelY: 65,
+        labelY: 70,
         arrowType: "down_left",
         color: "rgba(235, 94, 40, "
       },
       {
         id: "murat_home",
-        name: "MURAT'IN EVİ",
+        name: "MURAD'IN EVİ",
         subtitle: "KUZEY BLOKLARI // PENTHOUSE",
-        x: 115,
-        y: 115,
+        x: 395,
+        y: 175,
         radius: 24,
-        labelX: 200,
-        labelY: 75,
-        arrowType: "down_left",
+        labelX: 395,
+        labelY: 110,
+        arrowType: "down",
         color: "rgba(56, 178, 172, "
       },
       {
@@ -175,24 +175,24 @@ class SpatialUniverse {
         id: "home_interior",
         name: "BAHAR'IN EVİ",
         subtitle: "SEÇİLMİŞ AİLE // SALON",
-        x: 1240,
-        y: 600,
+        x: 1130,
+        y: 435,
         radius: 24,
-        labelX: 1290,
-        labelY: 535,
-        arrowType: "down_left",
+        labelX: 1070,
+        labelY: 375,
+        arrowType: "down_right",
         color: "rgba(255, 212, 59, "
       },
       {
         id: "garden",
         name: "BAHÇE",
-        subtitle: "ATA VE KENAN // TAHTA ARABA",
-        x: 1060,
-        y: 690,
+        subtitle: "TERAS BAHÇE // ATA VE KENAN",
+        x: 1220,
+        y: 430,
         radius: 22,
-        labelX: 975,
-        labelY: 650,
-        arrowType: "down_right",
+        labelX: 1280,
+        labelY: 375,
+        arrowType: "down_left",
         color: "rgba(105, 219, 124, "
       }
     ];
@@ -202,21 +202,10 @@ class SpatialUniverse {
     this.sceneHotspots = {
       lake: [
         { 
-          id: "lake_to_candle", 
-          name: "MUMU YAK // ANMA MASASINA GEÇ", 
-          relX: 0.630, 
-          relY: 0.650, 
-          icon: "🕯️", 
-          subtitle: "DİLEK BAHAR'IN DOĞUM GÜNÜ PASTASI", 
-          action: "fly_subvenue", 
-          target: "lake_candle", 
-          desc: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta, göl kıyısında tek bir mum yakar. Doğum günü anma masasına geçin." 
-        },
-        { 
           id: "lake_dialogue", 
           name: "BAHAR İLE KONUŞ", 
-          relX: 0.735, 
-          relY: 0.520, 
+          relX: 0.255, 
+          relY: 0.540, 
           icon: "💬", 
           subtitle: "İSKELEDE TEK BAŞINA BİR SES", 
           action: "dialogue", 
@@ -224,20 +213,31 @@ class SpatialUniverse {
           desc: "Bahar ile yüz yüze gelin." 
         },
         { 
+          id: "lake_to_candle", 
+          name: "MUMU YAK // ANMA MASASINA GEÇ", 
+          relX: 0.120, 
+          relY: 0.850, 
+          icon: "🕯️", 
+          subtitle: "DİLEK BAHAR'IN DOĞUM GÜNÜ PASTASI", 
+          action: "fly_subvenue", 
+          target: "lake_candle", 
+          desc: "Bahar tek başına getirdiği pastayı çıkarır. Dilek'in kanı üzerine kurulu parkta, göl kıyısında tek bir mum yakar. Doğum günü anma masasına geçin." 
+        },
+        { 
           id: "lake_fountain", 
           name: "KARŞI KIYIYA BAK", 
-          relX: 0.470, 
-          relY: 0.535, 
+          relX: 0.435, 
+          relY: 0.480, 
           icon: "🌊", 
           subtitle: "BATAKLIK ÜZERİNE DİKİLEN BLOKLAR // ERYAMAN", 
           action: "prop", 
           propName: "Karşı Kıyı ve Fıskiye", 
-          desc: "Gölün karşısında sıralanan beton bloklar ve fıskiye. Bir zamanlar bataklık olan, Dilek'in kaybolduğu yer şimdi yapay bir park..." 
+          desc: "Gölün karşısında sıralanan beton rezidans blokları ve fıskiye. Bir zamanlar bataklık olan, Dilek'in kaybolduğu yer şimdi yapay bir park..." 
         },
         { 
           id: "lake_music", 
           name: "BATAKLIK'I DİNLE", 
-          relX: 0.350, 
+          relX: 0.255, 
           relY: 0.380, 
           icon: "🎵", 
           subtitle: "BAHAR — BATAKLIK // SUSSUZ SOUNDTRACK", 
@@ -247,10 +247,21 @@ class SpatialUniverse {
           desc: "Bahar tek başına, Dilek'in kanı üzerine kurulmuş parkta doğum günü pastasını üflerken söylüyor." 
         },
         { 
+          id: "lake_to_ritim", 
+          name: "RİTİM GECE KULÜBÜ", 
+          relX: 0.900, 
+          relY: 0.380, 
+          icon: "⚡", 
+          subtitle: "ADADAKİ NEON IŞIKLAR // GEÇİŞ YAP", 
+          action: "fly_subvenue", 
+          target: "ritim", 
+          desc: "İskelenin sağında, ahşap köprünün bağlandığı adada kırmızı neonlarıyla parlayan RİTİM görünüyor. Kulübe geçin." 
+        },
+        { 
           id: "lake_note", 
           name: "İSKELEYE BİR CÜMLE BIRAK", 
-          relX: 0.220, 
-          relY: 0.850, 
+          relX: 0.550, 
+          relY: 0.880, 
           icon: "✍️", 
           subtitle: "GÖLE VE GECEYE FISILDA", 
           action: "note", 
@@ -316,14 +327,14 @@ class SpatialUniverse {
         },
         { 
           id: "ritim_stop_murat", 
-          name: "MURAT'I DURDUR", 
+          name: "MURAD'I DURDUR", 
           relX: 0.650, 
           relY: 0.680, 
           icon: "✋", 
-          subtitle: "EKREM YOLA ATLADI // 1. BÖLÜM FİNALİ", 
+          subtitle: "KEREM YOLA ATLADI // 1. BÖLÜM FİNALİ", 
           action: "fly_subvenue", 
           target: "ritim_road", 
-          desc: "Ekrem yolun ortasına çıkarak Murat'ın arabasını durdurur: 'Sana gerisini göstereceğim.' 1. bölüm final sahnesine geçiş yapın." 
+          desc: "Kerem yolun ortasına çıkarak Murad'ın Mustang'ini durdurur: 'Sana gerisini göstereceğim.' 1. bölüm final sahnesine geçiş yapın." 
         }
       ],
 
@@ -353,25 +364,25 @@ class SpatialUniverse {
         },
         { 
           id: "interior_balcony_dialogue", 
-          name: "MURAT VE EKREM İLE YÜZLEŞ", 
+          name: "MURAD VE KEREM İLE YÜZLEŞ", 
           relX: 0.585, 
           relY: 0.720, 
           icon: "💬", 
           subtitle: "'OĞLUM...' // SAHNE DİYALOĞU", 
           action: "dialogue", 
           charId: "murat_ekrem_balcony", 
-          desc: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Murat oğlunu görüyor: 'Ben yapamadım... Göksu yaptı.'" 
+          desc: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Murad oğlunu görüyor: 'Ben yapamadım... Göksu yaptı.'" 
         },
         { 
           id: "interior_to_dancefloor", 
-          name: "MURAT'I DANSA GÖTÜR", 
+          name: "MURAD'I DANSA GÖTÜR", 
           relX: 0.360, 
           relY: 0.820, 
           icon: "⚡", 
-          subtitle: "EKREM ELİNİ UZATIYOR // 'AYIP LAN ÇOCUĞA'", 
+          subtitle: "KEREM ELİNİ UZATIYOR // 'AYIP LAN ÇOCUĞA'", 
           action: "fly_subvenue", 
           target: "dancefloor", 
-          desc: "Ekrem gülerek elini uzatır: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa.' Murat'ı yeniden pistin içine çeker." 
+          desc: "Kerem gülerek elini uzatır: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa.' Murad'ı yeniden pistin içine çeker." 
         },
         { 
           id: "interior_to_vip", 
@@ -420,16 +431,16 @@ class SpatialUniverse {
       ],
 
       ritim_road: [
-        { id: "road_moment", name: "ANAHTARI CEBİNE AT", relX: 0.500, relY: 0.550, icon: "✋", subtitle: "EKREM: 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Ekrem'in Murat'ı Durdurduğu An", desc: "EKREM: 'Sana gerisini göstereceğim.' Murat anahtarı cebine atar; gece henüz bitmemiştir." },
-        { id: "road_dialogue", name: "EKREM İLE KONUŞ", relX: 0.380, relY: 0.680, icon: "💬", subtitle: "İKİ YABANCININ İLK TEMASI", action: "dialogue", charId: "ekrem", desc: "Ekrem ve Murat diyalog penceresini açın." },
-        { id: "road_music", name: "RADYONUN SESİNİ AÇ", relX: 0.700, relY: 0.450, icon: "📻", subtitle: "MURAT — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_bilmem_ben_de.mp3", desc: "Araba radyosundan yükselen melodi." },
+        { id: "road_moment", name: "ANAHTARI CEBİNE AT", relX: 0.500, relY: 0.550, icon: "✋", subtitle: "KEREM: 'SANA GERİSİNİ GÖSTERECEĞİM'", action: "prop", propName: "Kerem'in Murad'ı Durdurduğu An", desc: "KEREM: 'Sana gerisini göstereceğim.' Murad Mustang anahtarını cebine atar; gece henüz bitmemiştir." },
+        { id: "road_dialogue", name: "KEREM İLE KONUŞ", relX: 0.380, relY: 0.680, icon: "💬", subtitle: "İKİ YABANCININ İLK TEMASI", action: "dialogue", charId: "ekrem", desc: "Kerem (Eku) ve Murad diyalog penceresini açın." },
+        { id: "road_music", name: "RADYONUN SESİNİ AÇ", relX: 0.700, relY: 0.450, icon: "📻", subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_bilmem_ben_de.mp3", desc: "Ford Mustang radyosundan yükselen melodi." },
         { id: "road_to_club", name: "KULÜP GİRİŞİNE DÖN", relX: 0.850, relY: 0.750, icon: "🚪", subtitle: "RİTİM'İN IŞIKLARI", action: "fly_subvenue", target: "ritim", desc: "Kulüp önüne dönün." }
       ],
 
       dancefloor: [
         { id: "dance_glass_look", name: "CAM OFİSE YUKARI BAK", relX: 0.500, relY: 0.200, icon: "🪟", subtitle: "GÖKSU YUKARIDAN PİSTİ İZLİYOR", action: "fly_subvenue", target: "goksu_room", desc: "Tepedeki cam ofise bakın veya yukarı çıkın. Camın arkasından aşağıdaki pist loş bir akvaryum gibi izleniyor." },
-        { id: "dance_touch", name: "ENSE TEMASINI HİSSET", relX: 0.520, relY: 0.520, icon: "⚡", subtitle: "KONTROLÜN KAYBI // 'ÖBÜR TARAFA GİTSEN BARA GİRİCEN'", action: "prop", propName: "Ense Teması", desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır." },
-        { id: "dance_dialogue", name: "PİSTTE EKREM'E SOKUL", relX: 0.380, relY: 0.640, icon: "💬", subtitle: "POLİS VE TORBACI DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'" },
+        { id: "dance_touch", name: "ENSE TEMASINI HİSSET", relX: 0.520, relY: 0.520, icon: "⚡", subtitle: "KONTROLÜN KAYBI // 'ÖBÜR TARAFA GİTSEN BARA GİRİCEN'", action: "prop", propName: "Ense Teması", desc: "KEREM: 'Öbür tarafa gitsen bara giricen yarram.' Murad güler; hayatında ilk defa kontrolü bırakır." },
+        { id: "dance_dialogue", name: "PİSTTE KEREM'E SOKUL", relX: 0.380, relY: 0.640, icon: "💬", subtitle: "POLİS VE TORBACI DİYALOĞU", action: "dialogue", charId: "ekrem", desc: "MURAD: 'Olm, polisim ben!' — KEREM (elini uzatarak): 'Merhaba ben de torbacı :D Kerem ben... ama sen kısaca Eku diyebilirsin'" },
         { id: "dance_track", name: "HIRSIZ'I DİNLE", relX: 0.700, relY: 0.400, icon: "🎵", subtitle: "KENAN — HIRSIZ // SUSSUZ SOUNDTRACK", action: "music", src: "KFrAv440Rmg", fallbackSrc: "assets/audio/track_hirsiz.mp3", desc: "Dans pistinde çalan 'HIRSIZ' bas riffi." },
         { id: "dance_to_interior", name: "GENEL SALONA BAK", relX: 0.160, relY: 0.740, icon: "🏛️", subtitle: "RİTİM İÇ MEKÂN GENEL GÖRÜNÜM", action: "fly_subvenue", target: "ritim_interior", desc: "Kulübün genel açısına dönün." },
         { id: "dance_to_vip", name: "VIP LOCAYA ÇIK", relX: 0.840, relY: 0.260, icon: "🍸", subtitle: "ASMA KATTAN PİSTE BAKIŞ", action: "fly_subvenue", target: "ritim_vip", desc: "VIP Locaya geçiş yapın." },
@@ -462,57 +473,57 @@ class SpatialUniverse {
         { 
           id: "hill_smoke", 
           name: "SİGARAYI PAYLAŞ", 
-          relX: 0.685, 
-          relY: 0.560, 
+          relX: 0.695, 
+          relY: 0.550, 
           icon: "🚬", 
           subtitle: "05:30 // ANKARA AYAZI // 'YANLIŞSA DA BENİM YANLIŞIM OLUR'", 
           action: "prop", 
           propName: "Sırayla İçilen Sigara", 
-          desc: "EKREM: 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'" 
+          desc: "KEREM (EKU): 'Dalga geçme. Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur. Başkasının lafıyla yanlış yapmaktan iyidir.'" 
         },
         { 
           id: "hill_dialogue", 
-          name: "MURAT İLE KONUŞ", 
-          relX: 0.525, 
-          relY: 0.530, 
+          name: "MURAD İLE KONUŞ", 
+          relX: 0.610, 
+          relY: 0.560, 
           icon: "💬", 
-          subtitle: "MURAT VE EKREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", 
+          subtitle: "MURAD VE KEREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", 
           action: "dialogue", 
           charId: "murat", 
-          desc: "MURAT: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — EKREM: 'He. TÜBİTAK.'" 
+          desc: "MURAD: 'Sende bi şey var, içim yamuk demedi. Bilimsel açıklaman bu mu?' — KEREM: 'He. TÜBİTAK.'" 
         },
         { 
           id: "hill_ekrem_dialogue", 
-          name: "EKREM İLE KONUŞ", 
-          relX: 0.770, 
-          relY: 0.580, 
+          name: "KEREM İLE KONUŞ", 
+          relX: 0.785, 
+          relY: 0.570, 
           icon: "💬", 
-          subtitle: "EKREM'İN İÇ DÜNYASI // GÜVEN VE YANILGI", 
+          subtitle: "KEREM'Sİ (EKU) // GÜVEN VE YANILGI", 
           action: "dialogue", 
           charId: "ekrem", 
-          desc: "Ekrem ayazda sigarasını çekerken Murat'a bakar. 'Ben hissettiğim şeye güvenirim.'" 
+          desc: "Kerem ayazda sigarasını çekerken Murad'a bakar: 'Ben hissettiğim şeye güvenirim.'" 
         },
         { 
           id: "hill_music", 
           name: "BİLMEM, BEN DE'Yİ DİNLE", 
-          relX: 0.880, 
-          relY: 0.840, 
+          relX: 0.635, 
+          relY: 0.940, 
           icon: "📻", 
-          subtitle: "MURAT — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", 
+          subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", 
           action: "music", 
           src: "CvSByNL1r48", 
           fallbackSrc: "assets/audio/track_bilmem_ben_de.mp3", 
-          desc: "Mercedes'in torpidosundan yükselen soğuk ayaz melodisi." 
+          desc: "Ford Mustang Convertible (06 KNN 03) radyosundan yükselen soğuk ayaz melodisi." 
         },
         { 
           id: "hill_note", 
-          name: "TORPİDOYA BİR NOT BIRAK", 
-          relX: 0.780, 
-          relY: 0.850, 
+          name: "MUSTANG'E BİR NOT BIRAK", 
+          relX: 0.890, 
+          relY: 0.780, 
           icon: "✍️", 
-          subtitle: "ARABA TORPİDOSUNA FISILDA", 
+          subtitle: "06 KNN 03 // TORPİDOYA FISILDA", 
           action: "note", 
-          desc: "Mercedes torpidosuna anonim bir not iliştir." 
+          desc: "Üstü açık siyah Ford Mustang (06 KNN 03) torpidosuna anonim bir not iliştir." 
         }
       ],
 
@@ -565,14 +576,14 @@ class SpatialUniverse {
       studio: [
         { 
           id: "studio_gospel_ekrem", 
-          name: "🎙️ BU ŞARKIYI EKREM'DEN DİNLE", 
+          name: "🎙️ BU ŞARKIYI KEREM'DEN DİNLE", 
           relX: 0.886, 
           relY: 0.260, 
           icon: "⚡", 
-          subtitle: "EKREM — GOSPEL BABY // CANLI KAYIT SEANSI", 
+          subtitle: "KEREM — GOSPEL BABY // CANLI KAYIT SEANSI", 
           action: "fly_subvenue", 
           target: "studio_ekrem", 
-          desc: "Kenan Ekrem'i ikna etti. Ekrem stüdyoda it oturuşu, elinde mikrofon, dev ekranda akan şarkı sözleri... Şarkının hakiki sokak ruhu." 
+          desc: "Kenan Kerem'i ikna etti. Kerem stüdyoda it oturuşu, elinde mikrofon, dev ekranda akan şarkı sözleri... Şarkının hakiki sokak ruhu." 
         },
         { 
           id: "studio_dialogue", 
@@ -595,7 +606,7 @@ class SpatialUniverse {
           action: "music", 
           src: "K35AtsZEl5o", 
           fallbackSrc: "assets/audio/track_gospel_baby_kenan.mp3", 
-          desc: "Kenan'ın stüdyoda kaydettiği ilk demo. 'Daha Anadolu sesi lazım bu şarkıya... Keşke Ekrem söylese.'" 
+          desc: "Kenan'ın stüdyoda kaydettiği ilk demo. 'Daha Anadolu sesi lazım bu şarkıya... Keşke Kerem abi söylese.'" 
         },
         { 
           id: "studio_biri_varmis", 
@@ -603,11 +614,11 @@ class SpatialUniverse {
           relX: 0.603, 
           relY: 0.716, 
           icon: "📻", 
-          subtitle: "MURAT & EKREM — BİRİ VARMIŞ ÖTEKİ YOK OLMASIN", 
+          subtitle: "MURAD & KEREM — BİRİ VARMIŞ ÖTEKİ YOK OLMASIN", 
           action: "music", 
           src: "GLQcmdJsO5U", 
           fallbackSrc: "assets/audio/track_biri_varmis.mp3", 
-          desc: "Murat ve Ekrem beraber Bahar'a söylüyorlar." 
+          desc: "Murad ve Kerem beraber Bahar'a söylüyorlar." 
         },
         { 
           id: "studio_note", 
@@ -624,14 +635,14 @@ class SpatialUniverse {
       studio_ekrem: [
         {
           id: "ekrem_vocal_heart",
-          name: "EKREM İLE YÜZLEŞ // VOKAL",
+          name: "KEREM İLE YÜZLEŞ // VOKAL",
           relX: 0.310,
           relY: 0.590,
           icon: "💬",
-          subtitle: "KALPTE YANAN GOSPEL // EKREM DİYALOĞU",
+          subtitle: "KALPTE YANAN GOSPEL // KEREM DİYALOĞU",
           action: "dialogue",
           charId: "ekrem",
-          desc: "Ekrem tek elinde mikrofonla şarkıyı söylüyor. Gözlerinde öfke ve kırgınlık: 'Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur.'"
+          desc: "Kerem tek elinde mikrofonla şarkıyı söylüyor. Gözlerinde öfke ve kırgınlık: 'Ben hissettiğim şeye güvenirim. Yanlışsa da benim yanlışım olur.'"
         },
         {
           id: "ekrem_mic",
@@ -639,11 +650,11 @@ class SpatialUniverse {
           relX: 0.410,
           relY: 0.490,
           icon: "🎵",
-          subtitle: "EKREM — GOSPEL BABY [SUSSUZ SOUNDTRACK]",
+          subtitle: "KEREM — GOSPEL BABY [SUSSUZ SOUNDTRACK]",
           action: "music",
           src: "mdPhJrnytkA",
           fallbackSrc: "assets/audio/track_gospel_baby_ekrem.mp3",
-          desc: "Ekrem'in söylediği Gospel Baby. Ham analog mikser kaydı."
+          desc: "Kerem'in söylediği Gospel Baby. Ham analog mikser kaydı."
         },
         {
           id: "studio_screen_lyrics",
@@ -664,7 +675,7 @@ class SpatialUniverse {
           subtitle: "MÜZİĞİN VE RİTİM'İN PRODÜKTÖRÜ",
           action: "dialogue",
           charId: "kenan",
-          desc: "Kenan konsol başında gülümsüyor, Ekrem'in yorumunu heyecanla dinliyor."
+          desc: "Kenan konsol başında gülümsüyor, Kerem'in yorumunu heyecanla dinliyor."
         },
         {
           id: "kenan_mixer_desk",
@@ -675,7 +686,7 @@ class SpatialUniverse {
           subtitle: "ANALOG FADERLAR & VU METRELER",
           action: "prop",
           propName: "Kenan'ın Mikser Ayarları",
-          desc: "Kenan faderları dengeliyor. 'Daha Anadolu sesi lazım bu şarkıya... Tam oldu.'"
+          desc: "Kenan faderları dengeliyor. 'Daha Anadolu sesi lazım bu şarkıya... Kerem abi tam oturdu.'"
         },
         {
           id: "return_to_studio_desk",
@@ -817,7 +828,7 @@ class SpatialUniverse {
           subtitle: "AŞAĞIDAKİ SUSUZ'A TEPEDEN SOĞUK BİR BAKIŞ", 
           action: "prop", 
           propName: "Panoramik Ankara Camı", 
-          desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası. Murat'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı." 
+          desc: "Gökdelenin tepesinden aşağıdaki göle ve Susuz'un karanlık mahallelerine uzanan soğuk Ankara manzarası. Murad'ın Susuz'a ne kadar yabancı olduğunun sessiz kanıtı." 
         },
         { 
           id: "murat_file", 
@@ -825,21 +836,21 @@ class SpatialUniverse {
           relX: 0.345, 
           relY: 0.800, 
           icon: "📁", 
-          subtitle: "AÇILMAMIŞ DOSYA VE TORPİDO ANAHTARI", 
+          subtitle: "AÇILMAMIŞ DOSYA VE MUSTANG ANAHTARI", 
           action: "prop", 
-          propName: "Masa Üzerindeki Dosya ve Anahtarlar", 
-          desc: "Torpido anahtarları ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey." 
+          propName: "Masa Üzerindeki Dosya ve Mustang Anahtarı", 
+          desc: "Ford Mustang'in kontak anahtarı ve açılmamış bir soruşturma dosyası. Şehre bakan camın önünde duran tek şey." 
         },
         { 
           id: "murat_dialogue", 
-          name: "MURAT İLE YÜZLEŞ", 
+          name: "MURAD İLE YÜZLEŞ", 
           relX: 0.540, 
           relY: 0.690, 
           icon: "💬", 
           subtitle: "GÖKDELENİN TEPESİNDE SOĞUK YALNIZLIK", 
           action: "dialogue", 
           charId: "murat", 
-          desc: "Murat'ın iç dünyasına ve Susuz soruşturmasına dair diyalog." 
+          desc: "Murad'ın iç dünyasına ve Susuz soruşturmasına dair diyalog." 
         }
       ]
     };

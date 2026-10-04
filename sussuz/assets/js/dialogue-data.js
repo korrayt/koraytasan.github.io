@@ -8,7 +8,7 @@ window.SUSSUZ_DIALOGUES = {
   kenan: {
     name: "Kenan",
     age: 19,
-    title: "Vokalist & Besteci // Murat'ın Oğlu",
+    title: "Vokalist & Besteci // Murad'ın Oğlu",
     avatar: "assets/img/char_kenan.png",
     bio: "Herkes onun sadece şarkı yaptığını sanıyordu. Göksu'nun parasıyla stüdyoyu doldururken babasının suskunluğuna karşı bağırıyor.",
     lyrics: "Bu Şarkıyı Kaybedemem:\n\n“Duvarlarda izin\nOdalarda sesin\nGeçti modası artık o eski senin...”",
@@ -30,7 +30,7 @@ window.SUSSUZ_DIALOGUES = {
             next: "baba_biliyor_mu"
           },
           {
-            label: "Ekrem abiyle stüdyoda ne kaydettiniz?",
+            label: "Kerem abiyle stüdyoda ne kaydettiniz?",
             next: "ekrem_ingilizce"
           },
           {
@@ -67,7 +67,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       ekrem_ingilizce: {
-        text: "Ekrem abi stüdyoya girdiğinde İngilizce tek kelime bilmiyordu. Sözleri Türkçe okunuşla kağıda yazdım. Mikrofona geçti, öyle bir vokal bastı ki amfi titredi. Babam bana akıl verdi bugüne kadar, Ekrem abi bana ses verdi.",
+        text: "Kerem abi stüdyoya girdiğinde İngilizce tek kelime bilmiyordu. 'Herkes bana Keremsi der... ama sen kısaca Eku de' dedi. Sözleri Türkçe okunuşla kağıda yazdım. Mikrofona geçti, öyle bir vokal bastı ki amfi titredi. Babam bana akıl verdi bugüne kadar, Kerem abi bana ses verdi.",
         options: [
           {
             label: "Geri dön.",
@@ -76,7 +76,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       ata_araba: {
-        text: "Ata stüdyonun kapısında babasını bekliyordu bir gece. Bir tahta parçası aldım, çakımla yonttum, arkasına da kırmızı akrilik çektim. 'Bu senin yarış araban' dedim. O çocuğun gözlerindeki ışık, Göksu'nun bütün çeklerinden daha gerçekti.",
+        text: "Ata stüdyonun kapısında babası Kerem'i bekliyordu bir gece. Bir tahta parçası aldım, çakımla yonttum, arkasına da kırmızı akrilik çektim. 'Bu senin yarış araban' dedim. O çocuğun gözlerindeki ışık, Göksu'nun bütün çeklerinden daha gerçekti.",
         options: [
           {
             label: "Geri dön.",
@@ -88,18 +88,18 @@ window.SUSSUZ_DIALOGUES = {
   },
 
   ekrem: {
-    name: "Ekrem",
+    name: "Kerem",
     age: 33,
-    title: "Sincanlı Dealer // Sokak Koruyucusu",
+    title: "Sincanlı Dealer // 'Herkes Bana Keremsi Der...' // Ata'nın Babası",
     avatar: "assets/img/char_ekrem.png",
-    bio: "Sincan sokak dilini taşır. Sezgisiyle yaşayan, Murat'a 'Ben sana gerisini göstereceğim' diyen, Ata'nın babası.",
-    intro: "Sor bakam.",
+    bio: "33 yaşında. 'Kerem ben… Si ile… Herkes bana Keremsi der... ama sen kısaca Eku diyebilirsin.' Sincan sokak dilini taşır. Sezgisiyle yaşayan, Murad'a 'Ben sana gerisini göstereceğim' diyen, Ata'nın babası.",
+    intro: "Sor bakam. Kerem ben… 'Si' ile… Herkes bana Keremsi der... ama sen kısaca Eku diyebilirsin.",
     tree: {
       root: {
-        text: "Sor bakam.",
+        text: "Sor bakam. Kerem ben… 'Si' ile… Herkes bana Keremsi der... ama sen kısaca Eku diyebilirsin.",
         options: [
           {
-            label: "Murat'ı ilk gördüğünde ne düşündün?",
+            label: "Murad'ı ilk gördüğünde ne düşündün?",
             next: "murat_ilk_gorus"
           },
           {
@@ -134,7 +134,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       polisle_dans: {
-        text: "MURAT: 'Olm, polisim ben!' dedi. Ben de tanışır gibi elimi uzattım: 'Merhaba ben de torbacı :D' Baktım piste girmiş odun gibi duruyor. Ensesinden tuttum: 'Öbür tarafa gitsen bara giricen yarram' dedim. Güldük, ritme girdi. Polis molis ama adamın içinde insan varmış.",
+        text: "MURAD: 'Olm, polisim ben!' dedi. Ben de tanışır gibi elimi uzattım: 'Merhaba ben de torbacı :D Kerem ben... 'Si' ile... Herkes bana Keremsi der ama sen kısaca Eku diyebilirsin.' Baktım piste girmiş odun gibi duruyor. Ensesinden tuttum: 'Öbür tarafa gitsen bara giricen yarram' dedim. Güldük, ritme girdi. Polis molis ama adamın içinde insan varmış.",
         options: [
           {
             label: "Geri dön.",
@@ -197,22 +197,22 @@ window.SUSSUZ_DIALOGUES = {
   },
 
   murat: {
-    name: "Murat",
+    name: "Murad",
     age: 37,
-    title: "Polis // Kenan'ın Biyolojik Babası",
+    title: "Polis // 'Murad. D ile...' // Kenan'ın Biyolojik Babası",
     avatar: "assets/img/char_murat.png",
-    bio: "18 yaşında baba olmuş. Kontrol takıntılı ama Ekrem'e karşı açıklanamaz bir güven duyan polis.",
-    intro: "Ben kimseye güvenmem. Kapıyı kilitler iki dakika sonra döner bakarım.",
+    bio: "37 yaşında. 'Murad... D ile...' diye düzeltir. 18 yaşında baba olmuş. Kontrol takıntılı ama Kerem'e karşı açıklanamaz bir güven duyan polis.",
+    intro: "Murad. D ile… Ben kimseye güvenmem. Kapıyı kilitler iki dakika sonra döner bakarım.",
     tree: {
       root: {
-        text: "Ben kimseye güvenmem. Kapıyı kilitler iki dakika sonra döner bakarım.",
+        text: "Murad. D ile… Ben kimseye güvenmem. Kapıyı kilitler iki dakika sonra döner bakarım.",
         options: [
           {
-            label: "Olm, polissin sen. Ekrem'le nasıl dans ettin?",
+            label: "Olm, polissin sen. Kerem'le nasıl dans ettin?",
             next: "dans_ani"
           },
           {
-            label: "Tepede Ekrem'le ne konuştunuz?",
+            label: "Tepede Kerem'le ne konuştunuz?",
             next: "tepe_ani"
           },
           {
@@ -226,7 +226,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       dans_ani: {
-        text: "Pistin ortasındaydım. 'Olm, polisim ben!' dedim. Elini uzattı tanışır gibi: 'Merhaba ben de torbacı :D' dedi. Ensemden tutup kalabalığa soktu beni. Hayatımda ilk defa kontrol bende değildi ve garip bir şekilde ilk defa nefes aldım.",
+        text: "Pistin ortasındaydım. 'Olm, polisim ben!' dedim. Elini uzattı tanışır gibi: 'Merhaba ben de torbacı :D Kerem ben... 'Si' ile... ama sen kısaca Eku de' dedi. Ensemden tutup kalabalığa soktu beni. Hayatımda ilk defa kontrol bende değildi ve garip bir şekilde ilk defa nefes aldım.",
         options: [
           {
             label: "Geri dön.",
@@ -235,7 +235,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       tepe_ani: {
-        text: "Sabah ayazında kaputa yaslandık. 'Ne konuşuyorsunuz?' diye sorsan... Ekrem hemen yapıştırır: 'Her şeyi anlatak da diziye ne kaldı yarraam? :D' Ama işin aslı şuydu: Ben hayatımda ilk defa bir yabancının niyetinden sıfır şüphe duydum.",
+        text: "Sabah ayazında Mustang'in kaputuna yaslandık. 'Ne konuşuyorsunuz?' diye sorsan... Kerem hemen yapıştırır: 'Her şeyi anlatak da diziye ne kaldı yarraam? :D' Ama işin aslı şuydu: Ben hayatımda ilk defa bir yabancının niyetinden sıfır şüphe duydum.",
         options: [
           {
             label: "Geri dön.",
@@ -253,7 +253,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       murat_ev_sorusu: {
-        text: "Ev mi? Evi de mi biz bulak müdür? :D Prodüksiyon ekibi hala Ankara'da mekan arıyor. Bildiğin bir yer varsa mekanı sen öner.",
+        text: "Kuzey Blokları'ndaki penthouse... Şehre tepeden bakınca her şey cetvelle çizilmiş gibi duruyor ama içine girince Susuz bir bataklık gibi çekiyor adamı.",
         options: [
           {
             label: "Geri dön.",
@@ -367,7 +367,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       kenan_tutma: {
-        text: "Kenan yetenekli. 28 kanal canlı yaylı istedi, verdim. Ama daha önemlisi: Kenan şarkı söyledikçe babası Murat benim kapımda hazır ola geçer.",
+        text: "Kenan yetenekli. 28 kanal canlı yaylı istedi, verdim. Ama daha önemlisi: Kenan şarkı söyledikçe babası Murad benim kapımda hazır ola geçer.",
         options: [
           {
             label: "Geri dön.",
@@ -376,7 +376,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       bahar_dosyasi: {
-        text: "Murat 'Yarım dosya' dedi. 'Yarısı yeter' dedim. 'Acıma' dedim. Çünkü Bahar'ı gören adamın elindeki silah titrer. Ben yolu çizdim, o yürüdü.",
+        text: "Murad 'Yarım dosya' dedi. 'Yarısı yeter' dedim. 'Acıma' dedim. Çünkü Bahar'ı gören adamın elindeki silah titrer. Ben yolu çizdim, o yürüdü.",
         options: [
           {
             label: "Geri dön.",
@@ -390,9 +390,9 @@ window.SUSSUZ_DIALOGUES = {
   ata: {
     name: "Ata",
     age: 7,
-    title: "Masumiyetin Şahidi // Ekrem'in Oğlu",
+    title: "Masumiyetin Şahidi // Kerem'in Oğlu",
     avatar: "assets/img/char_ata.png",
-    bio: "Ekrem'in 7 yaşındaki oğlu. Annesini 3 yaşında kaybetti. Nilüfer masallarıyla büyüyen masumiyet tanığı.",
+    bio: "Kerem'in 7 yaşındaki oğlu. Annesini 3 yaşında kaybetti. Nilüfer masallarıyla büyüyen masumiyet tanığı.",
     intro: "Bahar annem bana nilüfer çiçeklerini anlattı...",
     tree: {
       root: {
@@ -444,7 +444,7 @@ window.SUSSUZ_DIALOGUES = {
         ]
       },
       kitap_ata: {
-        text: "'Aşk Bir Aile Yaratır'... Renkli resimleri var. Bahar annem bana 'Bizim ailemiz de sevgiyle kuruldu Ata'm' diyor. Ben en çok sayfadaki kocaman sarılan insanları seviyorum. Babam, Bahar annem ve ben... Biz de öyleyiz.",
+        text: "'Aşk Bir Aile Yaratır'... Renkli resimleri var. Bahar annem bana 'Bizim ailemiz de sevgiyle kuruldu Ata'm' diyor. Ben en çok sayfadaki kocaman sarılan insanları seviyorum. Babam Kerem, Bahar annem ve ben... Biz de öyleyiz.",
         options: [
           {
             label: "Geri dön.",
@@ -456,45 +456,45 @@ window.SUSSUZ_DIALOGUES = {
   },
 
   murat_ekrem_balcony: {
-    name: "Murat ve Ekrem",
+    name: "Murad ve Kerem",
     age: 37,
     title: "Pist Kenarında Sahneye Bakış // 1. ve 2. Bölüm Köprüsü",
     avatar: "assets/img/char_murat.png",
-    bio: "Müzik değişir. Karanlık ekranlar bir anda açılır. Dev ekranda Kenan, RİTİM logosu... Murat oğlunu sahnede görür.",
-    intro: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu sahnede dev ekranda görüyor.",
+    bio: "Müzik değişir. Karanlık ekranlar bir anda açılır. Dev ekranda Kenan, RİTİM logosu... Murad oğlunu sahnede görür.",
+    intro: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murad duruyor; oğlunu sahnede dev ekranda görüyor.",
     tree: {
       root: {
-        text: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri. Şarkının adı: HIRSIZ. İlk beat giriyor. Kalabalık bağırıyor. Şarkı yüzeyde, tehlikeli birine duyulan çekimi anlatıyor. Nakaratta 'hırsız' kelimesi ritmik bir hook gibi dönüyor. Murat duruyor. Oğlunu ekranda görüyor. Ekrem Murat'ın yüzündeki değişimi fark ediyor.",
+        text: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN. RİTİM logosu. Yeni parçanın prömiyeri. Şarkının adı: HIRSIZ. İlk beat giriyor. Kalabalık bağırıyor. Şarkı yüzeyde, tehlikeli birine duyulan çekimi anlatıyor. Nakaratta 'hırsız' kelimesi ritmik bir hook gibi dönüyor. Murad duruyor. Oğlunu ekranda görüyor. Kerem Murad'ın yüzündeki değişimi fark ediyor.",
         options: [
           {
-            label: "EKREM: 'Hayırdır?'",
+            label: "KEREM: 'Hayırdır?'",
             next: "oglum_ani"
           }
         ]
       },
       oglum_ani: {
-        text: "MURAT: 'Oğlum.' \n\nEkrem ekrana bakar. Sonra tekrar Murat'a: \nEKREM: 'Harbi mi?' \n\nMurat başını sallar. Ekrem Kenan'ı daha dikkatli inceler: \nEKREM: 'İyiymiş.'",
+        text: "MURAD: 'Oğlum.' \n\nKerem ekrana bakar. Sonra tekrar Murad'a: \nKEREM: 'Harbi mi?' \n\nMurad başını sallar. Kerem Kenan'ı daha dikkatli inceler: \nKEREM: 'İyiymiş.'",
         options: [
           {
-            label: "MURAT: 'Çok istedi...'",
+            label: "MURAD: 'Çok istedi...'",
             next: "cok_istedi"
           }
         ]
       },
       cok_istedi: {
-        text: "EKREM: 'Neyi?' \n\nMurat sahneyi gösterir: \nMURAT: 'Bunu.' \n\nMurat'ın gururunun içine başka bir duygu karışır. Ekranın köşesinde RİTİM logosu parlar. \n\nMURAT: 'Ben yapamadım.' \nEKREM: 'O yaptı.' \nMURAT: 'Hayır... Göksu yaptı.' \n\nBunu söyleyince kendi sesi onu rahatsız eder. Ekrem düzeltmez; henüz o cümlenin yanlış mı eksik mi olduğunu kendisi de bilmemektedir.",
+        text: "KEREM: 'Neyi?' \n\nMurad sahneyi gösterir: \nMURAD: 'Bunu.' \n\nMurad'ın gururunun içine başka bir duygu karışır. Ekranın köşesinde RİTİM logosu parlar. \n\nMURAD: 'Ben yapamadım.' \nKEREM: 'O yaptı.' \nMURAD: 'Hayır... Göksu yaptı.' \n\nBunu söyleyince kendi sesi onu rahatsız eder. Kerem düzeltmez; henüz o cümlenin yanlış mı eksik mi olduğunu kendisi de bilmemektedir.",
         options: [
           {
-            label: "Nakarat geliyor — Ekrem elini uzatır...",
+            label: "Nakarat geliyor — Kerem elini uzatır...",
             next: "surat_asma"
           }
         ]
       },
       surat_asma: {
-        text: "Nakarat geliyor. Kalabalık coşuyor. Ekrem elini uzatır: \n\nEKREM: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!' \n\nMurat güler. Ekrem onun elini tutup gülerek yeniden pistin içine çeker.",
+        text: "Nakarat geliyor. Kalabalık coşuyor. Kerem elini uzatır: \n\nKEREM: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!' \n\nMurad güler. Kerem onun elini tutup gülerek yeniden pistin içine çeker.",
         options: [
           {
-            label: "⚡ Murat'ı Dansa Götür →",
+            label: "⚡ Murad'ı Dansa Götür →",
             next: "dancefloor_redirect"
           }
         ]
@@ -502,3 +502,7 @@ window.SUSSUZ_DIALOGUES = {
     }
   }
 };
+
+// Geriye dönük uyumluluk ve takma adlar (Aliases)
+window.SUSSUZ_DIALOGUES.kerem = window.SUSSUZ_DIALOGUES.ekrem;
+window.SUSSUZ_DIALOGUES.murad = window.SUSSUZ_DIALOGUES.murat;
