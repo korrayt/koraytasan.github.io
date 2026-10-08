@@ -273,8 +273,8 @@ class SpatialUniverse {
         { 
           id: "lake_candle_blow", 
           name: "DOĞUM GÜNÜ PASTASI", 
-          relX: 0.520, 
-          relY: 0.740, 
+          relX: 0.500, 
+          relY: 0.865, 
           icon: "🕯️", 
           subtitle: "DİLEK İÇİN BİR DİLEK TUT // ANMA", 
           action: "candle", 
@@ -284,7 +284,7 @@ class SpatialUniverse {
           id: "lake_candle_dialogue", 
           name: "BAHAR İLE YÜZLEŞ", 
           relX: 0.500, 
-          relY: 0.440, 
+          relY: 0.560, 
           icon: "💬", 
           subtitle: "SÖYLENMEYENLERİN BAŞLANGICI", 
           action: "dialogue", 
@@ -295,7 +295,7 @@ class SpatialUniverse {
           id: "lake_lighthouse_distant", 
           name: "GÖKSU DENİZ FENERİ", 
           relX: 0.755, 
-          relY: 0.510, 
+          relY: 0.280, 
           icon: "🌊", 
           subtitle: "GÖLÜN KARŞI KIYISINDAKİ IŞIK", 
           desc: "Gölün karşı kıyısındaki ışık ve su yansıması." 
@@ -303,8 +303,8 @@ class SpatialUniverse {
         { 
           id: "lake_candle_to_pier", 
           name: "FENERİN DİBİNDEKİ İSKELE", 
-          relX: 0.630, 
-          relY: 0.865, 
+          relX: 0.820, 
+          relY: 0.880, 
           icon: "🪵", 
           subtitle: "TAHTASI NOT BIRAK", 
           action: "fly_subvenue", 
@@ -449,9 +449,9 @@ class SpatialUniverse {
       ],
 
       goksu_room: [
-        { id: "office_window", name: "CAMDAN PİSTİ İZLE", relX: 0.407, relY: 0.390, icon: "🪟", subtitle: "AŞAĞIDAKİ PİST LOŞ BİR AKVARYUM GİBİ", action: "fly_subvenue", target: "dancefloor", desc: "Camdan aşağıdaki dans pistine bakın; Murat ve Ekrem'in dans ettiği kalabalık görünüyor." },
+        { id: "office_window", name: "CAMDAN PİSTİ İZLE", relX: 0.407, relY: 0.390, icon: "🪟", subtitle: "AŞAĞIDAKİ PİST LOŞ BİR AKVARYUM GİBİ", action: "fly_subvenue", target: "dancefloor", desc: "Camdan aşağıdaki dans pistine bakın; Murad ve Kerem'in dans ettiği kalabalık görünüyor." },
         { id: "office_dialogue", name: "GÖKSU İLE YÜZLEŞ", relX: 0.225, relY: 0.703, icon: "💬", subtitle: "KENAN GÖKSU'YU OYALIYOR", action: "dialogue", charId: "kenan", desc: "Kenan ve Göksu ile konuşun." },
-        { id: "office_file", name: "DOSYAYI AÇ", relX: 0.545, relY: 0.755, icon: "📁", subtitle: "BAHAR / DENİZ // YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Murat'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
+        { id: "office_file", name: "DOSYAYI AÇ", relX: 0.545, relY: 0.755, icon: "📁", subtitle: "BAHAR / DENİZ // YARIM KALAN SORUŞTURMA", action: "prop", propName: "Bahar / Deniz Dosyası", desc: "Göksu Murad'a: 'Yarım dosya... Yarısı yeter. Ne bildiğini öğren. Kiminle konuşman gerekiyorsa konuş.'" },
         { id: "office_song", name: "KAYBI DİNLE", relX: 0.727, relY: 0.716, icon: "🎵", subtitle: "KENAN — BU ŞARKIYI KAYBEDEMEM // SUSSUZ SOUNDTRACK", action: "music", src: "assets/audio/track_kaybedemem.mp3", desc: "Kenan'ın Göksu'ya dinlettiği parça: 'Duvarlarda izin / Odalarda sesin / Geçti modası artık o eski senin...'" },
         { id: "office_return", name: "CAM OFİSTEN ÇIK", relX: 0.920, relY: 0.650, icon: "🚪", subtitle: "RİTİM'E GERİ DÖN", action: "fly_subvenue", target: "ritim", desc: "Dışarıya dönün." }
       ],
@@ -473,8 +473,8 @@ class SpatialUniverse {
         { 
           id: "hill_smoke", 
           name: "SİGARAYI PAYLAŞ", 
-          relX: 0.675, 
-          relY: 0.485, 
+          relX: 0.515, 
+          relY: 0.415, 
           icon: "🚬", 
           subtitle: "05:30 // ANKARA AYAZI // 'YANLIŞSA DA BENİM YANLIŞIM OLUR'", 
           action: "prop", 
@@ -484,8 +484,8 @@ class SpatialUniverse {
         { 
           id: "hill_dialogue", 
           name: "MURAD İLE KONUŞ", 
-          relX: 0.600, 
-          relY: 0.530, 
+          relX: 0.450, 
+          relY: 0.540, 
           icon: "💬", 
           subtitle: "MURAD VE KEREM // 'SENDE Bİ ŞEY VAR, İÇİM YAMUK DEMEDİ'", 
           action: "dialogue", 
@@ -495,7 +495,7 @@ class SpatialUniverse {
         { 
           id: "hill_ekrem_dialogue", 
           name: "KEREM İLE KONUŞ", 
-          relX: 0.760, 
+          relX: 0.630, 
           relY: 0.540, 
           icon: "💬", 
           subtitle: "KEREM'Sİ (EKU) // GÜVEN VE YANILGI", 
@@ -506,8 +506,8 @@ class SpatialUniverse {
         { 
           id: "hill_music", 
           name: "BİLMEM, BEN DE'Yİ DİNLE", 
-          relX: 0.400, 
-          relY: 0.580, 
+          relX: 0.280, 
+          relY: 0.640, 
           icon: "📻", 
           subtitle: "MURAD — BİLMEM, BEN DE // SUSSUZ SOUNDTRACK", 
           action: "music", 
@@ -518,8 +518,8 @@ class SpatialUniverse {
         { 
           id: "hill_note", 
           name: "MUSTANG'E BİR NOT BIRAK", 
-          relX: 0.685, 
-          relY: 0.860, 
+          relX: 0.320, 
+          relY: 0.890, 
           icon: "✍️", 
           subtitle: "06 KNN 03 // TORPİDOYA FISILDA", 
           action: "note", 
@@ -1515,7 +1515,7 @@ class SpatialUniverse {
     ctx.font = `600 ${Math.max(9, Math.floor(tvH * 0.055))}px 'JetBrains Mono', monospace`;
     ctx.fillStyle = pulseRed ? "#ff4d4f" : "#821a1a";
     ctx.textAlign = "left";
-    ctx.fillText("● REC // GOSPEL BABY — EKREM VOCAL TAKE 01", tvLeft + tvW * 0.05, tvTop + tvH * 0.12);
+    ctx.fillText("● REC // GOSPEL BABY — KEREM VOCAL TAKE 01", tvLeft + tvW * 0.05, tvTop + tvH * 0.12);
 
     ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
     ctx.lineWidth = 1;

@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaTarget: "ritim_interior",
       image: "assets/img/loc_ritim.jpg",
       characterId: "ekrem",
-      characterName: "Ekrem ve Murat",
+      characterName: "Kerem ve Murad",
       characterRole: "Kulüp Önü ve Bağlantı Yolu",
-      atmosphere: "Gerçekte Göksu Parkı'ndaki adada yer alan restoranın yerine konumlanan gece kulübü. Girişte bekleyen kalabalık, kapı güvenliği ve yoldan uzaklaşmakta olan Murat'ın arabası.",
+      atmosphere: "Gerçekte Göksu Parkı'ndaki adada yer alan restoranın yerine konumlanan gece kulübü. Girişte bekleyen kalabalık, kapı güvenliği ve yoldan uzaklaşmakta olan Murad'ın arabası.",
       musicNote: "Filtrelenmiş 4/4 Sub-Bass & Araba Uğultusu",
       subvenues: [
         { id: "ritim_interior", label: "İçeri Gir (Genel Salon)" },
-        { id: "ritim_road", label: "Murat'ı Durdur (Yol Sahnesi)" }
+        { id: "ritim_road", label: "Murad'ı Durdur (Yol Sahnesi)" }
       ],
       noteOrigin: "RİTİM Giriş Panosu",
       props: [
@@ -39,11 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
           target: "ritim_interior"
         },
         {
-          name: "MURAT'I DURDUR",
+          name: "MURAD'I DURDUR",
           icon: "✋",
           thumb: "assets/img/props/prop_murat_hill.jpg",
           subtitle: "1. BÖLÜM FİNALİ",
-          desc: "Ekrem'in yola atlayarak arabayı durdurduğu 1. bölüm final sahnesi.",
+          desc: "Kerem'in yola atlayarak arabayı durdurduğu 1. bölüm final sahnesi.",
           action: "fly_subvenue",
           target: "ritim_road"
         }
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaAudio: "KFrAv440Rmg",
       image: "assets/img/loc_ritim_interior.jpg",
       characterId: "murat_ekrem_balcony",
-      characterName: "Murat ve Ekrem",
+      characterName: "Murad ve Kerem",
       characterRole: "Pist Kenarında Sahneye Bakış // 'Oğlum...'",
-      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murat duruyor; oğlunu ekranda görüyor. Ekrem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
+      atmosphere: "Müzik değişiyor. Karanlık ekranlar bir anda açılıyor. Dev ekranda KENAN, RİTİM logosu... Yeni parçanın prömiyeri: HIRSIZ. İlk beat giriyor, kalabalık bağırıyor. Murad duruyor; oğlunu ekranda görüyor. Kerem elini uzatıyor: 'Oğlunun şarkısında surat asma. Ayıp lan çocuğa!'",
       musicNote: "HIRSIZ — Kenan Sahne Prömiyeri (124 BPM)",
       subvenues: [
-        { id: "dancefloor", label: "Murat'ı Dansa Götür (Pist)" },
+        { id: "dancefloor", label: "Murad'ı Dansa Götür (Pist)" },
         { id: "goksu_room", label: "Göksu'nun Cam Ofisi" },
         { id: "ritim_vip", label: "VIP Loca (Yazılıyor :D)" },
         { id: "ritim_backstage", label: "Backstage / Kulis" },
@@ -96,11 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
           target: "goksu_room"
         },
         {
-          name: "MURAT VE EKREM",
+          name: "MURAD VE KEREM",
           icon: "💬",
           thumb: "assets/img/props/prop_murat_ekrem.jpg",
           subtitle: "'OĞLUM...' DİYALOĞU",
-          desc: "Murat oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.'",
+          desc: "Murad oğlunu dev ekranda görünce donakalır: 'Ben yapamadım... Göksu yaptı.'",
           action: "dialogue",
           charId: "murat_ekrem_balcony"
         },
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "⚡",
           thumb: "assets/img/props/prop_dancefloor.jpg",
           subtitle: "KALABALIK VE TEMAS",
-          desc: "Ekrem elini uzatır, Murat'ı gülerek pistin içine çeker.",
+          desc: "Kerem elini uzatır, Murad'ı gülerek pistin içine çeker.",
           action: "fly_subvenue",
           target: "dancefloor"
         }
@@ -125,13 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
       time: "04:30",
       period: "Günümüz",
       ctaIcon: "✋",
-      ctaText: "MURAT'I DURDUR",
+      ctaText: "MURAD'I DURDUR",
       ctaAction: "prop",
       image: "assets/img/loc_ritim_road.jpg",
       characterId: "ekrem",
-      characterName: "Ekrem ve Murat",
+      characterName: "Kerem ve Murad",
       characterRole: "1. Bölüm Finali // Dönüm Noktası",
-      atmosphere: "1. Bölüm final sahnesi. Yağmur ıslaklığı, asfalt parıltısı. Ekrem tam arabaya binecekken Murat'ı durdurur: 'Sana gerisini göstereceğim.' Murat arabayı kilitler, geri döner. İki yabancının kaderinin düğümlendiği an.",
+      atmosphere: "1. Bölüm final sahnesi. Yağmur ıslaklığı, asfalt parıltısı. Kerem tam arabaya binecekken Murad'ı durdurur: 'Sana gerisini göstereceğim.' Murad arabayı kilitler, geri döner. İki yabancının kaderinin düğümlendiği an.",
       musicNote: "Bilmem, Ben De — Kuru Gece Ayazı",
       subvenues: [
         { id: "ritim", label: "Giriş / Ada" },
@@ -170,9 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ctaAction: "prop",
       image: "assets/img/scene_dancefloor.png",
       characterId: "ekrem",
-      characterName: "Ekrem ve Murat",
+      characterName: "Kerem ve Murad",
       characterRole: "Pist İçi Yakınlaşma",
-      atmosphere: "Ritim'in dans pisti. Baslar duvarları titretiyor. Ekrem Murat'ın ensesine dokunur: 'Öbür tarafa gitsen bara giricen.' Murat güler. MURAT: 'Olm, polisim ben!' — EKREM: 'Merhaba ben de torbacı :D'",
+      atmosphere: "Ritim'in dans pisti. Baslar duvarları titretiyor. Kerem Murad'ın ensesine dokunur: 'Öbür tarafa gitsen bara giricen.' Murad güler. MURAD: 'Olm, polisim ben!' — KEREM: 'Merhaba ben de torbacı :D Kerem ben… Si ile… ama sen kısaca Eku diyebilirsin'",
       musicNote: "HIRSIZ — Dans Pisti Miksi (Club Edit)",
       subvenues: [
         { id: "ritim_interior", label: "Genel Salona Dön" },
@@ -188,14 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
           icon: "⚡",
           thumb: "assets/img/props/prop_dancefloor.jpg",
           subtitle: "KONTROLÜN KAYBI",
-          desc: "EKREM: 'Öbür tarafa gitsen bara giricen yarram.' Murat güler; hayatında ilk defa kontrolü bırakır."
+          desc: "KEREM: 'Öbür tarafa gitsen bara giricen yarram.' Murad güler; hayatında ilk defa kontrolü bırakır."
         },
         {
           name: "POLİS VE TORBACI",
           icon: "💬",
           thumb: "assets/img/props/prop_murat_ekrem.jpg",
           subtitle: "TANIŞMA ANI",
-          desc: "MURAT: 'Olm, polisim ben!' — EKREM (elini uzatarak): 'Merhaba ben de torbacı :D'",
+          desc: "MURAD: 'Olm, polisim ben!' — KEREM (elini uzatarak): 'Merhaba ben de torbacı :D Kerem ben… Si ile… ama sen kısaca Eku de'",
           action: "dialogue",
           charId: "ekrem"
         }
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       characterId: "kenan",
       characterName: "Göksu ve Kenan",
       characterRole: "Ritim'in Sahibi & Genç Müzisyen",
-      atmosphere: "Göksu masasında oturuyor. Duvarda neon ve viski şişeleri. Kenan köşede akustik gitarıyla hafif bir melodi çalıyor. Göksu masadaki yarım dosyayı Murat'a uzatır: 'Yarım dosya... Yarısı yeter.'",
+      atmosphere: "Göksu masasında oturuyor. Duvarda neon ve viski şişeleri. Kenan köşede akustik gitarıyla hafif bir melodi çalıyor. Göksu masadaki yarım dosyayı Murad'a uzatır: 'Yarım dosya... Yarısı yeter.'",
       musicNote: "Bu Şarkıyı Kaybedemem — Akustik Demo",
       subvenues: [
         { id: "dancefloor", label: "Dans Pistine Bak" },
