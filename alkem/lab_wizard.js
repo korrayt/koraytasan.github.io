@@ -1733,6 +1733,46 @@
       deltaS_J_K: 162.8,
       type: "Yüksek Sıcaklık Nükleer / Güneş Isılı Termokimyasal Su Parçalama (S-I Döngüsü)",
       description: "Yüksek sıcaklık gaz soğutmalı nükleer reaktörler (HTGR) veya konsantre güneş enerjisi (CSP) ısısıyla 850°C'de çalışan, sıfır sera gazı salınımlı termokimyasal su parçalama döngüsünün en yüksek sıcaklık endotermik oksijen açığa çıkarma basamağı."
+    },
+    "sodium_sulfur_nas_battery_electrochemistry": {
+      name: "Sodyum-Kükürt (Na-S) Yüksek Sıcaklık Şebeke Bataryası (2 Na + 4 S ➔ Na2S4)",
+      equation: "2 Na(s) + 4 S(s) ➔ Na2S4(s)",
+      deltaH_kJ: -418.0,
+      deltaS_J_K: -145.0,
+      type: "Yüksek Sıcaklık Ergimiş Tuz Katı Elektrolitli (BASE) Na-S Şebeke Bataryası",
+      description: "300-350°C'de çalışan sıvı sodyum anotu, sıvı kükürt katotu ve beta''-alümina katı elektroliti ile şebeke ölçeğinde devasa megavat-saat düzeyinde elektrik enerjisi depolama elektrokimyası."
+    },
+    "degussa_bma_process_hydrogen_cyanide": {
+      name: "Degussa BMA Prosesi ile Metan ve Amonyaktan HCN Sentezi (CH4 + NH3 ➔ HCN + 3 H2)",
+      equation: "CH4(g) + NH3(g) ➔ HCN(g) + 3 H2(g)",
+      deltaH_kJ: 251.5,
+      deltaS_J_K: 153.2,
+      type: "Yüksek Sıcaklık Platin Katalizli Metan-Amonyak Hidrosiyanik Asit Sentezi (BMA)",
+      description: "1200-1300°C'de platin kaplı seramik tüplerde metan ve amonyaktan doğrudan altın madenciliği ve naylon polimerleri için hidrojen siyanür (HCN) ve ultra saf hidrojen gazı eş zamanlı sentezi."
+    },
+    "copper_chlorine_cycle_cucl2_decomposition": {
+      name: "Bakır-Klor (Cu-Cl) Döngüsü Termal CuCl2 Ayrışması (2 CuCl2 ➔ 2 CuCl + Cl2)",
+      equation: "2 CuCl2(s) ➔ 2 CuCl(s) + Cl2(g)",
+      deltaH_kJ: 168.0,
+      deltaS_J_K: 165.5,
+      type: "Düşük/Orta Sıcaklık Termokimyasal Su Parçalama Döngüsü (Cu-Cl Döngüsü)",
+      description: "500°C orta sıcaklık endüstriyel atık ısı veya nükleer reaktörlerle çalışan 4 adımlı Cu-Cl termokimyasal hidrojen üretim döngüsünün endotermik klor ayrıştırma reaksiyonu."
+    },
+    "iron_titanium_feti_hydride_dehydrogenation": {
+      name: "Demir-Titanyum (FeTi) Hidrür Katı-Hal Hidrojen Dehidrojenasyonu (FeTiH1.95 ➔ FeTi + 0.975 H2)",
+      equation: "FeTiH1.95(k) ➔ FeTi(k) + 0.975 H2(g)",
+      deltaH_kJ: 28.5,
+      deltaS_J_K: 104.2,
+      type: "Oda Sıcaklığı İntermetalik Katı-Hal Hidrojen Depolama ve Salınımı (FeTi Hidrür)",
+      description: "Oda sıcaklığı ve 1-5 bar düşük basınçta hidrojen depolayıp salabilen, denizaltılar ve sabit hidrojen tampon tankları için güvenli ağır intermetalik hidrür fazı."
+    },
+    "silicon_carbide_pvt_sublimation_lely": {
+      name: "Fiziksel Buhar Taşınımı (PVT / Lely) ile SiC Yarı İletken Kristal Büyütme (SiC ➔ Si + C)",
+      equation: "SiC(k) ➔ Si(g) + C(k)",
+      deltaH_kJ: 498.0,
+      deltaS_J_K: 182.4,
+      type: "Ultra Yüksek Sıcaklık Yarı İletken Güç Elektroniği SiC Kristal Büyütme (PVT / Lely)",
+      description: "2100-2400°C grafit potada SiC tozunun süblimleşerek tohum kristal üzerinde 4H-SiC tek kristal külçesine dönüşmesi; elektrikli araç invertörleri ve yüksek gerilim MOSFET'leri için kritik hammadde."
     }
   };
 
@@ -7870,6 +7910,226 @@
       everydayUsage: "Stradivarius kemanlarının altın-kızıl vernik tonu, mermer boyama pigmenti, tarihi parşömen kızıl mürekkebi.",
       alchemicalName: "Sanguis Draconis Indicus / Daemonorops",
       note: "Sumatra ormanlarındaki palmiye meyvelerinin pulları üzerinden mekanik sürtünmeyle toplanan, ateşte eriyip kan kırmızısı renk veren reçinedir."
+    },
+    {
+      colloquial: "Isparta Gülsuyu / Çift Damıtılmış Mayısgülü Hidrosolü",
+      scientific: "Rosa damascena Mayıs Hasadı Çift Distilatı (Feniletil Alkol, Geraniol & Sitronellol)",
+      formula: "C8H10O+C10H18O_rosa_damascena_isparta",
+      category: "Geleneksel Türk Gülsuyu & Kalp Ferahlatıcı Cilt İksiri",
+      subId: "sub-bot-damask-rose-hydrosol-isparta",
+      safety: "🟢 Güvenli Doğal Çiçek Suyu",
+      everydayUsage: "Göz çevresi dinlendirici tonik, geleneksel tatlı ve şerbet aromalandırıcısı, cilt pH dengeleyici lüks su.",
+      alchemicalName: "Aqua Rosarum Damascenarum Bis Destillata",
+      note: "Göller Bölgesi Isparta'nın şafak vakti toplanan taze pembe yağ güllerinin bakır imbiklerde iki kez ağır ateşte damıtılmasıyla elde edilen en asil gül hidrosolü."
+    },
+    {
+      colloquial: "Sütçüler Kekiği Suyu / Yabani Tota Hidrosolü",
+      scientific: "Thymbra spicata var. intricata Taze Yaprak Distilatı (Karvakrol, Timol & P-Simen)",
+      formula: "C10H14O_carvacrol",
+      category: "Toros Dağları Yüksek Karvakrollü Antiseptik Kekik Suyu",
+      subId: "sub-bot-wild-thyme-kekik-water",
+      safety: "🟢 Güvenli Tıbbi Bitki Suyu",
+      everydayUsage: "Boğaz enfeksiyonu ve diş eti arındırıcı gargara, sindirim kolaylaştırıcı şifa suyu, ayak mantarı önleyici banyo toniği.",
+      alchemicalName: "Aqua Origani Taurici / Thymbrae",
+      note: "Toros Dağları'nın 1400 metre rakımındaki sarp kayalıklarında yetişen yabani Tota kekiğinin damıtılmasıyla üretilen, yakıcı ve mikrop kırıcı aromatik hidrosol."
+    },
+    {
+      colloquial: "Toros Defnesi Suyu / Akdeniz Laurus Hidrosolü",
+      scientific: "Laurus nobilis Taze Yeşil Yaprak Buhar Distilatı (1,8-Sineol, Sabinen & Terpinil Asetat)",
+      formula: "C10H18O+C10H16_laurus_nobilis",
+      category: "Asil Apollon Ağacı Suyu & Sebase Cilt Dengeleyici",
+      subId: "sub-bot-bay-laurel-hydrosol-antalya",
+      safety: "🟢 Güvenli Aromatik Yaprak Suyu",
+      everydayUsage: "Yağlı ve akneli cilt arındırıcı tonik, tıraş sonrası yatıştırıcı losyon, saç dökülmesi önleyici durulama suyu.",
+      alchemicalName: "Aqua Foliorum Lauri",
+      note: "Antalya ve Hatay vadilerinin antik defne ağaçlarının yapraklarından süzülen, ferahlatıcı okaliptol aroması ve mikro-dolaşım artırıcı etkisiyle ünlü su."
+    },
+    {
+      colloquial: "Çukurova Portakal Çiçeği Suyu / Bahar Zühresi Hidrosolü",
+      scientific: "Citrus sinensis Taze Bahar Çiçeği Distilatı (Linalool, Metil Antranilat & Nerol)",
+      formula: "C10H18O+C8H9NO2_orange_blossom",
+      category: "Bahar Kokulu Narenciye Hidrosolü & Ruhsal Dinginlik Suyu",
+      subId: "sub-bot-orange-blossom-water-adana",
+      safety: "🟢 Güvenli Doğal Çiçek Suyu",
+      everydayUsage: "Uykusuzluk ve anksiyete yatıştırıcı yastık sisi, narin bebek banyosu ferahlatıcısı, kuru cilt canlandırıcı losyon.",
+      alchemicalName: "Aqua Florum Aurantii Dulcis",
+      note: "Nisan ayında Çukurova narenciye bahçelerini saran taze beyaz çiçeklerin imbikte buharla buluşmasıyla kazanılan tatlı ve büyüleyici aromatik su."
+    },
+    {
+      colloquial: "Yarpuz Suyu / Akarsu Yabani Nanesi Hidrosolü",
+      scientific: "Mentha pulegium Taze Yaprak ve Çiçek Distilatı (Pulegon, Menton & İzomenton)",
+      formula: "C10H16O_pulegone",
+      category: "Antik Yarpuz Suyu & Karaciğer-Mide Ferahlatıcı Dağ İksiri",
+      subId: "sub-bot-mountain-pennyroyal-water",
+      safety: "🟢 Güvenli Doğal Bitki Suyu",
+      everydayUsage: "Mide bulantısı yatıştırıcı buhar kürü, böcek kovucu doğal sprey, baş ağrısı serinletici alın kompresi.",
+      alchemicalName: "Aqua Pulegii Riparii",
+      note: "Anadolu dağ pınarlarının kenarında kendiliğinden biten yabani su nanesinin (yarpuz) damıtılmış suyudur; keskin ve soğutucu bir tınısı vardır."
+    },
+    {
+      colloquial: "Mezopotamya Papatyası Suyu / Matricaria Aromaticum Hidrosolü",
+      scientific: "Matricaria chamomilla Sarı-Beyaz Çiçek Distilatı (Alfa-Bisabolol, Bisabolol Oksit & Kamazulen)",
+      formula: "C15H26O+C14H16_matricaria",
+      category: "Yüksek Bisabolollü Hassas Cilt Suyu & Bebek Bakım Hidrosolü",
+      subId: "sub-bot-wild-chamomile-water-urfa",
+      safety: "🟢 Güvenli Tıbbi Çiçek Suyu",
+      everydayUsage: "Güneş yanığı yatıştırıcı sprey, egzama ve kaşıntılı cilt kompresi, hassas bebek pişik temizleme suyu.",
+      alchemicalName: "Aqua Chamomillae Vulgaris",
+      note: "Güneydoğu Anadolu ovalarının vahşi tıbbi papatyalarından elde edilen, içeriğindeki doğal bisabolol sayesinde cildin yangısını anında dindiren şifalı su."
+    },
+    {
+      colloquial: "Antep Mor Reyhanı Suyu / Ocimum Basilicum Hidrosolü",
+      scientific: "Ocimum basilicum Mor Çeşit Taze Yaprak Distilatı (Linalool, Eugenol & Metil Kavikol)",
+      formula: "C10H18O+C10H12O2_basilicum",
+      category: "Anadolu Saray Reyhanı Suyu & Sindirim Destekleyici",
+      subId: "sub-bot-sweet-basil-water-antep",
+      safety: "🟢 Güvenli Doğal Yaprak Suyu",
+      everydayUsage: "Yemek sonrası hazımsızlık giderici ılık sprey, canlılık verici sabah yüz toneri, ferahlatıcı gurme şerbet katkısı.",
+      alchemicalName: "Aqua Basilici Purpurei",
+      note: "Gaziantep topraklarında yetişen koyu mor yapraklı reyhanların distilasyonundan süzülen, karanfilimsi ve baharlı notalara sahip seçkin aromatik hidrosol."
+    },
+    {
+      colloquial: "Toros Katran Ardıcı Suyu / Oxycedrus Hidrosolü",
+      scientific: "Juniperus oxycedrus Kırmızı Kozalak ve İbre Distilatı (Alfa-Pinen, Karyofillen & Sedren)",
+      formula: "C10H16+C15H24_oxycedrus",
+      category: "Deri Arındırıcı Sedef & Kepek Karşıtı Odunsu Su",
+      subId: "sub-bot-juniper-drupe-water-toros",
+      safety: "🟢 Güvenli Orman Ağacı Suyu",
+      everydayUsage: "Saç derisi kepek ve kaşıntı önleyici durulama suyu, yağlı cilt toneri, geleneksel ardıç katranı sabunlaştırma sıvısı.",
+      alchemicalName: "Aqua Juniperi Oxycedri",
+      note: "Toros Dağları'nın dikenli kırmızı ardıç meyvelerinin ve genç sürgünlerinin damıtılmasıyla elde edilen, antiseptik reçineli dağ suyu."
+    },
+    {
+      colloquial: "Anadolu Misk Adaçayı Suyu / Salvia Sclarea Linalool Hidrosolü",
+      scientific: "Salvia sclarea Çiçekli Üst Kısım Distilatı (Linalil Asetat, Linalool & Sklareol)",
+      formula: "C12H20O2+C20H36O2_sclarea",
+      category: "Hormonal Dengeleyici & Kadın Döngüsü Rahatlatıcı Çiçek Suyu",
+      subId: "sub-bot-clary-sage-anatolia-water",
+      safety: "🟢 Güvenli Terapötik Çiçek Suyu",
+      everydayUsage: "Sıcak basması serinletici yüz sisi, menstrüel kramp yatıştırıcı alt karın kompresi, derin gevşeme spreyi.",
+      alchemicalName: "Aqua Salviae Sclareae Anatolicae",
+      note: "İç Anadolu step dağlarında açan iri pembe-mor misk adaçayı çiçeklerinin imbikte distilasyonuyla elde edilen, sklareolce zengin östrojenik su."
+    },
+    {
+      colloquial: "Kuduzotu Çiçeği Suyu / Alyssum Bal Kokulu Hidrosolü",
+      scientific: "Lobularia maritima (Alyssum) Çiçek Buhar Distilatı (Glukosinolat Uçucuları & Doğal Bal Nektarı Kompleksi)",
+      formula: "C10H17NOS2_alyssum",
+      category: "Antik Kuduz Şifa Çiçeği Suyu & Yoğun Bal Parfümeri Suyu",
+      subId: "sub-bot-sweet-alyssum-flower-water",
+      safety: "🟢 Güvenli Çiçek Distilatı",
+      everydayUsage: "Cilt lekeleri aydınlatıcı losyon, çocuk odası tatlı uyku spreyi, lüks spajirik bahar toniği.",
+      alchemicalName: "Aqua Florum Alyssi",
+      note: "Dioscorides'in kuduz ve sinirsel çılgınlığı dindirdiğini yazdığı, ilkbaharda yoğun bal kokusu salan beyaz kıyı kuduzotu çiçeklerinin damıtılmış suyu."
+    },
+    {
+      colloquial: "Çınar Ağacı Külü / Spajirik Platanus Gövde Külü",
+      scientific: "Platanus orientalis Asırlık Gövde Kalsinasyon Külü (Potasyum Karbonat, Kalsiyum Oksit & Çözünebilir Silikatlar)",
+      formula: "K2CO3+CaO+SiO2_platanus",
+      category: "Ulu Anadolu Çınarı Külü & Dayanıklı Sabun Kül Suyu",
+      subId: "sub-base-ash-plane-tree-wood",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Geleneksel köy sabunu kuvvetli lye suyu, tarihi taş duvar kireç harcı puzolanik katkısı, yün yıkama suyu.",
+      alchemicalName: "Sal Ligni Platani Orientalis",
+      note: "Asırlık ulu çınarların kurumuş kalın dallarının kalsinasyonuyla elde edilen, silika ve potasyumca son derece zengin açık gri alkali mineral tortu."
+    },
+    {
+      colloquial: "İncir Yaprağı Külü / Spajirik Ficus Yaprak Tuzu",
+      scientific: "Ficus carica Kurutulmuş İncir Yaprağı Kalsinasyonu (Kalsiyum Oksalat Biyo-İskeleti & Potasyum Karbonat)",
+      formula: "CaCO3+K2CO3_ficus_leaf",
+      category: "Kalsiyumca Zengin Yaprak İskelet Külü & Siğil Yakma Kürü Katkısı",
+      subId: "sub-base-ash-fig-leaf",
+      safety: "🟢 Güvenli Doğal Kül",
+      everydayUsage: "Spajirik incir sütü tentürü sabitleştirici tuzu, tarihi siğil yakıcı kül macunu minerali.",
+      alchemicalName: "Sal Foliorum Fici",
+      note: "İncir yapraklarındaki mikroskobik sistolit kalsiyum kristallerinin yanmasıyla geride kalan, kemik tozu inceliğinde beyaz mineral kül."
+    },
+    {
+      colloquial: "Bağ Filizi Külü / Spajirik Vitis Körpe Sürgün Tuzu",
+      scientific: "Vitis vinifera İlkbahar Budama Körpe Filizleri Kalsinasyonu (Potasyum Tartarat Külü & Demir İzleri)",
+      formula: "K2CO3+KHC4H4O6_vitis_tendril",
+      category: "Bağcılık Körpe Sürgün Külü & Nazik Spajirik Bitki Tuzu",
+      subId: "sub-base-ash-vine-tendril",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Tarihi şarap mayalandırma mineral besini, ipek iplik boyama mordant nötrleyicisi.",
+      alchemicalName: "Sal Sarmentorum Vitis",
+      note: "İlkbaharda asmalardan budanan taze yeşil körpe sürgünlerin fırınlanmasıyla elde edilen, tartaratça zengin ve suda kolayca eriyen ince tuz."
+    },
+    {
+      colloquial: "Ayva Odunu Külü / Spajirik Cydonia Gövde Külü",
+      scientific: "Cydonia oblonga Budama Odunları Kalsinasyonu (Potasyum Karbonat, Magnezya & Demir Oksit)",
+      formula: "K2CO3+MgO+Fe2O3_cydonia",
+      category: "Meyve Bahçesi Gözenekli Külü & Spajirik Ayva Çekirdeği Bazı",
+      subId: "sub-base-ash-quince-wood",
+      safety: "🟢 Güvenli Doğal Kül",
+      everydayUsage: "Ayva jölesi ve pektin berraklaştırma alkali kürü, seramik çömlek sır potas katkısı.",
+      alchemicalName: "Sal Ligni Cydoniae",
+      note: "Ayva ağacının sert budama odunlarının kalsinasyonuyla elde edilen, demir ve magnezyum içeriği dengeli pembe-gri tonlu mineral kül."
+    },
+    {
+      colloquial: "Nar Kabuğu Külü / Spajirik Punica Kabuk Tuzu",
+      scientific: "Punica granatum Kalın Sert Dış Kabuk Kalsinasyonu (Yüksek Potas, Demir & Polifenol Mineral Çökeltisi)",
+      formula: "K2CO3+Fe2O3+Ca3(PO4)2_punica",
+      category: "Kuvvetli Mineral Büzücü Kül & Deri Tabaklama Sabitleyicisi",
+      subId: "sub-base-ash-pomegranate-rind",
+      safety: "🟢 Güvenli Doğal Kül",
+      everydayUsage: "Doğal kök boya mordanlama banyosu alkali sabitleyicisi, tarihi sahtiyan derisi tabaklama kürü.",
+      alchemicalName: "Sal Corticis Granati",
+      note: "Nar kabuğunun yoğun tanen mineralleşmesinden geriye kalan, potasyum ve kalsiyum fosfatça son derece zengin koyu mineral tuz."
+    },
+    {
+      colloquial: "Tatlı Mars Çiğdemi / Yıkanmış Spajirik Demir Ruhu",
+      scientific: "Kireç Sütüyle Yıkanmış ve Kükürt Ruhu Yakıcılığı Alınmış Demir Oksit (Fe2O3 Nötr Saf Faz)",
+      formula: "Fe2O3_dulcis",
+      category: "Simyasal Tatlı Demir & Spajirik Kan Toneri",
+      subId: "sub-min-crocus-martis-dulcis",
+      safety: "🟢 Güvenli İnert Metalik Mineral",
+      everydayUsage: "Tarihi anemi iksirleri ve demir şurupları hammaddesi, yüksek kaliteli optik prizma cila tozu.",
+      alchemicalName: "Crocus Martis Dulcis / Edulcoratus",
+      note: "Demir vitriyolü kalsinasyonunun ardından tatlı kireç suyuyla defalarca yıkanarak yakıcı asitliği tamamen giderilmiş 'tatlı ve besleyici' simyasal demir."
+    },
+    {
+      colloquial: "Tatlı Kurşun Kireci / Şifalı Minyum Külü",
+      scientific: "Düşük Sıcaklıkta Uzun Süre Kavrulmuş Kızıl Kurşun Oksit Kireci (Pb3O4 Narin Faz)",
+      formula: "Pb3O4_calx_dulcis",
+      category: "Tarihi Cerrahi Kara Merhem Kireci & Simyasal Satürn Külü",
+      subId: "sub-min-calx-plumbi-dulcis",
+      safety: "🔴 Zehirli Ağır Metal Kireci - Yalnızca Müze & Tarihsel İnceleme",
+      everydayUsage: "Antik cerrahi Emplastrum Diachylon merhemi yapımı; kurşun kireci zeytinyağıyla kaynatılarak kurşun sabununa dönüştürülürdü.",
+      alchemicalName: "Calx Plumbi Dulcis / Minium Medicatum",
+      note: "Saf kurşunun fırında hava akımıyla aylar boyu ağır ağır kavrulmasıyla elde edilen, cerrahi merhemlerde kullanılan kadim Satürn kireci."
+    },
+    {
+      colloquial: "Sakız Adası Damla Sakızı / Mastika Gözyaşı Reçinesi",
+      scientific: "Pistacia lentiscus var. chia Ağacı Doğal Reçine Damlaları (Mastikadienonik Asit, İsomastikadienonik Asit & Terpenler)",
+      formula: "C30H48O3_mastic_acid",
+      category: "Dünyaca Ünlü Sakız Adası Reçinesi & Mide Koruyucu Balzam",
+      subId: "sub-res-mastic-chios-tears",
+      safety: "🟢 Güvenli Doğal Reçine",
+      everydayUsage: "Mide ülseri ve reflü için geleneksel çiğneme reçinesi, tarihi resim verniği (Chios Mastic Varnish), saray muhallebisi aroması.",
+      alchemicalName: "Resina Mastix / Mastica Chia",
+      note: "Yalnızca Sakız Adası'nın güneyindeki köylerde yetişen mastika çalılarının gövdesinden toprağa damlayan berrak gözyaşları; H. pylori bakterisini doğal yoldan baskılar."
+    },
+    {
+      colloquial: "Sirenayka Aşak Sakızı / Antik Dorema Çöl Reçinesi",
+      scientific: "Dorema ammoniacum Çöl Bitkisi Gövde Reçinesi (Ammoresinotannol & Ferula Eterleri)",
+      formula: "C18H24O3_ammoniacum",
+      category: "Kuzey Afrika Çöl Sakızı & Tarihi Tezhip Yapıştırıcısı",
+      subId: "sub-res-ammoniacum-cyrene",
+      safety: "🟢 Güvenli Doğal Sakız Reçine",
+      everydayUsage: "Ortaçağ el yazmalarında altın varak yapıştırma sakızı (Armenian bole astarı), tarihi göğüs yumuşatıcı buhur.",
+      alchemicalName: "Gummi Ammoniacum Cyrenaicum",
+      note: "Libya ve Mısır çöllerinde devasa Ferula benzeri Dorema bitkilerinin gövdesinden sızan, suda süt gibi emülsiyon oluşturan sarı-kahve gözyaşı reçinesi."
+    },
+    {
+      colloquial: "İsfahan Sagapenumu / Pers İblis Reçinesi",
+      scientific: "Ferula persica Kök ve Gövde Eksudat Reçinesi (Sagaresinotannol & Umbelliferon Kükürtlü Uçucular)",
+      formula: "C24H30O4_sagapenum",
+      category: "Efsanevi Pers Spajirik Sakızı & Derin Eklem Balzamı",
+      subId: "sub-res-sagapenum-persicum",
+      safety: "🟡 Haricen Kullanım - Dikkat",
+      everydayUsage: "İbni Sina tıp geleneğinde kronik siyatik ve eklem romatizması yakısı, tarihi panzehir tiryak formülleri.",
+      alchemicalName: "Gummi Sagapenum / Serapinum",
+      note: "İran dağlarının dev Ferula persica çalılarından sızan, sarımsak ve çam kokulu, simyacıların 'şeytan kaçıran' olarak andığı nadide sakız reçinedir."
     }
   ];
 
