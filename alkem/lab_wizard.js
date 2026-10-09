@@ -1213,6 +1213,46 @@
       deltaS_J_K: -42.0,
       type: "Şiddetli Ekzotermik Yüksek Sıcaklık Piro-Metalurjik İndirgeme",
       description: "Nükleer santrallerde yakıt çubuklarının kılıflanmasında (zirkaloy alaşımı) kullanılan nötron şeffaflığına sahip ultra saf zirkonyum metalinin üretim prosesidir. 800-850°C'de asal argon gazı altında erimiş metalik magnezyum havuzuna süblime edilmiş ZrCl4 gazı verilerek reaktörde poröz zirkonyum süngeri elde edilir."
+    },
+    "bergius_coal_liquefaction": {
+      name: "Bergius Doğrudan Kömür Sıvılaştırma Sentetik Petrol Sentezi (C + 1.2 H2 ➔ CH2.4)",
+      equation: "C(k) + 1.2 H2(g) ➔ -CH2.4-(s)",
+      deltaH_kJ: -65.4,
+      deltaS_J_K: -92.0,
+      type: "Ekzotermik Yüksek Basınçlı Katalitik Kömür Hidrojenasyonu",
+      description: "Friedrich Bergius tarafından 1913'te keşfedilen ve 1931 Nobel Kimya Ödülü kazandıran doğrudan kömür sıvılaştırma (DCL) prosesidir. Linyit veya taş kömürü tozu, demir oksit (Fe2O3) katalizörlüğünde 450-480°C sıcaklık ve 200-700 bar hidrojen gazı altında sentetik ham petrole dönüştürülür."
+    },
+    "pidgeon_magnesium_reduction": {
+      name: "Pidgeon Termal Vakum Magnezyum İndirgenmesi (2 MgO·CaO + Si ➔ 2 Mg + Ca2SiO4)",
+      equation: "2 (MgO·CaO)(k) + Si(Fe)(k) ➔ 2 Mg(g) + Ca2SiO4(k)",
+      deltaH_kJ: 485.0,
+      deltaS_J_K: 260.0,
+      type: "Kuvvetli Endotermik Vakum Piro-Metalurjisi",
+      description: "Lloyd Montgomery Pidgeon tarafından 1940'larda geliştirilen silikotermik prosesdir. Kalsine dolomit (MgO·CaO) ile ferrosilikon (FeSi) 1150-1200°C'de yüksek vakum (< 13 Pa) altında fırına verilir; süblime olan magnezyum buharı harici kondenserde yoğunlaşır."
+    },
+    "raschig_hydrazine_synthesis": {
+      name: "Raschig Kloramin & Hidrazin Sentezi (2 NH3 + NaOCl ➔ N2H4 + NaCl + H2O)",
+      equation: "2 NH3(sulu) + NaOCl(sulu) ➔ N2H4(sulu) + NaCl(sulu) + H2O(s)",
+      deltaH_kJ: -153.5,
+      deltaS_J_K: -42.0,
+      type: "Ekzotermik Sıvı Fazı Azot-Azot Kenetleme",
+      description: "Fritz Raschig tarafından 1907'de geliştirilen hidrazin üretim yöntemidir. Seyreltik sodyum hipoklorit (NaOCl) amonyakla önce monokloramin (NH2Cl) oluşturur, ardından aşırı amonyakla reaksiyona girerek roket yakıtı ve korozyon inhibitörü olan hidrazini meydana getirir."
+    },
+    "urea_synthesis_bosch_meiser": {
+      name: "Bosch-Meiser Endüstriyel Üre Sentezi (2 NH3 + CO2 ➔ NH2CONH2 + H2O)",
+      equation: "2 NH3(g) + CO2(g) ➔ NH2CONH2(k) + H2O(s)",
+      deltaH_kJ: -134.0,
+      deltaS_J_K: -425.0,
+      type: "Ekzotermik Yüksek Basınçlı Karbamat & Üre Döngüsü",
+      description: "Carl Bosch ve Wilhelm Meiser tarafından 1922'de geliştirilen modern gübre sanayiinin temel reaksiyonudur. Amonyak ve karbondioksit 180-200°C ve 150-250 bar basınçta önce amonyum karbamata (NH2COONH4) dönüşür, ardından endotermik dehidrasyonla granüler üre gübresine ayrışır."
+    },
+    "gattermann_koch_formylation": {
+      name: "Gattermann-Koch Katalitik Benzaldehit Sentezi (C6H6 + CO + HCl ➔ C6H5CHO + HCl)",
+      equation: "C6H6(s) + CO(g) ➔ C6H5CHO(s)",
+      deltaH_kJ: -23.5,
+      deltaS_J_K: -110.0,
+      type: "Ekzotermik Lewis Asit Katalizli Aromatik Karbonilasyon",
+      description: "Ludwig Gattermann ve Julius Koch tarafından 1897'de keşfedilen aromatik formilasyon tepkimesidir. Benzen halkası, AlCl3 ve CuCl kokatalizörleri varlığında yüksek basınçlı CO ve kuru HCl gazı ile tepkimeye girerek parfümeri ve ilaç öncülü olan benzaldehite dönüşür."
     }
   };
 
@@ -4490,6 +4530,226 @@
       everydayUsage: "Yorgun ve kızarık gözler için geleneksel göz kompresi (Eau de Bleuet), göz altı morluk ve torbalanma giderici pedler, hassas kuperozlu cilt toniği.",
       alchemicalName: "Aqua Centaureae Cyani / Aqua Bleuet",
       note: "Fransız ve Osmanlı eczacılığında 'göz yıkayıcı su' olarak ünlenmiştir; göz kapağı konjonktivasındaki mikro-ödemi ve kılcal damar hiperemisini antihistaminik ve dekonjestan etkiyle yatıştırır."
+    },
+    {
+      colloquial: "Kaya Şekeri / Nöbet Şekeri",
+      scientific: "Sükroz Saf Monokristali (Alfa-D-Glukopiranozil-(1➔2)-beta-D-fruktofuranozit)",
+      formula: "C12H22O11_pure_monocrystal",
+      category: "Geleneksel Şekerleme & Kristalizasyon",
+      subId: "sub-food-rock-candy",
+      safety: "🟢 Güvenli Doğal Gıda Kristali",
+      everydayUsage: "Boğaz ağrısı ve inatçı öksürük yumuşatıcı geleneksel şerbet bazı, sindirim yatıştırıcı rezene çayı tatlandırıcısı, kristalizasyon kinetiği eğitim modeli.",
+      alchemicalName: "Saccharum Candi / Saccharum Crystallinum",
+      note: "Doygun şeker şerbetinin haftalarca yavaş ve sakin soğutulmasıyla ip veya çubuk üzerinde büyütülen monoklinik büyük sükroz kristalleridir; saflığı yüksek olduğundan eski eczacılıkta şurup ve terkiplerin değişmez taşıyıcısıdır."
+    },
+    {
+      colloquial: "Kâfur / Kâfuru / Kafur Kristali",
+      scientific: "d-Kamfor Kristal Biyosiklik Terpenoidi (1,7,7-Trimetilbisiklo[2.2.1]heptan-2-on)",
+      formula: "C10H16O_camphor",
+      category: "Süblimasyon Terpeni & Analjezik",
+      subId: "sub-bot-camphor-crystals",
+      safety: "🟡 Haricen Güvenli / Dahilen Toksik (Çocuklardan Uzak Tutulmalıdır)",
+      everydayUsage: "Göğüs ovma merhemleri (Vicks benzeri), burun tıkanıklığı buhar banyosu, romatizma ve kas spazmı soğutucu-ısıtıcı jeller, güve kovucu doğal kristal.",
+      alchemicalName: "Camphora Officinarum / Resina Camphorae",
+      note: "Cinnamomum camphora ağacının odunundan buhar distilasyonuyla elde edilip oda sıcaklığında süblimleşen beyaz berrak kristallerdir; derideki soğuk algılayıcı TRPM8 reseptörlerini uyararak önce ferahlatıcı soğuma, ardından hiperemi ve ağrı kesici ısı hissi yaratır."
+    },
+    {
+      colloquial: "Mürver Çiçeği Suyu / Sambucus Hidrosolü",
+      scientific: "Sambucus nigra Çiçek Buhar Distilatı (Rutin Flavonoidleri, Sambunigrin & Klorojenik Asit)",
+      formula: "C27H30O16_rutin_hydrosol",
+      category: "Antiviral & Diaforetik Hidrosol",
+      subId: "sub-bot-elderflower-water",
+      safety: "🟢 Güvenli Gıda ve Kozmetik Hidrosolü",
+      everydayUsage: "Grip ve nezlede terletici ateş düşürücü şerbet, lüks kokteyl ve tonik bazı, cilt gözeneklerini sıkılaştırıcı aydınlatıcı yüz spreyi.",
+      alchemicalName: "Aqua Sambuci Florum",
+      note: "Avrupa ve Anadolu halk hekimliğinde 'kış şifacısı' olarak bilinir; çiçeklerin nazikçe damıtılmasıyla elde edilen hidrosol, üst solunum yolu mukozasındaki inflamasyonu yatıştırır ve ter bezlerini uyararak toksin atımını hızlandırır."
+    },
+    {
+      colloquial: "Misk-i Amber / Ambergris Reçinesi",
+      scientific: "Ambroksit & Sentetik Ambergris Fiksatif (Dihidroambrin / Tetrametilnaftofuran)",
+      formula: "C16H28O_ambroxan",
+      category: "Parfümeri Fiksatif & Koku Bazı",
+      subId: "sub-bot-ambergris-ambrox",
+      safety: "🟢 Güvenli Kozmetik Fiksatif",
+      everydayUsage: "Yüksek kalıcılıklı lüks parfüm taban notası, oriental tütsü yağları harmanı, kadim feromon ve afrodizyak koku kompozisyonları.",
+      alchemicalName: "Ambra Grisea / Tinctura Ambrae",
+      note: "Tarihte ispermeçet balinasının deniz suyunda yıllarca güneşte olgunlaşan ifrazatından elde edilen efsanevi fiksatif maddedir; modern kimyada misk adaçayı sklareolünden yeşil kimyayla sentezlenen ambroksan molekülüyle doğaya zarar vermeden birebir taklit edilir."
+    },
+    {
+      colloquial: "Kâfûrî İspirto / Kafurlu Alkol",
+      scientific: "Kafur-Etanol Çözeltisi (%10 Kamfor, %90 Etil Alkol Çözeltisi)",
+      formula: "C10H16O_in_C2H5OH",
+      category: "Geleneksel Masaj Solüsyonu & Rubefasiyan",
+      subId: "sub-pharm-camphor-spirit",
+      safety: "🟡 Haricen Kullanılır / Göze ve Açık Yaraya Sürülmez",
+      everydayUsage: "Burkulan ayak bileği ve kulunç masaj ovması, yatalak hastalarda bası yarası (dekübit) önleyici kılcal dolaşım uyarıcısı, spor sonrası laktik asit dağıtıcı ovma suyu.",
+      alchemicalName: "Spiritus Camphoratus",
+      note: "Farmakopelerde yüz elli yıldır standart olarak yer alan ovma solüsyonudur; deriye sürüldüğünde alkolün hızla buharlaşmasıyla serinletir, ardından kafurun periferik damarları genişletmesiyle (rubefasiyan) bölgeye kan akışını artırır."
+    },
+    {
+      colloquial: "Ceviz Kabuğu Boyası / Yaş Kabuk Ekstraktı",
+      scientific: "Juglans regia Yeşil Dış Kabuk Ekstresi (Juglon / 5-Hidroksi-1,4-naftokinon)",
+      formula: "C10H6O3_juglone",
+      category: "Doğal Boyar Madde & Fungisit",
+      subId: "sub-bot-walnut-hull-dye",
+      safety: "🟢 Güvenli Doğal Boyar Madde",
+      everydayUsage: "Geleneksel kahverengi saç boyası ve kına harçları, antika mobilya ahşap koruyucu cilası, tırnak mantarı ve dermatofitlere karşı bitkisel lapa.",
+      alchemicalName: "Cortex Nucum Juglandis Viridis",
+      note: "Cevizin yeşil etli kabuğunda bulunan juglon molekülü, proteinlerdeki keratin ve ahşaptaki selüloz ile geri dönüşsüz kovalent bağ kurarak kalıcı koyu kestane-kahve renk verir; aynı zamanda bitkinin kendini mantarlardan koruduğu doğal bir allelopatik savunma bileşiğidir."
+    },
+    {
+      colloquial: "Kına Taşı / Rastık Taşı (FeSO4)",
+      scientific: "Demir(II) Sülfat Heptahidrat (Kara Tutya / Melanterit)",
+      formula: "FeSO4.7H2O_mordant",
+      category: "Mordan & Geleneksel Kozmetik Minerali",
+      subId: "sub-min-iron-sulfate-mordant",
+      safety: "🟡 Yalnızca Harici ve Mordan Amaçlıdır",
+      everydayUsage: "Kınaya eklenerek rengi kızıldan simsiyaha dönüştüren geleneksel kaş ve saç boyası sabitleyicisi (rastık), kök boyacılığında renk koyulaştırıcı mordan tuzu.",
+      alchemicalName: "Vitriolum Martis / Atramentum",
+      note: "Kınadaki lavson (lawsone) molekülü ile demir iyonları (Fe2+) şelat kompleksi oluşturarak çözünmeyen derin siyah demir-polifenol pigmentine dönüşür; antik çağlardan beri Türk ve Ortadoğu kültüründe rastık çekmede kullanılır."
+    },
+    {
+      colloquial: "Meyan Kökü Ekstraktı / Meyan Balı",
+      scientific: "Glycyrrhiza glabra Kök Ekstresi (Glisirizik Asit & Glisirizin Tuzu)",
+      formula: "C42H62O16_glycyrrhizin",
+      category: "Ekspektoran & Doğal Sürfaktan",
+      subId: "sub-bot-licorice-extract",
+      safety: "🟢 Güvenli Gıda ve İlaç Ekstresi (Hipertansiyonda Aşırı Tüketilmemelidir)",
+      everydayUsage: "Geleneksel meyan şerbeti, inatçı kuru öksürük ve farenjit pastilleri, mide ülseri koruyucu mukozal şurup, leke açıcı cilt serumu (Glabridin).",
+      alchemicalName: "Succus Liquiritiae / Radix Glycyrrhizae",
+      note: "Şekerden (sükroz) 50 kat daha tatlı olan glisirizin saponinini içerir; adrenal kortekste kortizolün kortizona yıkımını yavaşlatarak güçlü anti-inflamatuar etki gösterir ve köpürtücü yapısıyla akciğer mukusunu söker."
+    },
+    {
+      colloquial: "Keten Tohumu Müsilajı / Keten Jeli",
+      scientific: "Linum usitatissimum Tohum Suda Çözünür Müsilajı (Arabinoksilan & Rhamnogalakturonan)",
+      formula: "(C6H10O5)n_flax_mucilage",
+      category: "Doğal Hidrokoloid & Demülsent",
+      subId: "sub-bot-flaxseed-gel",
+      safety: "🟢 Güvenli Doğal Gıda ve Kozmetik Jeli",
+      everydayUsage: "Kıvırcık saçlar için silikonsuz doğal bukle belirginleştirici jel, mide yanması ve reflüde koruyucu mukozal astar içeceği, vegan hamur işlerinde yumurta akı ikamesi.",
+      alchemicalName: "Mucilago Seminis Lini",
+      note: "Tohumların ılık suda kaynatılmasıyla salınan dallanmış polisakarit zincirleri yüksek su tutma kapasitesine sahiptir; sindirim kanalında veya saç telinde kaygan, esnek ve nefes alan nem bariyeri örer."
+    },
+    {
+      colloquial: "Hatmi Kökü Jeli / Althaea Müsilajı",
+      scientific: "Althaea officinalis Kökü Soğuk Maserat Jeli (Galakturonan, Glukan & Arabinan)",
+      formula: "(C6H10O5)n_althaea_mucilage",
+      category: "Demülsent & Doku Koruyucu Hidrojel",
+      subId: "sub-bot-marshmallow-root-gel",
+      safety: "🟢 Güvenli Doğal Demülsent",
+      everydayUsage: "Kuru tahriş öksürüğü ve ses kısıklığı şurubu, gastrit ve mide astarı koruyucu çay, atopik ve egzamalı ciltler için nemlendirici jel baz.",
+      alchemicalName: "Mucilago Radicis Althaeae",
+      note: "Sıcak su yerine soğuk suyla masere edildiğinde nişasta yerine yalnızca saf terapötik müsilaj suya geçer; ağız ve yutak epitelini ince bir biyopolimer film gibi kaplayarak tahriş edici sinir uçlarını fiziksel olarak izole eder."
+    },
+    {
+      colloquial: "Karanfil Yağı / Karanfil Esansı",
+      scientific: "Syzygium aromaticum Çiçek Tomurcuğu Uçucu Yağı (Öjenol & Karyofilen)",
+      formula: "C10H12O2_eugenol",
+      category: "Lokal Anestezik & Antiseptik Yağ",
+      subId: "sub-bot-clove-bud-oil",
+      safety: "🟡 Konsantre Halde Mukoza Yakıcıdır (Seyreltilerek Diş Etine Dokundurulur)",
+      everydayUsage: "Acil diş ağrısı dindirici pamuk uygulaması, diş hekimliği geçici dolgu simanı (çinko oksit-öjenol), ağız kokusu ve boğaz spreyi, güçlü baharat koruyucu.",
+      alchemicalName: "Oleum Caryophylli",
+      note: "Bileşimindeki %80-90 öjenol, sinir iletimini bloke ederek lokal hissizlik sağlarken prostaglandin sentezini baskılar; diş hekimliğinde yüz yıldır ağrı kesici ve kavite dezenfektanı olarak altın standarttır."
+    },
+    {
+      colloquial: "Çam Katranı / Pix Liquida",
+      scientific: "Pinus sylvestris Odun Piroliz Katranı (Gayakol, Krezoller & Metil Esterleri)",
+      formula: "C7H8O2_guaiacol_tar",
+      category: "Geleneksel Katran & Antipruritik",
+      subId: "sub-bot-pine-tar",
+      safety: "🟢 Harici Merhem ve Sabunlarda Güvenli",
+      everydayUsage: "Sedef, egzama ve kepek karşıtı geleneksel çam katranı sabunu, at nalı ve veterinerlik toynak bakım macunu, ahşap tekne su yalıtım katranı.",
+      alchemicalName: "Pix Liquida Pini",
+      note: "Çam kök ve odunlarının havasız fırınlarda kuru distilasyonuyla damıtılan koyu vizkoz sıvıdır; keratinosit proliferasyonunu yavaşlatarak pullanmayı durdurur ve derideki inatçı kaşıntı refleksini keser."
+    },
+    {
+      colloquial: "Ardıç Katranı / Kadı Yağı",
+      scientific: "Juniperus oxycedrus Odun Kuru Distilatı (Kadinol, Karyofilen & Fenolik Katran)",
+      formula: "C15H26O_cadinol_tar",
+      category: "Dermatolojik Katran & Antifungal",
+      subId: "sub-bot-juniper-tar-oil",
+      safety: "🟢 Harici Dermatolojide Güvenli",
+      everydayUsage: "Anadolu halk hekimliğinde saçkıran ve uyuza karşı sürülen katran merhemi, ayak mantarı ovması, kepekli seboreik dermatit şampuanları bazı.",
+      alchemicalName: "Oleum Cadinum / Pix Juniperi",
+      note: "Kırmızı ardıç odunundan damıtılan 'Cade Yağı'dır; Malassezia mantarlarının çoğalmasını durduran güçlü fungisidal aktivitesi ve antiparaziter özelliğiyle geleneksel dermatolojinin en kadim ilacıdır."
+    },
+    {
+      colloquial: "Mürrisafi / Mür Sakızı",
+      scientific: "Commiphora myrrha Ağaç Gövdesi Sakız-Reçinesi (Kurzen & Furanoödesmadien)",
+      formula: "C15H18O2_furanosesquiterpenes",
+      category: "Kadim Antiseptik & Büzücü Reçine",
+      subId: "sub-bot-myrrh-gum-resin",
+      safety: "🟢 Güvenli Doğal Reçine ve Ağız Çalkalama Tentürü",
+      everydayUsage: "Diş eti çekilmesi ve aftlar için mür tentürü gargarası, antik Mısır mumyalama ve yara kapatıcı balzamı, kutsal kilise tütsüleri bazı.",
+      alchemicalName: "Gummi-Resina Myrrha",
+      note: "Antik dünyada altından daha değerli sayılan üç kutsal hediyeden biridir; içerdiği furano-seskiterpenler ağız mukozasında dokuları büzerek kanamayı durdurur ve mikrop kolonizasyonunu engeller."
+    },
+    {
+      colloquial: "Akgünlük / Günlük Reçinesi",
+      scientific: "Boswellia serrata / Boswellia carterii Sakız-Reçinesi (Asetil-11-Keto-Beta-Boswellik Asit - AKBA)",
+      formula: "C32H48O4_akba_boswellic",
+      category: "Anti-Enflamatuar & Meditatif Reçine",
+      subId: "sub-bot-frankincense-resin",
+      safety: "🟢 Güvenli Doğal Reçine ve Fitofarmasötik",
+      everydayUsage: "Kireçlenme ve osteoartrit eklem ağrısı kremleri, astım ve KOAH nefes açıcı buhur, meditasyon ve zihinsel sakinleşme tütsüsü.",
+      alchemicalName: "Olibanum / Gummi Thus",
+      note: "Boswellia ağacının gövdesinden sızan 'Frankincense' reçinesidir; barındırdığı AKBA molekülü, lökositlerin ürettiği 5-lipoksijenaz (5-LOX) enzimini spesifik olarak inhibe ederek iltihabi eklem yıkımını durdurur."
+    },
+    {
+      colloquial: "Damla Sakızı / Mastik Sakızı",
+      scientific: "Pistacia lentiscus var. chia Reçinesi (Mastikadienonik Asit & Alfa-Pinen)",
+      formula: "C30H48O3_masticadienonic",
+      category: "Gastroprotektif Reçine & Aromatik",
+      subId: "sub-bot-mastic-gum",
+      safety: "🟢 Güvenli Gıda ve Eczacılık Reçinesi",
+      everydayUsage: "Helicobacter pylori eradikasyonu ve mide yanması çiğneme tableti, geleneksel Türk kahvesi ve dondurma aroması, cerrahi yara kapatıcı vernik.",
+      alchemicalName: "Resina Mastix / Masticha",
+      note: "Yalnızca Ege'nin Sakız Adası ve Çeşme kıyılarında yetişen sakız ağaçlarından toplanır; mide mukozasında Helicobacter pylori bakterilerinin hücre duvarını parçalayarak peptik ülser ve gastrit tedavisinde klinik olarak kanıtlanmıştır."
+    },
+    {
+      colloquial: "Anason Yağı / Rakı Ruhu",
+      scientific: "Pimpinella anisum Meyvesi Uçucu Yağı (trans-Anetol & Estragol)",
+      formula: "C10H12O_trans_anethole",
+      category: "Karminatif & Spazmolitik Uçucu Yağ",
+      subId: "sub-bot-anise-oil",
+      safety: "🟢 Güvenli Gıda ve İlaç Aroması",
+      everydayUsage: "Geleneksel rakı, ouzo ve arak anasonlaması, bebek kolik sancısı ve gaz giderici damla, anne sütü artırıcı galaktagog çaylar.",
+      alchemicalName: "Oleum Anisi",
+      note: "Bileşimindeki %90 trans-anetol oda sıcaklığında berrak sıvı iken 15-18°C'nin altında beyaz kristalize donar; su eklendiğinde kendiliğinden mikro-emülsiyon (Ouzo etkisi) oluşturarak süt beyazı renge bürünür."
+    },
+    {
+      colloquial: "Okaliptüs Yağı / Ökaliptol",
+      scientific: "Eucalyptus globulus Yaprak Uçucu Yağı (1,8-Sineol / Ökaliptol)",
+      formula: "C10H18O_cineole",
+      category: "Dekonjestan & Mukolitik Uçucu Yağ",
+      subId: "sub-bot-eucalyptus-oil",
+      safety: "🟡 Yalnızca Harici ve İnhalasyon (Dahilen İçilmez)",
+      everydayUsage: "Sinüzit ve burun tıkanıklığı buhar inhalasyonu, sauna ferahlatıcı esansı, kas tutulması masaj losyonları bazı.",
+      alchemicalName: "Oleum Eucalypti",
+      note: "Bronşlardaki silier tüycüklerin çırpınma frekansını artırarak akciğerlerde biriken koyu mukusun dışarı atılmasını kolaylaştırır; güçlü ferahlatıcı kokusu burun içi mekanik hava akışı algısını hızla açar."
+    },
+    {
+      colloquial: "Kudret Narı Yağı / Momordika Maseratı",
+      scientific: "Momordica charantia Meyvesi Zeytinyağı Maseratı (Charantin, Momordisin & Karotenoidler)",
+      formula: "C35H58O6_charantin_complex",
+      category: "Gastro-Onarıcı & Doku İyileştirici Yağ",
+      subId: "sub-bot-bitter-melon-oil",
+      safety: "🟢 Güvenli Bitkisel Maserat Yağı",
+      everydayUsage: "Sabah aç karnına mide reflüsü ve gastrit kaşığı, yara ve yanık dokusu hızlandırıcı pansuman yağı, cilt lekeleri ve izleri giderici gece yağı.",
+      alchemicalName: "Oleum Balsaminae / Momordica Maceratum",
+      note: "Taze kudret narı meyvesinin saf sızma zeytinyağında güneşte en az 40 gün fermente maserasyonuyla hazırlanır; mide çeperindeki epidermal büyüme faktörünü (EGF) uyararak hasarlı mukoza astarını hızla tamir eder."
+    },
+    {
+      colloquial: "Kekik Yağı / Zahter Ruhu",
+      scientific: "Thymus vulgaris / Origanum vulgare Uçucu Yağı (Timol, Karvakrol & p-Simen)",
+      formula: "C10H14O_thymol_carvacrol",
+      category: "Geniş Spektrumlu Doğal Antibiyotik & Antifungal",
+      subId: "sub-bot-thyme-essential-oil",
+      safety: "🔴 Çok Şiddetli Dermokostik (Doğrudan Cilde Sürülmez, Mutlaka %1'in Altında Seyreltilmelidir)",
+      everydayUsage: "Dirençli tırnak mantarı seyreltik kürü, mevsimsel boğaz enfeksiyonu gargara damlası, doğal küf önleyici gıda koruyucu yüzey spreyi.",
+      alchemicalName: "Oleum Thymi / Spiritus Thymi",
+      note: "Doğadaki en güçlü antiseptik fenolik moleküllerden olan timol ve karvakrolü barındırır; bakteri ve mantar hücre zarındaki ergosterol ve fosfolipit tabakasını delerek mikroorganizmanın sitoplazmasını boşaltır."
     }
   ];
 
