@@ -1253,6 +1253,46 @@
       deltaS_J_K: -110.0,
       type: "Ekzotermik Lewis Asit Katalizli Aromatik Karbonilasyon",
       description: "Ludwig Gattermann ve Julius Koch tarafından 1897'de keşfedilen aromatik formilasyon tepkimesidir. Benzen halkası, AlCl3 ve CuCl kokatalizörleri varlığında yüksek basınçlı CO ve kuru HCl gazı ile tepkimeye girerek parfümeri ve ilaç öncülü olan benzaldehite dönüşür."
+    },
+    "solvay_ammonia_recovery": {
+      name: "Solvay Prosesi Amonyak Geri Kazanımı (2 NH4Cl + Ca(OH)2 ➔ 2 NH3 + CaCl2 + 2 H2O)",
+      equation: "2 NH4Cl(k) + Ca(OH)2(k) ➔ 2 NH3(g) + CaCl2(k) + 2 H2O(g)",
+      deltaH_kJ: 107.4,
+      deltaS_J_K: 330.0,
+      type: "Endotermik Bazik Distilasyon & Kimyasal Döngü",
+      description: "Solvay soda külü üretim tesislerinde pahalı amonyağın %99.5 verimle kapalı döngüde geri kazanıldığı reaksiyondur. Amonyum klorür, sönmüş kireçle (Ca(OH)2) 90-100°C'de sıyırıcı kolonda kaynatılır; amonyak gazı sisteme dönerken yan ürün olarak kalsiyum klorür (CaCl2) çözeltisi kalır."
+    },
+    "downs_cell_sodium_electrolysis": {
+      name: "Downs Prosesi Metalik Sodyum Elektrolizi (2 NaCl ➔ 2 Na + Cl2)",
+      equation: "2 NaCl(s) ➔ 2 Na(s) + Cl2(g)",
+      deltaH_kJ: 822.4,
+      deltaS_J_K: 180.0,
+      type: "Şiddetli Endotermik Erimiş Tuz Elektrolizi",
+      description: "J.C. Downs tarafından 1924'te geliştirilen metalik sodyum ve klor gazı üretim prosesidir. NaCl erime noktasını düşürmek için CaCl2 (%58) ilavesiyle 590-600°C'de eritilir; silindirik demir katotta saf sıvı sodyum metali yüzeye çıkarak toplanır."
+    },
+    "claus_thermal_stage_h2s": {
+      name: "Claus Prosesi Termal Yanma Kademesi (2 H2S + 3 O2 ➔ 2 SO2 + 2 H2O)",
+      equation: "2 H2S(g) + 3 O2(g) ➔ 2 SO2(g) + 2 H2O(g)",
+      deltaH_kJ: -1036.0,
+      deltaS_J_K: -152.0,
+      type: "Şiddetli Ekzotermik Yüksek Sıcaklık Yanması & Kükürt Geri Kazanımı",
+      description: "Petrol rafinerileri ve doğal gaz arıtımında zehirli H2S gazını saf elementel kükürte çeviren Claus prosesinin ilk ve en kritik basamağıdır. 1000-1400°C'de reaksiyon fırınında H2S'in üçte biri kontrollü havayla yakılarak SO2 gazına dönüştürülür."
+    },
+    "water_electrolysis_pem_green": {
+      name: "Yeşil Hidrojen PEM Su Elektrolizi (2 H2O ➔ 2 H2 + O2)",
+      equation: "2 H2O(s) ➔ 2 H2(g) + O2(g)",
+      deltaH_kJ: 571.6,
+      deltaS_J_K: 326.7,
+      type: "Kuvvetli Endotermik Elektrokimyasal Su Ayrışması",
+      description: "Sıfır karbonlu yeşil hidrojen enerjisinin temel reaksiyonudur. Proton Değişim Membranı (PEM) veya alkali elektrolizörde su molekülleri elektrik enerjisiyle parçalanarak katotta ultra saf hidrojen gazı (H2), anotta saf oksijen gazı (O2) açığa çıkar."
+    },
+    "water_gas_shift_hightemp": {
+      name: "Yüksek Sıcaklık Su-Gaz Kaydırma Reaksiyonu (HT-WGS: CO + H2O ⇌ CO2 + H2)",
+      equation: "CO(g) + H2O(g) ⇌ CO2(g) + H2(g)",
+      deltaH_kJ: -41.2,
+      deltaS_J_K: -42.4,
+      type: "Hafif Ekzotermik Katalitik Hidrojen Zenginleştirme",
+      description: "Amonyak sentezi ve rafineri hidrojen hatlarında sentez gazındaki CO konsantrasyonunu düşürüp H2 verimini maksimize etmek için Fe2O3-Cr2O3 katalizörlüğünde 350-450°C'de işletilen reaksiyondur."
     }
   };
 
@@ -4750,6 +4790,226 @@
       everydayUsage: "Dirençli tırnak mantarı seyreltik kürü, mevsimsel boğaz enfeksiyonu gargara damlası, doğal küf önleyici gıda koruyucu yüzey spreyi.",
       alchemicalName: "Oleum Thymi / Spiritus Thymi",
       note: "Doğadaki en güçlü antiseptik fenolik moleküllerden olan timol ve karvakrolü barındırır; bakteri ve mantar hücre zarındaki ergosterol ve fosfolipit tabakasını delerek mikroorganizmanın sitoplazmasını boşaltır."
+    },
+    {
+      colloquial: "Nişadır / Salmiak Tuzu",
+      scientific: "Amonyum Klorür (Ammonium Chloratum / Sal Ammoniac)",
+      formula: "NH4Cl_sal_ammoniac",
+      category: "Mineral & Geleneksel Metalurji Tuzu",
+      subId: "sub-min-ammonium-chloride",
+      safety: "🟡 Solunmamalı ve Yutulmamalıdır (Göz ve Mukoza Tahriş Edici)",
+      everydayUsage: "Bakır kap kalaylamada oksit giderici akı (lehim tuzu), geleneksel tuzlu İskandinav meyan şekeri (Salmiakki), kuru pil elektroliti.",
+      alchemicalName: "Sal Ammoniacum / Sal Armeniacum",
+      note: "Eski simyada süblimleşme kabiliyeti nedeniyle 'uçucu ruhların tuzu' olarak anılmıştır; kızgın bakır yüzeyindeki metal oksitleri hızla çözerek ergimiş kalayın metale pürüzsüz yapışmasını sağlar."
+    },
+    {
+      colloquial: "Cıva Süblimesi / Ak Süblime",
+      scientific: "Cıva(II) Klorür (Mercuric Chloride / Sublimat)",
+      formula: "HgCl2_sublimate",
+      category: "Kadim Zehir & Antiseptik Mineral",
+      subId: "sub-elem-mercury-bichloride",
+      safety: "🔴 AŞIRI TOKSİK & ÖLÜMCÜL (Deri Teması ve Yutulması Ağır Zehirlenmeye Yol Açar)",
+      everydayUsage: "Tarihsel cerrahi alet sterilizasyonu (1:1000 seyreltik solüsyon), kadim frengi tedavisi, ahşap ve kadavra tahnit koruyucusu.",
+      alchemicalName: "Mercurius Sublimatus Corrosivus",
+      note: "Cıva metalinin sülfürik asit ve tuzla kavrulup süblimleştirilmesiyle elde edilen renksiz iğnemsi kristallerdir; proteinleri geri dönüşsüz çözelterek mikroorganizmaları yok eder, ancak yüksek nefrotoksisitesi nedeniyle yerini modern antiseptiklere bırakmıştır."
+    },
+    {
+      colloquial: "Zeytinyağı Sabun Mayası / Kül Suyu Likörü",
+      scientific: "Odun Külü Potasyum Karbonat & Kireç Suyu Kostik Likörü (KOH + NaOH Sulu Karışımı)",
+      formula: "KOH_rich_wood_ash_lye",
+      category: "Geleneksel Sabunlaşma Reaktifi",
+      subId: "sub-reag-traditional-potash-lye",
+      safety: "🔴 Korozif & Kostik Sıvı (Cilde ve Göze Temas Ettirilmemelidir)",
+      everydayUsage: "Otantik köy tipi zeytinyağı arap sabunu ve kalıp sabun pişirme mayası, geleneksel çamaşır ve tencere ağartma suyu.",
+      alchemicalName: "Lixivium Cineris Clavellati",
+      note: "Meşe veya zeytin odunu külünün yağmur suyuyla süzülüp sönmemiş kireçle kaynatılmasıyla üretilen kadim alkali çözeltidir; trigliserit ester bağlarını hidroliz ederek sabun ve gliserine ayrıştırır."
+    },
+    {
+      colloquial: "Hardal Ruhu / Allil Hardal Esansı",
+      scientific: "Allil İzotiyosiyanat (Allil İsothiocyanate / Sinigrin Hidroliz Ürünü)",
+      formula: "C4H5NS_allyl_isothiocyanate",
+      category: "Rubefasiyan & Şiddetli İrritan Uçucu Yağ",
+      subId: "sub-bot-mustard-oil-essence",
+      safety: "🔴 Şiddetli Göz Yaşartıcı & Deri Yakıcı (Asla Doğrudan Koklanmaz)",
+      everydayUsage: "Geleneksel hardal yakısı ve göğüs plasteri, eklem kireçlenmesinde kılcal dolaşım kamçılayıcı ovma bazı, doğal antimikrobiyal buhar.",
+      alchemicalName: "Oleum Sinapis Volatile",
+      note: "Siyah hardal tohumlarındaki sinigrin glikozitinin mirosinaz enzimiyle parçalanmasıyla açığa çıkan uçucu sülfürlü bileşiktir; derideki TRPV1 acı reseptörlerini uyararak derin dokuda kuvvetli kan hücumu ve ısı oluşturur."
+    },
+    {
+      colloquial: "Kantaron Sarı Çiçek Suyu / St. John Hidrosolü",
+      scientific: "Hypericum perforatum Çiçek Buhar Distilatı (Flavonoidler, Hiperforin & Klorojenik Asit)",
+      formula: "C30H16O8_hypericin_hydrosol",
+      category: "Dermatolojik & Yatıştırıcı Hidrosol",
+      subId: "sub-bot-st-john-hydrosol",
+      safety: "🟢 Güvenli Doğal Cilt Hidrosolü",
+      everydayUsage: "Güneş yanığı ve lazer sonrası yatıştırıcı yüz spreyi, tonik olarak cilt mikrobiyotası dengeleyici, hafif anksiyolitik aromaterapi sisi.",
+      alchemicalName: "Aqua Hyperici Florum",
+      note: "Sarı kantaron çiçeklerinin damıtılmasıyla elde edilen buhar hidrosolüdür; yağlı maseratından farklı olarak fototoksik hiperisin pigmentini eser miktarda taşır, bu sayede güneşte leke yapmadan cildi ferahlatır."
+    },
+    {
+      colloquial: "Melisa Suyu / Limon Otu Hidrosolü",
+      scientific: "Melissa officinalis Yaprak Buhar Distilatı (Sitronellal, Geranial, Neral & Rozmarinik Asit)",
+      formula: "C10H18O_citronellal_hydrosol",
+      category: "Sedatif & Nöro-Yatıştırıcı Hidrosol",
+      subId: "sub-bot-lemon-balm-water",
+      safety: "🟢 Güvenli Gıda ve Aromaterapi Hidrosolü",
+      everydayUsage: "Kalp çarpıntısı ve panik halinde içilen geleneksel oğul otu suyu, herpes ve uçuk üzerine kompres, bebek gaz ve uyku toniği.",
+      alchemicalName: "Aqua Melissae Citratae / Eau des Carmes",
+      note: "17. yüzyılda Karmelit rahipleri tarafından formüle edilen 'Karmelit Suyu'nun ana bileşenidir; beyindeki GABA transaminaz enzimini baskılayarak doğal gevşeme ve anksiyolitik etki sağlar."
+    },
+    {
+      colloquial: "Biberiye Ruhu / Macar Kraliçesi Suyu",
+      scientific: "Rosmarinus officinalis Buhar Distilatı ve Alkolatı (1,8-Sineol, Kafur & Borneol)",
+      formula: "C10H18O_cineole_spirit",
+      category: "Dolaşım Uyarıcı & Nootropik Tonik",
+      subId: "sub-bot-rosemary-spirit",
+      safety: "🟢 Haricen Güvenli Masaj ve Saç Toniği",
+      everydayUsage: "Saç dökülmesini durdurucu ve saç kökü uyarıcı kafa derisi suyu, zihinsel odaklanma ve hafıza koklama spreyi, romatizmal bacak ovması.",
+      alchemicalName: "Aqua Reginae Hungariae / Spiritus Rosmarini",
+      note: "14. yüzyılda Macaristan Kraliçesi Elizabeth için hazırlanan tarihteki ilk modern parfümdür; kafa derisinde mikrosirkülasyonu minoksidil benzeri bir etkiyle uyararak folikül beslenmesini hızlandırır."
+    },
+    {
+      colloquial: "Nane Ruhu / Mentol Kristali",
+      scientific: "l-Mentol Saf Prizmatik Kristali (5-Metil-2-(propan-2-il)siklohekzan-1-ol)",
+      formula: "C10H20O_menthol",
+      category: "Soğutucu Analjezik & TRPM8 Agonisti",
+      subId: "sub-bot-menthol-crystals",
+      safety: "🟡 Konsantre Halde Mukoza ve Göz Yakıcıdır (Bebeklerde Burun Altına Sürülmez)",
+      everydayUsage: "Migren taşı ve şakak ovma kremleri, burun açıcı buhar kristalleri, diş macunu ve sakız ferahlatıcı tadı, kas gevşetici spor jelleri.",
+      alchemicalName: "Camphora Menthae / Mentholum Depuratum",
+      note: "Tıbbi nane (Mentha piperita) yağının -20°C'ye soğutulmasıyla çöken renksiz kristal prizmalardır; derideki termoreseptör TRPM8 kanalını aktive ederek kalsiyum akışını tetikler ve beyne yoğun 'buz etkisi' hissi iletir."
+    },
+    {
+      colloquial: "Limon Kabuğu Ruhu / d-Limonen",
+      scientific: "d-Limonen Terpen Hidrokarbonu (4-İzopropenil-1-metilsiklohekzen)",
+      formula: "C10H16_limonene",
+      category: "Doğal Çözücü & Aromatik Terpen",
+      subId: "sub-bot-d-limonene",
+      safety: "🟡 Ciltte Saf Halde Alerjen / Güçlü Yağ Çözücü",
+      everydayUsage: "Zehirli solventler yerine çevre dostu endüstriyel yağ ve yapışkan temizleyici, narenciye aroması, 3D yazıcılarda HIPS destek çözücüsü.",
+      alchemicalName: "Oleum Corticis Citri / Spiritus Limonis",
+      note: "Narenciye kabuklarının soğuk preslenmesiyle elde edilen doğadaki en yaygın monoterpendir; petrol türevi toluen ve ksilen kadar güçlü bir yağ çözme kabiliyetine sahip olup %100 biyolojik olarak parçalanır."
+    },
+    {
+      colloquial: "Portakal Çiçeği Suyu / Neroli Suyu",
+      scientific: "Citrus aurantium Çiçek Buhar Distilatı (Linalool, Linalil Asetat & Nerolidol)",
+      formula: "C10H18O_linalool_hydrosol",
+      category: "Antidepresan & Cilt Yenileyici Hidrosol",
+      subId: "sub-bot-neroli-water",
+      safety: "🟢 Güvenli Lüks Kozmetik ve Gıda Hidrosolü",
+      everydayUsage: "Geleneksel bayram şerbetleri ve güllaç kokulandırıcısı, stres ve anksiyete yatıştırıcı yüz sisi, kuru ve nemsiz ciltler için nemlendirici tonik.",
+      alchemicalName: "Aqua Florum Aurantii / Aqua Naphae",
+      note: "Acı portakal çiçeklerinden damıtılan 'Neroli', 17. yüzyılda Nerola Düşesi Marie Anne de La Trémoille sayesinde sarayların vazgeçilmez kokusu olmuştur; beyin limbik sisteminde serotonin salgılanmasını uyarır."
+    },
+    {
+      colloquial: "Gül Mayası / Gül Konkreti",
+      scientific: "Rosa damascena Çiçekleri Primer Mum ve Eterik Fazı (Feniletil Alkol, Sitronellol & Parafin Mumları)",
+      formula: "C8H10O_phenylethyl_rich",
+      category: "Lüks Parfümeri ve Krem Bazı",
+      subId: "sub-bot-rose-concrete",
+      safety: "🟢 Güvenli Doğal Kozmetik Hammaddesi",
+      everydayUsage: "Isparta gül yağı üretiminde ara kademe olan katı merhem bazı, lüks doğal katı parfümler, kırışıklık karşıtı yoğun gece balzamları.",
+      alchemicalName: "Concretum Rosae Damascenae",
+      note: "Taze toplanan güllerin organik çözücülerle (heksan/petrol eteri) ekstraksiyonuyla elde edilen macun kıvamındaki konsantredir; distilasyon ısısına maruz kalmadığı için canlı gülün tüm doğal koku moleküllerini eksiksiz korur."
+    },
+    {
+      colloquial: "Rezene Suyu / Mayana Distilatı",
+      scientific: "Foeniculum vulgare Meyve Buhar Distilatı (trans-Anetol, Fenkon & Östragol)",
+      formula: "C10H12O_anethole_fennel",
+      category: "Karminatif & Sindirim Hidrosolü",
+      subId: "sub-bot-fennel-water",
+      safety: "🟢 Güvenli Bebek ve Yetişkin Sindirim Suyu",
+      everydayUsage: "Bebeklerde infantil kolik gaz sancısı kaşığı, emziren annelerde süt artırıcı içecek, hazımsızlık ve şişkinlik giderici yemek sonrası suyu.",
+      alchemicalName: "Aqua Foeniculi Fructus",
+      note: "Anadolu'da 'mayana' olarak bilinen rezene tohumlarından damıtılır; bağırsak düz kaslarındaki asetilkolin reseptörlerini bloke ederek gaz birikimini ve krampları nazikçe rahatlatır."
+    },
+    {
+      colloquial: "Adaçayı Ruhu / Salvia Distilatı",
+      scientific: "Salvia officinalis Yaprak Buhar Distilatı (alfa-Tuyon, 1,8-Sineol & Kamfor)",
+      formula: "C10H16O_thujone_salvia",
+      category: "Astringent & Antiperspirant Hidrosol",
+      subId: "sub-bot-sage-hydrosol",
+      safety: "🟡 Ham Yağ Hamilelikte Kullanılmaz (Hidrosolü Haricen Güvenlidir)",
+      everydayUsage: "Aşırı terleme (hiperhidroz) önleyici ayak ve koltuk altı spreyi, tonsillit ve bademcik iltihabı gargarası, yağlı akneye meyilli cilt toniği.",
+      alchemicalName: "Aqua Salviae Lavandulifoliae",
+      note: "Ter bezlerinin sempatik uyarımını baskılayarak doğal ter kesici etki gösterir; aynı zamanda ağız içi mukozasındaki mikropları öldürür ve gevşek diş etlerini sıkılaştırır."
+    },
+    {
+      colloquial: "Defne Yaprağı Suyu / Tehnel Suyu",
+      scientific: "Laurus nobilis Yaprak Buhar Distilatı (1,8-Sineol, Sabinen & Metil Öjenol)",
+      formula: "C10H18O_laurel_leaf_water",
+      category: "Antimikrobiyal & Cilt Arındırıcı Hidrosol",
+      subId: "sub-bot-bay-leaf-water",
+      safety: "🟢 Güvenli Doğal Cilt ve Saç Hidrosolü",
+      everydayUsage: "Tıraş sonrası tahriş ve kıl dönmesi önleyici sprey, kepekli ve yağlanan saç derisi toniği, mutfakta marine etme aroması.",
+      alchemicalName: "Aqua Lauri Foliorum",
+      note: "Akdeniz defne yapraklarının damıtılmasında elde edilen hidrosoldür; sebum salgısını dengeleyerek saç köklerindeki mantar ve bakteri oluşumunu baskılar."
+    },
+    {
+      colloquial: "Kekik Suyu / Zahter Suyu (Acı Su)",
+      scientific: "Origanum onites Primer Damıtma Hidrosolü (Çözünmüş Timol & Karvakrol Suyu)",
+      formula: "C10H14O_thyme_hydrosol",
+      category: "Doğal Mide Tonik & Arındırıcı",
+      subId: "sub-bot-oregano-hydrosol",
+      safety: "🟡 Tadı Çok Acıdır (Suyla Seyreltilerek İçilir, Gastriti Olanlar Dikkat Etmelidir)",
+      everydayUsage: "Mide üşütmesi ve gıda zehirlenmesinde geleneksel arındırıcı bardak, kan şekeri ve kolesterol dengeleyici halk kürü, boğaz enfeksiyonu gargarası.",
+      alchemicalName: "Aqua Origani / Aqua Thymi Rustici",
+      note: "Uçucu yağ damıtılırken altta kalan hidrosol fazıdır; saf timol ve karvakrolün suda çözünen mikro-fraksiyonlarını barındırır ve bağırsak florasındaki zararlı patojenleri seçici olarak temizler."
+    },
+    {
+      colloquial: "Ceviz Yaprağı Suyu / Juglon Çayı",
+      scientific: "Juglans regia Yaprak Sulu Ekstresi (Kateşik Tanenler, Juglon & Flavonoidler)",
+      formula: "C10H6O3_juglone_folium",
+      category: "Astringent & Antifungal Banyo Suyu",
+      subId: "sub-bot-walnut-leaf-water",
+      safety: "🟢 Harici Kullanımda Güvenli",
+      everydayUsage: "Ayak mantarı ve pişik banyosu, dökülen ve mat saçları koyulaştırıcı parlaklık durulama suyu, hemoroit oturma banyosu.",
+      alchemicalName: "Aqua Foliorum Juglandis",
+      note: "Yapraklarındaki yüksek tanen oranı cilt proteinlerini büzüştürerek mikropların dokuya nüfuz etmesini engellerken barındırdığı juglon mantar sporlarının çimlenmesini durdurur."
+    },
+    {
+      colloquial: "Ihlamur Çiçeği Müsilajı / Tilia Jeli",
+      scientific: "Tilia cordata / Tilia platyphyllos Çiçek Müsilajı (Arabinogalaktan & Kuersetin Glikozitleri)",
+      formula: "(C6H10O5)n_tilia_mucilage",
+      category: "Yatıştırıcı Müsilaj & Diaforetik Jel",
+      subId: "sub-bot-linden-mucilage",
+      safety: "🟢 Güvenli Doğal Gıda ve Kozmetik Jeli",
+      everydayUsage: "Boğaz yanmasını anında kesen ılık ıhlamur süzüntüsü, göz kapakları ve şiş göz altları için yatıştırıcı kompres jeli, hassas kuru cilt nemlendiricisi.",
+      alchemicalName: "Mucilago Florum Tiliae",
+      note: "Ihlamur çiçekleri demlendiğinde suya geçen yüksek viskoziteli dallanmış polisakaritler, tahriş olmuş solunum epiteli üzerinde koruyucu jel tabakası oluşturur."
+    },
+    {
+      colloquial: "Papatya Suyu / Mayis Papatyası Hidrosolü",
+      scientific: "Matricaria chamomilla Buhar Distilatı (alfa-Bisabolol, Bisabolol Oksit & Kamazulen İzleri)",
+      formula: "C15H26O_bisabolol_hydrosol",
+      category: "Anti-İnflamatuar & Bebek Bakım Hidrosolü",
+      subId: "sub-bot-chamomile-water",
+      safety: "🟢 Bebekler ve Hassas Ciltler İçin En Güvenli Hidrosol",
+      everydayUsage: "Bebek bezi pişiği ve egzama yatıştırıcı sprey, saç rengini güneşte doğal açıcı durulama suyu, diş çıkaran bebeklerde damak silme toniği.",
+      alchemicalName: "Aqua Chamomillae Vulgaris",
+      note: "Hakiki tıbbi papatyanın damıtılmasıyla elde edilir; içerdiği bisabolol molekülü siklooksijenaz (COX) ve lipoksijenaz enzimlerini baskılayarak kortizon benzeri yan etkisiz yatıştırma sağlar."
+    },
+    {
+      colloquial: "Sarımsak Yağı / Allisin Konsantresi",
+      scientific: "Allium sativum Buhar Distilasyonu Uçucu Yağı (Diallil Disülfit, Diallil Trisülfit & Ajoen)",
+      formula: "C6H10S2_diallyl_disulfide",
+      category: "Süper Geniş Spektrumlu Antimikrobiyal & Kardiyovasküler Yağ",
+      subId: "sub-bot-garlic-oil-essence",
+      safety: "🟡 Aşırı Yoğun Koku & Saf Halde Mukoza Yakıcı",
+      everydayUsage: "Tansiyon ve damar sertliği koruyucu mikro-kapsül yağ, kulak damlası formülasyonu (zeytinyağı içinde seyreltilerek), bağırsak parazitlerini dökücü damla.",
+      alchemicalName: "Oleum Allii Sativi",
+      note: "Alliin molekülünün alliinaz enzimiyle parçalanıp damıtılmasıyla oluşan uçucu sülfür bileşikleridir; penisilinden 100 kat daha geniş spektrumlu antibakteriyel etkiye sahip olup damar içi plak oluşumunu önler."
+    },
+    {
+      colloquial: "Çörek Otu Yağı / Kara Habbe Yağı",
+      scientific: "Nigella sativa Tohumu Soğuk Pres Sabit Yağı (Timokinon %1-2, Ditiymokinon & Linoleik Asit)",
+      formula: "C10H12O2_thymoquinone_rich",
+      category: "İmmünomodülatör & Antihistaminik Fonksiyonel Yağ",
+      subId: "sub-bot-black-seed-cold-pressed",
+      safety: "🟢 Güvenli Fonksiyonel Besin ve Masaj Yağı",
+      everydayUsage: "Alerjik rinit ve astımda bağışıklık dengeleyici günlük kaşık, sedef ve egzama ovma yağı, saç dökülmesi ve eklem sertliği masaj bazı.",
+      alchemicalName: "Oleum Nigellae Sativae Seminis",
+      note: "İslam ve Ortadoğu tıbbında 'ölüm hariç her derde deva' olarak anılan kadim tohum yağıdır; ana biyoaktifi olan timokinon, mast hücrelerinden histamin salınımını bloke ederek alerjik inflamasyonu kökünden durdurur."
     }
   ];
 
