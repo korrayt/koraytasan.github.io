@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGNUM OPUS — The Ultimate Alchemist Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Atmospheric Background Particles -->
+  <div class="stars-bg"></div>
+  <div class="ambient-glow glow-gold"></div>
+  <div class="ambient-glow glow-emerald"></div>
+
+  <!-- Header Banner -->
+  <header class="master-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="alchemical-seal">
+          <svg viewBox="0 0 100 100" class="seal-svg">
+            <circle cx="50" cy="50" r="45" stroke="currentColor" fill="none" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <polygon points="50,15 80,75 20,75" stroke="currentColor" fill="none" stroke-width="1.5"/>
+            <polygon points="50,85 80,25 20,25" stroke="currentColor" fill="none" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="18" stroke="currentColor" fill="none" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">MAGNUM OPUS</h1>
+          <p class="brand-subtitle">The Universal Alchemist Engine & Field Synthesis Matrix</p>
+        </div>
+      </div>
+      <div class="header-search">
+        <span class="header-search-icon">🔍</span>
+        <input type="text" id="global-search-input" class="header-search-input" placeholder="Tüm külliyatta ara... (Ctrl+K)">
+      </div>
+      <div class="header-meta">
+        <span class="badge badge-gold">Koray Taşan Master Edition</span>
+        <span class="badge badge-cyan">Magnus Alchemista v6.0</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn" data-tab="tab-search">
+        <span class="nav-icon">🔍</span> Evrensel Arama Motoru
+      </button>
+      <button class="nav-btn" data-tab="tab-test-lab">
+        <span class="nav-icon">🧪</span> Test Lab (Simya & Kimya Laboratuvarı)
+      </button>
+      <button class="nav-btn" data-tab="tab-rxnorm">
+        <span class="nav-icon">💊</span> TEST LAB 1000 (NLM RxNorm)
+      </button>
+      <button class="nav-btn active" data-tab="tab-field-engine">
+        <span class="nav-icon">⚡</span> Saha Sentez Motoru (Survival Engine)
+      </button>
+      <button class="nav-btn" data-tab="tab-recipes">
+        <span class="nav-icon">📜</span> Tarifler ve Yöntemler Kitabı
+      </button>
+      <button class="nav-btn" data-tab="tab-codex">
+        <span class="nav-icon">🔮</span> Simya Felsefesi & 7 Ciltlik Blueprint
+      </button>
+      <button class="nav-btn" data-tab="tab-gem">
+        <span class="nav-icon">🧠</span> Master Alchemist GEM Promptu
+      </button>
+      <button class="nav-btn" data-tab="tab-library">
+        <span class="nav-icon">📚</span> Kütüphane & Araştırma Arşivi
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content Stage -->
+  <main class="main-content">
+    
+    <!-- TAB: UNIVERSAL ALCHEMICAL SEARCH ENGINE -->
+    <section id="tab-search" class="tab-pane">
+      <div class="search-hero">
+        <h2 class="search-hero-title">Evrensel Simya Arama Motoru</h2>
+        <p class="search-hero-desc">Kadim Hermetik metinlerden Newton'ın simya el yazmalarına, Paracelsus spajiriklerinden Hint Rasa Shastra formüllerine ve hayatta kalma çözümlerine kadar tüm külliyatta akıllı tam metin arama.</p>
+        
+        <div class="search-input-wrapper">
+          <span class="main-search-icon">🔮</span>
+          <input type="text" id="main-alch-search" class="main-search-input" placeholder="Formül, kadim kitap, yazar veya kavram ara (örn: Zümrüt Tablet, Star Regulus, Kral Suyu, Mutus Liber)...">
+        </div>
+
+        <div class="search-filter-chips" id="search-filter-chips">
+          <button class="filter-chip active" data-filter="all">Tümü (Tüm Kaynaklar)</button>
+          <button class="filter-chip" data-filter="Tarihi Kitap & El Yazması">📖 Tarihi Kitaplar (16)</button>
+          <button class="filter-chip" data-filter="Akademik Araştırma & Arşiv">🏛️ Akademik Arşivler (14)</button>
+          <button class="filter-chip" data-filter="Formül & Reçete">📜 Formüller & Reçeteler</button>
+          <button class="filter-chip" data-filter="Saha Sentezi">⚡ Saha Sentezleri (Survival)</button>
+          <button class="filter-chip" data-filter="Modern Bilim">⚛️ Modern Bilim & Transmütasyon</button>
+        </div>
+
+        <div class="suggested-tags-wrapper">
+          <span>Hızlı Aramalar:</span>
+          <span class="tag-chip" data-query="Zümrüt Tablet">Tabula Smaragdina</span>
+          <span class="tag-chip" data-query="Star Regulus">Antimon Regulusu</span>
+          <span class="tag-chip" data-query="Mutus Liber">Mutus Liber (Çiy)</span>
+          <span class="tag-chip" data-query="Swarna Bhasma">Swarna Bhasma (Nano-Altın)</span>
+          <span class="tag-chip" data-query="Kral Suyu">Kral Suyu (Aqua Regia)</span>
+          <span class="tag-chip" data-query="Mizan">Mizan (17 ve 28)</span>
+          <span class="tag-chip" data-query="Potas Sabunu">Potas Sabunu</span>
+          <span class="tag-chip" data-query="Yeşil Dil">Yeşil Dil</span>
+          <span class="tag-chip" data-query="Glenn Seaborg">Glenn Seaborg</span>
+          <span class="tag-chip" data-query="Nazi Kimyası">Nazi Kimyası (Otarki)</span>
+          <span class="tag-chip" data-query="Franz Tausend">Franz Tausend (Sahte Altın)</span>
+        </div>
+      </div>
+
+      <div class="search-results-meta">
+        <span id="search-results-count">Külliyat taranıyor...</span>
+        <span id="search-speed-tag" style="font-family: var(--font-mono); color: var(--gold-primary);">Hafıza İçi İndeks: Aktif</span>
+      </div>
+
+      <div class="search-results-grid" id="search-results-container">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- TAB: TEST LAB (ALCHEMICAL & CHEMICAL EXPERIMENTAL BENCH) -->
+    <section id="tab-test-lab" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>🧪 TEST LAB: Teorik Simya & Kimya Hesaplama Laboratuvarı</h2>
+          <p>
+            İstediğiniz malzemeleri arayıp behere ekleyin (Elementler, gündelik ev ürünleri, kola, deterjan, asitler, bitkiler veya kutu içeriğini girdiğiniz özel kozmetik formülasyonlar).
+            Antik simya yöntemleri ve modern termodinamik kimya kanunları doğrultusunda ısıtın, karıştırın, damıtın, kalsine edin ve sonuçları anlık kimya hesaplayıcısıyla test edin.
+          </p>
+        </div>
+        <div class="engine-controls" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button id="btn-open-wizard-modal" class="btn btn-outline" style="border-color: var(--teal-light); color: var(--teal-light); font-weight: 700;">
+            🧙‍♂️ Akıllı Mühendislik Sihirbazı (Sıfır Kimya Bilgisiyle)
+          </button>
+          <button id="btn-open-dict-modal" class="btn btn-outline" style="border-color: #c084fc; color: #c084fc; font-weight: 600;">
+            🗣️ Halk Dili Kimya Sözlüğü
+          </button>
+          <button id="btn-open-custom-substance" class="btn btn-gold">
+            ✨ + Kendi Maddeni Ekle
+          </button>
+        </div>
+      </div>
+
+      <!-- Lab Workbench 3-Column Layout -->
+      <div class="lab-workbench-grid">
+        
+        <!-- COLUMN 1: SUBSTANCE CATALOG & SEARCH (Malzeme Envanteri) -->
+        <div class="lab-col lab-col-inventory">
+          <div class="lab-card-header">
+            <span class="lab-card-title">📦 1. Malzeme Envanteri & Arama</span>
+            <span class="counter-badge" id="inventory-count">1,500+ Madde</span>
+          </div>
+
+          <div class="lab-search-wrapper">
+            <input type="text" id="lab-substance-search" class="search-input" placeholder="Madde, element, ev ürünü veya formül ara (örn: Kola, Potasyum, Cıva, Tuz)...">
+          </div>
+
+          <div class="lab-category-chips" id="lab-category-chips">
+            <button class="filter-chip active" data-filter="all">Tümü</button>
+            <button class="filter-chip" data-filter="İlaç & Farmakoloji">💊 İlaç & Farmakoloji</button>
+            <button class="filter-chip" data-filter="Gündelik & Ev Ürünü">🏠 Gündelik & Ev</button>
+            <button class="filter-chip" data-filter="Element">⚛️ Elementler</button>
+            <button class="filter-chip" data-filter="Asit / Baz">🧪 Asit & Baz</button>
+            <button class="filter-chip" data-filter="Tuz / Mineral">💎 Tuz & Mineral</button>
+            <button class="filter-chip" data-filter="Organik / Çözücü">💧 Çözücüler</button>
+            <button class="filter-chip" data-filter="Bitkisel & Spajirik">🌿 Bitkisel / Spajirik</button>
+            <button class="filter-chip" data-filter="Kozmetik & Biyoaktif">✨ Kozmetik Aktif</button>
+          </div>
+
+          <div class="lab-substances-grid" id="lab-substances-grid">
+            <!-- Dynamically populated by lab_engine.js -->
+          </div>
+        </div>
+
+        <!-- COLUMN 2: REACTION VESSEL & OPERATION CONTROLS (Deney Beheri & İşlemler) -->
+        <div class="lab-col lab-col-vessel">
+          
+          <!-- Reaction Beaker / Crucible Header -->
+          <div class="lab-vessel-card">
+            <div class="lab-card-header">
+              <div>
+                <span class="lab-card-title">⚗️ 2. Aktif Reaksiyon Kabı (Beher / İmbik)</span>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+                  Reaksiyona girecek maddeleri burada toplayın ve parametreleri ayarlayın.
+                </div>
+              </div>
+              <button id="btn-lab-clear-vessel" class="btn btn-outline" style="font-size: 0.75rem; padding: 0.3rem 0.7rem;">
+                ✕ Boşalt
+              </button>
+            </div>
+
+            <!-- Vessel Status Badges Bar -->
+            <div class="vessel-status-bar">
+              <span class="vessel-badge" id="vessel-mass-badge">0 g</span>
+              <span class="vessel-badge" id="vessel-ph-badge">pH: 7.0</span>
+              <span class="vessel-badge" id="vessel-temp-badge">20°C</span>
+            </div>
+
+            <!-- Beaker Contents List -->
+            <div class="lab-vessel-contents" id="lab-vessel-list">
+              <!-- Populated by lab_engine.js -->
+            </div>
+            <div id="lab-vessel-empty-msg" class="vessel-empty-hint">
+              Beher boş. Sol panelden malzeme seçip <strong>"➕ Behere Ekle"</strong> butonuna basınız.
+            </div>
+
+            <!-- Separation Protocol Recommendation Banner -->
+            <div id="vessel-separation-banner" class="vessel-separation-banner" style="display: none; margin: 0.75rem 0;">
+              <button id="btn-open-separation-protocol" class="btn-separation-recipe">
+                <div class="separation-btn-left">
+                  <span class="separation-icon">🔬</span>
+                  <div class="separation-btn-content">
+                    <strong>Otomatik Ayrıştırma Reçetesi Öner</strong>
+                    <small>Termodinamik Kaynama/Çökme Delta Analizi & Saflaştırma</small>
+                  </div>
+                </div>
+                <span class="separation-badge-flash">⚡ Reçete Gör</span>
+              </button>
+            </div>
+
+            <!-- Parameters: Temperature & Duration -->
+            <div class="lab-params-section">
+              <div class="lab-param-row">
+                <label>🌡️ Sıcaklık: <strong id="param-temp-label">20°C</strong></label>
+                <div class="lab-param-inputs">
+                  <input type="range" id="lab-temp-slider" min="0" max="1200" step="5" value="20">
+                  <input type="number" id="lab-temp-input" min="0" max="2500" value="20" style="width: 75px;">
+                  <span>°C</span>
+                </div>
+              </div>
+
+              <!-- Quick Temperature Presets -->
+              <div class="temp-presets-row" id="lab-temp-presets">
+                <button class="temp-preset-btn" data-temp="20">20°C Oda</button>
+                <button class="temp-preset-btn" data-temp="60">60°C Masere</button>
+                <button class="temp-preset-btn" data-temp="100">100°C Kaynama</button>
+                <button class="temp-preset-btn" data-temp="160">160°C Karamel</button>
+                <button class="temp-preset-btn" data-temp="350">350°C Süblime</button>
+                <button class="temp-preset-btn" data-temp="600">600°C Kalsine</button>
+                <button class="temp-preset-btn" data-temp="1050">1050°C Regulus</button>
+              </div>
+
+              <div class="lab-param-row" style="margin-top: 1rem;">
+                <label>⏱️ İşlem Süresi: <strong id="param-time-label">15 Dk</strong></label>
+                <div class="lab-param-inputs">
+                  <input type="range" id="lab-time-slider" min="1" max="120" step="1" value="15">
+                  <input type="number" id="lab-time-input" min="1" max="1440" value="15" style="width: 75px;">
+                  <span>Dakika</span>
+                </div>
+              </div>
+
+              <!-- Pressure Control (Vacuum Distillation / CalebBell/chemicals Antoine DIPPR) -->
+              <div class="lab-param-row" style="margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                  <label>🌪️ Basınç (Vakum / Antoine): <strong id="param-pressure-label">1013 mbar (1 atm)</strong></label>
+                  <span id="vessel-vacuum-badge" class="badge badge-outline" style="font-size: 0.7rem;">Normal Atmosfer</span>
+                </div>
+                <div class="lab-param-inputs" style="margin-top: 0.35rem;">
+                  <input type="range" id="lab-pressure-slider" min="10" max="1013" step="5" value="1013">
+                  <input type="number" id="lab-pressure-input" min="1" max="5000" value="1013" style="width: 75px;">
+                  <span>mbar</span>
+                </div>
+              </div>
+
+              <!-- Quick Pressure Presets -->
+              <div class="temp-presets-row" id="lab-pressure-presets">
+                <button class="pressure-preset-btn active" data-pressure="1013">1013 mbar (1 atm)</button>
+                <button class="pressure-preset-btn" data-pressure="500">500 mbar (Hafif)</button>
+                <button class="pressure-preset-btn" data-pressure="100">100 mbar (Vakum)</button>
+                <button class="pressure-preset-btn" data-pressure="20">20 mbar (Rotavap)</button>
+              </div>
+            </div>
+
+            <!-- Operation Buttons Grid -->
+            <div class="lab-operations-grid">
+              <button id="btn-lab-mix-react" class="lab-op-btn op-mix" title="Malzemeleri çalkala, temas ettir ve kimyasal reaksiyonu başlat">
+                <span class="op-icon">🔄</span>
+                <div>
+                  <strong>Karıştır & Çalkala</strong>
+                  <small>Reaksiyonu Başlat</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-heat-boil" class="lab-op-btn op-heat" title="Belirlenen sıcaklıkta ısıt, kaynat veya karamelize et">
+                <span class="op-icon">🔥</span>
+                <div>
+                  <strong>Isıt & Kaynat</strong>
+                  <small>Buharlaştır / Pişir</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-distill" class="lab-op-btn op-distill" title="İmbik düzeneğinde buharı yoğunlaştırıp saf sıvıyı topla">
+                <span class="op-icon">⚗️</span>
+                <div>
+                  <strong>Damıt (İmbik)</strong>
+                  <small>Kondensatı Ayır</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-calcine" class="lab-op-btn op-calcine" title="600°C fırında tüm organik posayı yakıp beyaz kül yap">
+                <span class="op-icon">💀</span>
+                <div>
+                  <strong>Kalsine Et</strong>
+                  <small>Ak Kül & Sal Fixum</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-filter" class="lab-op-btn op-filter" title="Süzgeç kağıdından geçirerek katı çökelti ve sıvıyı ayır">
+                <span class="op-icon">🧫</span>
+                <div>
+                  <strong>Filtrele & Süz</strong>
+                  <small>Katı / Sıvı Ayrıştır</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-ferment" class="lab-op-btn op-ferment" title="Ilık sıcaklıkta maya ile şekeri alkole ve CO2'ye dönüştür">
+                <span class="op-icon">🍞</span>
+                <div>
+                  <strong>Fermente Et</strong>
+                  <small>Alkol & Biyolojik Gaz</small>
+                </div>
+              </button>
+
+              <button id="btn-lab-spagyric" class="lab-op-btn op-spagyric" title="Paracelsus usulü bitkiyi Tria Prima'ya (Kükürt, Cıva, Tuz) ayrıştır">
+                <span class="op-icon">🌿</span>
+                <div>
+                  <strong>Spajirik Ayrıştırma</strong>
+                  <small>Tria Prima Ekstraksiyonu</small>
+                </div>
+              </button>
+            </div>
+
+            <!-- Cheminformatics & Molecular Export Action Bar -->
+            <div class="vessel-cheminfo-bar" style="margin-top: 0.85rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              <button id="btn-open-cheminfo-modal" class="btn btn-outline" style="border-color: rgba(56, 189, 248, 0.5); color: #38bdf8; font-size: 0.8rem; padding: 0.5rem 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;" title="CalebBell/chemicals, chemicalx, chainer-chemistry, chemlab analiz motorunu aç">
+                <span>🧬</span>
+                <strong>Moleküler & QSPR Analiz</strong>
+              </button>
+              <button id="btn-export-molecular-files" class="btn btn-outline" style="border-color: rgba(168, 85, 247, 0.5); color: #c084fc; font-size: 0.8rem; padding: 0.5rem 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem;" title="chemfiles formatları: MOL, SDF, PDB, XYZ ve SMILES indir">
+                <span>💾</span>
+                <strong>MOL / SDF / PDB İndir</strong>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- COLUMN 3: SCIENTIFIC RESULTS, OPPORTUNITY SUGGESTER & JOURNAL -->
+        <div class="lab-col lab-col-results">
+          
+          <!-- Dynamic Reaction Report Card -->
+          <div id="lab-result-card" class="lab-result-card" style="display: none;">
+            <div class="lab-card-header">
+              <span class="lab-card-title" id="lab-result-title">🔬 Reaksiyon Sonuç Raporu</span>
+              <span class="badge badge-gold">Hesaplandı</span>
+            </div>
+            <div id="lab-result-body">
+              <!-- Populated by lab_engine.js -->
+            </div>
+          </div>
+
+          <!-- Opportunity Suggester -->
+          <div class="lab-suggestions-panel">
+            <div class="lab-card-header">
+              <span class="lab-card-title">💡 Ne Üretebilirsin? (Akıllı Öneriler)</span>
+              <span class="counter-badge" style="background: rgba(212, 175, 55, 0.15); color: var(--gold-light);">Canlı Tarama</span>
+            </div>
+            <div id="lab-suggestions-container" class="lab-suggestions-list">
+              <!-- Populated by lab_engine.js -->
+            </div>
+          </div>
+
+          <!-- Experiment History / Journal -->
+          <div class="lab-history-panel">
+            <div class="lab-card-header">
+              <span class="lab-card-title">📜 Deney Günlüğü (İşlem Geçmişi)</span>
+            </div>
+            <div id="lab-history-container" class="lab-history-list">
+              <!-- Populated by lab_engine.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Lab Workbench Disclaimer Notice -->
+      <div class="lab-pane-disclaimer" style="margin-top: 1.5rem; padding: 0.85rem 1.25rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-align: center;">
+        <span style="font-size: 1.15rem;">⚠️</span>
+        <span style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+    </section>
+
+    <!-- TAB: TEST LAB 1000 & NLM RXNORM PHARMACOLOGICAL CATALOG -->
+    <section id="tab-rxnorm" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>💊 TEST LAB 1000: NLM RxNorm & RxClass Farmasötik Malzeme Kataloğu</h2>
+          <p>
+            ABD Ulusal Tıp Kütüphanesi (NLM RxNorm & RxClass) açık kaynaklı veritabanı üzerinden çekilmiş 1,000 resmi etken madde (IN: Ingredient ve PIN: Precise Ingredient), Dünya Sağlık Örgütü (WHO) ATC kodları ve tedavi grupları. İstediğiniz etken maddeyi doğrudan aktif simya ve kimya beherine aktarabilir veya canlı REST API üzerinden anında yeni sorgulama yapabilirsiniz.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mandatory NLM & NIH Data Attribution Banner -->
+      <div style="margin: 0.75rem 0 1rem 0; padding: 0.9rem 1.25rem; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: #38bdf8; font-weight: 700; font-size: 0.9rem;">
+            <span>🏛️</span> Resmi NLM & NIH Veri Atfı (Data Attribution)
+          </div>
+          <span style="font-size: 0.72rem; color: #94a3b8; font-family: var(--font-mono);">U.S. National Library of Medicine</span>
+        </div>
+        <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.45;">
+          This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product.
+        </div>
+        <div style="margin-top: 0.6rem; display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.75rem;">
+          <a href="https://rxnav.nlm.nih.gov/REST/allconcepts.json?tty=IN" target="_blank" style="color: #38bdf8; text-decoration: underline;">NLM RxNorm IN</a>
+          <a href="https://rxnav.nlm.nih.gov/REST/allconcepts.json?tty=PIN" target="_blank" style="color: #38bdf8; text-decoration: underline;">NLM RxNorm PIN</a>
+          <a href="https://rxnav.nlm.nih.gov/REST/Prescribe/allconcepts.json?tty=IN" target="_blank" style="color: #38bdf8; text-decoration: underline;">Prescribable RxNorm IN</a>
+          <a href="https://rxnav.nlm.nih.gov/REST/rxclass/allClasses.json?classTypes=ATC1-4" target="_blank" style="color: #38bdf8; text-decoration: underline;">RxClass ATC Sözlüğü</a>
+          <a href="https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxClass.getClassMembers.html" target="_blank" style="color: #38bdf8; text-decoration: underline;">RxClass Dökümantasyonu</a>
+          <a href="https://www.nlm.nih.gov/research/umls/rxnorm/docs/appendix5.html" target="_blank" style="color: #38bdf8; text-decoration: underline;">RxNorm Terim Türleri (TTY)</a>
+          <a href="https://atcddd.fhi.no/atc_ddd_index/?code=N02B" target="_blank" style="color: #38bdf8; text-decoration: underline;">Antipiretikler (N02B)</a>
+          <a href="https://atcddd.fhi.no/atc_ddd_index/?code=M01A" target="_blank" style="color: #38bdf8; text-decoration: underline;">Antienflamatuarlar (M01A)</a>
+        </div>
+      </div>
+
+      <!-- Legal / AI Disclaimer Banner -->
+      <div style="margin: 0.5rem 0 1.25rem 0; padding: 0.65rem 1rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;">
+        <span style="font-size: 1.1rem;">⚠️</span>
+        <span style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.4;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+      <!-- Live NLM RxNav REST API Panel -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 1.1rem 1.25rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.1rem;">🌐</span>
+            <strong style="color: #38bdf8; font-size: 0.95rem;">Canlı NLM RxNav REST API Canlı Sorgu Motoru</strong>
+          </div>
+          <span id="rxnorm-live-status-tag" style="font-size: 0.75rem; color: #94a3b8; font-family: var(--font-mono);">Hazır (Çevrimdışı / Çevrimiçi Hibrit)</span>
+        </div>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <input type="text" id="rxnorm-live-query-input" class="search-input" placeholder="ABD NLM veritabanında canlı etken madde ara (Örn: 'caffeine', 'paracetamol', 'ibuprofen', 'aspirin', '161')..." style="flex: 1; min-width: 250px;">
+          <button id="btn-rxnorm-live-search" class="btn btn-gold" style="white-space: nowrap;">
+            🌐 Canlı NLM API'den Çek
+          </button>
+        </div>
+        <div id="rxnorm-live-result-box" style="display: none; margin-top: 0.85rem;">
+          <div id="rxnorm-live-result-content"></div>
+        </div>
+      </div>
+
+      <!-- Local Catalog Search and Filters -->
+      <div class="section-card" style="padding: 1.25rem; margin-bottom: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.85rem;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span style="font-size: 1.1rem;">📦</span>
+            <h3 style="margin: 0; font-size: 1.05rem; color: #f8fafc;">Yerel TEST LAB 1000 Veritabanı</h3>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="counter-badge" id="rxnorm-count-badge">1,000 Malzeme</span>
+            <span class="counter-badge" id="rxnorm-total-badge" style="background: rgba(255,255,255,0.06); color: #94a3b8;">1,000 Toplam</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; margin-bottom: 0.85rem;">
+          <input type="text" id="rxnorm-search-input" class="search-input" placeholder="Malzeme adı, etken madde, RxCUI veya ATC kodu ara (Örn: Gliserin, Parasetamol, M01A, N02B, 4910)...">
+          <select id="rxnorm-tty-select" class="btn btn-outline" style="background: rgba(15,23,42,0.8); color: #cbd5e1; font-size: 0.82rem; padding: 0.5rem 0.85rem;">
+            <option value="ALL">Etken Madde Tipi: Tümü (IN & PIN)</option>
+            <option value="IN">Yalnızca IN (Temel Etken Madde)</option>
+            <option value="PIN">Yalnızca PIN (Tuz & Ester)</option>
+          </select>
+        </div>
+
+        <!-- ATC Group Filter Chips -->
+        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem;">
+          <button class="rxnorm-filter-chip active" data-atc="ALL">Tümü (1,000)</button>
+          <button class="rxnorm-filter-chip" data-atc="N02B" style="border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">🔥 N02B Antipiretikler & Analjezikler</button>
+          <button class="rxnorm-filter-chip" data-atc="M01A" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">🛡️ M01A Antienflamatuarlar (NSAİİ)</button>
+          <button class="rxnorm-filter-chip" data-atc="A">🍞 A: Sindirim & Metabolizma (154)</button>
+          <button class="rxnorm-filter-chip" data-atc="B">🩸 B: Kan & Kan Yapıcı (60)</button>
+          <button class="rxnorm-filter-chip" data-atc="C">❤️ C: Kalp & Damar (93)</button>
+          <button class="rxnorm-filter-chip" data-atc="D">🧴 D: Dermatoloji (74)</button>
+          <button class="rxnorm-filter-chip" data-atc="G">🧬 G: Ürogenital & Hormonlar (38)</button>
+          <button class="rxnorm-filter-chip" data-atc="H">⚖️ H: Sistemik Hormonlar (22)</button>
+          <button class="rxnorm-filter-chip" data-atc="J">🛡️ J: Anti-enfektifler (85)</button>
+          <button class="rxnorm-filter-chip" data-atc="L">🔬 L: Antineoplastik (191)</button>
+          <button class="rxnorm-filter-chip" data-atc="M">🦴 M: Kas & İskelet (31)</button>
+          <button class="rxnorm-filter-chip" data-atc="N">🧠 N: Sinir Sistemi (137)</button>
+          <button class="rxnorm-filter-chip" data-atc="P">🌿 P: Antiparaziter (18)</button>
+          <button class="rxnorm-filter-chip" data-atc="R">🫁 R: Solunum (39)</button>
+          <button class="rxnorm-filter-chip" data-atc="S">👁️ S: Duyu Organları (24)</button>
+          <button class="rxnorm-filter-chip" data-atc="V">📦 V: Çeşitli (34)</button>
+        </div>
+      </div>
+
+      <!-- Pagination Top Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0 1rem 0; padding: 0.4rem 0.5rem;">
+        <span id="rxnorm-page-label" style="font-size: 0.85rem; color: #94a3b8; font-family: var(--font-mono);">Sayfa 1</span>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="rxnorm-btn-prev" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">◀ Önceki</button>
+          <button id="rxnorm-btn-next" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">Sonraki ▶</button>
+        </div>
+      </div>
+
+      <!-- Materials Cards Grid -->
+      <div class="rxnorm-grid" id="rxnorm-materials-grid">
+        <!-- Dynamically rendered by lab_rxnorm_engine.js -->
+      </div>
+
+      <!-- Bottom Disclaimer Notice -->
+      <div style="margin-top: 2rem; padding: 0.85rem 1.25rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-align: center;">
+        <span style="font-size: 1.15rem;">⚠️</span>
+        <span style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+    </section>
+
+    <!-- TAB 1: FIELD SURVIVAL SYNTHESIS ENGINE -->
+    <section id="tab-field-engine" class="tab-pane active">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>Zorlu Koşullar Altında Saha Simyası Sentez Motoru</h2>
+          <p>Elinizdeki mevcut doğal ve hurda hammaddeleri seçin. Motor, kimyasal ve simyasal reaksiyon matrisini hesaplayarak anında sentezleyebileceğiniz hayat kurtarıcı çözümleri listelesin.</p>
+        </div>
+        <div class="engine-controls">
+          <button id="btn-select-all" class="btn btn-outline">Tümünü Seç</button>
+          <button id="btn-clear-all" class="btn btn-outline">Seçimleri Sıfırla</button>
+        </div>
+      </div>
+
+      <!-- Material Picker Grid -->
+      <div class="section-card">
+        <div class="card-title">
+          <span>1. Adım: Elinizdeki Mevcut Malzemeleri İşaretleyin</span>
+          <span class="counter-badge" id="selected-count">0 Malzeme Seçili</span>
+        </div>
+        <div class="material-grid" id="materials-container">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Synthesis Result Stream -->
+      <div class="section-card">
+        <div class="card-title">
+          <span>2. Adım: Sentezlenebilir Hayatta Kalma Çözümleri & Formüller</span>
+          <span class="counter-badge counter-match" id="match-count">0 Çözüm Hazır</span>
+        </div>
+        <div class="synthesis-results" id="synthesis-results-container">
+        </div>
+      </div>
+
+      <!-- Field Engine Disclaimer Notice -->
+      <div class="lab-pane-disclaimer" style="margin-top: 1.5rem; padding: 0.85rem 1.25rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-align: center;">
+        <span style="font-size: 1.15rem;">⚠️</span>
+        <span style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+    </section>
+
+    <!-- TAB 2: RECIPES & METHODS COMPENDIUM -->
+    <section id="tab-recipes" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>Kapsamlı Simyasal Tarifler ve Metodlar Kitabı</h2>
+          <p>Kadim İskenderiye'den Newton'ın Antimon Yıldız Regulusuna, Hint Swarna Bhasma'sından modern nano-gümüşe kadar eksiksiz reçeteler.</p>
+        </div>
+        <div class="search-filter-bar">
+          <input type="text" id="recipe-search" class="search-input" placeholder="Tarif veya etken madde ara (örn: biberiye, altın, antimon, çiy, mürekkep)...">
+          <select id="recipe-category-filter" class="filter-select">
+            <option value="all">Tüm Kategoriler</option>
+            <option value="Spagyrics">Spajirik (Bitki Simyası)</option>
+            <option value="Apothecary">Apothecary & Bhasma</option>
+            <option value="Metalurji">Metalurji & Regulus</option>
+            <option value="Malzeme Bilimi">Malzeme Bilimi</option>
+            <option value="Laboratuvar Operasyonu">Laboratuvar Operasyonları</option>
+            <option value="Fütüristik Nano-Simya">Fütüristik Nano-Simya</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="recipes-grid" id="recipes-container">
+        <!-- Dynamically populated -->
+      </div>
+
+      <!-- AI Disclaimer Banner -->
+      <div class="lab-pane-disclaimer" style="margin-top: 1.5rem; padding: 0.85rem 1.25rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; text-align: center;">
+        <span style="font-size: 1.15rem;">⚠️</span>
+        <span style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+    </section>
+
+    <!-- TAB 3: ALCHEMICAL CODEX & 7-VOLUME BLUEPRINT -->
+    <section id="tab-codex" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>Büyük Eser (Magnum Opus) ve 7 Ciltlik Ansiklopedik Mimari</h2>
+          <p>Tarih öncesinden kuantum çağına kadar maddenin, bilincin ve evrenin arınma yolculuğu ve 3 boyutlu operasyonel karşılıkları.</p>
+        </div>
+      </div>
+
+      <div class="codex-grid">
+        <!-- Magnum Opus Stages Card -->
+        <div class="codex-card">
+          <div class="codex-badge">BÜYÜK ESERİN 4 EVRESİ</div>
+          <h3>Magnum Opus Aşamaları</h3>
+          <div class="opus-timeline">
+            <div class="opus-step step-nigredo">
+              <div class="step-marker">1</div>
+              <div>
+                <h4>Nigredo (Siyahlaşma / Çürüme)</h4>
+                <p>Eski kalıpların, yabancı maddelerin ve egonun kalsinasyon ile küle dönüşmesi. Satürn, kurşun ve kuzgun ile sembolize edilir.</p>
+              </div>
+            </div>
+            <div class="opus-step step-albedo">
+              <div class="step-marker">2</div>
+              <div>
+                <h4>Albedo (Beyazlama / Arınma)</h4>
+                <p>Maddenin yabancı tortulardan damıtma ve yıkama (ablutio) ile yıkanması. Ay, gümüş ve beyaz kuğu ile sembolize edilir.</p>
+              </div>
+            </div>
+            <div class="opus-step step-citrinitas">
+              <div class="step-marker">3</div>
+              <div>
+                <h4>Citrinitas (Sararma / Olgunlaşma)</h4>
+                <p>Zihinsel aydınlanma ve güneş ışığının maddeye girmesi; gümüşten altına geçiş eşiği. Şafak ve kartal ile temsil edilir.</p>
+              </div>
+            </div>
+            <div class="opus-step step-rubedo">
+              <div class="step-marker">4</div>
+              <div>
+                <h4>Rubedo (Kızarma / Felsefe Taşı)</h4>
+                <p>Ruh ve bedenin ayrılmaz birliği (Coniunctio Oppositorum). Her eksikliği tamlığa ulaştıran Felsefe Taşı ve Anka Kuşu (Phoenix).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tria Prima Card -->
+        <div class="codex-card">
+          <div class="codex-badge">PARACELSUS TRIA PRIMA</div>
+          <h3>Üç Temel İlke (Tria Prima)</h3>
+          <p class="codex-desc">Her varlık, maddenin ve canlılığın bu üç temel arketipsel kutbunun dengesinden meydana gelir:</p>
+          <div class="tria-grid">
+            <div class="tria-item">
+              <div class="tria-symbol">🜍</div>
+              <h4>KÜKÜRT (Sulfur / Ruh)</h4>
+              <p>Yanabilirlik, uçucu esansiyel yağlar, bilinç, sıcak ve kuru yaşam tutkusu.</p>
+            </div>
+            <div class="tria-item">
+              <div class="tria-symbol">☿</div>
+              <h4>CIVA (Mercury / Can)</h4>
+              <p>Uçuculuk, alkol, taşıyıcı akışkanlık, zeka ve yaşam sıvısı.</p>
+            </div>
+            <div class="tria-item">
+              <div class="tria-symbol">🜔</div>
+              <h4>TUZ (Sal / Beden)</h4>
+              <p>Sabitlik, kalsine mineral kristaller, fiziksel omurga ve çözünmez temel.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3-Tier Multi-Lens Operational Table -->
+        <div class="codex-card full-width">
+          <div class="codex-badge">OPERASYONEL KARŞILAŞTIRMA MATRİSİ</div>
+          <h3>3 Boyutlu Simyasal Operasyonlar (Laboratuvar &bullet; Biyoloji &bullet; Jung Psikolojisi)</h3>
+          <div style="overflow-x: auto; margin-top: 1rem;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border-gold); color: var(--gold-light);">
+                  <th style="padding: 0.75rem;">Operasyon</th>
+                  <th style="padding: 0.75rem;">1. Fiziksel Laboratuvar Süreci</th>
+                  <th style="padding: 0.75rem;">2. Biyolojik / Hücresel Karşılık</th>
+                  <th style="padding: 0.75rem;">3. Psikolojik / Jungcu Karşılık</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Calcinatio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Yüksek kuru ısıda yakılarak küle dönüştürülme</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Biyolojik doku ve toksinlerin yüksek ısı/enzimle yıkımı</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Egonun ve sahte illüzyonların parçalanması</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Dissolutio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Katı maddenin sıvı çözücüde eritilmesi</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Hücresel emilim ve ozmotik sıvı dengesi</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Bilinçdışının bastırılmış duygulara açılması</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Separatio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Saf olanın cüruftan süzülerek ayrılması</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Toksik metabolitlerin boşaltımla atılması</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Gölge unsurlar ile öz bilincin ayırt edilmesi</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Coniunctio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Saflaştırılan ilkelerin yeniden birleşmesi</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Hücresel rejenerasyon, DNA ve doku uyumu</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Zıtların Evliliği (Anima/Animus bütünleşmesi)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Fermentatio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Bakteriyel/mayasal organik dönüşüm</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Mikrobiyom ve hücresel enerji dönüşümü</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Ruhsal uyanış öncesi karanlık gece (Dark Night)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <td style="padding: 0.75rem; font-weight: bold; color: #fff;">Distillatio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Buharlaşma ve tekrar safça yoğunlaşma</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Hayati sıvıların ve hormonların arınması</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Bilincin sürekli öz-farkındalıkla rafine edilmesi</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; font-weight: bold; color: var(--gold-light);">Coagulatio</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Uçucu ruhun sarsılmaz bedende sabitlenmesi</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Hücresel ölümsüzlük ve gençleşmiş doku</td>
+                  <td style="padding: 0.75rem; color: var(--text-muted);">Felsefe Taşının doğuşu; Benliğin (Self) kristalleşmesi</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 7-Volume Magnum Opus Blueprint -->
+        <div class="codex-card full-width">
+          <div class="codex-badge">THE ULTIMATE ALCHEMIST BOOK BLUEPRINT</div>
+          <h3>7 Ciltlik Ansiklopedik Başyapıt Mimarisi</h3>
+          <div class="era-cards">
+            <div class="era-box">
+              <span class="era-year">CİLT I</span>
+              <h4>Evrensel Aksiyomlar & Hermetizm</h4>
+              <p>Tabula Smaragdina analizi, İskenderiye Okulu, Maria Prophetissa icatları ve Doğu-Batı ontolojisi.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT II</span>
+              <h4>İslam Chymistry & Mizan</h4>
+              <p>Câbir bin Hayyan, 17 ve 28 sayısal dizinleri, Mizan teorisi, Takvin doktrini ve mineral asitler.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT III</span>
+              <h4>Batı Laboratuvarı & Newton</h4>
+              <p>Paracelsian Tria Prima, Spagirikler, Sir Isaac Newton'ın Antimon Yıldız Regulusu ve Keynes elyazmaları.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT IV</span>
+              <h4>Çin Waidan & Neidan</h4>
+              <p>Daozang külliyatı, zencefre iksirleri, Üç Hazine (Jing-Qi-Shen), Cıva Tarlaları (Tan-t'ien) ve Sarı Avlu.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT V</span>
+              <h4>Hint Rasa Shastra & Bhasma</h4>
+              <p>Acharya Nagarjuna, Parada (Cıva) ve Gandhaka (Kükürt), 18 Astadasa Samskara ve Swarna Bhasma.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT VI</span>
+              <h4>Sembolizm & Jung Psikolojisi</h4>
+              <p>Mutus Liber, Splendor Solis, Yeşil Dil (Verba Obscura), Carl Jung'un Opus Alchymicum bireyleşmesi.</p>
+            </div>
+            <div class="era-box">
+              <span class="era-year">CİLT VII</span>
+              <h4>Kuantum, Nükleer & AI Çağı</h4>
+              <p>Glenn Seaborg nükleer altın transmütasyonu, Drexlerian moleküler montajcılar ve Generatif AI simyası.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: THE ULTIMATE ALCHEMIST GEM PROMPT -->
+    <section id="tab-gem" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>MAGNUS ALCHEMISTA — Universal GEM Prompt</h2>
+          <p>Google Gemini veya gelişmiş LLM modellerinde "Magnus Alchemista" zekasını çalıştıran, 5 zorunlu çıktı formatlı profesyonel sistem yönergesi.</p>
+        </div>
+        <div class="engine-controls">
+          <button id="btn-copy-gem" class="btn btn-gold">📋 Promptu Kopyala</button>
+        </div>
+      </div>
+
+      <div class="gem-workbench">
+        <div class="gem-specs-sidebar">
+          <div class="spec-card">
+            <h4>Önerilen Model Parametreleri</h4>
+            <ul class="spec-list">
+              <li><strong>Model:</strong> Gemini 2.0 Flash / Pro</li>
+              <li><strong>Temperature:</strong> 0.35 (Yüksek Kesinlik)</li>
+              <li><strong>Top-P:</strong> 0.90</li>
+              <li><strong>Top-K:</strong> 40</li>
+              <li><strong>Max Output:</strong> 8192 tokens</li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <h4>Zorunlu 5 Aşamalı Çıktı</h4>
+            <div class="layer-pill">1. Executive Hermetic Summary</div>
+            <div class="layer-pill">2. Physical & Laboratory Mechanics</div>
+            <div class="layer-pill">3. Internal & Energetic (Neidan/Rasa)</div>
+            <div class="layer-pill">4. Symbolic & Psychological (Jung)</div>
+            <div class="layer-pill">5. Integrated Practical Synthesis</div>
+          </div>
+          <div class="spec-card">
+            <h4>Yeşil Dil (Verba Obscura)</h4>
+            <p class="small-text">Yeşil Ejderha, Kızıl Aslan, Denizde Yüzen Kral gibi tüm gizli alegorileri anında bilimsel ve psikolojik karşılıklarına çözen semantik motor.</p>
+          </div>
+          <div class="spec-card">
+            <h4>Güvenlik Kalkanı (Omni-Guard)</h4>
+            <p class="small-text">Patlayıcı, toksik silah ve yasadışı kimyasalları anında engelleyen, enerjiyi hayati ve şifacı üretime yönlendiren mutlak koruma kalkanı.</p>
+          </div>
+        </div>
+
+        <div class="gem-code-viewer">
+          <div class="viewer-header">
+            <span class="file-tag">MAGNUS_ALCHEMISTA_GEM_PROMPT.md</span>
+            <span class="lang-tag">System Prompt</span>
+          </div>
+          <pre class="prompt-code-block" id="gem-prompt-display">
+<!-- Yükleniyor... -->
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: BIBLIOTHECA & RESEARCH HUB -->
+    <section id="tab-library" class="tab-pane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <h2>Bibliotheca: Yerel Simya Kütüphanesi & Araştırma Arşivleri</h2>
+          <p>Lokal veritabanına indirilmiş tam metin tarihi simya el yazmaları, kitaplar ve küresel dijital araştırma köprüsü.</p>
+        </div>
+      </div>
+
+      <!-- Library Statistics & Local DB Info -->
+      <div class="library-stats-bar">
+        <div class="lib-stat-chip">
+          <span class="lib-stat-icon">📚</span>
+          <div>
+            <div class="lib-stat-val">30 Tam Eser</div>
+            <div class="lib-stat-lbl">16 Kitap + 14 Arşiv</div>
+          </div>
+        </div>
+        <div class="lib-stat-chip">
+          <span class="lib-stat-icon">💾</span>
+          <div>
+            <div class="lib-stat-val">3.12 MB</div>
+            <div class="lib-stat-lbl">database/books/</div>
+          </div>
+        </div>
+        <div class="lib-stat-chip">
+          <span class="lib-stat-icon">📜</span>
+          <div>
+            <div class="lib-stat-val">526,766</div>
+            <div class="lib-stat-lbl">Toplam Kelime</div>
+          </div>
+        </div>
+        <div class="lib-stat-chip">
+          <span class="lib-stat-icon">⚡</span>
+          <div>
+            <div class="lib-stat-val">%100 Çevrimdışı</div>
+            <div class="lib-stat-lbl">Yerel Veritabanı & Okuyucu</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Local Books Filter & Search -->
+      <div class="search-filter-bar" style="margin-bottom: 1.5rem;">
+        <input type="text" id="local-book-search" class="search-input" placeholder="Tüm yerel kitaplar ve akademik arşivler içinde ara... (Yazar, kurum, başlık veya kavram)">
+        <select id="local-book-tradition-filter" class="filter-select">
+          <option value="all">Tüm Külliyat (30 Eser & Arşiv)</option>
+          <option value="Klasik">Klasik Tarihi Kitaplar (16 Eser)</option>
+          <option value="Akademik">Akademik Araştırma Arşivleri (14 Eser)</option>
+          <option value="Nazi">Nazi Kimyası, Otarki & Sahte Simya (1920-1945)</option>
+          <option value="Newton">Isaac Newton Simya Defterleri</option>
+          <option value="Hermetik">Hermetik Felsefe & Batı</option>
+          <option value="Spajirik">Spajirik & Paracelsus / Soluna</option>
+          <option value="İslam">İslam Altın Çağı / Geber</option>
+          <option value="Doğu">Doğu Simyası: Waidan & Neidan (Needham)</option>
+          <option value="Rasa Shastra">Hint Rasa Shastra & Ayurveda (PMC)</option>
+          <option value="Modern">Modern Çekirdek Fiziği (Seaborg)</option>
+        </select>
+      </div>
+
+      <!-- Section 1: Classical Downloaded Full-Text Books -->
+      <div class="library-section-title">
+        <h3>📖 Klasik & Tarihsel Tam Metin Kitaplar (16 Temel Külliyat)</h3>
+        <span class="badge badge-gold" id="local-books-count">16 Eser Listeleniyor</span>
+      </div>
+      <div class="local-books-grid" id="local-books-container">
+        <!-- Dynamically populated from window.ALCHEMIST_LIBRARY_CATALOG -->
+      </div>
+
+      <!-- Section 2: Downloaded Global Digital Archives & Academic Research -->
+      <div class="library-section-title" style="margin-top: 3rem;">
+        <h3>🏛️ İndirilen Küresel Dijital Arşivler & Akademik Araştırma Külliyatı</h3>
+        <span class="badge badge-cyan" id="academic-archives-count">14 Yerel Arşiv Eseri</span>
+      </div>
+      <div class="local-books-grid" id="academic-archives-container">
+        <!-- Dynamically populated from window.ALCHEMIST_LIBRARY_CATALOG (Academic Archives) -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="master-footer">
+    <div class="footer-container">
+      <!-- AI & Calculation Engine Disclaimer Banner -->
+      <div class="footer-disclaimer-banner">
+        <div class="disclaimer-badge-row">
+          <span class="disclaimer-icon">⚠️</span>
+          <span class="disclaimer-title">BİLGİLENDİRME & YASAL UYARI</span>
+        </div>
+        <p class="disclaimer-content">
+          Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </p>
+      </div>
+
+      <p>MAGNUM OPUS ENGINE — Tasarlayan & Geliştiren: <strong>Koray Taşan</strong></p>
+      <p class="sub-credit">Kadim Doğa Yasaları &bullet; Moleküler Mühendislik &bullet; Kesintisiz Sürdürülebilirlik</p>
+    </div>
+  </footer>
+
+  <!-- Search Detail Modal -->
+  <div id="search-detail-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="modal-close-btn" title="Kapat">✕</button>
+      <div class="modal-header">
+        <span id="modal-type-badge" class="search-card-type type-book">Tarihi Kitap</span>
+        <h3 id="modal-title">Eser Başlığı</h3>
+        <div class="modal-meta">
+          <span id="modal-author">Yazar</span> &bull; <span id="modal-era">Dönem</span>
+        </div>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        Metin içeriği...
+      </div>
+      <div class="modal-citation" id="modal-citation-text">
+        Kaynak: ...
+      </div>
+      <div class="modal-footer">
+        <button id="modal-copy-btn" class="btn btn-outline">📋 Metni Kopyala</button>
+        <button id="modal-read-book-btn" class="btn btn-gold" style="display: none;">📖 Kitabı Tam Ekran Oku</button>
+        <button id="modal-close-action" class="btn btn-outline">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- In-App Book Reader Modal -->
+  <div id="book-reader-modal" class="modal-overlay">
+    <div class="reader-modal-content">
+      <!-- Reader Header Bar -->
+      <div class="reader-header-bar">
+        <div class="reader-title-info">
+          <span id="reader-tradition-badge" class="search-card-type type-book">Hermetik</span>
+          <h2 id="reader-book-title" class="reader-book-title">Kitap Başlığı</h2>
+          <div class="reader-meta-line">
+            <span id="reader-author-era">Müellif &bullet; Dönem</span>
+            <span id="reader-stats-badge" class="reader-stat-pill">540 KB &bullet; 92,000 Kelime</span>
+          </div>
+        </div>
+        <button id="reader-close-btn" class="modal-close-btn" title="Okuyucuyu Kapat">✕</button>
+      </div>
+
+      <!-- Reader Operational Toolbar -->
+      <div class="reader-toolbar">
+        <div class="reader-tool-group">
+          <label for="reader-chapter-select" class="reader-label">Bölüm:</label>
+          <select id="reader-chapter-select" class="reader-select">
+            <option value="">Bölüm Seçin...</option>
+          </select>
+        </div>
+
+        <div class="reader-tool-group" style="flex: 1; max-width: 320px;">
+          <input type="text" id="reader-search-input" class="reader-search-box" placeholder="Metin içinde ara...">
+          <span id="reader-search-match-count" class="reader-match-pill" style="display: none;">0 eşleşme</span>
+        </div>
+
+        <div class="reader-tool-group">
+          <button id="reader-font-dec" class="reader-btn" title="Yazı Boyutunu Küçült">A-</button>
+          <span id="reader-font-size-val" style="font-size: 0.8rem; color: var(--gold-light); min-width: 35px; text-align: center;">16px</span>
+          <button id="reader-font-inc" class="reader-btn" title="Yazı Boyutunu Büyüt">A+</button>
+        </div>
+
+        <div class="reader-tool-group">
+          <a id="reader-open-local-link" href="#" target="_blank" class="reader-btn-action" title="Dosyayı doğrudan işletim sisteminde / tarayıcıda aç">
+            📂 Yerel Dosyayı Aç
+          </a>
+          <button id="reader-copy-content-btn" class="reader-btn-action">
+            📋 Kopyala
+          </button>
+        </div>
+      </div>
+
+      <!-- Reader Scrollable Body -->
+      <div class="reader-scroll-body" id="reader-scroll-container">
+        <div id="reader-body-text" class="reader-typography">
+          <!-- Full book text populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Reader Footer -->
+      <div class="reader-footer-bar">
+        <span id="reader-file-path-display" class="reader-file-path">database/books/...</span>
+        <button id="reader-bottom-close" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Custom Substance & Formulation Builder -->
+  <div id="custom-substance-modal" class="reader-modal-overlay" style="display: none; align-items: center; justify-content: center; z-index: 10000;">
+    <div class="custom-modal-card" style="max-width: 860px; max-height: 90vh; display: flex; flex-direction: column;">
+      <div class="reader-header-bar">
+        <div>
+          <h3 style="color: #fff; margin: 0 0 0.2rem 0; font-family: var(--font-serif);">✨ Kendi Maddeni & Kimyasal Formülasyonunu Ekle</h3>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin: 0;">Ürünün toplam miktarını ve içerisindeki her bir etken maddeyi kendi miktar/oranları ile tanımlayın. Kimya motoru tam oranlarıyla hesaplayacaktır.</p>
+        </div>
+        <button id="btn-close-custom-modal" class="reader-btn-close">✕</button>
+      </div>
+
+      <div style="padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; flex: 1;">
+        <!-- General Info -->
+        <div style="display: grid; grid-template-columns: 2fr 1.2fr 1fr; gap: 0.75rem;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; color: var(--gold-light); margin-bottom: 0.3rem; font-weight: 600;">Ürün / Madde Adı:</label>
+            <input type="text" id="custom-sub-name" class="search-input" placeholder="Örn: Özel Kremim, Asit Solüsyonu, Bulaşık Deterjanı v2...">
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; color: var(--gold-light); margin-bottom: 0.3rem; font-weight: 600;">Toplam Ürün Miktarı:</label>
+            <div style="display: flex; gap: 0.4rem;">
+              <input type="number" id="custom-total-amount" class="search-input" value="100" min="1" step="any" style="flex: 1;">
+              <select id="custom-total-unit" class="filter-select" style="width: 75px;">
+                <option value="g">g</option>
+                <option value="mL" selected>mL</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; color: var(--gold-light); margin-bottom: 0.3rem; font-weight: 600;">Kategori:</label>
+            <select id="custom-sub-category" class="filter-select" style="width: 100%;">
+              <option value="İlaç & Farmakoloji">💊 İlaç & Farmakoloji (Etken Madde)</option>
+              <option value="Gündelik & Ev Ürünü">Gündelik & Ev</option>
+              <option value="Kozmetik & Biyoaktif">Kozmetik & Biyoaktif</option>
+              <option value="Organik / Çözücü">Organik / Çözücü</option>
+              <option value="Tuz / Mineral">Tuz / Mineral</option>
+              <option value="Bitkisel & Spajirik">Bitkisel & Spajirik</option>
+              <option value="Asit / Baz">Asit / Baz</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 0.75rem;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; color: var(--gold-light); margin-bottom: 0.3rem; font-weight: 600;">Fiziksel Faz (20°C):</label>
+            <select id="custom-sub-phase" class="filter-select" style="width: 100%;">
+              <option value="liquid">Sıvı / Solüsyon</option>
+              <option value="viscous_liquid">Kıvamlı Jel / Krem / Şurup</option>
+              <option value="solid">Katı / Kristal / Toz</option>
+              <option value="gas">Gaz</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.82rem; color: var(--gold-light); margin-bottom: 0.3rem; font-weight: 600;">Açıklama / Kutu Notu (Opsiyonel):</label>
+            <input type="text" id="custom-sub-desc" class="search-input" placeholder="Kullanım amacı, kutudaki ek bilgiler...">
+          </div>
+        </div>
+
+        <!-- Ingredients Table Header -->
+        <div style="border-top: 1px solid var(--border-gold-subtle); padding-top: 0.8rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <strong style="color: var(--gold-light); font-size: 0.88rem;">🧪 Etken Maddeler ve İçerik Oranları:</strong>
+            <span id="custom-ingredient-balance-badge" class="badge badge-gold" style="font-size: 0.75rem;">Toplam: %0.0</span>
+          </div>
+
+          <!-- Dynamic Rows Container -->
+          <div id="custom-ingredients-container" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 250px; overflow-y: auto; padding-right: 0.25rem;">
+            <!-- Rows injected dynamically by lab_engine.js -->
+          </div>
+
+          <!-- Controls under ingredients -->
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+            <button type="button" id="btn-add-ingredient-row" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.35rem 0.8rem;">
+              ➕ Yeni Bileşen Satırı Ekle
+            </button>
+            <button type="button" id="btn-fill-remaining-water" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.35rem 0.8rem; color: var(--teal-light); border-color: rgba(34,211,238,0.3);">
+              💧 Kalanı Su (H2O) ile Tamamla (%100 Yap)
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Balance Bar -->
+        <div class="formulation-balance-section" style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-gold-subtle); border-radius: var(--radius-sm); padding: 0.6rem 0.8rem;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.35rem;">
+            <span style="color: var(--text-muted);" id="formulation-balance-status">Formülasyon Denge Durumu:</span>
+            <span style="font-weight: 700;" id="formulation-balance-percent">%0.0 / %100</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+            <div id="formulation-balance-bar" style="background: var(--gold-main); width: 0%; height: 100%; transition: width 0.3s ease, background 0.3s ease;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button id="btn-cancel-custom-modal" class="btn btn-outline" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
+            İptal
+          </button>
+          <button id="btn-preview-custom-separation" type="button" class="btn btn-outline" style="border-color: var(--teal-light); color: var(--teal-light); font-size: 0.82rem; padding: 0.45rem 0.9rem;">
+            🔬 Ayrıştırma Reçetesi Simüle Et
+          </button>
+        </div>
+        <button id="btn-save-custom-substance" class="btn btn-gold" style="padding: 0.5rem 1.5rem; font-size: 0.88rem; font-weight: 700;">
+          💾 Laboratuvara Kaydet ve Aktar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Automatic Separation & Purification Protocol -->
+  <div id="separation-protocol-modal" class="reader-modal-overlay" style="display: none; align-items: center; justify-content: center; z-index: 10005;">
+    <div class="custom-modal-card separation-modal-card" style="max-width: 920px; max-height: 90vh; display: flex; flex-direction: column;">
+      <div class="reader-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.4rem;">🔬</span>
+            <h3 style="color: #fff; margin: 0; font-family: var(--font-serif);">Otomatik Ayrıştırma & Saflaştırma Reçetesi Motoru</h3>
+            <span class="badge badge-gold" style="font-size: 0.72rem;">Termodinamik Delta Analizi</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin: 0.25rem 0 0 0;">
+            Bileşenlerin kaynama noktası (T<sub>bp</sub>), erime noktası (T<sub>mp</sub>) ve kimyasal çözünürlük farkları analiz edilerek en yüksek verimli fiziksel ve kimyasal ayrıştırma protokolü otomatik sentezlenmiştir.
+          </p>
+        </div>
+        <button id="btn-close-separation-modal" class="reader-btn-close">✕</button>
+      </div>
+
+      <div id="separation-modal-body" style="padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; flex: 1;">
+        <!-- Populated dynamically by lab_engine.js -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">
+          💡 İpucu: Seçtiğiniz yöntemin <strong>"⚡ Bu Ayrıştırmayı Behere Uygula"</strong> butonuna basarak tüm parametreleri tek tıkla deney kabına aktarabilirsiniz.
+        </span>
+        <button id="btn-footer-close-separation-modal" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Cheminformatics & Molecular Analysis (Open Source Capabilities) -->
+  <div id="cheminformatics-modal" class="reader-modal-overlay" style="display: none; align-items: center; justify-content: center; z-index: 10006;">
+    <div class="custom-modal-card cheminfo-modal-card" style="max-width: 950px; max-height: 92vh; display: flex; flex-direction: column;">
+      <div class="reader-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.4rem;">🧬</span>
+            <h3 style="color: #fff; margin: 0; font-family: var(--font-serif);">Açık Kaynak Cheminformatics & Moleküler Analiz Laboratuvarı</h3>
+            <span class="badge badge-teal" style="font-size: 0.72rem;">CalebBell & ChemicalX & Chainer & Chemfiles</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin: 0.25rem 0 0 0;">
+            CalebBell/chemicals (Antoine, Hansen), AstraZeneca/chemicalx (DDI, Sinerji), chainer-chemistry & chemlab (QSPR, Lipinski) ve chemfiles (MOL/SDF/PDB) motorları ile tam kapsamlı moleküler hesaplama.
+          </p>
+        </div>
+        <button id="btn-close-cheminfo-modal" class="reader-btn-close">✕</button>
+      </div>
+
+      <!-- Navigation Tabs inside Cheminformatics Modal -->
+      <div class="cheminfo-tabs-nav">
+        <button class="cheminfo-tab-btn active" data-tab="tab-qspr">
+          <span>🔬</span> Moleküler & QSPR (Lipinski)
+        </button>
+        <button class="cheminfo-tab-btn" data-tab="tab-thermo">
+          <span>🌡️</span> Termodinamik & Hansen (Antoine)
+        </button>
+        <button class="cheminfo-tab-btn" data-tab="tab-ddi">
+          <span>💊</span> İlaç Sinerjisi & DDI (ChemicalX)
+        </button>
+        <button class="cheminfo-tab-btn" data-tab="tab-export">
+          <span>💾</span> Chemfiles İhracatı (MOL/SDF/PDB)
+        </button>
+        <button class="cheminfo-tab-btn" data-tab="tab-databases">
+          <span>🌐</span> Veritabanları (Awesome-Cheminfo)
+        </button>
+      </div>
+
+      <div id="cheminfo-modal-body" style="padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; flex: 1;">
+        <!-- Dynamic content rendered by lab_engine.js depending on active tab -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <span style="font-size: 0.8rem; color: var(--text-muted);" id="cheminfo-status-hint">
+          ⚡ 6 açık kaynak kimya kütüphanesinin yetenekleri tek bir entegre arayüzde çalışmaktadır.
+        </span>
+        <button id="btn-footer-close-cheminfo-modal" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Guided Chemical Engineering & Alchemy Wizard -->
+  <div id="wizard-modal" class="reader-modal-overlay" style="display: none; align-items: center; justify-content: center; z-index: 10007;">
+    <div class="custom-modal-card wizard-modal-card" style="max-width: 960px; max-height: 92vh; display: flex; flex-direction: column;">
+      <div class="reader-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.4rem;">🧙‍♂️</span>
+            <h3 style="color: #fff; margin: 0; font-family: var(--font-serif);">Akıllı Kimya Mühendisliği & Simya Sihirbazı</h3>
+            <span class="badge badge-teal" style="font-size: 0.72rem;">Sıfır Kimya Bilgisiyle İleri Hesaplama</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin: 0.25rem 0 0 0;">
+            Gündelik hedefinizi seçin (Doğal sabun, esansiyel yağ, kristal büyütme, krem veya tentür). Motor tüm mol kütlesi, buhar basıncı ve stoikiometriyi otomatik hesaplayıp tek tıkla behere aktarır.
+          </p>
+        </div>
+        <button id="btn-close-wizard-modal" class="reader-btn-close">✕</button>
+      </div>
+
+      <!-- Navigation Tabs inside Wizard Modal -->
+      <div class="cheminfo-tabs-nav wizard-tabs-nav" id="wizard-tabs-nav">
+        <button class="cheminfo-tab-btn active" data-wizard-tab="soap">
+          <span>🧼</span> Doğal Sabun (Kalıp / Sıvı)
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="hydro">
+          <span>🌿</span> Uçucu Yağ Buhar Damıtması
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="extract">
+          <span>⚗️</span> Soxhlet & Biyoaktif Ekstraksiyon
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="ointment">
+          <span>🧴</span> Merhem & Pomad
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="hlb">
+          <span>🔬</span> HLB Emülsiyon & Krem
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="crystal">
+          <span>🧂</span> Kristal Büyütme & Kinetik
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="dilution">
+          <span>🍷</span> Tentür & Alkol Seyreltme
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="thermo">
+          <span>🌡️</span> Termodinamik & Gibbs Dengesi
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="buffer">
+          <span>🧪</span> pH Tampon & Henderson-Hasselbalch
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="penetration">
+          <span>🧬</span> Transdermal Nüfuz & Franz Difüzyon
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="vacuum">
+          <span>🌪️</span> Vakum Basınç Çözücü
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="freeze">
+          <span>❄️</span> Liyofilizasyon & Dondurarak Kurutma
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="liquid_extract">
+          <span>⚖️</span> Sıvı-Sıvı Faz Ayırma & Nernst
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="osmotic">
+          <span>💧</span> Osmotik Basınç & İzotonisite
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="fractional">
+          <span>🗼</span> Fraksiyonel Kolon & Tabak
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="cascade">
+          <span>🔄</span> Kademeli Sentez Döngüleri
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="recovery">
+          <span>♻️</span> Çözücü Geri Kazanım & Kondenser
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="kinetics">
+          <span>⏳</span> Katı-Sıvı Ekstraksiyon & Kinetik
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="absorption">
+          <span>🫧</span> Gaz Çözünürlüğü & Henry Yasası
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="rheology">
+          <span>🧴</span> Jel & Hidrojel Reolojisi
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="adsorption">
+          <span>🖤</span> Katı Adsorpsiyon & Ağartma
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="rvdf">
+          <span>🌀</span> Döner Vakum Tambur & Kek Filtrasyonu
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="spray">
+          <span>💨</span> Püskürtmeli Kurutma & Toz Boyutlandırma
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="supercritical">
+          <span>⚡</span> Süperkritik CO2 Ekstraksiyonu & Chrastil Dengesi
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="membrane">
+          <span>🌐</span> Membran Ayırma & Ters Ozmoz / Ultrafiltrasyon
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="bioreactor">
+          <span>🧫</span> Biyoreaktör & Mikrobiyal Fermantasyon Kinetiği
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="electro">
+          <span>⚡</span> Elektrokimya & Faraday Elektroliz / Galvanik Hücre
+        </button>
+        <button class="cheminfo-tab-btn" data-wizard-tab="fluidbed">
+          <span>🌪️</span> Akışkan Yatak & Granülasyon / Wurster Kaplama
+        </button>
+      </div>
+
+      <div id="wizard-modal-body" style="padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; flex: 1;">
+        <!-- Injected dynamically by lab_engine.js depending on active wizard tab -->
+      </div>
+
+      <!-- Wizard Modal AI Disclaimer -->
+      <div style="margin: 0.4rem 1.25rem 0 1.25rem; padding: 0.5rem 1rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; text-align: center;">
+        <span style="font-size: 1rem;">⚠️</span>
+        <span style="font-size: 0.76rem; color: #cbd5e1; line-height: 1.4;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">
+          💡 İpucu: Seçtiğiniz sihirbazdaki <strong>"⚡ Bu Reçeteyi ve Parametreleri Behere Yükle & Başlat"</strong> butonuna basarak tüm süreci canlı deney kabına aktarabilirsiniz.
+        </span>
+        <button id="btn-footer-close-wizard-modal" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Everyday / Colloquial Chemistry Dictionary -->
+  <div id="dictionary-modal" class="reader-modal-overlay" style="display: none; align-items: center; justify-content: center; z-index: 10008;">
+    <div class="custom-modal-card dict-modal-card" style="max-width: 900px; max-height: 90vh; display: flex; flex-direction: column;">
+      <div class="reader-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 1.4rem;">🗣️</span>
+            <h3 style="color: #fff; margin: 0; font-family: var(--font-serif);">Halk Dili & Gündelik Kimya Sözlüğü & Çevirmen</h3>
+            <span class="badge badge-gold" style="font-size: 0.72rem;">Geleneksel ➔ Bilimsel Kimya Köprüsü</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin: 0.25rem 0 0 0;">
+            Kezzap, zaç yağı, tuz ruhu, göztaşı, nişadır gibi kadim ve halk arasındaki isimleri bilimsel formüllerine, güvenlik notlarına ve simyasal karşılıklarına anında dönüştürün.
+          </p>
+        </div>
+        <button id="btn-close-dict-modal" class="reader-btn-close">✕</button>
+      </div>
+
+      <div style="padding: 1rem 1.25rem; background: rgba(0,0,0,0.25); border-bottom: 1px solid var(--border-gold-subtle);">
+        <input type="text" id="dict-search-input" class="search-input" placeholder="Halk dili veya kimyasal isim ara (örn: Kezzap, Zaç Yağı, Çamaşır Sodası, Nişadır, Göztaşı)...">
+      </div>
+
+      <div id="dict-modal-body" style="padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.85rem; flex: 1;">
+        <!-- Populated dynamically from window.LabWizard.TRADITIONAL_CHEM_DICTIONARY -->
+      </div>
+
+      <!-- Dict Modal AI Disclaimer -->
+      <div style="margin: 0.4rem 1.25rem 0 1.25rem; padding: 0.5rem 1rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 0.6rem; text-align: center;">
+        <span style="font-size: 1rem;">⚠️</span>
+        <span style="font-size: 0.76rem; color: #cbd5e1; line-height: 1.4;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">
+          🔬 İstediğiniz maddenin yanındaki <strong>"➕ Behere Yükle"</strong> butonuna basarak doğrudan reaksiyona dahil edebilirsiniz.
+        </span>
+        <button id="btn-footer-close-dict-modal" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NLM RxNorm Substance Detail Modal -->
+  <div id="rxnorm-detail-modal" class="modal-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; padding: 1.5rem;">
+    <div class="modal-card" style="background: rgba(15, 23, 42, 0.95); border: 1px solid var(--border-gold); border-radius: var(--radius-lg); max-width: 720px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.7);">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.3rem;">💊</span>
+          <span style="font-weight: 700; color: #fbbf24; font-size: 1.05rem;">NLM RxNorm & RxClass Farmasötik Detay Kartı</span>
+        </div>
+        <button id="btn-close-rxnorm-modal" class="modal-close" style="background: none; border: none; font-size: 1.4rem; color: var(--text-muted); cursor: pointer;">✕</button>
+      </div>
+
+      <div id="rxnorm-detail-modal-body" style="padding: 1.25rem; overflow-y: auto; flex: 1;">
+        <!-- Populated dynamically by lab_rxnorm_engine.js -->
+      </div>
+
+      <!-- Detail Modal Mandatory Attribution -->
+      <div style="margin: 0.4rem 1.25rem 0 1.25rem; padding: 0.5rem 0.85rem; background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; font-size: 0.72rem; color: #94a3b8; line-height: 1.4;">
+        This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product.
+      </div>
+
+      <!-- Detail Modal AI Disclaimer -->
+      <div style="margin: 0.3rem 1.25rem 0 1.25rem; padding: 0.45rem 0.85rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-align: center;">
+        <span style="font-size: 0.95rem;">⚠️</span>
+        <span style="font-size: 0.74rem; color: #cbd5e1; line-height: 1.35;">
+          <strong style="color: #fbbf24;">Önemli Bilgilendirme:</strong> Formüller yapay zeka araçları ve hesaplama motorları kullanılarak internet verileri araştırmaları sonucu oluşturulmuştur. Sonuçlarda hata olabilir.
+        </span>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; align-items: center; padding: 0.75rem 1.25rem; border-top: 1px solid var(--border-gold-subtle); background: rgba(0,0,0,0.3);">
+        <button id="btn-footer-close-rxnorm-modal" class="btn btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datalist for Substance Autocomplete -->
+  <datalist id="lab-substances-datalist"></datalist>
+
+  <script src="library_data.js"></script>
+  <script src="lab_data.js"></script>
+  <script src="lab_calculator.js"></script>
+  <script src="lab_cheminformatics.js"></script>
+  <script src="lab_wizard.js"></script>
+  <script src="lab_rxnorm_catalog.js"></script>
+  <script src="lab_rxnorm_engine.js"></script>
+  <script src="app.js"></script>
+  <script src="lab_engine.js"></script>
+</body>
+</html>
