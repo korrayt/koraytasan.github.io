@@ -1533,6 +1533,46 @@
       deltaS_J_K: 190.5,
       type: "Yüksek Sıcaklık Buhar Fazı Metalurjik Şaft Fırını Karbotermal Çinko İndirgemesi",
       description: "Bristol'daki Imperial Smelting Corporation tarafından geliştirilen ve eşzamanlı olarak kurşun ile çinkoyu birlikte eriten devrimci metalurjik şaft fırını prosesidir. 1150°C'de metalik çinko gaz buharı halinde fırının tepesinden çıkar ve havayla temas edip tekrar oksitlenmesini önlemek için sıvı kurşun püskürtmeli şok yoğuşturucuda (lead splash condenser) saniyeler içinde dondurularak sıvı çinko olarak saflaştırılır."
+    },
+    "siemens_process_polysilicon_deposition": {
+      name: "Siemens Prosesi Polikristalin Yarı İletken Silisyum Biriktirmesi (SiHCl3 + H2 ➔ Si + 3 HCl)",
+      equation: "SiHCl3(g) + H2(g) ➔ Si(k) + 3 HCl(g)",
+      deltaH_kJ: 222.3,
+      deltaS_J_K: 148.5,
+      type: "Yüksek Sıcaklık Kimyasal Buhar Biriktirme (CVD) Elektronik Saflıkta Polikon Sentezi",
+      description: "Siemens tarafından 1950'lerde geliştirilen ve dünya fotovoltaik ile mikroişlemci endüstrisinin temel hammaddesi olan 9N-11N saflıkta polikristalin silisyum külçelerinin üretim prosesidir. Triklorosilan ve aşırı hidrojen gazı 1100-1150°C'de parıldayan U-şekilli silisyum filamanlar üzerinden geçirilir; endotermik CVD yüzey reaksiyonuyla filamanlar devasa saf silisyum kütüklere dönüşür."
+    },
+    "ammonia_cracking_green_hydrogen": {
+      name: "Amonyak Termokatalitik Krakingi ile Sıfır Karbon Hidrojen Üretimi (2 NH3 ➔ N2 + 3 H2)",
+      equation: "2 NH3(g) ➔ N2(g) + 3 H2(g)",
+      deltaH_kJ: 91.8,
+      deltaS_J_K: 198.1,
+      type: "Endotermik Katalitik Gaz Fazı Ayrışması & Sıfır Karbon Hidrojen Taşıyıcı Kimyası",
+      description: "Yeşil hidrojenin küresel ölçekte sıvı amonyak (NH3) formunda depolanıp taşınmasının ardından hedef noktada tekrar saf hidrojene dönüştürülmesini sağlayan termokatalitik kraking prosesidir. 550-650°C'de nikel veya rutenyum katalizör yatağından geçirilen amonyak molekülleri sıfır karbon salınımıyla %100 temiz hidrojen ve inert azot gazına ayrışır."
+    },
+    "solid_oxide_co2_electrolysis_soec": {
+      name: "Katı Oksit Elektrolizörü (SOEC) ile Baca Gazı CO2 Ayrışması (CO2 ➔ CO + 0.5 O2)",
+      equation: "CO2(g) ➔ CO(g) + 0.5 O2(g)",
+      deltaH_kJ: 283.0,
+      deltaS_J_K: 86.5,
+      type: "Yüksek Sıcaklık Katı Seramik Elektrolitik Dekarbonizasyon & Syngas Üretimi",
+      description: "Sanayi baca gazlarındaki karbondioksiti (CO2) 800-850°C'de YSZ elektrolitli katı oksit hücresinde (SOEC) doğrudan karbon monoksite (CO) ve saf oksijene ayrıştıran ileri elektrokimyasal teknolojidir. Yüksek sıcaklık termal enerjisinden faydalandığı için oda sıcaklığı elektrolizine kıyasla elektrik tüketimini %35 azaltır ve sentetik yakıt (Power-to-X) hammaddesi sağlar."
+    },
+    "carbothermic_reduction_magnesium_hansgirg": {
+      name: "Hansgirg Prosesi Karbotermal Magnezyum İndirgemesi (MgO + C ➔ Mg + CO)",
+      equation: "MgO(k) + C(k) ➔ Mg(g) + CO(g)",
+      deltaH_kJ: 491.1,
+      deltaS_J_K: 313.7,
+      type: "Yüksek Sıcaklık Elektrik Ark Fırını Şok-Soğutmalı Buhar Fazı Magnezyum Metalurjisi",
+      description: "Fritz Hansgirg tarafından 1930'da geliştirilen elektrik ark fırınlı karbotermal magnezyum üretim prosesidir. 2000°C'de magnezit ve karbon reaksiyona girerek magnezyum gazı ve CO üretir; fırın çıkışında magnezyumun CO ile tekrar birleşmesini (ters reaksiyonu) engellemek için hidrojen veya doğal gaz jeti ile 200°C'ye şok soğutma (quenching) uygulanarak mikro-kristalin metalik magnezyum tozu toplanır."
+    },
+    "aluminum_dross_nitride_carbothermal": {
+      name: "Alüminyum Nitrür (AlN) İleri Yarı İletken Seramik Karbotermal Sentezi (Al2O3 + 3 C + N2 ➔ 2 AlN + 3 CO)",
+      equation: "Al2O3(k) + 3 C(k) + N2(g) ➔ 2 AlN(k) + 3 CO(g)",
+      deltaH_kJ: 708.2,
+      deltaS_J_K: 288.4,
+      type: "Yüksek Sıcaklık Endotermik Katı-Gaz Nitrürleme & İleri Termal İletken Seramik Sentezi",
+      description: "Yüksek güçlü LED, lazer diyot ve elektrikli araç IGBT güç modüllerinde ısıyı hızla tahliye eden (170-220 W/(m·K) termal iletkenlik) ve silisyum ile kusursuz termal genleşme uyumu sağlayan AlN seramik tozunun endüstriyel sentezidir. Yüksek saflıkta alümina ve karbon tozu 1700-1800°C'de saf azot atmosferinde fırınlanır; sürekli CO süpürmesiyle dengenin AlN yönüne kayması sağlanır."
     }
   };
 
@@ -6570,6 +6610,226 @@
       everydayUsage: "Yaşlanma karşıtı lüks yüz misti, meditasyon öncesi nefes açıcı oda spreyi, güneş lekelerini aydınlatıcı losyon bazı.",
       alchemicalName: "Aqua Resinae Olibani",
       note: "Umman çöllerinden toplanan kıymetli akgünlük gözyaşlarının damıtılmasıyla elde edilen, cildin kolajen matriksini koruyan ve zihne dinginlik veren tarihi kutsal sudur."
+    },
+    {
+      colloquial: "Siyam Akgünlüğü / Tatlı Asilbent Ruhu",
+      scientific: "Styrax tonkinensis Sakız Reçinesi Etanolik Özütü (%70-80 Koniferil Benzoat & Doğal Vanilin)",
+      formula: "C17H16O4_coniferyl_benzoate",
+      category: "Kadim Vanilya Kokulu Asilbent Reçinesi & Fiksatif",
+      subId: "sub-res-benzoin-siam",
+      safety: "🟢 Güvenli Parfümeri ve Cilt Yatıştırıcı Aktif",
+      everydayUsage: "Lüks parfümlerde sıcak vanilyamsı dip nota fiksatif, çatlak dudak ve kuru el balsamları, antiseptik tütsü.",
+      alchemicalName: "Resina Benzoe Siamensis",
+      note: "Laos ve Tayland dağlarındaki Styrax tonkinensis ağacının gövdesinden süzülen altın sarısı-bal rengi gözyaşı damlalarıdır; doğal vanilin zenginliğiyle bilinir."
+    },
+    {
+      colloquial: "Sumatra Asilbenti / Benzoin Reçinesi",
+      scientific: "Styrax benzoin Doğal Sakız Reçinesi (%20-30 Sinnamik Asit & Benzoik Asit)",
+      formula: "C9H8O2_cinnamic_acid",
+      category: "Geleneksel Tıbbi Buharlaşma Reçinesi & Antiseptik",
+      subId: "sub-res-benzoin-sumatra",
+      safety: "🟢 Güvenli Geleneksel Solunum Rahatlatıcı",
+      everydayUsage: "Üst solunum yolu buğu inhalasyonu, tarihi friar's balsam yara pansumanı tentürü, sabun koruyucu antioksidan.",
+      alchemicalName: "Tinctura Benzoes Sumatrana",
+      note: "Endonezya adalarından toplanan, sinnamik asit kokulu kırmızımsı-gri reçinedir; yüzyıllardır göğüs yumuşatıcı buğularda birincil etken maddedir."
+    },
+    {
+      colloquial: "Elemi Reçinesi / Manila Elemi Ruhu",
+      scientific: "Canarium luzonicum Sakız Reçinesi Distilatı (%10-25 Elemisin, Elemol & Felandren)",
+      formula: "C12H16O3_elemicin",
+      category: "Hücre Yenileyici Tropik Sakız & İnce Resim Cilası",
+      subId: "sub-res-elemi-gum",
+      safety: "🟢 Güvenli Reçine & Aromaterapi Aktifi",
+      everydayUsage: "Güneş hasarı ve yara izi onarıcı gece kremleri, litografi baskı plakası esnetici katkısı, tütsü karışımları.",
+      alchemicalName: "Resina Elemi Manila",
+      note: "Filipinler'e endemik Canarium ağacından elde edilen, taze narenciye ve dereotu tınılı yumuşak ve esnek tarihi reçinedir."
+    },
+    {
+      colloquial: "Kasnı Sakızı / Galbanum Ruhu",
+      scientific: "Ferula gummosa / Ferula galbaniflua Doğal Kök Sakızı (%60-70 Reçine, %10-20 Uçucu Yağ, Undekatrien)",
+      formula: "C11H18_undecatriene",
+      category: "Yoğun Yeşil Notalı Kadim Pers Reçinesi & İltihap Giderici",
+      subId: "sub-res-galbanum-gum",
+      safety: "🟢 Güvenli Doğal Sakız Reçinesi",
+      everydayUsage: "Kutsal tapınak tütsülerinin yeşil üst notası, çıban ve iltihaplı apse olgunlaştırıcı tarihi yakı hamuru, yüksek parfümeri yeşil notası.",
+      alchemicalName: "Gummi Resina Galbanum",
+      note: "İran dağlarındaki dev çakşır türlerinin kök boğazından akan, keskin yeşil biber ve kır kokusuna sahip, Tevrat'ta adı geçen dört kutsal tütsüden biridir."
+    },
+    {
+      colloquial: "Tatlı Mür / Opoponaks Ruhu",
+      scientific: "Commiphora guidottii / Commiphora erythraea Sakız Reçinesi (Bisabolen & Triterpenik Reçine)",
+      formula: "C15H24_bisabolene",
+      category: "Mistik Sıcak Balzamik Tütsü Reçinesi & Doku Onarıcı",
+      subId: "sub-res-opoponax-gum",
+      safety: "🟢 Güvenli Reçine Özütü",
+      everydayUsage: "Oryantal parfümlerin kadife sıcak kalp notası, derin meditasyon tütsüsü, çatlamış cilt onarıcı merhem bazı.",
+      alchemicalName: "Gummi Resina Opoponax",
+      note: "Kral Süleyman mürü olarak da anılan, standart acı müre kıyasla çok daha tatlı, toffee ve bal tınılarına sahip kadim Doğu Afrika kutsal reçinesidir."
+    },
+    {
+      colloquial: "Laden Reçinesi / Kara Amber Balsamı",
+      scientific: "Cistus ladaniferus Yaprak Reçine Özütü (Labdanoik Asit, Ambrein Benzeri Labdane İskeleti)",
+      formula: "C20H34O3_labdanoic_acid",
+      category: "Bitkisel Ambergris / Hayvansal Amber Muadili Asil Reçine",
+      subId: "sub-res-labdanum-amber",
+      safety: "🟢 Güvenli Lüks Kozmetik ve Parfüm Fiksatif",
+      everydayUsage: "Doğal amber akorunun temeli, kanama durdurucu ve yara kapatıcı balzam, egzama yatıştırıcı merhem bileşeni.",
+      alchemicalName: "Ladanum Resina / Ambra Vegetalis",
+      note: "Akdeniz kıyılarındaki kaya güllerinin yaz sıcağında salgıladığı, tarihi olarak keçi sakallarına yapışan reçinelerin taranmasıyla toplanan bitkisel amberdir."
+    },
+    {
+      colloquial: "Kalsine Pas-ı Dimişk / Kalsine Bakır Pası",
+      scientific: "Kalsine Edilmiş Bazik Bakır Asetat / Bakır Oksit Pigmenti (Tenorit CuO + Kuprit Cu2O Karışımı)",
+      formula: "CuO+Cu2O_calcined",
+      category: "Simyasal Kalsine Bakır Cürufu & Seramik Sır Boyası",
+      subId: "sub-pig-verdigris-calcined",
+      safety: "🔴 Toksik İnorganik Bakır Külü - Yalnızca Dış / Seramik Kullanım",
+      everydayUsage: "Geleneksel Türk çinilerinde firuze ve nefti yeşil sır pigmenti, ahşap deniz kazıklarını çürümekten koruyan zehirli macun.",
+      alchemicalName: "Aes Ustum / Calx Cupri",
+      note: "Bakır plakaların sirke buharında bekletilmesiyle oluşan yeşil pasın (verdigris) fırında kalsine edilerek elde edilen siyah-kırmızımsı metalik cüruftur."
+    },
+    {
+      colloquial: "Ölü Başı / Caput Mortuum",
+      scientific: "Termal Kalsinasyonla Elde Edilen Yüksek Saflıkta Demir-3 Oksit (Morumsu-Kahverengi Alfa-Fe2O3)",
+      formula: "Fe2O3_caput_mortuum",
+      category: "Kadim Simyasal Kalsinasyon Kalıntısı & Mor Demir Pigmenti",
+      subId: "sub-pig-caput-mortuum",
+      safety: "🟢 Güvenli Doğal Mineral Pigment",
+      everydayUsage: "Rönesans usta portrelerinde ten gölgeleri ve mor kadife kumaş boyası, optik cam parlatma tozu (Jeweler's Rouge).",
+      alchemicalName: "Caput Mortuum Vitrioli",
+      note: "Simyacıların yeşil vitriyolden (demir sülfat) kezzap ve zaç yağı damıttıktan sonra imbik tabanında kalan morumsu 'ölü kafa' kalıntısıdır."
+    },
+    {
+      colloquial: "Huş Ağacı Kabuğu Külü / Spajirik Betula Tuzu",
+      scientific: "Betula pendula Dış Beyaz Kabuk Kalsinasyon Külü (Potasyum Karbonat & Biyojenik Betulin Mineral İskeleti)",
+      formula: "K2CO3+CaCO3_betula",
+      category: "İskandinav Spajirik Ağaç Tuzu & Deri Tabaklama Külü",
+      subId: "sub-base-ash-birch-bark",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Geleneksel Rus derisi (Juft) tabaklama kül suyu, romatizma banyoları mineral tuzu, spajirik huş iksirlerinin tuzu.",
+      alchemicalName: "Sal Corticis Betulae",
+      note: "Huş kabuğunun yüksek ısıda kalsinasyonuyla elde edilen, zengin kalsiyum ve potasyum karbonat içeren arındırıcı ve sıkılaştırıcı ağaç külüdür."
+    },
+    {
+      colloquial: "Çam Odunu Külü / Spajirik Pinus Tuzu",
+      scientific: "Pinus sylvestris Reçineli Çıra Odunu Kalsinasyon Külü (Potasyum Karbonat, Sodyum Karbonat & Kalsiyum Sülfat)",
+      formula: "K2CO3+Na2CO3+CaSO4_pinus",
+      category: "Geleneksel Çam Sabunu Mayası & Toprak Arındırıcı Kül",
+      subId: "sub-base-ash-pine-wood",
+      safety: "🟢 Güvenli Doğal Alkali Kül",
+      everydayUsage: "Orman köylerinde çam katranı sabunu pişirme sodası, mantar önleyici kütük yıkama kül suyu, spajirik çam tentürü tuzu.",
+      alchemicalName: "Sal Ligni Pini",
+      note: "Reçine bakımından zengin çıralı çam kütüklerinin kalsine edilmesiyle elde edilen, katran sabunlarına sertlik ve dayanıklılık veren geleneksel küldür."
+    },
+    {
+      colloquial: "Dağ Çayı Külü / Spajirik Sideritis Tuzu",
+      scientific: "Sideritis scardica / Sideritis congesta Odunsu Çiçek Sapı Kalsinasyonu (Potasyum Karbonat, Magnezyum & Biyo-Silika)",
+      formula: "K2CO3+MgCO3+SiO2_sideritis",
+      category: "Akdeniz Demir Çayı Külü & Spajirik Dayanıklılık Tuzu",
+      subId: "sub-base-ash-sage-stem",
+      safety: "🟢 Güvenli Spajirik Bitki Tuzu",
+      everydayUsage: "Spajirik dağ çayı eliksirinin mineral gövdesi, kış direnci artıran geleneksel mineral takviyesi, yara yıkama suyu katkısı.",
+      alchemicalName: "Sal Florum Sideritis",
+      note: "Toroslar'da yüksek irtifada yetişen demir otu / dağ çayının sap ve çiçeklerinin kalsinasyonuyla elde edilen, yüksek silis ve magnezyumlu mineral tuzdur."
+    },
+    {
+      colloquial: "Karanfil Çöpü Külü / Spajirik Caryophyllus Tuzu",
+      scientific: "Syzygium aromaticum Sap ve Pedinkül Kalsinasyon Külü (Potasyum Fosfat, Kalsiyum & Demir İzleri)",
+      formula: "K3PO4+K2CO3+Fe2O3_clove",
+      category: "Kadim Baharat Tuzu & Diş Bakım Minerali",
+      subId: "sub-base-ash-clove-stem",
+      safety: "🟢 Güvenli Doğal Bitki Külü",
+      everydayUsage: "Tarihi diş tozu mineral bazı, spajirik karanfil tentürünün tuz fazı, ağız kokusu giderici geleneksel mineral karışımları.",
+      alchemicalName: "Sal Stiptum Caryophylli",
+      note: "Karanfil tomurcuklarının ayıklanan odunsu çöplerinin kalsinasyonuyla elde edilen, fosfat ve demir mineralleri bakımından zengin keskin kül tuzudur."
+    },
+    {
+      colloquial: "Ölmez Çiçek Suyu / Helichrysum Hidrosolü",
+      scientific: "Helichrysum italicum Çiçek Buhar Distilat Suyu (Neryl Asetat, alfa-Pinen & İtalidionlar)",
+      formula: "C12H20O2_neryl_acetate",
+      category: "Doku Onarıcı & Morluk Giderici Altın Çiçek Suyu",
+      subId: "sub-bot-immortelle-water",
+      safety: "🟢 Güvenli Lüks Cilt Yenileyici Hidrosol",
+      everydayUsage: "Göz altı morlukları ve şişliklerini dindirici tonik, cerrahi sonrası cilt onarım spreyi, kılcal damar yatıştırıcı.",
+      alchemicalName: "Aqua Florum Helichrysi",
+      note: "Kurusa bile rengini ve kokusunu kaybetmeyen altın sarısı ölmez çiçeğin damıtılmasıyla elde edilen, hematom ve morlukları hızla dağıtan tarihi şifa suyudur."
+    },
+    {
+      colloquial: "Misk Adaçayı Suyu / Salvia Sclarea Hidrosolü",
+      scientific: "Salvia sclarea Çiçek/Yaprak Buhar Distilatı (Linalil Asetat, Linalool & Sklareol İzleri)",
+      formula: "C12H20O2_linalyl_acetate",
+      category: "Hormonal Dengeleyici & Rahatlatıcı Kadın Otu Hidrosolü",
+      subId: "sub-bot-clary-sage-water",
+      safety: "🟢 Güvenli Doğal Yatıştırıcı Cilt Toniği",
+      everydayUsage: "PMS ve menopoz dönemi sıcak basması serinletici mist, yağlı saç derisi ve sebum dengeleyici tonik, uyku öncesi yastık spreyi.",
+      alchemicalName: "Aqua Salviae Sclareae",
+      note: "Orta Çağ'da 'berrak göz' (Clary Eye) olarak adlandırılan misk adaçayının distilasyon suyudur; östrojen benzeri sklareol tınılarıyla dinginlik verir."
+    },
+    {
+      colloquial: "Vetiver Kökü Suyu / Khus Hidrosolü",
+      scientific: "Chrysopogon zizanioides Kök Buhar Distilatı (Khusimol, Vetivenol & Vetivon)",
+      formula: "C15H24O_khusimol",
+      category: "Kökten Gelen Serinlik & Topraklayıcı Çöl Suyu",
+      subId: "sub-bot-vetiver-water",
+      safety: "🟢 Güvenli Doğal Ferahlatıcı Hidrosol",
+      everydayUsage: "Aşırı sıcaklarda vücut hararetini düşüren serinletici vücut suyu, erkek tıraş sonrası yatıştırıcı, gözenek sıkılaştırıcı tonik.",
+      alchemicalName: "Aqua Radicis Vetiveriae",
+      note: "Hindistan'da pencere storlarına püskürtülerek muson sıcağını serinletici buhara dönüştüren, ıslak toprak kokulu derin kök hidrosolüdür."
+    },
+    {
+      colloquial: "Paçuli Yaprağı Suyu / Pogostemon Hidrosolü",
+      scientific: "Pogostemon cablin Fermente Yaprak Buhar Distilatı (Paçulol, Pogostol & Karyofillen)",
+      formula: "C15H26O_patchoulol",
+      category: "Egzama Karşıtı Odunsu Yaprak Suyu & Güve Kalkanı",
+      subId: "sub-bot-patchouli-water",
+      safety: "🟢 Güvenli Cilt Yatıştırıcı Hidrosol",
+      everydayUsage: "Kuru ve pullanan egzama bölgeleri kompresi, ipekli ve yünlü kumaş güve koruyucu spreyi, ferahlatıcı ayak spreyi.",
+      alchemicalName: "Aqua Foliorum Pogostemonis",
+      note: "Hafif fermente edilmiş kurutulmuş yaprakların damıtılmasıyla açığa çıkan, derin egzotik kokusuyla cildi yatıştıran tarihi İpek Yolu koruyucu suyudur."
+    },
+    {
+      colloquial: "Saf Defne Tohumu Yağı / Tefrit Yağı",
+      scientific: "Laurus nobilis Olgun Meyve/Tohum Sıcak Pres Yağı (%35-45 Trigliserit, %2-4 Uçucu Öjenol & Sineol)",
+      formula: "C39H74O6_laurin_triglyceride",
+      category: "Geleneksel Halep Sabununun Kalbi & Romatizma Merhemi",
+      subId: "sub-bot-bay-laurel-oil",
+      safety: "🟢 Güvenli Sabunculuk ve Masaj Yağı",
+      everydayUsage: "Hakiki Halep ve Antakya defne sabunlarının yeşil antiseptik ana hammaddesi, ağrıyan eklemler için ısıtıcı masaj yağı.",
+      alchemicalName: "Oleum Lauri Fructus",
+      note: "Sadece yaprağından değil, defne ağacının siyah zeytin benzeri tohumlarının kaynatılarak preslenmesiyle elde edilen zümrüt yeşili yoğun şifalı yağdır."
+    },
+    {
+      colloquial: "Acı Badem Distilatı / Amigdalin Suyu",
+      scientific: "Prunus dulcis var. amara Meyve Çekirdeği Buhar Distilatı (Doğal Benzaldehit & Eser Siyanürden Arındırılmış Hidrosol)",
+      formula: "C7H6O_benzaldehyde",
+      category: "Gurme Aromatik & Geleneksel Cilt Leke Aydınlatıcı",
+      subId: "sub-bot-sweet-almond-bitter",
+      safety: "🟡 Arındırılmış Kozmetik Kullanım (İçilmez)",
+      everydayUsage: "Güneş çillerini ve kahverengi yaşlılık lekelerini aydınlatıcı losyonlar, geleneksel marzipan ve likör koku vericisi.",
+      alchemicalName: "Aqua Amygdalarum Amararum",
+      note: "Acı badem tohumlarının suyla hidrolizi sonucu amigdalinin benzaldehite parçalanmasıyla damıtılan, karakteristik marzipan kokulu kadim güzellik suyudur."
+    },
+    {
+      colloquial: "Biberiye Odunu Külü / Spajirik Rosmarinus Külü",
+      scientific: "Rosmarinus officinalis Odunsu Kök ve Gövde Kalsinasyon Külü (Potasyum Karbonat & Magnezyum Fosfat)",
+      formula: "K2CO3+Mg3(PO4)2_rosemary",
+      category: "Hafıza & Saç Güçlendirici Spajirik Odun Külü",
+      subId: "sub-base-ash-rosemary-wood",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Spajirik biberiye iksirinin mineral kalsinasyon tuzu, saç dökülmesini engelleyen tarihi küllü su şampuanı katkısı.",
+      alchemicalName: "Sal Ligni Rosmarini",
+      note: "Biberiyenin odunlaşmış yaşlı dallarının yüksek fırında kalsine edilmesiyle elde edilen, saç köklerini uyaran potasyum ve magnezyumca zengin simyasal tuzdur."
+    },
+    {
+      colloquial: "Sığala Ağacı Reçinesi Kabuğu / Buhur-ı Meryem",
+      scientific: "Liquidambar orientalis Ağaç Kabuğu ve Doğal Storaks Balzamı Karışımı (Sinnamil Sinnamat & Reçine Asitleri)",
+      formula: "C18H16O2_cinnamyl_cinnamate",
+      category: "Endemik Anadolu Tütsüsü & Yara Koruyucu Mühür",
+      subId: "sub-res-styrax-calamita",
+      safety: "🟢 Güvenli Doğal Reçine ve Tütsü",
+      everydayUsage: "Cami ve kiliselerde asırlardır yakılan en asil Anadolu tütsüsü (Buhur), mide ülseri geleneksel balgam söktürücü macun.",
+      alchemicalName: "Styrax Calamita / Cortex Thymiamatis",
+      note: "Muğla-Köyceğiz endemik sığala ormanlarında ağaç kabuklarının sıyrılarak sığala yağı ile kaynatılması sonucu hazırlanan kokulu tarihi tütsü kabuklarıdır."
     }
   ];
 
