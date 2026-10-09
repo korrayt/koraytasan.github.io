@@ -1453,6 +1453,46 @@
       deltaS_J_K: 260.0,
       type: "Endotermik Buhar Sıyırmalı Amonyak Rejenerasyonu",
       description: "Solvay soda prosesinin ekonomik başarısının temel direğidir. Karbonasyon kulesinden çıkan amonyum klorür çözeltisi, kireç söndürme çamuruyla karıştırılarak 100°C buhar kulesinde damıtılır; açığa çıkan gaz amonyak soğurma kulelerine geri beslenirken atık kalsiyum klorür (CaCl2) tabandan ayrılır."
+    },
+    "sol_gel_silica_teos_hydrolysis": {
+      name: "Sol-Jel Silika TEOS Asidik Hidrolizi (Si(OC2H5)4 + 2 H2O ➔ SiO2 + 4 C2H5OH)",
+      equation: "Si(OC2H5)4(s) + 2 H2O(s) ➔ SiO2(k) + 4 C2H5OH(s)",
+      deltaH_kJ: -58.4,
+      deltaS_J_K: 42.0,
+      type: "Ilımlı Ekzotermik Sol-Jel Nanoyapılı Silika ve Aerojel Sentezi",
+      description: "Optik kaplamalar, monolitik aerojeller ve silika nanopartiküllerinin üretiminde kullanılan temel sol-jel kondansasyon reaksiyonudur. Tetraetil ortosilikat (TEOS), asit veya baz katalizörlüğünde oda sıcaklığında hidroliz olarak silanol (Si-OH) ağları örer ve 3 boyutlu nano-gözenekli cam matrisini oluşturur."
+    },
+    "methane_pyrolysis_turquoise_hydrogen": {
+      name: "Termokatalitik Metan Pirolizi Turkuaz Hidrojen Sentezi (CH4 ➔ C + 2 H2)",
+      equation: "CH4(g) ➔ C(k) + 2 H2(g)",
+      deltaH_kJ: 74.8,
+      deltaS_J_K: 89.2,
+      type: "Endotermik Sıfır-CO2 Emisyonsuz Turkuaz Hidrojen & Karbon Siyahı Üretimi",
+      description: "Sıfır karbondioksit (CO2) salınımıyla hidrojen üreten devrimsel 'turkuaz hidrojen' teknolojisinin temelidir. Metan gazı sıvı kalay veya nikel katalizörü eşliğinde 850-1000°C'de oksijensiz ortamda pirolize edilir; gaz fazında saf H2 çıkarken karbon katı grafit/karbon siyahı olarak tabanda toplanır ve depolanır."
+    },
+    "lithium_iron_phosphate_solid_state": {
+      name: "LFP Lityum Demir Fosfat Katot Katı Hal Kalsinasyonu (2 LiOH + 2 FePO4 + C ➔ 2 LiFePO4 + CO + H2O)",
+      equation: "2 LiOH(k) + 2 FePO4(k) + C(k) ➔ 2 LiFePO4(k) + CO(g) + H2O(g)",
+      deltaH_kJ: 112.0,
+      deltaS_J_K: 215.0,
+      type: "Endotermik Elektrikli Araç Bataryası LFP Katot Kristal Sentezi",
+      description: "Elektrikli araçlar ve enerji depolama sistemleri (ESS) için en uzun ömürlü ve termal olarak en güvenli katot malzemesi olan olivin yapılı LiFePO4'ün endüstriyel karbotermal indirgeme sentezidir. 700°C'de azot atmosferinde kalsine edilerek nano-karbon kaplı LFP partikülleri üretilir."
+    },
+    "mond_nickel_decomposition": {
+      name: "Mond Prosesi Nikel Tetrakarbonil Termal Ayrışması (Ni(CO)4 ➔ Ni + 4 CO)",
+      equation: "Ni(CO)4(g) ➔ Ni(k) + 4 CO(g)",
+      deltaH_kJ: 161.0,
+      deltaS_J_K: 410.0,
+      type: "Endotermik Yüksek Saflıkta Nikel Pelet Buhar Fazı Metalurjisi",
+      description: "Ludwig Mond tarafından 1890'da keşfedilen prosesin ikinci adımıdır. 50°C'de sentezlenen uçucu ve toksik nikel tetrakarbonil gazı, 230°C'ye ısıtılmış pelet kulesine püskürtüldüğünde endotermik olarak hızla parçalanır; karbon monoksit gazı geri dönüştürülürken peletler üzerinde atomik katmanlar halinde %99.99 saflıkta nikel birikir."
+    },
+    "birch_reduction_benzene_mechanism": {
+      name: "Birch İndirgemesi Siklohekzadien Sentezi (C6H6 + 2 Na + 2 EtOH ➔ C6H8 + 2 EtONa)",
+      equation: "C6H6(s) + 2 Na(s) + 2 C2H5OH(s) ➔ C6H8(s) + 2 C2H5ONa(s)",
+      deltaH_kJ: -186.4,
+      deltaS_J_K: -95.0,
+      type: "Şiddetli Ekzotermik Çözünmüş Metal Organik Aromatik İndirgemesi",
+      description: "Arthur Birch tarafından 1944'te keşfedilen ve aromatik benzen halkasını seçici olarak konjuge olmayan 1,4-siklohekzadiene indirgeyen klasik organik sentez reaksiyonudur. Sıvı amonyak içinde çözünmüş sodyum metali solvate elektronlar üretir ve proton donörü etanol varlığında steroid ve farmasötik sentezlerinin kilit yapıtaşını oluşturur."
     }
   };
 
@@ -6050,6 +6090,226 @@
       everydayUsage: "Lüks parfümlerde kalıcılık artırıcı dip nota sabitleyici, tarihi nefes darlığı buğusu, tahriş giderici göğüs merhemi.",
       alchemicalName: "Oleum Styrax Liquidus",
       note: "Dünyada yalnızca Muğla Köyceğiz ve Rodos vadilerinde yetişen endemik sığala ağaçlarının gövdesinden toplanan ve Kleopatra'nın aşk iksiri sayılan kokulu balzamdır."
+    },
+    {
+      colloquial: "Gül Mayası Distilatı / Damascena Özü",
+      scientific: "Rosa damascena Taze Taç Yaprak Vakum Distilatı (2-Feniletanol, Sitronellol & Geraniyol)",
+      formula: "C8H10O_phenethyl_rose",
+      category: "Kardiyak Rezonans & Hücresel Gençleştirici İksir",
+      subId: "sub-bot-rose-may-extract",
+      safety: "🟢 Güvenli Yenilebilir Lüks Çiçek Distilatı",
+      everydayUsage: "Geleneksel gül reçeli ve lokum aroması, kalp ferahlatıcı şerbetler, anti-aging göz çevresi serumu.",
+      alchemicalName: "Spiritus Rosae Damascenae",
+      note: "Isparta gül vadilerinden sabah gün doğmadan toplanan güllerin ilk distilasyon mayasıdır; frekansı en yüksek doğal esans kabul edilir."
+    },
+    {
+      colloquial: "Hatmi Kökü Müsilajı / Althaea Hidrosolü",
+      scientific: "Althaea officinalis Kök Sulu Ekstresi (Yüksek Molekül Ağırlıklı Arabinogalaktan & Ramnogalakturonan Müsilajı)",
+      formula: "C12H20O10_mucilage_althaea",
+      category: "Demulsan & Mukoza Koruyucu Biyo-Jel Hidrosolü",
+      subId: "sub-bot-marshmallow-root-water",
+      safety: "🟢 Güvenli Doğal Koruyucu Müsilaj",
+      everydayUsage: "Kuru ve tahriş edici inatçı öksürük şurubu bazı, reflüde yemek borusu koruyucu jel, hassas kuru cilt nemlendiricisi.",
+      alchemicalName: "Mucilago Radicis Althaeae",
+      note: "Suyla temas ettiğinde şişerek kaygan bir biyo-jel örtü oluşturur; asit ve mekanik sürtünmeye karşı hücre yüzeyini kaplar."
+    },
+    {
+      colloquial: "Melekotu Kökü Yağı / Angelika Ruhu",
+      scientific: "Angelica archangelica Kök Buhar Distilatı (alfa-Pinen, beta-Fellandren & Siklosiklopentadekanolid)",
+      formula: "C15H28O2_angelica_root",
+      category: "Kadim Veba Koruyucu & Misk Notalı Kök Yağı",
+      subId: "sub-bot-angelica-root-oil",
+      safety: "🟡 Fototoksiktir (Güneşe Çıkmadan Önce Sürülmez / Furanokumarin İçerir)",
+      everydayUsage: "Bénédictine ve Chartreuse likörlerinin gizli taban aroması, sindirim toniği masajı, tarihi panzehir tütsüleri.",
+      alchemicalName: "Oleum Radicis Angelicae",
+      note: "Ortaçağ Avrupa'sında başmelek Mikail'in vebadan korunmak için insanlara vahyettiğine inanılan mistik kök ruhudur."
+    },
+    {
+      colloquial: "Sığala Yağı Külü / Spajirik Styrax Tuzu",
+      scientific: "Liquidambar orientalis Saf Reçine Kalsinasyon Külü (Kalsiyum Oksit, Potasyum Karbonat ve Silika CaO + K2CO3)",
+      formula: "CaO+K2CO3_storax",
+      category: "Spajirik Reçine Külü & Biyo-Mineral Kristal",
+      subId: "sub-base-ash-storax",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Spajirik sığala iksirini bedensel tuzla tamamlama, geleneksel egzama külleri, alkali banyo tozu.",
+      alchemicalName: "Sal Styracis Liquidi",
+      note: "Endemik Anadolu sığala ağacı reçinesinin alevsiz közde tam kalsine edilmesiyle elde edilen beyaz billur tuzdur."
+    },
+    {
+      colloquial: "Kantaron Çiçeği Külü / Sal Hyperici",
+      scientific: "Hypericum perforatum Parlak Sarı Çiçek Kalsinasyon Külü (Potasyum Fosfat & Demir Karbonat K3PO4 + FeCO3)",
+      formula: "K3PO4+FeCO3_hypericum",
+      category: "Spajirik Çiçek Tuzu & Güneş Prensibi Minerali",
+      subId: "sub-base-ash-hypericum-flower",
+      safety: "🟢 Güvenli Doğal Spajirik Tuz",
+      everydayUsage: "Spajirik sarı kantaron simya iksirinin 'tuz' bedenini yeniden canlandırma, sinir yatıştırıcı mineral takviyesi.",
+      alchemicalName: "Sal Florum Hyperici",
+      note: "Yaz gündönümünde toplanan sarı çiçeklerin yakılmasıyla elde edilir; simyada Güneş'in mineral bedenini simgeler."
+    },
+    {
+      colloquial: "Civanperçemi Uçucu Yağı / Saf Kamazulen Ruhu",
+      scientific: "Achillea millefolium Çiçek Özel Fraksiyonel Distilatı (%25+ Konsantre Koyu İndigo Kamazulen)",
+      formula: "C14H16_pure_chamazulene",
+      category: "Güçlü Anti-Enflamatuar & Lüks İndigo Mavi Uçucu Yağ",
+      subId: "sub-bot-yarrow-pure-chamazulene",
+      safety: "🟢 Seyreltilerek Masaj Yağı Olarak Uygulanır",
+      everydayUsage: "Romatoid artrit eklem ovması, şiddetli egzama ve sedef yatıştırıcı merhem aktifi, lüks mavi yüz iksiri.",
+      alchemicalName: "Oleum Millefolii Coeruleum Verum",
+      note: "Distilasyon esnasında renksiz matrisin molekülünün pirolitik dehidrasyonu ile lacivert-mavi kamazulene dönüşmesiyle oluşur."
+    },
+    {
+      colloquial: "Adaçayı Çiçeği Külü / Sal Salviae",
+      scientific: "Salvia officinalis Çiçek Başçığı Kalsinasyon Külü (Magnezyum Oksit & Potasyum Karbonat MgO + K2CO3)",
+      formula: "MgO+K2CO3_salvia",
+      category: "Spajirik Bitki Tuzu & Boğaz Koruyucu Mineral",
+      subId: "sub-base-ash-salvia-flower",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Boğaz enfeksiyonlarında adaçayı hidrosolüne ilave edilen mineral tuzu, tarihi diş beyazlatma tozu.",
+      alchemicalName: "Sal Florum Salviae",
+      note: "Adaçayının morumsu çiçeklerinin kalsinasyonu ile üretilen hafif magnezyumlu alkali tuzdur."
+    },
+    {
+      colloquial: "Biberiye Kökü Külü / Spajirik Rosmarinus Tuzu",
+      scientific: "Rosmarinus officinalis Odunsu Dal ve Kök Kalsinasyon Külü (Kalsiyum Karbonat, Potasyum Sülfat & Demir İzleri)",
+      formula: "CaCO3+K2SO4_rosemary",
+      category: "Spajirik Kök Tuzu & Dolaşım Destek Külü",
+      subId: "sub-base-ash-rosemary-root",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Spajirik zihin toniği minerali, saç köklerini besleyen geleneksel alkali saç suyu katkısı.",
+      alchemicalName: "Sal Radicis Rorismarini",
+      note: "Biberiyenin derin kök sisteminin fırınlanmasıyla elde edilen mineral omurgadır; zihinsel odaklanma iksirlerinin temelidir."
+    },
+    {
+      colloquial: "Zencefil Kökü Külü / Zingiber Mineral Tuzu",
+      scientific: "Zingiber officinale Rizom Kalsinasyon Külü (Zengin Potasyum Karbonat & Biyojenik Silika K2CO3 + SiO2)",
+      formula: "K2CO3+SiO2_ginger",
+      category: "Termojenik Kök Minerali & Spajirik Sindirim Tuzu",
+      subId: "sub-base-ash-ginger-rhizome",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Mide ateşi ve sindirim zayıflığında spajirik tentür kristali, alkali mineral suyu takviyesi.",
+      alchemicalName: "Sal Rhizomatis Zingiberis",
+      note: "Zencefil rizomlarının közde yakılıp kalsine edilmesiyle üretilen beyaz tuzdur; zencefilin ateş prensibini kül formunda sabitler."
+    },
+    {
+      colloquial: "Zerdeçal Kökü Külü / Kurkumin Mineral Külü",
+      scientific: "Curcuma longa Rizom Kalsinasyon Külü (Potasyum Oksit, Fosfat ve Magnezyum Tuzu K2O + P2O5)",
+      formula: "K2O+P2O5_turmeric",
+      category: "Karaciğer Koruyucu Spajirik Mineral & Altın Kül",
+      subId: "sub-base-ash-turmeric-rhizome",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Spajirik kurkumin tentürünün mineralizasyonu, geleneksel ayurvedik kül (Bhasma) preparatları.",
+      alchemicalName: "Sal Rhizomatis Curcumae",
+      note: "Altın sarısı zerdeçal köklerinin kalsinasyonuyla elde edilen biyo-aktif minerallerdir; hücresel membran geçirgenliğini artırır."
+    },
+    {
+      colloquial: "Karanfil Tomurcuğu Külü / Öjenol Tuzu",
+      scientific: "Syzygium aromaticum Kuru Tomurcuk Kalsinasyon Külü (Potasyum Klorür, Karbonat & Kalsiyum Fosfat KCl + Ca3(PO4)2)",
+      formula: "KCl+Ca3(PO4)2_clove",
+      category: "Diş Minesi & Ağız Florası Koruyucu Mineral Külü",
+      subId: "sub-base-ash-clove-bud",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Geleneksel diş macunu ve diş temizleme tozu mineral bazı, spajirik karanfil iksiri tuzu.",
+      alchemicalName: "Sal Caryophylli",
+      note: "Karanfil tomurcuklarının yakılmasıyla elde edilen bu tuz, kalsiyum fosfat zenginliği sayesinde diş minesini remineralize eder."
+    },
+    {
+      colloquial: "Tarçın Kabuğu Külü / Seylan Mineral Külü",
+      scientific: "Cinnamomum verum Kabuk Kalsinasyon Külü (Kalsiyum Oksit & Manganez Zengin Karbonat Külü)",
+      formula: "CaO+MnCO3_cinnamon",
+      category: "Spajirik Kabuk Tuzu & İnsülin Duyarlılığı Minerali",
+      subId: "sub-base-ash-cinnamon-bark",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Metabolizma hızlandırıcı spajirik iksir katkısı, geleneksel tarçın mineral suyu.",
+      alchemicalName: "Sal Corticis Cinnamomi",
+      note: "Seylan tarçını kabuğunun kalsinasyonu sonucu oluşan manganez ve kalsiyum zengini beyaz kristal küldür."
+    },
+    {
+      colloquial: "Kekik Çiçeği Külü / Spajirik Karvakrol Tuzu",
+      scientific: "Thymus vulgaris Çiçek Kalsinasyon Külü (Potasyum Sülfat & Kalsiyum Karbonat K2SO4 + CaCO3)",
+      formula: "K2SO4+CaCO3_thyme",
+      category: "Solunum Açıcı & Spajirik Akciğer Tuzu",
+      subId: "sub-base-ash-thyme-flower",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Kronik astım ve bronşit spajirik kürlerinde mineral taşıyıcı, antiseptik mineral gargara katkısı.",
+      alchemicalName: "Sal Florum Thymi",
+      note: "Yabani dağ kekiğinin çiçeklerinin kalsine edilmesiyle elde edilen tuzdur; antik hekimlikte akciğer dokusunu kurutucu sayılır."
+    },
+    {
+      colloquial: "Limon Kabuğu Külü / Biyojenik Sitrat Külü",
+      scientific: "Citrus limon Meyve Kabuğu Kalsinasyon Külü (Potasyum Karbonat & Biyo-Kalsiyum K2CO3 + CaO)",
+      formula: "K2CO3+CaO_lemon",
+      category: "Alkalize Edici Vücut Asidi Nötralize Edici Kül",
+      subId: "sub-base-ash-lemon-peel",
+      safety: "🟢 Güvenli Doğal Narenciye Külü",
+      everydayUsage: "Gut hastalığı ve ürik asit fazlalığında alkali su hazırlama tuzu, doğal temizleyici kül suyu.",
+      alchemicalName: "Sal Corticis Citri",
+      note: "Limon kabuklarının fırında kalsinasyonuyla elde edilen beyaz alkali küldür; vücut sıvılarını hızla alkaliye çeker."
+    },
+    {
+      colloquial: "Portakal Çiçeği Suyu / Neroli Hidrosolü (Saf)",
+      scientific: "Citrus aurantium var. amara Çiçek Buhar Distilasyonu Suyu (Linalool, Linalil Asetat & Antranilat Eserleri)",
+      formula: "C10H18O_neroli_pure_water",
+      category: "Psiko-Emosyonel Şok & Panik Giderici Çiçek Suyu",
+      subId: "sub-bot-neroli-pure-water",
+      safety: "🟢 Bebekler ve Hamileler İçin En Güvenli Çiçek Sularından Biri",
+      everydayUsage: "Ani korku ve panik anında yüze ve ağza fısfıs sprey, bebekleri sakinleştirici banyo suyu, lüks yüz toniği.",
+      alchemicalName: "Aqua Florum Aurantii Verum",
+      note: "Acı portakal çiçeklerinin damıtılmasıyla toplanan saf hidrosoldür; koku siniri üzerinden amigdala aktivitesini saniyeler içinde yatıştırır."
+    },
+    {
+      colloquial: "Itır Çiçeği Suyu / Geranyum Hidrosolü",
+      scientific: "Pelargonium graveolens Yaprak ve Çiçek Buhar Distilasyon Suyu (Sitronellol, Geraniyol & Linalool İzleri)",
+      formula: "C10H20O_geranium_water",
+      category: "Hormonal Cilt Dengeleyici & Kılcal Damar Kalkanı",
+      subId: "sub-bot-geranium-flower-water",
+      safety: "🟢 Güvenli Doğal Çiçek Suyu",
+      everydayUsage: "T-bölgesi yağlı, yanakları kuru karma cilt toniği, menopoz dönemi kuruluk spreyi, doğal parfüm tabanı.",
+      alchemicalName: "Aqua Pelargonii Graveolentis",
+      note: "Deri pH'ını fizyolojik 5.5 dengesine oturtur; yağ bezlerine sebum üretimini dengeleme sinyali verir."
+    },
+    {
+      colloquial: "Ylang Ylang Hidrosolü / Cananga Çiçek Suyu",
+      scientific: "Cananga odorata Çiçek Fraksiyonel Buhar Distilatı (Linalool & Benzil Benzoat Mikro-Çözeltisi)",
+      formula: "C14H12O2_ylang_water",
+      category: "Hipotansif Cilt Toniği & Egzotik Saç Parlatıcı",
+      subId: "sub-bot-ylang-hydrosol",
+      safety: "🟢 Güvenli Doğal Tropikal Hidrosol",
+      everydayUsage: "Mat ve cansız saçlara ışıltı veren durulanmayan saç spreyi, yüksek tansiyonda göğüs ferahlatıcı sprey.",
+      alchemicalName: "Aqua Canangae Odoratae",
+      note: "Tropik Madagaskar adasının eşsiz çiçeklerinin damıtılmasıdır; saç tellerindeki kütikül pullarını pürüzsüzleştirerek ayna gibi parlatır."
+    },
+    {
+      colloquial: "Yasemin Çiçeği Konkreti / Jasminum Özütü",
+      scientific: "Jasminum grandiflorum Çiçek Heksan/Etanol Galenik Ekstresi (Benzil Asetat, Linalool & Cis-Jasmon)",
+      formula: "C11H16O_cis_jasmone",
+      category: "Afrodizyak & Duygusal Güven Verici Lüks Çiçek Konkreti",
+      subId: "sub-bot-jasmine-concrete",
+      safety: "🟢 Güvenli Parfümeri ve Masaj Yağı Aktifi",
+      everydayUsage: "Lüks katı parfüm bazı, doğum sonrası duygusal tükenmişlik masaj yağı, derin kırışıklık bakım merhemi.",
+      alchemicalName: "Concretum Jasmini",
+      note: "Gece ay ışığında açan yasemin çiçeklerinin soğuk çözücü ekstraksiyonu ile elde edilen koyu kırmızımsı balmumu kıvamında saf çiçek özüdür."
+    },
+    {
+      colloquial: "Sümbülteber Özü / Tuberosa Ruhu",
+      scientific: "Polianthes tuberosa Çiçek Enflöraj Ekstresi (Metil Benzoat, Benzil Salisilat & Öjenol)",
+      formula: "C14H12O3_benzyl_salicylate",
+      category: "Narkotik Çiçeksi & Kadim Fransız Enflöraj Esansı",
+      subId: "sub-bot-tuberose-extract",
+      safety: "🟢 Güvenli Lüks Parfümeri Özütü",
+      everydayUsage: "Dünyanın en değerli niş parfümleri için dip nota fiksatif esansı, meditasyon tütsüsü yağı.",
+      alchemicalName: "Oleum Polianthis Tuberosae",
+      note: "Grasse'da tarihi yağ emdirilmiş cam çerçeveler (enflöraj) üzerine dizilen çiçeklerin kokusunu hayvansal/bitkisel yağa bırakmasıyla üretilir."
+    },
+    {
+      colloquial: "Mür Reçinesi Külü / Spajirik Myrrha Tuzu",
+      scientific: "Commiphora myrrha Sakız Reçinesi Kalsinasyon Külü (Kalsiyum Fosfat, Potasyum Karbonat & Demir Oksit)",
+      formula: "Ca3(PO4)2+K2CO3_myrrh",
+      category: "Kadim Mısır Mumyalama Tuzu & Spajirik Reçine Külü",
+      subId: "sub-base-ash-myrrh-resin",
+      safety: "🟢 Güvenli Doğal Mineral Kül",
+      everydayUsage: "Spajirik mür tentürünün kristal tuzu, tarihi diş eti kuvvetlendirici kül tozu, arındırıcı tapınak külleri.",
+      alchemicalName: "Sal Resinae Myrrhae",
+      note: "Kadim Mısır'da firavunların ebedi korunması için kullanılan mür reçinesinin kalsinasyonuyla elde edilen çürüme önleyici mineral tuza dönüşümüdür."
     }
   ];
 
