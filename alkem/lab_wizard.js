@@ -1333,6 +1333,46 @@
       deltaS_J_K: 3.5,
       type: "Ekzotermik Serbest Radikal Gaz Fazı Halojenasyonu",
       description: "Silikon polimerleri, metil selüloz ve soğutucu gazların hammaddesi olan klorometanın (CH3Cl) üretim reaksiyonudur. Metan ve klor gazı 400-450°C'de klor radikallerinin zincirleme mekanizmasıyla termal olarak birleştirilir."
+    },
+    "steam_iron_hydrogen_lane_process": {
+      name: "Tarihsel Lane Prosesi Demir-Buhar Hidrojen Sentezi (3 Fe + 4 H2O ➔ Fe3O4 + 4 H2)",
+      equation: "3 Fe(k) + 4 H2O(g) ➔ Fe3O4(k) + 4 H2(g)",
+      deltaH_kJ: -151.2,
+      deltaS_J_K: -98.0,
+      type: "Ekzotermik Gaz-Katı Redoks & Zeplin Hidrojen Üretimi",
+      description: "Howard Lane tarafından 1903'te geliştirilen ve I. Dünya Savaşı'nda zeplinleri ve hava gemilerini doldurmak için kullanılan ilk endüstriyel saf hidrojen üretim prosesidir. Akkor kızgın sünger demir (650-800°C) üzerine aşırı ısıtılmış su buharı püskürtülerek demir manyetite (Fe3O4) yükseltgenirken yüksek debili hidrojen gazı açığa çıkar; fırın daha sonra sentez gazıyla indirgenerek döngü sürdürülür."
+    },
+    "titanium_dioxide_chloride_process": {
+      name: "Klorür Prosesi Titanyum Dioksit Sentezi (TiCl4 + O2 ➔ TiO2 + 2 Cl2)",
+      equation: "TiCl4(g) + O2(g) ➔ TiO2(k) + 2 Cl2(g)",
+      deltaH_kJ: -175.4,
+      deltaS_J_K: -95.0,
+      type: "Şiddetli Ekzotermik Yüksek Sıcaklık Gaz Fazı Oksidasyonu",
+      description: "Küresel beyaz boya, plastik ve kağıt sanayiinde kullanılan en parlak ve örtücü rutil kristal yapısındaki TiO2 pigmentinin üretim prosesidir. Buhar fazındaki TiCl4 gazı saf oksijenle 1000-1400°C'de reaktörde yakılır; açığa çıkan klor gazı rutil cevherini klorlamak üzere geri dönüştürülür."
+    },
+    "phosphorus_submerged_arc_smelting": {
+      name: "Elektrotermal Ark Fırını Beyaz Fosfor İndirgemesi (2 Ca3(PO4)2 + 6 SiO2 + 10 C ➔ 6 CaSiO3 + 10 CO + P4)",
+      equation: "2 Ca3(PO4)2(k) + 6 SiO2(k) + 10 C(k) ➔ 6 CaSiO3(s) + 10 CO(g) + P4(g)",
+      deltaH_kJ: 3060.0,
+      deltaS_J_K: 1420.0,
+      type: "Muazzam Endotermik Elektro-Metalurjik Fosfor İndirgemesi",
+      description: "Elementel beyaz fosfor (P4) üretiminin dünyadaki tek endüstriyel yöntemidir. Fosfat kayası, silika kumu ve kok kömürü kapalı batık ark fırınlarında 1400-1500°C'de devasa elektrik akımıyla ergitilir; gaz fazında yükselen P4 buharı su altında sarı-beyaz mum kıvamında katılaştırılır."
+    },
+    "calcium_cyanamide_frank_caro": {
+      name: "Frank-Caro Prosesi Kalsiyum Siyanamid Azot Fiksasyonu (CaC2 + N2 ➔ CaCN2 + C)",
+      equation: "CaC2(k) + N2(g) ➔ CaCN2(k) + C(k)",
+      deltaH_kJ: -284.0,
+      deltaS_J_K: -140.0,
+      type: "Ekzotermik Yüksek Sıcaklık Katı-Gaz Azot Fiksasyonu",
+      description: "Adolph Frank ve Nikodem Caro tarafından 1895'te keşfedilen tarihteki ilk ticari yapay azot fiksasyon yöntemidir. Kalsiyum karbür (karpit) 1000-1100°C'de saf azot gazıyla tepkimeye girerek kalkstickstoff (kireçli azot) gübresi ve siyanür öncülü olan kalsiyum siyanamide dönüşür."
+    },
+    "direct_air_capture_calcination": {
+      name: "Direct Air Capture (DAC) Kalsiyum Karbonat Kalsinasyon Rejenerasyonu (CaCO3 ➔ CaO + CO2)",
+      equation: "CaCO3(k) ➔ CaO(k) + CO2(g)",
+      deltaH_kJ: 178.2,
+      deltaS_J_K: 160.5,
+      type: "Kuvvetli Endotermik Doğrudan Havadan Karbon Yakalama Rejenerasyonu",
+      description: "Atmosferden doğrudan sera gazı karbondioksiti (CO2) yakalayan modern Direct Air Capture (DAC) teknolojisinin kilit rejenerasyon reaksiyonudur. Atmosferik CO2'yi bağlayan kalsiyum karbonat (CaCO3) peletleri, saf oksijen altında 900°C'de kalsine edilerek saf CO2 gazı jeolojik depolamaya gönderilirken rejenere olan sönmemiş kireç (CaO) sisteme geri döner."
     }
   };
 
@@ -5270,6 +5310,226 @@
       everydayUsage: "İnfluenza A/B ve soğuk algınlığında viral girişi engelleyici koruyucu şurup, kış aylarında bağışıklık kalkanı içeceği.",
       alchemicalName: "Roob Sambuci / Succus Sambuci Inspissatus",
       note: "Mürver meyvesindeki antosiyaninler virüs yüzeyindeki hemaglütinin proteinlerine bağlanarak virüsün insan hücresine girişini ve replikasyonunu doğrudan bloke eder."
+    },
+    {
+      colloquial: "Kantarun Külü / Kırmızı Kantaron Tuzu",
+      scientific: "Hypericum perforatum Çiçek ve Sap Kalsinasyon Külü (Potasyum Oksit & Biyojenik Fosfat)",
+      formula: "K2CO3_hypericum_ash",
+      category: "Spajirik Felsefe Tuzu & Doku Onarıcı",
+      subId: "sub-spag-st-john-ash",
+      safety: "🟢 Güvenli Bitkisel Kalsinasyon Tuzu",
+      everydayUsage: "Spajirik kırmızı kantaron iksirinin (Rubedo) mineral ayağı, yara ve yanık dokusu sıkılaştırıcı mineral tonik.",
+      alchemicalName: "Sal Hyperici / Sal Rubedo",
+      note: "Güneşte bekletilmiş kantaron bitkisi posasının beyaz kül olana kadar yakılmasıyla elde edilen saf çözünür tuzdur; kırmızı renkli hiperisin yağ fraksiyonuyla birleştirilerek eksiksiz spajirik üçleme (Kükürt-Cıva-Tuz) tamamlanır."
+    },
+    {
+      colloquial: "Civanperçemi Külü / Spajirik Hemostatik Tuz",
+      scientific: "Achillea millefolium Biyokütle Kalsinasyon Külü (Potasyum Klorür, Karbonat & Demir İzleri)",
+      formula: "K2CO3_achillea_ash",
+      category: "Spajirik Tuz & Kanama Dindirici",
+      subId: "sub-spag-yarrow-ash",
+      safety: "🟢 Güvenli Doğal Bitki Külü",
+      everydayUsage: "Civanperçemi tentürünün beden tuzu olarak damıtığa eklenmesi, kılcal damar toniği banyo katkısı.",
+      alchemicalName: "Sal Achilleae Millefolii",
+      note: "Yara otu olarak bilinen civanperçeminin kalsine edilmesiyle elde edilen inorganik mineral fazıdır; damar büzücü ve pıhtılaşmayı hızlandırıcı mineral elektrolitleri barındırır."
+    },
+    {
+      colloquial: "Kekik Külü / Karvakrolat Tuzu",
+      scientific: "Thymus vulgaris / Origanum onites Kalsinasyon Külü (Potasyum Sülfat & Kalsiyum Karbonat)",
+      formula: "K2SO4_thyme_ash",
+      category: "Spajirik Tuz & Akciğer Toniği",
+      subId: "sub-spag-thyme-ash",
+      safety: "🟢 Güvenli Bitkisel Kalsinasyon Tuzu",
+      everydayUsage: "Spajirik kekik iksiri üretiminde uçucu yağ ile alkolün geri bağlandığı kristal taban, antiseptik boğaz tozu.",
+      alchemicalName: "Sal Thymi Rustici",
+      note: "Kekik posasından elde edilen bu kalsinasyon tuzu yüksek oranda sülfür ve alkali iyonları taşır; akciğer mukozasındaki mikropları temizlerken alkali pH tamponu sağlar."
+    },
+    {
+      colloquial: "Adaçayı Külü / Salvia Tuzu",
+      scientific: "Salvia officinalis Yaprak Kalsinasyon Külü (Potasyum Karbonat & Magnezyum Oksit)",
+      formula: "K2CO3_salvia_ash",
+      category: "Spajirik Beden Tuzu & Antiperspirant",
+      subId: "sub-spag-sage-ash",
+      safety: "🟢 Güvenli Bitkisel Mineral Kalıntısı",
+      everydayUsage: "Adaçayı spajirik iksiri sabitleyicisi, aşırı terleme ve ateş basmalarında mineral dengesi sağlayıcı çay takviyesi.",
+      alchemicalName: "Sal Salviae Officinalis",
+      note: "Adaçayının uçucu yağları damıtıldıktan sonra geride kalan yaprak posasının yüksek fırında saflaştırılmasıyla elde edilir; bitkinin ter bezlerini büzücü etkisini derinleştirir."
+    },
+    {
+      colloquial: "Papatya Külü / Spajirik Bisabololat Tuzu",
+      scientific: "Matricaria chamomilla Çiçek Kalsinasyon Külü (Kalsiyum & Potasyum Karbonat Minerali)",
+      formula: "CaCO3_K2CO3_chamomile_ash",
+      category: "Spajirik Tuz & Antispazmodik",
+      subId: "sub-spag-chamomile-ash",
+      safety: "🟢 Güvenli Doğal Mineral Külü",
+      everydayUsage: "Spajirik papatya iksirinin yatıştırıcı mineral fazı, bebek banyolarında kireç yumuşatıcı ve cilt sakinleştirici mineral katkı.",
+      alchemicalName: "Sal Chamomillae Vulgaris",
+      note: "Papatya çiçeklerinin beyaz kül kalıntısıdır; antispazmodik düz kas gevşemesini destekleyen magnezyum ve potasyum iyonlarını bitkisel formda sunar."
+    },
+    {
+      colloquial: "Kuşburnu Ekstraktı / Doğal C Vitamini Özü",
+      scientific: "Rosa canina Meyve Ekstresi (L-Askorbik Asit, Galaktolipidler & Karotenoidler)",
+      formula: "C6H8O6_ascorbic_rosehip",
+      category: "Güçlü Antioksidan & Kolajen Sentezleyici",
+      subId: "sub-bot-rosehip-extract",
+      safety: "🟢 Güvenli Fonksiyonel Besin ve Cilt Aktifi",
+      everydayUsage: "Eklem kireçlenmesinde kıkırdak yıkımını önleyen doğal galaktolipid kürü (GOPO), cilt parlatıcı ve leke açıcı C vitamini serumu, bağışıklık toniği.",
+      alchemicalName: "Extractum Fructus Cynosbati",
+      note: "Doğadaki en zengin doğal C vitamini ve biyoflavonoid depolarından biridir; narenciyeden 50 kat daha konsantre askorbik asit taşır ve sentetik C vitaminine kıyasla emilimi 3 kat daha yüksektir."
+    },
+    {
+      colloquial: "Civanperçemi Yağı / Mavi Kamazulen Yağı",
+      scientific: "Achillea millefolium Çiçek Buhar Distilasyonu Uçucu Yağı (%10-20 Saf Kamazulen)",
+      formula: "C14H16_chamazulene_pure",
+      category: "Koyu Mavi Uçucu Yağ & Güçlü Anti-İnflamatuar",
+      subId: "sub-bot-yarrow-blue-oil",
+      safety: "🟡 Yalnızca Harici Seyreltilerek Kullanılır (Saf Halde Koyu Mürekkep Rengindedir)",
+      everydayUsage: "Kronik egzama ve atopik dermatit yatıştırıcı mavi serum, güneş yanığı ve cerrahi yara izi (skar) onarıcı balzam, varis masaj yağı.",
+      alchemicalName: "Oleum Millefolii Coeruleum",
+      note: "Distilasyon esnasında matrisindeki renksiz matrikarin molekülü yüksek buhar ısısıyla lakton halkasını açarak göz alıcı lacivert/kobalt mavisi renkte kamazulene dönüşür; bilinen en güçlü doğal antihistaminik ajanlardandır."
+    },
+    {
+      colloquial: "Mavi Papatya Yağı / Alman Papatyası Yağı",
+      scientific: "Matricaria chamomilla Çiçek Uçucu Yağı (Kamazulen, alfa-Bisabolol & Bisabolol Oksit A/B)",
+      formula: "C14H16_chamomile_blue",
+      category: "Lüks Antialerjik Mavi Yağ & Doku Onarıcı",
+      subId: "sub-bot-german-chamomile-blue",
+      safety: "🟢 Haricen Güvenli Lüks Kozmetik Uçucu Yağı",
+      everydayUsage: "Kızarık ve hassas kuperozlu ciltleri sakinleştirici gece iksiri, alerjik kontakt dermatit yatıştırıcı krem, bebek pişik merhemleri bazı.",
+      alchemicalName: "Oleum Chamomillae Coeruleum / Matricaria Oil",
+      note: "Hakiki Alman papatyasının derin lacivert renkli mucizevi esansiyel yağıdır; bisabolol ve kamazulen sinerjisiyle lökotrien B4 sentezini baskılayarak kortizon benzeri güçlü sakinleştirme sağlar."
+    },
+    {
+      colloquial: "Lavantin Yağı / Melez Lavanta Ruhu",
+      scientific: "Lavandula hybrida / Lavandula grosso Uçucu Yağı (Linalool, Linalil Asetat & %6-8 Kafur)",
+      formula: "C10H18O_lavandin",
+      category: "Analjezik Masaj Yağı & Doğal Dezenfektan",
+      subId: "sub-bot-lavandin-oil",
+      safety: "🟢 Güvenli Masaj ve Difüzör Yağı",
+      everydayUsage: "Sporcular için kas tutulması ve kramp ovma yağı, çamaşır ve ev temizliğinde doğal hijyenik koku, güve kovucu gardırop spreyi.",
+      alchemicalName: "Oleum Lavandulae Hybridae",
+      note: "Gerçek lavanta (L. angustifolia) ile geniş yapraklı dağ lavantasının (L. latifolia) doğal melezidir; içerdiği doğal kafur oranı sayesinde kasları ısıtır ve solunum yollarını rahatlatır."
+    },
+    {
+      colloquial: "Itır Yağı / Geranyum Ruhu",
+      scientific: "Pelargonium graveolens Yaprak Uçucu Yağı (Sitronellol, Geraniyol, Linalool & İzomenton)",
+      formula: "C10H20O_citronellol_rich",
+      category: "Hormon Dengeleyici & Lenfatik Dolaşım Yağı",
+      subId: "sub-bot-geranium-oil",
+      safety: "🟢 Güvenli Parfümeri ve Cilt Yağı",
+      everydayUsage: "Gül yağı alternatifi lüks parfüm kalp notası, menopoz ve PMS dönemi duygu durumu dengeleyici koklama, selülit ve lenf ödemi masaj yağı.",
+      alchemicalName: "Oleum Pelargonii / Oleum Geranii",
+      note: "Gül benzeri taze çiçeksi kokusuyla bilinir; böbrek üstü bezlerini ve sebum üretimini regüle ederek hem kuru hem aşırı yağlı ciltlerde mükemmel denge kurar."
+    },
+    {
+      colloquial: "Civanperçemi Merhemi / Yara Kapatıcı Balzam",
+      scientific: "Achillea millefolium Özütü ve Balmumu Galenik Merhemi (Kamazulen, Cera Alba & Zeytinyağı)",
+      formula: "C14H16_cera_alba_pomade",
+      category: "Geleneksel Galenik Merhem & Yara Onarıcı",
+      subId: "sub-pharm-yarrow-balm",
+      safety: "🟢 Güvenli Doğal Galenik Merhem",
+      everydayUsage: "Kılıç ve bıçak kesikleri ilk yardımı (Militaris Herba), topuk ve meme ucu çatlakları balzamı, donuk ve soğuk vurması merhemi.",
+      alchemicalName: "Unguentum Millefolii / Balsamum Vulnerarium",
+      note: "Roma lejyonerlerinin savaş çantalarında taşıdığı kadim yara merhemidir; balmumunun sağladığı oklüzif nem bariyeri altında kamazulen doku granülasyonunu ve epitelizasyonu hızlandırır."
+    },
+    {
+      colloquial: "Çay Ağacı Yağı / Melaleuka Ruhu",
+      scientific: "Melaleuca alternifolia Yaprak Uçucu Yağı (Terpinen-4-ol %40+, gamma-Terpinen & alfa-Pinen)",
+      formula: "C10H18O_terpinen4ol",
+      category: "Geniş Spektrumlu Doğal Antiseptik & Antifungal",
+      subId: "sub-bot-tea-tree-oil",
+      safety: "🟢 Haricen Güvenli / Dahilen Yutulmaz (Göz Çevresine Sürülmez)",
+      everydayUsage: "Ergenlik sivilcesi ve akne üzerine noktasal pamuk uygulaması, ayak tırnak mantarı kürü, kepekli saç derisi şampuanı katkısı.",
+      alchemicalName: "Oleum Melaleucae Alternifoliae",
+      note: "Avustralya yerlileri Aborjinlerin bin yıllık antiseptiğidir; terpinen-4-ol bileşeni bakteri hücre zarının lipit katmanını çözerek antibiyotik dirençli MRSA bakterilerini bile etkisiz hale getirir."
+    },
+    {
+      colloquial: "Buhur Yağı / Olibanum Esansı",
+      scientific: "Boswellia carterii Sakız-Reçinesi Buhar Distilatı (alfa-Pinen, Olibanol & Limonen)",
+      formula: "C10H16_pinene_frankincense",
+      category: "Ruhsal Sakinleştirici & Hücre Yenileyici Yağ",
+      subId: "sub-bot-frankincense-essential-oil",
+      safety: "🟢 Güvenli Lüks Aromaterapi ve Cilt Bakım Yağı",
+      everydayUsage: "Meditasyon ve derin nefes alma difüzör yağı, olgun ciltlerde kırışıklık açıcı ve elastikiyet artırıcı gece serumu, skar dokusu silici.",
+      alchemicalName: "Oleum Olibani / Oleum Thurifero",
+      note: "Kadim tütsü reçinesinin damıtılmasıyla elde edilen buhar esansıdır; beynin amigdala merkezinde nörotransmitter aktiviteyi dengeleyerek derin iç huzur ve odaklanma sağlar."
+    },
+    {
+      colloquial: "Paçuli Yağı / Tefarik Ruhu",
+      scientific: "Pogostemon cablin Fermente Yaprak Buhar Distilatı (Paçulol, Pogostol & Karyofillen)",
+      formula: "C15H26O_patchoulol",
+      category: "Topraksı Fiksatif & Afrodizyak Parfüm Bazı",
+      subId: "sub-bot-patchouli-oil",
+      safety: "🟢 Güvenli Parfümeri ve Cilt Yağı",
+      everydayUsage: "Lüks oryantal parfümlerde kalıcılık sağlayan baz nota fiksatif, kuru egzama ve çatlak cilt kremleri, kumaş ve halı koruyucu doğal güve kovucu.",
+      alchemicalName: "Oleum Patchouli / Oleum Pogostemonis",
+      note: "İpek Yolu tüccarlarının ipek kumaşları güvelerden korumak için kullandığı ve zamanla lüksün simgesi haline gelen karakteristik kokudur; yıllandıkça şarap gibi olgunlaşır ve kokusu zenginleşir."
+    },
+    {
+      colloquial: "Vetiver Yağı / Güve Otu Kökü Yağı",
+      scientific: "Chrysopogon zizanioides Saçak Kök Buhar Distilatı (Khusimol, Vetiverol & Vetivon)",
+      formula: "C15H24O_khusimol",
+      category: "Topraklayıcı Nöro-Sedatif & Parfümeri Fiksatif",
+      subId: "sub-bot-vetiver-oil",
+      safety: "🟢 Güvenli Lüks Parfümeri Yağı",
+      everydayUsage: "Erkek parfümlerinde asil odunsu-dumanlı taban notası, anksiyete ve ADHD (dikkat eksikliği) sakinleştirici koklama, aşırı zihinsel yorgunlukta topraklanma.",
+      alchemicalName: "Oleum Vetiveriae / Oleum Ivarancusae",
+      note: "Hindistan'da 'Huzur Yağı' (Oil of Tranquillity) olarak adlandırılır; toprağın metrelerce derinine inen köklerinden damıtılır ve sinir sisteminde sempatik hiperaktiviteyi hızla sakinleştirir."
+    },
+    {
+      colloquial: "Ylang Ylang Yağı / Cananga Esansı",
+      scientific: "Cananga odorata Çiçek Fraksiyonel Distilatı (Linalool, Geranil Asetat, Karyofillen & Benzil Benzoat)",
+      formula: "C10H18O_linalool_ylang",
+      category: "Hipotansif & Egzotik Afrodizyak",
+      subId: "sub-bot-ylang-ylang-oil",
+      safety: "🟢 Güvenli Lüks Parfümeri Yağı (Aşırı Koklandığında Baş Ağrısı Yapabilir)",
+      everydayUsage: "Yüksek tansiyon ve taşikardi anında koklama ile nabız düşürücü, Chanel No.5 benzeri lüks parfümler, parlak saç serumu.",
+      alchemicalName: "Oleum Canangae Odoratae",
+      note: "Çiçeklerin damıtılmasında süreye göre Extra, I, II, III ve Tam (Complete) fraksiyonlarına ayrılır; parasempatik sinir sistemini aktive ederek kalp atım hızını ve sistolik tansiyonu düşürür."
+    },
+    {
+      colloquial: "Bergamot Yağı / Bergamoten Ruhu",
+      scientific: "Citrus bergamia Meyve Kabuğu Soğuk Sıkım Yağı (Linalil Asetat, Linalool, Limonen & Bergapten)",
+      formula: "C12H20O2_linalyl_acetate",
+      category: "Neşelendirici Nöro-Tonik & Earl Grey Çayı Aroması",
+      subId: "sub-bot-bergamot-oil",
+      safety: "🟡 Fototoksiktir (Güneşe Çıkmadan Önce Sürülmez / FCF Bergapten-Free Formu Tercih Edilir)",
+      everydayUsage: "Geleneksel Earl Grey çayının karakteristik kokusu, sabah uyanma ve depresyon giderici aroma difüzörü, yağlı akne temizleme suyu.",
+      alchemicalName: "Oleum Bergamottae",
+      note: "İtalyan Calabria kıyılarının eşsiz narenciyesidir; beyinde dopamin ve serotonin nörotransmitterlerinin salınımını tetikleyerek zihinsel karanlığı ve karamsarlığı dağıtır."
+    },
+    {
+      colloquial: "Sedir Ağacı Yağı / Atlas Sediri Ruhu",
+      scientific: "Cedrus atlantica Odun Buhar Distilatı (beta-Himakalen, alfa-Himakalen & Atlanton)",
+      formula: "C15H24_himachalene",
+      category: "Lenfatik Drenaj & Saç Kökü Uyarıcı Yağ",
+      subId: "sub-bot-cedarwood-atlas-oil",
+      safety: "🟢 Güvenli Masaj ve Saç Bakım Yağı",
+      everydayUsage: "Androjenik saç dökülmesi (alopesi areata) için biberiye ile kombine saç serumu, selülit ovması, meditasyon tütsüsü.",
+      alchemicalName: "Oleum Cedri Atlantici",
+      note: "Bin yıllık kadim sedir ormanlarının odunundan damıtılır; kılcal damarlarda lenfatik drenajı hızlandırırken sebum dengesizliğini giderir ve güveleri kumaşlardan uzak tutar."
+    },
+    {
+      colloquial: "Limon Otu Yağı / Lemongrass Esansı",
+      scientific: "Cymbopogon citratus / flexuosus Yaprak Distilatı (Geranial & Neral Sitral Karışımı %75+)",
+      formula: "C10H16O_citral_rich",
+      category: "Kuvvetli Doğal Böcek Kovucu & Doku Sıkılaştırıcı",
+      subId: "sub-bot-lemongrass-oil",
+      safety: "🟡 Hassas Ciltlerde Seyreltilmelidir (Deri İrritasyon Riski)",
+      everydayUsage: "Sivrisinek ve kene kovucu doğal vücut spreyi, spor sonrası laktik asit dağıtıcı bacak losyonu, genişlemiş gözenek sıkılaştırıcı tonik.",
+      alchemicalName: "Oleum Cymbopogonis Citrati",
+      note: "Yüksek sitral içeriği sayesinde sivrisineklerin koku reseptörlerini kör ederek doğal kalkan oluşturur; aynı zamanda güçlü antifungal aktivitesiyle ayak mantarını yok eder."
+    },
+    {
+      colloquial: "Palmarosa Yağı / Hint Itırı Yağı",
+      scientific: "Cymbopogon martinii var. motia Buhar Distilatı (%80-85 Saf Geraniyol & Geranil Asetat)",
+      formula: "C10H18O_geraniol_pure",
+      category: "Doğal Geraniyol Kaynağı & Hücre Yenileyici",
+      subId: "sub-bot-palmarosa-oil",
+      safety: "🟢 Cilt İçin En Güvenli ve Nazik Uçucu Yağlardan Biridir",
+      everydayUsage: "Kuru ve nemsiz ciltler için yoğun hidrasyon sağlayan nemlendirici krem bazı, doğal gül kokulandırıcısı, koltuk altı doğal deodorantı.",
+      alchemicalName: "Oleum Palmarosae",
+      note: "Yabani bir tropik çimden damıtılmasına rağmen dünyanın en yüksek saflıktaki doğal geraniyol kaynağıdır; ciltte hücresel nem dengesini regüle eder ve koku yapan bakterilerin üremesini durdurur."
     }
   ];
 
