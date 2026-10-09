@@ -1293,6 +1293,46 @@
       deltaS_J_K: -42.4,
       type: "Hafif Ekzotermik Katalitik Hidrojen Zenginleştirme",
       description: "Amonyak sentezi ve rafineri hidrojen hatlarında sentez gazındaki CO konsantrasyonunu düşürüp H2 verimini maksimize etmek için Fe2O3-Cr2O3 katalizörlüğünde 350-450°C'de işletilen reaksiyondur."
+    },
+    "castner_kellner_chloralkali": {
+      name: "Castner-Kellner / Membran Klor-Alkali Elektrolizi (2 NaCl + 2 H2O ➔ Cl2 + H2 + 2 NaOH)",
+      equation: "2 NaCl(sulu) + 2 H2O(s) ➔ Cl2(g) + H2(g) + 2 NaOH(sulu)",
+      deltaH_kJ: 446.0,
+      deltaS_J_K: 245.0,
+      type: "Kuvvetli Endotermik Endüstriyel Tuzlu Su Elektrolizi",
+      description: "Küresel klor gazı (Cl2), hidrojen gazı (H2) ve kostik soda (NaOH) üretiminin temel elektrokimyasal prosesidir. Doymuş tuzlu su (salamura) membran hücrelerde doğru akım uygulanarak elektroliz edilir; pozitif entropi ve yüksek faradaik verimle yürür."
+    },
+    "zinc_roasting_sphalerite": {
+      name: "Sfalerit Çinko Sülfür Kavurması (2 ZnS + 3 O2 ➔ 2 ZnO + 2 SO2)",
+      equation: "2 ZnS(k) + 3 O2(g) ➔ 2 ZnO(k) + 2 SO2(g)",
+      deltaH_kJ: -878.0,
+      deltaS_J_K: -150.0,
+      type: "Şiddetli Ekzotermik Piro-Metalurjik Oksidatif Kavurma",
+      description: "Çinko metalurjisinin ilk ana kademesidir. Doğal sfalerit (ZnS) cevheri akışkan yataklı fırınlarda 900-1000°C'de hava ile kavrularak asitte çözünebilir çinko oksite (kalsin) dönüştürülürken açığa çıkan SO2 gazı sülfürik asit fabrikasına beslenir."
+    },
+    "lead_blast_furnace_reduction": {
+      name: "Kurşun Oksit Karbon Monoksit İndirgemesi (PbO + CO ➔ Pb + CO2)",
+      equation: "PbO(k) + CO(g) ➔ Pb(s) + CO2(g)",
+      deltaH_kJ: -65.4,
+      deltaS_J_K: -12.0,
+      type: "Ekzotermik Yüksek Fırın Kurşun İzabesi",
+      description: "Kurşun yüksek fırınlarında (blast furnace) sinterlenmiş kurşun oksidin (PbO), kok kömüründen üretilen CO gazıyla 900-1100°C'de sıvı metalik kurşuna indirgendiği tarihi ve modern metalurjik reaksiyondur."
+    },
+    "copper_flash_smelting_outokumpu": {
+      name: "Outokumpu Flaş Bakır İzabesi (2 CuFeS2 + 2.5 O2 ➔ Cu2S·FeS + FeO + 2 SO2)",
+      equation: "2 CuFeS2(k) + 2.5 O2(g) ➔ (Cu2S·FeS)(s) + FeO(s) + 2 SO2(g)",
+      deltaH_kJ: -720.0,
+      deltaS_J_K: -65.0,
+      type: "Kendi Kendini Besleyen (Otojen) Yüksek Ekzotermik Flaş İzabe",
+      description: "Finlandiyalı Outokumpu tarafından 1949'da geliştirilen, dünya bakır üretiminin yarısından fazlasında kullanılan devrim niteliğinde izabe prosesidir. İnce öğütülmüş kalkopirit konsantresi oksijenle zenginleştirilmiş sıcak hava jetine püskürtülür; reaksiyon ısısı harici yakıta ihtiyaç duymadan ergitmeyi sağlar."
+    },
+    "direct_methane_chlorination": {
+      name: "Metan Termal Klorlanması & Metil Klorür Sentezi (CH4 + Cl2 ➔ CH3Cl + HCl)",
+      equation: "CH4(g) + Cl2(g) ➔ CH3Cl(g) + HCl(g)",
+      deltaH_kJ: -103.5,
+      deltaS_J_K: 3.5,
+      type: "Ekzotermik Serbest Radikal Gaz Fazı Halojenasyonu",
+      description: "Silikon polimerleri, metil selüloz ve soğutucu gazların hammaddesi olan klorometanın (CH3Cl) üretim reaksiyonudur. Metan ve klor gazı 400-450°C'de klor radikallerinin zincirleme mekanizmasıyla termal olarak birleştirilir."
     }
   };
 
@@ -5010,6 +5050,226 @@
       everydayUsage: "Alerjik rinit ve astımda bağışıklık dengeleyici günlük kaşık, sedef ve egzama ovma yağı, saç dökülmesi ve eklem sertliği masaj bazı.",
       alchemicalName: "Oleum Nigellae Sativae Seminis",
       note: "İslam ve Ortadoğu tıbbında 'ölüm hariç her derde deva' olarak anılan kadim tohum yağıdır; ana biyoaktifi olan timokinon, mast hücrelerinden histamin salınımını bloke ederek alerjik inflamasyonu kökünden durdurur."
+    },
+    {
+      colloquial: "Kâfuru Yağı / Sıvı Kafur",
+      scientific: "Cinnamomum camphora Ağacı Sıvı Fraksiyonu (Safrol, Pinen & Sineol Zengin Yağ)",
+      formula: "C10H16_camphor_oil",
+      category: "Aromaterapik Masaj Yağı & Dekonjestan",
+      subId: "sub-bot-camphor-oil-liquid",
+      safety: "🟡 Yalnızca Harici Kullanım (Yüksek Dozda Nörotoksik Olabilir)",
+      everydayUsage: "Göğüs masaj ovması, burun tıkanıklığı buhar banyosu, boyun ve bel tutulmalarında ısıtıcı losyon ചില.",
+      alchemicalName: "Oleum Camphoratum / Oleum Camphorae Liquidum",
+      note: "Kafur kristallerinin ayrıştırılmasından sonra kalan fraksiyondur; derideki termoreseptörleri hızla uyararak kan akışını artırır ve kas liflerindeki laktik asit birikimini dağıtır."
+    },
+    {
+      colloquial: "Acı Badem Suyu / Amigdalin Distilatı",
+      scientific: "Prunus amygdalus var. amara Tohum Buhar Distilatı (Benzaldehit & Eser Siyanür Ayrıştırılmış)",
+      formula: "C7H6O_benzaldehyde_water",
+      category: "Kozmetik Koku & Spazmolitik Hidrosol",
+      subId: "sub-bot-bitter-almond-water",
+      safety: "🟡 Ham Distilat Toksiktir (Yalnızca Siyanürsüzleştirilmiş Eczane Formu Kullanılır)",
+      everydayUsage: "Geleneksel öksürük yatıştırıcı damlalar, lüks acıbadem kurabiyesi aroması, cilt lekesi giderici acıbadem sütü toniği.",
+      alchemicalName: "Aqua Amygdalarum Amararum",
+      note: "Amigdalin glikozitinin emülsin enzimiyle parçalanması sonucu oluşur; saflaştırılmış formu solunum merkezini hafifçe yatıştırarak inatçı spazmodik öksürüğü keser."
+    },
+    {
+      colloquial: "Meyve Asidi / Glikolik Asit (AHA)",
+      scientific: "Glikolik Asit / Hidroksiasetik Asit (Saccharum officinarum Fermantasyon Ürünü)",
+      formula: "C2H4O3_glycolic_acid",
+      category: "Kimyasal Peeling & Keratolitik AHA",
+      subId: "sub-cosm-glycolic-acid",
+      safety: "🟡 %10 Üzeri Konsantrasyonlarda Ciltte Yanma Yapar (Güneş Koruyucu Şarttır)",
+      everydayUsage: "Cilt yenileyici kimyasal peeling solüsyonu, akne ve leke giderici gece toniği, batık ve kıl dönmesi önleyici losyon.",
+      alchemicalName: "Acidum Glycolicum / Acidum Saccharinum",
+      note: "AHA (Alfa Hidroksi Asit) ailesinin en küçük molekül ağırlıklı üyesidir; stratum corneumdaki korneositler arası lipit bağlarını çözerek ölü deri tabakasını nazikçe soyar ve alt katmandan taze hücre üretimini tetikler."
+    },
+    {
+      colloquial: "Süt Asidi / Laktik Asit (AHA)",
+      scientific: "L-Laktik Asit / 2-Hidroksipropanoik Asit (Peynir Altı Suyu ve Şeker Fermantasyonu)",
+      formula: "C3H6O3_lactic_acid",
+      category: "Nemlendirici AHA & Doğal Asitlik Düzenleyici",
+      subId: "sub-cosm-lactic-acid",
+      safety: "🟢 Güvenli Doğal Cilt ve Gıda Asidi",
+      everydayUsage: "Doğal nemlendirici faktör (NMF) destekleyici cilt serumu, genital bölge pH 3.8-4.2 dengeleyici yıkama jeli, turşu ve peynir koruyucu asidi.",
+      alchemicalName: "Acidum Lacticum",
+      note: "Kleopatra'nın eşek sütü banyolarının arkasındaki aktif bilimsel maddedir; cildi eksfoliye ederken seramid sentezini artırır ve derin hidrasyon sağlar."
+    },
+    {
+      colloquial: "Elma Asidi / Malik Asit",
+      scientific: "DL-Malik Asit / Hidroksibütandioik Asit (Yeşil Elma ve Ekşi Meyve Asidi)",
+      formula: "C4H6O5_malic_acid",
+      category: "Enerji Metaboliti & Keratolitik Asit",
+      subId: "sub-food-malic-acid",
+      safety: "🟢 Güvenli Gıda ve Cilt Bakım Asidi",
+      everydayUsage: "Kronik yorgunluk ve fibromiyaljide ATP enerji üretim desteği (Magnezyum Malat), ekşi şekerleme aroması, diş beyazlatıcı doğal çilek lapası.",
+      alchemicalName: "Acidum Malicum / Acidum Pomorum",
+      note: "Krebs (sitrik asit) döngüsünün kritik bir ara basamağıdır; mitokondride hücresel enerji metabolizmasını hızlandırırken ciltte kolajen üretimini uyarır."
+    },
+    {
+      colloquial: "Üzüm Asidi / Tartarik Asit (Krem Tartar Asidi)",
+      scientific: "L(+)-Tartarik Asit / 2,3-Dihidroksibütandioik Asit (Şarap Tortusu Asidi)",
+      formula: "C4H6O6_tartaric_acid",
+      category: "Kiral Asit & Geleneksel Kabartma Tuzu Bazı",
+      subId: "sub-food-tartaric-acid",
+      safety: "🟢 Güvenli Doğal Gıda Asidi",
+      everydayUsage: "Kabartma tozu üretimi, geleneksel lokum kıvam dengeleyici ve şeker kristalleşmesini önleyici şerbet asidi, metal parlatma banyosu.",
+      alchemicalName: "Acidum Tartaricum / Sal Tartari",
+      note: "Louis Pasteur'ün 1848'de moleküler kiraliteyi (sağ/sol el optik izomeri) keşfettiği tarihi kimyasal maddedir; fermantasyon fıçılarında dibe çöken tartar taşından saflaştırılır."
+    },
+    {
+      colloquial: "Biberiye Külü / Spajirik Potas Tuzu",
+      scientific: "Rosmarinus officinalis Biyokütle Kalsinasyon Külü (Spajirik Potasyum Karbonat & Eser Oksitler)",
+      formula: "K2CO3_rosemary_salt",
+      category: "Spajirik Felsefe Tuzu & Bitkisel Alkali",
+      subId: "sub-spag-rosemary-salt",
+      safety: "🟢 Güvenli Bitkisel Tuz Kalıntısı",
+      everydayUsage: "Spajirik tentürlerde uçucu yağ ve alkol fazını yeniden 'beden' ile birleştiren kilit reaktif, alkali mineral takviyesi çayı.",
+      alchemicalName: "Sal Spagyricum Rosmarini",
+      note: "Paracelsus spajirya geleneğinde bitkinin 'Tuz' (beden) prensibidir; bitki posası akkor ateşte kül rengi beyazlaşana kadar kalsine edilip yağmur suyunda kristallendirilir."
+    },
+    {
+      colloquial: "Keten Tohumu Külü / Bitkisel Kalsiyum Fosfat",
+      scientific: "Linum usitatissimum Tohum Kalsinasyon Külü (Kalsiyum, Magnezyum Fosfat & Silikat Mineralleri)",
+      formula: "Ca3(PO4)2_linum_ash",
+      category: "Biyojenik Mineral & Kemik Güçlendirici",
+      subId: "sub-spag-flaxseed-ash",
+      safety: "🟢 Güvenli Doğal Biyojenik Mineral",
+      everydayUsage: "Kemik kırıkları ve osteoporoz tedavisinde geleneksel mineral kürü, kalsiyum ve fosfor takviyesi macunları bazı.",
+      alchemicalName: "Sal Vegetabilis Lini",
+      note: "Tohumların içerdiği organik fosfolipit ve kalsiyumun yüksek ısıda kalsinasyonuyla inorganik biyoyararlanımlı tuz formuna dönüştürülmüş halidir."
+    },
+    {
+      colloquial: "Karanfil Külü / Bitkisel Öjenolat Tuzu",
+      scientific: "Syzygium aromaticum Kalsinasyon Külü (Potasyum, Magnezyum Karbonat & İyonik Mineraller)",
+      formula: "K2CO3_eugenol_ash",
+      category: "Alkalize Edici Mineral & Diş Tozu",
+      subId: "sub-spag-clove-ash",
+      safety: "🟢 Güvenli Doğal Diş Temizleme Minerali",
+      everydayUsage: "Geleneksel diş ve diş eti temizleme tozu (misvak külü benzeri), ağız asitliğini anında nötralize edici gargara bazı.",
+      alchemicalName: "Sal Caryophyllorum",
+      note: "Karanfil posasının kalsinasyonuyla elde edilen beyaz tuz kalıntısıdır; tükürük pH'ını alkaliye kaydırarak asidik diş çürümelerini durdurur."
+    },
+    {
+      colloquial: "Söğüt Külü / Spajirik Salisilat Tuzu",
+      scientific: "Salix alba Dal Kabuğu Kalsinasyon Külü (Kalsiyum & Potasyum Oksit Bileşimi)",
+      formula: "K2CO3_salix_ash",
+      category: "Spajirik Tuz & Romatizma Minerali",
+      subId: "sub-spag-willow-ash",
+      safety: "🟢 Güvenli Geleneksel Mineral Tuzu",
+      everydayUsage: "Doğal aspirin tentürü üretiminde saflaştırılmış spajirik bağlayıcı tuz, eklem romatizması banyoları katkısı.",
+      alchemicalName: "Sal Corticis Salicis",
+      note: "Söğüt ağacı kabuklarının kalsine edilmesiyle elde edilir; salisin ve salisilik asit içeren bitkisel süzüntüye geri eklenerek tuz formu oluşturulur."
+    },
+    {
+      colloquial: "Arpa Çimi Suyu / Canlı Klorofil Özütü",
+      scientific: "Hordeum vulgare Taze Çim Soğuk Sıkım Suyu (Magnezyum-Klorofilin, SOD Enzimi & Polifenoller)",
+      formula: "C55H72MgN4O5_chlorophyll",
+      category: "Biyoaktif Antioksidan & Kan Yapıcı Tonik",
+      subId: "sub-bot-barley-grass-juice",
+      safety: "🟢 Güvenli Fonksiyonel Besin Özütü",
+      everydayUsage: "Alkali yeşil detoks içeceği, anemi ve demir emilimi artırıcı süper besin, yara iyileşmesini hızlandırıcı klorofil kompresi.",
+      alchemicalName: "Succus Herbae Hordei Viridis",
+      note: "Klorofil molekülü, merkezinde demir yerine magnezyum atomu taşıyan insan hemoglobinine neredeyse ikiz yapıdadır; kandaki oksijen taşınmasını ve eritrosit yenilenmesini destekler."
+    },
+    {
+      colloquial: "Kırmızı Pancar Boyası / Betanin",
+      scientific: "Beta vulgaris Kökü Konsantre Özütü (Betanin Glukoziti & Betalain Pigmentleri)",
+      formula: "C24H26N2O13_betanin",
+      category: "Doğal Gıda Boyası & Nitrik Oksit Kaynağı",
+      subId: "sub-food-beetroot-betanin",
+      safety: "🟢 Güvenli Doğal Gıda Boyası ve Fonksiyonel Besin",
+      everydayUsage: "Doğal pembe-kırmızı gıda boyası (E162), sporcularda dayanıklılık ve damar genişletici nitrat desteği, karaciğer detoksifikasyonu.",
+      alchemicalName: "Extractum Radicis Betae Rubrae",
+      note: "Doğal azotlu betalain pigmentleridir; sentetik azo boyalarının aksine toksik ve kanserojen değildir, damar endotelinde nitrik oksit (NO) sentezini uyararak tansiyonu dengeler."
+    },
+    {
+      colloquial: "Zerdeçal Ruhu / Kurkumin Yağı",
+      scientific: "Curcuma longa Rizomu Süperkritik CO2 Ekstraktı (Kurkumin, Demetoksikurkumin & Turmeron)",
+      formula: "C21H20O6_curcumin",
+      category: "Anti-Enflamatuar & Eklem Onarıcı",
+      subId: "sub-bot-turmeric-curcumin-oil",
+      safety: "🟢 Güvenli Fitofarmasötik (Karabiber piperini ile biyoyararlanımı 20 kat artar)",
+      everydayUsage: "Romatizma ve kireçlenmede eklem kıkırdağı koruyucu damlalar, inflamatuar bağırsak hastalıkları desteği, altın süt (Golden Milk) kürü.",
+      alchemicalName: "Oleum Curcumae Longae",
+      note: "NF-kB ve COX-2 inflamasyon yolaklarını güçlü şekilde bloke eden kurkuminoidleri içerir; lipofilik yapısıyla hücre zarını serbest radikal hasarından korur."
+    },
+    {
+      colloquial: "Zencefil Suyu / Zingiber Hidrosolü",
+      scientific: "Zingiber officinale Rizom Buhar Distilatı (Zingiberen, Sineol & Sitral)",
+      formula: "C15H24_zingiberene_water",
+      category: "Antiemetik & Termojenik Hidrosol",
+      subId: "sub-bot-ginger-hydrosol",
+      safety: "🟢 Güvenli Gıda ve İçecek Hidrosolü",
+      everydayUsage: "Hamilelik ve yol tutması (deniz tutması) bulantısını kesen ferahlatıcı sprey, kışın vücudu ısıtıcı çay toniği, saç kökü kanlandırıcı tonik.",
+      alchemicalName: "Aqua Zingiberis Rhizomatis",
+      note: "Zencefilin uçucu aromatik seskiterpenlerini taşır; mide-bağırsak sistemindeki 5-HT3 serotonin reseptörlerini baskılayarak bulantı refleksini hızla dindirir."
+    },
+    {
+      colloquial: "Limon Tuzu Kalsinasyonu / Kalsiyum Sitrat Külü",
+      scientific: "Sitrik Asit ve Kalsiyum Karbonat Kalsinasyon Kalıntısı (Biyolojik Kalsiyum Karbonat & Oksit)",
+      formula: "Ca3(C6H5O7)2_calcined",
+      category: "Mineral Asimilasyon Kalıntısı & Antiasit",
+      subId: "sub-spag-calcium-citrate-ash",
+      safety: "🟢 Güvenli Mide Antiasidi",
+      everydayUsage: "Mide ekşimesi ve asiditesini hızla nötralize edici alkali toz, biyoyararlanımı yüksek emilebilir kalsiyum kaynağı.",
+      alchemicalName: "Calx Citrata",
+      note: "Limon suyunun istiridye veya yumurta kabuğuyla nötrlenip kurutulmasıyla hazırlanan antik tıbbi kalsiyum sitrat tuzunun akkor fırın kalıntısıdır."
+    },
+    {
+      colloquial: "Hardal Külü / Bitkisel Sülfat Tuzu",
+      scientific: "Sinapis nigra Kalsinasyon Külü (Potasyum Sülfat & Kalsiyum Oksit Kalıntısı)",
+      formula: "K2SO4_mustard_ash",
+      category: "Spajirik Kükürt Tuzu & Çözücü",
+      subId: "sub-spag-mustard-ash",
+      safety: "🟢 Güvenli Bitkisel Tuz",
+      everydayUsage: "Spajirik mineral banyoları, organik sülfat kaynağı olarak toprak ve bitki güçlendirici iksir.",
+      alchemicalName: "Sal Seminum Sinapis",
+      note: "Hardal tohumlarının kalsinasyonuyla elde edilen sülfürce zengin inorganik tuzdur; mineral kristalizasyonunda doğal tohumlayıcı olarak işlev görür."
+    },
+    {
+      colloquial: "Isırgan Külü / Biyoaktif Silikat-Potas",
+      scientific: "Urtica dioica Kalsinasyon Külü (Biyojenik Çözünür Silisik Asit & Potasyum Karbonat)",
+      formula: "K2SiO3_rich_nettle_ash",
+      category: "Biyojenik Silika & Mineral Takviyesi",
+      subId: "sub-spag-nettle-ash",
+      safety: "🟢 Güvenli Doğal Mineral Külü",
+      everydayUsage: "Kırılgan saç ve tırnak güçlendirici spajirik damla, bitki korumada doğal mantar önleyici yaprak spreyi.",
+      alchemicalName: "Sal Herbae Urticae",
+      note: "Isırgan bitkisinin yakıcı tüylerindeki silika ve mineraller kalsinasyon külünde yoğunlaşır; bağ dokusunda kolajen liflerini çapraz bağlayarak güçlendirir."
+    },
+    {
+      colloquial: "Pelin Külü / Spajirik Acı Tuz",
+      scientific: "Artemisia absinthium Kalsinasyon Külü (Potasyum Klorür & Karbonat Tuzu)",
+      formula: "KCl_K2CO3_wormwood_ash",
+      category: "Spajirik Beden Tuzu & Sindirim Tuzu",
+      subId: "sub-spag-wormwood-ash",
+      safety: "🟢 Güvenli Spajirik Bitki Tuzu",
+      everydayUsage: "Geleneksel pelin iksiri (Absinthe Spagyric Tincture) formülasyonunun mineral üçüncü ayağı, safra ve mide uyarımı.",
+      alchemicalName: "Sal Absinthii",
+      note: "Pelin otu posasının yakılıp defalarca suda çözündürülüp süzülmesiyle (çözme-bağlama / solve et coagula) elde edilen kar beyazı arı potasyum tuzudur."
+    },
+    {
+      colloquial: "Gül Külü / Floralkali Tuzu",
+      scientific: "Rosa damascena Yaprak Kalsinasyon Külü (Hafif Alkali Potasyum & Fosfor Tuzu)",
+      formula: "K2CO3_rose_ash",
+      category: "Kozmetik Alkali & Spajirik Tuz",
+      subId: "sub-spag-rose-ash",
+      safety: "🟢 Güvenli Doğal Çiçek Tuzu",
+      everydayUsage: "Gül suyu ve gül yağını mikro-emülsifiye edip sabitleyen spajirik iksir tuzu, göz banyosu mineral katkısı.",
+      alchemicalName: "Sal Florum Rosae",
+      note: "Damıtılmış gül yapraklarının fırında kalsinasyonuyla elde edilir; gül hidrosolüne eklendiğinde kokunun kalıcılığını ve biyo-özümsemesini artırır."
+    },
+    {
+      colloquial: "Mürver Meyvesi Şurubu / Sambukol Özü",
+      scientific: "Sambucus nigra Olgun Meyve Ekstresi (Siyanidin-3-Glukozit, Sambusiyanin & C Vitamini)",
+      formula: "C21H21O11_cyanidin_sambucol",
+      category: "Kuvvetli Antiviral & İmmün Destek Şurubu",
+      subId: "sub-bot-elderberry-syrup",
+      safety: "🟢 Güvenli Pişirilmiş Meyve Şurubu (Çiğ Meyve Tüketilmemelidir)",
+      everydayUsage: "İnfluenza A/B ve soğuk algınlığında viral girişi engelleyici koruyucu şurup, kış aylarında bağışıklık kalkanı içeceği.",
+      alchemicalName: "Roob Sambuci / Succus Sambuci Inspissatus",
+      note: "Mürver meyvesindeki antosiyaninler virüs yüzeyindeki hemaglütinin proteinlerine bağlanarak virüsün insan hücresine girişini ve replikasyonunu doğrudan bloke eder."
     }
   ];
 
