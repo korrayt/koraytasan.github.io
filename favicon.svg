@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="neonRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5D4"/>
+      <stop offset="100%" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10141F"/>
+      <stop offset="100%" stop-color="#080A0F"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="5" width="118" height="118" rx="28" fill="url(#darkBg)" stroke="url(#neonRim)" stroke-width="3"/>
+  <!-- K Stem -->
+  <rect x="27" y="34" width="11" height="60" rx="3" fill="#FFFFFF"/>
+  <!-- K Arms -->
+  <path d="M36 64 L59 36 L72 36 L43 69 Z" fill="#FFFFFF"/>
+  <path d="M41 64 L72 94 L59 94 L33 68 Z" fill="#00E5D4"/>
+  <!-- T Bar & Stem -->
+  <rect x="71" y="34" width="34" height="11" rx="3" fill="#FFFFFF"/>
+  <rect x="82.5" y="43" width="11" height="51" rx="3" fill="#FFFFFF"/>
+  <!-- Director Core Dot -->
+  <circle cx="88" cy="27" r="4" fill="#7C5CFC"/>
+  <circle cx="88" cy="27" r="2" fill="#FFFFFF"/>
+</svg>
