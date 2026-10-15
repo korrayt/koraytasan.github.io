@@ -364,6 +364,26 @@
       severity: "CRITICAL",
       description: "Etanol metabolizması sitozolik NADH/NAD+ oranını yükselterek pirüvatın laktata dönüşümünü hızlandırır. Metformin hepatik glukoneogenezi baskıladığından laktat temizlenemez ve %50 mortaliteye sahip ölümcül laktik asidoz tablosu gelişir.",
       recommendation: "Metformin tedavisi alan hastalar aşırı alkol tüketiminden kesinlikle kaçınmalıdır."
+    },
+    {
+      id: "ddi-pseudoephedrine-maoi",
+      pair: ["pseudoephedrine", "maoi"],
+      synergyScore: 0.85,
+      classification: "CONTRAINDICATED_HYPERTENSIVE",
+      title: "Ölümcül Hipertansif Kriz & Sempatomimetik Fırtına",
+      severity: "FATAL",
+      description: "Psödoefedrin sempatik sinir uçlarından noradrenalin salınımını uyarır. MAO enzimi bloke olduğunda parçalanamayan katekolaminler şiddetli arteriyel vazokonstriksiyona, malign hipertansiyona ve intrakraniyal kanamaya yol açar.",
+      recommendation: "MAO inhibitörü alan veya son 14 gün içinde almış olan hastalarda psödoefedrin ve Griport kombinasyonu kesinlikle kontrendikedir."
+    },
+    {
+      id: "ddi-chlorpheniramine-ethanol",
+      pair: ["chlorpheniramine", "ethanol"],
+      synergyScore: 1.45,
+      classification: "SYNERGISTIC_CNS_DEPRESSION",
+      title: "Şiddetli Santral Sinir Sistemi Depresyonu & Psikomotor Bozulma",
+      severity: "HIGH",
+      description: "Birinci kuşak antihistaminik klorfeniramin santral H1 ve muskarinik reseptörleri bloke ederek sedasyon yaratır. Etanol ile birleştiğinde santral sinir sistemi depresyonu katlanır; aşırı uyku hali, refleks zayıflığı ve solunum yavaşlaması görülür.",
+      recommendation: "Klorfeniramin veya Griport kullanımı sırasında alkol tüketiminden ve dikkat gerektiren makine/araç kullanımından kaçınılmalıdır."
     }
   ];
 
@@ -431,7 +451,9 @@
     "c9h13no3": { mw: 183.2, logp: -0.43, hbd: 4, hba: 4, tpsa: 72.7, rotbonds: 2, aromaticRings: 1, esolLogS: -1.2, smiles: "CNC C(C1=CC(=C(C=C1)O)O)O", inchikey: "DOCEOAONQNOZCH-UHFFFAOYSA-N", cid: 5816, drugbank: "DB00668" },
     "c17h23no3": { mw: 289.37, logp: 1.83, hbd: 1, hba: 4, tpsa: 49.8, rotbonds: 4, aromaticRings: 1, esolLogS: -2.6, smiles: "CN1C2CCC1CC(C2)OC(=O)C(CO)C3=CC=CC=C3", inchikey: "RKUNNOAONLHTDA-UHFFFAOYSA-N", cid: 174174, drugbank: "DB00572" },
     "c14h22n2o": { mw: 234.34, logp: 2.44, hbd: 1, hba: 2, tpsa: 32.3, rotbonds: 4, aromaticRings: 1, esolLogS: -2.7, smiles: "CCN(CC)CC(=O)NC1=C(C=CC=C1C)C", inchikey: "ZNZRZZOQBRTCAL-UHFFFAOYSA-N", cid: 3926, drugbank: "DB00281" },
-    "c8h15no2": { mw: 157.21, logp: -1.5, hbd: 2, hba: 3, tpsa: 63.3, rotbonds: 2, aromaticRings: 0, esolLogS: -0.6, smiles: "C1CC(CCC1CN)C(=O)O", inchikey: "JYIKLTIWZFOTOW-UHFFFAOYSA-N", cid: 5526, drugbank: "DB00302" }
+    "c8h15no2": { mw: 157.21, logp: -1.5, hbd: 2, hba: 3, tpsa: 63.3, rotbonds: 2, aromaticRings: 0, esolLogS: -0.6, smiles: "C1CC(CCC1CN)C(=O)O", inchikey: "JYIKLTIWZFOTOW-UHFFFAOYSA-N", cid: 5526, drugbank: "DB00302" },
+    "c10h15no": { mw: 165.23, logp: 0.89, hbd: 2, hba: 2, tpsa: 32.26, rotbonds: 2, aromaticRings: 1, esolLogS: -1.20, smiles: "CC(NC)C(O)c1ccccc1", inchikey: "KWGRBVOPAISCSI-WPRPVWTQSA-N", cid: 7028, drugbank: "DB00852" },
+    "c16h19cln2": { mw: 274.79, logp: 3.39, hbd: 0, hba: 2, tpsa: 6.48, rotbonds: 4, aromaticRings: 2, esolLogS: -3.50, smiles: "CN(C)CCC(c1ccc(Cl)cc1)c1ccccn1", inchikey: "SOYUZARCPGZDJT-UHFFFAOYSA-N", cid: 2725, drugbank: "DB01114" }
   };
 
   // =========================================================================

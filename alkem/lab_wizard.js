@@ -8390,6 +8390,17 @@
       everydayUsage: "Kehribar kolye sürtünme elektrostatik tozu, kuru distilasyonla Kehribar Yağı (Oleum Succini) eldesi, tarihi vernik sertleştiricisi.",
       alchemicalName: "Succinum Balticum / Ambra Flava",
       note: "40 milyon yıl önce Baltık ormanlarındaki Pinus succinifera ağaçlarının reçinesinin taşlaşmasıyla oluşan, ısıtıldığında çam ve tütsü kokusu yayan fosil reçine."
+    },
+    {
+      colloquial: "GRİPORT / Grip ve Soğuk Algınlığı Tableti (İLKO)",
+      scientific: "Parasetamol (650 mg) + Psödoefedrin HCl (60 mg) + Klorfeniramin Maleat (4 mg) Kombine Film Tablet",
+      formula: "C8H9NO2+C10H15NO.HCl+C16H19ClN2.C4H4O4",
+      category: "İlaç & Farmakoloji",
+      subId: "sub-pharma-griport-tablet",
+      safety: "🟡 Dikkatli Dozajlanmalıdır (Kombine Farmasötik)",
+      everydayUsage: "Akut üst solunum yolu enfeksiyonları, nezle, grip, ateş, boğaz ağrısı, burun akıntısı, aksırma ve burun tıkanıklığı semptomatik tedavisi.",
+      alchemicalName: "Tabula Griportis / Panacea Catarrhalis",
+      note: "İLKO İlaç tarafından üretilen üçlü kombine preparat. Analjezik-antipiretik parasetamol (650 mg), sempatomimetik dekonjestan psödoefedrin HCl ve birinci kuşak H1-antihistaminik klorfeniramin maleat içerir. Karaciğer yükünü önlemek için alkol ve diğer parasetamol içeren ürünlerle birleştirilmemelidir."
     }
   ];
 
