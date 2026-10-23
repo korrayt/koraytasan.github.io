@@ -200,6 +200,7 @@
 
     <div class="player-frame">
       <iframe
+        id="songYtIframe"
         src="https://www.youtube.com/embed/kfNMMacoEYQ?rel=0&modestbranding=1"
         title="CORE — COLD ASPHALT (Official Lyric Video)"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -210,38 +211,38 @@
     <div class="content-grid">
       <section class="panel">
         <h2 class="panel-title">📜 Official Synchronized Lyrics (32 Lines)</h2>
-        <div class="lyric-row"><span class="lyric-ts">00:04</span><span class="lyric-txt">AH, STREETS ARE COLD... LOOK AT ME</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:06</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:10</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:14</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:17</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:20</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:27</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:34</span><span class="lyric-txt">2 A.M. GRINDING AT THE WOODEN DESK</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:36</span><span class="lyric-txt">STRONG BLACK TEA IN A RUSTY TIN CUP PRESSED</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:39</span><span class="lyric-txt">RIPPED COAT POCKET, WET SOLES ON THE STONE</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:43</span><span class="lyric-txt">LEAVING WET TRACKS WALKING BACK HOME</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:47</span><span class="lyric-txt">EYES ON THE TOP, I AIN'T BACKING DOWN</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:49</span><span class="lyric-txt">WORKING EVERY NIGHT JUST TO RUN THIS TOWN!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:53</span><span class="lyric-txt">LIGHTS GO OUT, CITY SILENT AND COLD</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:57</span><span class="lyric-txt">I OWN THIS MAHALLE, STORY'S GOTTA BE TOLD!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:01</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:05</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:08</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:12</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:15</span><span class="lyric-txt">WET PAVEMENT RIGHT OUTSIDE MY GATE</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:18</span><span class="lyric-txt">SCRAWLED ON PAPER, WRITING MY OWN FATE</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:21</span><span class="lyric-txt">HEAVY 808 HITTING HARD IN MY HEAD</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:24</span><span class="lyric-txt">CARVED MY OWN NAME WHERE THE STREET RUNS RED!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:29</span><span class="lyric-txt">C O L D   A S P H A L T</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:36</span><span class="lyric-txt">M I D N I G H T   S P E E D</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:43</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:48</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:57</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:00</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:03</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:10</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:16</span><span class="lyric-txt">C O L D   A S P H A L T</span></div>
+        <div class="lyric-row" onclick="seekVideo(4)" title="Click to play from 00:04" style="cursor:pointer;"><span class="lyric-ts">▶ 00:04</span><span class="lyric-txt">AH, STREETS ARE COLD... LOOK AT ME</span></div>
+<div class="lyric-row" onclick="seekVideo(6)" title="Click to play from 00:06" style="cursor:pointer;"><span class="lyric-ts">▶ 00:06</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
+<div class="lyric-row" onclick="seekVideo(10)" title="Click to play from 00:10" style="cursor:pointer;"><span class="lyric-ts">▶ 00:10</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
+<div class="lyric-row" onclick="seekVideo(14)" title="Click to play from 00:14" style="cursor:pointer;"><span class="lyric-ts">▶ 00:14</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
+<div class="lyric-row" onclick="seekVideo(17)" title="Click to play from 00:17" style="cursor:pointer;"><span class="lyric-ts">▶ 00:17</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
+<div class="lyric-row" onclick="seekVideo(20)" title="Click to play from 00:20" style="cursor:pointer;"><span class="lyric-ts">▶ 00:20</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
+<div class="lyric-row" onclick="seekVideo(27)" title="Click to play from 00:27" style="cursor:pointer;"><span class="lyric-ts">▶ 00:27</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
+<div class="lyric-row" onclick="seekVideo(34)" title="Click to play from 00:34" style="cursor:pointer;"><span class="lyric-ts">▶ 00:34</span><span class="lyric-txt">2 A.M. GRINDING AT THE WOODEN DESK</span></div>
+<div class="lyric-row" onclick="seekVideo(36)" title="Click to play from 00:36" style="cursor:pointer;"><span class="lyric-ts">▶ 00:36</span><span class="lyric-txt">STRONG BLACK TEA IN A RUSTY TIN CUP PRESSED</span></div>
+<div class="lyric-row" onclick="seekVideo(39)" title="Click to play from 00:39" style="cursor:pointer;"><span class="lyric-ts">▶ 00:39</span><span class="lyric-txt">RIPPED COAT POCKET, WET SOLES ON THE STONE</span></div>
+<div class="lyric-row" onclick="seekVideo(43)" title="Click to play from 00:43" style="cursor:pointer;"><span class="lyric-ts">▶ 00:43</span><span class="lyric-txt">LEAVING WET TRACKS WALKING BACK HOME</span></div>
+<div class="lyric-row" onclick="seekVideo(47)" title="Click to play from 00:47" style="cursor:pointer;"><span class="lyric-ts">▶ 00:47</span><span class="lyric-txt">EYES ON THE TOP, I AIN'T BACKING DOWN</span></div>
+<div class="lyric-row" onclick="seekVideo(49)" title="Click to play from 00:49" style="cursor:pointer;"><span class="lyric-ts">▶ 00:49</span><span class="lyric-txt">WORKING EVERY NIGHT JUST TO RUN THIS TOWN!</span></div>
+<div class="lyric-row" onclick="seekVideo(53)" title="Click to play from 00:53" style="cursor:pointer;"><span class="lyric-ts">▶ 00:53</span><span class="lyric-txt">LIGHTS GO OUT, CITY SILENT AND COLD</span></div>
+<div class="lyric-row" onclick="seekVideo(57)" title="Click to play from 00:57" style="cursor:pointer;"><span class="lyric-ts">▶ 00:57</span><span class="lyric-txt">I OWN THIS MAHALLE, STORY'S GOTTA BE TOLD!</span></div>
+<div class="lyric-row" onclick="seekVideo(61)" title="Click to play from 01:01" style="cursor:pointer;"><span class="lyric-ts">▶ 01:01</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
+<div class="lyric-row" onclick="seekVideo(65)" title="Click to play from 01:05" style="cursor:pointer;"><span class="lyric-ts">▶ 01:05</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
+<div class="lyric-row" onclick="seekVideo(68)" title="Click to play from 01:08" style="cursor:pointer;"><span class="lyric-ts">▶ 01:08</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
+<div class="lyric-row" onclick="seekVideo(72)" title="Click to play from 01:12" style="cursor:pointer;"><span class="lyric-ts">▶ 01:12</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
+<div class="lyric-row" onclick="seekVideo(75)" title="Click to play from 01:15" style="cursor:pointer;"><span class="lyric-ts">▶ 01:15</span><span class="lyric-txt">WET PAVEMENT RIGHT OUTSIDE MY GATE</span></div>
+<div class="lyric-row" onclick="seekVideo(78)" title="Click to play from 01:18" style="cursor:pointer;"><span class="lyric-ts">▶ 01:18</span><span class="lyric-txt">SCRAWLED ON PAPER, WRITING MY OWN FATE</span></div>
+<div class="lyric-row" onclick="seekVideo(81)" title="Click to play from 01:21" style="cursor:pointer;"><span class="lyric-ts">▶ 01:21</span><span class="lyric-txt">HEAVY 808 HITTING HARD IN MY HEAD</span></div>
+<div class="lyric-row" onclick="seekVideo(84)" title="Click to play from 01:24" style="cursor:pointer;"><span class="lyric-ts">▶ 01:24</span><span class="lyric-txt">CARVED MY OWN NAME WHERE THE STREET RUNS RED!</span></div>
+<div class="lyric-row" onclick="seekVideo(89)" title="Click to play from 01:29" style="cursor:pointer;"><span class="lyric-ts">▶ 01:29</span><span class="lyric-txt">C O L D   A S P H A L T</span></div>
+<div class="lyric-row" onclick="seekVideo(96)" title="Click to play from 01:36" style="cursor:pointer;"><span class="lyric-ts">▶ 01:36</span><span class="lyric-txt">M I D N I G H T   S P E E D</span></div>
+<div class="lyric-row" onclick="seekVideo(103)" title="Click to play from 01:43" style="cursor:pointer;"><span class="lyric-ts">▶ 01:43</span><span class="lyric-txt">COLD ASPHALT, LOOSE CHANGE IN MY COAT</span></div>
+<div class="lyric-row" onclick="seekVideo(108)" title="Click to play from 01:48" style="cursor:pointer;"><span class="lyric-ts">▶ 01:48</span><span class="lyric-txt">MIDNIGHT SPEED, GOT THE PEDAL ON THE FLOOR!</span></div>
+<div class="lyric-row" onclick="seekVideo(117)" title="Click to play from 01:57" style="cursor:pointer;"><span class="lyric-ts">▶ 01:57</span><span class="lyric-txt">WORDS CUT DEEP, LEAVE A SCAR ON THE BLOCK</span></div>
+<div class="lyric-row" onclick="seekVideo(120)" title="Click to play from 02:00" style="cursor:pointer;"><span class="lyric-ts">▶ 02:00</span><span class="lyric-txt">OFF THE GRID NOW, NEVER STOPPING FOR THE CLOCK!</span></div>
+<div class="lyric-row" onclick="seekVideo(123)" title="Click to play from 02:03" style="cursor:pointer;"><span class="lyric-ts">▶ 02:03</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
+<div class="lyric-row" onclick="seekVideo(130)" title="Click to play from 02:10" style="cursor:pointer;"><span class="lyric-ts">▶ 02:10</span><span class="lyric-txt">COLD STREETS...   ·   HIT THE GAS!</span></div>
+<div class="lyric-row" onclick="seekVideo(136)" title="Click to play from 02:16" style="cursor:pointer;"><span class="lyric-ts">▶ 02:16</span><span class="lyric-txt">C O L D   A S P H A L T</span></div>
       </section>
 
       <aside class="panel">
@@ -277,5 +278,12 @@
 <a href="/msc_core/we-own-the-morning/" class="other-song-pill ">🌒 WE OWN THE MORNING</a>
     </nav>
   </main>
+  <script>
+    function seekVideo(seconds) {
+      const iframe = document.getElementById('songYtIframe');
+      iframe.src = 'https://www.youtube.com/embed/kfNMMacoEYQ?rel=0&modestbranding=1&autoplay=1&start=' + seconds;
+      iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
 </body>
 </html>

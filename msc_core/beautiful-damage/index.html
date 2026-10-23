@@ -200,6 +200,7 @@
 
     <div class="player-frame">
       <iframe
+        id="songYtIframe"
         src="https://www.youtube.com/embed/FLlPHaRnXME?rel=0&modestbranding=1"
         title="CORE — BEAUTIFUL DAMAGE (Official Lyric Video)"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -210,42 +211,42 @@
     <div class="content-grid">
       <section class="panel">
         <h2 class="panel-title">📜 Official Synchronized Lyrics (36 Lines)</h2>
-        <div class="lyric-row"><span class="lyric-ts">00:00</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:04</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:07</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:10</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:14</span><span class="lyric-txt">DAMAGE WASN'T...   DAMAGE WASN'T!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:22</span><span class="lyric-txt">NOT COMING BACK!   NOT COMING BACK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:29</span><span class="lyric-txt">B E A U T I F U L   D A M A G E</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:40</span><span class="lyric-txt">CURLED UP PHOTO ON THE WOODEN LEDGE</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:43</span><span class="lyric-txt">COLD COFFEE MUG RIGHT BESIDE THE EDGE</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:47</span><span class="lyric-txt">LEFT THE LIGHT ON, PULLED OUT THE KEY</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:50</span><span class="lyric-txt">WALKED AWAY FROM WHAT USED TO BE</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:55</span><span class="lyric-txt">BLUE PAINTED SHUTTERS ACROSS THE STREET</span></div>
-<div class="lyric-row"><span class="lyric-ts">00:59</span><span class="lyric-txt">NO MORE WAITING FOR OUR HANDS TO MEET!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:02</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:06</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:10</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:13</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:16</span><span class="lyric-txt">DAMAGE WASN'T   ·   NOT COMING BACK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:22</span><span class="lyric-txt">SHOPS ARE OPENING DOWN THE BLOCK</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:25</span><span class="lyric-txt">NEVER STOPPING TO CHECK THE CLOCK</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:28</span><span class="lyric-txt">RADIO PLAYING OUR FAVORITE SONG</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:31</span><span class="lyric-txt">I DON'T LOOK BACK, I JUST MOVE ALONG</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:36</span><span class="lyric-txt">NO HERO HERE, NO PERSON SAVED</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:39</span><span class="lyric-txt">LEFT YOUR KEYS BY THE WINDOW FRAME!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:42</span><span class="lyric-txt">I KEEP THE GOOD TIMES IN MY MIND</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:46</span><span class="lyric-txt">LEAVING THE REST OF THE MESS BEHIND!</span></div>
-<div class="lyric-row"><span class="lyric-ts">01:49</span><span class="lyric-txt">W E   W E R E   R E A L</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:04</span><span class="lyric-txt">B E A U T I F U L   D A M A G E</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:19</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:23</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:26</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:30</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:33</span><span class="lyric-txt">I REMEMBER...   THE GOOD PART</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:42</span><span class="lyric-txt">WE WERE REAL...   BUT THE DAMAGE WASN'T</span></div>
-<div class="lyric-row"><span class="lyric-ts">02:57</span><span class="lyric-txt">I REMEMBER THE GOOD PART   ·   WE WERE REAL</span></div>
-<div class="lyric-row"><span class="lyric-ts">03:12</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
+        <div class="lyric-row" onclick="seekVideo(0)" title="Click to play from 00:00" style="cursor:pointer;"><span class="lyric-ts">▶ 00:00</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
+<div class="lyric-row" onclick="seekVideo(4)" title="Click to play from 00:04" style="cursor:pointer;"><span class="lyric-ts">▶ 00:04</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
+<div class="lyric-row" onclick="seekVideo(7)" title="Click to play from 00:07" style="cursor:pointer;"><span class="lyric-ts">▶ 00:07</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
+<div class="lyric-row" onclick="seekVideo(10)" title="Click to play from 00:10" style="cursor:pointer;"><span class="lyric-ts">▶ 00:10</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
+<div class="lyric-row" onclick="seekVideo(14)" title="Click to play from 00:14" style="cursor:pointer;"><span class="lyric-ts">▶ 00:14</span><span class="lyric-txt">DAMAGE WASN'T...   DAMAGE WASN'T!</span></div>
+<div class="lyric-row" onclick="seekVideo(22)" title="Click to play from 00:22" style="cursor:pointer;"><span class="lyric-ts">▶ 00:22</span><span class="lyric-txt">NOT COMING BACK!   NOT COMING BACK!</span></div>
+<div class="lyric-row" onclick="seekVideo(29)" title="Click to play from 00:29" style="cursor:pointer;"><span class="lyric-ts">▶ 00:29</span><span class="lyric-txt">B E A U T I F U L   D A M A G E</span></div>
+<div class="lyric-row" onclick="seekVideo(40)" title="Click to play from 00:40" style="cursor:pointer;"><span class="lyric-ts">▶ 00:40</span><span class="lyric-txt">CURLED UP PHOTO ON THE WOODEN LEDGE</span></div>
+<div class="lyric-row" onclick="seekVideo(43)" title="Click to play from 00:43" style="cursor:pointer;"><span class="lyric-ts">▶ 00:43</span><span class="lyric-txt">COLD COFFEE MUG RIGHT BESIDE THE EDGE</span></div>
+<div class="lyric-row" onclick="seekVideo(47)" title="Click to play from 00:47" style="cursor:pointer;"><span class="lyric-ts">▶ 00:47</span><span class="lyric-txt">LEFT THE LIGHT ON, PULLED OUT THE KEY</span></div>
+<div class="lyric-row" onclick="seekVideo(50)" title="Click to play from 00:50" style="cursor:pointer;"><span class="lyric-ts">▶ 00:50</span><span class="lyric-txt">WALKED AWAY FROM WHAT USED TO BE</span></div>
+<div class="lyric-row" onclick="seekVideo(55)" title="Click to play from 00:55" style="cursor:pointer;"><span class="lyric-ts">▶ 00:55</span><span class="lyric-txt">BLUE PAINTED SHUTTERS ACROSS THE STREET</span></div>
+<div class="lyric-row" onclick="seekVideo(59)" title="Click to play from 00:59" style="cursor:pointer;"><span class="lyric-ts">▶ 00:59</span><span class="lyric-txt">NO MORE WAITING FOR OUR HANDS TO MEET!</span></div>
+<div class="lyric-row" onclick="seekVideo(62)" title="Click to play from 01:02" style="cursor:pointer;"><span class="lyric-ts">▶ 01:02</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
+<div class="lyric-row" onclick="seekVideo(66)" title="Click to play from 01:06" style="cursor:pointer;"><span class="lyric-ts">▶ 01:06</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
+<div class="lyric-row" onclick="seekVideo(70)" title="Click to play from 01:10" style="cursor:pointer;"><span class="lyric-ts">▶ 01:10</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
+<div class="lyric-row" onclick="seekVideo(73)" title="Click to play from 01:13" style="cursor:pointer;"><span class="lyric-ts">▶ 01:13</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
+<div class="lyric-row" onclick="seekVideo(76)" title="Click to play from 01:16" style="cursor:pointer;"><span class="lyric-ts">▶ 01:16</span><span class="lyric-txt">DAMAGE WASN'T   ·   NOT COMING BACK!</span></div>
+<div class="lyric-row" onclick="seekVideo(82)" title="Click to play from 01:22" style="cursor:pointer;"><span class="lyric-ts">▶ 01:22</span><span class="lyric-txt">SHOPS ARE OPENING DOWN THE BLOCK</span></div>
+<div class="lyric-row" onclick="seekVideo(85)" title="Click to play from 01:25" style="cursor:pointer;"><span class="lyric-ts">▶ 01:25</span><span class="lyric-txt">NEVER STOPPING TO CHECK THE CLOCK</span></div>
+<div class="lyric-row" onclick="seekVideo(88)" title="Click to play from 01:28" style="cursor:pointer;"><span class="lyric-ts">▶ 01:28</span><span class="lyric-txt">RADIO PLAYING OUR FAVORITE SONG</span></div>
+<div class="lyric-row" onclick="seekVideo(91)" title="Click to play from 01:31" style="cursor:pointer;"><span class="lyric-ts">▶ 01:31</span><span class="lyric-txt">I DON'T LOOK BACK, I JUST MOVE ALONG</span></div>
+<div class="lyric-row" onclick="seekVideo(96)" title="Click to play from 01:36" style="cursor:pointer;"><span class="lyric-ts">▶ 01:36</span><span class="lyric-txt">NO HERO HERE, NO PERSON SAVED</span></div>
+<div class="lyric-row" onclick="seekVideo(99)" title="Click to play from 01:39" style="cursor:pointer;"><span class="lyric-ts">▶ 01:39</span><span class="lyric-txt">LEFT YOUR KEYS BY THE WINDOW FRAME!</span></div>
+<div class="lyric-row" onclick="seekVideo(102)" title="Click to play from 01:42" style="cursor:pointer;"><span class="lyric-ts">▶ 01:42</span><span class="lyric-txt">I KEEP THE GOOD TIMES IN MY MIND</span></div>
+<div class="lyric-row" onclick="seekVideo(106)" title="Click to play from 01:46" style="cursor:pointer;"><span class="lyric-ts">▶ 01:46</span><span class="lyric-txt">LEAVING THE REST OF THE MESS BEHIND!</span></div>
+<div class="lyric-row" onclick="seekVideo(109)" title="Click to play from 01:49" style="cursor:pointer;"><span class="lyric-ts">▶ 01:49</span><span class="lyric-txt">W E   W E R E   R E A L</span></div>
+<div class="lyric-row" onclick="seekVideo(124)" title="Click to play from 02:04" style="cursor:pointer;"><span class="lyric-ts">▶ 02:04</span><span class="lyric-txt">B E A U T I F U L   D A M A G E</span></div>
+<div class="lyric-row" onclick="seekVideo(139)" title="Click to play from 02:19" style="cursor:pointer;"><span class="lyric-ts">▶ 02:19</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
+<div class="lyric-row" onclick="seekVideo(143)" title="Click to play from 02:23" style="cursor:pointer;"><span class="lyric-ts">▶ 02:23</span><span class="lyric-txt">KEPT YOUR SHIRT, BUT I LEFT THE CLOSET!</span></div>
+<div class="lyric-row" onclick="seekVideo(146)" title="Click to play from 02:26" style="cursor:pointer;"><span class="lyric-ts">▶ 02:26</span><span class="lyric-txt">SAY YOUR NAME WITHOUT TURNING BACK</span></div>
+<div class="lyric-row" onclick="seekVideo(150)" title="Click to play from 02:30" style="cursor:pointer;"><span class="lyric-ts">▶ 02:30</span><span class="lyric-txt">GOT MY BAGS AND I'M OFF THE TRACK!</span></div>
+<div class="lyric-row" onclick="seekVideo(153)" title="Click to play from 02:33" style="cursor:pointer;"><span class="lyric-ts">▶ 02:33</span><span class="lyric-txt">I REMEMBER...   THE GOOD PART</span></div>
+<div class="lyric-row" onclick="seekVideo(162)" title="Click to play from 02:42" style="cursor:pointer;"><span class="lyric-ts">▶ 02:42</span><span class="lyric-txt">WE WERE REAL...   BUT THE DAMAGE WASN'T</span></div>
+<div class="lyric-row" onclick="seekVideo(177)" title="Click to play from 02:57" style="cursor:pointer;"><span class="lyric-ts">▶ 02:57</span><span class="lyric-txt">I REMEMBER THE GOOD PART   ·   WE WERE REAL</span></div>
+<div class="lyric-row" onclick="seekVideo(192)" title="Click to play from 03:12" style="cursor:pointer;"><span class="lyric-ts">▶ 03:12</span><span class="lyric-txt">WE WERE REAL, BUT THE DAMAGE WASN'T!</span></div>
       </section>
 
       <aside class="panel">
@@ -281,5 +282,12 @@
 <a href="/msc_core/we-own-the-morning/" class="other-song-pill ">🌒 WE OWN THE MORNING</a>
     </nav>
   </main>
+  <script>
+    function seekVideo(seconds) {
+      const iframe = document.getElementById('songYtIframe');
+      iframe.src = 'https://www.youtube.com/embed/FLlPHaRnXME?rel=0&modestbranding=1&autoplay=1&start=' + seconds;
+      iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
 </body>
 </html>
