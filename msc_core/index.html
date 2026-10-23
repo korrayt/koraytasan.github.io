@@ -1943,7 +1943,7 @@ We ain't playing by their game!`
       currentSongIndex = idx;
       const song = CORE_CATALOG[idx];
       const iframe = document.getElementById("mainYoutubeIframe");
-      iframe.src = `https://www.youtube.com/embed/${song.id}?rel=0&modestbranding=1${autoplay ? '&autoplay=1' : ''}`;
+      iframe.src = `https://www.youtube.com/embed/${song.id}?list=PLUnUFs30y1bM&rel=0&modestbranding=1${autoplay ? '&autoplay=1' : ''}`;
 
       document.getElementById("inspMoonImg").src = song.moonImg;
       document.getElementById("inspMoonPhase").textContent = currentLang === "tr" ? song.phaseBadgeTr : song.phaseBadgeEn;
@@ -2113,9 +2113,16 @@ We ain't playing by their game!`
       renderCatalogGrid();
     }
 
-    // Initialize on load without forced autoplay
+    // Initialize on load with URL deep-link (?song=...) or balanced 30-min Lunar Spotlight rotation
     window.addEventListener("DOMContentLoaded", () => {
-      selectSongInCinema(2, false);
+      const params = new URLSearchParams(window.location.search);
+      const qSong = params.get("song");
+      let startIdx = Math.floor(Date.now() / (1000 * 60 * 10)) % CORE_CATALOG.length;
+      if (qSong) {
+        const found = CORE_CATALOG.findIndex(s => s.slug === qSong || s.id === qSong);
+        if (found !== -1) startIdx = found;
+      }
+      selectSongInCinema(startIdx, false);
       renderCatalogGrid();
     });
   </script>
