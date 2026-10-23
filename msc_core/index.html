@@ -1364,6 +1364,9 @@
           <button class="btn-sm btn-sm-outline" onclick="shareOnPlatform('whatsapp')" title="Share on WhatsApp">
             <span>💬</span> <span>WhatsApp</span>
           </button>
+          <button class="btn-sm btn-sm-outline" onclick="downloadStoryCard()" title="Download 1080x1920 Instagram/WhatsApp Story Lyric Card">
+            <span>📸</span> <span data-en="Story Card" data-tr="Hikâye Kartı">Story Card</span>
+          </button>
         </div>
       </aside>
     </section>
@@ -1984,6 +1987,107 @@ We ain't playing by their game!`
           btn.textContent = currentLang === "tr" ? "📋 Sözleri Kopyala" : "📋 Copy Lyrics";
         }, 2000);
       });
+    }
+
+    async function downloadStoryCard() {
+      const song = CORE_CATALOG[currentSongIndex];
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1920;
+      const ctx = canvas.getContext('2d');
+
+      // Deep Obsidian Nocturnal Gradient Background
+      const grad = ctx.createLinearGradient(0, 0, 0, 1920);
+      grad.addColorStop(0, '#040710');
+      grad.addColorStop(0.5, '#091122');
+      grad.addColorStop(1, '#04060c');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      // Subtle Crimson & Amber Glow
+      const rad = ctx.createRadialGradient(540, 520, 40, 540, 520, 520);
+      rad.addColorStop(0, 'rgba(217, 27, 36, 0.22)');
+      rad.addColorStop(1, 'rgba(5, 8, 17, 0)');
+      ctx.fillStyle = rad;
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      // Load Thumbnail Image
+      const loadImg = (src) => new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = src;
+      });
+
+      const [thumb, moon] = await Promise.all([
+        loadImg(song.thumbImg),
+        loadImg(song.moonImg)
+      ]);
+
+      if (thumb) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.roundRect(70, 320, 940, 528, 28);
+        ctx.clip();
+        ctx.drawImage(thumb, 70, 320, 940, 528);
+        ctx.restore();
+
+        ctx.strokeStyle = 'rgba(245, 166, 35, 0.45)';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.roundRect(70, 320, 940, 528, 28);
+        ctx.stroke();
+      }
+
+      if (moon) {
+        ctx.drawImage(moon, 490, 140, 100, 100);
+      }
+
+      // Header Brand
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#F5A623';
+      ctx.font = '600 24px monospace';
+      ctx.fillText(song.phaseNameEn + ' · ' + song.pillar, 540, 280);
+
+      // Song Title
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 62px Georgia, serif';
+      ctx.fillText('CORE — ' + song.title, 540, 960);
+
+      // Wrapped Quote
+      ctx.fillStyle = '#F6E0B5';
+      ctx.font = 'italic 42px Georgia, serif';
+      const words = song.quote.split(' ');
+      let line = '';
+      let y = 1070;
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + ' ';
+        if (ctx.measureText(testLine).width > 860 && i > 0) {
+          ctx.fillText(line.trim(), 540, y);
+          line = words[i] + ' ';
+          y += 58;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line.trim(), 540, y);
+
+      // Footer Callout
+      ctx.fillStyle = '#D91B24';
+      ctx.fillRect(290, 1580, 500, 74);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '700 28px sans-serif';
+      ctx.fillText('▶ YOUTUBE: @MSC_CORE', 540, 1627);
+
+      ctx.fillStyle = '#98A6C0';
+      ctx.font = '500 24px monospace';
+      ctx.fillText('www.koraytasan.com/msc_core', 540, 1715);
+
+      const a = document.createElement('a');
+      a.download = `CORE_${song.slug}_Story_1080x1920.png`;
+      a.href = canvas.toDataURL('image/png');
+      a.click();
     }
 
     function shareOnPlatform(platform) {
