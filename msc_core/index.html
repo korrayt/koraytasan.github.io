@@ -1587,6 +1587,7 @@
     const CORE_CATALOG = [
       {
         id: "FUEh69R0gsk",
+        slug: "pay-the-price",
         title: "PAY THE PRICE",
         subtitle: "Official Lyric Video",
         phaseIcon: "🌑",
@@ -1622,6 +1623,7 @@ You only live when you're ready to pay the price!`
       },
       {
         id: "kfNMMacoEYQ",
+        slug: "cold-asphalt",
         title: "COLD ASPHALT",
         subtitle: "Official Lyric Video",
         phaseIcon: "🌑",
@@ -1653,6 +1655,7 @@ Carved my own name where the street runs red and cold!`
       },
       {
         id: "oe7Fo2lctZA",
+        slug: "kiss-me-wrong",
         title: "KISS ME WRONG",
         subtitle: "Official Lyric Video",
         phaseIcon: "🌓",
@@ -1696,6 +1699,7 @@ Love me in the light we make!`
       },
       {
         id: "1ty586G_5Zw",
+        slug: "kiss-me-wrong-arabesque",
         title: "KISS ME WRONG (Arabesque)",
         subtitle: "Arabesque Version — Official Lyric Video",
         phaseIcon: "🌓",
@@ -1733,6 +1737,7 @@ Love me in the light we make...`
       },
       {
         id: "HqGNLXGMvec",
+        slug: "if-one-remains",
         title: "IF ONE REMAINS",
         subtitle: "(DON'T LET THE OTHER FADE) — Official Lyric Video",
         phaseIcon: "🌘",
@@ -1770,6 +1775,7 @@ We'll meet your gaze with nothing left to hide`
       },
       {
         id: "FLlPHaRnXME",
+        slug: "beautiful-damage",
         title: "BEAUTIFUL DAMAGE",
         subtitle: "Official Lyric Video",
         phaseIcon: "🌗",
@@ -1803,6 +1809,7 @@ Leaving the rest of the mess behind!`
       },
       {
         id: "0UhXR4mWc1Q",
+        slug: "we-own-the-morning",
         title: "WE OWN THE MORNING",
         subtitle: "Official Lyric Video",
         phaseIcon: "🌒",
@@ -1877,6 +1884,9 @@ We ain't playing by their game!`
               <button class="btn-sm btn-sm-outline" onclick="openLyricsModal(${idx})">
                 <span>📜</span> <span>${currentLang === 'tr' ? 'Sözler' : 'Lyrics'}</span>
               </button>
+              <a href="/msc_core/${song.slug}/" class="btn-sm btn-sm-outline">
+                <span>🌙</span> <span>${currentLang === 'tr' ? 'Şarkı Sayfası' : 'Song Page'}</span>
+              </a>
               <a href="https://www.youtube.com/watch?v=${song.id}&list=PLUnUFs30y1bM" target="_blank" rel="noopener noreferrer" class="btn-sm btn-sm-outline">
                 <span>↗</span> <span>YouTube</span>
               </a>
