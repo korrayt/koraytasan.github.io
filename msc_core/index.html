@@ -2124,6 +2124,18 @@ We ain't playing by their game!`
       }
       selectSongInCinema(startIdx, false);
       renderCatalogGrid();
+      // Keyboard Lunar Phase navigation (Left / Right arrows)
+      window.addEventListener("keydown", (e) => {
+        if (document.getElementById("lyricsModalBackdrop").classList.contains("open")) {
+          if (e.key === "Escape") closeLyricsModal();
+          return;
+        }
+        if (e.key === "ArrowRight") {
+          selectSongInCinema((currentSongIndex + 1) % CORE_CATALOG.length, true);
+        } else if (e.key === "ArrowLeft") {
+          selectSongInCinema((currentSongIndex - 1 + CORE_CATALOG.length) % CORE_CATALOG.length, true);
+        }
+      });
     });
   </script>
 </body>
