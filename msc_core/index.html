@@ -1333,6 +1333,12 @@
           <button class="btn-sm btn-sm-outline" onclick="openLyricsModal(currentSongIndex)">
             <span>📜</span> <span data-en="Read Full Lyrics" data-tr="Tüm Sözleri Oku">Read Full Lyrics</span>
           </button>
+          <button class="btn-sm btn-sm-outline" onclick="shareOnPlatform('x')" title="Share on X / Twitter">
+            <span>𝕏</span> <span>Share</span>
+          </button>
+          <button class="btn-sm btn-sm-outline" onclick="shareOnPlatform('whatsapp')" title="Share on WhatsApp">
+            <span>💬</span> <span>WhatsApp</span>
+          </button>
         </div>
       </aside>
     </section>
@@ -1944,6 +1950,18 @@ We ain't playing by their game!`
           btn.textContent = currentLang === "tr" ? "📋 Sözleri Kopyala" : "📋 Copy Lyrics";
         }, 2000);
       });
+    }
+
+    function shareOnPlatform(platform) {
+      const song = CORE_CATALOG[currentSongIndex];
+      const pageUrl = `https://www.koraytasan.com/msc_core/${song.slug}/`;
+      const ytUrl = `https://www.youtube.com/watch?v=${song.id}`;
+      const text = `${song.phaseIcon} CORE — ${song.title} (${song.quote})\nStream on YouTube: ${ytUrl}\nFull Lyrics & Lunar Story: ${pageUrl} #CORE #msc_core #DarkPop`;
+      if (platform === 'x') {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      } else if (platform === 'whatsapp') {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      }
     }
 
     function setLanguage(lang) {
