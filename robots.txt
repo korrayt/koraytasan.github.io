@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot-Video
+Allow: /msc_core/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://www.koraytasan.com/sitemap.xml
+Sitemap: https://www.koraytasan.com/msc_core/feed.xml
