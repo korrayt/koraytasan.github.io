@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TikTok OAuth Callback — team.core</title>
+  <style>
+    body { background:#0b0d14; color:#f1f5f9; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:60px 24px; text-align:center; }
+    .card { max-width:580px; margin:0 auto; background:#131724; border:1px solid #262e45; border-radius:16px; padding:32px; }
+    code { display:block; background:#07080d; padding:12px; border-radius:8px; color:#00f2fe; word-break:break-all; margin:16px 0; }
+    .btn { display:inline-block; padding:12px 20px; border-radius:10px; background:#00f2fe; color:#000; font-weight:700; text-decoration:none; margin:6px; cursor:pointer; border:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>✅ TikTok Authorization Received</h2>
+    <p style="color:#94a3b8;margin-top:8px;">Your TikTok authorization code has been captured.</p>
+    <code id="codeBox">Reading authorization code...</code>
+    <div>
+      <button class="btn" onclick="copyCode()">Copy Auth Code</button>
+      <a id="continueStudioBtn" class="btn" href="/tiktok_share/?connected=1">Continue to Studio</a>
+    </div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code") || "";
+    const state = params.get("state") || "";
+    const box = document.getElementById("codeBox");
+    if (code) {
+      box.textContent = code;
+      document.getElementById("continueStudioBtn").href = "/tiktok_share/?connected=1&code=" + encodeURIComponent(code);
+      // Also attempt local studio bridge if running on localhost:8080
+      fetch("http://localhost:8080/callback?code=" + encodeURIComponent(code) + "&state=" + encodeURIComponent(state), { mode: "no-cors" }).catch(() => {});
+    } else {
+      box.textContent = params.get("error_description") || "No authorization code found in URL.";
+    }
+    function copyCode() {
+      if (code) navigator.clipboard.writeText(code);
+    }
+  </script>
+</body>
+</html>
