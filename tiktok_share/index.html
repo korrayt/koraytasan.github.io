@@ -364,7 +364,7 @@
         <div>
           <h4 id="creatorNickname" style="font-size:0.9rem;">@team.core.official ✓</h4>
           <p style="font-size:0.76rem;color:var(--cyan);margin:2px 0;">Bio: Creative Studio, Music &amp; Tech • koraytasan.com</p>
-          <p style="font-size:0.72rem;color:var(--muted);">Active Scopes: <code>user.info.basic</code>, <code>user.info.profile</code>, <code>user.info.stats</code>, <code>video.list</code>, <code>video.upload</code>, <code>video.publish</code></p>
+          <p style="font-size:0.72rem;color:var(--muted);">Active Scopes: <code>user.info.basic</code>, <code>video.upload</code>, <code>video.publish</code></p>
         </div>
       </div>
     </div>
@@ -698,7 +698,7 @@
     sessionStorage.setItem("tiktok_oauth_state", csrfState);
     const authUrl = "https://www.tiktok.com/v2/auth/authorize/?" + new URLSearchParams({
       client_key: CLIENT_KEY,
-      scope: "user.info.basic,user.info.profile,user.info.stats,video.list,video.publish,video.upload",
+      scope: "user.info.basic,video.publish,video.upload",
       response_type: "code",
       redirect_uri: REDIRECT_URI,
       state: csrfState
