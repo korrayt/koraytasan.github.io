@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://koraytasan.com/core.music/sitemap.xml
