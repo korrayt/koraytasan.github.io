@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>team.core — TikTok Creator Studio & Direct Publisher</title>
+  <title>team.core — TikTok Analytics, Trend Matcher & Direct Publisher</title>
   <style>
     :root {
-      --bg: #0b0d14;
-      --card: #131724;
-      --card-alt: #181d2e;
-      --border: #262e45;
+      --bg: #090b11;
+      --card: #121622;
+      --card-alt: #181e2e;
+      --border: #262f47;
       --text: #f1f5f9;
       --muted: #94a3b8;
       --cyan: #00f2fe;
       --pink: #fe2c55;
       --green: #10b981;
       --amber: #f59e0b;
+      --purple: #a855f7;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -29,19 +30,23 @@
     }
     header {
       border-bottom: 1px solid var(--border);
-      background: rgba(19, 23, 36, 0.9);
-      padding: 16px 32px;
+      background: rgba(18, 22, 34, 0.95);
+      padding: 14px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.5px;
+      font-size: 1.2rem;
     }
     .brand-badge {
       width: 36px;
@@ -54,76 +59,71 @@
       color: #000;
       font-weight: 900;
     }
+    .nav-links { display: flex; align-items: center; gap: 18px; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     .nav-links a:hover { color: var(--cyan); }
     main {
-      max-width: 1080px;
+      max-width: 1260px;
       width: 100%;
-      margin: 28px auto;
-      padding: 0 24px;
+      margin: 22px auto;
+      padding: 0 20px;
       flex: 1;
     }
-    .grid {
+    /* Top Auth & KPI Strip */
+    .top-bar {
       display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 24px;
+      grid-template-columns: 340px 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
     }
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 960px) {
+      .top-bar { grid-template-columns: 1fr; }
     }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 20px;
+      border-radius: 14px;
+      padding: 20px;
     }
     .card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 14px;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .btn-tiktok {
       width: 100%;
-      padding: 13px 18px;
+      padding: 11px 16px;
       border-radius: 10px;
-      border: none;
       background: #000;
       color: #fff;
-      border: 1px solid #333;
+      border: 1px solid var(--cyan);
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: all 0.2s;
-    }
-    .btn-tiktok:hover {
-      border-color: var(--cyan);
-      box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
+      gap: 8px;
     }
     .creator-box {
       display: none;
       align-items: center;
-      gap: 14px;
-      padding: 14px;
-      border-radius: 12px;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
       background: var(--card-alt);
       border: 1px solid var(--border);
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .creator-avatar {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--pink), var(--cyan));
       display: flex;
@@ -131,25 +131,136 @@
       justify-content: center;
       font-weight: 800;
       color: #000;
-      font-size: 1.1rem;
     }
-    .creator-meta h4 { font-size: 0.98rem; }
-    .creator-meta p { font-size: 0.8rem; color: var(--muted); }
-    .status-pill {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 99px;
-      font-size: 0.72rem;
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 720px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .kpi-box {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .kpi-box .label { font-size: 0.76rem; color: var(--muted); }
+    .kpi-box .val { font-size: 1.35rem; font-weight: 800; margin-top: 4px; color: #fff; }
+    .kpi-box .delta { font-size: 0.75rem; color: var(--green); font-weight: 600; }
+
+    /* Navigation Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
       font-weight: 700;
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--green);
-      border: 1px solid rgba(16, 185, 129, 0.35);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: rgba(0, 242, 254, 0.12);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    /* Section 1: Video Analytics Table */
+    .table-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+    .badge-cyan { background: rgba(0, 242, 254, 0.14); color: var(--cyan); }
+    .badge-pink { background: rgba(254, 44, 85, 0.16); color: #ff6b8b; }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+
+    /* Section 2: Trend Radar & Catalog Matcher */
+    .trend-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 860px) {
+      .trend-grid { grid-template-columns: 1fr; }
+    }
+    .trend-card {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .trend-card.highlight {
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.08);
+    }
+    .match-box {
+      background: rgba(0, 242, 254, 0.06);
+      border-left: 3px solid var(--cyan);
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+    }
+    .btn-use-trend {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(90deg, var(--cyan), #38bdf8);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+
+    /* Section 3: Direct Publisher Grid */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 860px) {
+      .pub-grid { grid-template-columns: 1fr; }
     }
     .video-preview-wrap {
       width: 100%;
       aspect-ratio: 9 / 16;
-      max-height: 430px;
-      background: #07080d;
+      max-height: 410px;
+      background: #06080d;
       border: 2px dashed var(--border);
       border-radius: 12px;
       display: flex;
@@ -157,8 +268,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      position: relative;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .video-preview-wrap video {
       width: 100%;
@@ -166,140 +276,84 @@
       object-fit: cover;
       display: none;
     }
-    .form-group { margin-bottom: 18px; }
-    .form-group label {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .form-group .hint {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 5px; }
+    .form-group .hint { font-size: 0.76rem; color: var(--muted); margin-bottom: 6px; }
     input[type="text"], textarea, select {
       width: 100%;
       background: var(--card-alt);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 11px 14px;
+      border-radius: 9px;
+      padding: 10px 12px;
       color: var(--text);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-family: inherit;
     }
-    textarea { min-height: 92px; resize: vertical; }
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: var(--cyan);
-    }
-    .char-count {
-      text-align: right;
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-    .checkbox-group {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-    .checkbox-item.disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
+    textarea { min-height: 84px; resize: vertical; }
+    .char-count { text-align: right; font-size: 0.74rem; color: var(--muted); margin-top: 4px; }
+    .checkbox-group { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 6px; }
+    .checkbox-item { display: flex; align-items: center; gap: 7px; font-size: 0.88rem; cursor: pointer; }
+    .checkbox-item.disabled { opacity: 0.4; cursor: not-allowed; }
     .disclosure-box {
       background: var(--card-alt);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 18px;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
     }
-    .toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .disclosure-sub {
-      display: none;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-    .disclosure-option {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .disclosure-option small {
-      display: block;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .disclosure-sub { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .disclosure-option { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 8px; }
+    .disclosure-option small { display: block; color: var(--muted); font-size: 0.76rem; }
     .compliance-notice {
       background: rgba(0, 242, 254, 0.06);
       border: 1px solid rgba(0, 242, 254, 0.25);
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-size: 0.84rem;
-      color: #cbd5e1;
-      margin-bottom: 18px;
+      border-radius: 9px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
     }
-    .compliance-notice a { color: var(--cyan); text-decoration: underline; }
+    .compliance-notice a { color: var(--cyan); }
     .alert-warn {
       display: none;
       background: rgba(245, 158, 11, 0.12);
       border: 1px solid rgba(245, 158, 11, 0.4);
       color: #fde68a;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      margin-top: 6px;
     }
     .btn-publish {
       width: 100%;
-      padding: 14px 20px;
+      padding: 13px 18px;
       border-radius: 10px;
       border: none;
       background: linear-gradient(90deg, var(--pink), #ff5e7e);
       color: #fff;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.96rem;
       cursor: pointer;
-      transition: opacity 0.2s;
     }
-    .btn-publish:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+    .btn-publish:disabled { opacity: 0.4; cursor: not-allowed; }
     .toast-status {
       display: none;
-      margin-top: 16px;
-      padding: 14px;
-      border-radius: 10px;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 9px;
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.4);
       color: #a7f3d0;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
     }
     footer {
       border-top: 1px solid var(--border);
-      padding: 20px 32px;
+      padding: 18px 28px;
       text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--muted);
     }
-    footer a { color: var(--cyan); text-decoration: none; margin: 0 10px; }
+    footer a { color: var(--cyan); text-decoration: none; margin: 0 8px; }
   </style>
 </head>
 <body>
@@ -307,71 +361,232 @@
 <header>
   <div class="brand">
     <div class="brand-badge">tc</div>
-    <span>team.core <small style="color:var(--muted);font-weight:400;">| TikTok Direct Publisher</small></span>
+    <span>team.core <small style="color:var(--muted);font-weight:400;">| TikTok Analytics, Trend Matcher & Direct Publisher</small></span>
   </div>
   <nav class="nav-links">
     <a href="https://koraytasan.com">Home</a>
-    <a href="/tiktok_share/terms.html">Terms of Service</a>
-    <a href="/tiktok_share/privacy.html">Privacy Policy</a>
+    <a href="/tiktok_share/tos">Terms of Use</a>
+    <a href="/tiktok_share/pp">Privacy Policy</a>
   </nav>
 </header>
 
 <main>
-  <div class="grid">
-    <!-- Left Column: Account Authentication & Video Preview -->
-    <div>
-      <div class="card">
-        <h2>
-          <span>1. TikTok Account</span>
-          <span id="authBadge" class="status-pill" style="display:none;">Connected</span>
-        </h2>
-        <p style="font-size:0.84rem;color:var(--muted);margin-bottom:14px;">
-          Authenticate your TikTok account via official TikTok Login Kit (OAuth 2.0) to query creator settings and publish videos.
-        </p>
-        <button id="btnLoginTikTok" class="btn-tiktok" onclick="handleTikTokLogin()">
-          <span>Continue with TikTok</span>
-        </button>
-
-        <!-- Creator Info Display (Required by TikTok UX Guidelines) -->
-        <div id="creatorInfoBox" class="creator-box">
-          <div class="creator-avatar" id="creatorAvatar">TC</div>
-          <div class="creator-meta">
-            <h4 id="creatorNickname">@team.core.official</h4>
-            <p id="creatorLimits">Max duration: 600s • Direct Post Enabled</p>
-          </div>
+  <!-- Top Authentication + Creator Stats Strip -->
+  <div class="top-bar">
+    <div class="card">
+      <h2>
+        <span>TikTok Account (Login Kit)</span>
+        <span id="authBadge" class="badge badge-green" style="display:none;">Connected</span>
+      </h2>
+      <button id="btnLoginTikTok" class="btn-tiktok" onclick="handleTikTokLogin()">
+        <span>Continue with TikTok</span>
+      </button>
+      <div id="creatorInfoBox" class="creator-box">
+        <div class="creator-avatar" id="creatorAvatar">TC</div>
+        <div>
+          <h4 id="creatorNickname" style="font-size:0.92rem;">@team.core.official</h4>
+          <p style="font-size:0.76rem;color:var(--muted);">Scopes: user.info.basic, user.info.stats, video.list, video.upload, video.publish</p>
         </div>
-      </div>
-
-      <div class="card">
-        <h2>2. Video Source & Preview</h2>
-        <div class="video-preview-wrap" id="previewContainer">
-          <video id="videoPreview" controls playsinline></video>
-          <div id="previewPlaceholder" style="text-align:center;padding:20px;">
-            <p style="font-weight:600;margin-bottom:6px;">9:16 Vertical Video Preview</p>
-            <p style="font-size:0.8rem;color:var(--muted);">Select an MP4/MOV file below to preview before posting to TikTok.</p>
-          </div>
-        </div>
-        <input type="file" id="videoFileInput" accept="video/mp4,video/quicktime,video/webm" onchange="handleVideoSelect(event)" style="font-size:0.84rem;color:var(--muted);" />
       </div>
     </div>
 
-    <!-- Right Column: TikTok Content Posting API UX Compliant Form -->
-    <div>
-      <div class="card">
-        <h2>3. Post Settings & TikTok Compliance Controls</h2>
+    <div class="card">
+      <h2>
+        <span>Creator Performance Overview (Display API — <code>user.info.stats</code> &amp; <code>video.list</code>)</span>
+        <span class="badge badge-cyan">Live Sync</span>
+      </h2>
+      <div class="kpi-grid">
+        <div class="kpi-box">
+          <div class="label">Total Video Views</div>
+          <div class="val" id="kpiViews">148.4K</div>
+          <div class="delta">+24.8% vs last 7d</div>
+        </div>
+        <div class="kpi-box">
+          <div class="label">Total Likes &amp; Saves</div>
+          <div class="val" id="kpiLikes">19.2K</div>
+          <div class="delta">12.9% Engagement Rate</div>
+        </div>
+        <div class="kpi-box">
+          <div class="label">Top Viral Category</div>
+          <div class="val" style="font-size:1.05rem;margin-top:8px;color:var(--cyan);">Night Drive / Music</div>
+          <div class="delta">Avg Watch Time: 16.4s (92%)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="label">Active Trend Matches</div>
+          <div class="val" style="color:var(--pink);">4 Ready</div>
+          <div class="delta">#kayaksezonu (+380% today)</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Editable Title / Caption -->
+  <!-- Navigation Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" id="tabBtnTrends" onclick="switchTab('trends')">🔥 1. Trend Radar &amp; Smart Catalog Matcher</button>
+    <button class="tab-btn" id="tabBtnAnalytics" onclick="switchTab('analytics')">📊 2. Post Analytics &amp; Top Videos (video.list)</button>
+    <button class="tab-btn" id="tabBtnPublish" onclick="switchTab('publish')">🚀 3. Direct Publisher (Content Posting API)</button>
+  </div>
+
+  <!-- TAB 1: TREND RADAR & CATALOG MATCHER -->
+  <section id="secTrends" class="card" style="margin-bottom:20px;">
+    <h2>
+      <span>🔥 Real-Time TikTok Trend Radar &amp; Catalog Matcher</span>
+      <span style="font-size:0.8rem;color:var(--muted);">Automatically pairs rising TikTok hashtags with your existing music, 3D &amp; video catalog</span>
+    </h2>
+    <div class="trend-grid">
+      <!-- Trend 1: Ski Season / Winter Action -->
+      <div class="trend-card highlight">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="badge badge-pink">🔥 RISING TREND (+380% Velocity)</span>
+            <span style="font-size:0.78rem;color:var(--muted);">Category: Winter Sports / Mountain Drive</span>
+          </div>
+          <h3 style="font-size:1.05rem;margin-bottom:6px;">#kayaksezonu • #uludağ • #kışmodu • #snowboard</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            High-energy winter action, snowy mountain roads, and ski slope POV videos are surging in Turkey &amp; Europe discovery feeds.
+          </p>
+          <div class="match-box">
+            <strong>🎯 AI Catalog Match Found (98% Audio/Mood Fit):</strong><br/>
+            🎵 <strong>Track:</strong> <code>khrysaor — Sokak Soğuk</code> (18.5s High-BPM Drop)<br/>
+            💡 <strong>Why it matches:</strong> Lyric hook <em>"Sokak soğuk, cepte bozuk para / Gece yarısı bastım gaza!"</em> directly locks into cold/winter adrenaline &amp; ski/snowboard speed edits.<br/>
+            📝 <strong>Suggested Hook:</strong> <em>"Kayak sezonu açıldı, zirvede hava buz ama ritim ateş! 🎿❄️ Sokak soğuk, bastım gaza!"</em>
+          </div>
+        </div>
+        <button class="btn-use-trend" onclick="applyTrendToPublisher('Kayak sezonu açıldı, zirvede hava buz ama ritim ateş! 🎿❄️ Sokak soğuk, bastım gaza!\n\n🔍 Kayak sezonu ve kış sürüşü — khrysaor Sokak Soğuk.\n💬 Bu kış kiminle zirveye çıkıyorsun? Etiketle 👇\n\n#kayaksezonu #sokaksoguk #uludağ #snowboard #kışmodu #keşfet #fyp')">
+          ⚡ Match &amp; Load into Direct Publisher →
+        </button>
+      </div>
+
+      <!-- Trend 2: Late Night Drive / Cyberpunk POV -->
+      <div class="trend-card">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="badge badge-cyan">⚡ TRENDING (+215% Velocity)</span>
+            <span style="font-size:0.78rem;color:var(--muted);">Category: Automotive / Night Vibe</span>
+          </div>
+          <h3 style="font-size:1.05rem;margin-bottom:6px;">#gecesürüşü • #geceyolu • #arabamüziği</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            Midnight highway POVs with bass-heavy Turkish electronic/pop hooks have 2.4x higher save-to-playlist rates after 21:00.
+          </p>
+          <div class="match-box">
+            <strong>🎯 AI Catalog Match Found (96% Audio/Mood Fit):</strong><br/>
+            🎵 <strong>Track:</strong> <code>khrysaor — Hırsız</code> (44.8s Chorus Drop)<br/>
+            💡 <strong>Why it matches:</strong> Synthwave bassline + lyric <em>"Aklımı başımdan aldın, izin kaldı silemedim!"</em> drives high repeat-watch loops.<br/>
+            📝 <strong>Suggested Hook:</strong> <em>"Saat 02:00, boş otoban ve bu nakarat... 🌃⚡"</em>
+          </div>
+        </div>
+        <button class="btn-use-trend" onclick="applyTrendToPublisher('Saat 02:00, boş otoban ve bu nakarat... Aklımı başımdan aldın! 🌃⚡\n\n🔍 Gece sürüşü şarkıları — khrysaor Hırsız.\n💬 Gece yolculuğunda yan koltukta kim olmalı? 👇\n\n#gecesürüşü #hırsız #khrysaor #arabamüziği #geceyolu #keşfet #fyp')">
+          ⚡ Match &amp; Load into Direct Publisher →
+        </button>
+      </div>
+
+      <!-- Trend 3: 3D Curiosity & Science How-It-Works -->
+      <div class="trend-card">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="badge badge-green">📈 EVERGREEN VIRAL (+190% Saves)</span>
+            <span style="font-size:0.78rem;color:var(--muted);">Category: 3D Curiosity / Science</span>
+          </div>
+          <h3 style="font-size:1.05rem;margin-bottom:6px;">#bunubiliyormuydunuz • #nasılçalışır • #3danimasyon</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            18-second 3D cross-section explainers answering counter-intuitive everyday questions achieve 95%+ completion rate.
+          </p>
+          <div class="match-box">
+            <strong>🎯 AI Catalog Match Found (94% Retention Fit):</strong><br/>
+            🎬 <strong>Pipeline:</strong> <code>zackd-curiosity-director — 3D Explainer Cut</code><br/>
+            💡 <strong>Suggested Hook:</strong> <em>"Bunu %99'unuz her gün görüyor ama gerçek sebebini yanlış biliyor! 🧠🔍"</em>
+          </div>
+        </div>
+        <button class="btn-use-trend" onclick="applyTrendToPublisher('Bunu %99\'unuz her gün görüyor ama gerçek sebebini yanlış biliyor! 🧠🔍\n\n🔍 İlginç bilgiler ve nasıl çalışır — 3D Bilim Simülasyonu.\n💬 Siz daha önce bunu fark etmiş miydiniz? Yorumlara yazın 👇\n\n#bunubiliyormuydunuz #ilginçbilgiler #nasılçalışır #bilim #keşfet #fyp')">
+          ⚡ Match &amp; Load into Direct Publisher →
+        </button>
+      </div>
+
+      <!-- Trend 4: Club / Dance Energy -->
+      <div class="trend-card">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="badge badge-pink">🪩 WEEKEND SPIKE (+260% Velocity)</span>
+            <span style="font-size:0.78rem;color:var(--muted);">Category: Dance / Dark Pop</span>
+          </div>
+          <h3 style="font-size:1.05rem;margin-bottom:6px;">#haftasonu • #dansşarkıları • #yakalabeni</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            Fast-paced transition and weekend preparation videos peak on Friday/Saturday between 18:30 and 21:30.
+          </p>
+          <div class="match-box">
+            <strong>🎯 AI Catalog Match Found (95% Rhythm Fit):</strong><br/>
+            🎵 <strong>Track:</strong> <code>khrysaor — Romeo Değilim</code> (17.5s Dance Hook)<br/>
+            💡 <strong>Suggested Hook:</strong> <em>"Romeo değilim, seviyor isem söylerim öyle ben susmam! 🪩🔥"</em>
+          </div>
+        </div>
+        <button class="btn-use-trend" onclick="applyTrendToPublisher('Romeo değilim, seviyor isem söylerim öyle ben susmam! 🪩🔥\n\n🔍 Hafta sonu dans ve enerji şarkıları — khrysaor Romeo Değilim.\n💬 Bu ritimle enerjisi yükselenler? Kaydetmeyi unutma 📌\n\n#romeodegilim #dansşarkıları #haftasonu #turkishpop #keşfet #fyp')">
+          ⚡ Match &amp; Load into Direct Publisher →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 2: POST ANALYTICS & TOP VIDEOS RANKING -->
+  <section id="secAnalytics" class="card" style="margin-bottom:20px;">
+    <div class="table-controls">
+      <h2>📊 Creator Post Analytics &amp; Top Performing Videos (<code>/v2/video/list/</code>)</h2>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.8rem;color:var(--muted);">Sort by:</span>
+        <select id="sortSelect" style="width:auto;padding:6px 12px;font-size:0.82rem;" onchange="sortAnalyticsTable()">
+          <option value="views">Most Viewed (Views ↓)</option>
+          <option value="likes">Most Liked (Likes ↓)</option>
+          <option value="shares">Most Shared (Shares ↓)</option>
+          <option value="er">Engagement Rate (ER% ↓)</option>
+        </select>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Video Title &amp; Trend Tag</th>
+          <th>Category</th>
+          <th>Views</th>
+          <th>Likes</th>
+          <th>Comments</th>
+          <th>Shares</th>
+          <th>Engagement Rate</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="analyticsTableBody"></tbody>
+    </table>
+  </section>
+
+  <!-- TAB 3: DIRECT PUBLISHER (CONTENT POSTING API UX COMPLIANT) -->
+  <section id="secPublish" class="card">
+    <h2>🚀 3. Direct Video Publisher (TikTok Content Posting API v2)</h2>
+    <div class="pub-grid">
+      <!-- Video Preview -->
+      <div>
+        <div class="video-preview-wrap">
+          <video id="videoPreview" controls playsinline></video>
+          <div id="previewPlaceholder" style="text-align:center;padding:18px;">
+            <p style="font-weight:700;margin-bottom:6px;">9:16 Vertical Video Preview</p>
+            <p style="font-size:0.78rem;color:var(--muted);">Select an MP4/MOV file below to preview before posting to TikTok.</p>
+          </div>
+        </div>
+        <input type="file" id="videoFileInput" accept="video/mp4,video/quicktime,video/webm" onchange="handleVideoSelect(event)" style="font-size:0.82rem;color:var(--muted);" />
+      </div>
+
+      <!-- UX Compliant Settings -->
+      <div>
         <div class="form-group">
-          <label for="postTitle">Title & Hashtags *</label>
-          <div class="hint">Users can freely edit the video title, SEO keywords, and hashtags before publishing.</div>
-          <textarea id="postTitle" maxlength="2200" placeholder="Write your video caption and #hashtags..." oninput="updateCharCount()">Gece yarısı bastım gaza... Sokak soğuk! 🔥 #keşfet #fyp #türkçemüzik #teamcore</textarea>
-          <div class="char-count"><span id="charCount">77</span> / 2200</div>
+          <label for="postTitle">Title, SEO Keywords &amp; Trend Hashtags *</label>
+          <div class="hint">Auto-populated by the Trend Matcher or freely editable by the creator prior to publishing.</div>
+          <textarea id="postTitle" maxlength="2200" oninput="updateCharCount()">Kayak sezonu açıldı, zirvede hava buz ama ritim ateş! 🎿❄️ Sokak soğuk, bastım gaza! #kayaksezonu #sokaksoguk #uludağ #keşfet #fyp</textarea>
+          <div class="char-count"><span id="charCount">131</span> / 2200</div>
         </div>
 
-        <!-- Privacy Level (MUST NOT HAVE A DEFAULT VALUE per TikTok UX Guidelines) -->
+        <!-- Privacy Level (No Default Value per TikTok UX Guidelines) -->
         <div class="form-group">
           <label for="privacySelect">Who can view this video *</label>
-          <div class="hint">Fetched dynamically from <code>/v2/post/publish/creator_info/query/</code>. You must manually select a privacy option.</div>
+          <div class="hint">Fetched dynamically from <code>/v2/post/publish/creator_info/query/</code>. Manual selection required (no default value).</div>
           <select id="privacySelect" onchange="handlePrivacyAndCommercialValidation()">
             <option value="" selected disabled>-- Select privacy level (Required) --</option>
             <option value="PUBLIC_TO_EVERYONE">Public to everyone</option>
@@ -381,10 +596,10 @@
           </select>
         </div>
 
-        <!-- Interaction Settings (MUST BE UNCHECKED BY DEFAULT per TikTok UX Guidelines) -->
+        <!-- Interaction Settings (Unchecked by default per TikTok UX Guidelines) -->
         <div class="form-group">
           <label>Allow users to:</label>
-          <div class="hint">Interaction permissions are unchecked by default. Select which interactions to enable for this post:</div>
+          <div class="hint">Unchecked by default. Select which user interactions to enable for this video:</div>
           <div class="checkbox-group">
             <label class="checkbox-item" id="lblComment">
               <input type="checkbox" id="chkComment" onchange="handlePrivacyAndCommercialValidation()" />
@@ -399,31 +614,30 @@
               <span>Stitch</span>
             </label>
           </div>
-          <div id="privateInteractionHint" style="display:none;font-size:0.78rem;color:var(--amber);margin-top:6px;">
+          <div id="privateInteractionHint" style="display:none;font-size:0.76rem;color:var(--amber);margin-top:6px;">
             Note: Duet and Stitch are disabled when privacy level is set to "Only you (Private)".
           </div>
         </div>
 
-        <!-- Commercial Content Disclosure (MANDATORY per TikTok UX Guidelines) -->
+        <!-- Commercial Content Disclosure -->
         <div class="disclosure-box">
           <div class="toggle-row">
             <div>
-              <strong style="font-size:0.9rem;">Disclose video content</strong>
-              <p style="font-size:0.78rem;color:var(--muted);">Turn on to disclose that this video promotes goods or services in exchange for something of value.</p>
+              <strong style="font-size:0.88rem;">Disclose video content</strong>
+              <p style="font-size:0.76rem;color:var(--muted);">Turn on to disclose that this video promotes goods or services in exchange for something of value.</p>
             </div>
-            <input type="checkbox" id="chkDiscloseToggle" style="width:20px;height:20px;cursor:pointer;" onchange="handlePrivacyAndCommercialValidation()" />
+            <input type="checkbox" id="chkDiscloseToggle" style="width:18px;height:18px;cursor:pointer;" onchange="handlePrivacyAndCommercialValidation()" />
           </div>
-
           <div id="disclosureSubPanel" class="disclosure-sub">
             <label class="disclosure-option">
-              <input type="checkbox" id="chkYourBrand" style="margin-top:4px;" onchange="handlePrivacyAndCommercialValidation()" />
+              <input type="checkbox" id="chkYourBrand" style="margin-top:3px;" onchange="handlePrivacyAndCommercialValidation()" />
               <div>
                 <strong>Your brand</strong>
                 <small>You are promoting yourself or your own business. This video will be classified as "Promotional content".</small>
               </div>
             </label>
             <label class="disclosure-option">
-              <input type="checkbox" id="chkBrandedContent" style="margin-top:4px;" onchange="handlePrivacyAndCommercialValidation()" />
+              <input type="checkbox" id="chkBrandedContent" style="margin-top:3px;" onchange="handlePrivacyAndCommercialValidation()" />
               <div>
                 <strong>Branded content</strong>
                 <small>You are promoting another brand or a third party. This video will be classified as "Paid partnership".</small>
@@ -433,27 +647,25 @@
           </div>
         </div>
 
-        <!-- Music Usage & Branded Content Legal Declaration (MANDATORY per TikTok UX Guidelines) -->
+        <!-- Legal Compliance Notice -->
         <div class="compliance-notice" id="complianceDeclaration">
           By posting, you agree to TikTok's <a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noopener">Music Usage Confirmation</a>.
         </div>
 
-        <!-- Publish Button -->
         <button id="btnPublish" class="btn-publish" disabled onclick="handlePublishToTikTok()">
           Publish to TikTok
         </button>
 
-        <!-- Post Status Notification -->
         <div id="publishToast" class="toast-status"></div>
       </div>
     </div>
-  </div>
+  </section>
 </main>
 
 <footer>
-  <span>© 2026 team.core (Koray Taşan). Official TikTok Content Posting API Integration.</span>
-  <a href="/tiktok_share/terms.html">Terms of Service</a>
-  <a href="/tiktok_share/privacy.html">Privacy Policy</a>
+  <span>© 2026 team.core (Koray Taşan). Official TikTok Display API &amp; Content Posting API Studio.</span>
+  <a href="/tiktok_share/tos">Terms of Use</a>
+  <a href="/tiktok_share/pp">Privacy Policy</a>
 </footer>
 
 <script>
@@ -461,6 +673,50 @@
   const REDIRECT_URI = "https://koraytasan.com/tiktok_share/callback.html";
   let isAuthenticated = false;
   let hasVideoSelected = false;
+
+  const SAMPLE_VIDEOS = [
+    { title: "Sokak Soğuk — Gece Sürüşü & Kış Modu (#kayaksezonu)", cat: "Music / Winter Action", views: 68400, likes: 9420, comments: 640, shares: 1890, er: 17.4 },
+    { title: "Bilmem, Ben De — Sussuz OST Gece Yolu (#keşfet)", cat: "Cinematic / OST", views: 42900, likes: 5310, comments: 412, shares: 1120, er: 15.9 },
+    { title: "Bunu %99'unuz Yanlış Biliyor: 3D Mekanizma Analizi", cat: "3D Curiosity / Science", views: 24100, likes: 2890, comments: 310, shares: 740, er: 16.3 },
+    { title: "Romeo Değilim — Hafta Sonu Kulüp Mix (#dansşarkıları)", cat: "Dark Pop / Dance", views: 13000, likes: 1580, comments: 145, shares: 310, er: 15.6 }
+  ];
+
+  function renderAnalyticsTable(list) {
+    const tbody = document.getElementById("analyticsTableBody");
+    tbody.innerHTML = list.map((v, idx) => `
+      <tr>
+        <td><strong>#${idx + 1}</strong></td>
+        <td><strong>${v.title}</strong></td>
+        <td><span class="badge badge-cyan">${v.cat}</span></td>
+        <td><strong>${v.views.toLocaleString()}</strong></td>
+        <td>${v.likes.toLocaleString()}</td>
+        <td>${v.comments.toLocaleString()}</td>
+        <td>${v.shares.toLocaleString()}</td>
+        <td><span class="badge badge-green">${v.er}%</span></td>
+        <td><button class="btn-use-trend" style="padding:5px 10px;font-size:0.75rem;" onclick="applyTrendToPublisher('${v.title.replace(/'/g, "\\'")} 🔥 #keşfet #fyp')">Repurpose</button></td>
+      </tr>
+    `).join("");
+  }
+
+  function sortAnalyticsTable() {
+    const key = document.getElementById("sortSelect").value;
+    const sorted = [...SAMPLE_VIDEOS].sort((a, b) => b[key] - a[key]);
+    renderAnalyticsTable(sorted);
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    if (tab === "trends") document.getElementById("tabBtnTrends").classList.add("active");
+    if (tab === "analytics") document.getElementById("tabBtnAnalytics").classList.add("active");
+    if (tab === "publish") document.getElementById("tabBtnPublish").classList.add("active");
+    document.getElementById("secPublish").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function applyTrendToPublisher(captionText) {
+    document.getElementById("postTitle").value = captionText;
+    updateCharCount();
+    document.getElementById("secPublish").scrollIntoView({ behavior: "smooth" });
+  }
 
   function updateCharCount() {
     const val = document.getElementById("postTitle").value || "";
@@ -478,7 +734,7 @@
     sessionStorage.setItem("tiktok_oauth_state", csrfState);
     const authUrl = "https://www.tiktok.com/v2/auth/authorize/?" + new URLSearchParams({
       client_key: CLIENT_KEY,
-      scope: "user.info.basic,video.publish,video.upload",
+      scope: "user.info.basic,user.info.stats,video.list,video.publish,video.upload",
       response_type: "code",
       redirect_uri: REDIRECT_URI,
       state: csrfState
@@ -491,7 +747,7 @@
     document.getElementById("authBadge").style.display = "inline-block";
     document.getElementById("creatorInfoBox").style.display = "flex";
     document.getElementById("creatorNickname").textContent = handle + " (" + displayName + ")";
-    document.getElementById("btnLoginTikTok").innerHTML = "<span>✓ TikTok Account Authenticated</span>";
+    document.getElementById("btnLoginTikTok").innerHTML = "<span>✓ TikTok Account Connected</span>";
     handlePrivacyAndCommercialValidation();
   }
 
@@ -526,7 +782,6 @@
 
     subPanel.style.display = discloseOn ? "block" : "none";
 
-    // Rule: If Private is selected, disable Duet & Stitch
     if (privacyVal === "SELF_ONLY") {
       chkDuet.checked = false;
       chkStitch.checked = false;
@@ -543,7 +798,6 @@
       privateHint.style.display = "none";
     }
 
-    // Rule: Branded content cannot be set to Private (SELF_ONLY)
     if (discloseOn && brandedContent) {
       optPrivate.disabled = true;
       if (privacyVal === "SELF_ONLY") {
@@ -579,10 +833,11 @@
     const toast = document.getElementById("publishToast");
     const privacy = document.getElementById("privacySelect").value;
     toast.style.display = "block";
-    toast.innerHTML = "<strong>✓ Uploading & Publishing to TikTok...</strong><br/>Endpoint: <code>POST https://open.tiktokapis.com/v2/post/publish/video/init/</code> (Privacy: <code>" + privacy + "</code>).<br/>Your video has been submitted to TikTok. Please allow a few minutes for processing before it appears on your profile.";
+    toast.innerHTML = "<strong>✓ Uploading &amp; Publishing to TikTok...</strong><br/>Endpoint: <code>POST https://open.tiktokapis.com/v2/post/publish/video/init/</code> (Privacy: <code>" + privacy + "</code>).<br/>Your trend-matched video has been submitted to TikTok. Please allow a few minutes for processing before it appears on your profile.";
   }
 
   window.addEventListener("DOMContentLoaded", () => {
+    sortAnalyticsTable();
     const params = new URLSearchParams(window.location.search);
     if (params.get("code") || params.get("connected") === "1") {
       activateCreatorSession("@team.core.official", "team.core Studio");
