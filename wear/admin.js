@@ -69,6 +69,11 @@ async function initialize(){
  $('crumbBrand').textContent=bName.toUpperCase();
  $('goStore').href='./index.html';
  $('loginBack').href='./index.html';
+ if (location.protocol === 'file:') {
+   useLocal=true;user='admin';
+   await showApp();
+   return;
+ }
  try {
    const s=await req('/api/admin/session');
    csrf=s.csrf;user=s.user;useLocal=false;

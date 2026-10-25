@@ -130,6 +130,7 @@ function addToCart(id) {
 }
 async function init(){
  try {
+   if(location.protocol==='file:')throw Error('Static file mode');
    const response=await fetch('/api/public/'+brand);
    if(!response.ok)throw Error('Static mode');
    const data=await response.json();products=data.products||[];settings=data.settings||defaultSettings;
