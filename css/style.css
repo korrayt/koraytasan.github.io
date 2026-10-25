@@ -81,7 +81,7 @@ body {
 .bg-glow::before {
   width: 600px;
   height: 600px;
-  background: var(--accent-primary);
+  background: rgba(56, 189, 248, 0.08);
   top: -200px;
   right: -200px;
 }
@@ -89,7 +89,7 @@ body {
 .bg-glow::after {
   width: 500px;
   height: 500px;
-  background: #ec4899;
+  background: rgba(15, 23, 42, 0.35);
   bottom: -100px;
   left: -100px;
   animation-delay: -10s;
@@ -2435,27 +2435,41 @@ section {
 
 
 /* ============================================
-   Blog & Dynamic Interest Showcase
+   Blog & Dynamic Showcase - Minimal Obsidian & Cyan Aesthetic
+   (Inspired by High-End Dev / Creative Director Portfolio)
    ============================================ */
 .blog-section {
   position: relative;
   overflow: hidden;
-  background: rgba(10, 10, 16, 0.5) !important;
+  background: #07090e !important;
 }
 
-/* Ticker Bar */
+/* Ambient Subtle Lighting */
+.blog-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, rgba(7, 9, 14, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ticker Bar (Minimal Monospace Code-style Pill) */
 .blog-ticker-wrap {
   display: flex;
   align-items: center;
-  gap: 14px;
-  background: rgba(18, 18, 28, 0.75);
-  border: 1px solid rgba(168, 85, 247, 0.28);
-  border-radius: 50px;
-  padding: 9px 20px;
-  margin: 0 auto 36px;
-  max-width: 920px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  gap: 12px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 0 auto 34px;
+  max-width: 880px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .blog-ticker-label {
@@ -2463,13 +2477,23 @@ section {
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #c084fc;
+  font-family: 'JetBrains Mono', 'Inter', monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
   text-transform: uppercase;
   white-space: nowrap;
-  padding-right: 14px;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding-right: 12px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-ticker-label .live-dot {
+  width: 6px;
+  height: 6px;
+  background: #38bdf8 !important;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #38bdf8;
+  display: inline-block;
 }
 
 .blog-ticker-content {
@@ -2477,53 +2501,53 @@ section {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 0.88rem;
-  color: #e2e8f0;
-  font-style: italic;
-  min-height: 22px;
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  min-height: 20px;
   display: flex;
   align-items: center;
 }
 
 .ticker-text {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   display: inline-block;
-  color: #f1f5f9;
+  color: #e2e8f0;
 }
 
 .ticker-next-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
   cursor: pointer;
-  font-size: 0.85rem;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  transition: all 0.25s ease;
+  font-size: 0.8rem;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .ticker-next-btn:hover {
   color: #fff;
-  background: rgba(168, 85, 247, 0.25);
-  border-color: #a855f7;
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
   transform: rotate(180deg);
 }
 
-/* Interest Filter Pills */
+/* Interest Filter Bar (Clean Matte Dark Pills) */
 .blog-filter-bar {
-  margin: 0 auto 34px;
+  margin: 0 auto 36px;
   text-align: center;
 }
 
 .blog-filter-label {
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.74rem;
+  font-family: 'JetBrains Mono', 'Inter', monospace;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #94a3b8;
+  letter-spacing: 0.12em;
+  color: #64748b;
   margin-bottom: 14px;
 }
 
@@ -2531,85 +2555,90 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .blog-interest-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #cbd5e1;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  gap: 7px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  padding: 7px 15px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .blog-interest-pill:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(168, 85, 247, 0.4);
+  background: #131822;
+  border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .blog-interest-pill.active {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(56, 189, 248, 0.9));
-  border-color: transparent;
-  color: #ffffff;
-  box-shadow: 0 6px 22px rgba(124, 58, 237, 0.4);
-  transform: translateY(-2px);
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
+  transform: translateY(-1px);
 }
 
 .blog-interest-pill .pill-count {
-  font-size: 0.7rem;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 2px 7px;
-  border-radius: 20px;
-  opacity: 0.9;
+  font-size: 0.68rem;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  padding: 1px 6px;
+  border-radius: 4px;
 }
 
-/* Dynamic Rotating Spotlight Showcase */
+.blog-interest-pill.active .pill-count {
+  background: rgba(56, 189, 248, 0.25);
+  color: #bae6fd;
+}
+
+/* Dynamic Rotating Spotlight (Minimal High-End Showcase) */
 .blog-spotlight {
-  background: linear-gradient(135deg, rgba(20, 20, 34, 0.92), rgba(12, 12, 20, 0.96));
-  border: 1px solid rgba(168, 85, 247, 0.32);
-  border-radius: 24px;
+  background: #0c1016;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 48px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
   position: relative;
-  backdrop-filter: blur(18px);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .blog-spotlight:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(124, 58, 237, 0.22);
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.06);
 }
 
 .spotlight-progress-wrap {
   width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
   position: relative;
 }
 
 .spotlight-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+  background: #38bdf8 !important;
   transition: width 0.1s linear;
 }
 
 .spotlight-container {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.25fr 0.75fr;
   gap: 36px;
-  padding: 38px 42px;
+  padding: 34px 38px;
   align-items: center;
 }
 
@@ -2623,7 +2652,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -2632,87 +2661,92 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.74rem;
-  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', 'Inter', monospace;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  background: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  color: #7dd3fc !important;
 }
 
 .spotlight-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .spotlight-ctrl-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #fff;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .spotlight-ctrl-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .spotlight-index {
-  font-size: 0.78rem;
-  color: #94a3b8;
-  font-weight: 600;
-  min-width: 42px;
+  font-size: 0.76rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #64748b;
+  min-width: 40px;
   text-align: center;
 }
 
 .spotlight-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.4rem, 2.3vw, 1.85rem);
-  font-weight: 800;
-  line-height: 1.32;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
   color: #ffffff;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   transition: color 0.2s;
   text-decoration: none;
   display: block;
 }
 
 .spotlight-title:hover {
-  color: #c084fc;
+  color: #38bdf8;
 }
 
 .spotlight-desc {
-  font-size: 0.98rem;
-  line-height: 1.68;
-  color: #cbd5e1;
-  margin-bottom: 20px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 18px;
 }
 
 .spotlight-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 6px;
+  margin-bottom: 22px;
 }
 
 .spotlight-chip {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e2e8f0;
-  padding: 4px 11px;
-  border-radius: 8px;
-  font-size: 0.76rem;
-  font-weight: 500;
+  background: #111622;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .spotlight-actions {
@@ -2722,17 +2756,35 @@ section {
   flex-wrap: wrap;
 }
 
+.spotlight-actions .btn-primary {
+  background: #38bdf8 !important;
+  color: #07090e !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  padding: 9px 18px !important;
+  transition: all 0.2s ease !important;
+}
+
+.spotlight-actions .btn-primary:hover {
+  background: #7dd3fc !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
 .spotlight-meta {
-  font-size: 0.82rem;
-  color: #94a3b8;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .spotlight-media {
   position: relative;
-  border-radius: 18px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   aspect-ratio: 16 / 10;
   background: #000;
   display: block;
@@ -2742,33 +2794,51 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  opacity: 0.9;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .spotlight-media:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  opacity: 1;
 }
 
 .spotlight-media-overlay {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(10, 10, 15, 0.88);
+  top: 10px;
+  right: 10px;
+  background: rgba(8, 11, 16, 0.88);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 5px 12px;
-  border-radius: 50px;
-  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: #7dd3fc !important;
 }
 
-/* Card Thumbnail on Blog Cards */
+/* Blog Article Cards in Grid - Ultra-Clean Uniform Frame */
+.case-study-card.blog-article-card {
+  background: #0c1016 !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 14px !important;
+  padding: 22px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.case-study-card.blog-article-card:hover {
+  background: #0f141d !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(56, 189, 248, 0.08) !important;
+}
+
 .blog-card-thumb {
   width: 100%;
-  height: 185px;
-  border-radius: 14px;
+  height: 175px;
+  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 18px;
   background: #000;
@@ -2779,28 +2849,86 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  opacity: 0.88;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.case-study-card:hover .blog-card-thumb img {
-  transform: scale(1.05);
+.case-study-card.blog-article-card:hover .blog-card-thumb img {
+  transform: scale(1.03);
+  opacity: 1;
 }
 
-/* Explore All Button in Blog Section */
+/* Uniform Category Tag on Cards */
+.case-study-card.blog-article-card .case-study-category {
+  color: #38bdf8 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Uniform Status Badge */
+.case-study-card.blog-article-card .status-badge {
+  background: rgba(56, 189, 248, 0.08) !important;
+  color: #bae6fd !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  border-radius: 4px !important;
+  font-size: 0.68rem !important;
+  padding: 3px 8px !important;
+}
+
+.case-study-card.blog-article-card .status-badge .dot {
+  background: #38bdf8 !important;
+  box-shadow: 0 0 6px #38bdf8 !important;
+}
+
+/* Uniform Read Link */
+.case-study-card.blog-article-card .card-read-link {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+  font-size: 0.84rem !important;
+  transition: color 0.2s ease !important;
+}
+
+.case-study-card.blog-article-card:hover .card-read-link {
+  color: #7dd3fc !important;
+  text-decoration: underline !important;
+}
+
+/* Bilgi Bankası Explore All Button */
 .blog-explore-all {
   text-align: center;
   margin-top: 48px;
+}
+
+.blog-explore-all .btn-primary {
+  background: transparent !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 12px 28px !important;
+  transition: all 0.25s ease !important;
+}
+
+.blog-explore-all .btn-primary:hover {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .spotlight-container {
     grid-template-columns: 1fr;
-    padding: 28px 24px;
-    gap: 24px;
+    padding: 24px 20px;
+    gap: 20px;
   }
   .spotlight-media {
     order: -1;
-    max-height: 250px;
+    max-height: 230px;
   }
 }

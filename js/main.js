@@ -424,12 +424,9 @@ function initBlogShowcase() {
         const post = filteredPosts[currentIndex];
         if (!post) return;
 
-        // Animate elements with soft transition
+        // Animate elements with soft transition (clean, minimal styling via CSS)
         if (badgeEl) {
             badgeEl.innerText = `${post.badge} • ${post.catLabel}`;
-            badgeEl.style.color = post.catColor;
-            badgeEl.style.background = `${post.catColor}18`;
-            badgeEl.style.border = `1px solid ${post.catColor}40`;
         }
 
         if (titleEl) {
@@ -447,7 +444,6 @@ function initBlogShowcase() {
 
         if (readBtn) {
             readBtn.href = post.slug;
-            readBtn.style.borderColor = `${post.catColor}60`;
         }
 
         if (metaEl) {
@@ -465,15 +461,10 @@ function initBlogShowcase() {
 
         if (mediaOverlay) {
             mediaOverlay.innerText = post.catLabel;
-            mediaOverlay.style.color = post.catColor;
         }
 
         if (indexEl) {
             indexEl.innerText = `${currentIndex + 1} / ${filteredPosts.length}`;
-        }
-
-        if (spotlightEl) {
-            spotlightEl.style.borderColor = `${post.catColor}40`;
         }
 
         resetProgress();
