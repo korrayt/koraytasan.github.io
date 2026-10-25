@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarayıcıda 9.400 Parçalık 3D Dijital İkiz, PropTech, Moleküler Simya ve Kriptografik Mahremiyet | Koray Taşan</title>
+  <meta name="description"
+    content="koraytasan.com üzerindeki yaşayan web evrenlerinin mühendislik hikayesi: BUILD UP BUILD DOWN (3D CAD Dijital İkiz), Find My Home, ALKEM Cheminformatics, IT'S US Safe Space ve Amblyopia DTx.">
+  <meta name="keywords"
+    content="3D Dijital İkiz WebGL, BUILD UP BUILD DOWN, Find My Home PropTech, ALKEM Cheminformatics, ITS US Safe Space, Kriptografik Mahremiyet, Amblyopia DTx VR, Koray Taşan">
+  <meta name="author" content="Koray Taşan">
+  <link rel="canonical" href="https://www.koraytasan.com/yazilar/3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="9.400 Parçalık 3D Dijital İkizden Moleküler Simyaya: Yaşayan Web Evrenlerimiz">
+  <meta property="og:description"
+    content="BUILD UP BUILD DOWN, Find My Home, ALKEM, IT'S US Safe Space, cor3us ve Amblyopia DTx projelerimizde yaşadığımız teknik zorluklar ve çözümlerimiz.">
+  <meta property="og:url" content="https://www.koraytasan.com/yazilar/3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html">
+  <meta property="og:image" content="https://www.koraytasan.com/yazilar/assets/web-evrenleri/og-image.jpg">
+  <meta property="og:site_name" content="Koray Taşan">
+  <meta property="og:locale" content="tr_TR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #10b981, #d97706); width: 0%; z-index: 9999; transition: width 0.1s ease; }
+    .article-container { max-width: 820px; margin: 120px auto 80px; padding: 0 24px; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; color: #10b981; text-decoration: none; font-size: 0.9rem; margin-bottom: 24px; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .article-meta .tag-pill { background: rgba(16, 185, 129, 0.18); color: #6ee7b7; padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+    .article-title { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.18; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
+    .article-lead { font-size: 1.24rem; line-height: 1.65; color: #cbd5e1; font-style: italic; border-left: 3px solid #10b981; padding-left: 20px; margin: 24px 0 36px; }
+    .hero-banner { width: 100%; border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.3); margin-bottom: 36px; overflow: hidden; }
+    .hero-banner img { width: 100%; height: auto; display: block; }
+    .toc-box { background: rgba(255, 255, 255, 0.025); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px 28px; margin-bottom: 42px; }
+    .toc-title { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+    .toc-list a:hover { color: #6ee7b7; }
+    .article-body { font-family: 'Newsreader', Georgia, serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; }
+    .article-body p { margin-bottom: 26px; }
+    .article-body h2 { font-family: 'Outfit', sans-serif; font-size: 1.7rem; color: #ffffff; margin: 52px 0 18px; font-weight: 700; scroll-margin-top: 90px; }
+    .article-body a { color: #34d399; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body blockquote { margin: 32px 0; padding: 22px 28px; background: rgba(16, 185, 129, 0.06); border-left: 3px solid #10b981; border-radius: 0 12px 12px 0; font-style: italic; color: #f8fafc; }
+    .war-story-box { margin: 36px 0; padding: 26px 28px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(15, 23, 42, 0.85)); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 0.98rem; line-height: 1.7; }
+    .war-story-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: #6ee7b7; margin-bottom: 10px; }
+    .faq-section { margin-top: 56px; border-top: 1px solid var(--border-color); padding-top: 40px; font-family: 'Inter', sans-serif; }
+    .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+    .faq-q { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.08rem; color: #fff; margin-bottom: 8px; }
+    .faq-a { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; font-family: 'Inter', sans-serif; }
+    .related-card { background: rgba(255,255,255,0.025); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+    .related-card:hover { border-color: #10b981; transform: translateY(-3px); }
+    .related-card span { font-size: 0.75rem; color: #6ee7b7; text-transform: uppercase; font-weight: 600; }
+    .related-card h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; color: #fff; margin-top: 6px; line-height: 1.35; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Tarayıcıda 9.400 Parçalık 3D Dijital İkiz, PropTech, Moleküler Simya ve Kriptografik Mahremiyet: Yaşayan Web Evrenlerimiz",
+    "image": "https://www.koraytasan.com/yazilar/assets/web-evrenleri/og-image.jpg",
+    "author": { "@type": "Person", "name": "Koray Taşan", "url": "https://www.koraytasan.com" },
+    "datePublished": "2026-10-25",
+    "description": "BUILD UP BUILD DOWN, Find My Home, ALKEM, IT'S US Safe Space ve Amblyopia DTx projelerinin mühendislik ve tasarım hikayesi."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-glow"></div>
+
+  <nav class="nav scrolled">
+    <div class="container nav-content">
+      <a href="../" class="nav-logo">KT</a>
+      <ul class="nav-links">
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#ai-products">AI & Products</a></li>
+        <li><a href="../#media">Film & Media</a></li>
+        <li><a href="./" class="active" style="color: var(--accent-secondary);">Yazılar</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="article-container">
+    <a href="./" class="article-back">← Bilgi Bankası & Tüm Yazılara Dön</a>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="tag-pill">Web Evrenleri & Ürün Mimarisi</span>
+        <span>•</span>
+        <span>25 Ekim 2026</span>
+        <span>•</span>
+        <span>13 Dakika Okuma</span>
+      </div>
+      <h1 class="article-title">Tarayıcıda 9.400 Parçalık Otomotiv İkizi, 3D Emlak Keşfi, Moleküler Simya ve Sıfır-GPS Mahremiyet: Yaşayan Web Evrenlerimiz</h1>
+      <p class="article-lead">
+        "Beni tek bir fikre takılı bırakma; yepyeni alternatiflerle ufkumu aç. Çünkü kurgudaki disiplin neyse, bir otomobilin 9.400 cıvatasını tarayıcıda dans ettirmek ya da bir molekülün bağlarını çözmek de aynı şeydir."
+      </p>
+    </header>
+
+    <div class="hero-banner">
+      <img src="./assets/web-evrenleri/og-image.jpg" alt="Yaşayan Web Evrenlerimiz - BUILD UP BUILD DOWN, Find My Home, ALKEM" loading="eager">
+    </div>
+
+    <nav class="toc-box" aria-label="İçindekiler">
+      <div class="toc-title">📑 İçindekiler</div>
+      <ul class="toc-list">
+        <li><a href="#bolum-1">1. BUILD UP BUILD DOWN: 9.400+ OEM CAD Parçasını Tarayıcıda 60 FPS Çalıştırmak</a></li>
+        <li><a href="#bolum-2">2. Find My Home: Dağınık İlan Sitelerinden 3D Uydu ve İkili Rota Eşleştirmesine</a></li>
+        <li><a href="#bolum-3">3. ALKEM: Paracelsus'un Simya Kazanı ile RDKit Cheminformatics'in Buluşması</a></li>
+        <li><a href="#bolum-4">4. IT'S US Safe Space & cor3us: "Kimse Kimseye Teslim Olmaz" ve Sıfır-GPS Mahremiyet</a></li>
+        <li><a href="#bolum-5">5. Amblyopia DTx ve ARENA: Görsel Korteks Rehabilitasyonundan Kuantum Ekonomiye</a></li>
+      </ul>
+    </nav>
+
+    <article class="article-body">
+      <p>
+        İnsanlar bazen <a href="../">koraytasan.com</a>'un sol menüsünde gezinirken şaşırıyor: <em>"Bir yanda sinema ve müzik var, hemen altında 9.400 parçalık 3D otomotiv simülatörü, onun yanında moleküler kimya laboratuvarı, emlak arama motoru ve kriptografik güvenli alan... Bunların birbiriyle ne alakası var?"</em>
+      </p>
+
+      <p>
+        Cevabı çok basit: <strong>Hepsi birer sistem ve hepsi insan algısındaki bir kör noktayı çözmek için tasarlandı.</strong> Benim için bir film sahnesinin kurgusu ile bir Haldex dört çeker şasisinin tork dağılımı ya da bir ilaç molekülünün topolojisi arasında hiçbir fark yok; hepsi görünmeyen yasaların görünür kılınmasıdır. Gelin bu yaşayan web evrenlerimizin perde arkasındaki mühendislik savaşlarına birlikte bakalım.
+      </p>
+
+      <div style="margin: 36px 0;">
+        <img src="./assets/web-evrenleri/epistemic-diagram.svg" alt="Web Evrenleri ve Çoklu Disiplin İzomorfizmi" style="width:100%; border-radius:14px;">
+      </div>
+
+      <h2 id="bolum-1">1. BUILD UP BUILD DOWN: 9.400+ OEM CAD Parçasını Tarayıcıda 60 FPS Çalıştırmak</h2>
+      <p>
+        <a href="../buildupbuilddown/">BUILD UP BUILD DOWN</a> projesine başlarken hayalimiz şuydu: Ağır mühendislik yazılımları (CATIA, SolidWorks) kurmadan, doğrudan bir web tarayıcısında 1:1 OEM CAD doğruluğunda bir aracı en ince cıvatasına kadar söküp takabilmek (Digital Twin).
+      </p>
+
+      <div class="war-story-box">
+        <div class="war-story-title">🛠️ Saha Hafızası: 5.000 Cıvata Tarayıcı Belleğini (WebGL Draw Calls) Nasıl Çökertti?</div>
+        <p style="margin-bottom:0;">
+          <strong>Sorun ve Çözümümüz:</strong> 9.400+ parça ve 5.000'den fazla bağlantı elemanını (fastener/cıvata) Three.js sahnesine tek tek <code>Mesh</code> olarak yüklediğinizde GPU her karede 14.000+ <em>Draw Call</em> yapmaya çalışıyor ve tarayıcı saniyesinde donuyordu. Bunu çözmek için tekrarlayan tüm bağlantı elemanlarını <code>THREE.InstancedMesh</code> matrislerine dönüştürdük ve şasi, motor (EA855 / 1.8T), Haldex kavraması ve süspansiyon alt gruplarını hiyerarşik bir sahne grafına (Scene Graph) bağladık. Sonuç: Sıfır kurulumla tarayıcıda yağ gibi akan interaktif bir mühendislik ikizi! <a href="../buildupbuilddown/">Canlı simülatörü buradan deneyimleyebilirsiniz ↗</a>
+        </p>
+      </div>
+
+      <h2 id="bolum-2">2. Find My Home: Dağınık İlan Sitelerinden 3D Uydu ve İkili Rota Eşleştirmesine</h2>
+      <p>
+        Türkiye'de ev arayan herkesin yaşadığı ortak bir işkence vardır: 4 farklı ilan sitesinde yüzlerce sekme açmak, ilandaki konumun gerçekte hangi yokuşta olduğunu anlayamamak ve "Eşim Levent'te çalışıyor, ben Kadıköy'de; ikimizin de toplu taşımayla 35 dakikada gidebileceği, aynı zamanda bütçemize uyan sokak hangisi?" sorusuna cevap bulamamak.
+      </p>
+      <p>
+        İşte <a href="../findmyhome/">Find My Home</a> tam olarak bu kişisel isyandan doğdu. Tüm emlak portallarını tek bir çatı altında konsolide eden, <strong>3D uydu keşif katmanı</strong> ve <strong>ikili ulaşım kesişim analitiği</strong> ile haritayı düz bir kağıt olmaktan çıkarıp yaşayan bir karar destek motoruna dönüştürdük.
+      </p>
+
+      <h2 id="bolum-3">3. ALKEM: Paracelsus'un Simya Kazanı ile RDKit Cheminformatics'in Buluşması</h2>
+      <p>
+        Merakımın en uç noktalarından biri de hermetik gelenek ile modern kimya bilişiminin (Cheminformatics) kesişimidir. 16. yüzyılda simyacılar her şeyi çözen evrensel bir sıvıdan (<em>Alkahest</em>) bahsederken modern bilim onlarla alay etti; ta ki 21. yüzyılda iki katı tuzun oda sıcaklığında karıştırılmasıyla sıvılaşan <strong>Derin Ötektik Çözücüler (Deep Eutectic Solvents - DES)</strong> keşfedilene kadar!
+      </p>
+      <p>
+        <a href="../alkem/">ALKEM (koraytasan.com/alkem/)</a> laboratuvarımızda; moleküler ağırlık ve stokiyometri hesaplayıcılarını, cheminformatics araçlarını ve <strong>RxNorm farmakolojik etkileşim kataloğunu</strong> tek bir etkileşimli web arayüzünde birleştirdik.
+      </p>
+
+      <h2 id="bolum-4">4. IT'S US Safe Space & cor3us: "Kimse Kimseye Teslim Olmaz" ve Sıfır-GPS Mahremiyet</h2>
+      <p>
+        Modern sosyal ağlar insanları birbirine bağladığını iddia ederken aslında herkesi gözetleyen birer açık hava hapishanesine dönüştü. Bizim topluluk ve iletişim manifestomuz ise çok net:
+      </p>
+
+      <blockquote>
+        "ITSUS'ta kimse kimseye teslim olmaz. Herkes, tek başına hükmetme hakkından vazgeçer. Dayatma yok, kural koymuyoruz; sadece sorabiliriz. Herkesin dilediği gibi var olduğu ama kimsenin yalnız bırakılmadığı yer."
+        <br>— <a href="../itsus.safe.space/">IT'S US Safe Space Manifestosu</a>
+      </blockquote>
+
+      <p>
+        Hem <a href="../itsus.safe.space/">IT'S US Safe Space</a> hem de kent kültürü platformumuz <strong>cor3us</strong>'u tasarlarken en büyük teknik sınavımız <strong>konum mahremiyeti</strong> oldu. Kullanıcıların şehirde birbirini ve "üçüncü mekânları" keşfetmesini istiyorduk ama sunucuda veya istemcide <strong>sıfır GPS sızıntısı (Zero-GPS Leakage)</strong> olmalıydı. Çözüm olarak tam koordinatları istemci tarafında kesip çift kademeli semt/grid bulanıklaştırması (<em>Spatial Cloaking & Intent Grid</em>) uygulayan bir mimari geliştirdik. Böylece kimse kimsenin tam sokak adresini göremez, ama aynı semtte aynı akşam kahve içmek veya sanat konuşmak isteyen iki insan güvenle karşılaşabilir.
+      </p>
+
+      <h2 id="bolum-5">5. Amblyopia DTx ve ARENA: Görsel Korteks Rehabilitasyonundan Kuantum Ekonomiye</h2>
+      <ul>
+        <li><strong>Amblyopia DTx (VR Nöro-Optik Terapi):</strong> Göz tembelliğinde (ambliyopi) beyin aslında "tembel" gözden gelen sinyali faz kayması yüzünden yazılımsal olarak susturur. VR başlık içinde her iki göze farklı kontrast ve fazda görüntü gönderen (<em>Dichoptic Training</em>) oyunlaştırılmış dijital terapimiz, yetişkin görsel korteksindeki (V1) nöroplastisiteyi yeniden uyandırıyor.</li>
+        <li><strong><a href="../arena/">ARENA</a> & <a href="../carsipazar/">CarsiPazar</a>:</strong> Bir yanda çift-rotorlu fizik yıkımı ve asimetrik oyun ekonomisi simülasyonu (<a href="../arena/">ARENA</a>), diğer yanda sürtünmesiz yerel ticaret mimarisi (<a href="../carsipazar/">CarsiPazar</a>).</li>
+      </ul>
+
+      <h2 id="sss">Sıkça Sorulan Sorular (SSS)</h2>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-q">1. BUILD UP BUILD DOWN ve Find My Home gibi 3D web uygulamaları mobil cihazlarda da çalışıyor mu?</div>
+          <div class="faq-a">Evet, WebGL sahne grafımız cihazın GPU kapasitesini otomatik algılayarak gölge ve örneklem (antialiasing) kalitesini dinamik olarak ölçekler; hem masaüstünde hem modern mobil tarayıcılarda kurulumsuz çalışır.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">2. ALKEM laboratuvarındaki araçlar kimler için tasarlandı?</div>
+          <div class="faq-a"><a href="../alkem/">koraytasan.com/alkem/</a> hem kimya/farmakoloji araştırmacıları için hızlı bir tarayıcı içi cheminformatics ve RxNorm sorgu aracıdır, hem de maddenin dönüşüm felsefesine ilgi duyanlar için interaktif bir kütüphanedir.</div>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 48px 0 32px;">
+      <h3>📚 Bilgi Bankasındaki İlgili Diğer Yazılar</h3>
+      <div class="related-grid">
+        <a href="./ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html" class="related-card">
+          <span>AI Sistem Mimarisi</span>
+          <h4>AI ile Proje Geliştirmek: Tek Kişilik Dev Stüdyo ve $0.00 SLA Mimari →</h4>
+        </a>
+        <a href="./ai-sanat-ve-anlati-evrenleri-prompt-muhendisliginden-ruhu-olan-dunyalara.html" class="related-card">
+          <span>AI Sanat & Evrenler</span>
+          <h4>MithyLeaks ve SUSSUZ: Ruhu Olan Anlatı Evrenleri Kurmak →</h4>
+        </a>
+        <a href="./dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="related-card">
+          <span>Dijital İçerik</span>
+          <h4>1000+ Marka Videosundan 131 Otonom Denetim Aracına →</h4>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Koray Taşan. All rights reserved. | <a href="../">Ana Sayfa</a> | <a href="./">Yazılar & Bilgi Bankası</a> | <a href="../buildupbuilddown/">BUILD UP BUILD DOWN</a> | <a href="../findmyhome/">FindMyHome</a> | <a href="../alkem/">ALKEM</a> | <a href="../itsus.safe.space/">IT'S US</a></p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('readingProgress').style.width = pct + '%';
+    });
+  </script>
+</body>
+
+</html>

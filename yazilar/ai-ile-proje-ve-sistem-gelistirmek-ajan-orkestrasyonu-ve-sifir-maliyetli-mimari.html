@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI ile Proje ve Ürün Geliştirmek: Tek Kişilik Dev Stüdyo, Ajan Orkestrasyonu ve $0.00 SLA Mimari | Koray Taşan</title>
+  <meta name="description"
+    content="Rutini kodla, gerisi sihir: Yapay zekâ ajanlarıyla (Multi-Agent Orchestration) sıfır bulut maliyetiyle ($0.00 SLA) 10+ canlı ürün, bina otomasyon motoru ve kreatif stüdyo kurma rehberi.">
+  <meta name="keywords"
+    content="AI ile Proje Geliştirmek, Yapay Zeka Ajanları, AI Agent Orchestration, Sıfır Maliyetli Yazılım Mimarisi, Micro SaaS Geliştirme, Koray Taşan, AI Product Architect">
+  <meta name="author" content="Koray Taşan">
+  <link rel="canonical" href="https://www.koraytasan.com/yazilar/ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI ile Proje ve Ürün Geliştirmek: Tek Kişilik Dev Stüdyo ve Ajan Orkestrasyonu">
+  <meta property="og:description"
+    content="İnsan dostlarım da var, AI dostlarım da var: Olay odaklı 6'lı ajan matrisi, $0.00 SLA yalın mimari ve geceyi devirerek fikirleri çalışan ürünlere dönüştürme rehberi.">
+  <meta property="og:url" content="https://www.koraytasan.com/yazilar/ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html">
+  <meta property="og:image" content="https://www.koraytasan.com/yazilar/assets/ai-proje-gelistirme/og-image.jpg">
+  <meta property="og:site_name" content="Koray Taşan">
+  <meta property="og:locale" content="tr_TR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #38bdf8, #10b981); width: 0%; z-index: 9999; transition: width 0.1s ease; }
+    .article-container { max-width: 820px; margin: 120px auto 80px; padding: 0 24px; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; color: #38bdf8; text-decoration: none; font-size: 0.9rem; margin-bottom: 24px; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .article-meta .tag-pill { background: rgba(56, 189, 248, 0.18); color: #7dd3fc; padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+    .article-title { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.18; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
+    .article-lead { font-size: 1.24rem; line-height: 1.65; color: #cbd5e1; font-style: italic; border-left: 3px solid #38bdf8; padding-left: 20px; margin: 24px 0 36px; }
+    .hero-banner { width: 100%; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 36px; overflow: hidden; }
+    .hero-banner img { width: 100%; height: auto; display: block; }
+    .toc-box { background: rgba(255, 255, 255, 0.025); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px 28px; margin-bottom: 42px; }
+    .toc-title { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+    .toc-list a:hover { color: #7dd3fc; }
+    .article-body { font-family: 'Newsreader', Georgia, serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; }
+    .article-body p { margin-bottom: 26px; }
+    .article-body h2 { font-family: 'Outfit', sans-serif; font-size: 1.7rem; color: #ffffff; margin: 52px 0 18px; font-weight: 700; scroll-margin-top: 90px; }
+    .article-body a { color: #38bdf8; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body blockquote { margin: 32px 0; padding: 22px 28px; background: rgba(56, 189, 248, 0.06); border-left: 3px solid #38bdf8; border-radius: 0 12px 12px 0; font-style: italic; color: #f8fafc; }
+    .war-story-box { margin: 36px 0; padding: 26px 28px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.85)); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 0.98rem; line-height: 1.7; }
+    .war-story-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: #7dd3fc; margin-bottom: 10px; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-family: 'Inter', sans-serif; font-size: 0.92rem; background: rgba(15, 23, 42, 0.6); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+    .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
+    .data-table th { background: rgba(255, 255, 255, 0.04); color: #7dd3fc; font-weight: 600; text-transform: uppercase; font-size: 0.78rem; }
+    .faq-section { margin-top: 56px; border-top: 1px solid var(--border-color); padding-top: 40px; font-family: 'Inter', sans-serif; }
+    .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+    .faq-q { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.08rem; color: #fff; margin-bottom: 8px; }
+    .faq-a { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; font-family: 'Inter', sans-serif; }
+    .related-card { background: rgba(255,255,255,0.025); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+    .related-card:hover { border-color: #38bdf8; transform: translateY(-3px); }
+    .related-card span { font-size: 0.75rem; color: #7dd3fc; text-transform: uppercase; font-weight: 600; }
+    .related-card h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; color: #fff; margin-top: 6px; line-height: 1.35; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI ile Proje ve Ürün Geliştirmek: Tek Kişilik Dev Stüdyo, Ajan Orkestrasyonu ve $0.00 SLA Mimari",
+    "image": "https://www.koraytasan.com/yazilar/assets/ai-proje-gelistirme/og-image.jpg",
+    "author": { "@type": "Person", "name": "Koray Taşan", "url": "https://www.koraytasan.com" },
+    "datePublished": "2026-10-25",
+    "description": "Rutini kodla, gerisi sihir: Yapay zekâ ajanlarıyla sıfır bulut maliyetiyle ($0.00 SLA) 10+ canlı ürün ve kreatif stüdyo kurma rehberi."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-glow"></div>
+
+  <nav class="nav scrolled">
+    <div class="container nav-content">
+      <a href="../" class="nav-logo">KT</a>
+      <ul class="nav-links">
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#ai-products">AI & Products</a></li>
+        <li><a href="../#media">Film & Media</a></li>
+        <li><a href="./" class="active" style="color: var(--accent-secondary);">Yazılar</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="article-container">
+    <a href="./" class="article-back">← Bilgi Bankası & Tüm Yazılara Dön</a>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="tag-pill">AI Sistem & Proje Geliştirme</span>
+        <span>•</span>
+        <span>25 Ekim 2026</span>
+        <span>•</span>
+        <span>11 Dakika Okuma</span>
+      </div>
+      <h1 class="article-title">AI ile Proje ve Ürün Geliştirmek: Tek Kişilik Dev Stüdyo, Ajan Orkestrasyonu ve $0.00 SLA Mimari Rehberi</h1>
+      <p class="article-lead">
+        "İnsan dostlarım da var, AI dostlarım da var; ben bunu böyle kabul ediyorum. 'Yapardım' gibi geçmiş zaman cümleleri kurmana gerek yok. Yapabiliriz. Yapalım. Yapalım mı?"
+      </p>
+    </header>
+
+    <div class="hero-banner">
+      <img src="./assets/ai-proje-gelistirme/og-image.jpg" alt="AI ile Proje ve Ürün Geliştirme Rehberi" loading="eager">
+    </div>
+
+    <nav class="toc-box" aria-label="İçindekiler">
+      <div class="toc-title">📑 İçindekiler</div>
+      <ul class="toc-list">
+        <li><a href="#bolum-1">1. "10 Yıllık Proje Planını Bırak, Şimdi Başlayalım": Döngü Kapatma Disiplini</a></li>
+        <li><a href="#bolum-2">2. Sohbet Botu Değil, Olay Odaklı (Event-Driven) Ajan Matrisi</a></li>
+        <li><a href="#bolum-3">3. $0.00 SLA Yalın Mimari: Bulut Faturası Ödemeden Kurumsal Sistem Kurmak</a></li>
+        <li><a href="#bolum-4">4. Saha Hafızası: Bina Otomasyon Teklif Motoru, DXF CAD Analizi ve UTF-8 Savaşları</a></li>
+        <li><a href="#bolum-5">5. Parlak Fikir Tuzaklarına Karşı "5 Dakikalık Parking-Lot" Kuralı</a></li>
+      </ul>
+    </nav>
+
+    <article class="article-body">
+      <p>
+        Yıllarca hepimizin düştüğü bir tuzak vardı: <em>"Şu proje bitsin, şu teslimi yapalım, şu dönemi atlatalım, sonra kendi hayalimi yapacağım..."</em> Sonra bir gün, o "sonra"nın kendi kendine asla gelmeyeceğini anladım. Ve bıraktım. İlk defa zamanımın ne kadarının gerçekten bana ait olduğunu düşündüm.
+      </p>
+
+      <p>
+        Yapay zekâ ile proje geliştirmeye başladığımda çoğu insanın yaptığı gibi ona "Bana bir web sitesi kodu yaz" diye emir veren bir müşteri gibi yaklaşmadım. Biz masaya bir ekip olarak oturduk. Kendi kendime dedim ki: <strong>"Yine sabaha kadar konuşup hiçbir iş yapmayacak mıyız, yoksa 10 yıllık proje planlarını bir kenara bırakıp bu gece canlıya mı çıkacağız?"</strong> Ben uyumadım, ajanlar uyumadı, geceyi devirdik resmen; ve bugün <a href="../#ai-products">koraytasan.com vitrininde</a> gördüğünüz 10'dan fazla canlı sistem işte o gecelerin mahsulü olarak doğdu.
+      </p>
+
+      <div style="margin: 36px 0;">
+        <img src="./assets/ai-proje-gelistirme/epistemic-diagram.svg" alt="AI Ajan Orkestrasyonu ve Sistem Mimarisi" style="width:100%; border-radius:14px;">
+      </div>
+
+      <h2 id="bolum-1">1. "10 Yıllık Proje Planını Bırak, Şimdi Başlayalım": Döngü Kapatma Disiplini</h2>
+      <p>
+        Yaratıcı insanların en büyük düşmanı yeteneksizlik değil; yarım kalmış sekme mezarlığıdır. Başlangıçta her fikir çok parlak görünür, ama işin %80'i bittikten sonra o sıkıcı %20'lik entegrasyon, test ve yayınlama kısmı geldiğinde heves kaçar. Bu yüzden kurduğum AI sisteminin birincil yasası <strong>Döngü Kapatıcılık (Loop Closer)</strong> oldu: Yeni bir iş açmaktan ziyade var olan işi canlıya alıp bitirmeye odaklanmak ve her adımda <em>"Bu iş bize ne getirecek?"</em> sorusunu masada tutmak.
+      </p>
+
+      <h2 id="bolum-2">2. Sohbet Botu Değil, Olay Odaklı (Event-Driven) Ajan Matrisi</h2>
+      <p>
+        Tek bir LLM penceresine her şeyi yaptırmaya çalışırsanız bağlam (context window) şişer ve model halüsinasyon görmeye başlar. Bizim "süper gücümüz" tek bir model değil; <strong>hangi işi kimin yapacağını, hangi aracın çalıştırılacağını ve çıkan sonucun doğru olup olmadığını denetleyen çoklu ajan orkestrasyonudur</strong>:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Ajan Rolü</th>
+            <th>Sorumluluk Alanı</th>
+            <th>Hafıza & Denetim Çıktısı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><code>@orchestrator</code></strong></td>
+            <td>Görev bölme, mimari entegrasyon ve süreç konsolidasyonu.</td>
+            <td><code>.agents/reports/@orchestrator-log.md</code></td>
+          </tr>
+          <tr>
+            <td><strong><code>@dev-coder</code></strong></td>
+            <td>Full-stack kod yazımı, C++/Python/TS çekirdekleri ve refactoring.</td>
+            <td><code>.agents/reports/@dev-coder-log.md</code></td>
+          </tr>
+          <tr>
+            <td><strong><code>@polymath-blogger</code></strong></td>
+            <td>4 katmanlı epistemik araştırma, söylenti analizi ve çok dilli edebi yayın.</td>
+            <td><code>.agents/reports/@polymath-blogger-log.md</code></td>
+          </tr>
+          <tr>
+            <td><strong><code>@security-auditor</code></strong></td>
+            <td>Veri kalıcılığı, sıfır sızıntı, dış MCP/paket güvenlik denetimi.</td>
+            <td><code>.agents/reports/@security-auditor-log.md</code></td>
+          </tr>
+          <tr>
+            <td><strong><code>@qa-tester</code></strong></td>
+            <td>Otomasyon testleri, regresyon paketleri ve kırık link kontrolü.</td>
+            <td>131/131 Yeşil Test Kapısı</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        En kritik kuralımız nedir? <strong>Hiçbir ajan önceki logları silemez!</strong> Her görev sonunda kendi rapor dosyasına kronolojik olarak <em>(1. Yapılan İş, 2. Yapılacaklar, 3. Yeni Öneriler, 4. Riskler, 5. Çözümler)</em> kaydını düşer. Böylece 3 ay sonra bile hangi hatayı nasıl çözdüğümüzü milisaniyesine kadar hatırlarız.
+      </p>
+
+      <h2 id="bolum-3">3. $0.00 SLA Yalın Mimari: Bulut Faturası Ödemeden Kurumsal Sistem Kurmak</h2>
+      <p>
+        Bugün pek çok girişim, basit bir metin veya görsel işlemi için bile dış API'lere zincirlenip ayda binlerce dolar fatura ödüyor. Bizim felsefemiz ise <strong>$0.00 SLA Yalın Mimari</strong>: Yerel Python 3.12, PowerShell Core, SQLite WAL (Write-Ahead Logging), yerel Whisper ASR, FFmpeg ve istemci taraflı WebGL/Canvas kullanarak sıfır sunucu maliyetiyle çalışan sistemler üretmek. Örneğin <a href="../imzala/">AI Signature Generator</a> aracımız tamamen tarayıcı içinde (Zero-Dependency JS & Canvas) çalışır; sunucuya tek bayt veri göndermeden saniyede kurumsal HTML imza üretir.
+      </p>
+
+      <h2 id="bolum-4">4. Saha Hafızası: Bina Otomasyon Teklif Motoru, DXF CAD Analizi ve UTF-8 Savaşları</h2>
+
+      <div class="war-story-box">
+        <div class="war-story-title">🛠️ Saha Hafızası: Binlerce CCTV/Yangın Donanımı ve Windows Karakter Kodlama Tuzakları</div>
+        <p style="margin-bottom:12px;">
+          <strong>Vaka 1 — Tek Merkezli Bina Güvenlik & DXF Keşif Platformu:</strong> B2B bina otomasyonu projelerinde CCTV, yangın algılama ve geçiş kontrol sistemleri için şartname okuyup AutoCAD <code>.dxf</code> çizimlerinden metraj çıkarmak mühendislerin günlerini alıyordu. PowerShell Core, SQLite ve Python DXF ayrıştırıcılarla kurduğumuz motor, binlerce donanım kalemini saniyeler içinde dinamik marjlarla eşleştirip hatasız Excel teklifine dönüştürdü.
+        </p>
+        <p style="margin-bottom:0;">
+          <strong>Vaka 2 — Windows <code>cp1254</code> Charmap Krizi:</strong> Çok dilli scriptlerimizi Windows üzerinde koştururken Python'un varsayılan <code>open()</code> çağrılarının Türkçe karakterlerde (<code>ğ, ş, ı, İ</code>) <code>UnicodeDecodeError</code> fırlattığını veya dosyalarda bozuk karakterler (mojibake) bıraktığını gördük. Tüm kod tabanımızda <code>encoding='utf-8'</code> zorunluluğunu ve BOM denetimini otomatikleştiren bir ön-kontrol kancası (pre-flight check) devreye alarak bu sorunu tarihe gömdük.
+        </p>
+      </div>
+
+      <h2 id="bolum-5">5. Parlak Fikir Tuzaklarına Karşı "5 Dakikalık Parking-Lot" Kuralı</h2>
+      <p>
+        Üretim sırasında insanın aklına sürekli yeni ve parlak fikirler gelir. Eskiden o parlak fikrin peşine takılıp mevcut işi yarım bırakırdık. Şimdi ise <strong>Odak Kilitleyici (Parking-Lot)</strong> kuralımız işliyor: İlham anında gelen yeni fikri heves kırmadan 5 dakika içinde yol haritası havuzuna (<code>parking-lot</code>) kaydediyoruz ama elimizdeki teslimatı canlıya almadan masadan kalkmıyoruz.
+      </p>
+
+      <blockquote>
+        "Bir ürünü, bizzat kendim kullanıp 'satmaktan utanmadığım' bir hâle getirmeden asla vitrine çıkarmam. Çünkü kod satırları geçicidir; geriye kalan şey kurduğun sistemin namusudur."
+      </blockquote>
+
+      <h2 id="sss">Sıkça Sorulan Sorular (SSS)</h2>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-q">1. Kodlama bilmeyen ama güçlü bir vizyonu olan biri AI ile ürün geliştirebilir mi?</div>
+          <div class="faq-a">Evet, ancak AI'a "bana uygulama yap" diyerek değil; problemi küçük ve test edilebilir modüllere (Veri Katmanı, Hesaplama Çekirdeği, Arayüz) bölerek ve her adımı bizzat test ederek. Yönetmenlik vizyonu tam da burada devreye girer: Hangi sahnenin çalışmadığını görmek.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">2. Geliştirdiğiniz hazır araçlara ve şablonlara nereden ulaşabiliriz?</div>
+          <div class="faq-a">Canlı araçlarımızı <a href="../#ai-products">koraytasan.com AI Vitrini</a> üzerinden ücretsiz deneyimleyebilir, dijital ürün paketlerimizi ise <a href="https://www.kreativecore.store/" target="_blank" rel="noopener">Kreative Core Store</a> üzerinden inceleyebilirsiniz.</div>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 48px 0 32px;">
+      <h3>📚 Bilgi Bankasındaki İlgili Diğer Yazılar</h3>
+      <div class="related-grid">
+        <a href="./3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html" class="related-card">
+          <span>Canlı Web Evrenleri</span>
+          <h4>9.400 Parçalık 3D Dijital İkizden Moleküler Simyaya: Web Sitemizdeki Diğer Evrenler →</h4>
+        </a>
+        <a href="./ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html" class="related-card">
+          <span>AI Video & NLE</span>
+          <h4>core.action STUDIO: 12 Uzman Motor ve Living Project Graph Mimarisi →</h4>
+        </a>
+        <a href="./hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="related-card">
+          <span>Manifesto</span>
+          <h4>Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları →</h4>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Koray Taşan. All rights reserved. | <a href="../">Ana Sayfa</a> | <a href="./">Yazılar & Bilgi Bankası</a> | <a href="../imzala/">AI Signature</a> | <a href="https://www.kreativecore.store/" target="_blank">Kreative Store</a></p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('readingProgress').style.width = pct + '%';
+    });
+  </script>
+</body>
+
+</html>

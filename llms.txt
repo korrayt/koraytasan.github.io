@@ -52,3 +52,19 @@ CORE (@msc_core) is an English-language dark pop, synth-pop, nocturnal drill, an
 - **Midnight Drill, Dark Trap & Street Anthems 2026**: https://www.youtube.com/playlist?list=PLM_4BlEQrJk8
 - **2026 Viral Pop & Club Anthems**: https://www.youtube.com/playlist?list=PLbsWFy8oeMuQ
 - **SUSSUZ (Original Soundtrack)**: https://www.youtube.com/playlist?list=PLdIbDAXzRvlI
+
+## Koray Taşan — Knowledge Treasury & Engineering Essays (https://www.koraytasan.com/yazilar/)
+- **Digital Content Production & YouTube Algorithm Engineering (1000+ Branded Videos to 131 Autonomous CLI Tools)**: https://www.koraytasan.com/yazilar/dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html
+- **AI Video Generation & Next-Gen NLE Architecture (core.action STUDIO, Continuity Tracking, 6GB VRAM & OpenRigLogic C++ Fixes)**: https://www.koraytasan.com/yazilar/ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html
+- **AI Art & Narrative Worldbuilding (MithyLeaks Trilingual Archive TR/EN/LT, SUSSUZ Virtual Production & 4K Art Restoration)**: https://www.koraytasan.com/yazilar/ai-sanat-ve-anlati-evrenleri-prompt-muhendisliginden-ruhu-olan-dunyalara.html
+- **AI Music Production & EBU R128 Audio DSP (CORE MUSIC 4 Sub-Labels, khrysaor, KOR Hybrid Artist & Uyku Atlası Semantic Foley)**: https://www.koraytasan.com/yazilar/ai-muzik-produksiyonu-ve-ses-muhendisligi-core-music-khrysaor-uyku-atlasi.html
+- **Building AI Products & Multi-Agent Orchestration ($0.00 SLA Architecture, Building Automation & DXF CAD Intelligence)**: https://www.koraytasan.com/yazilar/ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html
+- **Interactive 3D Digital Twins, PropTech, Cheminformatics & Zero-GPS Privacy (BUILD UP BUILD DOWN, Find My Home, ALKEM, IT'S US Safe Space, Amblyopia DTx)**: https://www.koraytasan.com/yazilar/3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html
+- **From Stories to Systems — The Invisible Laws of Editing**: https://www.koraytasan.com/yazilar/hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html
+
+### CORE MUSIC — Journal & AI Ses Mühendisliği Rehberleri (https://www.koraytasan.com/core_music/blog/)
+- [Cihangir'in Gece Lambalarından Londra'nın Soğuk Asfaltına: CORE MUSIC & khrysaor Hikâyem](https://www.koraytasan.com/core_music/blog/core-music-ve-khrysaor-hikayesi-cihangirden-londraya-sesin-hafizasi/): Dört alt plak şirketi (khrysaor, CORE MUSIC LONDON, SUSSUZ Soundtracks, ANGARALI KEREMSİ), KOR sosyal deneyi ve prodüksiyon dersleri.
+- [AI Müzik Prompt Mimarisi: Suno v4 ve MiniMax Meta-Tag Rehberi](https://www.koraytasan.com/core_music/blog/yapay-zeka-muzik-prompt-mimarisi-suno-ve-minimax-meta-tag-rehberi/): Deterministik şarkı haritası ([Intro], [Verse], [Chorus], [End]), telifsiz akustik yapısöküm ve kopyalanabilir stüdyo şablonları.
+- ["Ritim, Anlamın Nefesidir": Şarkı Sözü Yazımı Teknikleri ve Türkçe Prozodi](https://www.koraytasan.com/core_music/blog/sarki-sozu-yazimi-teknikleri-ritim-prozodi-ve-ai-vokal-senkronu/): Türkçe hece vurgusu, açık-kapalı ünlü dengesi, noktalama ile nefes kontrolü ve khrysaor şarkılarından vaka analizleri.
+- [Suno Kullanım İpuçları (2026): İleri Seviye Prodüksiyon ve 'Extend' Kurgusu](https://www.koraytasan.com/core_music/blog/suno-kullanim-ipuclari-ileri-seviye-produksiyon-ve-uzatma-teknikleri/): Metalik tiz (shimmer) engelleme, Suno v3.5 vs v4 vs MiniMax karşılaştırması ve ölçü sonu Extend matematiği.
+- [Ham AI Çıktısından Yayın Kalitesine: Stem, SVC ve EBU R128 Mastering](https://www.koraytasan.com/core_music/blog/ai-sarkiyi-profesyonel-mastera-donusturmek-stem-svc-ve-ebu-r128-rehberi/): HTDemucs, Praat PSOLA, RVC/Seed-VC vokal dönüşümü, 6 bant cerrahi EQ ve -14.0 LUFS mastering.

@@ -4,18 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yazılar & Düşünceler | Koray Taşan</title>
+  <title>Yazılar, Üretim Sırları & Bilgi Bankası | Koray Taşan</title>
   <meta name="description"
-    content="Koray Taşan - Kurgu felsefesi, yeni nesil AI mimarileri, semantik ses tasarımı ve akıllı ürün sistemleri üzerine denemeler ve notlar.">
+    content="Koray Taşan Bilgi Bankası: Dijital içerik üretimi, AI video ve yeni nesil kurgu (core.action STUDIO), AI sanat (MithyLeaks & SUSSUZ), AI müzik prodüksiyonu (CORE MUSIC & khrysaor), ajan orkestrasyonu ve 3D web mimarileri üzerine derin rehberler.">
+  <meta name="keywords"
+    content="Koray Taşan Blog, Dijital İçerik Üretimi Rehberi, AI Video Üretimi, AI Sanat, AI Müzik Prodüksiyonu, AI ile Proje Geliştirmek, core.action STUDIO, CORE MUSIC, MithyLeaks, SUSSUZ">
   <meta name="author" content="Koray Taşan">
   <link rel="canonical" href="https://www.koraytasan.com/yazilar/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Yazılar & Düşünceler | Koray Taşan">
+  <meta property="og:title" content="Yazılar, Üretim Sırları & Bilgi Bankası | Koray Taşan">
   <meta property="og:description"
-    content="Kurgu felsefesi, AI sistem mimarileri ve kreatif teknoloji üzerine periyodik denemeler.">
+    content="20+ yıllık yönetmenlik ve kurgu ustalığından yaşayan AI sistemlerine: Saha tecrübeleri, yaşadığımız teknik krizler, çözümler ve derin araştırma rehberleri.">
   <meta property="og:url" content="https://www.koraytasan.com/yazilar/">
+  <meta property="og:image" content="https://www.koraytasan.com/yazilar/assets/dijital-icerik-uretimi/og-image.jpg">
   <meta property="og:site_name" content="Koray Taşan">
   <meta property="og:locale" content="tr_TR">
 
@@ -28,21 +31,50 @@
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    .journal-hero {
-      padding: 140px 0 60px;
-      text-align: center;
+    .journal-hero { padding: 130px 0 40px; text-align: center; }
+    .hub-controls { max-width: 920px; margin: 28px auto 40px; display: flex; flex-direction: column; gap: 18px; }
+    .search-box { position: relative; width: 100%; }
+    .search-input {
+      width: 100%;
+      padding: 16px 22px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-input:focus { border-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2); }
+    .filter-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: linear-gradient(135deg, #a855f7, #38bdf8);
+      color: #fff;
+      border-color: transparent;
     }
     .journal-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 28px;
-      margin: 40px 0 100px;
+      margin: 20px 0 80px;
     }
     .journal-card {
       background: var(--bg-glass);
       border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: 18px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -52,31 +84,38 @@
     }
     .journal-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(168, 85, 247, 0.45);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     }
+    .card-thumb { width: 100%; height: 195px; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .journal-card:hover .card-thumb img { transform: scale(1.04); }
+    .card-body { padding: 26px 28px 20px; flex: 1; display: flex; flex-direction: column; }
     .journal-card-tag {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--accent-secondary);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
       display: block;
     }
     .journal-card h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.32rem;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.35;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .journal-card p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 24px;
+      font-size: 0.94rem;
+      line-height: 1.62;
+      margin-bottom: 18px;
     }
+    .card-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; margin-bottom: 8px; }
+    .card-chip { background: rgba(255,255,255,0.05); color: #cbd5e1; font-size: 0.73rem; padding: 3px 9px; border-radius: 6px; }
     .journal-card-footer {
       display: flex;
       justify-content: space-between;
@@ -84,19 +123,49 @@
       font-size: 0.82rem;
       color: var(--text-muted);
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 16px;
+      padding: 16px 28px;
+      background: rgba(0, 0, 0, 0.15);
     }
-    .journal-card-footer span.read-more {
-      color: var(--accent-secondary);
+    .journal-card-footer span.read-more { color: var(--accent-secondary); font-weight: 600; }
+    .ecosystem-bar {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 80px;
+    }
+    .ecosystem-bar h2 { font-family: 'Outfit', sans-serif; font-size: 1.35rem; color: #fff; margin-bottom: 16px; }
+    .eco-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .eco-link {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #f8fafc;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 10px;
+      font-size: 0.86rem;
       font-weight: 600;
+      transition: all 0.2s;
     }
+    .eco-link:hover { border-color: #38bdf8; color: #38bdf8; transform: translateY(-2px); }
   </style>
+
+  <!-- Schema.org CollectionPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Yazılar, Üretim Sırları & Bilgi Bankası | Koray Taşan",
+    "url": "https://www.koraytasan.com/yazilar/",
+    "description": "Dijital içerik üretimi, AI video kurgusu, AI sanat, AI müzik prodüksiyonu, ajan orkestrasyonu ve 3D web sistemleri üzerine kapsamlı bilgi bankası.",
+    "author": { "@type": "Person", "name": "Koray Taşan", "url": "https://www.koraytasan.com" }
+  }
+  </script>
 </head>
 
 <body>
   <div class="bg-glow"></div>
 
-  <!-- Navigation -->
   <nav class="nav scrolled">
     <div class="container nav-content">
       <a href="../" class="nav-logo">KT</a>
@@ -112,36 +181,250 @@
 
   <main class="container">
     <section class="journal-hero">
-      <span class="section-tag">Düşünceler & Notlar</span>
-      <h1 class="section-title">Kurgudan Sistem Mimarisine</h1>
-      <p class="section-description" style="max-width: 680px; margin: 0 auto;">
-        Hikâyenin kurguda tamamlanması gibi sistemler de insan dokunuşuyla yaşayan organizmalara dönüşür. Periyodik denemeler, mimari notlar ve düşünceler.
+      <span class="section-tag">Bilgi Bankası & Üretim Külliyatı</span>
+      <h1 class="section-title">Kurgudan Sistem Mimarisine: Gerçek Saha Sırları</h1>
+      <p class="section-description" style="max-width: 760px; margin: 0 auto;">
+        "Biraz et ve kemik, biraz çip ve duman..." 20+ yıllık yönetmenlik ve 1000+ marka videosu tecrübemizden yaşayan yapay zekâ sistemlerimize uzanan; yaşadığımız gerçek mühendislik krizlerini, çözdüğümüz algoritmik düğümleri ve üretim reçetelerimizi paylaştığımız açık bilgi hazinesi.
       </p>
+
+      <div class="hub-controls">
+        <div class="search-box">
+          <input type="text" id="searchInput" class="search-input" placeholder="🔍 Bilgi bankasında ara (örn: core.action, Moire, -14 LUFS, 6GB VRAM, MithyLeaks, 3D CAD, Ajan)...">
+        </div>
+        <div class="filter-pills" id="filterPills">
+          <button class="filter-pill active" data-cat="all">Tümü (7 Rehber)</button>
+          <button class="filter-pill" data-cat="icerik">Dijital İçerik & Algoritma</button>
+          <button class="filter-pill" data-cat="video">AI Video & NLE</button>
+          <button class="filter-pill" data-cat="sanat">AI Sanat & Evrenler</button>
+          <button class="filter-pill" data-cat="muzik">AI Müzik & DSP</button>
+          <button class="filter-pill" data-cat="sistem">AI Proje & Ajanlar</button>
+          <button class="filter-pill" data-cat="web">3D Web & Ürünler</button>
+        </div>
+      </div>
     </section>
 
-    <div class="journal-grid">
-      <!-- Article 1 -->
-      <a href="hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="journal-card">
-        <div>
-          <span class="journal-card-tag">Deneme & Manifesto</span>
-          <h3>Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları</h3>
+    <div class="journal-grid" id="journalGrid">
+
+      <!-- Pillar 1: Dijital İçerik Üretimi -->
+      <a href="dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="journal-card" data-cat="icerik">
+        <div class="card-thumb">
+          <img src="./assets/dijital-icerik-uretimi/og-image.jpg" alt="Dijital İçerik Üretimi Rehberi" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag">Dijital İçerik Üretimi & Algoritma</span>
+          <h3>Dijital İçerik Üretimi Rehberi: 1000+ Marka Videosundan 131 Otonom Denetim Aracına</h3>
           <p>
-            15 yıllık kurgu ustalığından akıllı ürün mimarilerine uzanan; core.action, Uyku Atlası ve yaşayan sistemlerin felsefi manifestosu.
+            Barcelona Samsung Unpacked'dan TRT Tabii belgesellerine: Balıksırtı ceket Moiré krizini YUV kroma ayrıştırmayla çözmek, 31 GB'lık 4K GOP (-g 300) optimizasyonu ve YouTube izleyici tutma türevleri (dR/dt).
           </p>
+          <div class="card-chips">
+            <span class="card-chip">1000+ Video</span>
+            <span class="card-chip">YouTube Algoritması</span>
+            <span class="card-chip">Sensör Fiziği</span>
+            <span class="card-chip">4K FFmpeg</span>
+          </div>
         </div>
         <div class="journal-card-footer">
-          <span>24 Eylül 2026 • 5 dk</span>
-          <span class="read-more">Oku ↗</span>
+          <span>25 Ekim 2026 • 11 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
         </div>
       </a>
+
+      <!-- Pillar 2: AI Video Üretimi -->
+      <a href="ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html" class="journal-card" data-cat="video">
+        <div class="card-thumb">
+          <img src="./assets/ai-video-uretimi/og-image.jpg" alt="AI Video Üretimi ve core.action STUDIO" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag" style="color: #fdba74;">AI Video & Yeni Nesil Kurgu</span>
+          <h3>AI Video Üretimi ve Yeni Nesil Kurgu Mimarisi: Karakter Devamlılığı ve core.action STUDIO</h3>
+          <p>
+            5 saniyelik güzel plan yanılsamasının ötesi: Sahnede ceket değiştiren AI karakterlerini (WARDROBE_DRIFT_ALERT) yakalamak, Wan2.2/Runway/Flux çoklu derleyicisi, 6GB VRAM ve OpenRigLogic C++ yamalarımız.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">core.action STUDIO</span>
+            <span class="card-chip">Continuity</span>
+            <span class="card-chip">Unreal 5.8</span>
+            <span class="card-chip">Wan2.2 / Runway</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>25 Ekim 2026 • 12 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
+        </div>
+      </a>
+
+      <!-- Pillar 3: AI Sanat -->
+      <a href="ai-sanat-ve-anlati-evrenleri-prompt-muhendisliginden-ruhu-olan-dunyalara.html" class="journal-card" data-cat="sanat">
+        <div class="card-thumb">
+          <img src="./assets/ai-sanat/og-image.jpg" alt="AI Sanat ve Anlatı Evrenleri - MithyLeaks & SUSSUZ" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag" style="color: #f3d79b;">AI Sanat & Anlatı Evrenleri</span>
+          <h3>AI Sanat mı, Zanaat mı? Prompt Yazmanın Ötesinde Ruhu Olan Dünyalar Kurmak (MithyLeaks & SUSSUZ)</h3>
+          <p>
+            "Oradaki sensin, ama hatırladığın sen değil." Plastik AI kusursuzluğunu kırmak, Medusa'nın saklanan tarihini 3 dilde (TR/EN/LT) inşa etmek ve Ankara Eryaman'dan sanal setlere SUSSUZ evreni.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">MithyLeaks</span>
+            <span class="card-chip">SUSSUZ</span>
+            <span class="card-chip">4K Restorasyon</span>
+            <span class="card-chip">Estetik Felsefesi</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>25 Ekim 2026 • 10 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
+        </div>
+      </a>
+
+      <!-- Pillar 4: AI Müzik Prodüksiyonu -->
+      <a href="ai-muzik-produksiyonu-ve-ses-muhendisligi-core-music-khrysaor-uyku-atlasi.html" class="journal-card" data-cat="muzik">
+        <div class="card-thumb">
+          <img src="./assets/ai-muzik/og-image.jpg" alt="AI Müzik Prodüksiyonu - CORE MUSIC & khrysaor" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag" style="color: #e9d5ff;">AI Müzik Prodüksiyonu & DSP</span>
+          <h3>AI Müzik Prodüksiyonu ve EBU R128 Ses Mühendisliği: CORE MUSIC, khrysaor ve Uyku Atlası</h3>
+          <p>
+            4 alt label mimarisi (CORE LONDON, khrysaor, SUSSUZ OST, Angaralı Keremsi), KOR hibrit sanatçı deneyi, kapaklardaki "Lirik Kutusu" krizi ve -14 LUFS / -21 LUFS semantik foley sırları.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">CORE MUSIC</span>
+            <span class="card-chip">khrysaor</span>
+            <span class="card-chip">EBU R128</span>
+            <span class="card-chip">Uyku Atlası</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>25 Ekim 2026 • 12 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
+        </div>
+      </a>
+
+      <!-- Pillar 5: AI ile Proje Geliştirmek -->
+      <a href="ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html" class="journal-card" data-cat="sistem">
+        <div class="card-thumb">
+          <img src="./assets/ai-proje-gelistirme/og-image.jpg" alt="AI ile Proje ve Sistem Geliştirme" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag" style="color: #7dd3fc;">AI Sistem & Proje Geliştirme</span>
+          <h3>AI ile Proje ve Ürün Geliştirmek: Tek Kişilik Dev Stüdyo, Ajan Orkestrasyonu ve $0.00 SLA Mimari</h3>
+          <p>
+            "Rutini kodla, gerisi sihir..." Olay odaklı 6'lı ajan matrisi (@orchestrator, @dev-coder, @polymath-blogger), Bina Otomasyon & DXF teklif motoru, UTF-8 savaşları ve sıfır bulut maliyetli üretim.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">Multi-Agent</span>
+            <span class="card-chip">$0.00 SLA</span>
+            <span class="card-chip">Bina Otomasyon</span>
+            <span class="card-chip">DXF CAD</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>25 Ekim 2026 • 11 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
+        </div>
+      </a>
+
+      <!-- Pillar 6: Web Sitemizdeki Diğer Canlı Evrenler -->
+      <a href="3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html" class="journal-card" data-cat="web">
+        <div class="card-thumb">
+          <img src="./assets/web-evrenleri/og-image.jpg" alt="3D Dijital İkiz, PropTech, Simya ve Mahremiyet" loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="journal-card-tag" style="color: #6ee7b7;">3D Web & Ürün Mimarisi</span>
+          <h3>Tarayıcıda 9.400 Parçalık Otomotiv İkizi, 3D Emlak Keşfi, Moleküler Simya ve Sıfır-GPS Mahremiyet</h3>
+          <p>
+            BUILD UP BUILD DOWN'da 5.000 cıvatayı WebGL InstancedMesh ile 60 FPS çalıştırmak, Find My Home ikili rota kesişimi, ALKEM RxNorm simyası, IT'S US Safe Space ve Amblyopia DTx VR terapi.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">BUILD UP BUILD DOWN</span>
+            <span class="card-chip">FindMyHome</span>
+            <span class="card-chip">ALKEM</span>
+            <span class="card-chip">IT'S US</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>25 Ekim 2026 • 13 dk okuma</span>
+          <span class="read-more">Rehberi Oku ↗</span>
+        </div>
+      </a>
+
+      <!-- Article 7: Kurucu Manifesto -->
+      <a href="hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="journal-card" data-cat="icerik video">
+        <div class="card-body">
+          <span class="journal-card-tag">Deneme & Kurucu Manifesto</span>
+          <h3>Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları</h3>
+          <p>
+            15+ yıllık kurgu ustalığından akıllı ürün mimarilerine uzanan; core.action, Uyku Atlası, Find My Home ve yaşayan sistemlerin felsefi manifestosu.
+          </p>
+          <div class="card-chips">
+            <span class="card-chip">Kurgu Felsefesi</span>
+            <span class="card-chip">24 Kare</span>
+            <span class="card-chip">Manifesto</span>
+          </div>
+        </div>
+        <div class="journal-card-footer">
+          <span>24 Eylül 2026 • 5 dk okuma</span>
+          <span class="read-more">Yazıyı Oku ↗</span>
+        </div>
+      </a>
+
     </div>
+
+    <!-- Canlı Ekosistem Yönlendirme Köprüsü -->
+    <section class="ecosystem-bar">
+      <h2>🌐 Yazılarda Bahsedilen Canlı Ürün ve Evrenlerimizi Doğrudan Deneyimleyin</h2>
+      <div class="eco-links">
+        <a href="../core.action/" class="eco-link">⚡ core.action STUDIO (AI NLE) ↗</a>
+        <a href="../core_music/" class="eco-link">🎵 CORE MUSIC (Label & 4 Alt Evren) ↗</a>
+        <a href="../sussuz/" class="eco-link">🎬 SUSSUZ (Bağımsız Sinema & 3D Harita) ↗</a>
+        <a href="../MithyLeaks/" class="eco-link">✦ MithyLeaks (TR • EN • LT Arşiv) ↗</a>
+        <a href="../sozler/" class="eco-link">✍️ Şarkı Sözleri & Lirik Defteri ↗</a>
+        <a href="../buildupbuilddown/" class="eco-link">🏎️ BUILD UP BUILD DOWN (9.400 Parça 3D) ↗</a>
+        <a href="../findmyhome/" class="eco-link">🏠 Find My Home (3D PropTech) ↗</a>
+        <a href="../alkem/" class="eco-link">🧪 ALKEM (Cheminformatics & Simya) ↗</a>
+        <a href="../imzala/" class="eco-link">✒️ AI Signature Generator ↗</a>
+        <a href="../itsus.safe.space/" class="eco-link">🛡️ IT'S US Safe Space ↗</a>
+        <a href="../arena/" class="eco-link">⚔️ ARENA ↗</a>
+        <a href="../carsipazar/" class="eco-link">🏪 CarsiPazar ↗</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Koray Taşan. All rights reserved. | Stories → Systems → Intelligent Products | <a href="../">Ana Sayfa</a> | <a href="../findmyhome/">FindMyHome</a> | <a href="../buildupbuilddown/">BUILD UP BUILD DOWN</a></p>
+      <p>© 2026 Koray Taşan. All rights reserved. | Stories → Systems → Intelligent Products | <a href="../">Ana Sayfa</a> | <a href="../core.action/">core.action STUDIO</a> | <a href="../core_music/">CORE MUSIC</a> | <a href="../sussuz/">SUSSUZ</a> | <a href="../MithyLeaks/">MithyLeaks</a> | <a href="../findmyhome/">FindMyHome</a> | <a href="../buildupbuilddown/">BUILD UP BUILD DOWN</a></p>
     </div>
   </footer>
+
+  <script>
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.journal-card');
+    const searchInput = document.getElementById('searchInput');
+    let activeCat = 'all';
+
+    function filterCards() {
+      const q = (searchInput.value || '').toLowerCase().trim();
+      cards.forEach(card => {
+        const cats = (card.getAttribute('data-cat') || '');
+        const text = card.innerText.toLowerCase();
+        const catMatch = (activeCat === 'all') || cats.includes(activeCat);
+        const searchMatch = !q || text.includes(q);
+        card.style.display = (catMatch && searchMatch) ? 'flex' : 'none';
+      });
+    }
+
+    pills.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener('input', filterCards);
+  </script>
 </body>
 
 </html>

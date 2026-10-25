@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Üretimi ve Yeni Nesil Kurgu Mimarisi: core.action STUDIO & Devamlılık Sırları | Koray Taşan</title>
+  <meta name="description"
+    content="Runway Gen-3, Wan2.2, Flux ve Unreal Engine 5.8 ile AI video üretiminde karakter devamlılığı (Continuity), 6GB VRAM optimizasyonu, OpenRigLogic C++ yamaları ve core.action STUDIO mimarisi.">
+  <meta name="keywords"
+    content="AI Video Üretimi, Yapay Zeka Video Kurgu, core.action STUDIO, Karakter Devamlılığı, Wan2.2 Prompt, Runway Gen-3, Unreal Engine 5 Sanal Prodüksiyon, MetaHuman OpenRigLogic, Koray Taşan">
+  <meta name="author" content="Koray Taşan">
+  <link rel="canonical" href="https://www.koraytasan.com/yazilar/ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Video Üretimi ve Yeni Nesil Kurgu Mimarisi: Karakter Devamlılığı ve core.action STUDIO">
+  <meta property="og:description"
+    content="Sahnede ceket değiştiren AI karakterlerinden MetaHuman C++ bellek çökmelerine: AI video üretimindeki gerçek mühendislik sorunlarını nasıl çözdük?">
+  <meta property="og:url" content="https://www.koraytasan.com/yazilar/ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html">
+  <meta property="og:image" content="https://www.koraytasan.com/yazilar/assets/ai-video-uretimi/og-image.jpg">
+  <meta property="og:site_name" content="Koray Taşan">
+  <meta property="og:locale" content="tr_TR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #ea580c, #38bdf8); width: 0%; z-index: 9999; transition: width 0.1s ease; }
+    .article-container { max-width: 820px; margin: 120px auto 80px; padding: 0 24px; }
+    .article-back { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 24px; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .article-meta .tag-pill { background: rgba(234, 88, 12, 0.18); color: #fdba74; padding: 3px 10px; border-radius: 6px; font-weight: 600; }
+    .article-title { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.18; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
+    .article-lead { font-size: 1.24rem; line-height: 1.65; color: #cbd5e1; font-style: italic; border-left: 3px solid #ea580c; padding-left: 20px; margin: 24px 0 36px; }
+    .hero-banner { width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 36px; overflow: hidden; }
+    .hero-banner img { width: 100%; height: auto; display: block; }
+    .toc-box { background: rgba(255, 255, 255, 0.025); border: 1px solid var(--border-color); border-radius: 14px; padding: 24px 28px; margin-bottom: 42px; }
+    .toc-title { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .toc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .toc-list a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+    .toc-list a:hover { color: #fdba74; }
+    .article-body { font-family: 'Newsreader', Georgia, serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; }
+    .article-body p { margin-bottom: 26px; }
+    .article-body h2 { font-family: 'Outfit', sans-serif; font-size: 1.7rem; color: #ffffff; margin: 52px 0 18px; font-weight: 700; scroll-margin-top: 90px; }
+    .article-body a { color: #38bdf8; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body blockquote { margin: 32px 0; padding: 22px 28px; background: rgba(255, 255, 255, 0.03); border-left: 3px solid #ea580c; border-radius: 0 12px 12px 0; font-style: italic; color: #f1f5f9; }
+    .war-story-box { margin: 36px 0; padding: 26px 28px; background: linear-gradient(135deg, rgba(234, 88, 12, 0.1), rgba(15, 23, 42, 0.85)); border: 1px solid rgba(234, 88, 12, 0.35); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 0.98rem; line-height: 1.7; }
+    .war-story-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fdba74; margin-bottom: 10px; }
+    .rumor-box { margin: 36px 0; padding: 26px 28px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.09), rgba(15, 23, 42, 0.85)); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 0.98rem; line-height: 1.7; }
+    .rumor-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.1rem; color: #7dd3fc; margin-bottom: 10px; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 28px 0 36px; font-family: 'Inter', sans-serif; font-size: 0.92rem; background: rgba(15, 23, 42, 0.6); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+    .data-table th, .data-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
+    .data-table th { background: rgba(255, 255, 255, 0.04); color: #fdba74; font-weight: 600; text-transform: uppercase; font-size: 0.78rem; }
+    .faq-section { margin-top: 56px; border-top: 1px solid var(--border-color); padding-top: 40px; font-family: 'Inter', sans-serif; }
+    .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+    .faq-q { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.08rem; color: #fff; margin-bottom: 8px; }
+    .faq-a { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; font-family: 'Inter', sans-serif; }
+    .related-card { background: rgba(255,255,255,0.025); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+    .related-card:hover { border-color: #ea580c; transform: translateY(-3px); }
+    .related-card span { font-size: 0.75rem; color: #fdba74; text-transform: uppercase; font-weight: 600; }
+    .related-card h4 { font-family: 'Outfit', sans-serif; font-size: 1rem; color: #fff; margin-top: 6px; line-height: 1.35; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Video Üretimi ve Yeni Nesil Kurgu Mimarisi: Karakter Devamlılığı, 6GB VRAM Savaşları ve core.action STUDIO",
+    "image": "https://www.koraytasan.com/yazilar/assets/ai-video-uretimi/og-image.jpg",
+    "author": { "@type": "Person", "name": "Koray Taşan", "url": "https://www.koraytasan.com" },
+    "datePublished": "2026-10-25",
+    "description": "Runway Gen-3, Wan2.2, Flux ve Unreal Engine 5.8 ile AI video üretiminde karakter devamlılığı (Continuity), 6GB VRAM optimizasyonu ve core.action STUDIO mimarisi."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <div class="bg-glow"></div>
+
+  <nav class="nav scrolled">
+    <div class="container nav-content">
+      <a href="../" class="nav-logo">KT</a>
+      <ul class="nav-links">
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#ai-products">AI & Products</a></li>
+        <li><a href="../#media">Film & Media</a></li>
+        <li><a href="./" class="active" style="color: var(--accent-secondary);">Yazılar</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="article-container">
+    <a href="./" class="article-back">← Bilgi Bankası & Tüm Yazılara Dön</a>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="tag-pill">AI Video & Yeni Nesil Kurgu</span>
+        <span>•</span>
+        <span>25 Ekim 2026</span>
+        <span>•</span>
+        <span>12 Dakika Okuma</span>
+      </div>
+      <h1 class="article-title">AI Video Üretimi ve Yeni Nesil Kurgu Mimarisi: Karakter Devamlılığı, 6GB VRAM Savaşları ve core.action STUDIO</h1>
+      <p class="article-lead">
+        "Geleceğin kurgu odası, kesim yapmayı bilen bir asistan değil; yönetmenin nefesini duyan ve karakterin 3 sahne önce hangi ceketi giydiğini unutmayan bir devamlılık zihni gerektirir."
+      </p>
+    </header>
+
+    <div class="hero-banner">
+      <img src="./assets/ai-video-uretimi/og-image.jpg" alt="AI Video Üretimi ve core.action STUDIO Mimarisi" loading="eager">
+    </div>
+
+    <nav class="toc-box" aria-label="İçindekiler">
+      <div class="toc-title">📑 İçindekiler</div>
+      <ul class="toc-list">
+        <li><a href="#bolum-1">1. 5 Saniyelik "Güzel Plan" Yanılsaması: Sinema Neden Tek Kare Değildir?</a></li>
+        <li><a href="#bolum-2">2. core.action STUDIO: 12 Uzman Motor ve "Living Project Graph"</a></li>
+        <li><a href="#bolum-3">3. Saha Hafızası: Sahne Ortasında Ceket Değiştiren Karakter (WARDROBE_DRIFT_ALERT)</a></li>
+        <li><a href="#bolum-4">4. Çoklu AI Model Derleyici: Wan2.2, Runway Gen-3, FLUX.1-dev ve Midjourney</a></li>
+        <li><a href="#bolum-5">5. Sanal Prodüksiyonun Derinlikleri: OpenRigLogic C++ Yamaları ve 6GB VRAM Sınırı</a></li>
+      </ul>
+    </nav>
+
+    <article class="article-body">
+      <p>
+        Sosyal medyada herkes aynı şeyi paylaşıyor: Yağmurlu bir Tokyo sokağında yürüyen siberpunk bir karakterin 5 saniyelik ağır çekim videosu. Altında da <em>"Sinema bitti, artık tek promptla film çekiyoruz!"</em> başlığı. Yirmi yılını sette ve kurgu masasında geçirmiş bir yönetmen olarak buna baktığımda gülümsüyorum. Çünkü o 5 saniyelik videodaki karaktere "Şimdi arkadaki kafeye gir, masaya otur, kahveni yudumlarken karşıdaki adamla göz göze gel ve 4 dakika boyunca aynı yüz, aynı deri ceket ve aynı ışık açısıyla diyaloğu sürdür" dediğiniz anda o büyülü balon patlıyor.
+      </p>
+
+      <p>
+        Sinema, güzel bir hareketli kartpostal üretmek değildir. Sinema; <strong>zamansal ve mekânsal devamlılıktır (continuity)</strong>. İşte bu yüzden <a href="../core.action/">core.action STUDIO</a>'yu ve <a href="../sussuz/">SUSSUZ</a> sanal prodüksiyon evrenini inşa ederken kendimize tek bir hedef koyduk: Yapay zekâyı rastgele zar atan bir kumar makinesi olmaktan çıkarıp, yönetmenin vizyonuna itaat eden deterministik bir stüdyo omurgasına dönüştürmek.
+      </p>
+
+      <div style="margin: 36px 0;">
+        <img src="./assets/ai-video-uretimi/epistemic-diagram.svg" alt="core.action STUDIO ve AI Video Üretim Mimarisi" style="width:100%; border-radius:14px;">
+      </div>
+
+      <h2 id="bolum-1">1. 5 Saniyelik "Güzel Plan" Yanılsaması: Sinema Neden Tek Kare Değildir?</h2>
+      <p>
+        Geleneksel film üretim zinciri yıllardır birbirine küsmüş yazılımlar arasında parçalanmış durumda. Senaryoyu bir yerde yazarsınız, storyboard'u başka yerde çizersiniz, kurguyu NLE'de yaparsınız, renk için DaVinci'ye, ses için DAW'a, VFX için başka bir pakete gidersiniz. Her XML/EDL/AAF aktarımında yönetmenin orijinal bağlamından bir parça kaybolur. Üstüne bir de hafızasız AI video modellerini eklediğinizde kaos ikiye katlanır.
+      </p>
+
+      <h2 id="bolum-2">2. core.action STUDIO: 12 Uzman Motor ve "Living Project Graph"</h2>
+      <p>
+        <a href="../core.action/">core.action STUDIO</a>'yu tasarlarken "Ya tüm üretim zinciri tek bir yaşayan proje hafızası (<strong>Living Project Graph</strong>) üzerinde konuşsaydı?" sorusundan yola çıktık. Sistem, projeyi üç hiyerarşik katmanda (<code>MOVIE / SCENE / PLAN</code>) tutuyor ve <strong>12 bağımsız uzman motor</strong> (Script, Pre-Prod, Media, Edit, Continuity, Motion, Color, VFX, Audio DSP, AI Director, Render, Publish) aynı veri grafını paylaşıyor. Senaryoda bir sahnenin saatini "Gece"den "Alacakaranlık"a çevirdiğiniz anda; ışık devamlılık motoru, renk LUT motoru ve AI video prompt derleyicisi aynı milisaniyede güncelleniyor.
+      </p>
+
+      <h2 id="bolum-3">3. Saha Hafızası: Sahne Ortasında Ceket Değiştiren Karakter (WARDROBE_DRIFT_ALERT)</h2>
+      <p>
+        Gelelim bu sistemi kodlarken yaşadığımız en eğlenceli ama bir o kadar da öğretici mühendislik krizine.
+      </p>
+
+      <div class="war-story-box">
+        <div class="war-story-title">🛠️ Saha Hafızası #1: Kıyafet Değiştiren Karakter ve Yanlış Alarm Sendromu</div>
+        <p style="margin-bottom:12px;">
+          <strong>Sorun:</strong> ViMax AI Yönetmen Motorumuzda çok sahneli bir senaryoyu AI video promptlarına dönüştürürken fark ettik ki; model 1. sahnede başrole "koyu kahve eskitme deri ceket" giydiriyor, ama 3. sahnede senaryoda kıyafetle ilgili hiçbir cümle geçmediği için kendi kafasına göre karaktere "siyah kapüşonlu sweatshirt" giydiriyor!
+        </p>
+        <p style="margin-bottom:12px;">
+          <strong>1. Aşama Çözüm (<code>CharacterProfile</code> & <code>ContinuityTracker</code>):</strong> Her karakter için değişmez bir DNA kartı (yüz hatları, LoRA trigger token, gardırop kilidi ve akustik ses profili) oluşturduk ve sahneler arası kıyafet/ışık sapmalarını yakalayan <code>WARDROBE_DRIFT_ALERT</code> denetçisini yazdık.
+        </p>
+        <p style="margin-bottom:0;">
+          <strong>2. Aşama Sürpriz Kriz:</strong> Bu sefer de senaryoda <em>"ERTESİ GÜN - SABAH"</em> yazdığında ve karakter gerçekten kıyafet değiştirdiğinde sistemimiz "Kıyafet devamlılığı bozuldu!" diye kırmızı alarm vermeye başladı! 😄 Hemen <code>extract_time_and_environment</code> algoritmamıza <code>LATER</code>, <code>HOURS LATER</code>, <code>NEXT DAY</code>, <code>MOMENTS LATER</code> gibi zamansal sıçrama (<code>NARRATIVE_TIME_JUMP</code>) bağlamlarını öğrettik. Böylece motor, gerçek kurgu hatası ile senaryodaki bilinçli zaman atlamasını bir yönetmen gibi ayırt etmeye başladı.
+        </p>
+      </div>
+
+      <h2 id="bolum-4">4. Çoklu AI Model Derleyici: Wan2.2, Runway Gen-3, FLUX.1-dev ve Midjourney</h2>
+      <p>
+        AI video ve görsel üretiminde yapılan en büyük hata, her modele aynı İngilizce cümleyi kopyalayıp yapıştırmaktır. Oysa her modelin latent uzayı farklı bir dilden anlar. <a href="../core.action/">core.action STUDIO</a> içinde geliştirdiğimiz <code>compile_multi_engine_prompts</code> derleyicisi, aynı sahne planını 4 farklı motor için ayrı ayrı tercüme eder:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>AI Motoru</th>
+            <th>Latent Uzay Odağı</th>
+            <th>Derleyicimizin Ürettiği Yapı & Token Koruma Sırrı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Wan2.2</strong></td>
+            <td>Fiziksel Momentum & Akışkanlık</td>
+            <td>8K zamansal tutarlılık (temporal coherence), kumaş/rüzgâr fiziği ve ağırlık merkezi vektörleri.</td>
+          </tr>
+          <tr>
+            <td><strong>Runway Gen-3 Alpha</strong></td>
+            <td>Kamera Yörüngesi (Camera-First)</td>
+            <td>Önce kamera hareketi (<em>Low-angle dolly-in, 35mm anamorphic, 24fps</em>), ardından özne hareketi.</td>
+          </tr>
+          <tr>
+            <td><strong>FLUX.1-dev</strong></td>
+            <td>Doğal Dil & Mikro-Doku</td>
+            <td>Virgüllü etiketler yerine tam edebi paragraf; cilt gözenekleri, kumaş lifleri ve optik kırınım.</td>
+          </tr>
+          <tr>
+            <td><strong>Midjourney v6.1</strong></td>
+            <td>Karakter Kilidi & Stil</td>
+            <td><code>--cref</code> karakter referansı, <code>--ar 16:9</code>, <code>--style raw</code>, <code>--stylize 250</code> ve negatif <code>--no</code> bloğu.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Üstelik dış video API'lerinde uzun promptlar token sınırına çarpıp cümlenin sonundaki en kritik ışık bilgisini yuttuğu için, <code>truncate_prompt_tokens</code> adında akıllı bir sıkıştırıcı yazdık: Cümleyi sondan körlemesine kesmek yerine, dolgu sıfatlarını atıp karakter DNA'sını ve kamera lens bilgisini %100 koruyor.
+      </p>
+
+      <h2 id="bolum-5">5. Sanal Prodüksiyonun Derinlikleri: OpenRigLogic C++ Yamaları ve 6GB VRAM Sınırı</h2>
+      <p>
+        <a href="../sussuz/">SUSSUZ</a> film evrenimizde Ankara Sussuz ve Eryaman hattını Unreal Engine 5.8 ve OpenUSD ile sanal sete taşırken iş sadece prompt yazmakla bitmedi; işin mutfağında sıkı bir C++ ve donanım savaşı verdik.
+      </p>
+
+      <div class="rumor-box">
+        <div class="rumor-title">⚡ Mühendislik Otopsisi: MetaHuman DNA Çökmeleri ve 6GB VRAM İmkânsızlığı</div>
+        <p style="margin-bottom:12px;">
+          İnternetteki forumlarda <em>"6GB VRAM'li bir kartla Unreal Engine 5'te hem MetaHuman hem AI modelleri (Whisper, SAM 2, Flux) aynı anda çalışmaz, sistem kilitlenir"</em> deniyordu. Haklıydılar—eğer varsayılan ayarlarla bırakırsanız!
+        </p>
+        <p style="margin-bottom:0;">
+          Biz ne yaptık? Önce <code>DEV_6GB</code> adında özel bir bellek takas (swap) profili kurduk; Unreal doku havuzunu (Texture Pool) 2K sınırına sabitleyip AI modelleri işini bitirdiği milisaniyede VRAM'den boşaltan bir köprü yazdık. Yetmedi; Epic Games'in açık kaynaklı <strong>OpenRigLogic</strong> kütüphanesinde Python SWIG üzerinden <code>None</code> geçildiğinde yaşanan <code>SIGSEGV</code> çökmesini, sanal işlemcilerde AVX-512 yüzünden patlayan <code>0xC000001D Illegal Instruction</code> hatasını (<code>OSXSAVE</code> XCR0 kontrolü ekleyerek) ve <code>65.535</code> üstü vertex'te yaşanan <code>uint16_t</code> tamsayı taşmasını bizzat C++ kaynak koduna girip yamadık ve <a href="https://github.com/korrayt/OpenRigLogic" target="_blank" rel="noopener">GitHub'da açık kaynak olarak</a> yayınladık.
+        </p>
+      </div>
+
+      <blockquote>
+        "Yapay zekâ çağında yönetmenlik, makinenin verdiği ilk görüntüyü kabul etmek değildir; makinenin sınırlarını bilip o sınırların ötesindeki insan hikâyesini zorla söke söke almaktır."
+      </blockquote>
+
+      <h2 id="sss">Sıkça Sorulan Sorular (SSS)</h2>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-q">1. AI video üretiminde karakterin yüzü ve kıyafeti sahneler arasında nasıl sabit tutulur?</div>
+          <div class="faq-a">Önce FLUX.1-dev veya Midjourney <code>--cref</code> ile karakterin 3 açılı referans sayfasını (Turnaround Sheet) üretip sabitlemeli, ardından her video planında <a href="../core.action/">core.action STUDIO</a>'daki gibi sabit bir <code>CharacterProfile</code> metin bloğunu ve ilk kare referansını (Image-to-Video Anchor) kullanmalısınız.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">2. core.action STUDIO geleneksel kurgu yazılımlarından (Premiere, DaVinci) neyi farklı yapıyor?</div>
+          <div class="faq-a">Geleneksel yazılımlar klibi sadece zaman çizgisinde (timeline) bir medya dosyası olarak görür. <strong>core.action STUDIO</strong> ise senaryodaki duyguyu, karakter devamlılığını, sesin semantik izini ve 12 üretim motorunu <em>Living Project Graph</em> üzerinde birbirine bağlar.</div>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 48px 0 32px;">
+      <h3>📚 Bilgi Bankasındaki İlgili Diğer Yazılar</h3>
+      <div class="related-grid">
+        <a href="./dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="related-card">
+          <span>Dijital İçerik</span>
+          <h4>1000+ Marka Videosundan 131 Otonom Denetim Aracına Uzanan Saha Sırları →</h4>
+        </a>
+        <a href="./ai-sanat-ve-anlati-evrenleri-prompt-muhendisliginden-ruhu-olan-dunyalara.html" class="related-card">
+          <span>AI Sanat & Evrenler</span>
+          <h4>AI Sanat mı, Zanaat mı? MithyLeaks ve SUSSUZ ile Ruhu Olan Dünyalar Kurmak →</h4>
+        </a>
+        <a href="./ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html" class="related-card">
+          <span>AI Sistem Mimarisi</span>
+          <h4>AI ile Proje Geliştirmek: Rutini Kodla, Gerisi Sihir ($0.00 SLA) →</h4>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Koray Taşan. All rights reserved. | <a href="../">Ana Sayfa</a> | <a href="./">Yazılar & Bilgi Bankası</a> | <a href="../core.action/">core.action STUDIO</a> | <a href="../sussuz/">SUSSUZ</a> | <a href="../core_music/">CORE MUSIC</a></p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('readingProgress').style.width = pct + '%';
+    });
+  </script>
+</body>
+
+</html>

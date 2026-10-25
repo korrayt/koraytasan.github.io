@@ -161,6 +161,19 @@
               </a>
             </li>
             <li>
+              <a href="#blog" class="nav-item" data-tooltip="Blog & Bilgi Bankası">
+                <svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  <line x1="9" y1="7" x2="15" y2="7"></line>
+                  <line x1="9" y1="11" x2="13" y2="11"></line>
+                </svg>
+                <span class="nav-label">Blog & Düşünceler</span>
+                <span class="nav-badge">7 REHBER</span>
+              </a>
+            </li>
+
+            <li>
               <a href="#experience" class="nav-item" data-tooltip="Experience">
                 <svg class="nav-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -1587,17 +1600,235 @@
     </div>
   </section>
 
-  <!-- Journal & Insights Section -->
-  <section class="portfolio" id="journal" style="background: rgba(10, 10, 15, 0.4);">
+  <!-- Blog & Insights Section (Dinamik İlgi Alanı ve Dönen Öne Çıkanlar) -->
+  <section class="portfolio blog-section" id="blog">
+    <div id="journal" style="position: absolute; top: -90px; left: 0; pointer-events: none;"></div>
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-tag">Düşünceler & Notlar</span>
-        <h2 class="section-title">Kurgudan Sistem Mimarisine</h2>
-        <p class="section-description">Kurgunun görünmeyen kuralları, AI devamlılık motorları, semantik ses tasarımı ve akıllı ürünler üzerine periyodik denemeler.</p>
+        <span class="section-tag">✦ BLOG & BİLGİ BANKASI • SAHA NOTLARI</span>
+        <h2 class="section-title">Kurgudan Sistem Mimarisine: Blog & Bilgi Bankası</h2>
+        <p class="section-description">1.000+ marka prodüksiyonu, AI video devamlılık motorları, otonom ajan mimarileri, EBU R128 ses mühendisliği ve 3D dijital ikizlerden damıtılmış 7 kapsamlı rehber, derin teknik analizler ve yaşayan üretim arşivi.</p>
       </div>
 
-      <div class="case-study-grid" style="grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));">
-        <a href="/MithyLeaks/" class="case-study-card fade-in" style="text-decoration: none; color: inherit; border-color: rgba(212, 163, 89, 0.35);">
+      <!-- Live Field Note Ticker (Canlı Saha Notu & İlham Fragmanı) -->
+      <div class="blog-ticker-wrap fade-in">
+        <div class="blog-ticker-label">
+          <span class="live-dot" style="background: #a855f7;"></span>
+          <span>CANLI SAHA NOTU</span>
+        </div>
+        <div class="blog-ticker-content">
+          <span class="ticker-text" id="tickerText">"Moiré krizini aşmak: Tüvit ceketlerde YUV renk uzayı kroma cerrahisi şarttır."</span>
+        </div>
+        <button class="ticker-next-btn" id="tickerNextBtn" title="Sonraki Notu Göster" aria-label="Sonraki Not">↻</button>
+      </div>
+
+      <!-- Interactive Interest Filter Pills (İlgi Alanına Göre Dinamik Keşfet) -->
+      <div class="blog-filter-bar fade-in">
+        <div class="blog-filter-label">İlgi Alanına Göre Dinamik Keşfet:</div>
+        <div class="blog-interest-pills" id="blogInterestPills">
+          <button class="blog-interest-pill active" data-interest="all">
+            <span>✨</span> Tümü (Akıllı Döngü) <span class="pill-count">7</span>
+          </button>
+          <button class="blog-interest-pill" data-interest="video">
+            <span>🎬</span> Sinema & AI Video <span class="pill-count">3</span>
+          </button>
+          <button class="blog-interest-pill" data-interest="sistem">
+            <span>🤖</span> AI Sistem & Ajanlar <span class="pill-count">2</span>
+          </button>
+          <button class="blog-interest-pill" data-interest="muzik">
+            <span>🎵</span> Müzik & DSP <span class="pill-count">2</span>
+          </button>
+          <button class="blog-interest-pill" data-interest="sanat">
+            <span>🏛️</span> Sanat & Mitoloji <span class="pill-count">3</span>
+          </button>
+          <button class="blog-interest-pill" data-interest="web">
+            <span>🌐</span> 3D Web & Deep Tech <span class="pill-count">1</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Rotating Spotlight Showcase (Kullanıcı İlgisine Göre Otomatik Dönen Vitrin) -->
+      <div class="blog-spotlight fade-in" id="blogSpotlight">
+        <div class="spotlight-progress-wrap">
+          <div class="spotlight-progress-bar" id="spotlightProgressBar"></div>
+        </div>
+        <div class="spotlight-container">
+          <div class="spotlight-content">
+            <div class="spotlight-header-row">
+              <span class="spotlight-badge" id="spotlightBadge">✦ REHBER #01 • Dijital İçerik & Algoritma</span>
+              <div class="spotlight-controls">
+                <button class="spotlight-ctrl-btn" id="spotlightPrevBtn" title="Önceki Yazı" aria-label="Önceki">←</button>
+                <span class="spotlight-index" id="spotlightIndex">1 / 7</span>
+                <button class="spotlight-ctrl-btn" id="spotlightNextBtn" title="Sonraki Yazı" aria-label="Sonraki">→</button>
+              </div>
+            </div>
+            <a href="/yazilar/dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="spotlight-title" id="spotlightTitle">
+              Dijital İçerik Üretimi: 1.000+ Marka Videosundan Algoritmik Otoriteye
+            </a>
+            <p class="spotlight-desc" id="spotlightDesc">
+              Tüvit ceket Moiré krizinden YUV renk uzayı cerrahisine, 31.74 GB'lık 4K YouTube master darboğazlarından 131 otonom denetçiye uzanan gerçek saha kılavuzu.
+            </p>
+            <div class="spotlight-chips" id="spotlightChips">
+              <span class="spotlight-chip">1000+ Video</span>
+              <span class="spotlight-chip">Moiré Cerrahisi</span>
+              <span class="spotlight-chip">YouTube dR/dt</span>
+              <span class="spotlight-chip">4K FFmpeg</span>
+            </div>
+            <div class="spotlight-actions">
+              <a href="/yazilar/dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="btn btn-primary" id="spotlightReadBtn">
+                <span>Rehberi Oku ↗</span>
+              </a>
+              <span class="spotlight-meta" id="spotlightMeta">Koray Taşan • 14 dk okuma • 25 Ekim 2026</span>
+            </div>
+          </div>
+          <a href="/yazilar/dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="spotlight-media" id="spotlightMediaLink">
+            <img src="/yazilar/assets/dijital-icerik-uretimi/og-image.jpg" alt="Dijital İçerik Üretimi" id="spotlightImg" loading="lazy">
+            <span class="spotlight-media-overlay" id="spotlightOverlay">Dijital İçerik & Algoritma</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Grid of All Curated Articles & Guides (Filtrelenebilir Blog Kartları) -->
+      <div class="case-study-grid" id="blogGrid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+        
+        <!-- Post 1: Dijital İçerik Üretimi -->
+        <a href="/yazilar/dijital-icerik-uretimi-1000-marka-videosundan-algoritmik-otoriteye.html" class="case-study-card blog-article-card fade-in" data-blog-category="video icerik" style="text-decoration: none; color: inherit; border-color: rgba(245, 158, 11, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/dijital-icerik-uretimi/og-image.jpg" alt="Dijital İçerik Üretimi Rehberi" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #f59e0b;">Dijital İçerik & Medya • Rehber #01</span>
+              <span class="status-badge" style="background: rgba(245, 158, 11, 0.15); color: #fcd34d; border-color: rgba(245, 158, 11, 0.3);"><span class="dot" style="background: #f59e0b;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">Dijital İçerik Üretimi: 1.000+ Marka Videosundan Algoritmik Otoriteye</h3>
+            <p class="case-study-desc">Tüvit ceket Moiré krizinden YUV renk uzayı cerrahisine, 31.74 GB'lık 4K YouTube master darboğazlarından 131 otonom denetçiye uzanan gerçek saha kılavuzu.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 14 dk okuma</span>
+            <span style="color: #f59e0b; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 2: AI Video Üretimi -->
+        <a href="/yazilar/ai-video-uretimi-ve-yeni-nesil-kurgu-core-action-studio-mimarisi.html" class="case-study-card blog-article-card fade-in" data-blog-category="video sistem" style="text-decoration: none; color: inherit; border-color: rgba(56, 189, 248, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/ai-video-uretimi/og-image.jpg" alt="AI Video Üretimi ve core.action STUDIO" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #38bdf8;">AI Video & NLE • Rehber #02</span>
+              <span class="status-badge" style="background: rgba(56, 189, 248, 0.15); color: #bae6fd; border-color: rgba(56, 189, 248, 0.3);"><span class="dot" style="background: #38bdf8;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">AI Video Üretimi ve Yeni Nesil Kurgu: core.action STUDIO Mimarisi</h3>
+            <p class="case-study-desc">Karakterin sahnede ceket değiştirdiği Wardrobe Drift krizini nasıl çözdük? OpenRigLogic C++ AVX-512 yamaları, 12 uzman motor ve 6GB VRAM'de sinema.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 15 dk okuma</span>
+            <span style="color: #38bdf8; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 3: AI Sanat & Anlatı -->
+        <a href="/yazilar/ai-sanat-ve-anlati-evrenleri-prompt-muhendisliginden-ruhu-olan-dunyalara.html" class="case-study-card blog-article-card fade-in" data-blog-category="sanat" style="text-decoration: none; color: inherit; border-color: rgba(212, 163, 89, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/ai-sanat/og-image.jpg" alt="AI Sanat ve Anlatı Evrenleri" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #d4a359;">AI Sanat & Evren • Rehber #03</span>
+              <span class="status-badge" style="background: rgba(212, 163, 89, 0.15); color: #f3d79b; border-color: rgba(212, 163, 89, 0.3);"><span class="dot" style="background: #d4a359;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">AI Sanat ve Anlatı Evrenleri: Prompt Mühendisliğinden Ruhu Olan Dünyalara</h3>
+            <p class="case-study-desc">"Tek hamlede yapabiliyorsam değerli değildir." MithyLeaks 3 dilli (TR/EN/LT) anlatı mimarisi, SUSSUZ sanal prodüksiyonu ve Rönesans craquelure restorasyonu.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 13 dk okuma</span>
+            <span style="color: #d4a359; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 4: AI Müzik & DSP -->
+        <a href="/yazilar/ai-muzik-produksiyonu-ve-ses-muhendisligi-core-music-khrysaor-uyku-atlasi.html" class="case-study-card blog-article-card fade-in" data-blog-category="muzik" style="text-decoration: none; color: inherit; border-color: rgba(192, 132, 252, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/ai-muzik/og-image.jpg" alt="AI Müzik Prodüksiyonu" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #c084fc;">AI Müzik & DSP • Rehber #04</span>
+              <span class="status-badge" style="background: rgba(192, 132, 252, 0.15); color: #e9d5ff; border-color: rgba(192, 132, 252, 0.3);"><span class="dot" style="background: #c084fc;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">AI Müzik Prodüksiyonu ve Ses Mühendisliği: CORE MUSIC, khrysaor ve Uyku Atlası</h3>
+            <p class="case-study-desc">4 alt plak şirketi, KOR sosyal deneyi, EBU R128 (-14 LUFS vs -21 LUFS) psikoakustik mastering, sıfır-vokal izolasyonu ve kapak tasarımı dersleri.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 14 dk okuma</span>
+            <span style="color: #c084fc; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 5: AI ile Proje & Ajanlar -->
+        <a href="/yazilar/ai-ile-proje-ve-sistem-gelistirmek-ajan-orkestrasyonu-ve-sifir-maliyetli-mimari.html" class="case-study-card blog-article-card fade-in" data-blog-category="sistem" style="text-decoration: none; color: inherit; border-color: rgba(52, 211, 153, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/ai-proje-gelistirme/og-image.jpg" alt="AI ile Proje Geliştirme" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #34d399;">Ajan Mimarisi • Rehber #05</span>
+              <span class="status-badge" style="background: rgba(52, 211, 153, 0.15); color: #a7f3d0; border-color: rgba(52, 211, 153, 0.3);"><span class="dot" style="background: #34d399;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">AI ile Proje ve Sistem Geliştirmek: Ajan Orkestrasyonu ve $0.00 SLA Mimari</h3>
+            <p class="case-study-desc">"Rutini kodla, gerisi sihir." 6 uzman ajan matrisi, silinmeyen kronolojik hafıza, AutoCAD .dxf teklif otomasyonu ve yerel yalın yazılım mühendisliği.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 15 dk okuma</span>
+            <span style="color: #34d399; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 6: 3D Web & Deep Tech -->
+        <a href="/yazilar/3d-dijital-ikiz-proptech-molekuler-simya-ve-kriptografik-mahremiyet.html" class="case-study-card blog-article-card fade-in" data-blog-category="web" style="text-decoration: none; color: inherit; border-color: rgba(96, 165, 250, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/yazilar/assets/web-evrenleri/og-image.jpg" alt="3D Dijital İkiz ve Web Evrenleri" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category" style="color: #60a5fa;">3D İkiz & Derin Teknoloji • Rehber #06</span>
+              <span class="status-badge" style="background: rgba(96, 165, 250, 0.15); color: #bfdbfe; border-color: rgba(96, 165, 250, 0.3);"><span class="dot" style="background: #60a5fa;"></span>REHBER</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">3D Dijital İkiz, PropTech, Moleküler Simya ve Kriptografik Mahremiyet</h3>
+            <p class="case-study-desc">Tarayıcıda 9.400 CAD parçasını 60 FPS döndürmek (BUILD UP BUILD DOWN), Find My Home, ALKEM (RDKit), IT'S US Safe Space ve Amblyopia DTx.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">25 Ekim 2026 • 16 dk okuma</span>
+            <span style="color: #60a5fa; font-weight: 600;">Rehberi Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 7: Kurucu Manifesto -->
+        <a href="/yazilar/hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="case-study-card blog-article-card fade-in" data-blog-category="video sanat" style="text-decoration: none; color: inherit;">
+          <div class="blog-card-thumb">
+            <img src="/sussuz/assets/img/sussuz_hero_widescreen.jpg" alt="Kurgunun Görünmeyen Yasaları" loading="lazy">
+          </div>
+          <div>
+            <div class="case-study-card-top">
+              <span class="case-study-category">Deneme & Manifesto • Rehber #00</span>
+              <span class="status-badge status-live"><span class="dot"></span>MANIFEST</span>
+            </div>
+            <h3 class="case-study-title" style="margin-top: 10px;">Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları</h3>
+            <p class="case-study-desc">20 yıllık yönetmenlik, yazarlık ve kurgu ustalığından akıllı ürün mimarilerine uzanan köprü; core.action, SUSSUZ, Uyku Atlası ve yaşayan sistemlerin felsefi manifestosu.</p>
+          </div>
+          <div class="case-study-footer" style="margin-top: 20px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">24 Eylül 2026 • 5 dk okuma</span>
+            <span style="color: var(--accent-secondary); font-weight: 600;">Yazıyı Oku ↗</span>
+          </div>
+        </a>
+
+        <!-- Post 8: MithyLeaks Arşiv -->
+        <a href="/MithyLeaks/" class="case-study-card blog-article-card fade-in" data-blog-category="sanat" style="text-decoration: none; color: inherit; border-color: rgba(212, 163, 89, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/MithyLeaks/og-image.jpg" alt="MithyLeaks - Medusa'ya ne oldu?" loading="lazy">
+          </div>
           <div>
             <div class="case-study-card-top">
               <span class="case-study-category" style="color: #d4a359;">Mitolojik Kayıtlar • 3 Dil</span>
@@ -1612,7 +1843,11 @@
           </div>
         </a>
 
-        <a href="/sozler/" class="case-study-card fade-in" style="text-decoration: none; color: inherit; border-color: rgba(192, 132, 252, 0.35);">
+        <!-- Post 9: Şarkı Sözleri Defteri -->
+        <a href="/sozler/" class="case-study-card blog-article-card fade-in" data-blog-category="muzik" style="text-decoration: none; color: inherit; border-color: rgba(192, 132, 252, 0.35);">
+          <div class="blog-card-thumb">
+            <img src="/core_music/assets/images/tracks/og_image.jpg" alt="Şarkı Sözleri & Lirik Defteri" loading="lazy">
+          </div>
           <div>
             <div class="case-study-card-top">
               <span class="case-study-category" style="color: #c084fc;">Müzik & Lirik Arşiv</span>
@@ -1622,30 +1857,17 @@
             <p class="case-study-desc">"Ritim, anlamın nefesidir." Ölümsüz Değil Sonsuz Olmak İstiyorum, Ay Söndürüldü, Keep Some of Me ve sokaktan evrene uzanan melankolik lirik fragmanlar.</p>
           </div>
           <div class="case-study-footer" style="margin-top: 20px;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);">6 Şarkı & Manifesto</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">13 Şarkı & Manifesto</span>
             <span style="color: #c084fc; font-weight: 600;">Sözleri Keşfet ↗</span>
           </div>
         </a>
 
-        <a href="/yazilar/hikayeden-sistemlere-kurgunun-gorunmeyen-yasalari.html" class="case-study-card fade-in" style="text-decoration: none; color: inherit;">
-          <div>
-            <div class="case-study-card-top">
-              <span class="case-study-category">Deneme & Manifesto</span>
-              <span class="status-badge status-live"><span class="dot"></span>YAZI</span>
-            </div>
-            <h3 class="case-study-title" style="margin-top: 10px;">Hikâyeden Sistemlere: Kurgunun Görünmeyen Yasaları</h3>
-            <p class="case-study-desc">20 yıllık yönetmenlik, yazarlık ve kurgu ustalığından akıllı ürün mimarilerine uzanan köprü; core.action, SUSSUZ, Uyku Atlası ve yaşayan sistemlerin felsefi manifestosu.</p>
-          </div>
-          <div class="case-study-footer" style="margin-top: 20px;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);">24 Eylül 2026 • 5 dk okuma</span>
-            <span style="color: var(--accent-secondary); font-weight: 600;">Yazıyı Oku ↗</span>
-          </div>
-        </a>
       </div>
 
-      <div style="text-align: center; margin-top: 40px;" class="fade-in">
-        <a href="/yazilar/" class="btn btn-secondary">
-          <span>✍️</span> Tüm Yazıları ve Notları Gör
+      <!-- Bilgi Bankası Ana Keşif Butonu -->
+      <div class="blog-explore-all fade-in">
+        <a href="/yazilar/" class="btn btn-primary">
+          <span>📚</span> Bilgi Bankasını Keşfet (Tüm Rehberler & Canlı Arama) ↗
         </a>
       </div>
     </div>
