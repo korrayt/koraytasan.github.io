@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071018">
+  <title>3B Kentsel Veri Bilimi, Ulaşım Kesişimi ve Akıllı Konut Seçimi | Find My Home — 3D Konut, Ulaşım Kesişimi & PropTech Blog</title>
+  <meta name="description" content="Türkiye'nin tüm ilan platformlarını tek noktada birleştiren, çift-lokasyonlu ulaşım kesişimi ve 3B uydu topografyasıyla ev aramayı yeniden tanımlayan PropTech notları.">
+  <link rel="canonical" href="https://www.koraytasan.com/findmyhome/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Find My Home — 3D Konut, Ulaşım Kesişimi & PropTech">
+  <meta property="og:url" content="https://www.koraytasan.com/findmyhome/blog/">
+  <meta property="og:title" content="3B Kentsel Veri Bilimi, Ulaşım Kesişimi ve Akıllı Konut Seçimi — Find My Home — 3D Konut, Ulaşım Kesişimi & PropTech">
+  <meta property="og:description" content="Türkiye'nin tüm ilan platformlarını tek noktada birleştiren, çift-lokasyonlu ulaşım kesişimi ve 3B uydu topografyasıyla ev aramayı yeniden tanımlayan PropTech notları.">
+  <meta property="og:image" content="https://www.koraytasan.com/findmyhome/blog/cift-lokasyonlu-izokron-ulasim-kesisimi-ve-3d-konut-secimi/assets/og-image.jpg">
+  <style>
+    :root {
+      --bg: #071018;
+      --acc1: #0ea5e9;
+      --acc2: #10b981;
+      --txt: #f0f9ff;
+      --muted: #94a3b8;
+      --card: rgba(255,255,255,0.035);
+      --line: rgba(255,255,255,0.11);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.06), transparent 45%), var(--bg);
+      color: var(--txt);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 10, 15, 0.85);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .brand { font-weight: 700; letter-spacing: 0.06em; font-size: 14px; }
+    .brand span { color: var(--acc1); }
+    .nav-links { display: flex; gap: 18px; font-size: 13px; flex-wrap: wrap; }
+    .nav-links a { color: #cbd5e1; }
+    .nav-links a:hover { color: var(--acc1); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 56px 24px 96px; }
+    .hero { max-width: 820px; margin-bottom: 42px; }
+    .kicker {
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      border: 1px solid var(--acc1); color: var(--acc1);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    h1 { font-size: clamp(30px, 4.5vw, 52px); line-height: 1.12; margin: 16px 0; letter-spacing: -0.025em; }
+    .hero p { font-size: 18px; color: #cbd5e1; margin: 0 0 24px; }
+    .search-bar {
+      width: 100%; max-width: 460px; padding: 13px 18px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+      color: var(--txt); font-size: 14px; outline: none;
+    }
+    .search-bar:focus { border-color: var(--acc1); }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 26px; margin-top: 32px;
+    }
+    .blog-card {
+      border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+      background: var(--card); display: flex; flex-direction: column;
+      transition: transform 0.22s, border-color 0.22s;
+    }
+    .blog-card:hover { transform: translateY(-4px); border-color: var(--acc1); }
+    .card-img-wrap { position: relative; aspect-ratio: 1200 / 630; overflow: hidden; background: #05070a; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .cat-badge {
+      position: absolute; top: 14px; left: 14px; padding: 4px 10px;
+      border-radius: 99px; background: rgba(5, 8, 12, 0.85); border: 1px solid var(--acc1);
+      color: var(--acc1); font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    }
+    .card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .card-body h2 { font-size: 21px; line-height: 1.3; margin: 0 0 12px; color: #fff; }
+    .card-body p { font-size: 14.5px; color: #cbd5e1; margin: 0 0 20px; flex: 1; }
+    .card-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; color: var(--muted); padding-top: 14px; border-top: 1px solid var(--line);
+    }
+    .read-cta { color: var(--acc1); font-weight: 700; }
+    .calendar-panel {
+      margin-top: 64px; padding: 28px; border-radius: 16px;
+      background: rgba(255,255,255,0.025); border: 1px solid var(--line);
+    }
+    .calendar-panel h3 { margin: 0 0 8px; color: var(--acc1); font-size: 18px; }
+    .cal-row {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+    }
+    .cal-row:last-child { border-bottom: none; }
+    .cal-date { font-family: monospace; color: var(--acc2); font-weight: 700; }
+    .cal-status { font-size: 11px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,0.07); color: var(--acc1); }
+    footer {
+      border-top: 1px solid var(--line); padding: 32px 24px; text-align: center;
+      font-size: 13px; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="../" class="brand">← <span>FINDMYHOME</span> ANA SAYFA</a>
+    <nav class="nav-links">
+      <a href="../">🚀 Uygulamaya Dön</a>
+      <a href="https://www.koraytasan.com/yazilar/">📚 Koray Taşan Bilgi Bankası ↗</a>
+      <a href="https://www.koraytasan.com/core_music/blog/">🎵 CORE MUSIC Journal ↗</a>
+      <a href="https://www.koraytasan.com/">koraytasan.com ↗</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">FIND MY HOME · PROPTECH JOURNAL</span>
+      <h1>3B Kentsel Veri Bilimi, Ulaşım Kesişimi ve Akıllı Konut Seçimi</h1>
+      <p>Türkiye'nin tüm ilan platformlarını tek noktada birleştiren, çift-lokasyonlu ulaşım kesişimi ve 3B uydu topografyasıyla ev aramayı yeniden tanımlayan PropTech notları.</p>
+      <input type="search" id="blogSearch" class="search-bar" placeholder="Bu serideki makalelerde ara..." autocomplete="off">
+    </section>
+
+    <section class="grid" id="blogGrid">
+      
+        <a href="./cift-lokasyonlu-izokron-ulasim-kesisimi-ve-3d-konut-secimi/" class="blog-card" data-search=""i̇kimizin i̇şine de 25 dakika olsun": çift-lokasyonlu i̇zokron ulaşım kesişim matematiği ve 3b uydu analizi harita üzerindeki kuş uçuşu çemberlerin yalanı: gerçek trafik, metro hatları ve eğim verisiyle optimum yaşam mahallesini bulan geometrik kesişim motoru. kentsel veri̇ bi̇li̇mi̇ & gis">
+          <div class="card-img-wrap">
+            <img src="./cift-lokasyonlu-izokron-ulasim-kesisimi-ve-3d-konut-secimi/assets/og-image.jpg" alt=""İkimizin İşine de 25 Dakika Olsun": Çift-Lokasyonlu İzokron Ulaşım Kesişim Matematiği ve 3B Uydu Analizi" loading="lazy">
+            <span class="cat-badge">KENTSEL VERİ BİLİMİ & GIS</span>
+          </div>
+          <div class="card-body">
+            <h2>"İkimizin İşine de 25 Dakika Olsun": Çift-Lokasyonlu İzokron Ulaşım Kesişim Matematiği ve 3B Uydu Analizi</h2>
+            <p>Harita üzerindeki kuş uçuşu çemberlerin yalanı: Gerçek trafik, metro hatları ve eğim verisiyle optimum yaşam mahallesini bulan geometrik kesişim motoru.</p>
+            <div class="card-foot">
+              <span>25 Ekim 2026 · 12 dk okuma</span>
+              <span class="read-cta">Makaleyi Oku →</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="./ilan-kirliliginden-veri-odakli-emlak-arbitrajina/" class="blog-card" data-search="türkiye'nin tüm i̇lan sitelerini tek noktada birleştirmek: mükerrer i̇lan temizliği ve emlak arbitrajı aynı dairenin 4 farklı sitede 3 farklı fiyatla listelenmesi sorununu nasıl çözdük? konum doğrulama ve gerçek metrekare birim fiyat analizi. proptech & algori̇tma">
+          <div class="card-img-wrap">
+            <img src="./ilan-kirliliginden-veri-odakli-emlak-arbitrajina/assets/og-image.jpg" alt="Türkiye'nin Tüm İlan Sitelerini Tek Noktada Birleştirmek: Mükerrer İlan Temizliği ve Emlak Arbitrajı" loading="lazy">
+            <span class="cat-badge">PROPTECH & ALGORİTMA</span>
+          </div>
+          <div class="card-body">
+            <h2>Türkiye'nin Tüm İlan Sitelerini Tek Noktada Birleştirmek: Mükerrer İlan Temizliği ve Emlak Arbitrajı</h2>
+            <p>Aynı dairenin 4 farklı sitede 3 farklı fiyatla listelenmesi sorununu nasıl çözdük? Konum doğrulama ve gerçek metrekare birim fiyat analizi.</p>
+            <div class="card-foot">
+              <span>25 Ekim 2026 · 10 dk okuma</span>
+              <span class="read-cta">Makaleyi Oku →</span>
+            </div>
+          </div>
+        </a>
+        
+    </section>
+
+    <section class="calendar-panel">
+      <h3>📅 Günlük Otomatik Blog Serisi Yayın Takvimi (findmyhome)</h3>
+      <p style="margin:0 0 16px;font-size:14px;color:var(--muted);">Antigravity otonom blogger cron görevimiz tarafından bu proje için sıradaki yayın kuyruğu:</p>
+      
+        <div class="cal-row">
+          <span class="cal-date">2026-11-02</span>
+          <strong class="cal-title">Manzaradan Önce Zemin: Konut Seçiminde Jeolojik Formasyon ve Sismik Güvenlik Katmanları</strong>
+          <span class="cal-status">CRON TAKVİMİNDE (`FM-SEED-001`)</span>
+        </div>
+        
+        <div class="cal-row">
+          <span class="cal-date">2026-11-10</span>
+          <strong class="cal-title">300 Metre Yürüme Mesafesinde Park Var mı? Kentsel Isı Adası ve Yeşil Koridor Haritalaması</strong>
+          <span class="cal-status">CRON TAKVİMİNDE (`FM-SEED-002`)</span>
+        </div>
+        
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Find My Home — 3D Konut, Ulaşım Kesişimi & PropTech · Koray Taşan Bilgi Ekosistemi
+  </footer>
+
+  <script>
+    const s = document.getElementById('blogSearch');
+    const cards = Array.from(document.querySelectorAll('.blog-card'));
+    s?.addEventListener('input', () => {
+      const q = s.value.trim().toLowerCase();
+      cards.forEach(c => {
+        c.style.display = (!q || (c.dataset.search || '').includes(q)) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

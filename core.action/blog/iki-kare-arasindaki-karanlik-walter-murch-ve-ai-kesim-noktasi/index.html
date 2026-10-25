@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16">
+  <title>İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası | core.action STUDIO — Sinematik AI & Kurgu Mimarisi</title>
+  <meta name="description" content="Bir kurgucu makası neden tam o milisaniyede vurur? Nöro-sinematografi, teta dalgaları ve core.action STUDIO'nun semantik kesim algoritması.">
+  <link rel="canonical" href="https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="core.action STUDIO — Sinematik AI & Kurgu Mimarisi">
+  <meta property="og:url" content="https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/">
+  <meta property="og:title" content="İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası">
+  <meta property="og:description" content="Bir kurgucu makası neden tam o milisaniyede vurur? Nöro-sinematografi, teta dalgaları ve core.action STUDIO'nun semantik kesim algoritması.">
+  <meta property="og:image" content="https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası">
+  <meta name="twitter:description" content="Bir kurgucu makası neden tam o milisaniyede vurur? Nöro-sinematografi, teta dalgaları ve core.action STUDIO'nun semantik kesim algoritması.">
+  <meta name="twitter:image" content="https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/assets/og-image.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası", "description": "Bir kurgucu makası neden tam o milisaniyede vurur? Nöro-sinematografi, teta dalgaları ve core.action STUDIO'nun semantik kesim algoritması.", "image": "https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/assets/og-image.jpg", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Person", "name": "Koray Taşan", "url": "https://www.koraytasan.com/"}, "publisher": {"@type": "Organization", "name": "core.action STUDIO — Sinematik AI & Kurgu Mimarisi", "url": "https://www.koraytasan.com/core.action/"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.koraytasan.com/core.action/blog/iki-kare-arasindaki-karanlik-walter-murch-ve-ai-kesim-noktasi/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Yapay zekâ kurgu motoru kesim noktasını piksel farkından (Scene Cut Detection) değil de izleyicinin bilişsel göz kırpma anından hesaplarsa sinema ritmi nasıl değişir?", "acceptedAnswer": {"@type": "Answer", "text": "Geleneksel video yazılımları bir kesim noktasını iki kare arasındaki RGB histogram farkından ibaret sanır. Oysa sinemada bir kesim (cut), görüntünün değiştiği yer değil, izleyicinin zihnindeki bir düşüncenin tamamlanıp yeni bir sorunun başladığı milisaniyedir. Walter Murch'ün 'In the Blink of an Eye' kuramında belirttiği gibi; insan beyni bir fikri sindirdiğinde göz kırpar ve tam o göz kırpma anında yapılan kesim görünmez olur."}}]}</script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --acc1: #f97316;
+      --acc2: #38bdf8;
+      --txt: #f8fafc;
+      --muted: #94a3b8;
+      --card: rgba(255,255,255,0.035);
+      --line: rgba(255,255,255,0.11);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 15% 0%, rgba(255,255,255,0.05), transparent 45%), var(--bg);
+      color: var(--txt);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--acc1); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 10, 15, 0.85);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .brand { font-weight: 700; letter-spacing: 0.06em; color: var(--txt); font-size: 14px; }
+    .brand span { color: var(--acc1); }
+    .nav-links { display: flex; gap: 18px; font-size: 13px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #cbd5e1; }
+    .nav-links a:hover { color: var(--acc1); text-decoration: none; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 52px 24px 96px; }
+    .kicker {
+      display: inline-block; padding: 5px 12px; border-radius: 999px;
+      border: 1px solid var(--acc1); background: rgba(255,255,255,0.04);
+      color: var(--acc1); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(28px, 4.2vw, 46px);
+      line-height: 1.15; letter-spacing: -0.025em; margin: 18px 0 16px;
+    }
+    .subtitle { font-size: 19px; color: #cbd5e1; line-height: 1.65; margin: 0 0 24px; }
+    .meta-bar {
+      display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+      font-size: 13px; color: var(--muted); padding-bottom: 24px; border-bottom: 1px solid var(--line);
+    }
+    .epistemic-box {
+      margin: 28px 0; padding: 24px; border-radius: 14px;
+      background: var(--card); border: 1px solid var(--line);
+      border-left: 4px solid var(--acc1);
+    }
+    .epistemic-box h3 { margin: 0 0 12px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc1); }
+    .epistemic-grid { display: grid; gap: 12px; font-size: 14.5px; color: #e2e8f0; }
+    .epistemic-grid div strong { color: var(--acc2); }
+    .toc-box {
+      margin: 24px 0 36px; padding: 20px 24px; border-radius: 12px;
+      background: rgba(255,255,255,0.025); border: 1px solid var(--line);
+    }
+    .toc-box strong { display: block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc1); margin-bottom: 10px; }
+    .toc-box ol { margin: 0; padding-left: 20px; font-size: 15px; }
+    .toc-box li { margin-bottom: 6px; }
+    .art-section h2 {
+      font-size: clamp(22px, 2.8vw, 30px);
+      margin: 42px 0 14px; color: #fff; letter-spacing: -0.015em;
+    }
+    .art-section p { font-size: 17px; color: #dbe2ea; margin: 0 0 22px; }
+    .diagram-card {
+      margin: 36px 0; padding: 18px; border-radius: 14px;
+      background: #06090e; border: 1px solid var(--line); text-align: center;
+    }
+    .diagram-card img { max-width: 100%; height: auto; border-radius: 8px; }
+    .diagram-card figcaption { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+    .next-box {
+      margin-top: 48px; padding: 26px; border-radius: 14px;
+      background: var(--card); border: 1px solid var(--line);
+    }
+    .seed-pill {
+      display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 10px;
+      background: rgba(255,255,255,0.08); color: var(--acc1); margin-left: 6px;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px;
+      border-radius: 999px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--acc1); color: var(--txt); background: rgba(255,255,255,0.05);
+    }
+    .btn:hover { background: var(--acc1); color: #000; text-decoration: none; }
+    footer {
+      border-top: 1px solid var(--line); padding: 32px 24px; text-align: center;
+      font-size: 13px; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="../../" class="brand">← <span>CORE.ACTION</span> ANA PLATFORM</a>
+    <nav class="nav-links">
+      <a href="../">📚 core.action Blog Serisi</a>
+      <a href="https://www.koraytasan.com/yazilar/">Koray Taşan Bilgi Bankası ↗</a>
+      <a href="https://www.koraytasan.com/">koraytasan.com ↗</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">CORE.ACTION · STUDIO JOURNAL · NÖRO-KURGU & NLE</span>
+      <h1>İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası</h1>
+      <p class="subtitle">Bir kurgucu makası neden tam o milisaniyede vurur? Nöro-sinematografi, teta dalgaları ve core.action STUDIO'nun semantik kesim algoritması.</p>
+      <div class="meta-bar">
+        <span>Yazar: <strong>Koray Taşan</strong></span>
+        <span>•</span>
+        <span>25 Ekim 2026</span>
+        <span>•</span>
+        <span>12 dk okuma</span>
+        <span>•</span>
+        <span>Persona: <code>coreworld-director</code></span>
+      </div>
+
+      <div class="epistemic-box">
+        <h3>4 Katmanlı Epistemik Araştırma Çekirdeği</h3>
+        <div class="epistemic-grid">
+          <div><strong>1. Akademik Çapa (Orthodox Anchor):</strong> fMRI Inter-Subject Correlation (Hasson et al.), spontan göz kırpma (dopaminerjik sıfırlama) ve OpenTimelineIO (OTIO v0.18.1) zaman çizelgesi matematiği.</div>
+          <div><strong>2. Saha Söylentisi &amp; Forensik İpucu (Rumor Forensics):</strong> Hollywood kurgu odalarındaki 'altın makas' söylentisi: Usta kurgucuların ses kapalıyken bile doğru kesim karesini bulmasının sırrı, kendi solunum ve göz kırpma ritimlerini sahnedeki oyuncunun mikro-mimikleriyle kilitlemeleridir.</div>
+          <div><strong>3. Sorulmamış Soru (Unasked Question):</strong> <em>Yapay zekâ kurgu motoru kesim noktasını piksel farkından (Scene Cut Detection) değil de izleyicinin bilişsel göz kırpma anından hesaplarsa sinema ritmi nasıl değişir?</em></div>
+        </div>
+      </div>
+
+      <nav class="toc-box" aria-label="İçindekiler">
+        <strong>BU MAKALE SERİSİNDE NELER VAR?</strong>
+        <ol>
+          <li><a href="#sec-1">1. Piksel Farkı Değil, Düşünce Kesimi</a></li>
+<li><a href="#sec-2">2. core.action STUDIO'da Semantik Zaman Çizelgesi</a></li>
+<li><a href="#sec-3">3. Wardrobe Drift ve Zamansal Tutarlılık Kalkanı</a></li>
+        </ol>
+      </nav>
+
+      
+        <section id="sec-1" class="art-section">
+          <h2>1. Piksel Farkı Değil, Düşünce Kesimi</h2>
+          <p>Geleneksel video yazılımları bir kesim noktasını iki kare arasındaki RGB histogram farkından ibaret sanır. Oysa sinemada bir kesim (cut), görüntünün değiştiği yer değil, izleyicinin zihnindeki bir düşüncenin tamamlanıp yeni bir sorunun başladığı milisaniyedir. Walter Murch'ün 'In the Blink of an Eye' kuramında belirttiği gibi; insan beyni bir fikri sindirdiğinde göz kırpar ve tam o göz kırpma anında yapılan kesim görünmez olur.</p>
+        </section>
+        
+        <section id="sec-2" class="art-section">
+          <h2>2. core.action STUDIO'da Semantik Zaman Çizelgesi</h2>
+          <p>core.action STUDIO'yu geliştirirken zaman çizelgesini (timeline) yalnızca kare numaralarıyla değil, Living Project Graph (MOVIE -> SCENE -> PLAN) hiyerarşisiyle kodladık. Her plan; diyalog prozodisi, kamera hareketi vektörü ve duygusal gerilim eğrisiyle etiketlenir. Böylece J-Cut ve L-Cut geçişlerinde ses, görüntüden 4 ila 9 kare önce girerek izleyicinin beynini yeni sahneye önceden hazırlar.</p>
+        </section>
+        
+        <section id="sec-3" class="art-section">
+          <h2>3. Wardrobe Drift ve Zamansal Tutarlılık Kalkanı</h2>
+          <p>Yapay zekâ video üretiminde en büyük kâbus, karakterin 1. planda giydiği tüvit ceketin 2. planda deri cekete dönüşmesidir. ViMax devamlılık denetçimiz her planın görsel gömülmelerini (embeddings) karşılaştırır; eğer senaryoda NARRATIVE_TIME_JUMP ('ERTESİ GÜN', 'SAATLER SONRA') etiketi yoksa anında WARDROBE_DRIFT_ALERT üreterek hatalı kareyi yayına sokmaz.</p>
+        </section>
+        
+
+      <figure class="diagram-card">
+        <img src="./assets/epistemic-diagram.svg" alt="İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu Kesim Noktası Mimari Şeması" loading="lazy">
+        <figcaption>Şekil 1: core.action STUDIO — Sinematik AI & Kurgu Mimarisi — Epistemik Araştırma ve Sistem Mimarisi Diyagramı.</figcaption>
+      </figure>
+
+      <div class="next-box">
+        <h3 style="margin-top:0;color:var(--acc1);">Bu Serideki Diğer Makale &amp; Yayın Takvimi</h3>
+        <p><strong>Yayındaki Diğer Rehber:</strong> <a href="../6gb-vram-ile-hollywood-sanal-produksiyon-ve-acescg-renk-bilimi/">6 GB VRAM İle Sanal Prodüksiyon: ACEScg Renk Uzayı, Anamorfik Lens Fiziği ve Düşük Bellek Mimarisi →</a></p>
+        <p style="margin-bottom:8px;font-size:14px;color:var(--muted);">Günlük Otomatik Yayın Takvimindeki Sıradaki Konular:</p>
+        <ul style="margin:0;padding-left:20px;font-size:14.5px;color:#cbd5e1;">
+          <li><strong>2026-10-28:</strong> Anamorfik Mercek Kusurlarını Kodlamak: Oval Bokeh, Yatay Flare ve cos^4(theta) Kararması <span class="seed-pill">TAKvimDE</span></li>
+<li><strong>2026-11-04:</strong> Çoklu Kamera (Multicam) Kurguda Milisaniyelik Faz Hizalama ve OpenTimelineIO Köprüsü <span class="seed-pill">TAKvimDE</span></li>
+        </ul>
+        <div class="btn-row">
+          <a href="../" class="btn">← CORE.ACTION BLOG KATALOĞU</a>
+          <a href="../../" class="btn">🚀 CORE.ACTION UYGULAMASINI AÇ ↗</a>
+          <a href="https://www.koraytasan.com/yazilar/" class="btn">📚 TÜM KORAY TAŞAN REHBERLERİ ↗</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 core.action STUDIO — Sinematik AI & Kurgu Mimarisi · Koray Taşan Ekosistemi (<a href="https://www.koraytasan.com/">koraytasan.com</a>)
+  </footer>
+</body>
+</html>

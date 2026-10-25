@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660">
+  <defs>
+    <style>
+      .bg { fill: #0A0B0E; }
+      .cut { fill: #14161B; stroke: #EBE7DF; stroke-width: 1.8; }
+      .fold { fill: none; stroke: #C5A880; stroke-width: 1.2; stroke-dasharray: 6 4; }
+      .mono { fill: #EBE7DF; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 11px; letter-spacing: 0.08em; }
+      .gold { fill: #C5A880; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 10.5px; }
+      .muted { fill: #8E8D8A; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 10px; }
+    </style>
+  </defs>
+  <rect width="1200" height="660" class="bg"/>
+  <text x="45" y="40" class="mono">PACKAGING DIE-CUT BLUEPRINT (BI?AK ?Z?) // PKG-01 SINGLE DRAWER BOX &amp; PKG-02 "CORE FOR US" TWIN PAIRING BOX</text>
+  <text x="45" y="60" class="gold">BOARD: 1200 GSM GREYBOARD WRAPPED IN 140 GSM FEDRIGONI SIRIO ULTRA BLACK MATTE PAPER ? FINISH: BLIND DEBOSS + BRONZE FOIL</text>
+
+  <!-- Outer Sleeve Flat Die-Cut -->
+  <g transform="translate(55, 95)">
+    <text x="0" y="0" class="mono">01. OUTER SLIDING SLEEVE DIE-CUT (DI? KILIF BI?AK ?Z? ? 185 ? 135 ? 42 MM)</text>
+    <!-- Side Left (42mm), Front Top (135mm), Side Right (42mm), Back Bottom (135mm), Glue Flap (18mm) -->
+    <rect x="0" y="25" width="60" height="240" class="cut"/>
+    <rect x="60" y="25" width="190" height="240" class="cut"/>
+    <rect x="250" y="25" width="60" height="240" class="cut"/>
+    <rect x="310" y="25" width="190" height="240" class="cut"/>
+    <polygon points="500,25 526,40 526,250 500,265" class="cut"/>
+
+    <!-- Fold Crease Lines (K?r?m ?izgileri) -->
+    <line x1="60" y1="25" x2="60" y2="265" class="fold"/>
+    <line x1="250" y1="25" x2="250" y2="265" class="fold"/>
+    <line x1="310" y1="25" x2="310" y2="265" class="fold"/>
+    <line x1="500" y1="25" x2="500" y2="265" class="fold"/>
+
+    <!-- Front Sleeve Artwork (Blind Deboss "core" + Bronze Foil "an understatement.") -->
+    <text x="155" y="142" text-anchor="middle" fill="#EBE7DF" font-family="Inter, sans-serif" font-weight="700" font-size="34" letter-spacing="-1.5">core</text>
+    <text x="155" y="164" text-anchor="middle" fill="#C5A880" font-family="Inter, sans-serif" font-size="10.5" letter-spacing="1.4">an understatement.</text>
+
+    <!-- Back Sleeve Minimal Manifesto -->
+    <text x="405" y="145" text-anchor="middle" fill="#8E8D8A" font-family="Inter, sans-serif" font-size="9.5" letter-spacing="1">ST?L ??ER?DEN BA?LAR.</text>
+    <text x="405" y="235" text-anchor="middle" fill="#8E8D8A" font-family="monospace" font-size="8">WEAR.COR3US.COM</text>
+
+    <text x="0" y="292" class="gold">SOLID WHITE LINE = DIE-CUT (KES?M)  |  DASHED GOLD LINE = CREASE / FOLD (KIRIM)</text>
+  </g>
+
+  <!-- Inner Drawer Tray & Tissue Seal (Right) -->
+  <g transform="translate(640, 95)">
+    <text x="0" y="0" class="mono">02. INNER RIGID DRAWER &amp; "CORE FOR US" TWIN COMPARTMENT</text>
+    <!-- Drawer Tray -->
+    <rect x="0" y="25" width="490" height="240" rx="4" class="cut"/>
+    <rect x="24" y="45" width="442" height="200" fill="#0E1014" stroke="#C5A880" stroke-dasharray="4 3"/>
+    <!-- Twin Divider for "core for us" -->
+    <line x1="245" y1="45" x2="245" y2="245" class="fold"/>
+
+    <!-- Left Garment Slot -->
+    <text x="135" y="125" text-anchor="middle" class="mono">PIECE 01 SLOT</text>
+    <text x="135" y="145" text-anchor="middle" class="gold">core / come</text>
+    <text x="135" y="165" text-anchor="middle" class="muted">(SIZE M ? TRUNK)</text>
+
+    <!-- Right Garment Slot -->
+    <text x="355" y="125" text-anchor="middle" class="mono">PIECE 02 SLOT</text>
+    <text x="355" y="145" text-anchor="middle" class="gold">core / closer</text>
+    <text x="355" y="165" text-anchor="middle" class="muted">(SIZE L ? MOON)</text>
+
+    <!-- Grosgrain Pull Ribbon -->
+    <rect x="490" y="128" width="28" height="34" fill="#1C1E24" stroke="#C5A880"/>
+    <text x="455" y="292" text-anchor="end" class="gold">15MM GROSGRAIN RIBBON PULL TAB + SUBTEXT SEAL STICKER</text>
+  </g>
+
+  <!-- Bottom Spec Box -->
+  <rect x="55" y="425" width="1075" height="190" fill="#111318" stroke="rgba(235,231,223,0.18)"/>
+  <text x="75" y="455" class="mono">03. UNBOXING &amp; PRINTED INSERT SPECIFICATIONS (KUTU ??ER??? VE BASKI MALZEMELER?)</text>
+  <text x="75" y="482" class="muted">1. SINGLE DRAWER BOX (PKG-01): 185 ? 135 ? 42 mm ? 1200 gsm rigid board ? Blind deboss "core" (0.6mm depth) on lid.</text>
+  <text x="75" y="504" class="muted">2. "CORE FOR US" PAIRING BOX (PKG-02): 240 ? 165 ? 48 mm ? Removable center divider for 2 custom-paired pieces + message card slot.</text>
+  <text x="75" y="526" class="muted">3. INNER TISSUE WRAP (PEL?R KA?IT): 28 gsm acid-free dyed charcoal tissue (#141518), sealed with 38mm matte black embossed sticker.</text>
+  <text x="75" y="548" class="muted">4. SUBTEXT CARD (?K?NC? SATIR KARTI): 120 ? 85 mm, 350 gsm Fedrigoni Materica Pitch black card with custom paired second-line print.</text>
+  <text x="75" y="570" class="muted">5. OUTER E-COMMERCE MAILER: Neutral kraft corrugated box (zero external brand shouting; privacy-first fulfillment standard).</text>
+  <text x="75" y="594" class="gold">6. "CORE S*CR*TS" FOIL POUCH (PKG-03): Matte black 110-micron barrier zip-pouch with tear-notch concealing the mystery Second Line.</text>
+</svg>

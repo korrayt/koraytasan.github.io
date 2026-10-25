@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" width="1100" height="460">
+  <defs>
+    <style>
+      .bg { fill: #0B0B0C; }
+      .title { fill: #EBE7DF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; }
+      .mono { fill: #A6A29A; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+      .card { fill: #141518; stroke: rgba(235,231,223,0.15); stroke-width: 1; }
+    </style>
+  </defs>
+  <rect width="1100" height="460" class="bg"/>
+  <text x="40" y="42" class="mono">TEXTILE DYEING &amp; DIGITAL PALETTE STANDARD ? OEKO-TEX STANDARD 100 CLASS II CERTIFIED DYES (DELTA-E ? 0.8)</text>
+
+  <!-- 6 Swatches -->
+  <g transform="translate(40, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#0B0B0C" stroke="rgba(255,255,255,0.15)"/>
+    <text x="16" y="232" class="title">Obsidian Black</text>
+    <text x="16" y="256" class="mono">HEX: #0B0B0C</text>
+    <text x="16" y="276" class="mono">PANTONE: 19-4006 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 72, 66, 65, 88</text>
+    <text x="16" y="320" class="mono">WORLD: ALL / HERO</text>
+  </g>
+
+  <g transform="translate(214, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#232428"/>
+    <text x="16" y="232" class="title">Raw Graphite</text>
+    <text x="16" y="256" class="mono">HEX: #232428</text>
+    <text x="16" y="276" class="mono">PANTONE: 19-3908 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 70, 62, 56, 66</text>
+    <text x="16" y="320" class="mono">WORLD: CORE / MOVE</text>
+  </g>
+
+  <g transform="translate(388, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#EBE7DF"/>
+    <text x="16" y="232" class="title">Chalk Bone</text>
+    <text x="16" y="256" class="mono">HEX: #EBE7DF</text>
+    <text x="16" y="276" class="mono">PANTONE: 11-0105 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 7, 7, 12, 0</text>
+    <text x="16" y="320" class="mono">WORLD: CORE / RARE</text>
+  </g>
+
+  <g transform="translate(562, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#C5A880"/>
+    <text x="16" y="232" class="title">Subtext Bronze</text>
+    <text x="16" y="256" class="mono">HEX: #C5A880</text>
+    <text x="16" y="276" class="mono">PANTONE: 16-1120 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 24, 34, 52, 4</text>
+    <text x="16" y="320" class="mono">SECOND-LINE WEAVE</text>
+  </g>
+
+  <g transform="translate(736, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#2E0F15"/>
+    <text x="16" y="232" class="title">Nocturne Oxblood</text>
+    <text x="16" y="256" class="mono">HEX: #2E0F15</text>
+    <text x="16" y="276" class="mono">PANTONE: 19-1725 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 45, 86, 68, 70</text>
+    <text x="16" y="320" class="mono">WORLD: CORE MOON</text>
+  </g>
+
+  <g transform="translate(910, 70)">
+    <rect width="160" height="340" rx="6" class="card"/>
+    <rect x="12" y="12" width="136" height="190" rx="4" fill="#3A3F37"/>
+    <text x="16" y="232" class="title">Washed Olive</text>
+    <text x="16" y="256" class="mono">HEX: #3A3F37</text>
+    <text x="16" y="276" class="mono">PANTONE: 19-0414 TCX</text>
+    <text x="16" y="296" class="mono">CMYK: 65, 52, 66, 54</text>
+    <text x="16" y="320" class="mono">WORLD: CORE DROP</text>
+  </g>
+</svg>

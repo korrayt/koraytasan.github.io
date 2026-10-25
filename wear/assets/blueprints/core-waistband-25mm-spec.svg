@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680">
+  <defs>
+    <pattern id="microWeave" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M 0 3 L 6 3 M 3 0 L 3 6" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+    </pattern>
+    <style>
+      .bg { fill: #0A0A0B; }
+      .panel { fill: #121316; stroke: rgba(235,231,223,0.14); stroke-width: 1; }
+      .band { fill: #16171A; stroke: #C5A880; stroke-width: 1.2; }
+      .stitch { stroke: rgba(235,231,223,0.28); stroke-width: 1; stroke-dasharray: 5 3; }
+      .dim { stroke: #C5A880; stroke-width: 1; }
+      .wm { fill: #EBE7DF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; letter-spacing: -0.04em; }
+      .sl { fill: #C5A880; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 0.1em; }
+      .mono { fill: #EBE7DF; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 11px; letter-spacing: 0.08em; }
+      .muted { fill: #8E8D8A; font-family: 'JetBrains Mono', Consolas, monospace; font-size: 10px; letter-spacing: 0.06em; }
+    </style>
+  </defs>
+  <rect width="1200" height="680" class="bg"/>
+  <text x="45" y="42" class="mono">BLUEPRINT WB-25/32 ? JACQUARD &amp; HIGH-DENSITY MATTE SILICONE WAISTBAND SPECIFICATION (SCALE 4:1)</text>
+  <text x="45" y="62" class="muted">TOLERANCE: ?0.4 MM | YARN: 150D MICRO-POLYAMIDE + ROICA ELASTANE | ELONGATION RECOVERY: ?96% AFTER 50 WASH CYCLES</text>
+
+  <!-- 25mm Standard Core Waistband -->
+  <rect x="45" y="95" width="1110" height="220" rx="6" class="panel"/>
+  <text x="65" y="125" class="mono">SPEC A: 25 MM ARCHITECTURAL WAISTBAND (CORE / CORE MOON / CORE RARE / CORE FOR US)</text>
+
+  <!-- Elastic Band Strip (25mm = 125px at 5x vertical scale) -->
+  <rect x="110" y="150" width="940" height="125" class="band"/>
+  <rect x="110" y="150" width="940" height="125" fill="url(#microWeave)"/>
+  <!-- Top & Bottom Plush Edge & Stitch Line -->
+  <line x1="110" y1="160" x2="1050" y2="160" class="stitch"/>
+  <line x1="110" y1="265" x2="1050" y2="265" class="stitch"/>
+
+  <!-- Center Front Lockup -->
+  <text x="580" y="212" text-anchor="middle" class="wm">core</text>
+  <text x="580" y="242" text-anchor="middle" class="sl">an understatement.</text>
+
+  <!-- Left Repeat Ghost -->
+  <text x="230" y="212" text-anchor="middle" class="wm" opacity="0.25">core</text>
+  <text x="230" y="242" text-anchor="middle" class="sl" opacity="0.25">ready</text>
+
+  <!-- Right Repeat Ghost -->
+  <text x="930" y="212" text-anchor="middle" class="wm" opacity="0.25">core</text>
+  <text x="930" y="242" text-anchor="middle" class="sl" opacity="0.25">good sign</text>
+
+  <!-- Dimension Lines for 25mm -->
+  <line x1="82" y1="150" x2="102" y2="150" class="dim"/>
+  <line x1="82" y1="275" x2="102" y2="275" class="dim"/>
+  <line x1="92" y1="150" x2="92" y2="275" class="dim"/>
+  <text x="55" y="216" class="mono">25.0 mm</text>
+
+  <text x="65" y="298" class="muted">? TOP MARGIN: 4.5 MM  |  ? LINE 1 ("core") CAP HEIGHT: 9.5 MM  |  ? INTER-LINE GAP: 3.5 MM  |  ? LINE 2 ("second line") CAP HEIGHT: 3.8 MM  |  ? BOTTOM MARGIN: 3.7 MM</text>
+
+  <!-- 32mm Core Drop / Core Move Waistband -->
+  <rect x="45" y="340" width="1110" height="300" rx="6" class="panel"/>
+  <text x="65" y="370" class="mono">SPEC B: 32 MM VISIBLE-POTENTIAL &amp; PERFORMANCE WAISTBAND (CORE DROP / CORE MOVE) + SECOND-LINE MATRIX</text>
+
+  <!-- 6 Sub-brand / Second-Line Waistband Samples -->
+  <g transform="translate(65, 395)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl">drop</text>
+    <text x="10" y="18" class="muted">DROP-001 (32MM STREET)</text>
+  </g>
+  <g transform="translate(432, 395)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl">move</text>
+    <text x="10" y="18" class="muted">MOVE-001 (28MM PERFORATED)</text>
+  </g>
+  <g transform="translate(800, 395)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm" fill="#3A3A40">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl" fill="#6E5A4F">moon</text>
+    <text x="10" y="18" class="muted">MOON-001 (22MM TONAL BLACK)</text>
+  </g>
+
+  <g transform="translate(65, 515)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl">rare ? 001/250</text>
+    <text x="10" y="18" class="muted">RARE-001 (SILICONE + SERIAL)</text>
+  </g>
+  <g transform="translate(432, 515)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl">come / closer</text>
+    <text x="10" y="18" class="muted">FORUS-001 (PAIRED EDITION)</text>
+  </g>
+  <g transform="translate(800, 515)">
+    <rect x="0" y="0" width="335" height="95" class="band"/>
+    <text x="167" y="48" text-anchor="middle" class="wm">core</text>
+    <text x="167" y="74" text-anchor="middle" class="sl">***** (secret_01)</text>
+    <text x="10" y="18" class="muted">SEC-001 (MYSTERY CAPSULE)</text>
+  </g>
+</svg>

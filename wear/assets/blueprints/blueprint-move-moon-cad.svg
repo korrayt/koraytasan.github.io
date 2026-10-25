@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" width="1100" height="540">
+  <rect width="1100" height="540" fill="#0A0B0E"/>
+  <rect x="25" y="25" width="1050" height="490" fill="#111318" stroke="rgba(235,231,223,0.18)"/>
+  <text x="50" y="55" fill="#EBE7DF" font-family="JetBrains Mono, monospace" font-size="11.5" letter-spacing="1">CAD BLUEPRINT // SKU: MOVE-001 (KINETIC 20CM LONG-LEG) &amp; SKU: MOON-001 (LOW-RISE NIGHT TRUNK)</text>
+
+  <!-- MOVE-001 Left -->
+  <g transform="translate(75, 105)">
+    <text x="180" y="-10" text-anchor="middle" fill="#C5A880" font-family="monospace" font-size="11">MOVE-001 ? 28MM PERFORATED BAND + 20CM INSEAM</text>
+    <rect x="20" y="0" width="320" height="36" fill="#1C222B" stroke="#EBE7DF" stroke-width="1.8"/>
+    <text x="180" y="19" text-anchor="middle" fill="#EBE7DF" font-family="Inter, sans-serif" font-weight="700" font-size="13">core</text>
+    <text x="180" y="30" text-anchor="middle" fill="#7CC6FE" font-family="Inter, sans-serif" font-size="7" letter-spacing="1.2">move</text>
+    <path d="M 20 36 L 0 345 L 135 355 L 160 205 Q 180 192 200 205 L 225 355 L 360 345 L 340 36 Z" fill="#141820" stroke="#EBE7DF" stroke-width="2"/>
+    <!-- Mesh Zones -->
+    <path d="M 20 36 L 65 36 L 55 348 L 0 345 Z" fill="rgba(124,198,254,0.08)" stroke="#7CC6FE" stroke-dasharray="3 2"/>
+    <path d="M 340 36 L 295 36 L 305 348 L 360 345 Z" fill="rgba(124,198,254,0.08)" stroke="#7CC6FE" stroke-dasharray="3 2"/>
+    <text x="180" y="382" text-anchor="middle" fill="#8E8D8A" font-family="monospace" font-size="10">160 GSM RECYCLED MICRO-PIQU? + 135 GSM LASER MESH ZONES</text>
+  </g>
+
+  <!-- MOON-001 Right -->
+  <g transform="translate(595, 135)">
+    <text x="185" y="-15" text-anchor="middle" fill="#C5A880" font-family="monospace" font-size="11">MOON-001 ? 22MM TONAL BAND + LOW-RISE (-2.5 CM) + MICRO-TULLE</text>
+    <rect x="15" y="15" width="340" height="28" fill="#1A0E12" stroke="#EBE7DF" stroke-width="1.8"/>
+    <text x="185" y="30" text-anchor="middle" fill="#8E8D8A" font-family="Inter, sans-serif" font-weight="700" font-size="12">core</text>
+    <text x="185" y="39" text-anchor="middle" fill="#C5A880" font-family="Inter, sans-serif" font-size="6" letter-spacing="1.2">moon</text>
+    <path d="M 15 43 L 5 190 L 145 215 C 165 188, 205 188, 225 215 L 365 190 L 355 43 Z" fill="#181014" stroke="#EBE7DF" stroke-width="2"/>
+    <!-- Tulle Insert Panels -->
+    <polygon points="35,55 110,55 120,185 25,172" fill="rgba(197,168,128,0.09)" stroke="#C5A880" stroke-dasharray="3 2"/>
+    <polygon points="335,55 260,55 250,185 345,172" fill="rgba(197,168,128,0.09)" stroke="#C5A880" stroke-dasharray="3 2"/>
+    <text x="185" y="255" text-anchor="middle" fill="#C5A880" font-family="monospace" font-size="10.5">SIDE: 17.5 CM ? INSEAM: 5.5 CM ? 110 GSM ARCHITECTURAL TULLE INSERTS</text>
+    <text x="185" y="278" text-anchor="middle" fill="#8E8D8A" font-family="monospace" font-size="10">CONTROLLED TRANSPARENCY ? SENSUAL WITHOUT CRUDE CUTOUTS</text>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
+  <defs>
+    <style>
+      .bg { fill: #0B0B0C; }
+      .grid { stroke: rgba(235, 231, 223, 0.07); stroke-width: 1; }
+      .guide { stroke: rgba(197, 168, 128, 0.35); stroke-width: 1; stroke-dasharray: 4 4; }
+      .wordmark { fill: #EBE7DF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 132px; letter-spacing: -0.045em; }
+      .secondline { fill: #C5A880; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 28px; letter-spacing: 0.08em; }
+      .meta { fill: rgba(235, 231, 223, 0.5); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; }
+    </style>
+  </defs>
+  <rect width="900" height="420" class="bg"/>
+  <!-- Architectural Construction Grid -->
+  <line x1="0" y1="90" x2="900" y2="90" class="grid"/>
+  <line x1="0" y1="220" x2="900" y2="220" class="guide"/>
+  <line x1="0" y1="262" x2="900" y2="262" class="guide"/>
+  <line x1="0" y1="295" x2="900" y2="295" class="guide"/>
+  <line x1="120" y1="0" x2="120" y2="420" class="guide"/>
+  <line x1="780" y1="0" x2="780" y2="420" class="grid"/>
+
+  <text x="120" y="52" class="meta">BRAND ARCHIVE // SPEC 01 ? PRIMARY WORDMARK &amp; SECOND-LINE LOCKUP</text>
+  <text x="120" y="220" class="wordmark">core</text>
+  <text x="124" y="288" class="secondline">an understatement.</text>
+
+  <!-- Dimension Callouts -->
+  <text x="620" y="145" class="meta">CASE: STRICT LOWERCASE</text>
+  <text x="620" y="165" class="meta">TRACKING: -45 EM (OPTICAL KERNING)</text>
+  <text x="620" y="250" class="meta">BASELINE GAP: 0.36x CAP HEIGHT</text>
+  <text x="620" y="288" class="meta">SECOND LINE: 28% SCALE RATIO</text>
+  <text x="120" y="378" class="meta">CORE KONFECTION TEKST?L VE ELEKTRON?K T?CARET LTD. ?T?. ? ST?L ??ER?DEN BA?LAR.</text>
+</svg>

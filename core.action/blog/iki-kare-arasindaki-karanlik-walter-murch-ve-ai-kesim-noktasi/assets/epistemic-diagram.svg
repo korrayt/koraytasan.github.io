@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="100%" height="auto">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" rx="18" fill="url(#bgGrad)" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.45"/>
+  <text x="40" y="48" fill="#f97316" font-family="Segoe UI, Inter, sans-serif" font-size="13" font-weight="700" letter-spacing="2">4-KATMANLI EPİSTEMİK SENTEZ &amp; SÖYLENTİ ÜÇGENLEME ŞEMASI</text>
+  <text x="40" y="78" fill="#f8fafc" font-family="Georgia, serif" font-size="20" font-weight="700">İki Kare Arasındaki Karanlık: Walter Murch Göz Kırpma Yasası ve AI Kurgu</text>
+  <line x1="40" y1="96" x2="920" y2="96" stroke="url(#accentGrad)" stroke-width="2" stroke-opacity="0.5"/>
+
+  <!-- 4 Nodes -->
+  <g transform="translate(40, 125)">
+    <rect width="195" height="220" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#38bdf8" stroke-opacity="0.4"/>
+    <text x="18" y="34" fill="#38bdf8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">KATMAN I • AKADEMİK ZEMİN</text>
+    <text x="18" y="64" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Ortodoks Kanıtlar</text>
+    <text x="18" y="95" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Hakemli literatür &amp; deneyler</text>
+    <text x="18" y="120" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Birincil tarihsel kayıtlar</text>
+    <text x="18" y="145" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Kabul gören denklemler</text>
+    <text x="18" y="195" fill="#38bdf8" font-family="monospace" font-size="11">DURUM: DOĞRULANDI</text>
+  </g>
+
+  <g transform="translate(268, 125)">
+    <rect width="195" height="220" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#f97316" stroke-opacity="0.4"/>
+    <text x="18" y="34" fill="#f97316" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">KATMAN II • KÖR NOKTA</text>
+    <text x="18" y="64" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Sorulmamış Soru</text>
+    <text x="18" y="95" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Paradigma varsayımları</text>
+    <text x="18" y="120" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Disiplinler arası çatlak</text>
+    <text x="18" y="145" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Ters nedensellik testi</text>
+    <text x="18" y="195" fill="#f97316" font-family="monospace" font-size="11">DURUM: SORGULANIYOR</text>
+  </g>
+
+  <g transform="translate(496, 125)">
+    <rect width="195" height="220" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#f59e0b" stroke-opacity="0.5"/>
+    <text x="18" y="34" fill="#f59e0b" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">KATMAN III • DEDİKODU İZİ</text>
+    <text x="18" y="64" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600">Rumor Forensics</text>
+    <text x="18" y="95" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Sözlü tarih &amp; apokrifler</text>
+    <text x="18" y="120" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Saha &amp; forum fısıltıları</text>
+    <text x="18" y="145" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="12">• Sinyal/Gürültü Üçgenlemesi</text>
+    <text x="18" y="195" fill="#f59e0b" font-family="monospace" font-size="11">FSS SKORU: YÜKSEK SİNYAL</text>
+  </g>
+
+  <g transform="translate(724, 125)">
+    <rect width="195" height="220" rx="12" fill="#f97316" fill-opacity="0.12" stroke="#f97316" stroke-width="2"/>
+    <text x="18" y="34" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">KATMAN IV • SENTEZ</text>
+    <text x="18" y="64" fill="#f8fafc" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Denenmemiş Tez</text>
+    <text x="18" y="95" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">• Çapraz disiplin izomorfizmi</text>
+    <text x="18" y="120" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">• In-silico Bayesyen kanıt</text>
+    <text x="18" y="145" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">• Özgün edebi manifesto</text>
+    <text x="18" y="195" fill="#38bdf8" font-family="monospace" font-size="11">ÇIKTI: YENİ PARADİGMA</text>
+  </g>
+
+  <text x="40" y="388" fill="#64748b" font-family="Segoe UI, sans-serif" font-size="12">Koray Taşan — Core-Blogger Epistemic Synthesis Engine v1.0</text>
+</svg>
