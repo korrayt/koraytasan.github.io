@@ -79,17 +79,17 @@ body {
 }
 
 .bg-glow::before {
-  width: 600px;
-  height: 600px;
-  background: rgba(56, 189, 248, 0.08);
+  width: 650px;
+  height: 650px;
+  background: rgba(99, 102, 241, 0.08);
   top: -200px;
   right: -200px;
 }
 
 .bg-glow::after {
-  width: 500px;
-  height: 500px;
-  background: rgba(15, 23, 42, 0.35);
+  width: 550px;
+  height: 550px;
+  background: rgba(79, 70, 229, 0.05);
   bottom: -100px;
   left: -100px;
   animation-delay: -10s;
@@ -2435,41 +2435,41 @@ section {
 
 
 /* ============================================
-   Blog & Dynamic Showcase - Minimal Obsidian & Cyan Aesthetic
-   (Inspired by High-End Dev / Creative Director Portfolio)
+   Blog & Dynamic Showcase - Luxury Space Indigo / Autometa Aesthetic
+   (Inspired by High-End Dark AI & Creative Director Interfaces)
    ============================================ */
 .blog-section {
   position: relative;
   overflow: hidden;
-  background: #07090e !important;
+  background: #06070d !important;
 }
 
-/* Ambient Subtle Lighting */
+/* Ambient Radial Lighting */
 .blog-section::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, rgba(7, 9, 14, 0) 70%);
+  width: 960px;
+  height: 480px;
+  background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.12) 0%, rgba(6, 7, 13, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Ticker Bar (Minimal Monospace Code-style Pill) */
+/* Ticker Bar (Minimalist Monospace Code Pill) */
 .blog-ticker-wrap {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #0d1117;
+  background: #0a0b16;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   margin: 0 auto 34px;
   max-width: 880px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .blog-ticker-label {
@@ -2480,19 +2480,19 @@ section {
   font-family: 'JetBrains Mono', 'Inter', monospace;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #38bdf8;
+  color: #818cf8;
   text-transform: uppercase;
   white-space: nowrap;
-  padding-right: 12px;
+  padding-right: 14px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .blog-ticker-label .live-dot {
   width: 6px;
   height: 6px;
-  background: #38bdf8 !important;
+  background: #818cf8 !important;
   border-radius: 50%;
-  box-shadow: 0 0 8px #38bdf8;
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.85);
   display: inline-block;
 }
 
@@ -2530,12 +2530,12 @@ section {
 }
 .ticker-next-btn:hover {
   color: #fff;
-  background: rgba(56, 189, 248, 0.15);
-  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(129, 140, 248, 0.45);
   transform: rotate(180deg);
 }
 
-/* Interest Filter Bar (Clean Matte Dark Pills) */
+/* Interest Filter Bar (Matte Dark Indigo Capsules) */
 .blog-filter-bar {
   margin: 0 auto 36px;
   text-align: center;
@@ -2562,11 +2562,11 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: #0d1117;
+  background: #0a0b16;
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
-  padding: 7px 15px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
   font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
@@ -2575,17 +2575,17 @@ section {
 }
 
 .blog-interest-pill:hover {
-  background: #131822;
+  background: #111222;
   border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .blog-interest-pill.active {
-  background: rgba(56, 189, 248, 0.12) !important;
-  border-color: #38bdf8 !important;
+  background: rgba(99, 102, 241, 0.16) !important;
+  border-color: #818cf8 !important;
   color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.25) !important;
   transform: translateY(-1px);
 }
 
@@ -2599,25 +2599,25 @@ section {
 }
 
 .blog-interest-pill.active .pill-count {
-  background: rgba(56, 189, 248, 0.25);
-  color: #bae6fd;
+  background: rgba(99, 102, 241, 0.32);
+  color: #e0e7ff;
 }
 
-/* Dynamic Rotating Spotlight (Minimal High-End Showcase) */
+/* Dynamic Rotating Spotlight (Luxury Space Indigo Showcase) */
 .blog-spotlight {
-  background: #0c1016;
+  background: #0a0b16;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   margin-bottom: 48px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 35px rgba(99, 102, 241, 0.08);
   position: relative;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .blog-spotlight:hover {
-  border-color: rgba(56, 189, 248, 0.35) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.06);
+  border-color: rgba(129, 140, 248, 0.4) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 45px rgba(99, 102, 241, 0.18);
 }
 
 .spotlight-progress-wrap {
@@ -2630,7 +2630,7 @@ section {
 .spotlight-progress-bar {
   height: 100%;
   width: 0%;
-  background: #38bdf8 !important;
+  background: linear-gradient(90deg, #6366f1, #818cf8) !important;
   transition: width 0.1s linear;
 }
 
@@ -2638,7 +2638,7 @@ section {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 36px;
-  padding: 34px 38px;
+  padding: 36px 40px;
   align-items: center;
 }
 
@@ -2668,9 +2668,9 @@ section {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(56, 189, 248, 0.08) !important;
-  border: 1px solid rgba(56, 189, 248, 0.22) !important;
-  color: #7dd3fc !important;
+  background: rgba(99, 102, 241, 0.12) !important;
+  border: 1px solid rgba(99, 102, 241, 0.28) !important;
+  color: #c7d2fe !important;
 }
 
 .spotlight-controls {
@@ -2722,7 +2722,7 @@ section {
 }
 
 .spotlight-title:hover {
-  color: #38bdf8;
+  color: #a5b4fc;
 }
 
 .spotlight-desc {
@@ -2740,7 +2740,7 @@ section {
 }
 
 .spotlight-chip {
-  background: #111622;
+  background: #111222;
   border: 1px solid rgba(255, 255, 255, 0.06);
   color: #94a3b8;
   padding: 3px 9px;
@@ -2757,19 +2757,20 @@ section {
 }
 
 .spotlight-actions .btn-primary {
-  background: #38bdf8 !important;
-  color: #07090e !important;
+  background: #6366f1 !important;
+  color: #ffffff !important;
   border: none !important;
-  border-radius: 6px !important;
-  font-weight: 700 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
   font-size: 0.85rem !important;
-  padding: 9px 18px !important;
+  padding: 10px 20px !important;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35) !important;
   transition: all 0.2s ease !important;
 }
 
 .spotlight-actions .btn-primary:hover {
-  background: #7dd3fc !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+  background: #4f46e5 !important;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -2783,7 +2784,7 @@ section {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
   aspect-ratio: 16 / 10;
   background: #000;
@@ -2807,7 +2808,7 @@ section {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(8, 11, 16, 0.88);
+  background: rgba(8, 9, 18, 0.88);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 4px 10px;
@@ -2816,29 +2817,29 @@ section {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #7dd3fc !important;
+  color: #c7d2fe !important;
 }
 
 /* Blog Article Cards in Grid - Ultra-Clean Uniform Frame */
 .case-study-card.blog-article-card {
-  background: #0c1016 !important;
+  background: #0a0b16 !important;
   border: 1px solid rgba(255, 255, 255, 0.07) !important;
-  border-radius: 14px !important;
+  border-radius: 16px !important;
   padding: 22px !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .case-study-card.blog-article-card:hover {
-  background: #0f141d !important;
-  border-color: rgba(56, 189, 248, 0.35) !important;
+  background: #0e0f1e !important;
+  border-color: rgba(129, 140, 248, 0.38) !important;
   transform: translateY(-4px) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(56, 189, 248, 0.08) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(99, 102, 241, 0.12) !important;
 }
 
 .blog-card-thumb {
   width: 100%;
   height: 175px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   margin-bottom: 18px;
   background: #000;
@@ -2860,7 +2861,7 @@ section {
 
 /* Uniform Category Tag on Cards */
 .case-study-card.blog-article-card .case-study-category {
-  color: #38bdf8 !important;
+  color: #818cf8 !important;
   font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.72rem !important;
   font-weight: 700 !important;
@@ -2870,29 +2871,29 @@ section {
 
 /* Uniform Status Badge */
 .case-study-card.blog-article-card .status-badge {
-  background: rgba(56, 189, 248, 0.08) !important;
-  color: #bae6fd !important;
-  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  background: rgba(99, 102, 241, 0.1) !important;
+  color: #c7d2fe !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
   border-radius: 4px !important;
   font-size: 0.68rem !important;
   padding: 3px 8px !important;
 }
 
 .case-study-card.blog-article-card .status-badge .dot {
-  background: #38bdf8 !important;
-  box-shadow: 0 0 6px #38bdf8 !important;
+  background: #818cf8 !important;
+  box-shadow: 0 0 6px #818cf8 !important;
 }
 
 /* Uniform Read Link */
 .case-study-card.blog-article-card .card-read-link {
-  color: #38bdf8 !important;
+  color: #818cf8 !important;
   font-weight: 600 !important;
   font-size: 0.84rem !important;
   transition: color 0.2s ease !important;
 }
 
 .case-study-card.blog-article-card:hover .card-read-link {
-  color: #7dd3fc !important;
+  color: #c7d2fe !important;
   text-decoration: underline !important;
 }
 
@@ -2904,8 +2905,8 @@ section {
 
 .blog-explore-all .btn-primary {
   background: transparent !important;
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
-  color: #38bdf8 !important;
+  border: 1px solid rgba(129, 140, 248, 0.35) !important;
+  color: #a5b4fc !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
   padding: 12px 28px !important;
@@ -2913,10 +2914,10 @@ section {
 }
 
 .blog-explore-all .btn-primary:hover {
-  background: rgba(56, 189, 248, 0.1) !important;
-  border-color: #38bdf8 !important;
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-color: #818cf8 !important;
   color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25) !important;
   transform: translateY(-2px) !important;
 }
 
