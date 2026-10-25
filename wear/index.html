@@ -1,17 +1,207 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><title>core.konfection • Collections</title><link rel="stylesheet" href="./store.css"><script defer src="./store.js"></script></head><body data-brand="konfection">
-<div id="store" class="store"><div id="announcement" class="announcement">core.konfection • Günlük stile yeni bakış</div>
-<header class="site-header"><a class="logo" id="brandmark" href="#top" aria-label="Ana sayfa"><img class="brand-logo-img" src="./assets/core-logo.webp" alt="core"></a><nav class="nav" aria-label="Ana menü"><a href="#collections">Koleksiyonlar</a><a href="#products">Ürünler</a><a href="#story">Hikâyemiz</a></nav><div class="header-actions"><button class="icon-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><button class="icon-btn" id="searchBtn" aria-label="Ürün ara"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg></button><button class="cart-btn" id="bagBtn" aria-label="Sepet"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span id="cartCount">0</span></button><a class="admin-link" id="adminLink" href="./admin.html">Yönetim</a></div></header><nav id="mobileMenu" class="mobile-menu" aria-label="Mobil menü" hidden><a href="#collections">Koleksiyonlar</a><a href="#products">Ürünler</a><a href="#story">Hikâyemiz</a><a id="mobileAdmin" href="./admin.html">Yönetim paneli</a></nav>
-<main id="top"><section class="hero" id="hero"><div class="hero-copy"><span class="eyebrow" id="heroEyebrow">NEW DROP / CORE WORLD</span><h1 id="heroTitle"></h1><p id="heroSubtitle"></p><a href="#products" class="primary-btn">Koleksiyonu keşfet <span>↗</span></a><span class="hero-index">01 — 03 &nbsp; / &nbsp; THE CORE OF YOU</span></div><div class="hero-image" id="heroImage" role="img" aria-label="Marka kampanya görseli"></div><div class="hero-side" id="heroSide"></div></section>
-<div class="trustbar" id="trustbar"></div>
-<section class="section collections" id="collections"><div class="section-top"><div><span class="kicker">SELECTED WORLD / 01</span><h2 id="collectionHeading">THE ESSENTIALS</h2></div><a href="#products" class="text-link">Tüm ürünler <span>↗</span></a></div><div class="category-grid" id="categoryGrid"></div></section>
-<section class="promo-feature" id="promoFeature"><div class="promo-visual" id="promoImage"></div><div class="promo-content"><span class="kicker" id="promoEyebrow">THE NEW WAVE / 002</span><h2 id="promoTitle"></h2><p id="promoBody"></p><a href="#products" class="promo-cta">Koleksiyona göz at ↗</a></div></section>
-<section class="section products-section" id="products"><div class="section-top"><div><span class="kicker">CURATED SELECTION / 02</span><h2 id="productHeading">BEST SELLERS / Seçki</h2></div><div class="filters-wrap"><label class="sr-only" for="productSearch">Ürün ara</label><input type="search" id="productSearch" placeholder="Ürün ara / SKU" autocomplete="off"><select id="categoryFilter" aria-label="Kategori filtresi"><option value="">Tüm kategoriler</option></select></div></div><div class="section-note"><span class="note-dot"></span> Ürün kataloğu ve içerikler Yönetim Paneli üzerinden yönetilir.</div><div id="productGrid" class="product-grid"></div><div class="empty" id="emptyProducts" hidden>Bu koleksiyonda henüz ürün bulunmuyor.</div></section>
-<section class="manifesto" id="story"><div class="manifesto-image" id="storyImage"></div><div class="manifesto-copy"><span class="kicker">OUR PHILOSOPHY / 03</span><h2 id="storyTitle"></h2><p id="storyBody"></p><a href="#products" class="text-link">Koleksiyonlara göz at <span>↗</span></a></div></section>
-<section class="editorial-section" id="editorial"><div class="editorial-header"><div><span class="kicker" id="editorialEyebrow"></span><h2 id="editorialHeading">CULTURE IN MOTION.</h2><p id="editorialDesc"></p></div><span class="editorial-number">03 / EDITION</span></div><div class="editorial-gallery" id="editorialGallery"><div class="editorial-main" id="campaignImage"><div><span id="campaignLabel"></span><h3 id="campaignTitle"></h3><p id="campaignBody"></p></div></div><div class="editorial-aside"><div class="editorial-aside-photo" id="editorialAsideImage"></div><div class="editorial-aside-copy"><span class="kicker">CURATED / BRAND JOURNAL</span><strong id="editorialAsideTitle">REAL PEOPLE. REAL STYLE.</strong><a href="#products" class="text-link">Ürünleri keşfet ↗</a></div></div></div></section>
-<section class="closing"><span class="kicker">FOR EVERY VERSION OF YOU</span><h2 id="closingTitle">REAL PEOPLE. RICHER DAYS.</h2><a href="#top" class="outline-btn">Başa dön ↑</a></section></main>
-<footer class="footer"><div><div class="footer-logo" id="footerLogo"><img class="brand-logo-img" src="./assets/core-logo.webp" alt="core"></div><p id="footerDesc">A brighter tomorrow begins with everyday.</p></div><div class="footer-links"><a href="#collections">Koleksiyonlar</a><a href="#products">Ürünler</a><a href="#story">Marka</a><a id="footerAdmin" href="./admin.html">Yönetim paneli</a></div><div class="footer-contact"><span class="kicker">EXPLORE / GET IN TOUCH</span><strong id="footerNote">STYLE IS PERSONAL.</strong><p>core.konfection vitrin ve ürün yönetim sistemi.</p></div><div class="footer-last"><span>© 2026 core.konfection</span><span>www.koraytasan.com/wear • www.cor3us.com/wear</span></div></footer>
-</div>
-<div id="cartOverlay" class="drawer-overlay" hidden><aside class="drawer" aria-label="Demo sepet"><div class="drawer-head"><h2>Sepetim</h2><button class="close-btn" data-close="cart">×</button></div><p class="cart-notice">Bu bir önizleme sepetidir. Ödeme ve sipariş altyapısı henüz bağlı değildir.</p><div id="cartItems"></div><div class="drawer-bottom"><div class="cart-total"><span>Ara toplam</span><strong id="cartTotal">₺0</strong></div><button class="primary-btn full" data-close="cart">Alışverişe dön</button></div></aside></div>
-<div id="productOverlay" class="drawer-overlay" hidden><aside class="drawer" aria-label="Ürün detay"><div class="drawer-head"><h2>Ürün detayı</h2><button class="close-btn" data-close="product">×</button></div><div id="productDetail"></div></aside></div>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
-</body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>core • Men's Underwear Collections</title>
+  <meta name="description" content="core — Men's Underwear Built on Essence. core drop, core, core move, core moon ve core rare koleksiyonları.">
+  <link rel="stylesheet" href="./store.css">
+  <script defer src="./store.js"></script>
+</head>
+<body data-brand="konfection">
+  <div id="store" class="store">
+    <div id="announcement" class="announcement">core • MEN'S UNDERWEAR BUILT ON ESSENCE &nbsp;·&nbsp; YENİ SEZON: CORE DROP LANSMAN SERİSİ YAYINDA</div>
+
+    <header class="site-header">
+      <a class="logo" id="brandmark" href="#top" aria-label="Ana sayfa">
+        <img class="brand-logo-img" src="./assets/core-logo.webp" alt="core">
+      </a>
+      <nav class="nav" aria-label="Ana menü">
+        <a href="#core-drop-launch">core drop</a>
+        <a href="#collections">Koleksiyonlar</a>
+        <a href="#products">Tüm Ürünler</a>
+        <a href="#story">Tasarım Felsefesi</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <button class="icon-btn" id="searchBtn" aria-label="Ürün ara">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+        </button>
+        <button class="cart-btn" id="bagBtn" aria-label="Alışveriş Çantası">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+          <span id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Mobil menü" hidden>
+      <a href="#core-drop-launch">core drop (Lansman)</a>
+      <a href="#collections">Koleksiyonlar</a>
+      <a href="#products">Tüm Ürünler</a>
+      <a href="#story">Tasarım Felsefesi</a>
+    </nav>
+
+    <main id="top">
+      <!-- HERO: Priority Launch Series CORE DROP -->
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <span class="eyebrow" id="heroEyebrow">LANSMAN SERİSİ / 01</span>
+          <img src="./assets/subbrands/core-drop-dark.png" alt="core drop" class="hero-subbrand-logo">
+          <h1 id="heroTitle">STİL İÇERİDEN BAŞLAR.</h1>
+          <p id="heroSubtitle">Genç, ulaşılabilir ve streetwear etkili giriş serisi. Kontrast biyeler, yüksek gramajlı taranmış pamuk ve ikonik çift satır kemer mimarisiyle tanışın.</p>
+          <div class="hero-cta-row">
+            <a href="#core-drop-launch" class="primary-btn">core drop Serisini Keşfet <span>↗</span></a>
+            <a href="#products" class="outline-btn">Tüm Koleksiyon (30 Ürün)</a>
+          </div>
+          <span class="hero-index">ESSENTIAL &nbsp;·&nbsp; FUNCTIONAL &nbsp;·&nbsp; DESIRABLE</span>
+        </div>
+        <div class="hero-image" id="heroImage" role="img" aria-label="core drop kampanya görseli"></div>
+        <div class="hero-side" id="heroSide"></div>
+      </section>
+
+      <div class="trustbar" id="trustbar"></div>
+
+      <!-- PRIORITY SECTION: CORE DROP 6-SKU LAUNCH SERIES WITH PRODUCT PAGES & CARDS -->
+      <section class="section drop-launch-section" id="core-drop-launch">
+        <div class="section-top">
+          <div>
+            <span class="kicker">ÖNCELİKLİ LANSMAN SERİSİ · D01 — D06</span>
+            <div class="launch-title-row">
+              <img src="./assets/subbrands/core-drop-dark.png" alt="core drop" class="section-subbrand-logo">
+              <h2>Streetwear Giriş Serisi</h2>
+            </div>
+            <p class="section-lead">Üst satırda <strong>core</strong>, alt satırda 1:1 eşit genişlikli <strong>drop</strong> kemer imzasıyla tasarlanan 6 lansman ürünü. Her ürünün kendi sayfasını inceleyebilir veya doğrudan ürün kartına geçiş yapabilirsiniz.</p>
+          </div>
+          <div class="view-mode-bar">
+            <button type="button" class="mode-pill active" data-view-mode="studio">Ürün Görseli</button>
+            <button type="button" class="mode-pill" data-view-mode="card">Ürün Kartı</button>
+          </div>
+        </div>
+        <div id="dropLaunchGrid" class="product-grid drop-grid-3"></div>
+      </section>
+
+      <!-- 5 COLLECTION PILLARS -->
+      <section class="section collections" id="collections">
+        <div class="section-top">
+          <div>
+            <span class="kicker">KOLEKSİYON MİMARİSİ</span>
+            <h2 id="collectionHeading">5 Farklı Karakter</h2>
+          </div>
+          <a href="#products" class="text-link">30 Ürünün Tamamı <span>↗</span></a>
+        </div>
+        <div class="category-grid category-grid-5" id="categoryGrid"></div>
+      </section>
+
+      <!-- ALL 30 REAL PRODUCTS + PRODUCT CARDS + DEDICATED PAGES -->
+      <section class="section products-section" id="products">
+        <div class="section-top">
+          <div>
+            <span class="kicker">TÜM KOLEKSİYON · 30 ÜRÜN</span>
+            <h2 id="productHeading">Ürün Kataloğu & Ürün Kartları</h2>
+          </div>
+          <div class="filters-wrap">
+            <div class="view-mode-bar">
+              <button type="button" class="mode-pill active" data-view-mode="studio">Stüdyo Görünümü</button>
+              <button type="button" class="mode-pill" data-view-mode="card">Ürün Kartları</button>
+            </div>
+            <label class="sr-only" for="productSearch">Ürün ara</label>
+            <input type="search" id="productSearch" placeholder="Ürün adı veya kod (D01, C01...)" autocomplete="off">
+            <select id="categoryFilter" aria-label="Koleksiyon filtresi">
+              <option value="">Tüm Koleksiyonlar (30)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="collection-pills" id="collectionPills">
+          <button type="button" class="col-pill active" data-cat-pill="">Tümü (30)</button>
+          <button type="button" class="col-pill" data-cat-pill="CORE DROP">core drop (6)</button>
+          <button type="button" class="col-pill" data-cat-pill="CORE">core (6)</button>
+          <button type="button" class="col-pill" data-cat-pill="CORE MOVE">core move (6)</button>
+          <button type="button" class="col-pill" data-cat-pill="CORE MOON">core moon (6)</button>
+          <button type="button" class="col-pill" data-cat-pill="CORE RARE">core rare (6)</button>
+        </div>
+
+        <div id="productGrid" class="product-grid"></div>
+        <div class="empty" id="emptyProducts" hidden>Aramanıza uygun ürün bulunamadı.</div>
+      </section>
+
+      <!-- SECOND LINE SYSTEM MANIFESTO -->
+      <section class="manifesto" id="story">
+        <div class="manifesto-image" id="storyImage"></div>
+        <div class="manifesto-copy">
+          <span class="kicker">SECOND LINE SYSTEM</span>
+          <h2 id="storyTitle">ÜST SATIR GÖRÜNÜR, İKİNCİ SATIR YAKLAŞTIKÇA KEŞFEDİLİR.</h2>
+          <p id="storyBody">Ana koleksiyonumuz tek satır core imzasını taşırken; drop, move, moon ve rare serilerimizde üst satırdaki core logosuna tam eşit genişlikte tasarlanan ikinci satır eşlik eder. Kusursuz anatomik kalıp ve seçkin kumaşlarla konfor içeriden başlar.</p>
+          <a href="#core-drop-launch" class="text-link">core drop Serisini İncele <span>↗</span></a>
+        </div>
+      </section>
+
+      <section class="closing">
+        <span class="kicker">MEN'S UNDERWEAR BUILT ON ESSENCE</span>
+        <h2 id="closingTitle">ESSENTIAL. FUNCTIONAL. DESIRABLE.</h2>
+        <a href="#top" class="outline-btn">Başa Dön ↑</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-logo" id="footerLogo">
+          <img class="brand-logo-img" src="./assets/core-logo.webp" alt="core">
+        </div>
+        <p id="footerDesc">MEN'S UNDERWEAR BUILT ON ESSENCE.<br>Konfor, kusursuz kalıp ve ikonik kemer mimarisi.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#core-drop-launch">core drop</a>
+        <a href="?cat=CORE#products" data-cat="CORE">core</a>
+        <a href="?cat=CORE+MOVE#products" data-cat="CORE MOVE">core move</a>
+        <a href="?cat=CORE+MOON#products" data-cat="CORE MOON">core moon</a>
+        <a href="?cat=CORE+RARE#products" data-cat="CORE RARE">core rare</a>
+        <a href="#products">Tüm Ürünler</a>
+      </div>
+      <div class="footer-contact">
+        <span class="kicker">KOLEKSİYON</span>
+        <strong id="footerNote">STİL İÇERİDEN BAŞLAR.</strong>
+        <p>Tüm ürünlerimiz özel tasarım kutusuyla özenle hazırlanarak gönderilir.</p>
+      </div>
+      <div class="footer-last">
+        <span>© 2026 core</span>
+        <span>MEN'S UNDERWEAR COLLECTIONS</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- SHOPPING BAG DRAWER -->
+  <div id="cartOverlay" class="drawer-overlay" hidden>
+    <aside class="drawer" aria-label="Alışveriş Çantası">
+      <div class="drawer-head">
+        <h2>Alışveriş Çantası</h2>
+        <button class="close-btn" data-close="cart">×</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="drawer-bottom">
+        <div class="cart-total">
+          <span>Ara Toplam</span>
+          <strong id="cartTotal">₺0</strong>
+        </div>
+        <button class="primary-btn full" id="checkoutBtn">Siparişi Tamamla →</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- PRODUCT QUICK VIEW & PRODUCT CARD MODAL -->
+  <div id="productOverlay" class="drawer-overlay" hidden>
+    <aside class="drawer" aria-label="Ürün detayı">
+      <div class="drawer-head">
+        <h2>Ürün İnceleme</h2>
+        <button class="close-btn" data-close="product">×</button>
+      </div>
+      <div id="productDetail"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
