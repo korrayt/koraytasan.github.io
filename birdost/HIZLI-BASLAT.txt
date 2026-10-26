@@ -1,0 +1,15 @@
+BİR DOST — WEB DEMOSU
+===================
+
+1) Bu klasörde index.html dosyasını aç.
+2) Haritadan bir nokta seç ve mama paketini belirle.
+3) Tek seferlik veya düzenli desteği seç; demo siparişi oluştur.
+4) Menüdeki Giriş Yap / altbilgideki Hesabım ile kayıtları görüntüle.
+5) Altbilgideki Demo Yönetim Paneli ile ürünleri, siparişleri ve video bağlantılarını düzenle.
+
+Bu paket ödeme veya gerçek teslimat yapmaz; yatırımcı/pilot demosudur.
+Veriler sadece açtığın tarayıcıda tutulur. Farklı tarayıcıdaki kayıtlar ortak değildir.
+
+Tüm detaylar: README.md
+Marka / tasarımlar: marka/ klasörü
+Gerçek yayına geçiş: YAYINA-GECIS.md
