@@ -32,21 +32,42 @@
   }
 })();
 
-
-// Interactive Video Player Switcher
+// Interactive Video Player Switcher (Supports scoped blocks and single-page players)
 document.addEventListener('DOMContentLoaded', () => {
-  const playerIframe = document.querySelector('[data-video-player]');
-  const trackItems = document.querySelectorAll('[data-video-id]');
+  const blocks = document.querySelectorAll('.tracks-block, .album-block');
+  if (blocks.length > 0) {
+    blocks.forEach(block => {
+      const playerIframe = block.querySelector('[data-video-player]');
+      const trackItems = block.querySelectorAll('[data-video-id]');
+      if (playerIframe && trackItems.length > 0) {
+        trackItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            const videoId = item.getAttribute('data-video-id');
+            const videoTitle = item.getAttribute('data-video-title') || 'CORE MUSIC LONDON Player';
+            if (videoId) {
+              playerIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+              playerIframe.title = videoTitle;
+              trackItems.forEach(t => t.classList.remove('is-playing'));
+              item.classList.add('is-playing');
+            }
+          });
+        });
+      }
+    });
+  }
   
-  if (playerIframe && trackItems.length > 0) {
-    trackItems.forEach(item => {
+  // Fallback for standalone players outside of scoped blocks
+  const globalPlayer = document.querySelector('[data-video-player]');
+  const standaloneTracks = document.querySelectorAll('.track-list [data-video-id]');
+  if (globalPlayer && standaloneTracks.length > 0 && blocks.length === 0) {
+    standaloneTracks.forEach(item => {
       item.addEventListener('click', (e) => {
         const videoId = item.getAttribute('data-video-id');
-        const videoTitle = item.getAttribute('data-video-title') || 'CORE MUSIC Player';
+        const videoTitle = item.getAttribute('data-video-title') || 'CORE MUSIC LONDON Player';
         if (videoId) {
-          playerIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-          playerIframe.title = videoTitle;
-          trackItems.forEach(t => t.classList.remove('is-playing'));
+          globalPlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+          globalPlayer.title = videoTitle;
+          standaloneTracks.forEach(t => t.classList.remove('is-playing'));
           item.classList.add('is-playing');
         }
       });

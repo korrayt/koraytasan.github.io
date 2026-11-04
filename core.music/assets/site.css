@@ -266,3 +266,42 @@
   margin-bottom: 4px;
   text-transform: uppercase;
 }
+
+
+/* === CORE MUSIC LONDON Enhancements === */
+.album-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(218, 181, 130, 0.15);
+  border: 1px solid rgba(218, 181, 130, 0.45);
+  color: #eed6b6;
+  margin-bottom: 12px;
+}
+.dsp-status-note {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(218, 181, 130, 0.1);
+  border: 1px solid rgba(218, 181, 130, 0.35);
+  color: #dfae75;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-top: 14px;
+}
+.album-block {
+  padding: 40px 0 60px;
+  border-bottom: 1px solid var(--line);
+}
+.album-block:last-of-type {
+  border-bottom: 0;
+}
+.album-meta-head {
+  margin-bottom: 24px;
+}
