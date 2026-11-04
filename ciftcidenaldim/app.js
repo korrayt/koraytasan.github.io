@@ -524,6 +524,9 @@
       btn.addEventListener('click', () => {
         const reg = btn.getAttribute('data-region');
         state.region = state.region === reg ? '' : reg;
+        regionChips.querySelectorAll('[data-region]').forEach((b) => {
+          b.classList.toggle('active', b.getAttribute('data-region') === state.region);
+        });
         renderCatalog();
       });
     });
@@ -556,14 +559,22 @@
   if (filterSeasonBtn) {
     filterSeasonBtn.addEventListener('click', () => {
       state.onlySeason = !state.onlySeason;
+      filterSeasonBtn.textContent = state.onlySeason
+        ? '✓ Tam Mevsimi Filtresi Aktif'
+        : 'Tam Mevsimi Ürünlerini Göster';
       renderCatalog();
+      document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
   if (filterOrganicBtn) {
     filterOrganicBtn.addEventListener('click', () => {
       state.onlyOrganic = !state.onlyOrganic;
+      filterOrganicBtn.textContent = state.onlyOrganic
+        ? '✓ Sertifikalı Organik Aktif'
+        : 'Yalnız Sertifikalı Organikler';
       renderCatalog();
+      document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
@@ -575,6 +586,13 @@
       state.onlyOrganic = false;
       state.search = '';
       if (searchInput) searchInput.value = '';
+      if (clearSearch) clearSearch.hidden = true;
+      if (filterSeasonBtn) filterSeasonBtn.textContent = 'Tam Mevsimi Ürünlerini Göster';
+      if (filterOrganicBtn) filterOrganicBtn.textContent = 'Yalnız Sertifikalı Organikler';
+      categoryGrid?.querySelectorAll('.category-tile').forEach((b) => {
+        b.classList.toggle('selected', b.getAttribute('data-category') === 'hepsi');
+      });
+      regionChips?.querySelectorAll('[data-region]').forEach((b) => b.classList.remove('active'));
       renderCatalog();
     });
   }
@@ -606,6 +624,15 @@
 
   document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
   modalBackdrop?.addEventListener('click', closeModal);
+  infoModal?.addEventListener('click', (e) => {
+    if (e.target === infoModal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      closeCart();
+    }
+  });
 
   document.getElementById('checkoutBtn')?.addEventListener('click', () => {
     const { products } = Core.getConsumerRealCatalog();
