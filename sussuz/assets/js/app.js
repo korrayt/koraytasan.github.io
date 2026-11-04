@@ -463,6 +463,15 @@ document.addEventListener("DOMContentLoaded", () => {
           subtitle: "GÖLE FISILDA",
           desc: "Göl kenarındaki ahşap iskele korkuluğuna bir not bırak.",
           action: "note"
+        },
+        {
+          name: "KIYI KIYI // 05:00 GÖL SİSİ",
+          icon: "🎵",
+          thumb: "assets/img/props/prop_lighthouse.jpg",
+          subtitle: "SU GERİ DÖNER KIYISINA",
+          desc: "Saat beş, sokaklar boş, gölün üstü duman, hava loş... Susuz gölü kıyısında yankılanan Sussuz Soundtrack parçası.",
+          action: "music",
+          audioSrc: "b8M_i3w-xYg"
         }
       ]
     },
@@ -1896,6 +1905,19 @@ document.addEventListener("DOMContentLoaded", () => {
       src: "assets/audio/track_biri_varmis.mp3",
       sceneId: "studio",
       narrative: "Murad ve Kerem beraber Bahar'a söylüyorlar"
+    },
+    {
+      id: "kiyi_kiyi",
+      num: "08",
+      title: "Kıyı Kıyı",
+      singer: "khrysaor söylüyor // Susuz Gölü (05:00)",
+      badge: "Official Lyric Video",
+      duration: "3:40",
+      ytId: "b8M_i3w-xYg",
+      ytUrl: "https://www.youtube.com/watch?v=b8M_i3w-xYg",
+      src: "assets/audio/track_kiyi_kiyi.mp3",
+      sceneId: "lake",
+      narrative: "Saat beş, sokaklar boş, gölün üstü duman, hava loş // Su geri döner kıyısına, biz dönemeyiz aynısına"
     }
   ];
 

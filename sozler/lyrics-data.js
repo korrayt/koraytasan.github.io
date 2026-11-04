@@ -4,6 +4,140 @@
  */
 window.KORAY_LYRICS = [
   {
+    "id": "kiyi-kiyi-sussuz-soundtrack",
+    "title": "Kıyı Kıyı (Sussuz Soundtrack)",
+    "subtitle": "Melodic Dark Drill & Nocturnal Soundtrack · Official Lyric Video",
+    "date": "2026",
+    "youtubeId": "b8M_i3w-xYg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=b8M_i3w-xYg",
+    "tags": [
+      "Soundtrack",
+      "Dark Pop",
+      "Gece & Melankoli",
+      "Nocturnal"
+    ],
+    "readTime": "4 dk",
+    "quote": "Su geri döner kıyısına, biz dönemeyiz aynısına! Her şey yerinde, biz değiliz!",
+    "description": "khrysaor — Kıyı Kıyı (Sussuz Soundtrack) resmi şarkı sözleri ve 1080p lirik video kaydı. 'Saat beş, sokaklar boş, gölün üstü duman, hava loş...'",
+    "genre": "Melodic Dark Drill / Nocturnal Electronic Rap / Sussuz OST",
+    "sections": [
+      {
+        "type": "chorus",
+        "label": "Nakarat (Chorus)",
+        "lines": [
+          "Kıyı kıyı, dön geri dön!",
+          "Sokak aynı, değişti yön!",
+          "Anahtar var, kapı kilit,",
+          "Her şey yerinde, biz değiliz!",
+          "",
+          "Kıyı kıyı, gece gece!",
+          "Bir adım kaldı gerçeğe!",
+          "Sen yanımdasın, şehir sessiz,",
+          "Her şey yerinde, biz değiliz!"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Bölüm 1 (Verse 1)",
+        "lines": [
+          "Saat beş, sokaklar boş,",
+          "Gölün üstü duman, hava loş.",
+          "Cepte anahtar, dönmem eve,",
+          "Dün bıraktığım ben yok o yerde.",
+          "",
+          "Camda ışık, kapıda mühür,",
+          "Bir gecede değişti ömür.",
+          "Omzumda mahalle, dilimde söz,",
+          "Kimseye görünmez içimdeki köz.",
+          "",
+          "Sen göle bak, ben arka sokağa,",
+          "Düşmüş bütün hayaller tuzağa.",
+          "Bize kalan ne? Birkaç fotoğraf,",
+          "Bir de dönüp durduğumuz viraj."
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Nakarat Öncesi (Pre-Chorus)",
+        "lines": [
+          "Dur! Daha bitmedi!",
+          "Bu şehir bizi silemedi!",
+          "Sus! Sakın iyi olacak deme!",
+          "Bak, aynı yerdeyiz yine!"
+        ]
+      },
+      {
+        "type": "chorus",
+        "label": "Nakarat (Chorus)",
+        "lines": [
+          "Kıyı kıyı, dön geri dön!",
+          "Sokak aynı, değişti yön!",
+          "Anahtar var, kapı kilit,",
+          "Her şey yerinde, biz değiliz!",
+          "",
+          "Kıyı kıyı, gece gece!",
+          "Bir adım kaldı gerçeğe!",
+          "Sen yanımdasın, şehir sessiz,",
+          "Her şey yerinde, biz değiliz!"
+        ]
+      },
+      {
+        "type": "verse",
+        "label": "Bölüm 2 (Verse 2)",
+        "lines": [
+          "Bir sokak, iki gölge, üç yanlış,",
+          "Dört duvar, beş dakika, son çıkış.",
+          "Aklımda bin tane yarım cümle,",
+          "Hiçbiri sığmıyor tek bir güne.",
+          "",
+          "Yıkılmadı evler, biz dağıldık,",
+          "Herkes kurtuldu, biz yarım kaldık.",
+          "Adımızı silmişler duvarlardan,",
+          "Sesimiz geliyor ara sokaklardan.",
+          "",
+          "Aynı durak, aynı kaldırım,",
+          "Dün dediğin şey şimdi yabancı.",
+          "Sen bana bak, konuşma sakın,",
+          "Elin elimde, sonumuz yakın."
+        ]
+      },
+      {
+        "type": "bridge",
+        "label": "Köprü (Bridge)",
+        "lines": [
+          "Bir kez daha elimi tut,",
+          "Söz verme, konuşma, sus.",
+          "Su geri döner kıyısına,",
+          "Biz dönemeyiz aynısına!"
+        ]
+      },
+      {
+        "type": "chorus",
+        "label": "Final Nakarat (Final Chorus)",
+        "lines": [
+          "Kıyı kıyı, dön geri dön!",
+          "Sokak aynı, değişti yön!",
+          "Anahtar var, kapı kilit,",
+          "Her şey yerinde, biz değiliz!",
+          "",
+          "Kıyı kıyı, gece gece!",
+          "Bir adım kaldı gerçeğe!",
+          "Sen yanımdasın, şehir sessiz,",
+          "Her şey yerinde, biz değiliz!"
+        ]
+      },
+      {
+        "type": "outro",
+        "label": "Çıkış (Outro)",
+        "lines": [
+          "(Aynı sokak... Aynı ev... Biz değiliz!)",
+          "Su kıyıya döndü...",
+          "Biz dönemedik."
+        ]
+      }
+    ]
+  },
+  {
     "id": "biri-varmis-oteki-yok-olmasin",
     "title": "Biri Varmış Öteki Yok Olmasın",
     "subtitle": "Düet & Melodik Ağıt · Official Audio",

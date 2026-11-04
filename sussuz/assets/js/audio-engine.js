@@ -18,6 +18,7 @@ const TRACK_MAP = {
   "mdPhJrnytkA": "assets/audio/track_gospel_baby_ekrem.mp3",
   "-esQckmIMgQ": "assets/audio/track_kaybedemem.mp3",
   "GLQcmdJsO5U": "assets/audio/track_biri_varmis.mp3",
+  "b8M_i3w-xYg": "assets/audio/track_kiyi_kiyi.mp3",
 
   // Track ID Aliases
   "bataklik": "assets/audio/track_bataklik.mp3",
@@ -27,6 +28,7 @@ const TRACK_MAP = {
   "gospel_baby_ekrem": "assets/audio/track_gospel_baby_ekrem.mp3",
   "kaybedemem": "assets/audio/track_kaybedemem.mp3",
   "biri_varmis": "assets/audio/track_biri_varmis.mp3",
+  "kiyi_kiyi": "assets/audio/track_kiyi_kiyi.mp3",
   "distant_ambient": "assets/audio/track_hirsiz_distant_ambient.mp3",
   "master": "assets/audio/track_hirsiz_distant_ambient.mp3"
 };
