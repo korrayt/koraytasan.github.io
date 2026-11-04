@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Çiftçiden Aldım — Türkiye'nin Üreticisinden, Doğrudan Sofrana</title>
+  <meta name="description" content="Türkiye'deki yerli ve gerçek üreticilerin kendi tezgâhlarını açtığı çok satıcılı gıda pazaryeri. Her tezgâh kendi ürününü doğrudan gönderir." />
+  <link rel="icon" type="image/svg+xml" href="./brand/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="announcement">
+    <span>🌿 Emek tarlada kalmasın · Türkiye'nin üreticisinden, doğrudan sofrana.</span>
+    <span class="dot">•</span>
+    <span>Her tezgâh kendi ürününü gönderir; kargo tezgâh bazında ayrı hesaplanır.</span>
+  </div>
+
+  <header class="header">
+    <div class="shell header-main">
+      <a class="logo" href="/ciftcidenaldim/" aria-label="Çiftçiden Aldım ana sayfa">
+        <img src="./brand/logo-01-primary.svg" alt="Çiftçiden Aldım" />
+      </a>
+
+      <div class="search-box" role="search">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Ürün, yöre veya tezgâh ara (örn: zeytinyağı, kaşar, kayısı)..." />
+        <button id="clearSearch" type="button" class="clear-btn" hidden>Temizle</button>
+      </div>
+
+      <div class="header-actions">
+        <button class="mini-action" id="openOrdersBtn" type="button">
+          <span class="round-symbol">📦</span>
+          <span>Siparişlerim</span>
+        </button>
+        <button class="mini-action" id="openSupportBtn" type="button">
+          <span class="round-symbol">☏</span>
+          <span>Destek</span>
+        </button>
+        <button class="mini-action" id="openConsumerLoginBtn" type="button">
+          <span class="round-symbol">♙</span>
+          <span id="consumerAuthLabel">Giriş Yap / Üye Ol</span>
+        </button>
+        <button class="cart-trigger" id="openCartBtn" type="button" aria-label="Sepeti aç">
+          <span>🛍</span>
+          <span>Sepetim</span>
+          <b id="cartCount">0</b>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav shell" aria-label="Tüketici ana menüsü">
+      <a class="nav-item active" href="#products">☰ <span>Pazar Vitrini</span></a>
+      <a class="nav-item" href="#seasonal">🌿 <span>Tam Mevsimi & Organik</span></a>
+      <a class="nav-item" href="#regions">⌖ <span>Yöre Keşfi</span></a>
+      <a class="nav-item" href="#stalls">▣ <span>Doğrulanmış Tezgâhlar</span></a>
+      <a class="nav-item" href="#how">✓ <span>Nasıl Çalışır?</span></a>
+      <a class="producer-nav" href="#producer-apply">Tezgâh aç (Üretici Başvurusu) <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero shell">
+      <div class="hero-content">
+        <span class="eyebrow light-eyebrow"><span class="eyebrow-dot"></span> TÜRKİYE'NİN DOĞRULANMIŞ ÜRETİCİ PAZARI</span>
+        <h1>
+          Bir ucunda emek,<br />
+          <em>diğer ucunda</em><br />
+          sofra var.
+        </h1>
+        <p>
+          Ayvalık'tan soğuk sıkım zeytinyağı, Kars Boğatepe'den eski kaşar, Malatya'dan kükürtsüz gün kurusu…
+          Depoya uğramadan, üreticinin kendi <strong>tezgâhından</strong> doğrudan kapınıza.
+        </p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-dark">Gerçek tezgâhları ve ürünleri keşfet <span>↓</span></a>
+          <a href="#producer-apply" class="btn btn-ghost">Üreticiysen tezgâh aç <span>↗</span></a>
+        </div>
+        <div class="hero-bottom">
+          <span>✓ %100 Yerli üreticinin kendi üretimi</span>
+          <span>✓ Merkez depo yok, doğrudan gönderim</span>
+          <span>✓ Platform kalite ve iade güvencesi</span>
+        </div>
+      </div>
+
+      <div class="hero-badge">
+        <span class="hero-badge-icon">✺</span>
+        <span>
+          <strong>Her tezgâhın<br/>ayrı bir hikâyesi var.</strong>
+          <small>Her paketi üreticisi hazırlar, güvencesini biz takip ederiz.</small>
+        </span>
+      </div>
+    </section>
+
+    <!-- 4 İLKE -->
+    <section class="features shell" aria-label="Pazaryeri ilkelerimiz">
+      <div class="feature">
+        <span class="feature-icon">✳</span>
+        <div>
+          <strong>Mağaza değil, üretici tezgâhı</strong>
+          <small>Şirketimiz ürün alıp satmaz; her ürün üreticisinden çıkar.</small>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🚚</span>
+        <div>
+          <strong>Her tezgâhtan ayrı kargo</strong>
+          <small>Farklı yörelerden verilen siparişlerde her tezgâhın kargosu şeffaf görünür.</small>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🛡️</span>
+        <div>
+          <strong>Gıda QA & Soğuk Zincir Kapısı</strong>
+          <small>Sıcaklık ve rota validasyonu olmayan ürün satışa açılmaz.</small>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">☏</span>
+        <div>
+          <strong>Serbest DM yok, destek bizden</strong>
+          <small>Tüm sorular ve iade güvencesi platform destek ekibinden yürütülür.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATEGORİLER -->
+    <section class="section shell" id="categories">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">PAZARIN KAPILARI AÇIK</span>
+          <h2>Canın ne çekiyorsa <i>pazarda.</i></h2>
+        </div>
+        <p class="section-desc">
+          Çiğ et/tavuk/balık ve ithal ürünler hariç; doğru paketleme, belge ve gönderim standardını sağlayan her yerli üreticiye tezgâhımız açık.
+        </p>
+      </div>
+
+      <div class="category-grid" id="categoryGrid">
+        <button class="category-tile selected" data-category="hepsi" type="button"><span>🧺</span><strong>Tüm Pazar</strong><small>Gerçek ürünler</small></button>
+        <button class="category-tile" data-category="sut-urunleri" type="button"><span>🧀</span><strong>Peynir & Süt</strong><small>Soğuk zincir</small></button>
+        <button class="category-tile" data-category="zeytin-zeytinyagi" type="button"><span>🫒</span><strong>Zeytin & Yağ</strong><small>İlk gün hazır</small></button>
+        <button class="category-tile" data-category="kuru-meyve" type="button"><span>🍑</span><strong>Kuru Meyve</strong><small>Güneşte kurutulmuş</small></button>
+        <button class="category-tile" data-category="kuruyemis" type="button"><span>🥜</span><strong>Kuruyemiş</strong><small>Yöresinden</small></button>
+        <button class="category-tile" data-category="sebze-meyve" type="button"><span>🍅</span><strong>Sebze & Meyve</strong><small>Darbe korumalı</small></button>
+        <button class="category-tile" data-category="kahvaltilik-recel-bal" type="button"><span>🍯</span><strong>Kahvaltılık & Bal</strong><small>Analizli</small></button>
+        <button class="category-tile" data-category="firindan" type="button"><span>🥖</span><strong>Fırından</strong><small>Planlı gün</small></button>
+        <button class="category-tile" data-category="yumurta" type="button"><span>🥚</span><strong>Yumurta</strong><small>Özel viyol</small></button>
+        <button class="category-tile" data-category="dondurulmus" type="button"><span>❄️</span><strong>Dondurulmuş</strong><small>Donuk zincir</small></button>
+      </div>
+    </section>
+
+    <!-- YÖRE & TAM MEVSİMİ -->
+    <section class="split-discovery shell" id="regions">
+      <div class="region-card">
+        <span class="eyebrow">MEMLEKETİN HER KÖŞESİNDEN</span>
+        <h2>Yöre yöre<br/><em>bereketi keşfet.</em></h2>
+        <p>Sadece yerli üreticinin kendi ürettiği ürünler. İthal ürün yok, toptancı al-sat yok.</p>
+        <div class="region-chips" id="regionChips">
+          <button type="button" data-region="Kars">Kars ↗</button>
+          <button type="button" data-region="Balıkesir">Ayvalık ↗</button>
+          <button type="button" data-region="Malatya">Malatya ↗</button>
+          <button type="button" data-region="Gaziantep">Gaziantep ↗</button>
+          <button type="button" data-region="Tokat">Tokat ↗</button>
+          <button type="button" data-region="Muğla">Muğla ↗</button>
+          <button type="button" data-region="Hatay">Hatay ↗</button>
+          <button type="button" data-region="Aydın">Aydın ↗</button>
+        </div>
+      </div>
+
+      <div class="season-card" id="seasonal">
+        <div class="season-top">
+          <span class="eyebrow light-eyebrow">MEVSİMİN HAKKINI VER</span>
+          <h2>Tam <em>Mevsimi</em><br/>Bölümü</h2>
+          <p>Ürünün açık tarla, sera veya depolama bilgisini açıkça gör. Organik rozetini yalnız sertifikası doğrulanmış üründe kullanıyoruz.</p>
+        </div>
+        <div class="season-actions">
+          <button class="btn btn-light" id="filterSeasonBtn" type="button">Tam Mevsimi Ürünlerini Göster</button>
+          <button class="btn btn-outline-light" id="filterOrganicBtn" type="button">Yalnız Sertifikalı Organikler</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANLI ÜRÜN VİTRİNİ (SADECE GERÇEK ÜRÜNLER — DEMO GİZLİ) -->
+    <section class="section shell" id="products">
+      <div class="section-head products-head">
+        <div>
+          <span class="eyebrow">DOĞRULANMIŞ GERÇEK ÜRETİCİ VİTRİNİ</span>
+          <h2>Memleketin <i>gerçek ürünleri.</i></h2>
+        </div>
+
+        <div class="toolbar">
+          <div class="active-filter" id="activeFilterBox" hidden>
+            <span id="activeFilterLabel">Filtre</span>
+            <button id="resetFiltersBtn" type="button">Tümünü göster ✕</button>
+          </div>
+          <label class="sort-wrap">
+            <span>Sırala:</span>
+            <select id="sortSelect">
+              <option value="default">Önerilen</option>
+              <option value="price-asc">Fiyat: Artan</option>
+              <option value="price-desc">Fiyat: Azalan</option>
+              <option value="name">Ürün Adı (A-Z)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- DOĞRULANMIŞ GERÇEK TEZGÂHLAR -->
+    <section class="section shell" id="stalls">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">DOĞRULANMIŞ ÜRETİCİ TEZGÂHLARI</span>
+          <h2>Aracıdan değil, <i>tezgâhın sahibinden.</i></h2>
+        </div>
+      </div>
+      <div id="stallsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;"></div>
+    </section>
+
+    <!-- NASIL ÇALIŞIR -->
+    <section class="how-section" id="how">
+      <div class="shell">
+        <div class="center-head">
+          <span class="eyebrow">ŞEFFAF SİPARİŞ DENEYİMİ</span>
+          <h2>Tarladan sofraya <i>nasıl gelir?</i></h2>
+          <p>Ürünü depomuza çekmiyoruz. Her üretici kendi tezgâhından, kendi sorumluluğu ve bizim kalite standardımızla gönderiyor.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-no">01</span>
+            <div class="step-icon">🧺</div>
+            <h3>Tezgâhları gez, sepetini kur</h3>
+            <p>İster tek tezgâhtan alışveriş yap, ister farklı yörelerden ürünleri aynı sepete ekle.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-no">02</span>
+            <div class="step-icon">📦</div>
+            <h3>Her tezgâh kendi paketini hazırlar</h3>
+            <p>Kars'taki peynir Kars'tan, Ayvalık'taki zeytinyağı Ayvalık'tan çıkar. Kargo ücretleri tezgâh bazında ayrı hesaplanır.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-no">03</span>
+            <div class="step-icon">🛡️</div>
+            <h3>Kalite ve destek takibi bizde</h3>
+            <p>Sofrana ulaştıktan sonra memnuniyetini sorar, olası bir sorunda üreticiyle seni uğraştırmadan destek ekibimizle çözeriz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÜRETİCİ TEZGÂH AÇMA BAŞVURUSU -->
+    <section class="producer-cta shell" id="producer-apply">
+      <div class="producer-cta-main">
+        <span class="eyebrow light-eyebrow">ÜRETİCİYE DAVET · EMEK TARLADA KALMASIN</span>
+        <h2>Kendi ürettiğin ürünü<br/><em>kendi tezgâhında sat.</em></h2>
+        <p>
+          Teknoloji bilmen şart değil. İster sade üretici panelimizden ister WhatsApp'tan stok ve fiyat bildir;
+          bölgeye gelen <strong>Üretici Geliştirme Danışmanımız</strong> tezgâhını birlikte kursun.
+        </p>
+        <div class="producer-cta-buttons">
+          <button class="btn btn-ochre" id="openApplyModalBtn" type="button">Ücretsiz Tezgâh Başvurusu Yap ↗</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-main">
+      <div class="footer-brand">
+        <img src="./brand/logo-01-primary.svg" alt="Çiftçiden Aldım" />
+        <p>
+          <strong>“Emek tarlada kalmasın.”</strong><br />
+          Türkiye'nin üreticisinden, doğrudan sofrana. Şirketimiz kendi ürününü satmaz, fiziksel ürün depolamaz; her tezgâh kendi ürününü doğrudan gönderir.
+        </p>
+      </div>
+      <div class="footer-col">
+        <b>Pazar</b>
+        <a href="#products">Gerçek Ürün Vitrini</a>
+        <a href="#seasonal">Tam Mevsimi</a>
+        <a href="#regions">Yöre Keşfi</a>
+        <a href="#stalls">Doğrulanmış Tezgâhlar</a>
+      </div>
+      <div class="footer-col">
+        <b>Tüketici Hesabı</b>
+        <a href="#login" id="footerLoginLink">Tüketici Girişi / Üye Ol</a>
+        <a href="#orders" id="footerOrdersLink">Sipariş Takibi</a>
+        <a href="#support" id="footerSupportLink">Çağrı Merkezi & İade Güvencesi</a>
+      </div>
+      <div class="footer-col">
+        <b>Üretici Başvurusu</b>
+        <a href="#producer-apply" id="footerApplyLink">Tezgâh Aç (Yeni Başvuru)</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© 2026 Çiftçiden Aldım (`www.koraytasan.com/ciftcidenaldim`) — Canlı Müşteri Vitrini</span>
+      <span>Müşteri vitrininde DEMO örnekler gösterilmez; yalnızca onaylı gerçek üretici tezgâhları yer alır.</span>
+    </div>
+  </footer>
+
+  <!-- ÇOK TEZGÂHLI SEPET ÇEKMECESİ -->
+  <div class="backdrop" id="cartBackdrop" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Alışveriş sepeti">
+    <div class="cart-header">
+      <div>
+        <span class="eyebrow">AYRI TEZGÂH · AYRI GÖNDERİM</span>
+        <h2>Sepetim</h2>
+      </div>
+      <button class="icon-close" id="closeCartBtn" type="button" aria-label="Sepeti kapat">✕</button>
+    </div>
+
+    <div class="cart-rule-banner">
+      📦 <strong>Önemli:</strong> Her tezgâh kendi ürününü doğrudan gönderir. Farklı tezgâhlardan verilen siparişler merkez depoda birleştirilmez; her tezgâh için ayrı kargo ücreti oluşur.
+    </div>
+
+    <div class="cart-groups" id="cartGroups"></div>
+
+    <div class="cart-summary">
+      <div class="summary-row"><span>Ürünler Ara Toplamı</span><strong id="itemsSubtotal">0 TL</strong></div>
+      <div class="summary-row"><span>Tezgâh Kargoları (<b id="stallCount">0</b> ayrı gönderim)</span><strong id="shippingTotal">0 TL</strong></div>
+      <div class="summary-row total"><span>Genel Toplam</span><strong id="grandTotal">0 TL</strong></div>
+      <button class="btn btn-dark btn-full" id="checkoutBtn" type="button">Güvenli Ödeme Adımına Geç →</button>
+    </div>
+  </aside>
+
+  <!-- GENEL MODAL (TÜKETİCİ GİRİŞİ / SİPARİŞLERİM / DESTEK / TEZGÂH BAŞVURUSU) -->
+  <div class="backdrop" id="modalBackdrop" hidden></div>
+  <div class="modal" id="infoModal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-card">
+      <button class="icon-close modal-close" id="closeModalBtn" type="button" aria-label="Kapat">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="./shared-db.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Çiftçiden Aldım — Tezgâh Sahibi, Saha Danışmanı & Admin Moderasyon Portalı</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="../ciftcidenaldim/brand/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .admin-shell { width: min(1280px, calc(100% - 36px)); margin: 0 auto; }
+    .admin-card { background: #fff; border: 1px solid #dfe5dc; border-radius: 18px; padding: 22px; margin-bottom: 22px; box-shadow: 0 10px 26px rgba(20, 38, 25, 0.05); }
+    .demo-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: #fff3dc; color: #7c4d12; border: 1px solid #ebd0a1; font-size: 11px; font-weight: 800; }
+    .live-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: #e6f4ea; color: #194d2e; border: 1px solid #b7dfc2; font-size: 11px; font-weight: 800; }
+    .tab-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 22px; }
+    .tab-btn { padding: 10px 16px; border-radius: 12px; border: 1px solid #d5ddd4; background: #fff; font-weight: 800; font-size: 12.5px; color: #214d35; cursor: pointer; }
+    .tab-btn.active { background: #214d35; color: #fff; border-color: #214d35; }
+    .admin-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .admin-table th, .admin-table td { padding: 11px 12px; border-bottom: 1px solid #e4e8e1; text-align: left; vertical-align: top; }
+    .admin-table th { background: #f4f6f1; color: #214d35; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .form-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (max-width: 860px) { .form-grid-3, .form-grid-2 { grid-template-columns: 1fr; } }
+    .input-field { width: 100%; margin-top: 4px; padding: 9px 12px; border-radius: 9px; border: 1px solid #cfd8ce; font-size: 12.5px; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="announcement" style="background:#16291e;border-bottom:2px solid #b8873e;">
+    <span class="demo-tag">YETKİLİ MODERASYON & TEZGÂH YÖNETİM PORTALI</span>
+    <span>🛡️ www.koraytasan.com/admin.ciftcidenaldim — Tezgâh Sahibi, Saha Üretici Danışmanı, Gıda QA ve Süper Admin Ekranı</span>
+  </div>
+
+  <header class="header">
+    <div class="admin-shell header-main">
+      <a class="logo" href="/admin.ciftcidenaldim/" aria-label="Çiftçiden Aldım Admin">
+        <img src="../ciftcidenaldim/brand/logo-01-primary.svg" alt="Çiftçiden Aldım" />
+      </a>
+      <div style="margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <span id="activeAdminBadge" class="live-tag" hidden></span>
+        <a class="btn btn-ghost" href="/ciftcidenaldim/" style="min-height:38px;padding:8px 14px;font-size:12px;">
+          Canlı Müşteri Vitrinine Git (/ciftcidenaldim) ↗
+        </a>
+        <button id="adminLogoutBtn" type="button" class="btn btn-dark" style="min-height:38px;padding:8px 14px;font-size:12px;" hidden>
+          Çıkış Yap
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-shell" style="padding: 28px 0 64px;">
+    <!-- 1. YETKİLİ GİRİŞ EKRANI (MÜŞTERİ VİTRİNİNDE GÖRÜNMEZ) -->
+    <section id="adminLoginSection" class="admin-card" style="max-width: 660px; margin: 28px auto; border: 2px solid #214d35;">
+      <span class="demo-tag">YETKİLİ GİRİŞ KAPISI · SON KULLANICI TARAFINDA GİZLİDİR</span>
+      <h1 style="font-family:'Fraunces',serif;font-size:28px;color:#193b2a;margin:12px 0 8px;">
+        Tezgâh Sahibi, Saha Üretici Danışmanı & Admin Moderasyon Girişi
+      </h1>
+      <p style="font-size:13px;color:#5a675b;line-height:1.65;margin-bottom:18px;">
+        Standart müşteri girişi <code>/ciftcidenaldim</code> üzerinde yer alır. Üretici tezgâh yönetimi, saha danışmanı köy ziyaret kayıtları, Gıda QA onayları ve DEMO örnek ürün/tezgâh simülasyonları yalnızca bu yetkili portal üzerinden yürütülür.
+      </p>
+
+      <form id="adminLoginForm" style="display:grid;gap:12px;">
+        <label style="font-size:12px;font-weight:800;">
+          Giriş Yapılacak Yetki Rolü (RBAC)
+          <select id="loginRoleSelect" class="input-field" style="font-weight:700;">
+            <option value="SUPER_ADMIN">🏛️ Süper Admin & Platform Moderasyon (Tam Yetki)</option>
+            <option value="PRODUCER">🧑‍🌾 Tezgâh Sahibi / Üretici Girişi (Tezgâhım & Stok/Fiyat)</option>
+            <option value="FIELD_ADVISOR">🗺️ Saha Üretici Geliştirme Danışmanı (Köy Ziyaret & CRM — QA Onayı Veremez)</option>
+            <option value="QA_REVIEWER">🛡️ Gıda Güvenliği & Soğuk Zincir QA Uzmanı (Ürün/Tezgâh Yayın Onayı)</option>
+            <option value="FINANCE">💳 Finans & Hakediş Uzmanı (%15 Komisyon & %1 Stopaj)</option>
+          </select>
+        </label>
+
+        <div class="form-grid-2">
+          <label style="font-size:12px;font-weight:700;">
+            Kurumsal E-posta / Kayıtlı Telefon
+            <input id="loginIdentifier" required class="input-field" value="operasyon@ciftcidenaldim.com" />
+          </label>
+          <label style="font-size:12px;font-weight:700;">
+            Yetkili Şifre / Doğrulama Kodu
+            <input id="loginPassword" type="password" required class="input-field" value="••••••••••••" />
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-dark" style="margin-top:6px;">
+          Yetkili Yönetim Portalına Giriş Yap →
+        </button>
+      </form>
+    </section>
+
+    <!-- 2. YETKİLİ YÖNETİM PANELİ İÇERİĞİ -->
+    <section id="adminDashboardSection" hidden>
+      <div id="adminAlertBanner" class="admin-card" style="background:#eef6ec;border-color:#b7dfc2;font-weight:700;font-size:13px;" hidden></div>
+
+      <div class="tab-bar" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="tab-live">🟢 1. Canlı Vitrin (Gerçek Ürün & Tezgâh Yönetimi)</button>
+        <button type="button" class="tab-btn" data-tab="tab-demo">🏷️ 2. DEMO Örnek Ürün (12) & DEMO Tezgâhlar (12)</button>
+        <button type="button" class="tab-btn" data-tab="tab-producer">🧑‍🌾 3. Tezgâhım & WhatsApp Sesli/Metin Botu</button>
+        <button type="button" class="tab-btn" data-tab="tab-advisor">🗺️ 4. Saha Üretici Danışmanı CRM & Köy Ziyaret</button>
+        <button type="button" class="tab-btn" data-tab="tab-opensource">🔌 5. Açık Kaynak (43 Repo) & Vergi/QA Kalkanları</button>
+      </div>
+
+      <!-- TAB 1: GERÇEK ÜRÜN & TEZGÂH YÖNETİMİ (CANLI VİTRİN /ciftcidenaldim) -->
+      <div id="tab-live" class="tab-panel">
+        <div class="admin-card" style="border: 2px solid #214d35;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <span class="live-tag">GERÇEK SİSTEM VERİSİ (`isDemo: false`) · WWW.KORAYTASAN.COM/CIFTCIDENALDIM VİTRİNİ</span>
+              <h2 style="font-family:'Fraunces',serif;font-size:24px;margin:8px 0 4px;">
+                ➕ Canlı Müşteri Vitrinine Yeni Gerçek Tezgâh ve Gerçek Ürün Ekle
+              </h2>
+            </div>
+          </div>
+
+          <form id="createRealProductForm" style="margin-top:14px;display:grid;gap:12px;">
+            <div class="form-grid-3">
+              <label style="font-size:12px;font-weight:700;">
+                Gerçek Tezgâh Adı
+                <input name="stallName" required class="input-field" value="Ayvalık Cunda Taş Baskı Tezgâhı" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Üretici Ad Soyad / Kooperatif
+                <input name="producerName" required class="input-field" value="Hasan Hüseyin Zeybek" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                ÇKS / Gıda İşletme Kayıt No
+                <input name="regNo" required class="input-field" value="TR-10-K-045890" />
+              </label>
+            </div>
+
+            <div class="form-grid-3">
+              <label style="font-size:12px;font-weight:700;">
+                Çıkış İli (Yöre)
+                <select name="region" class="input-field">
+                  <option value="Balıkesir">Balıkesir</option>
+                  <option value="Kars">Kars</option>
+                  <option value="Malatya">Malatya</option>
+                  <option value="Gaziantep">Gaziantep</option>
+                  <option value="Tokat">Tokat</option>
+                  <option value="Aydın">Aydın</option>
+                  <option value="Muğla">Muğla</option>
+                  <option value="Hatay">Hatay</option>
+                  <option value="Bolu">Bolu</option>
+                </select>
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                İlçe / Köy
+                <input name="district" required class="input-field" value="Ayvalık" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Gerçek Ürün Adı
+                <input name="productName" required class="input-field" value="Erken Hasat Soğuk Sıkım Zeytinyağı" />
+              </label>
+            </div>
+
+            <div class="form-grid-3">
+              <label style="font-size:12px;font-weight:700;">
+                Kategori
+                <select name="category" class="input-field">
+                  <option value="zeytin-zeytinyagi">Zeytin & Zeytinyağı</option>
+                  <option value="sut-urunleri">Peynir & Süt</option>
+                  <option value="kuru-meyve">Kuru Meyve</option>
+                  <option value="kuruyemis">Kuruyemiş</option>
+                  <option value="sebze-meyve">Sebze & Meyve</option>
+                  <option value="kahvaltilik-recel-bal">Kahvaltılık & Bal</option>
+                  <option value="firindan">Fırından</option>
+                </select>
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Üretici Hedef Net Kazanç (TL)
+                <input id="realNetInput" name="desiredNetTl" type="number" required class="input-field" value="320" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Ambalaj / Koruma Maliyeti (TL)
+                <input id="realPackInput" name="packagingCostTl" type="number" required class="input-field" value="16" />
+              </label>
+            </div>
+
+            <div class="form-grid-3">
+              <label style="font-size:12px;font-weight:700;">
+                Birim (`1 kg`, `1 L`, `500 g`)
+                <input name="unit" required class="input-field" value="1 L" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Stok Miktarı
+                <input name="stock" type="number" required class="input-field" value="50" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Sevkiyat Profili & Tezgâh Kargosu
+                <select name="shippingProfile" class="input-field">
+                  <option value="liquid">Sıvı / Cam Korumalı (109 TL Kargo)</option>
+                  <option value="dry_ambient">Kuru Gıda Oda Sıcaklığı (89 TL Kargo)</option>
+                  <option value="fresh_fragile">Taze / Hassas Sebze-Meyve (129 TL Kargo)</option>
+                  <option value="chilled">Soğuk Zincir +2/+4°C (189 TL Kargo)</option>
+                </select>
+              </label>
+            </div>
+
+            <div style="padding:12px 14px;background:#f2f6ef;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12.5px;">
+              <span id="realPricePreviewText"></span>
+              <label style="display:flex;align-items:center;gap:8px;font-weight:800;">
+                <input type="checkbox" name="approveNow" checked />
+                QA Onaylı Olarak Hemen Canlı Vitrine (`/ciftcidenaldim`) Yayınla
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-dark">
+              🟢 Gerçek Tezgâhı & Ürünü Kaydet ve Canlı Vitrine Gönder →
+            </button>
+          </form>
+        </div>
+
+        <div class="admin-card">
+          <h3 style="font-family:'Fraunces',serif;font-size:21px;margin-bottom:12px;">
+            Canlı Vitrindeki Gerçek Ürünler (`isDemo: false`) ve Üretici Başvuruları
+          </h3>
+          <div id="realCatalogTableWrap"></div>
+        </div>
+      </div>
+
+      <!-- TAB 2: DEMO ÖRNEK ÜRÜNLER VE TEZGÂHLAR (SADECE ADMIN PANELİNDE GÖRÜNÜR) -->
+      <div id="tab-demo" class="tab-panel" hidden>
+        <div class="admin-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+            <div>
+              <span class="demo-tag">🏷️ DEMO ÖRNEK VERİLER (`isDemo: true`) · MÜŞTERİ VİTRİNİNDE (`/ciftcidenaldim`) GÖRÜNMEZ</span>
+              <h2 style="font-family:'Fraunces',serif;font-size:24px;margin-top:8px;">
+                🧪 DEMO Örnek Ürünler (12 Adet) & DEMO Tezgâhlar (12 Adet)
+              </h2>
+            </div>
+            <button type="button" id="runDemoMultiStallCartBtn" class="btn btn-ochre" style="font-size:12px;">
+              ⚡ DEMO Sepet Testi: Kars Kaşarı + Ayvalık Zeytinyağı (2 Ayrı Kargo)
+            </button>
+          </div>
+          <div id="demoMultiStallTestOutput" style="margin-bottom:14px;" hidden></div>
+          <div id="demoProductsTableWrap" style="overflow-x:auto;"></div>
+        </div>
+      </div>
+
+      <!-- TAB 3: TEZGÂHIM (ÜRETİCİ PANELİ) & WHATSAPP SESLİ/METİN BOTU -->
+      <div id="tab-producer" class="tab-panel" hidden>
+        <div class="form-grid-2">
+          <div class="admin-card">
+            <span class="live-tag">BÖLÜM 6 · 30+4 VE %15 => 40 TL FİYAT MOTORU</span>
+            <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:8px 0;">
+              🧑‍🌾 Tezgâhım — Canlı Kuruş Fiyat & Komisyon Hesaplayıcı
+            </h3>
+            <p style="font-size:12.5px;color:#5a675b;margin-bottom:12px;">
+              Müşteri ekranında %15 komisyon veya üretici net bedeli gösterilmez; yalnızca satıcı ve admin bu kırılımı görür:
+            </p>
+            <div class="form-grid-2">
+              <label style="font-size:12px;font-weight:700;">
+                Üretici Hedef Net (TL)
+                <input id="calcNetTl" type="number" class="input-field" value="30" />
+              </label>
+              <label style="font-size:12px;font-weight:700;">
+                Ambalaj Maliyeti (TL)
+                <input id="calcPackTl" type="number" class="input-field" value="4" />
+              </label>
+            </div>
+            <div id="calcBreakdownOutput" style="margin-top:14px;padding:14px;background:#f2f6ef;border-radius:12px;font-size:12.5px;line-height:1.7;"></div>
+          </div>
+
+          <div class="admin-card">
+            <span class="demo-tag">WA-01 (META CLOUD API) + AI-01 (FASTER-WHISPER) + WA-06 (TYPEBOT)</span>
+            <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:8px 0;">
+              💬 WhatsApp Sesli/Metin Bot Simülatörü (&ldquo;Evet&rdquo; Onay Kapısı)
+            </h3>
+            <div id="waSimLog" style="background:#e9e2d6;padding:12px;border-radius:12px;min-height:170px;font-size:12.5px;display:flex;flex-direction:column;gap:8px;"></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button type="button" id="waVoiceBtn" class="btn btn-ghost" style="font-size:11.5px;min-height:34px;padding:6px 10px;">
+                🎙️ 1. Türkçe Sesli Mesaj Gönder ("kırk kilo domates kırk beş lira")
+              </button>
+              <button type="button" id="waConfirmYesBtn" class="btn btn-ochre" style="font-size:11.5px;min-height:34px;padding:6px 10px;">
+                ✅ 2. "Evet" ile Açık Onay Ver (DB Güncellenir)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: SAHA ÜRETİCİ DANIŞMANI CRM & KÖY ZİYARET -->
+      <div id="tab-advisor" class="tab-panel" hidden>
+        <div class="admin-card">
+          <span class="live-tag">BÖLÜM 8 · FIELD-01 (DIRECTUS) & FIELD-02 (APPSMITH) KÖY MOBİL KAYIT</span>
+          <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:8px 0;">
+            🗺️ Saha Üretici Geliştirme Danışmanı — Köy Ziyaret & Görev Ayrılığı Kalkanı
+          </h3>
+          <p style="font-size:12.5px;color:#5a675b;line-height:1.65;">
+            Saha danışmanı köy ziyaretinde üreticinin ÇKS/İşletme belgesini, üretim yerini ve paketleme eğitimini kaydeder; ancak <strong>görev ayrılığı ilkesi</strong> gereği kendi kaydettiği tezgâha doğrudan QA satış onayı veremez.
+          </p>
+          <div style="margin-top:12px;padding:14px;background:#fff6e8;border-radius:12px;font-size:12.5px;">
+            <strong>Aktif Saha Ziyaretleri:</strong> Kars Boğatepe (s1 - Onaylı), Ayvalık Cunda (s2 - Onaylı), Trabzon Tonya Yayla Mandırası (s7 - Soğuk Zincir Logger Testi Bekliyor), Bursa Karacabey Çamlıbel Çiftliği (s9 - Yumurta Viyol Düşme Testi Bekliyor).
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: 43 AÇIK KAYNAK REPO & VERGİ/QA KALKANLARI -->
+      <div id="tab-opensource" class="tab-panel" hidden>
+        <div class="admin-card">
+          <span class="live-tag">GITHUB_KAYNAK_LISTESI.CSV · 43 AÇIK KAYNAK PROJE MATRİSİ</span>
+          <h3 style="font-family:'Fraunces',serif;font-size:22px;margin:8px 0;">
+            🔌 Entegre Açık Kaynak Altyapılar ve Üretim Güvenlik Kilitleri
+          </h3>
+          <ul style="font-size:12.5px;line-height:1.8;color:#2f3e32;padding-left:18px;">
+            <li><strong>CORE-01..08 (Mercur/Medusa, Sylius, Bagisto):</strong> Çoklu satıcı tezgâh, komisyon ve 7 adımlı QA durum makinesi.</li>
+            <li><strong>WA-01, WA-06, AI-01, AI-02 (Meta Cloud API, Typebot, faster-whisper, LangGraph):</strong> Türkçe sesli mesaj normalizasyonu ve iki aşamalı &ldquo;Evet&rdquo; onay kapısı. (<code>WA-02 Baileys</code> ve <code>WA-04 whatsapp-web.js</code> canlı üretimde ban/KVKK riski nedeniyle kilitlidir).</li>
+            <li><strong>PAY-01..03 (iyzico Sub-Merchant & PayTR Pazaryeri):</strong> %85 üretici hakedişi, %15 platform komisyonu ve %1 e-ticaret stopajı ayrıştırması.</li>
+            <li><strong>SHIP-01..02 (AnadoluShip):</strong> Yurtiçi, Aras, MNG/DHL, PTT ve Soğuk Zincir Thermo Ekspres doğrudan üretici çıkışlı barkod matrisi.</li>
+            <li><strong>TAX-01..03 (GİB e-Arşiv & e-Müstahsil Kalkanı):</strong> Değiştirilemez Kural #1 uyarınca platform mal alıp satmaz (Aracı Hizmet Model A). e-Müstahsil (e-MM) yalnızca SMMM onayı ve yetkili özel entegratör ile kullanılabilir.</li>
+            <li><strong>DOC-01..03 (PaddleOCR & OpenFoodFacts Kalkanı):</strong> Sertifika OCR taraması her zaman insan QA onayı şart koşar; OpenFoodFacts verisi üretici belgesi yerine kullanılamaz.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../ciftcidenaldim/shared-db.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>
