@@ -305,3 +305,29 @@
 .album-meta-head {
   margin-bottom: 24px;
 }
+
+/* Album Presentation & EPK Layout */
+.album-presentation-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .album-presentation-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+.press-kit-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .press-kit-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
