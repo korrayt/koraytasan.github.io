@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 100" width="100%" height="100%">
+<defs>
+  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#E52D27" />
+    <stop offset="100%" stop-color="#B31217" />
+  </linearGradient>
+  <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+    <stop offset="0%" stop-color="#FF5722" />
+    <stop offset="55%" stop-color="#FFC107" />
+    <stop offset="100%" stop-color="#FFF9C4" />
+  </linearGradient>
+  <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+    <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.35"/>
+  </filter>
+</defs>
+<g transform="translate(5, 0)">
+  <g id="emblem">
+  <!-- Outer Shield Shadow / Base -->
+  <path d="M50 6 C74 6 92 14 92 28 C92 64 68 88 50 96 C32 88 8 64 8 28 C8 14 26 6 50 6 Z" fill="url(#shieldGrad)" filter="url(#dropShadow)"/>
+  <!-- Inner Shield Trim Line -->
+  <path d="M50 11 C70 11 86 18 86 30 C86 61 65 83 50 90 C35 83 14 61 14 30 C14 18 30 11 50 11 Z" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+  <!-- Stylized Industrial Y Form -->
+  <path d="M26 26 L42 26 L50 44 L58 26 L74 26 L57 58 L57 78 L43 78 L43 58 Z" fill="#FFFFFF"/>
+  <!-- Dynamic Core Flame nestled in Y -->
+  <path d="M50 32 C54 38 60 45 57 52 C55 57 48 59 48 64 C48 69 53 72 50 76 C46 72 43 67 43 61 C43 53 50 47 48 41 C47 38 48 35 50 32 Z" fill="url(#flameGrad)"/>
+</g>
+</g>
+<g transform="translate(115, 0)">
+  <text x="0" y="47" font-family="'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="29" font-weight="900" fill="#14202A" letter-spacing="1.5">YAVUZ YANGIN</text>
+  <text x="2" y="73" font-family="'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#D92835" letter-spacing="5">GÜVENLİK SİSTEMLERİ</text>
+  <line x1="2" y1="84" x2="310" y2="84" stroke="#E2E8F0" stroke-width="1.5" />
+</g>
+</svg>
