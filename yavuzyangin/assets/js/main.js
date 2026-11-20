@@ -93,7 +93,7 @@ function initCalculator() {
 function initModal() {
   const modal = document.getElementById('quote-modal');
   const openBtns = document.querySelectorAll('.open-quote-modal');
-  const closeBtn = document.querySelector('.modal-close');
+  const closeBtns = document.querySelectorAll('.modal-close, .modal-close-btn');
 
   if (!modal) return;
 
@@ -104,9 +104,12 @@ function initModal() {
     });
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-  }
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modal.classList.remove('is-open');
+    });
+  });
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('active');
