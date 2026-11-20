@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürünlerimiz ve Yangın Güvenlik Sistemleri | Yavuz Yangın</title>
+  <meta name="description" content="Yavuz Yangın Güvenlik ürün kataloğu: Yangın tüpleri, yangın dolapları, hortumlar, adresli algılama sistemleri, hidrantlar, vanalar ve otomatik söndürme ekipmanları.">
+  <meta name="keywords" content="yangın tüpleri, yangın dolapları, adresli yangın algılama, yangın hortumları, yangın hidrantı, sprinkler, FM200, itfaiyeci elbiseleri, yavuz yangın ürünler">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.koraytasan.com/yavuzyangin/urunler.html">
+  <meta property="og:title" content="Yavuz Yangın Güvenlik Ürün Kataloğu">
+  <meta property="og:description" content="TS EN ve TSE standartlarında yangın söndürme cihazları, dolapları, algılama sistemleri ve koruyucu donanımlar.">
+  <meta property="og:image" content="./assets/images/Endüstriyel Yangın Güvenliği Denetimi-4.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/logo/yavuz-icon-dark.svg">
+  <link rel="alternate icon" href="./assets/logo/favicon.ico">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    .products-hero {
+      background: #0A1118;
+      color: #FFFFFF;
+      padding: 70px 0 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+    .products-hero h1 {
+      font-size: 3rem;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .products-hero p {
+      font-size: 1.15rem;
+      color: #CBD5E1;
+      max-width: 780px;
+      margin: 0 auto 30px;
+    }
+    .catalog-filter-bar {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      position: sticky;
+      top: 84px;
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .catalog-pills {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      list-style: none;
+    }
+    .catalog-pills::-webkit-scrollbar {
+      height: 4px;
+    }
+    .catalog-pills::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .catalog-pill-link {
+      white-space: nowrap;
+      padding: 8px 16px;
+      background: #F1F5F9;
+      color: #334155;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .catalog-pill-link:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      padding: 60px 0 90px;
+    }
+    .product-cat-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-cat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+    .product-cat-img-box {
+      height: 220px;
+      position: relative;
+      background: #0A1118;
+      overflow: hidden;
+    }
+    .product-cat-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-cat-card:hover .product-cat-img-box img {
+      transform: scale(1.06);
+    }
+    .product-cat-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(10, 17, 24, 0.88);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .product-cat-content {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-cat-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .product-cat-title {
+      font-size: 1.4rem;
+      color: #0F172A;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .product-cat-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .product-sub-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-xs);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .product-sub-title {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .product-sub-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .product-sub-list li {
+      font-size: 0.85rem;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .product-sub-list li::before {
+      content: '•';
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar-dark">
+    <div class="container">
+      <div class="top-bar-tagline">
+        İSTANBUL MERKEZLİ / GÜVENLİK SÜREKLİLİK İSTER
+      </div>
+      <div class="top-bar-links">
+        <a href="tel:+902164842424">📞 (0216) 484 24 24</a>
+        <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="top-wa-highlight">
+          💬 WhatsApp: (0532) 414 92 88
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar-dark">
+    <div class="container">
+      <a href="./index.html" class="nav-brand">
+        <img src="./assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik Logo">
+      </a>
+      <ul class="nav-links-dark">
+        <li><a href="./index.html">ANA SAYFA</a></li>
+        <li><a href="./urunler.html" class="active">ÜRÜNLERİMİZ</a></li>
+        <li><a href="./index.html#hizmetler">HİZMETLER</a></li>
+        <li><a href="./index.html#hesaplayici">HESAPLAYICI</a></li>
+        <li><a href="./blog.html">İSG & BLOG</a></li>
+        <li><a href="./index.html#iletisim">İLETİŞİM</a></li>
+      </ul>
+      <div>
+        <a href="./index.html#teklif" class="nav-cta-btn open-quote-modal">TEKLİF TALEP ET</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="products-hero">
+    <div class="container">
+      <span class="services-tag-red">TAM KAPSAMLI ÜRÜN ENVANTERİ</span>
+      <h1>Ürünlerimiz ve Yangın Güvenlik Donanımları</h1>
+      <p>
+        TSE EN, CE ve DIN standartlarına uygun taşınabilir yangın söndürücülerden akıllı adresli algılama sistemlerine, hidrantlardan itfaiyeci koruyucu donanımlarına kadar işletmenizin tüm ihtiyaçları.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="https://wa.me/905324149288?text=Merhaba,%20kurumsal%20toplu%20urun%20fiyat%20listesi%20ve%20katalog%20talep%20ediyorum." target="_blank" class="btn btn-whatsapp">
+          💬 WhatsApp ile Katalog & Proforma İste
+        </a>
+        <a href="./index.html#iletisim" class="btn btn-primary">
+          📑 Yazılı Kurumsal Teklif Al
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Category Links Bar -->
+  <div class="catalog-filter-bar">
+    <div class="container">
+      <ul class="catalog-pills">
+        <li><a href="#yangin-tupleri" class="catalog-pill-link">Tüpler</a></li>
+        <li><a href="#yangin-dolaplari" class="catalog-pill-link">Dolaplar</a></li>
+        <li><a href="#yangin-hortumlari" class="catalog-pill-link">Hortumlar</a></li>
+        <li><a href="#yangin-algilama" class="catalog-pill-link">Algılama & Alarm</a></li>
+        <li><a href="#vucut-koruyucu" class="catalog-pill-link">Koruyucu Donanım</a></li>
+        <li><a href="#hidrantlar" class="catalog-pill-link">Hidrantlar</a></li>
+        <li><a href="#vana-rekor-lans" class="catalog-pill-link">Vana & Lanslar</a></li>
+        <li><a href="#otomatik-sondurme" class="catalog-pill-link">Otomatik Söndürme</a></li>
+        <li><a href="#yonlendirme-aydinlatma" class="catalog-pill-link">Acil Aydınlatma</a></li>
+        <li><a href="#kimyasallar" class="catalog-pill-link">Kimyasallar & Toz</a></li>
+        <li><a href="#kurtarma-ekipmanlari" class="catalog-pill-link">Kurtarma</a></li>
+        <li><a href="#dolum-bakim-servis" class="catalog-pill-link">Dolum & Bakım</a></li>
+        <li><a href="#egitim-risk-analizi" class="catalog-pill-link">Eğitim & Tatbikat</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <main class="container">
+    <div class="products-grid">
+        <!-- Kategori 01: Yangın Söndürme Cihazları -->
+        <div class="product-cat-card" id="yangin-tupleri">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TS EN 3-7 Onaylı</span>
+            <img src="./assets/images/03_60_saniyede_guvenlik.jpg" alt="Yangın Söndürme Cihazları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 01</span>
+            <h3 class="product-cat-title">Yangın Söndürme Cihazları</h3>
+            <p class="product-cat-desc">TSE soğuk damgalı, yüksek basınç testli gövde ve %40-%90 MAP orijinal kimyasal toz.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>1, 2, 4, 6, 9, 12 kg ABC Kuru Kimyevi Tozlu Söndürücüler</li>
+            <li>25 kg ve 50 kg Tekerlekli Arabalı KKT Cihazları</li>
+            <li>2 kg, 5 kg, 10 kg ve 30 kg Karbondioksitli (CO2) Söndürücüler</li>
+            <li>HFC-236 / Halokarbon Temiz Gazlı Söndürücüler</li>
+            <li>6 Lt ve 9 Lt ABF Tipi Sıvı Kimyasallı & Köpüklü Cihazlar</li>
+            <li>Tavan Tipi Sprinklerli Otomatik Askılı Söndürücüler</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Söndürme Cihazları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 02: Yangın Dolapları ve Makaralar -->
+        <div class="product-cat-card" id="yangin-dolaplari">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TS EN 671-1 & 671-2</span>
+            <img src="./assets/images/yavuz (1).jpg" alt="Yangın Dolapları ve Makaralar" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 02</span>
+            <h3 class="product-cat-title">Yangın Dolapları ve Makaralar</h3>
+            <p class="product-cat-desc">Binalarda itfaiye gelene kadar suyla müdahale imkanı sağlayan TS EN onaylı dolap sistemleri.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>TS EN 671-1 1" Yarı Sert Kauçuk Hortumlu Tüplü / Tüpsüz Dolaplar</li>
+            <li>TS EN 671-2 2" Yassı Bez Hortumlu Yangın Dolapları</li>
+            <li>Şaft Tipi ve Arabalı Yangın Hortum Makaraları</li>
+            <li>Seyyar ve Sabit Köpük Dolapları, Seyyar Köpük Yapıcılar</li>
+            <li>Açık Alan Hidrant Dolapları ve Hortum Saklama Dolapları</li>
+            <li>Paslanmaz Krom ve Cam Kapaklı Özel Mimari Modeller</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Dolapları ve Makaralar%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 03: Yangın Hortumları -->
+        <div class="product-cat-card" id="yangin-hortumlari">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TS 9222 & DIN 14811</span>
+            <img src="./assets/images/05_her_tesisin_riski_farkli.jpg" alt="Yangın Hortumları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 03</span>
+            <h3 class="product-cat-title">Yangın Hortumları</h3>
+            <p class="product-cat-desc">Aşınmaya, basınca ve kimyasallara dayanıklı yerli ve ithal kauçuk yangın hortumları.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Yerli Sentetik Beyaz Kauçuk ve PVC Yangın Hortumları (Kuleli / Horeks)</li>
+            <li>Yerli Sentetik Kırmızı Kauçuk Dış Kaplamalı Hortumlar</li>
+            <li>Alman İthal Eschbach Marka Ağır Hizmet Tipi Kırmızı Kauçuk Hortumlar</li>
+            <li>1.5", 2", 2.5" ve 3" Çaplarında 20m - 25m - 30m Boy Seçenekleri</li>
+            <li>Alman Storz Kaplinli Pres Bağlantılı Hazır Hortum Grupları</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Hortumları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 04: Yangın Algılama ve Uyarı Sistemleri -->
+        <div class="product-cat-card" id="yangin-algilama">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">EN 54 Uyumlu</span>
+            <img src="./assets/images/Tavan Sensörünü İnceleyen Teknisyen-1.png" alt="Yangın Algılama ve Uyarı Sistemleri" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 04</span>
+            <h3 class="product-cat-title">Yangın Algılama ve Uyarı Sistemleri</h3>
+            <p class="product-cat-desc">Yangını başlangıç anında tespit ederek tahliye ve söndürme sistemlerini tetikleyen akıllı ağlar.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Adresli Yangın Algılama Panelleri (Tek, 2 ve 4 Loop Santraller)</li>
+            <li>Adresli ve Konvansiyonel Optik Duman, Isı ve Kombine Dedektörler</li>
+            <li>Işın Tipi (Beam) Yüksek Tavan ve Depo Tipi Duman Dedektörleri</li>
+            <li>Kırbas Tipi Yangın İhbar Butonları ve Flaşörlü Sirenler</li>
+            <li>Bağımsız Pilli ve Röleli Ev/Ofis Duman Dedektörleri</li>
+            <li>Havalandırma, Asansör ve Yangın Damperi Entegrasyon Modülleri</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              <a href="./urunler/adresli-yangin-algilama-sistemi.html" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.88rem; width: 100%; margin-bottom: 8px;">Detaylı Sistemi İncele →</a>
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Algılama ve Uyarı Sistemleri%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 05: Vücut ve Solunum Koruyucular -->
+        <div class="product-cat-card" id="vucut-koruyucu">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">EN 469 & EN 136</span>
+            <img src="./assets/images/yavuz (4).jpg" alt="Vücut ve Solunum Koruyucular" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 05</span>
+            <h3 class="product-cat-title">Vücut ve Solunum Koruyucular</h3>
+            <p class="product-cat-desc">İtfaiyecilerin ve acil durum ekiplerinin yüksek ısı, alev ve zehirli gazdan korunma donanımları.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Nomex, Alüminize ve PBI Yangına Müdahale Elbiseleri (EN 469)</li>
+            <li>Profesyonel İtfaiyeci Baretleri (Bullard, Casco ve Fiberglas Modeller)</li>
+            <li>Isıya Dayanıklı İtfaiyeci Eldivenleri, Çizmeleri ve Alev Almaz Başlıklar</li>
+            <li>Temiz Hava Solunum Setleri (Çelik ve Ultra Hafif Kompozit Tüplü)</li>
+            <li>Tam Yüz ve Yarım Yüz Gaz Maskeleri, NBC Kaçış Başlıkları</li>
+            <li>Organik Gaz, Asit ve Toz Kombine Koruma Filtreleri</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Vücut ve Solunum Koruyucular%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 06: Yangın Hidrantları ve Hat Ekipmanları -->
+        <div class="product-cat-card" id="hidrantlar">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TS 2821 / NFPA</span>
+            <img src="./assets/images/yy (1).jpg" alt="Yangın Hidrantları ve Hat Ekipmanları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 06</span>
+            <h3 class="product-cat-title">Yangın Hidrantları ve Hat Ekipmanları</h3>
+            <p class="product-cat-desc">Fabrika sahaları, kampüsler ve organize sanayi bölgeleri için yer altı ve yer üstü hidrant şebekesi.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Yer Üstü Çift Çıkışlı Döküm Yangın Hidrantları (DN80, DN100, DN150)</li>
+            <li>Yer Altı Yangın Hidrantları ve Yeraltı Açma Anahtarları</li>
+            <li>Hidrant Hattı Kesme Vanaları (Post İndikatör Göstergeli Vanalar)</li>
+            <li>Saha Tipi Sac ve Paslanmaz Hidrant Malzeme Saklama Dolapları</li>
+            <li>İkiz İtfaiye Bağlantı Ağızları ve Basınç Düşürücü Donanımlar</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Hidrantları ve Hat Ekipmanları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 07: Yangın Vana, Rekor ve Lanslar -->
+        <div class="product-cat-card" id="vana-rekor-lans">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">DIN / Storz Standart</span>
+            <img src="./assets/images/yy (2).jpg" alt="Yangın Vana, Rekor ve Lanslar" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 07</span>
+            <h3 class="product-cat-title">Yangın Vana, Rekor ve Lanslar</h3>
+            <p class="product-cat-desc">Söndürme hatlarının yönlendirilmesi, su debisinin ayarlanması ve bağlantı armatürleri.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>2" ve 2 1/2" Alman Tip İtfaiye Su Alma Vanaları</li>
+            <li>Alman Storz Tipi Hortum Rekorları, Redüksiyonlar ve Kör Kapaklar</li>
+            <li>Ayarlı Sis Lansları, Kumandalı Turbo Nozullar, Perdelemeli Lanslar</li>
+            <li>Köpük Lansları ve Hat Tipi Köpük Melanjörleri</li>
+            <li>İkili ve Üçlü Su Dağıtıcıları (Kolektörler)</li>
+            <li>Rekor Sıkma Anahtarları ve Enjeksiyon Kelepçeleri</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Vana, Rekor ve Lanslar%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 08: Otomatik Söndürme Sistemleri -->
+        <div class="product-cat-card" id="otomatik-sondurme">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">NFPA & ISO 14520</span>
+            <img src="./assets/images/10_gorunmeyen_risk.jpg" alt="Otomatik Söndürme Sistemleri" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 08</span>
+            <h3 class="product-cat-title">Otomatik Söndürme Sistemleri</h3>
+            <p class="product-cat-desc">İnsan müdahalesine gerek kalmadan yangını saniyeler içinde bastıran ileri mühendislik sistemleri.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>FM-200 ve Novec 1230 Temiz Gazlı Yangın Söndürme Sistemleri</li>
+            <li>Karbondioksitli (CO2) ve İnert Gazlı Yüksek Basınçlı Sistemler</li>
+            <li>Islak ve Kuru Borulu Otomatik Sprinkler Yangın Söndürme Şebekesi</li>
+            <li>Davlumbaz Otomatik Sıvı Kimyasal Yangın Söndürme (Mutfaklar için)</li>
+            <li>Elektrik Panoları İçin Mikro Tubing Otomatik Pano İçi Söndürme</li>
+            <li>Köpüklü Söndürme Sistemleri ve Bladder Tank Üniteleri</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Otomatik Söndürme Sistemleri%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 09: Yönlendirme ve Acil Aydınlatma -->
+        <div class="product-cat-card" id="yonlendirme-aydinlatma">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TS EN 1838</span>
+            <img src="./assets/images/yy (3).jpg" alt="Yönlendirme ve Acil Aydınlatma" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 09</span>
+            <h3 class="product-cat-title">Yönlendirme ve Acil Aydınlatma</h3>
+            <p class="product-cat-desc">Elektrik kesintisinde tahliye yollarını gösteren ışıklı armatürler ve fotolüminesan levhalar.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>LED Işıklı Acil Çıkış (EXIT) Yönlendirme Armatürleri</li>
+            <li>Karanlıkta En Az 60 Dakika Parlayan Fotolüminesan İkaz Levhaları</li>
+            <li>Acil Kaçış Yolu ve Yangın Merdiveni Yönlendirme Panoları</li>
+            <li>3 Saat Bataryalı Kesintisiz Acil Aydınlatma Spot Armatürleri</li>
+            <li>Yangın Tüpü, Buton ve Dolap Yer Belirleme Fosforlu Tabelaları</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yönlendirme ve Acil Aydınlatma%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 10: Yangın Söndürme Kimyasalları -->
+        <div class="product-cat-card" id="kimyasallar">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">MSDS & TSE Onaylı</span>
+            <img src="./assets/images/06_kontrol_edildi.jpg" alt="Yangın Söndürme Kimyasalları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 10</span>
+            <h3 class="product-cat-title">Yangın Söndürme Kimyasalları</h3>
+            <p class="product-cat-desc">Orijinal fabrika dolumlarında kullanılan sertifikalı söndürücü tozlar ve köpük konsantreleri.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>%40 ve %90 MAP Oranlı ABC Kuru Kimyevi Söndürücü Tozlar</li>
+            <li>Sentetik ve Protein Esaslı AFFF Yangın Söndürme Köpükleri (%1, %3, %6)</li>
+            <li>Alkol Dirençli AR-AFFF Köpük Konsantreleri (Kimya Sanayi)</li>
+            <li>F Sınıfı Mutfak Yağ Söndürme Sıvı Kimyasalları</li>
+            <li>Özel D Sınıfı Hafif Metal Yangını Tozları (Magnezyum / Alüminyum)</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Söndürme Kimyasalları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 11: Kurtarma Ekipmanları -->
+        <div class="product-cat-card" id="kurtarma-ekipmanlari">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">Arama Kurtarma</span>
+            <img src="./assets/images/yavuz yangın demo (2).png" alt="Kurtarma Ekipmanları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 11</span>
+            <h3 class="product-cat-title">Kurtarma Ekipmanları</h3>
+            <p class="product-cat-desc">Afet, göçük ve yangın anında personeli tahliye etmek için profesyonel kurtarma araçları.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Hidrolik ve Akülü Kurtarma Kesicileri, Ayırıcılar ve Ramlar</li>
+            <li>Pnömatik Hava Yastıkları ve Göçük Kaldırma Krikoları</li>
+            <li>Yüksekten İndirme Kurtarma Halatları, Emniyet Kemerleri ve Karabinler</li>
+            <li>Hava Yastıklı Atlama Yatakları ve Portatif Kurtarma Sedyesi</li>
+            <li>Alev Geçirmez Yangın Battaniyeleri ve Termal Battaniyeler</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Kurtarma Ekipmanları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 12: Yangın Söndürme Cihaz Dolumları -->
+        <div class="product-cat-card" id="dolum-bakim-servis">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">TSE HYB İstasyonu</span>
+            <img src="./assets/images/Yangın Güvenliği Denetim ve Bakım Panosu-3.png" alt="Yangın Söndürme Cihaz Dolumları" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 12</span>
+            <h3 class="product-cat-title">Yangın Söndürme Cihaz Dolumları</h3>
+            <p class="product-cat-desc">TS ISO 11602-2 standardında yerinde muayene, tartım, dolum ve hidrostatik test hizmeti.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>Kuru Kimyevi Tozlu (ABC) ve CO2 Cihazların Yıllık Dolum ve Bakımı</li>
+            <li>Dolum Esnasında Tesisin Korumasız Kalmaması İçin Ücretsiz İkame Tüp</li>
+            <li>10 Yıllık Gövde Mukavemet Hidrostatik Basınç Testi</li>
+            <li>Barkodlu Dijital Bakım Karnesi ve İSG Teslim Tutanakları</li>
+            <li>Vana, Diyafram Manometre, Emniyet Pimi ve Mühür Yenileme</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Söndürme Cihaz Dolumları%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kategori 13: Yangın Eğitim ve Risk Değerlendirme -->
+        <div class="product-cat-card" id="egitim-risk-analizi">
+          <div class="product-cat-img-box">
+            <span class="product-cat-tag">6331 İSG Uyumlu</span>
+            <img src="./assets/images/Yangın Güvenliği Denetim Kolajı-2.png" alt="Yangın Eğitim ve Risk Değerlendirme" loading="lazy">
+          </div>
+          <div class="product-cat-content">
+            <span class="product-cat-num">KATEGORİ 13</span>
+            <h3 class="product-cat-title">Yangın Eğitim ve Risk Değerlendirme</h3>
+            <p class="product-cat-desc">İşletme personeline uygulamalı söndürme eğitimi, tahliye tatbikatı ve saha yangın risk raporu.</p>
+            
+            <div class="product-sub-box">
+              <span class="product-sub-title">Öne Çıkan Ürün ve Sistemler:</span>
+              <ul class="product-sub-list">
+            <li>İşletmelere Özel Sertifikalı Temel Yangın Güvenliği Eğitimi</li>
+            <li>Saha Yangın Tahliye Tatbikatı Organizasyonu ve Resmi Tatbikat Raporu</li>
+            <li>Acil Durum Yangın Ekipleri Eğitimi (Söndürme, Kurtarma, Koruma)</li>
+            <li>İşletme Yangın Yükü ve Risk Değerlendirme Saha Raporu</li>
+            <li>Acil Durum Yangın Tahliye Krokilerinin Hazırlanması</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: auto; padding-top: 16px;">
+              
+              <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20Yangın Eğitim ve Risk Değerlendirme%20hakk%C4%B1nda%20fiyat%20ve%20stok%20bilgisi%20almak%20istiyorum." target="_blank" class="btn btn-outline" style="width: 100%; padding: 10px 18px; font-size: 0.88rem;">
+                💬 Fiyat ve Stok Sor (WhatsApp)
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-master">
+    <div class="container">
+      <div class="footer-master-flex">
+        <div>
+          <img src="./assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik" style="height: 38px; margin-bottom: 10px;">
+          <p>© 2026 Yavuz Yangın Güvenlik Sistemleri. Tüm hakları saklıdır.</p>
+        </div>
+        <div class="footer-disclaimer">
+          YAVUZ YANGIN GÜVENLİK / KURUMSAL ÜRÜN VE SİSTEM KATALOĞU
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
