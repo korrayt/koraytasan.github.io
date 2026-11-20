@@ -576,3 +576,33 @@
   box-shadow: 0 8px 24px rgba(224, 38, 50, 0.5) !important;
   color: #FFFFFF !important;
 }
+
+
+/* In-body Technical Figures */
+.article-inbody-figure {
+  margin: 36px 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #0E1722;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+.article-inbody-figure img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+}
+.article-inbody-figure figcaption {
+  padding: 12px 18px;
+  font-size: 0.86rem;
+  color: #475569;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.article-inbody-figure figcaption strong {
+  color: var(--primary);
+  margin-right: 4px;
+}
