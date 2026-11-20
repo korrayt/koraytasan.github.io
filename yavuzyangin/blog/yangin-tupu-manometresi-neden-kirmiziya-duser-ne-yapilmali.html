@@ -52,41 +52,44 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-bar-left">
-        <span class="top-pill">⚡ TSE HYB ONAYLI SERVİS</span>
-        <span>İstanbul & Marmara Bölgesi Yerinde Dolum & Ücretsiz Keşif Servisi</span>
+    <!-- Top Bar -->
+  <header class="topbar-enterprise">
+    <div class="container topbar-flex">
+      <div class="topbar-left">
+        <span><span class="status-dot"></span> <strong>İSTANBUL MERKEZLİ</strong> / TSE HYB 11827 BELGELİ HİZMET</span>
+        <span style="color: rgba(255,255,255,0.2);">|</span>
+        <span>Hafta İçi: 08:30 - 18:30 &bull; 7/24 Acil Müdahale</span>
       </div>
-      <div class="top-bar-right">
-        <a href="tel:+902164842424">📞 Santral: (0216) 484 24 24</a>
-        <a href="https://wa.me/905324149288?text=Merhaba,%20Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?%20hakkinda%20bilgi%20ve%20fiyat%20teklifi%20istiyorum." target="_blank" class="top-wa-highlight">
+      <div class="topbar-right">
+        <a href="tel:02164842424">📞 (0216) 484 24 24</a>
+        <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20bilgi%20ve%20fiyat%20teklifi%20istiyorum." target="_blank" style="color: #25D366;">
           💬 WhatsApp: (0532) 414 92 88
         </a>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="container">
-      <a href="../index.html" class="nav-brand">
-        <img src="../assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Logo">
+  <nav class="navbar-master">
+    <div class="container navbar-flex">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik Logo" class="brand-logo-img" onerror="this.src='../assets/logo/yavuz-horizontal-dark.svg'">
       </a>
-      <ul class="nav-links">
-        <li><a href="../index.html">Ana Sayfa</a></li>
-        <li><a href="../index.html#hizmetler">Yangın Sistemleri</a></li>
-        <li><a href="../index.html#surec">Periyodik Bakım</a></li>
-        <li><a href="../index.html#hesaplayici">Yangın Hesaplayıcı</a></li>
-        <li><a href="../blog.html" class="active">İSG & Blog</a></li>
-        <li><a href="../index.html#iletisim">İletişim</a></li>
+
+      <ul class="nav-links-master">
+        <li><a href="../index.html" class="nav-item-link">Ana Sayfa</a></li>
+        <li><a href="../urunler.html" class="nav-item-link">Ürünlerimiz</a></li>
+        <li><a href="../index.html#hizmetler" class="nav-item-link">Hizmetlerimiz</a></li>
+        <li><a href="../index.html#hesaplayici" class="nav-item-link">Yangın Hesaplayıcı</a></li>
+        <li><a href="../blog.html" class="nav-item-link active">İSG & Blog</a></li>
+        <li><a href="../index.html#iletisim" class="nav-item-link">İletişim</a></li>
       </ul>
+
       <div class="nav-actions">
-        <a href="../index.html#hesaplayici" class="btn btn-primary">Fiyat Teklifi Al</a>
+        <button class="btn btn-primary btn-sm open-quote-modal">Hızlı Fiyat Teklifi</button>
       </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Article Header -->
   <div class="article-header">
