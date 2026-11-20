@@ -3,22 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yangın Güvenliği, Mevzuat & İSG Bilgi Merkezi | Yavuz Yangın Blog</title>
-  <meta name="description" content="İşletmeler, İSG uzmanları ve tesis yöneticileri için yangın tüpü satın alma rehberi, 2026 dolum fiyatları, periyodik bakım süreleri ve 6331 İSG kanunu uyum kılavuzları.">
-  <meta name="keywords" content="yangın tüpü fiyatları, yangın tüpü alırken dikkat edilecekler, İSG yangın yönetmeliği, yangın tüpü dolum süresi, davlumbaz söndürme, FM200, TÜVTÜRK araç yangın tüpü">
-  
-  <link rel="icon" type="image/svg+xml" href="./assets/logo/favicon.svg">
+  <title>Bilgi Merkezi & Yangın Güvenliği İSG Rehberi | Yavuz Yangın</title>
+  <meta name="description" content="Tesis yöneticileri, satın alma müdürleri ve İSG uzmanları için hazırlanmış 18 kapsamlı teknik rehber: Yangın tüpü seçimi, dolum süreleri, 6331 İSG mevzuatı ve 2026 maliyetleri.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.koraytasan.com/yavuzyangin/blog.html">
+  <meta property="og:title" content="Bilgi Merkezi & Yangın Güvenliği İSG Rehberi - Yavuz Yangın">
+  <meta property="og:description" content="Tesis yöneticileri ve satın alma profesyonelleri için 18 teknik mevzuat ve ekipman rehberi.">
+  <meta property="og:image" content="./assets/images/blog-thumb-01.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/logo/yavuz-icon-dark.svg">
   <link rel="alternate icon" href="./assets/logo/favicon.ico">
+
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/blog.css">
 </head>
 <body>
 
-    <!-- Top Bar -->
+  <!-- Top Bar -->
   <header class="topbar-enterprise">
     <div class="container topbar-flex">
       <div class="topbar-left">
@@ -39,13 +48,14 @@
   <nav class="navbar-master">
     <div class="container navbar-flex">
       <a href="./index.html" class="brand-logo">
-        <img src="./assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik Logo" class="brand-logo-img" onerror="this.src='./assets/logo/yavuz-horizontal-dark.svg'">
+        <img src="./assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik Logo" class="brand-logo-img">
       </a>
 
       <ul class="nav-links-master">
         <li><a href="./index.html" class="nav-item-link">Ana Sayfa</a></li>
         <li><a href="./urunler.html" class="nav-item-link">Ürünlerimiz</a></li>
         <li><a href="./index.html#hizmetler" class="nav-item-link">Hizmetlerimiz</a></li>
+        <li><a href="./index.html#galeri" class="nav-item-link">Saha Galerisi</a></li>
         <li><a href="./index.html#hesaplayici" class="nav-item-link">Yangın Hesaplayıcı</a></li>
         <li><a href="./blog.html" class="nav-item-link active">İSG & Blog</a></li>
         <li><a href="./index.html#iletisim" class="nav-item-link">İletişim</a></li>
@@ -57,474 +67,569 @@
     </div>
   </nav>
 
-  <!-- Hero Header -->
-  <section class="blog-hero">
+  <!-- Blog Hero Header -->
+  <section class="blog-hero-pro">
     <div class="container">
-      <div class="blog-hero-content">
-        <span class="section-tag" style="color: #FF7B84;">YAVUZ YANGIN BİLGİ MERKEZİ</span>
-        <h1 class="blog-hero-title">Yangın Güvenliği, Mevzuat ve İSG Kılavuzu</h1>
-        <p class="blog-hero-subtitle">
-          Yangın tüpü seçiminden yasal denetimlere, periyodik bakım takviminden 2026 fiyatlarına kadar satın alma ve teknik sorularınızın 18 kapsamlı yanıtı.
+      <div class="blog-hero-box">
+        <span class="badge-tag badge-tag-red" style="margin-bottom: 16px;">YAVUZ YANGIN BİLGİ MERKEZİ</span>
+        <h1 class="blog-hero-title">Yangın Güvenliği, Mevzuat ve İSG Rehberi</h1>
+        <p class="blog-hero-desc">
+          Tesis yöneticileri, fabrika müdürleri ve İSG uzmanları için hazırlanmış 18 teknik rehber. Yangın tüpü seçiminden yasal denetimlere, periyodik testlerden 2026 maliyetlerine kadar doğrulanmış mühendislik bilgisi.
         </p>
 
-        <!-- Canlı Arama -->
-        <div class="blog-search-bar">
-          <input type="text" id="blog-search-input" placeholder="Konu veya soru ara (Örn: 2026 fiyat, İSG, dolum süresi, sahte tüp, araç, apartman, FM200)...">
-          <button class="btn btn-primary" style="border-radius: var(--radius-full); padding: 10px 24px;">Ara</button>
+        <!-- Canlı Arama Inputu -->
+        <div class="blog-search-wrap">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" id="blog-search-input" placeholder="Konu, yönetmelik veya soru ara... (Örn: 2026 fiyat, İSG, dolum, davlumbaz)" autocomplete="off">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Kategori Filtre Butonları -->
-  <div class="blog-filter-bar">
+  <div class="blog-filter-section">
     <div class="container">
-      <ul class="filter-pills">
-        <li><button class="filter-btn active" data-category="all">Tüm Makaleler (18)</button></li>
-        <li><button class="filter-btn" data-category="satin-alma">Yangın Tüpü & Satın Alma</button></li>
-        <li><button class="filter-btn" data-category="isg">İSG & Mevzuat Uyumu</button></li>
-        <li><button class="filter-btn" data-category="bakim">Periyodik Dolum & Bakım</button></li>
-        <li><button class="filter-btn" data-category="endustriyel">Endüstriyel Sistemler</button></li>
-      </ul>
+      <div class="filter-pills-wrap">
+        <button class="filter-btn active" data-category="all">Tüm Rehberler (18)</button>
+        <button class="filter-btn" data-category="satin-alma">Yangın Tüpü & Satın Alma</button>
+        <button class="filter-btn" data-category="isg">İSG & Yasal Mevzuat</button>
+        <button class="filter-btn" data-category="bakim">Periyodik Dolum & Bakım</button>
+        <button class="filter-btn" data-category="endustriyel">Endüstriyel & Gazlı Sistemler</button>
+      </div>
     </div>
   </div>
 
-  <!-- Blog Listing Grid -->
-  <section class="section-kale" style="padding-top: 0;">
+  <!-- 18 Articles Blog Gallery Grid -->
+  <section class="section-blog-gallery">
     <div class="container">
-      <div class="services-grid-kale" id="blog-articles-grid">
-        <!-- Article #1 -->
-        <article class="service-card-kale blog-card" data-category="satin-alma">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Fiyat & Maliyet</span>
-            <img src="./assets/images/03_60_saniyede_guvenlik.jpg" alt="2026 Yangın Tüpü ve Dolum Fiyatları Ne Kadar? (Maliyet ve Standart Rehberi)" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+      <div class="blog-gallery-grid" id="blog-articles-grid">
+
+        <!-- Article Card: yangin-tupu-fiyatlari-2026-sifir-ve-dolum-maliyetleri -->
+        <article class="blog-card-enterprise" data-category="satin-alma">
+          <a href="./blog/yangin-tupu-fiyatlari-2026-sifir-ve-dolum-maliyetleri.html" class="blog-card-link-wrap" aria-label="2026 Yangın Tüpü ve Dolum Fiyatları Ne Kadar? (Maliyet ve Standart Rehberi)">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Fiyat & Maliyet</span>
+              <img src="./assets/images/blog-thumb-01.jpg" alt="2026 Yangın Tüpü ve Dolum Fiyatları Ne Kadar? (Maliyet ve Standart Rehberi)" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-fiyatlari-2026-sifir-ve-dolum-maliyetleri.html" style="color: var(--secondary);">2026 Yangın Tüpü ve Dolum Fiyatları Ne Kadar? (Maliyet ve Standart Rehberi)</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              2026 yılı 6 kg KKT, CO2 ve köpüklü yangın tüpü satış ve dolum fiyatları. Merdiven altı ucuz dolum tuzakları ve bütçe planlama rehberi.
-            </p>
-            <a href="./blog/yangin-tupu-fiyatlari-2026-sifir-ve-dolum-maliyetleri.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 6 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">2026 Yangın Tüpü ve Dolum Fiyatları Ne Kadar? (Maliyet ve Standart Rehberi)</h2>
+              <p class="blog-card-excerpt">2026 yılı 6 kg KKT, CO2 ve köpüklü yangın tüpü satış ve dolum fiyatları. Merdiven altı ucuz dolum tuzakları ve B2B satın alma tasarruf yöntemleri.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #2 -->
-        <article class="service-card-kale blog-card" data-category="satin-alma">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Satın Alma</span>
-            <img src="./assets/images/03_60_saniyede_guvenlik.jpg" alt="Yangın Tüpü Alırken Nelere Dikkat Edilmeli? (Kapsamlı Satın Alma Rehberi)" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 5 Dakika Okuma</span>
+        <!-- Article Card: yangin-tupu-alirken-nelere-dikkat-edilmeli -->
+        <article class="blog-card-enterprise" data-category="satin-alma">
+          <a href="./blog/yangin-tupu-alirken-nelere-dikkat-edilmeli.html" class="blog-card-link-wrap" aria-label="Yangın Tüpü Alırken Nelere Dikkat Edilmeli? (Kapsamlı Satın Alma Rehberi)">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Satın Alma Rehberi</span>
+              <img src="./assets/images/blog-thumb-02.jpg" alt="Yangın Tüpü Alırken Nelere Dikkat Edilmeli? (Kapsamlı Satın Alma Rehberi)" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-alirken-nelere-dikkat-edilmeli.html" style="color: var(--secondary);">Yangın Tüpü Alırken Nelere Dikkat Edilmeli? (Kapsamlı Satın Alma Rehberi)</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              İşletmeler ve tesisler için yangın söndürme tüpü satın alırken dikkat edilmesi gereken 7 teknik kriter: TSE EN 3-7 belgesi, manometre, toz kalitesi ve et kalınlığı.
-            </p>
-            <a href="./blog/yangin-tupu-alirken-nelere-dikkat-edilmeli.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 5 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Tüpü Alırken Nelere Dikkat Edilmeli? (Kapsamlı Satın Alma Rehberi)</h2>
+              <p class="blog-card-excerpt">İşletmeler ve tesisler için yangın söndürme tüpü satın alırken dikkat edilmesi gereken 7 teknik kriter: TSE EN 3-7 belgesi, manometre, toz kalitesi ve et kalınlığı.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #3 -->
-        <article class="service-card-kale blog-card" data-category="isg">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">İSG & Mevzuat</span>
-            <img src="./assets/images/Yangın Güvenliği Denetim Kolajı-2.png" alt="Yangın Tüplerinde İSG Uyumluluğu ve 6331 Sayılı Kanun Yükümlülükleri" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 7 Dakika Okuma</span>
+        <!-- Article Card: yangin-tuplerinde-isg-uyumlulugu-ve-mevzuat -->
+        <article class="blog-card-enterprise" data-category="isg">
+          <a href="./blog/yangin-tuplerinde-isg-uyumlulugu-ve-mevzuat.html" class="blog-card-link-wrap" aria-label="Yangın Tüplerinde İSG Uyumluluğu ve 6331 Sayılı Kanun Yükümlülükleri">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">İSG & Mevzuat</span>
+              <img src="./assets/images/blog-thumb-03.jpg" alt="Yangın Tüplerinde İSG Uyumluluğu ve 6331 Sayılı Kanun Yükümlülükleri" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tuplerinde-isg-uyumlulugu-ve-mevzuat.html" style="color: var(--secondary);">Yangın Tüplerinde İSG Uyumluluğu ve 6331 Sayılı Kanun Yükümlülükleri</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              İş sağlığı ve güvenliği (İSG) denetimlerinde yangın tüpü zorunlulukları: Asma yüksekliği, yönlendirme levhaları, periyodik kontrol formları ve idari para cezaları.
-            </p>
-            <a href="./blog/yangin-tuplerinde-isg-uyumlulugu-ve-mevzuat.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 7 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Tüplerinde İSG Uyumluluğu ve 6331 Sayılı Kanun Yükümlülükleri</h2>
+              <p class="blog-card-excerpt">İş sağlığı ve güvenliği (İSG) denetimlerinde yangın tüpü zorunlulukları: Asma yüksekliği, yönlendirme levhaları, periyodik muayene raporları ve yasal cezalar.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #4 -->
-        <article class="service-card-kale blog-card" data-category="bakim">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Periyodik Bakım</span>
-            <img src="./assets/images/Yangın Güvenliği Denetim ve Bakım Panosu-3.png" alt="Yangın Söndürme Tüpü Dolumu ve Bakım Süreleri: Yönetmelik Ne Diyor?" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: yangin-tupu-dolumu-ve-periyodik-bakim-sureleri -->
+        <article class="blog-card-enterprise" data-category="bakim">
+          <a href="./blog/yangin-tupu-dolumu-ve-periyodik-bakim-sureleri.html" class="blog-card-link-wrap" aria-label="Yangın Söndürme Tüpü Dolumu ve Bakım Süreleri: Yönetmelik Ne Diyor?">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Periyodik Bakım</span>
+              <img src="./assets/images/blog-thumb-04.jpg" alt="Yangın Söndürme Tüpü Dolumu ve Bakım Süreleri: Yönetmelik Ne Diyor?" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-dolumu-ve-periyodik-bakim-sureleri.html" style="color: var(--secondary);">Yangın Söndürme Tüpü Dolumu ve Bakım Süreleri: Yönetmelik Ne Diyor?</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın tüpleri kaç yılda bir doldurulur? TS ISO 11602-2 standardına göre 1 yıllık genel muayene, 4 yıllık toz değişimi ve 10 yıllık hidrostatik test süreleri.
-            </p>
-            <a href="./blog/yangin-tupu-dolumu-ve-periyodik-bakim-sureleri.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 6 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Söndürme Tüpü Dolumu ve Bakım Süreleri: Yönetmelik Ne Diyor?</h2>
+              <p class="blog-card-excerpt">Yangın tüpleri kaç yılda bir doldurulur? TS ISO 11602-2 standardına göre 1 yıllık genel muayene, 4 yıllık dolum ve 5 yıllık hidrostatik test takvimi.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #5 -->
-        <article class="service-card-kale blog-card" data-category="satin-alma">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Kalite & Güvenlik</span>
-            <img src="./assets/images/04_bir_detay_buyuk_fark.jpg" alt="Sahte Yangın Tüpü Nasıl Anlaşılır? Merdiven Altı Dolum Tuzakları ve 5 Test" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: sahte-yangin-tupu-nasil-anlasilir-merdiven-alti-tuzaklar -->
+        <article class="blog-card-enterprise" data-category="satin-alma">
+          <a href="./blog/sahte-yangin-tupu-nasil-anlasilir-merdiven-alti-tuzaklar.html" class="blog-card-link-wrap" aria-label="Sahte Yangın Tüpü Nasıl Anlaşılır? Merdiven Altı Dolum Tuzakları ve 5 Test">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Kalite & Güvenlik</span>
+              <img src="./assets/images/blog-thumb-05.jpg" alt="Sahte Yangın Tüpü Nasıl Anlaşılır? Merdiven Altı Dolum Tuzakları ve 5 Test" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/sahte-yangin-tupu-nasil-anlasilir-merdiven-alti-tuzaklar.html" style="color: var(--secondary);">Sahte Yangın Tüpü Nasıl Anlaşılır? Merdiven Altı Dolum Tuzakları ve 5 Test</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              İşletmenizde asılı duran yangın tüpü gerçek mi yoksa sahte mi? Sahte yangın tüplerini ve merdiven altı dolum tuzaklarını anlamanın 5 pratik yolu.
-            </p>
-            <a href="./blog/sahte-yangin-tupu-nasil-anlasilir-merdiven-alti-tuzaklar.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 6 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Sahte Yangın Tüpü Nasıl Anlaşılır? Merdiven Altı Dolum Tuzakları ve 5 Test</h2>
+              <p class="blog-card-excerpt">İşletmenizde asılı duran yangın tüpü gerçek mi yoksa sahte mi? Sahte yangın tüplerini ve merdiven altı dolum tuzaklarını anlamanın 5 pratik yolu.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #6 -->
-        <article class="service-card-kale blog-card" data-category="satin-alma">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Yangın Sınıfları</span>
-            <img src="./assets/images/05_her_tesisin_riski_farkli.jpg" alt="İşletmeler İçin Yangın Sınıfları ve Doğru Söndürücü Seçimi (A, B, C, D, F)" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: isletmeler-icin-yangin-siniflari-ve-dogru-sondurucu-secimi -->
+        <article class="blog-card-enterprise" data-category="satin-alma">
+          <a href="./blog/isletmeler-icin-yangin-siniflari-ve-dogru-sondurucu-secimi.html" class="blog-card-link-wrap" aria-label="İşletmeler İçin Yangın Sınıfları ve Doğru Söndürücü Seçimi (A, B, C, D, F)">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Teknik Kılavuz</span>
+              <img src="./assets/images/blog-thumb-06.jpg" alt="İşletmeler İçin Yangın Sınıfları ve Doğru Söndürücü Seçimi (A, B, C, D, F)" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/isletmeler-icin-yangin-siniflari-ve-dogru-sondurucu-secimi.html" style="color: var(--secondary);">İşletmeler İçin Yangın Sınıfları ve Doğru Söndürücü Seçimi (A, B, C, D, F)</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Hangi yangına hangi tüp sıkılır? A, B, C, D ve F sınıfı yangınlarda KKT, CO2, köpüklü ve temiz gazlı söndürücü seçim matrisi.
-            </p>
-            <a href="./blog/isletmeler-icin-yangin-siniflari-ve-dogru-sondurucu-secimi.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 7 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">İşletmeler İçin Yangın Sınıfları ve Doğru Söndürücü Seçimi (A, B, C, D, F)</h2>
+              <p class="blog-card-excerpt">Hangi yangına hangi tüp sıkılır? A, B, C, D ve F sınıfı yangınlarda KKT, CO2, köpüklü ve temiz gazlı söndürücü seçim matrisi.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #7 -->
-        <article class="service-card-kale blog-card" data-category="isg">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Montaj & İSG</span>
-            <img src="./assets/images/04_bir_detay_buyuk_fark.jpg" alt="Yangın Tüpü Asma Yüksekliği ve Yerleşim Kuralları: Nereye ve Nasıl Monte Edilmeli?" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 5 Dakika Okuma</span>
+        <!-- Article Card: yangin-tupu-asma-yuksekligi-ve-yerlesim-kurallari -->
+        <article class="blog-card-enterprise" data-category="isg">
+          <a href="./blog/yangin-tupu-asma-yuksekligi-ve-yerlesim-kurallari.html" class="blog-card-link-wrap" aria-label="Yangın Tüpü Asma Yüksekliği ve Yerleşim Kuralları: Nereye ve Nasıl Monte Edilmeli?">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Yerleşim Standardı</span>
+              <img src="./assets/images/blog-thumb-07.jpg" alt="Yangın Tüpü Asma Yüksekliği ve Yerleşim Kuralları: Nereye ve Nasıl Monte Edilmeli?" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-asma-yuksekligi-ve-yerlesim-kurallari.html" style="color: var(--secondary);">Yangın Tüpü Asma Yüksekliği ve Yerleşim Kuralları: Nereye ve Nasıl Monte Edilmeli?</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın tüpü yerden kaç cm yüksekte olmalı? Binaların Yangından Korunması Hakkında Yönetmelik montaj kuralları ve reflektif levha standartları.
-            </p>
-            <a href="./blog/yangin-tupu-asma-yuksekligi-ve-yerlesim-kurallari.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 5 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Tüpü Asma Yüksekliği ve Yerleşim Kuralları: Nereye ve Nasıl Monte Edilmeli?</h2>
+              <p class="blog-card-excerpt">BYKHY Madde 99 uyarınca yangın tüpü asma yüksekliği (maksimum 90 cm kuralı), kaçış mesafeleri ve yönlendirme levhası standartları.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #8 -->
-        <article class="service-card-kale blog-card" data-category="endustriyel">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Server & Pano</span>
-            <img src="./assets/images/10_gorunmeyen_risk.jpg" alt="Elektrik Panoları ve Sunucu Odaları İçin Gazlı Söndürme (FM-200 ve Novec Rehberi)" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 8 Dakika Okuma</span>
+        <!-- Article Card: elektrik-panolari-ve-sunucu-odalari-gazli-sondurme-fm200 -->
+        <article class="blog-card-enterprise" data-category="endustriyel">
+          <a href="./blog/elektrik-panolari-ve-sunucu-odalari-gazli-sondurme-fm200.html" class="blog-card-link-wrap" aria-label="Elektrik Panoları ve Sunucu Odaları İçin Gazlı Söndürme (FM-200 ve Novec Rehberi)">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Gazlı Söndürme</span>
+              <img src="./assets/images/blog-thumb-08.jpg" alt="Elektrik Panoları ve Sunucu Odaları İçin Gazlı Söndürme (FM-200 ve Novec Rehberi)" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/elektrik-panolari-ve-sunucu-odalari-gazli-sondurme-fm200.html" style="color: var(--secondary);">Elektrik Panoları ve Sunucu Odaları İçin Gazlı Söndürme (FM-200 ve Novec Rehberi)</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Elektronik cihazlara zarar vermeyen kalıntı bırakmayan FM200 ve Novec 1230 gazlı söndürme sistemleri, pano içi mikro tubing koruma çözümleri.
-            </p>
-            <a href="./blog/elektrik-panolari-ve-sunucu-odalari-gazli-sondurme-fm200.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 8 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Elektrik Panoları ve Sunucu Odaları İçin Gazlı Söndürme (FM-200 ve Novec Rehberi)</h2>
+              <p class="blog-card-excerpt">Sunucu odaları ve elektrik panolarında su veya toz neden kullanılmaz? FM-200, Novec 1230 ve mikro pano içi söndürme sistemleri.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #9 -->
-        <article class="service-card-kale blog-card" data-category="endustriyel">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Mutfak & Restoran</span>
-            <img src="./assets/images/08_dogru_cozum_dogru_isletme.jpg" alt="Endüstriyel Mutfak Davlumbaz Söndürme Sistemleri: Restoranlar İçin Yasal Zorunluluk" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: endustriyel-mutfak-davlumbaz-sondurme-sistemleri -->
+        <article class="blog-card-enterprise" data-category="endustriyel">
+          <a href="./blog/endustriyel-mutfak-davlumbaz-sondurme-sistemleri.html" class="blog-card-link-wrap" aria-label="Endüstriyel Mutfak Davlumbaz Söndürme Sistemleri: Restoranlar İçin Yasal Zorunluluk">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Otomatik Sistem</span>
+              <img src="./assets/images/blog-thumb-09.jpg" alt="Endüstriyel Mutfak Davlumbaz Söndürme Sistemleri: Restoranlar İçin Yasal Zorunluluk" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/endustriyel-mutfak-davlumbaz-sondurme-sistemleri.html" style="color: var(--secondary);">Endüstriyel Mutfak Davlumbaz Söndürme Sistemleri: Restoranlar İçin Yasal Zorunluluk</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Restoran, otel ve yemekhanelerde itfaiye uygunluk raporu için zorunlu olan davlumbaz otomatik yangın söndürme sistemi yönetmeliği.
-            </p>
-            <a href="./blog/endustriyel-mutfak-davlumbaz-sondurme-sistemleri.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 7 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Endüstriyel Mutfak Davlumbaz Söndürme Sistemleri: Restoranlar İçin Yasal Zorunluluk</h2>
+              <p class="blog-card-excerpt">Restoran, otel ve yemekhanelerde davlumbaz yangın söndürme sistemi zorunlu mu? F sınıfı yağ yangınları ve UL 300 standartları.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #10 -->
-        <article class="service-card-kale blog-card" data-category="satin-alma">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Araç & TÜVTÜRK</span>
-            <img src="./assets/images/03_60_saniyede_guvenlik.jpg" alt="Araçlarda Yangın Tüpü Zorunluluğu: TÜVTÜRK Muayenesinden Geçen Tüp Standartları" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 5 Dakika Okuma</span>
+        <!-- Article Card: arac-yangin-tupu-zorunlulugu-ve-tuvturk-muayene-kriterleri -->
+        <article class="blog-card-enterprise" data-category="satin-alma">
+          <a href="./blog/arac-yangin-tupu-zorunlulugu-ve-tuvturk-muayene-kriterleri.html" class="blog-card-link-wrap" aria-label="Araçlarda Yangın Tüpü Zorunluluğu: TÜVTÜRK Muayenesinden Geçen Tüp Standartları">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Araç Muayene</span>
+              <img src="./assets/images/blog-thumb-10.jpg" alt="Araçlarda Yangın Tüpü Zorunluluğu: TÜVTÜRK Muayenesinden Geçen Tüp Standartları" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/arac-yangin-tupu-zorunlulugu-ve-tuvturk-muayene-kriterleri.html" style="color: var(--secondary);">Araçlarda Yangın Tüpü Zorunluluğu: TÜVTÜRK Muayenesinden Geçen Tüp Standartları</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Otomobil, minibüs, kamyon ve otobüslerde yangın tüpü zorunlu mu? TÜVTÜRK araç muayenesinde ağır kusur sayılan yangın tüpü eksiklikleri.
-            </p>
-            <a href="./blog/arac-yangin-tupu-zorunlulugu-ve-tuvturk-muayene-kriterleri.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 5 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Araçlarda Yangın Tüpü Zorunluluğu: TÜVTÜRK Muayenesinden Geçen Tüp Standartları</h2>
+              <p class="blog-card-excerpt">Otomobil, kamyonet, otobüs ve tehlikeli madde araçlarında hangi yangın tüpü zorunlu? TÜVTÜRK muayenesinde ağır kusur sayılan haller.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #11 -->
-        <article class="service-card-kale blog-card" data-category="isg">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Apartman & Site</span>
-            <img src="./assets/images/Yangın Güvenliği Denetim Kolajı-2.png" alt="Apartman ve Sitelerde Yangın Tüpü Zorunlu mu? Bina Yöneticisinin Yasal Sorumluluğu" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: apartman-ve-sitelerde-yangin-tupu-zorunlu-mu-yonetici-sorumlulugu -->
+        <article class="blog-card-enterprise" data-category="isg">
+          <a href="./blog/apartman-ve-sitelerde-yangin-tupu-zorunlu-mu-yonetici-sorumlulugu.html" class="blog-card-link-wrap" aria-label="Apartman ve Sitelerde Yangın Tüpü Zorunlu mu? Bina Yöneticisinin Yasal Sorumluluğu">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Bina Yönetimi</span>
+              <img src="./assets/images/Fire_extinguisher_in_apartment_c…_e089e251.jpg" alt="Apartman ve Sitelerde Yangın Tüpü Zorunlu mu? Bina Yöneticisinin Yasal Sorumluluğu" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/apartman-ve-sitelerde-yangin-tupu-zorunlu-mu-yonetici-sorumlulugu.html" style="color: var(--secondary);">Apartman ve Sitelerde Yangın Tüpü Zorunlu mu? Bina Yöneticisinin Yasal Sorumluluğu</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Apartmanlarda yangın tüpü bulundurmak yasal zorunluluk mu? Kat Mülkiyeti Kanunu ve yangın yönetmeliğine göre bina yöneticisinin hukuki sorumlulukları.
-            </p>
-            <a href="./blog/apartman-ve-sitelerde-yangin-tupu-zorunlu-mu-yonetici-sorumlulugu.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 6 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Apartman ve Sitelerde Yangın Tüpü Zorunlu mu? Bina Yöneticisinin Yasal Sorumluluğu</h2>
+              <p class="blog-card-excerpt">Kat mülkiyeti kanunu ve yangın yönetmeliğine göre apartmanlarda yangın tüpü zorunluluğu, ortak alan kuralları ve yöneticinin hukuki sorumluluğu.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #12 -->
-        <article class="service-card-kale blog-card" data-category="bakim">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Kullanım & Eğitim</span>
-            <img src="./assets/images/01_marka_filmi.jpg" alt="Yangın Tüpü Nasıl Kullanılır? PASS Kuralı ve Acil Durum Müdahale Kılavuzu" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 4 Dakika Okuma</span>
+        <!-- Article Card: yangin-tupu-nasil-kullanilir-pass-kurali-ve-tatbikat-rehberi -->
+        <article class="blog-card-enterprise" data-category="bakim">
+          <a href="./blog/yangin-tupu-nasil-kullanilir-pass-kurali-ve-tatbikat-rehberi.html" class="blog-card-link-wrap" aria-label="Yangın Tüpü Nasıl Kullanılır? PASS Kuralı ve Acil Durum Müdahale Kılavuzu">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Kullanım Rehberi</span>
+              <img src="./assets/images/Gloved_hand_pulling_pin_9e5f4f9c.jpg" alt="Yangın Tüpü Nasıl Kullanılır? PASS Kuralı ve Acil Durum Müdahale Kılavuzu" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-nasil-kullanilir-pass-kurali-ve-tatbikat-rehberi.html" style="color: var(--secondary);">Yangın Tüpü Nasıl Kullanılır? PASS Kuralı ve Acil Durum Müdahale Kılavuzu</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın anında tüp nasıl kullanılır? Uluslararası PASS kuralı: Pimi çek, Ateşin tabanına tut, Sıkarak boşalt, Süpür.
-            </p>
-            <a href="./blog/yangin-tupu-nasil-kullanilir-pass-kurali-ve-tatbikat-rehberi.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 4 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Tüpü Nasıl Kullanılır? PASS Kuralı ve Acil Durum Müdahale Kılavuzu</h2>
+              <p class="blog-card-excerpt">Acil bir yangın anında yangın tüpü nasıl kullanılır? PASS (Pim çek, Ateşe yönelt, Sık, Süpür) kuralı ve tatbikat adımları.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #13 -->
-        <article class="service-card-kale blog-card" data-category="bakim">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Arıza & Basınç</span>
-            <img src="./assets/images/02_sahada_yavuz.jpg" alt="Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 5 Dakika Okuma</span>
+        <!-- Article Card: yangin-tupu-manometresi-neden-kirmiziya-duser-ne-yapilmali -->
+        <article class="blog-card-enterprise" data-category="bakim">
+          <a href="./blog/yangin-tupu-manometresi-neden-kirmiziya-duser-ne-yapilmali.html" class="blog-card-link-wrap" aria-label="Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Teknik Arıza</span>
+              <img src="./assets/images/Extinguisher_gauge_pointing_to_red_5012a714.jpg" alt="Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-tupu-manometresi-neden-kirmiziya-duser-ne-yapilmali.html" style="color: var(--secondary);">Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın tüpü manometre ibresi neden sıfıra düşer? Basınç kaybının nedenleri, patlama riski ve acil yapılması gereken teknik adımlar.
-            </p>
-            <a href="./blog/yangin-tupu-manometresi-neden-kirmiziya-duser-ne-yapilmali.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 5 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Tüpünün Manometresi Neden Kırmızıya Düşer? İbre Düşünce Ne Yapılmalı?</h2>
+              <p class="blog-card-excerpt">Yangın tüpünün basınç göstergesi manometre neden kırmızı alana geçer? Basınç kaybı nedenleri, conta kaçakları ve yapılması gereken acil adımlar.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #14 -->
-        <article class="service-card-kale blog-card" data-category="endustriyel">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Sulu Sistemler</span>
-            <img src="./assets/images/05_her_tesisin_riski_farkli.jpg" alt="Yangın Dolapları ve Hortum Makaraları: TS EN 671-1 Sulu Söndürme Standartları" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 7 Dakika Okuma</span>
+        <!-- Article Card: yangin-dolabi-ve-hortum-makaralari-ts-en-671-standartlari -->
+        <article class="blog-card-enterprise" data-category="endustriyel">
+          <a href="./blog/yangin-dolabi-ve-hortum-makaralari-ts-en-671-standartlari.html" class="blog-card-link-wrap" aria-label="Yangın Dolapları ve Hortum Makaraları: TS EN 671-1 Sulu Söndürme Standartları">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Sulu Sistemler</span>
+              <img src="./assets/images/Fire_hose_cabinet_with_open_0aa4e1d6.jpg" alt="Yangın Dolapları ve Hortum Makaraları: TS EN 671-1 Sulu Söndürme Standartları" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/yangin-dolabi-ve-hortum-makaralari-ts-en-671-standartlari.html" style="color: var(--secondary);">Yangın Dolapları ve Hortum Makaraları: TS EN 671-1 Sulu Söndürme Standartları</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Fabrika ve binalarda yangın dolabı yönetmeliği: Yarı sert hortumlu ve bez hortumlu makara sistemleri, TS EN 671 standartları.
-            </p>
-            <a href="./blog/yangin-dolabi-ve-hortum-makaralari-ts-en-671-standartlari.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 7 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Yangın Dolapları ve Hortum Makaraları: TS EN 671-1 Sulu Söndürme Standartları</h2>
+              <p class="blog-card-excerpt">Binalarda yangın dolabı hangi alanlarda zorunludur? Yarı rijit kauçuk hortumlu TS EN 671-1 dolaplar ile TS EN 671-2 bez hortumlu sistemler arasındaki farklar.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #15 -->
-        <article class="service-card-kale blog-card" data-category="endustriyel">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">Sprinkler</span>
-            <img src="./assets/images/05_her_tesisin_riski_farkli.jpg" alt="Fabrikalarda ve Depolarda Otomatik Sprinkler Sistemi Ne Zaman Zorunludur?" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 7 Dakika Okuma</span>
+        <!-- Article Card: fabrikalarda-otomatik-sprinkler-sistemi-ne-zaman-zorunludur -->
+        <article class="blog-card-enterprise" data-category="endustriyel">
+          <a href="./blog/fabrikalarda-otomatik-sprinkler-sistemi-ne-zaman-zorunludur.html" class="blog-card-link-wrap" aria-label="Fabrikalarda ve Depolarda Otomatik Sprinkler Sistemi Ne Zaman Zorunludur?">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Sprinkler Sistemi</span>
+              <img src="./assets/images/Brass_fire_sprinkler_head_installed_0bd07779.jpg" alt="Fabrikalarda ve Depolarda Otomatik Sprinkler Sistemi Ne Zaman Zorunludur?" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/fabrikalarda-otomatik-sprinkler-sistemi-ne-zaman-zorunludur.html" style="color: var(--secondary);">Fabrikalarda ve Depolarda Otomatik Sprinkler Sistemi Ne Zaman Zorunludur?</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Hangi işletmelerde otomatik yangın sprinkler sistemi zorunludur? Binaların Yangından Korunması Hakkında Yönetmelik m² ve yükseklik kriterleri.
-            </p>
-            <a href="./blog/fabrikalarda-otomatik-sprinkler-sistemi-ne-zaman-zorunludur.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 8 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Fabrikalarda ve Depolarda Otomatik Sprinkler Sistemi Ne Zaman Zorunludur?</h2>
+              <p class="blog-card-excerpt">Binaların Yangından Korunması Hakkında Yönetmelik gereğince sprinkler zorunluluğu olan alanlar: Yükseklik, alan ve yangın yükü kriterleri.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #16 -->
-        <article class="service-card-kale blog-card" data-category="endustriyel">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">D Sınıfı & Lityum</span>
-            <img src="./assets/images/10_gorunmeyen_risk.jpg" alt="Lityum Pil ve Metal Yangınları (D Sınıfı) Nasıl Söndürülür? Özel Söndürücüler" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: metal-ve-lityum-pil-yanginlari-icin-d-sinifi-sonduruculer -->
+        <article class="blog-card-enterprise" data-category="endustriyel">
+          <a href="./blog/metal-ve-lityum-pil-yanginlari-icin-d-sinifi-sonduruculer.html" class="blog-card-link-wrap" aria-label="Lityum Pil ve Metal Yangınları (D Sınıfı) Nasıl Söndürülür? Özel Söndürücüler">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Özel Riskler</span>
+              <img src="./assets/images/Battery_testing_lab_fire_extingu…_0cd6d89a.jpg" alt="Lityum Pil ve Metal Yangınları (D Sınıfı) Nasıl Söndürülür? Özel Söndürücüler" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/metal-ve-lityum-pil-yanginlari-icin-d-sinifi-sonduruculer.html" style="color: var(--secondary);">Lityum Pil ve Metal Yangınları (D Sınıfı) Nasıl Söndürülür? Özel Söndürücüler</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Elektrikli araç, lityum batarya ve magnezyum talaş yangınlarına hangi tüp sıkılır? Suyla patlayan metal yangınlarında D sınıfı toz mühendisliği.
-            </p>
-            <a href="./blog/metal-ve-lityum-pil-yanginlari-icin-d-sinifi-sonduruculer.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 7 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Lityum Pil ve Metal Yangınları (D Sınıfı) Nasıl Söndürülür? Özel Söndürücüler</h2>
+              <p class="blog-card-excerpt">Elektrikli araç bataryaları, laptop pilleri ve yanıcı metallerde (magnezyum, sodyum) standart tüpler neden çalışmaz? D sınıfı özel söndürücüler.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #17 -->
-        <article class="service-card-kale blog-card" data-category="bakim">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">İkame Tüp</span>
-            <img src="./assets/images/06_kontrol_edildi.jpg" alt="Dolum Sırasında İşletmeniz Savunmasız Kalmasın: İkame Tüp Desteğinin Önemi" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 5 Dakika Okuma</span>
+        <!-- Article Card: periyodik-yangin-tupu-dolumunda-ikame-tup-neden-hayatidir -->
+        <article class="blog-card-enterprise" data-category="bakim">
+          <a href="./blog/periyodik-yangin-tupu-dolumunda-ikame-tup-neden-hayatidir.html" class="blog-card-link-wrap" aria-label="Dolum Sırasında İşletmeniz Savunmasız Kalmasın: İkame Tüp Desteğinin Önemi">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Dolum & Güvenlik</span>
+              <img src="./assets/images/service-mobile-delivery.jpg" alt="Dolum Sırasında İşletmeniz Savunmasız Kalmasın: İkame Tüp Desteğinin Önemi" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/periyodik-yangin-tupu-dolumunda-ikame-tup-neden-hayatidir.html" style="color: var(--secondary);">Dolum Sırasında İşletmeniz Savunmasız Kalmasın: İkame Tüp Desteğinin Önemi</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın tüpleriniz doluma gittiğinde fabrikanız korumasız mı kalıyor? Yasal riskler ve Yavuz Yangın ücretsiz ikame tüp güvencesi.
-            </p>
-            <a href="./blog/periyodik-yangin-tupu-dolumunda-ikame-tup-neden-hayatidir.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 5 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">Dolum Sırasında İşletmeniz Savunmasız Kalmasın: İkame Tüp Desteğinin Önemi</h2>
+              <p class="blog-card-excerpt">Periyodik dolum ve test için toplanan yangın tüplerinin yerine ikame tüp bırakılmasının yasal ve yaşamsal zorunluluğu.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
 
-        <!-- Article #18 -->
-        <article class="service-card-kale blog-card" data-category="isg">
-          <div class="service-card-img-wrap">
-            <span class="service-card-badge">TSE Standartları</span>
-            <img src="./assets/images/03_60_saniyede_guvenlik.jpg" alt="TSE HYB (Hizmet Yeri Yeterlilik Belgesi) Nedir? Yetkisiz Firmaların Riskleri" loading="lazy">
-          </div>
-          <div class="service-card-body">
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-              <span>📅 20 Kasım 2026</span> • <span>⏱️ 6 Dakika Okuma</span>
+        <!-- Article Card: tse-hyb-belgesi-nedir-yangin-firmalarinda-neden-aranmali -->
+        <article class="blog-card-enterprise" data-category="isg">
+          <a href="./blog/tse-hyb-belgesi-nedir-yangin-firmalarinda-neden-aranmali.html" class="blog-card-link-wrap" aria-label="TSE HYB (Hizmet Yeri Yeterlilik Belgesi) Nedir? Yetkisiz Firmaların Riskleri">
+            <div class="blog-card-media">
+              <span class="blog-card-badge">Yasal Güvence</span>
+              <img src="./assets/images/Certificate_displayed_in_technic…_8ab5c808.jpg" alt="TSE HYB (Hizmet Yeri Yeterlilik Belgesi) Nedir? Yetkisiz Firmaların Riskleri" loading="lazy">
             </div>
-            <h3 class="blog-card-title" style="font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35;">
-              <a href="./blog/tse-hyb-belgesi-nedir-yangin-firmalarinda-neden-aranmali.html" style="color: var(--secondary);">TSE HYB (Hizmet Yeri Yeterlilik Belgesi) Nedir? Yetkisiz Firmaların Riskleri</a>
-            </h3>
-            <p class="blog-card-excerpt" style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex: 1;">
-              Yangın söndürme firmalarında TSE HYB belgesi neden aranmalı? TS 11827 standardı, yetkisiz dolum istasyonlarının yasal ve cezai riskleri.
-            </p>
-            <a href="./blog/tse-hyb-belgesi-nedir-yangin-firmalarinda-neden-aranmali.html" class="btn btn-outline" style="width: 100%; padding: 10px 16px; font-size: 0.88rem;">
-              Rehberi Oku →
-            </a>
-          </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span>📅 20 Kasım 2026</span>
+                <span class="meta-dot">•</span>
+                <span class="blog-read-pill">⏱️ 6 Dk Okuma</span>
+              </div>
+              <h2 class="blog-card-title">TSE HYB (Hizmet Yeri Yeterlilik Belgesi) Nedir? Yetkisiz Firmaların Riskleri</h2>
+              <p class="blog-card-excerpt">Yangın tüpü dolumu ve bakımı yapan firmanın TSE HYB belgesi olmaması durumunda karşılaşılan hukuki sorumluluklar, geçersiz raporlar ve cezalar.</p>
+              <div class="blog-card-footer">
+                <span class="blog-read-link">
+                  Rehberi Oku
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+                <span class="blog-author-tag">Teknik Heyet</span>
+              </div>
+            </div>
+          </a>
         </article>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA Box -->
-  <section style="background: #0F172A; color: #FFFFFF; padding: 75px 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+  <!-- Enterprise Footer -->
+  <footer class="footer-master" id="iletisim">
     <div class="container">
-      <h2 style="color: #FFFFFF; font-size: 2.2rem; margin-bottom: 16px;">Tesisiniz Yasal İSG Denetimine Hazır mı?</h2>
-      <p style="color: #CBD5E1; max-width: 680px; margin: 0 auto 30px; font-size: 1.05rem;">
-        Yangın tüplerinizin periyodik kontrol tarihlerini ücretsiz inceleyelim. İdari ceza almadan önce tüm eksiklerinizi birlikte giderelim.
-      </p>
-      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20tesisimiz%20i%C3%A7in%20%C3%BCcretsiz%20yang%C4%B1n%20g%C3%BCvenli%C4%9Fi%20ke%C5%9Ffi%20istiyoruz." target="_blank" class="btn btn-whatsapp" style="padding: 14px 28px;">
-          💬 WhatsApp ile Ücretsiz Keşif İste
-        </a>
-        <a href="./index.html#iletisim" class="btn btn-primary" style="padding: 14px 28px;">
-          📑 Yazılı Fiyat Teklifi Al
-        </a>
-      </div>
-    </div>
-  </section>
+      <div class="footer-grid-enterprise">
+        <div class="footer-col-brand">
+          <img src="./assets/logo/yavuz-horizontal-dark.svg" alt="Yavuz Yangın Güvenlik Logo" style="height: 40px;">
+          <p>
+            Yavuz Yangın Güvenlik Sistemleri; TSE HYB 11827 belgesi ve uzman mühendis kadrosuyla işletmelerin yangın güvenliğini şansa bırakmaz.
+          </p>
+        </div>
 
-  <!-- Footer -->
-  <footer class="footer-kale">
-    <div class="container">
-      <div class="footer-kale-bottom" style="border: none; padding-top: 0;">
-        <p>© 2026 Yavuz Yangın Güvenlik Sistemleri. Bilgi Bankası.</p>
-        <p><a href="./index.html" style="color: var(--primary); font-weight: 700;">← Ana Sayfaya Dön</a></p>
+        <div>
+          <div class="footer-col-title">Hızlı Erişim</div>
+          <ul class="footer-links-list">
+            <li><a href="./index.html">Ana Sayfa</a></li>
+            <li><a href="./urunler.html">Ürün Kataloğu</a></li>
+            <li><a href="./index.html#hizmetler">Hizmetlerimiz</a></li>
+            <li><a href="./index.html#galeri">Saha Galerisi</a></li>
+            <li><a href="./index.html#hesaplayici">Yangın Hesaplayıcı</a></li>
+            <li><a href="./blog.html">İSG & Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Öne Çıkan Rehberler</div>
+          <ul class="footer-links-list">
+            <li><a href="./blog/yangin-tupu-fiyatlari-2026-sifir-ve-dolum-maliyetleri.html">2026 Fiyat Rehberi</a></li>
+            <li><a href="./blog/yangin-tuplerinde-isg-uyumlulugu-ve-mevzuat.html">6331 İSG Yükümlülükleri</a></li>
+            <li><a href="./blog/sahte-yangin-tupu-nasil-anlasilir-merdiven-alti-tuzaklar.html">Sahte Tüp Tespiti</a></li>
+            <li><a href="./blog/elektrik-panolari-ve-sunucu-odalari-gazli-sondurme-fm200.html">FM-200 Gazlı Söndürme</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">İletişim & Konum</div>
+          <p style="color: #CBD5E1; font-size: 0.88rem; margin-bottom: 10px;">
+            Taşdelen Mah. Turgut Özal Cad. No: 14/A Çekmeköy / İSTANBUL
+          </p>
+          <p style="color: #CBD5E1; font-size: 0.88rem;">
+            Santral: <a href="tel:02164842424" style="color: #FFFFFF;">(0216) 484 24 24</a><br>
+            WhatsApp: <a href="https://wa.me/905324149288" style="color: #25D366;">(0532) 414 92 88</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Yavuz Yangın Güvenlik Sistemleri. Tüm hakları saklıdır.</div>
+        <div class="footer-disclaimer-tag">BİLGİ MERKEZİ & TEKNİK REHBER KATALOĞU</div>
       </div>
     </div>
   </footer>
 
-  <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/blog.js"></script>
-
   <!-- Floating WhatsApp CTA Button -->
-  <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20web%20sitenizden%20ula%C5%9F%C4%B1yorum.%20Yang%C4%B1n%20g%C3%BCvenli%C4%9Fi%20ve%20t%C3%BCp%20dolum%20hizmetleriniz%20i%C3%A7in%20teklif%20almak%20istiyorum." 
+  <a href="https://wa.me/905324149288?text=Merhaba%20Yavuz%20Yang%C4%B1n,%20web%20sitenizden%20ula%C5%9F%C4%B1yorum.%20Teklif%20almak%20istiyorum." 
      class="floating-whatsapp-btn" 
      target="_blank" 
      rel="noopener" 
@@ -555,7 +660,7 @@
           <input type="tel" name="phone" class="form-control-modern" placeholder="0 (5XX) XXX XX XX" required>
         </div>
         <div class="form-group-modern">
-          <label>Hizmet / Ürün Türü</label>
+          <label>Hizmet Türü</label>
           <select name="service" class="form-control-modern">
             <option value="Yangın Tüpü Satış ve Dolum">Yangın Tüpü Satış / Yerinde Dolum</option>
             <option value="Yıllık Periyodik Bakım">Yıllık Periyodik Bakım Sözleşmesi</option>
@@ -572,5 +677,7 @@
     </div>
   </div>
 
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/blog.js"></script>
 </body>
 </html>
